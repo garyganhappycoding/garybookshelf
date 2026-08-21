@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
+import { logout } from "@/actions/auth";
 
 export default async function Header() {
   const supabase = await createClient();
@@ -43,6 +44,11 @@ export default async function Header() {
               <Link href="/dashboard" className="btn-secondary !py-1.5">
                 My orders
               </Link>
+              <form action={logout}>
+                <button type="submit" className="text-ink/60 hover:text-clay-600 text-sm">
+                  Sign out
+                </button>
+              </form>
             </>
           ) : (
             <Link href="/login" className="btn-primary !py-1.5">
