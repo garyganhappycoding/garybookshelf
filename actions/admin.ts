@@ -31,28 +31,33 @@ export async function createProduct(formData: FormData) {
   const price = parseFloat(formData.get("price") as string);
   const category = formData.get("category") as string;
   const imageFile = formData.get("image") as File | null;
-  const assetFile = formData.get("asset") as File;
+  const deliveryType = formData.get("deliveryType") as string;
+  const assetFile = formData.get("asset") as File | null;
+  const link = formData.get("link") as string | null;
 
-  if (!assetFile || assetFile.size === 0) {
-    return { error: "Please attach the digital file to deliver to buyers." };
+  let filePath: string | null = null;
+  let externalLink: string | null = null;
+
+  if (deliveryType === "file") {
+    if (!assetFile || assetFile.size === 0) {
+      return { error: "Please attach the digital file to deliver to buyers." };
+    }
+    const assetExt = assetFile.name.split(".").pop();
+    filePath = `${crypto.randomUUID()}.${assetExt}`;
+    const { error: assetError } = await admin.storage.from("digital-assets").upload(filePath, assetFile);
+    if (assetError) return { error: `Asset upload failed: ${assetError.message}` };
+  } else {
+    if (!link || link.trim() === "") {
+      return { error: "Please paste the link you want to deliver to buyers." };
+    }
+    externalLink = link.trim();
   }
 
-  // upload the digital deliverable to the private bucket
-  const assetExt = assetFile.name.split(".").pop();
-  const assetPath = `${crypto.randomUUID()}.${assetExt}`;
-  const { error: assetError } = await admin.storage
-    .from("digital-assets")
-    .upload(assetPath, assetFile);
-  if (assetError) return { error: `Asset upload failed: ${assetError.message}` };
-
-  // upload the cover image to the public bucket, if provided
   let imageUrl: string | null = null;
   if (imageFile && imageFile.size > 0) {
     const imgExt = imageFile.name.split(".").pop();
     const imgPath = `${crypto.randomUUID()}.${imgExt}`;
-    const { error: imgError } = await admin.storage
-      .from("product-images")
-      .upload(imgPath, imageFile);
+    const { error: imgError } = await admin.storage.from("product-images").upload(imgPath, imageFile);
     if (!imgError) {
       const { data } = admin.storage.from("product-images").getPublicUrl(imgPath);
       imageUrl = data.publicUrl;
@@ -65,7 +70,8 @@ export async function createProduct(formData: FormData) {
     price_myr: price,
     category,
     image_url: imageUrl,
-    file_path: assetPath,
+    file_path: filePath,
+    external_link: externalLink,
   });
 
   if (insertError) return { error: insertError.message };
@@ -84,11 +90,10 @@ export async function deleteProduct(productId: string) {
 
 export async function approveOrder(orderId: string) {
   const supabase = await requireAdmin();
-  const admin = createAdminClient();
 
   const { data: order, error } = await supabase
     .from("orders")
-    .select("id, product_id, profiles(email), products(title, file_path)")
+    .select("id, product_id, profiles(email), products(title, external_link)")
     .eq("id", orderId)
     .single();
 
@@ -96,27 +101,47 @@ export async function approveOrder(orderId: string) {
 
   await supabase.from("orders").update({ status: "completed", reviewed_at: new Date().toISOString() }).eq("id", orderId);
 
-  // send the download email via Resend
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const productTitle = (order as any).products?.title;
+    const externalLink = (order as any).products?.external_link;
     const customerEmail = (order as any).profiles?.email;
 
     if (customerEmail) {
+      const downloadSection = externalLink
+        ? `<a href="${externalLink}"
+             style="display: inline-block; background: #B85C38; color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 500; margin: 16px 0;">
+             Get my download
+           </a>`
+        : `<a href="${siteUrl}/dashboard"
+             style="display: inline-block; background: #B85C38; color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 500; margin: 16px 0;">
+             Go to my dashboard
+           </a>`;
+
       await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL || "orders@garysbookshelf.com",
+        from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
         to: customerEmail,
         subject: `Your order is approved: ${productTitle}`,
-        html: `<p>Hi,</p>
-               <p>Your payment for <strong>${productTitle}</strong> has been verified.</p>
-               <p>Log in to your dashboard to download it:</p>
-               <p><a href="${siteUrl}/dashboard">${siteUrl}/dashboard</a></p>
-               <p>Thanks for supporting gary's bookshelf!</p>`,
+        html: `
+          <div style="font-family: -apple-system, sans-serif; max-width: 480px; margin: 0 auto; background: #FBF6EC; padding: 32px 24px; border-radius: 16px;">
+            <p style="font-family: cursive; font-size: 22px; color: #8F4327; margin: 0 0 20px;">gary's bookshelf</p>
+            <h2 style="color: #3B2F26; margin: 0 0 12px;">Your order is confirmed 🎉</h2>
+            <p style="color: #3B2F26; line-height: 1.6;">Hi,</p>
+            <p style="color: #3B2F26; line-height: 1.6;">
+              Your payment for <strong>${productTitle}</strong> has been verified.
+              Your download is ready and waiting for you.
+            </p>
+            ${downloadSection}
+            <p style="color: #3B2F26; line-height: 1.6; font-size: 14px;">
+              Thanks so much for supporting @gary_bookshelf — happy studying!
+            </p>
+            <p style="color: #8a8a8a; font-size: 12px; margin-top: 24px;">— Gary</p>
+          </div>
+        `,
       });
     }
   } catch (e) {
-    // order is already approved in the DB even if the email fails -- don't block on it
     console.error("Resend email failed", e);
   }
 

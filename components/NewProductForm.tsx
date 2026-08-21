@@ -7,6 +7,7 @@ export default function NewProductForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
+  const [deliveryType, setDeliveryType] = useState<"file" | "link">("file");
 
   return (
     <form
@@ -50,13 +51,41 @@ export default function NewProductForm() {
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Cover image (optional)</label>
-        <input name="image" type="file" accept="image/*" className="w-full text-sm" />
+        <label className="block text-sm font-medium mb-1">Images (optional, pick multiple)</label>
+        <input name="images" type="file" accept="image/*" multiple className="w-full text-sm" />
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-1">Digital file to deliver (PDF/ZIP)</label>
-        <input name="asset" type="file" required className="w-full text-sm" />
+        <label className="block text-sm font-medium mb-2">How will you deliver this?</label>
+        <div className="flex gap-2 mb-3">
+          <button
+            type="button"
+            onClick={() => setDeliveryType("file")}
+            className={deliveryType === "file" ? "btn-primary !py-1.5 !px-4 text-sm" : "btn-secondary !py-1.5 !px-4 text-sm"}
+          >
+            Upload a file
+          </button>
+          <button
+            type="button"
+            onClick={() => setDeliveryType("link")}
+            className={deliveryType === "link" ? "btn-primary !py-1.5 !px-4 text-sm" : "btn-secondary !py-1.5 !px-4 text-sm"}
+          >
+            Paste a link
+          </button>
+        </div>
+
+        <input type="hidden" name="deliveryType" value={deliveryType} />
+
+        {deliveryType === "file" ? (
+          <input name="asset" type="file" className="w-full text-sm" />
+        ) : (
+          <input
+            name="link"
+            type="url"
+            placeholder="https://drive.google.com/..."
+            className="w-full border border-ink/15 rounded-lg px-3 py-2"
+          />
+        )}
       </div>
 
       {error && <p className="text-sm text-red-600">{error}</p>}

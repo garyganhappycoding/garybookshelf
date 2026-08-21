@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export async function getDownloadUrl(orderId: string): Promise<{ url?: string; error?: string }> {
-  const supabase =await createClient();
+  const supabase = await createClient();
 
   const {
     data: { user },
@@ -22,17 +22,23 @@ export async function getDownloadUrl(orderId: string): Promise<{ url?: string; e
 
   const { data: product } = await supabase
     .from("products")
-    .select("file_path")
+    .select("file_path, external_link")
     .eq("id", order.product_id)
     .single();
 
   if (!product) return { error: "Product not found." };
 
-  // use the admin client so we can read from the private digital-assets bucket
+  // if this product just has a link (e.g. Google Drive), hand that straight back
+  if (product.external_link) {
+    return { url: product.external_link };
+  }
+
+  if (!product.file_path) return { error: "No file or link set up for this product." };
+
   const admin = createAdminClient();
   const { data, error } = await admin.storage
     .from("digital-assets")
-    .createSignedUrl(product.file_path, 60 * 10); // valid for 10 minutes
+    .createSignedUrl(product.file_path, 60 * 10);
 
   if (error || !data) return { error: "Could not generate download link." };
 
