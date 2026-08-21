@@ -47,7 +47,7 @@ export default function OrderRow({ order }: { order: any }) {
         <div className="flex gap-2 items-start">
           <button
             disabled={isPending}
-            onClick={() => startTransition(() => approveOrder(order.id))}
+            onClick={() => startTransition(async () => { await approveOrder(order.id); })}
             className="btn-primary !py-1.5 !px-4 text-sm disabled:opacity-60"
           >
             Approve
@@ -66,7 +66,7 @@ export default function OrderRow({ order }: { order: any }) {
               />
               <button
                 disabled={isPending}
-                onClick={() => startTransition(() => rejectOrder(order.id, reason))}
+                onClick={() => startTransition(async () => { await rejectOrder(order.id, reason); })}
                 className="text-sm text-red-600 font-medium"
               >
                 Confirm
