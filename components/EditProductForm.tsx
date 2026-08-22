@@ -2,26 +2,81 @@
 
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { updateProduct } from "@/actions/admin";
+import { createClient } from "@/lib/supabase/client";
+import { updateProductRecord } from "@/actions/admin";
 
 export default function EditProductForm({ product }: { product: any }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [deliveryType, setDeliveryType] = useState<"file" | "link">(product.external_link ? "link" : "file");
 
+  async function handleSubmit(formData: FormData) {
+    setError(null);
+    setUploading(true);
+    const supabase = createClient();
+
+    const title = formData.get("title") as string;
+    const description = formData.get("description") as string;
+    const price = parseFloat(formData.get("price") as string);
+    const category = formData.get("category") as string;
+    const newImages = (formData.getAll("images") as File[]).filter((f) => f && f.size > 0);
+    const newAsset = formData.get("asset") as File | null;
+    const link = formData.get("link") as string | null;
+
+    let imageUrls: string[] | null = null;
+    if (newImages.length > 0) {
+      imageUrls = [];
+      for (const file of newImages) {
+        const ext = file.name.split(".").pop();
+        const path = `${crypto.randomUUID()}.${ext}`;
+        const { error: upErr } = await supabase.storage.from("product-images").upload(path, file);
+        if (upErr) {
+          setError(`Image upload failed: ${upErr.message}`);
+          setUploading(false);
+          return;
+        }
+        const { data } = supabase.storage.from("product-images").getPublicUrl(path);
+        imageUrls.push(data.publicUrl);
+      }
+    }
+
+    let filePath: string | null = null;
+    let externalLink: string | null = null;
+
+    if (deliveryType === "link" && link && link.trim() !== "") {
+      externalLink = link.trim();
+    } else if (deliveryType === "file" && newAsset && newAsset.size > 0) {
+      const ext = newAsset.name.split(".").pop();
+      filePath = `${crypto.randomUUID()}.${ext}`;
+      const { error: upErr } = await supabase.storage.from("digital-assets").upload(filePath, newAsset);
+      if (upErr) {
+        setError(`Asset upload failed: ${upErr.message}`);
+        setUploading(false);
+        return;
+      }
+    }
+
+    setUploading(false);
+    startTransition(async () => {
+      const result = await updateProductRecord(product.id, {
+        title,
+        description,
+        price,
+        category,
+        imageUrl: imageUrls ? imageUrls[0] : undefined,
+        imageUrls: imageUrls || undefined,
+        filePath: filePath || undefined,
+        externalLink: externalLink || undefined,
+      });
+      if (result?.error) setError(result.error);
+      else router.push("/admin/products");
+    });
+  }
+
   return (
-    <form
-      action={(formData) => {
-        setError(null);
-        startTransition(async () => {
-          const result = await updateProduct(product.id, formData);
-          if (result?.error) setError(result.error);
-          else router.push("/admin/products");
-        });
-      }}
-      className="card space-y-3"
-    >
+    <form action={handleSubmit} className="card space-y-3">
       <div>
         <label className="block text-sm font-medium mb-1">Title</label>
         <input name="title" defaultValue={product.title} required className="w-full border border-ink/15 rounded-lg px-3 py-2" />
@@ -64,7 +119,6 @@ export default function EditProductForm({ product }: { product: any }) {
             Paste a link
           </button>
         </div>
-        <input type="hidden" name="deliveryType" value={deliveryType} />
         {deliveryType === "file" ? (
           <>
             <input name="asset" type="file" className="w-full text-sm" />
@@ -77,8 +131,8 @@ export default function EditProductForm({ product }: { product: any }) {
 
       {error && <p className="text-sm text-red-600">{error}</p>}
 
-      <button type="submit" disabled={isPending} className="btn-primary disabled:opacity-60">
-        {isPending ? "Saving..." : "Save changes"}
+      <button type="submit" disabled={isPending || uploading} className="btn-primary disabled:opacity-60">
+        {uploading ? "Uploading..." : isPending ? "Saving..." : "Save changes"}
       </button>
     </form>
   );

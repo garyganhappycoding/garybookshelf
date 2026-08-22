@@ -1,27 +1,90 @@
 "use client";
 
 import { useRef, useState, useTransition } from "react";
-import { createProduct } from "@/actions/admin";
+import { createClient } from "@/lib/supabase/client";
+import { createProductRecord } from "@/actions/admin";
 
 export default function NewProductForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [isPending, startTransition] = useTransition();
+  const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [deliveryType, setDeliveryType] = useState<"file" | "link">("file");
 
+  async function handleSubmit(formData: FormData) {
+    setError(null);
+    setUploading(true);
+    const supabase = createClient();
+
+    const title = formData.get("title") as string;
+    const description = formData.get("description") as string;
+    const price = parseFloat(formData.get("price") as string);
+    const category = formData.get("category") as string;
+    const imageFiles = (formData.getAll("images") as File[]).filter((f) => f && f.size > 0);
+    const assetFile = formData.get("asset") as File | null;
+    const link = formData.get("link") as string | null;
+
+    // Images upload straight from the browser to Supabase Storage --
+    // this skips Vercel's server entirely, so there's no 4.5MB limit here.
+    const imageUrls: string[] = [];
+    for (const file of imageFiles) {
+      const ext = file.name.split(".").pop();
+      const path = `${crypto.randomUUID()}.${ext}`;
+      const { error: upErr } = await supabase.storage.from("product-images").upload(path, file);
+      if (upErr) {
+        setError(`Image upload failed: ${upErr.message}`);
+        setUploading(false);
+        return;
+      }
+      const { data } = supabase.storage.from("product-images").getPublicUrl(path);
+      imageUrls.push(data.publicUrl);
+    }
+
+    let filePath: string | null = null;
+    let externalLink: string | null = null;
+
+    if (deliveryType === "file") {
+      if (!assetFile || assetFile.size === 0) {
+        setError("Please attach the digital file to deliver to buyers.");
+        setUploading(false);
+        return;
+      }
+      const ext = assetFile.name.split(".").pop();
+      filePath = `${crypto.randomUUID()}.${ext}`;
+      const { error: upErr } = await supabase.storage.from("digital-assets").upload(filePath, assetFile);
+      if (upErr) {
+        setError(`Asset upload failed: ${upErr.message}`);
+        setUploading(false);
+        return;
+      }
+    } else {
+      if (!link || link.trim() === "") {
+        setError("Please paste the link you want to deliver to buyers.");
+        setUploading(false);
+        return;
+      }
+      externalLink = link.trim();
+    }
+
+    setUploading(false);
+    startTransition(async () => {
+      const result = await createProductRecord({
+        title,
+        description,
+        price,
+        category,
+        imageUrl: imageUrls[0] || null,
+        imageUrls,
+        filePath,
+        externalLink,
+      });
+      if (result?.error) setError(result.error);
+      else formRef.current?.reset();
+    });
+  }
+
   return (
-    <form
-      ref={formRef}
-      action={(formData) => {
-        setError(null);
-        startTransition(async () => {
-          const result = await createProduct(formData);
-          if (result?.error) setError(result.error);
-          else formRef.current?.reset();
-        });
-      }}
-      className="card space-y-3"
-    >
+    <form ref={formRef} action={handleSubmit} className="card space-y-3">
       <p className="font-medium">Add a new item</p>
 
       <div>
@@ -58,40 +121,25 @@ export default function NewProductForm() {
       <div>
         <label className="block text-sm font-medium mb-2">How will you deliver this?</label>
         <div className="flex gap-2 mb-3">
-          <button
-            type="button"
-            onClick={() => setDeliveryType("file")}
-            className={deliveryType === "file" ? "btn-primary !py-1.5 !px-4 text-sm" : "btn-secondary !py-1.5 !px-4 text-sm"}
-          >
+          <button type="button" onClick={() => setDeliveryType("file")} className={deliveryType === "file" ? "btn-primary !py-1.5 !px-4 text-sm" : "btn-secondary !py-1.5 !px-4 text-sm"}>
             Upload a file
           </button>
-          <button
-            type="button"
-            onClick={() => setDeliveryType("link")}
-            className={deliveryType === "link" ? "btn-primary !py-1.5 !px-4 text-sm" : "btn-secondary !py-1.5 !px-4 text-sm"}
-          >
+          <button type="button" onClick={() => setDeliveryType("link")} className={deliveryType === "link" ? "btn-primary !py-1.5 !px-4 text-sm" : "btn-secondary !py-1.5 !px-4 text-sm"}>
             Paste a link
           </button>
         </div>
-
         <input type="hidden" name="deliveryType" value={deliveryType} />
-
         {deliveryType === "file" ? (
           <input name="asset" type="file" className="w-full text-sm" />
         ) : (
-          <input
-            name="link"
-            type="url"
-            placeholder="https://drive.google.com/..."
-            className="w-full border border-ink/15 rounded-lg px-3 py-2"
-          />
+          <input name="link" type="url" placeholder="https://drive.google.com/..." className="w-full border border-ink/15 rounded-lg px-3 py-2" />
         )}
       </div>
 
       {error && <p className="text-sm text-red-600">{error}</p>}
 
-      <button type="submit" disabled={isPending} className="btn-primary disabled:opacity-60">
-        {isPending ? "Uploading..." : "Add product"}
+      <button type="submit" disabled={isPending || uploading} className="btn-primary disabled:opacity-60">
+        {uploading ? "Uploading images..." : isPending ? "Saving..." : "Add product"}
       </button>
     </form>
   );

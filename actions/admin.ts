@@ -22,61 +22,74 @@ async function requireAdmin() {
   return supabase;
 }
 
-export async function createProduct(formData: FormData) {
+export async function createProductRecord(data: {
+  title: string;
+  description: string;
+  price: number;
+  category: string;
+  imageUrl: string | null;
+  imageUrls: string[];
+  filePath: string | null;
+  externalLink: string | null;
+}) {
   const supabase = await requireAdmin();
-  const admin = createAdminClient();
 
-  const title = formData.get("title") as string;
-  const description = formData.get("description") as string;
-  const price = parseFloat(formData.get("price") as string);
-  const category = formData.get("category") as string;
-  const imageFile = formData.get("image") as File | null;
-  const deliveryType = formData.get("deliveryType") as string;
-  const assetFile = formData.get("asset") as File | null;
-  const link = formData.get("link") as string | null;
-
-  let filePath: string | null = null;
-  let externalLink: string | null = null;
-
-  if (deliveryType === "file") {
-    if (!assetFile || assetFile.size === 0) {
-      return { error: "Please attach the digital file to deliver to buyers." };
-    }
-    const assetExt = assetFile.name.split(".").pop();
-    filePath = `${crypto.randomUUID()}.${assetExt}`;
-    const { error: assetError } = await admin.storage.from("digital-assets").upload(filePath, assetFile);
-    if (assetError) return { error: `Asset upload failed: ${assetError.message}` };
-  } else {
-    if (!link || link.trim() === "") {
-      return { error: "Please paste the link you want to deliver to buyers." };
-    }
-    externalLink = link.trim();
-  }
-
-  let imageUrl: string | null = null;
-  if (imageFile && imageFile.size > 0) {
-    const imgExt = imageFile.name.split(".").pop();
-    const imgPath = `${crypto.randomUUID()}.${imgExt}`;
-    const { error: imgError } = await admin.storage.from("product-images").upload(imgPath, imageFile);
-    if (!imgError) {
-      const { data } = admin.storage.from("product-images").getPublicUrl(imgPath);
-      imageUrl = data.publicUrl;
-    }
-  }
-
-  const { error: insertError } = await supabase.from("products").insert({
-    title,
-    description,
-    price_myr: price,
-    category,
-    image_url: imageUrl,
-    file_path: filePath,
-    external_link: externalLink,
+  const { error } = await supabase.from("products").insert({
+    title: data.title,
+    description: data.description,
+    price_myr: data.price,
+    category: data.category,
+    image_url: data.imageUrl,
+    image_urls: data.imageUrls,
+    file_path: data.filePath,
+    external_link: data.externalLink,
   });
 
-  if (insertError) return { error: insertError.message };
+  if (error) return { error: error.message };
 
   revalidatePath("/shop");
+  revalidatePath("/admin/products");
+  return { success: true };
+}
+
+export async function updateProductRecord(
+  productId: string,
+  data: {
+    title: string;
+    description: string;
+    price: number;
+    category: string;
+    imageUrl?: string | null;
+    imageUrls?: string[];
+    filePath?: string | null;
+    externalLink?: string | null;
+  }
+) {
+  const supabase = await requireAdmin();
+
+  const updates: Record<string, any> = {
+    title: data.title,
+    description: data.description,
+    price_myr: data.price,
+    category: data.category,
+  };
+
+  if (data.imageUrl !== undefined) updates.image_url = data.imageUrl;
+  if (data.imageUrls !== undefined) updates.image_urls = data.imageUrls;
+  if (data.filePath !== undefined) {
+    updates.file_path = data.filePath;
+    updates.external_link = null;
+  }
+  if (data.externalLink !== undefined) {
+    updates.external_link = data.externalLink;
+    updates.file_path = null;
+  }
+
+  const { error } = await supabase.from("products").update(updates).eq("id", productId);
+  if (error) return { error: error.message };
+
+  revalidatePath("/shop");
+  revalidatePath(`/shop/${productId}`);
   revalidatePath("/admin/products");
   return { success: true };
 }
@@ -203,58 +216,4 @@ export async function deleteResource(resourceId: string) {
   await supabase.from("resources").delete().eq("id", resourceId);
   revalidatePath("/");
   revalidatePath("/admin/resources");
-}
-
-export async function updateProduct(productId: string, formData: FormData) {
-  const supabase = await requireAdmin();
-  const admin = createAdminClient();
-
-  const title = formData.get("title") as string;
-  const description = formData.get("description") as string;
-  const price = parseFloat(formData.get("price") as string);
-  const category = formData.get("category") as string;
-  const deliveryType = formData.get("deliveryType") as string;
-  const link = formData.get("link") as string | null;
-  const newImages = formData.getAll("images") as File[];
-  const newAsset = formData.get("asset") as File | null;
-
-  const updates: Record<string, any> = { title, description, price_myr: price, category };
-
-  if (deliveryType === "link" && link && link.trim() !== "") {
-    updates.external_link = link.trim();
-    updates.file_path = null;
-  } else if (deliveryType === "file" && newAsset && newAsset.size > 0) {
-    const assetExt = newAsset.name.split(".").pop();
-    const filePath = `${crypto.randomUUID()}.${assetExt}`;
-    const { error: assetError } = await admin.storage.from("digital-assets").upload(filePath, newAsset);
-    if (assetError) return { error: `Asset upload failed: ${assetError.message}` };
-    updates.file_path = filePath;
-    updates.external_link = null;
-  }
-
-  const validImages = newImages.filter((f) => f && f.size > 0);
-  if (validImages.length > 0) {
-    const imageUrls: string[] = [];
-    for (const imageFile of validImages) {
-      const imgExt = imageFile.name.split(".").pop();
-      const imgPath = `${crypto.randomUUID()}.${imgExt}`;
-      const { error: imgError } = await admin.storage.from("product-images").upload(imgPath, imageFile);
-      if (!imgError) {
-        const { data } = admin.storage.from("product-images").getPublicUrl(imgPath);
-        imageUrls.push(data.publicUrl);
-      }
-    }
-    if (imageUrls.length > 0) {
-      updates.image_url = imageUrls[0];
-      updates.image_urls = imageUrls;
-    }
-  }
-
-  const { error } = await supabase.from("products").update(updates).eq("id", productId);
-  if (error) return { error: error.message };
-
-  revalidatePath("/shop");
-  revalidatePath(`/shop/${productId}`);
-  revalidatePath("/admin/products");
-  return { success: true };
 }
