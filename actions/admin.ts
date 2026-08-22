@@ -178,7 +178,19 @@ export async function createResource(formData: FormData) {
   const description = formData.get("description") as string;
   const url = formData.get("url") as string;
 
-  const { error } = await supabase.from("resources").insert({ type, title, description, url });
+  let thumbnailUrl: string | null = null;
+  try {
+    const res = await fetch(url, {
+      headers: { "User-Agent": "facebookexternalhit/1.1" },
+    });
+    const html = await res.text();
+    const match = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i);
+    if (match) thumbnailUrl = match[1];
+  } catch (e) {
+    // some sites block this -- that's fine, we just show no thumbnail
+  }
+
+  const { error } = await supabase.from("resources").insert({ type, title, description, url, thumbnail_url: thumbnailUrl });
   if (error) return { error: error.message };
 
   revalidatePath("/");
@@ -191,4 +203,58 @@ export async function deleteResource(resourceId: string) {
   await supabase.from("resources").delete().eq("id", resourceId);
   revalidatePath("/");
   revalidatePath("/admin/resources");
+}
+
+export async function updateProduct(productId: string, formData: FormData) {
+  const supabase = await requireAdmin();
+  const admin = createAdminClient();
+
+  const title = formData.get("title") as string;
+  const description = formData.get("description") as string;
+  const price = parseFloat(formData.get("price") as string);
+  const category = formData.get("category") as string;
+  const deliveryType = formData.get("deliveryType") as string;
+  const link = formData.get("link") as string | null;
+  const newImages = formData.getAll("images") as File[];
+  const newAsset = formData.get("asset") as File | null;
+
+  const updates: Record<string, any> = { title, description, price_myr: price, category };
+
+  if (deliveryType === "link" && link && link.trim() !== "") {
+    updates.external_link = link.trim();
+    updates.file_path = null;
+  } else if (deliveryType === "file" && newAsset && newAsset.size > 0) {
+    const assetExt = newAsset.name.split(".").pop();
+    const filePath = `${crypto.randomUUID()}.${assetExt}`;
+    const { error: assetError } = await admin.storage.from("digital-assets").upload(filePath, newAsset);
+    if (assetError) return { error: `Asset upload failed: ${assetError.message}` };
+    updates.file_path = filePath;
+    updates.external_link = null;
+  }
+
+  const validImages = newImages.filter((f) => f && f.size > 0);
+  if (validImages.length > 0) {
+    const imageUrls: string[] = [];
+    for (const imageFile of validImages) {
+      const imgExt = imageFile.name.split(".").pop();
+      const imgPath = `${crypto.randomUUID()}.${imgExt}`;
+      const { error: imgError } = await admin.storage.from("product-images").upload(imgPath, imageFile);
+      if (!imgError) {
+        const { data } = admin.storage.from("product-images").getPublicUrl(imgPath);
+        imageUrls.push(data.publicUrl);
+      }
+    }
+    if (imageUrls.length > 0) {
+      updates.image_url = imageUrls[0];
+      updates.image_urls = imageUrls;
+    }
+  }
+
+  const { error } = await supabase.from("products").update(updates).eq("id", productId);
+  if (error) return { error: error.message };
+
+  revalidatePath("/shop");
+  revalidatePath(`/shop/${productId}`);
+  revalidatePath("/admin/products");
+  return { success: true };
 }
