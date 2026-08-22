@@ -105,18 +105,24 @@ export default async function HomePage() {
           <h2 className="text-xl font-medium mb-1">Built by me</h2>
           <p className="text-ink/60 mb-6">Apps and tools I've built as a solo developer</p>
           <div className="grid sm:grid-cols-3 gap-4">
-            <div className="card">
-              <p className="font-medium mb-1">My Life OS</p>
-              <p className="text-sm text-ink/60">Personal life-management app on Google Play.</p>
-            </div>
-            <div className="card">
-              <p className="font-medium mb-1">XPLog</p>
-              <p className="text-sm text-ink/60">A skill XP tracker web app.</p>
-            </div>
-            <div className="card">
-              <p className="font-medium mb-1">Worthy</p>
-              <p className="text-sm text-ink/60">Living portfolio platform for fresh grads.</p>
-            </div>
+            {[
+              {
+                title: "10Vocab",
+                description: "Learn 10 new vocabulary words a day.",
+                url: "https://vocab-app-nine-kappa.vercel.app/",
+              },
+            ].map((project) => (
+              <a
+                key={project.title}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="card block hover:border-clay-400 transition-colors"
+              >
+                <p className="font-medium mb-1">{project.title}</p>
+                <p className="text-sm text-ink/60">{project.description}</p>
+              </a>
+            ))}
           </div>
         </div>
       </section>
