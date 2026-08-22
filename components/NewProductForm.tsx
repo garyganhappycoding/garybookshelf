@@ -10,6 +10,14 @@ export default function NewProductForm() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [deliveryType, setDeliveryType] = useState<"file" | "link">("file");
+  const [previews, setPreviews] = useState<{ url: string; file: File }[]>([]);
+  const [coverIndex, setCoverIndex] = useState(0);
+
+  function handleImagesChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const files = Array.from(e.target.files || []);
+    setPreviews(files.map((file) => ({ url: URL.createObjectURL(file), file })));
+    setCoverIndex(0);
+  }
 
   async function handleSubmit(formData: FormData) {
     setError(null);
@@ -20,14 +28,16 @@ export default function NewProductForm() {
     const description = formData.get("description") as string;
     const price = parseFloat(formData.get("price") as string);
     const category = formData.get("category") as string;
-    const imageFiles = (formData.getAll("images") as File[]).filter((f) => f && f.size > 0);
     const assetFile = formData.get("asset") as File | null;
     const link = formData.get("link") as string | null;
 
-    // Images upload straight from the browser to Supabase Storage --
-    // this skips Vercel's server entirely, so there's no 4.5MB limit here.
+    // put the chosen cover image first so it becomes image_url
+    const orderedFiles = previews.length > 0
+      ? [previews[coverIndex].file, ...previews.filter((_, i) => i !== coverIndex).map((p) => p.file)]
+      : [];
+
     const imageUrls: string[] = [];
-    for (const file of imageFiles) {
+    for (const file of orderedFiles) {
       const ext = file.name.split(".").pop();
       const path = `${crypto.randomUUID()}.${ext}`;
       const { error: upErr } = await supabase.storage.from("product-images").upload(path, file);
@@ -79,7 +89,11 @@ export default function NewProductForm() {
         externalLink,
       });
       if (result?.error) setError(result.error);
-      else formRef.current?.reset();
+      else {
+        formRef.current?.reset();
+        setPreviews([]);
+        setCoverIndex(0);
+      }
     });
   }
 
@@ -115,7 +129,33 @@ export default function NewProductForm() {
 
       <div>
         <label className="block text-sm font-medium mb-1">Images (optional, pick multiple)</label>
-        <input name="images" type="file" accept="image/*" multiple className="w-full text-sm" />
+        <input name="images" type="file" accept="image/*" multiple className="w-full text-sm" onChange={handleImagesChange} />
+
+        {previews.length > 0 && (
+          <div className="mt-3">
+            <p className="text-xs text-ink/50 mb-2">Click an image to set it as the cover/thumbnail:</p>
+            <div className="flex gap-2 flex-wrap">
+              {previews.map((p, i) => (
+                <button
+                  type="button"
+                  key={p.url}
+                  onClick={() => setCoverIndex(i)}
+                  className={`relative w-16 h-16 rounded-lg overflow-hidden border-2 ${
+                    i === coverIndex ? "border-clay-600" : "border-transparent"
+                  }`}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.url} alt="" className="w-full h-full object-cover" />
+                  {i === coverIndex && (
+                    <span className="absolute bottom-0 inset-x-0 bg-clay-600 text-white text-[10px] text-center">
+                      Cover
+                    </span>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       <div>

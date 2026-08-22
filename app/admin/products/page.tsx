@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import NewProductForm from "@/components/NewProductForm";
 import DeleteProductButton from "@/components/DeleteProductButton";
 
@@ -31,7 +32,12 @@ export default async function AdminProductsPage() {
               <p className="font-medium">{p.title}</p>
               <p className="text-sm text-ink/60">RM {Number(p.price_myr).toFixed(2)} &middot; {p.category}</p>
             </div>
-            <DeleteProductButton productId={p.id} />
+            <div className="flex items-center gap-3">
+              <Link href={`/admin/products/${p.id}/edit`} className="text-sm text-clay-600 font-medium">
+                Edit
+              </Link>
+              <DeleteProductButton productId={p.id} />
+            </div>
           </div>
         ))}
       </div>
