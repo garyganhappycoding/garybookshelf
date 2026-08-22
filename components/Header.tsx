@@ -21,8 +21,10 @@ export default async function Header() {
   return (
     <header className="border-b border-ink/10 bg-paper/80 backdrop-blur sticky top-0 z-30">
       <div className="max-w-5xl mx-auto px-5 h-16 flex items-center justify-between">
-        <Link href="/" className="font-hand text-2xl text-clay-700">
-          gary's bookshelf
+        <Link href="/" className="flex items-center gap-2">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/dolphin-icon.png" alt="" className="w-8 h-8 rounded-full" />
+          <span className="font-hand text-2xl text-clay-700">gary's bookshelf</span>
         </Link>
         <nav className="flex items-center gap-6 text-sm">
           <Link href="/#resources" className="hover:text-clay-600">

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import ProductCard from "@/components/ProductCard";
+import ResourceCategoryAccordion from "@/components/ResourceCategoryAccordion";
 
 export default async function HomePage() {
   const supabase = await createClient();
@@ -24,18 +25,28 @@ export default async function HomePage() {
     <div>
       {/* HERO */}
       <section className="bg-cream-200">
-        <div className="max-w-5xl mx-auto px-5 py-20">
-          <p className="text-clay-700 text-sm mb-2">@gary_bookshelf &middot; 45k+ students</p>
-          <h1 className="text-3xl sm:text-4xl font-medium text-ink max-w-xl mb-4">
-            Hi, I'm Gary — I turn messy study habits into systems that work
-          </h1>
-          <p className="text-ink/70 max-w-lg mb-6 leading-relaxed">
-            Notes, resources, and tools I've built while studying my way through
-            SPM, matriculation, and beyond.
-          </p>
-          <div className="flex gap-3">
-            <Link href="/shop" className="btn-primary">Browse my notes</Link>
-            <Link href="#resources" className="btn-secondary">See free resources</Link>
+        <div className="max-w-5xl mx-auto px-5 py-20 flex flex-col sm:flex-row items-center gap-10">
+          <div className="flex-1">
+            <p className="text-clay-700 text-sm mb-2">@gary_bookshelf &middot; 45k+ students</p>
+            <h1 className="text-3xl sm:text-4xl font-medium text-ink max-w-xl mb-4">
+              Hi, I'm Gary — I turn messy study habits into systems that work
+            </h1>
+            <p className="text-ink/70 max-w-lg mb-6 leading-relaxed">
+              Notes, resources, and tools I've built while studying my way through
+              SPM, matriculation, and beyond.
+            </p>
+            <div className="flex gap-3">
+              <Link href="/shop" className="btn-primary">Browse my notes</Link>
+              <Link href="#resources" className="btn-secondary">See free resources</Link>
+            </div>
+          </div>
+          <div className="flex-shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/gary-4-flat-achievement.jpg"
+              alt="Gary holding his 4.00 flat matriculation achievement award"
+              className="w-56 sm:w-64 rounded-2xl border border-ink/10 shadow-sm object-cover"
+            />
           </div>
         </div>
       </section>
@@ -44,18 +55,7 @@ export default async function HomePage() {
       <section id="content-hub" className="max-w-5xl mx-auto px-5 py-16">
         <h2 className="text-xl font-medium mb-1">Content hub</h2>
         <p className="text-ink/60 mb-6">Study tips and studygram highlights</p>
-        <div className="grid sm:grid-cols-3 gap-4">
-          {contentHub.length > 0 ? (
-            contentHub.map((r) => (
-              <a key={r.id} href={r.url} target="_blank" className="card block hover:border-clay-400">
-                <p className="font-medium mb-1">{r.title}</p>
-                <p className="text-sm text-ink/60">{r.description}</p>
-              </a>
-            ))
-          ) : (
-            <p className="text-ink/50 text-sm">Add content from /admin/resources.</p>
-          )}
-        </div>
+        <ResourceCategoryAccordion resources={contentHub} variant="content" />
       </section>
 
       {/* FREE RESOURCES */}
@@ -63,19 +63,7 @@ export default async function HomePage() {
         <div className="max-w-5xl mx-auto px-5 py-16">
           <h2 className="text-xl font-medium mb-1">Free resources</h2>
           <p className="text-ink/60 mb-6">Sample notes and templates, no charge</p>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {freeResources.length > 0 ? (
-              freeResources.map((r) => (
-                <div key={r.id} className="card">
-                  <p className="font-medium mb-1">{r.title}</p>
-                  <p className="text-sm text-ink/60 mb-3">{r.description}</p>
-                  <a href={r.url} target="_blank" className="text-clay-600 text-sm font-medium">Download &rarr;</a>
-                </div>
-              ))
-            ) : (
-              <p className="text-ink/50 text-sm">Add resources from /admin/resources.</p>
-            )}
-          </div>
+          <ResourceCategoryAccordion resources={freeResources} variant="free" />
         </div>
       </section>
 
