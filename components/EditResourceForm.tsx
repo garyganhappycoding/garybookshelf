@@ -1,14 +1,26 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import { createResource, getResourceCategories, type ResourceType } from "@/actions/resources";
+import { useRouter } from "next/navigation";
+import { updateResource, getResourceCategories, type ResourceType } from "@/actions/resources";
 
 const NEW_CATEGORY_VALUE = "__new__";
 
-export default function NewResourceForm({ defaultType }: { defaultType?: ResourceType }) {
-  const [type, setType] = useState<ResourceType>(defaultType ?? "content_hub");
+type Resource = {
+  id: string;
+  type: ResourceType;
+  title: string;
+  description: string | null;
+  url: string;
+  thumbnail_url: string | null;
+  category: string;
+};
+
+export default function EditResourceForm({ resource }: { resource: Resource }) {
+  const router = useRouter();
+  const [type, setType] = useState<ResourceType>(resource.type);
   const [categories, setCategories] = useState<string[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>(resource.category);
   const [isAddingCategory, setIsAddingCategory] = useState(false);
   const [isPending, startTransition] = useTransition();
   const [message, setMessage] = useState<string | null>(null);
@@ -16,9 +28,16 @@ export default function NewResourceForm({ defaultType }: { defaultType?: Resourc
   useEffect(() => {
     getResourceCategories(type).then((cats) => {
       setCategories(cats);
-      setSelectedCategory("");
+      if (type === resource.type && cats.includes(resource.category)) {
+        setSelectedCategory(resource.category);
+      } else if (cats.length > 0) {
+        setSelectedCategory(cats[0]);
+      } else {
+        setSelectedCategory("");
+      }
       setIsAddingCategory(false);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [type]);
 
   function handleCategoryChange(value: string) {
@@ -34,23 +53,17 @@ export default function NewResourceForm({ defaultType }: { defaultType?: Resourc
   function handleSubmit(formData: FormData) {
     setMessage(null);
     startTransition(async () => {
-      const result = await createResource(formData);
+      const result = await updateResource(resource.id, formData);
       if (result?.error) {
         setMessage(`Error: ${result.error}`);
         return;
       }
-      setMessage("Resource added!");
-      setSelectedCategory("");
-      setIsAddingCategory(false);
-      const form = document.getElementById("new-resource-form") as HTMLFormElement | null;
-      form?.reset();
-      const refreshed = await getResourceCategories(type);
-      setCategories(refreshed);
+      router.push("/admin/resources");
     });
   }
 
   return (
-    <form id="new-resource-form" action={handleSubmit} className="card space-y-4 max-w-lg">
+    <form action={handleSubmit} className="card space-y-4 max-w-lg">
       <div>
         <label className="block text-sm font-medium text-ink/80 mb-1">Section</label>
         <select
@@ -101,31 +114,57 @@ export default function NewResourceForm({ defaultType }: { defaultType?: Resourc
 
       <div>
         <label className="block text-sm font-medium text-ink/80 mb-1">Title</label>
-        <input name="title" required className="w-full rounded-lg border border-ink/15 px-3 py-2" />
+        <input
+          name="title"
+          defaultValue={resource.title}
+          required
+          className="w-full rounded-lg border border-ink/15 px-3 py-2"
+        />
       </div>
 
       <div>
         <label className="block text-sm font-medium text-ink/80 mb-1">Description</label>
-        <textarea name="description" rows={3} className="w-full rounded-lg border border-ink/15 px-3 py-2" />
+        <textarea
+          name="description"
+          rows={3}
+          defaultValue={resource.description ?? ""}
+          className="w-full rounded-lg border border-ink/15 px-3 py-2"
+        />
       </div>
 
       <div>
         <label className="block text-sm font-medium text-ink/80 mb-1">Link (URL)</label>
-        <input name="url" type="url" required className="w-full rounded-lg border border-ink/15 px-3 py-2" />
+        <input
+          name="url"
+          type="url"
+          defaultValue={resource.url}
+          required
+          className="w-full rounded-lg border border-ink/15 px-3 py-2"
+        />
       </div>
 
       <div>
         <label className="block text-sm font-medium text-ink/80 mb-1">
           Thumbnail URL (optional — leave blank to auto-detect from the link)
         </label>
-        <input name="thumbnail_url" type="url" className="w-full rounded-lg border border-ink/15 px-3 py-2" />
+        <input
+          name="thumbnail_url"
+          type="url"
+          defaultValue={resource.thumbnail_url ?? ""}
+          className="w-full rounded-lg border border-ink/15 px-3 py-2"
+        />
       </div>
 
-      <button type="submit" disabled={isPending} className="btn-primary disabled:opacity-60">
-        {isPending ? "Adding..." : "Add Resource"}
-      </button>
+      <div className="flex items-center gap-3">
+        <button type="submit" disabled={isPending} className="btn-primary disabled:opacity-60">
+          {isPending ? "Saving..." : "Save changes"}
+        </button>
+        <button type="button" onClick={() => router.push("/admin/resources")} className="btn-secondary">
+          Cancel
+        </button>
+      </div>
 
-      {message && <p className="text-sm text-ink/60">{message}</p>}
+      {message && <p className="text-sm text-clay-700">{message}</p>}
     </form>
   );
 }

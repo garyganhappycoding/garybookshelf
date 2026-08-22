@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import NewResourceForm from "@/components/NewResourceForm";
 import DeleteResourceButton from "@/components/DeleteResourceButton";
 
@@ -34,9 +35,17 @@ export default async function AdminResourcesPage() {
             <div key={r.id} className="card flex items-center justify-between">
               <div>
                 <p className="font-medium">{r.title}</p>
-                <p className="text-sm text-ink/60">{r.description}</p>
+                <p className="text-sm text-ink/60">
+                  {r.category}
+                  {r.description ? ` · ${r.description}` : ""}
+                </p>
               </div>
-              <DeleteResourceButton resourceId={r.id} />
+              <div className="flex items-center gap-3">
+                <Link href={`/admin/resources/${r.id}/edit`} className="text-sm text-clay-600 font-medium">
+                  Edit
+                </Link>
+                <DeleteResourceButton resourceId={r.id} />
+              </div>
             </div>
           ))}
         </div>
@@ -47,9 +56,17 @@ export default async function AdminResourcesPage() {
             <div key={r.id} className="card flex items-center justify-between">
               <div>
                 <p className="font-medium">{r.title}</p>
-                <p className="text-sm text-ink/60">{r.description}</p>
+                <p className="text-sm text-ink/60">
+                  {r.category}
+                  {r.description ? ` · ${r.description}` : ""}
+                </p>
               </div>
-              <DeleteResourceButton resourceId={r.id} />
+              <div className="flex items-center gap-3">
+                <Link href={`/admin/resources/${r.id}/edit`} className="text-sm text-clay-600 font-medium">
+                  Edit
+                </Link>
+                <DeleteResourceButton resourceId={r.id} />
+              </div>
             </div>
           ))}
         </div>
