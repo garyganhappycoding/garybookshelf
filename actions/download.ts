@@ -3,7 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
-export async function getDownloadUrl(orderId: string): Promise<{ url?: string; error?: string }> {
+export async function getDownloadUrl(orderId: string): Promise<{ url?: string; error?: string; isLink?: boolean }> {
   const supabase = await createClient();
 
   const {
@@ -13,7 +13,7 @@ export async function getDownloadUrl(orderId: string): Promise<{ url?: string; e
 
   const { data: order } = await supabase
     .from("orders")
-    .select("id, status, user_id, product_id")
+    .select("id, status, user_id, product_id, link_opened_at")
     .eq("id", orderId)
     .single();
 
@@ -28,9 +28,17 @@ export async function getDownloadUrl(orderId: string): Promise<{ url?: string; e
 
   if (!product) return { error: "Product not found." };
 
-  // if this product just has a link (e.g. Google Drive), hand that straight back
+  // if this product just has a link (e.g. Telegram group), hand that straight back --
+  // but only once, so it can't be re-opened and reshared from this page
   if (product.external_link) {
-    return { url: product.external_link };
+    if (order.link_opened_at) {
+      return { error: "You've already opened this link. Please make sure you've joined the group!" };
+    }
+
+    const admin = createAdminClient();
+    await admin.from("orders").update({ link_opened_at: new Date().toISOString() }).eq("id", orderId);
+
+    return { url: product.external_link, isLink: true };
   }
 
   if (!product.file_path) return { error: "No file or link set up for this product." };

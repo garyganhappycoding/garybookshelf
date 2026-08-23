@@ -35,6 +35,10 @@ export default async function AdminPage() {
           <p className="font-medium mb-1">Content & Resources</p>
           <p className="text-sm text-ink/60">Manage content hub and free downloads</p>
         </Link>
+        <Link href="/admin/feedback" className="card block hover:border-clay-400">
+          <p className="font-medium mb-1">Feedback</p>
+          <p className="text-sm text-ink/60">See what customers are saying</p>
+        </Link>
       </div>
     </div>
   );

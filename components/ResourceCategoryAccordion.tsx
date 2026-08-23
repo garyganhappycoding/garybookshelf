@@ -32,13 +32,13 @@ export default function ResourceCategoryAccordion({
   }
 
   return (
-    <div className="space-y-3">
+    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 items-start">
       {categories.map((category) => {
         const items = grouped.get(category)!;
         const isOpen = openCategory === category;
 
         return (
-          <div key={category} className="card">
+          <div key={category} className={`card ${isOpen ? "sm:col-span-2 lg:col-span-3" : ""}`}>
             <button
               type="button"
               onClick={() => setOpenCategory(isOpen ? null : category)}

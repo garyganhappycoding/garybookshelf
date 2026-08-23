@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
+import FeedbackForm from "@/components/FeedbackForm";
 
 const statusLabel: Record<string, string> = {
   pending_verification: "Pending verification",
@@ -24,7 +25,7 @@ export default async function DashboardPage() {
 
   const { data: orders } = await supabase
     .from("orders")
-    .select("id, status, amount_paid, created_at, reject_reason, products(title)")
+    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, products(title, external_link)")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
@@ -47,7 +48,12 @@ export default async function DashboardPage() {
                 <span className={`text-xs px-3 py-1 rounded-full font-medium ${statusColor[order.status]}`}>
                   {statusLabel[order.status]}
                 </span>
-                {order.status === "completed" && <DownloadButton orderId={order.id} />}
+                {order.status === "completed" && (
+                  <DownloadButton
+                    orderId={order.id}
+                    initiallyOpened={Boolean(order.link_opened_at && order.products?.external_link)}
+                  />
+                )}
               </div>
             </div>
           ))}
@@ -55,6 +61,8 @@ export default async function DashboardPage() {
       ) : (
         <p className="text-ink/50">No orders yet. Head to the shop to get started.</p>
       )}
+
+      <FeedbackForm />
     </div>
   );
 }

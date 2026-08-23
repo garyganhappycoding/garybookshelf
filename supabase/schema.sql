@@ -88,7 +88,8 @@ create table if not exists public.orders (
   status text default 'pending_verification' check (status in ('pending_verification', 'completed', 'rejected')),
   reject_reason text,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null,
-  reviewed_at timestamp with time zone
+  reviewed_at timestamp with time zone,
+  link_opened_at timestamp with time zone -- when a link-based delivery (e.g. Telegram group) was first opened
 );
 
 alter table public.orders enable row level security;
@@ -104,6 +105,25 @@ create policy "orders: customers can create own orders"
 create policy "orders: admin can update orders"
   on public.orders for update
   using (public.is_admin());
+
+
+-- 3b. FEEDBACK --------------------------------------------------------
+create table if not exists public.feedback (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references public.profiles(id) on delete cascade not null,
+  message text not null,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+alter table public.feedback enable row level security;
+
+create policy "feedback: users can insert own feedback"
+  on public.feedback for insert
+  with check (auth.uid() = user_id);
+
+create policy "feedback: users can view own feedback"
+  on public.feedback for select
+  using (auth.uid() = user_id or public.is_admin());
 
 
 -- 4. STORAGE BUCKETS --------------------------------------------------
