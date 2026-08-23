@@ -1,7 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
-import FeedbackForm from "@/components/FeedbackForm";
 
 const statusLabel: Record<string, string> = {
   pending_verification: "Pending verification",
@@ -61,8 +60,6 @@ export default async function DashboardPage() {
       ) : (
         <p className="text-ink/50">No orders yet. Head to the shop to get started.</p>
       )}
-
-      <FeedbackForm />
     </div>
   );
 }

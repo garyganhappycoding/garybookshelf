@@ -2,9 +2,14 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import ProductCard from "@/components/ProductCard";
 import ResourceCategoryAccordion from "@/components/ResourceCategoryAccordion";
+import FeedbackForm from "@/components/FeedbackForm";
 
 export default async function HomePage() {
   const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   const { data: resources } = await supabase
     .from("resources")
@@ -124,6 +129,13 @@ export default async function HomePage() {
           and websites. This site is where my notes, free resources, and projects
           all live in one place.
         </p>
+      </section>
+
+      {/* FEEDBACK */}
+      <section className="bg-white border-y border-ink/10">
+        <div className="max-w-3xl mx-auto px-5 py-16">
+          <FeedbackForm loggedIn={!!user} />
+        </div>
       </section>
     </div>
   );
