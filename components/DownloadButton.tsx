@@ -14,13 +14,24 @@ export default function DownloadButton({
   const [opened, setOpened] = useState(initiallyOpened);
 
   async function handleClick() {
+    // Open a blank tab immediately, synchronously, while still inside the
+    // click event, so browsers don't block it as a popup. Fill in the real
+    // URL once we have it from the server.
+    const newWindow = window.open("", "_blank");
+
     setLoading(true);
     const result = await getDownloadUrl(orderId);
     setLoading(false);
+
     if (result.url) {
-      window.open(result.url, "_blank");
+      if (newWindow) {
+        newWindow.location.href = result.url;
+      } else {
+        window.location.href = result.url;
+      }
       if (result.isLink) setOpened(true);
     } else {
+      newWindow?.close();
       alert(result.error || "Something went wrong.");
     }
   }

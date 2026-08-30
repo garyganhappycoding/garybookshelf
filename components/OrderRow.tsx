@@ -20,6 +20,11 @@ export default function OrderRow({ order }: { order: any }) {
     if (result.url) setReceiptUrl(result.url);
   }
 
+  // Only meaningful for completed orders on products delivered via an
+  // external link (e.g. Telegram) — file-based products don't track this.
+  const tracksLinkOpen = order.status === "completed" && Boolean(order.products?.external_link);
+  const hasOpenedLink = Boolean(order.link_opened_at);
+
   return (
     <div className="card">
       <div className="flex items-center justify-between mb-2">
@@ -29,9 +34,25 @@ export default function OrderRow({ order }: { order: any }) {
             {order.profiles?.email} &middot; RM {Number(order.amount_paid).toFixed(2)}
           </p>
         </div>
-        <span className={`text-xs px-3 py-1 rounded-full font-medium ${statusColor[order.status]}`}>
-          {order.status.replace("_", " ")}
-        </span>
+        <div className="flex items-center gap-2">
+          {tracksLinkOpen && (
+            <span
+              className={`text-xs px-3 py-1 rounded-full font-medium ${
+                hasOpenedLink ? "text-sage-600 bg-sage-400/15" : "text-ink/50 bg-ink/5"
+              }`}
+              title={
+                hasOpenedLink && order.link_opened_at
+                  ? new Date(order.link_opened_at).toLocaleString()
+                  : "Buyer hasn't clicked Download yet"
+              }
+            >
+              {hasOpenedLink ? "Link opened" : "Not opened yet"}
+            </span>
+          )}
+          <span className={`text-xs px-3 py-1 rounded-full font-medium ${statusColor[order.status]}`}>
+            {order.status.replace("_", " ")}
+          </span>
+        </div>
       </div>
 
       {receiptUrl ? (
