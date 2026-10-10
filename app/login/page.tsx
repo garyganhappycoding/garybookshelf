@@ -24,6 +24,9 @@ export default async function LoginPage({
           <p className="text-sm text-red-600">{params.error}</p>
         )}
         <button type="submit" className="btn-primary w-full">Log in</button>
+        <p className="text-sm text-right">
+          <Link href="/forgot-password" className="text-clay-600">Forgot password?</Link>
+        </p>
       </form>
       <p className="text-sm text-ink/60 mt-4">
         No account yet?{" "}
