@@ -3,6 +3,7 @@ import { Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Analytics } from '@vercel/analytics/next';
 
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 const hand = Caveat({ subsets: ["latin"], variable: "--font-hand", weight: ["500", "700"] });
@@ -23,6 +24,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
