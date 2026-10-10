@@ -30,6 +30,9 @@ export default async function Header() {
           <Link href="/#resources" className="hover:text-clay-600">
             Free resources
           </Link>
+          <Link href="/speaking" className="hover:text-clay-600">
+            Speaking
+          </Link>
           <Link href="/shop" className="hover:text-clay-600">
             Shop
           </Link>
