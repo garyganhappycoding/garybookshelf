@@ -39,6 +39,10 @@ export default async function AdminPage() {
           <p className="font-medium mb-1">Feedback</p>
           <p className="text-sm text-ink/60">See what customers are saying</p>
         </Link>
+        <Link href="/admin/speaking" className="card block hover:border-clay-400">
+          <p className="font-medium mb-1">Speaking</p>
+          <p className="text-sm text-ink/60">Usage, scores and why attempts fail</p>
+        </Link>
       </div>
     </div>
   );

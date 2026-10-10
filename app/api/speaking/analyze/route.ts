@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getCard } from "@/lib/speaking/cards";
+import type { FailReason } from "@/lib/speaking/fail-reasons";
 import {
   BAND_MAX,
   buildMessages,
@@ -20,6 +21,34 @@ const MAX_AUDIO_BYTES = 6 * 1024 * 1024;
 const MAX_SECONDS = 150; // 2 minutes + a little slack
 const MIN_WORDS = 25;
 const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
+const FALLBACK_MODEL = "openai/gpt-oss-20b"; // separate rate limits; used when the main model is busy
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+// Retry once on rate limit / server error, then fall back to the smaller model.
+async function callGrok(apiKey: string, messages: unknown): Promise<Response> {
+  let res: Response | null = null;
+  for (const model of [MODEL, MODEL, FALLBACK_MODEL]) {
+    if (res) {
+      const wait = Math.min(Number(res.headers.get("retry-after")) || 2, 5);
+      await sleep(wait * 1000);
+    }
+    res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model,
+        messages,
+        temperature: 0.2,
+        reasoning_effort: "low",
+        response_format: { type: "json_schema", json_schema: { name: "speaking_feedback", schema: resultSchema, strict: true } },
+      }),
+    });
+    if (res.ok || (res.status !== 429 && res.status < 500)) return res;
+    console.warn("grok busy", model, res.status);
+  }
+  return res!;
+}
 
 const err = (message: string, status: number, extra: Record<string, unknown> = {}) =>
   NextResponse.json({ error: message, ...extra }, { status });
@@ -57,8 +86,19 @@ export async function POST(req: Request) {
   if (!attemptId) return err("You've used your 2 attempts for today. Come back tomorrow!", 429, { attemptsLeft: 0 });
 
   const admin = createAdminClient();
-  const fail = async (message: string, status: number) => {
-    await admin.from("speaking_attempts").update({ status: "failed" }).eq("id", attemptId); // refunds the attempt
+  const meta: { duration_sec?: number; word_count?: number } = {};
+  // `reason` is stored so the admin page can show WHY it failed (see FAIL_REASONS in lib/speaking/fail-reasons.ts)
+  const fail = async (reason: FailReason, message: string, status: number, detail?: string) => {
+    await admin
+      .from("speaking_attempts")
+      .update({
+        status: "failed", // refunds the attempt
+        fail_reason: reason,
+        fail_detail: detail?.slice(0, 500),
+        audio_bytes: audio.size,
+        ...meta,
+      })
+      .eq("id", attemptId);
     const { data: left } = await supabase.rpc("speaking_attempts_left", { p_limit: DAILY_LIMIT });
     return err(message, status, { attemptsLeft: left ?? undefined });
   };
@@ -80,36 +120,48 @@ export async function POST(req: Request) {
       body: stt,
     });
     if (!sttRes.ok) {
-      console.error("stt failed", sttRes.status, await sttRes.text());
-      return fail("We couldn't transcribe that recording. You were not charged an attempt.", 502);
+      const body = await sttRes.text();
+      console.error("stt failed", sttRes.status, body);
+      return fail("stt_error", "We couldn't transcribe that recording. You were not charged an attempt.", 502, `${sttRes.status} ${body}`);
     }
     const sttJson = (await sttRes.json()) as { text?: string; duration?: number; words?: { word: string; start: number; end: number }[] };
     const transcript = (sttJson.text ?? "").trim();
     const words: SttWord[] = (sttJson.words ?? []).map((w) => ({ text: w.word, start: w.start, end: w.end }));
     const duration = sttJson.duration ?? (words.length ? words[words.length - 1].end : 0);
 
-    if (duration > MAX_SECONDS) return fail("Recording is longer than 2 minutes.", 400);
-    if (transcript.split(/\s+/).filter(Boolean).length < MIN_WORDS)
-      return fail("We couldn't hear enough speech to mark. Check your microphone and try again. You were not charged an attempt.", 422);
+    const wordCount = transcript.split(/\s+/).filter(Boolean).length;
+    meta.duration_sec = Math.round(duration * 10) / 10;
+    meta.word_count = wordCount;
+
+    if (duration > MAX_SECONDS) return fail("too_long", "Recording is longer than 2 minutes.", 400);
+    if (wordCount < MIN_WORDS)
+      return fail(
+        duration < 20 ? "stopped_early" : "too_little_speech",
+        "We couldn't hear enough speech to mark. Check your microphone and try again. You were not charged an attempt.",
+        422,
+        `${wordCount} words in ${meta.duration_sec}s`
+      );
 
     // 5. fluency stats + Grok marking against the rubric
     const stats = computeStats(transcript, words, duration);
-    const aiRes = await fetch("https://api.groq.com/openai/v1/chat/completions", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: MODEL,
-        messages: buildMessages(card, transcript, stats),
-        temperature: 0.2,
-        response_format: { type: "json_schema", json_schema: { name: "speaking_feedback", schema: resultSchema, strict: true } },
-      }),
-    });
+    const aiRes = await callGrok(apiKey, buildMessages(card, transcript, stats));
     if (!aiRes.ok) {
-      console.error("grok failed", aiRes.status, await aiRes.text());
-      return fail("The marking service is busy. You were not charged an attempt. Please try again.", 502);
+      const body = await aiRes.text();
+      console.error("grok failed", aiRes.status, body);
+      return fail(
+        aiRes.status === 429 ? "ai_busy" : "ai_error",
+        "The marking service is busy. You were not charged an attempt. Please try again.",
+        502,
+        `${aiRes.status} ${body}`
+      );
     }
     const aiJson = await aiRes.json();
-    const result = JSON.parse(aiJson.choices[0].message.content) as SpeakingResult;
+    let result: SpeakingResult;
+    try {
+      result = JSON.parse(aiJson.choices[0].message.content) as SpeakingResult;
+    } catch {
+      return fail("ai_error", "The marking service gave an unreadable answer. You were not charged an attempt. Please try again.", 502, "invalid JSON from model");
+    }
 
     // clamp bands, round to half bands
     let total = 0;
@@ -121,7 +173,7 @@ export async function POST(req: Request) {
     // 6. save (transcript + feedback only, never the audio)
     await admin
       .from("speaking_attempts")
-      .update({ status: "done", total_score: total, result: { transcript, stats, result } })
+      .update({ status: "done", total_score: total, result: { transcript, stats, result }, audio_bytes: audio.size, ...meta })
       .eq("id", attemptId);
 
     const { data: left } = await supabase.rpc("speaking_attempts_left", { p_limit: DAILY_LIMIT });
@@ -129,6 +181,6 @@ export async function POST(req: Request) {
     return NextResponse.json(body);
   } catch (e) {
     console.error("speaking analyze error", e);
-    return fail("Something went wrong. You were not charged an attempt.", 500);
+    return fail("server_error", "Something went wrong. You were not charged an attempt.", 500, e instanceof Error ? e.message : String(e));
   }
 }
