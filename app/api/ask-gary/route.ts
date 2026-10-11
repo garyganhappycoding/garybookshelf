@@ -9,7 +9,7 @@ import { getKey } from "@/lib/ask-gary/llm";
 export const runtime = "nodejs";
 export const maxDuration = 60;
 
-import { DAILY_LIMIT } from "@/lib/ask-gary/config";
+import { ASK_GARY_OPEN, DAILY_LIMIT } from "@/lib/ask-gary/config";
 
 const EFFORT_TEXT: Record<string, string> = {
   none: "has not started studying yet",
@@ -59,6 +59,7 @@ export async function POST(req: Request) {
 
   const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).single();
   const isAdmin = profile?.role === "admin";
+  if (!ASK_GARY_OPEN && !isAdmin) return NextResponse.json({ error: "Ask Gary is coming soon." }, { status: 403 });
   const drafts = isAdmin && body.drafts === true; // only the admin can test with unapproved entries
 
   const conversationId = typeof body.conversationId === "string" ? body.conversationId : null;
