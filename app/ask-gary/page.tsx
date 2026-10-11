@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DAILY_LIMIT } from "@/lib/ask-gary/config";
 
 export const metadata = { title: "Ask Gary · Gary's Bookshelf" };
 
@@ -14,6 +15,7 @@ export default function AskGaryPage() {
         like his reels and notes.
       </p>
       <p className="text-ink/70 leading-7 mb-8">We're still putting everything together. Check back soon!</p>
+      <p className="text-sm text-ink/60 mb-8 -mt-4">When it opens, each member can ask {DAILY_LIMIT} questions per day.</p>
       <div className="flex justify-center gap-3">
         <Link href="/#resources" className="btn-primary">Free resources</Link>
         <Link href="/speaking" className="btn-secondary">Try Speaking practice</Link>

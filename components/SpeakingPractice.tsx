@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { cards, themes, getTheme, type Card, type Theme } from "@/lib/speaking/cards";
 import { BAND_MAX, criteriaInfo, type AnalysisResponse, type CriterionKey } from "@/lib/speaking/analyze";
 
@@ -338,7 +339,7 @@ function HighlightedTranscript({ data }: { data: AnalysisResponse }) {
   );
 }
 
-function Result({ data, card, onAgain, onThemes, canRetry }: { data: AnalysisResponse; card: Card; onAgain: () => void; onThemes: () => void; canRetry: boolean }) {
+export function Result({ data, card, onAgain, onThemes, canRetry }: { data: AnalysisResponse; card: Card; onAgain?: () => void; onThemes?: () => void; canRetry?: boolean }) {
   const { result, stats, total } = data;
   const keys = Object.keys(criteriaInfo) as CriterionKey[];
   return (
@@ -445,10 +446,13 @@ function Result({ data, card, onAgain, onThemes, canRetry }: { data: AnalysisRes
         <b>Part 3 practice:</b> now explain your opinion about the last bullet point out loud, with a reason and an example, for another minute.
       </div>
 
-      <div className="flex flex-wrap gap-3">
-        <button className="btn-primary" disabled={!canRetry} onClick={onAgain}>Try this question again</button>
-        <button className="btn-secondary" onClick={onThemes}>Choose another theme</button>
-      </div>
+      {onAgain && onThemes && (
+        <div className="flex flex-wrap gap-3">
+          <button className="btn-primary" disabled={!canRetry} onClick={onAgain}>Try this question again</button>
+          <button className="btn-secondary" onClick={onThemes}>Choose another theme</button>
+          <Link href="/speaking/history" className="btn-secondary">My history</Link>
+        </div>
+      )}
     </div>
   );
 }

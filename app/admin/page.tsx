@@ -43,6 +43,10 @@ export default async function AdminPage() {
           <p className="font-medium mb-1">Speaking</p>
           <p className="text-sm text-ink/60">Usage, scores and why attempts fail</p>
         </Link>
+        <Link href="/admin/ask-gary" className="card block hover:border-clay-400">
+          <p className="font-medium mb-1">Ask Gary</p>
+          <p className="text-sm text-ink/60">Student questions and Gary's inbox</p>
+        </Link>
       </div>
     </div>
   );

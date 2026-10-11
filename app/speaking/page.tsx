@@ -18,7 +18,10 @@ export default async function SpeakingPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-14">
-      <h1 className="font-hand text-4xl text-clay-700 mb-1">Speaking practice</h1>
+      <div className="flex items-start justify-between gap-3">
+        <h1 className="font-hand text-4xl text-clay-700 mb-1">Speaking practice</h1>
+        {user && <Link href="/speaking/history" className="btn-secondary !py-1.5 shrink-0">My history</Link>}
+      </div>
       <p className="text-ink/70 mb-8">
         Pick a theme, get a Part 2 question, speak for 2 minutes and get AI feedback based on the four speaking criteria.
       </p>
