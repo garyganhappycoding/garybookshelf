@@ -7,24 +7,21 @@ import FeedbackForm from "@/components/FeedbackForm";
 export default async function HomePage() {
   const supabase = await createClient();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  const { data: resources } = await supabase
-    .from("resources")
-    .select("*")
-    .order("created_at", { ascending: false });
+  // run the three database calls at the same time, not one after another
+  const [
+    {
+      data: { user },
+    },
+    { data: resources },
+    { data: products },
+  ] = await Promise.all([
+    supabase.auth.getUser(),
+    supabase.from("resources").select("*").order("created_at", { ascending: false }),
+    supabase.from("products").select("*").eq("is_published", true).order("created_at", { ascending: false }).limit(3),
+  ]);
 
   const contentHub = resources?.filter((r) => r.type === "content_hub") || [];
   const freeResources = resources?.filter((r) => r.type === "free_resource") || [];
-
-  const { data: products } = await supabase
-    .from("products")
-    .select("*")
-    .eq("is_published", true)
-    .order("created_at", { ascending: false })
-    .limit(3);
 
   return (
     <div>
