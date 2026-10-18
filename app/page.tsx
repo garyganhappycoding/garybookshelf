@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, getCurrentUser } from "@/lib/supabase/server";
 import ProductCard from "@/components/ProductCard";
 import ResourceCategoryAccordion from "@/components/ResourceCategoryAccordion";
 import FeedbackForm from "@/components/FeedbackForm";
@@ -9,13 +9,11 @@ export default async function HomePage() {
 
   // run the three database calls at the same time, not one after another
   const [
-    {
-      data: { user },
-    },
+    user,
     { data: resources },
     { data: products },
   ] = await Promise.all([
-    supabase.auth.getUser(),
+    getCurrentUser(),
     supabase.from("resources").select("*").order("created_at", { ascending: false }),
     supabase.from("products").select("*").eq("is_published", true).order("created_at", { ascending: false }).limit(3),
   ]);

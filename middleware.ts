@@ -28,8 +28,10 @@ export async function middleware(request: NextRequest) {
     }
   );
 
-  // refreshes the session cookie if it's expired -- required for Server Components
-  await supabase.auth.getUser();
+  // refreshes the session cookie if it's expired -- required for Server Components.
+  // getSession() reads the cookie locally (no network call unless a refresh is
+  // needed); pages and actions still verify with getUser() where it matters.
+  await supabase.auth.getSession();
 
   return response;
 }
