@@ -12,12 +12,14 @@ const statusColor: Record<string, string> = {
 export default function OrderRow({ order }: { order: any }) {
   const [isPending, startTransition] = useTransition();
   const [receiptUrl, setReceiptUrl] = useState<string | null>(null);
+  const [receiptGone, setReceiptGone] = useState(false);
   const [showReject, setShowReject] = useState(false);
   const [reason, setReason] = useState("");
 
   async function handleViewReceipt() {
     const result = await getReceiptUrl(order.receipt_path);
     if (result.url) setReceiptUrl(result.url);
+    else setReceiptGone(true);
   }
 
   // Only meaningful for completed orders on products delivered via an
@@ -58,6 +60,8 @@ export default function OrderRow({ order }: { order: any }) {
       {receiptUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={receiptUrl} alt="Payment receipt" className="max-h-64 rounded-lg border border-ink/10 mb-3" />
+      ) : receiptGone ? (
+        <p className="text-sm text-ink/50 mb-3">Receipt deleted (receipts are removed 30 days after the order).</p>
       ) : (
         <button onClick={handleViewReceipt} className="text-sm text-clay-600 font-medium mb-3">
           View receipt &rarr;
