@@ -55,8 +55,11 @@ async function callGrok(targets: Target[], messages: unknown): Promise<{ res: Re
         response_format: { type: "json_schema", json_schema: { name: "speaking_feedback", schema: resultSchema, strict: true } },
       }),
     });
-    if (res.ok || (res.status !== 429 && res.status < 500)) return { res, model: used };
-    console.warn("grok busy", t.url, t.model, res.status);
+    // A model that returns JSON missing required fields answers 400 "failed_generation". That is a one-off
+    // bad answer, not a bad request, so try again / try the next model like a busy error.
+    const badJson = res.status === 400 && (await res.clone().text()).includes("failed_generation");
+    if (res.ok || (res.status !== 429 && res.status < 500 && !badJson)) return { res, model: used };
+    console.warn("grok busy or bad json", t.url, t.model, res.status);
   }
   return { res: res!, model: used };
 }

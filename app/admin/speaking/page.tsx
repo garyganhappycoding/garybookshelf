@@ -16,6 +16,7 @@ type Row = {
   fail_detail: string | null;
   duration_sec: number | null;
   word_count: number | null;
+  pack_id: string | null;
   created_at: string;
 };
 
@@ -36,13 +37,21 @@ export default async function AdminSpeakingPage() {
   const admin = createAdminClient();
   const { data } = await admin
     .from("speaking_attempts")
-    .select("id,user_id,card_id,status,total_score,fail_reason,fail_detail,duration_sec,word_count,created_at")
+    .select("id,user_id,card_id,status,total_score,fail_reason,fail_detail,duration_sec,word_count,pack_id,created_at")
     .order("created_at", { ascending: false })
     .limit(2000);
   const rows = (data ?? []) as Row[];
 
   const { data: profiles } = await admin.from("profiles").select("id,email");
   const email = new Map((profiles ?? []).map((p: any) => [p.id, p.email as string]));
+
+  // Paid = the student has bought a Speaking pack. "active" = a pack that has not expired yet.
+  const { data: packs } = await admin.from("speaking_packs").select("user_id,expires_at");
+  const plan = new Map<string, "active" | "expired">();
+  for (const p of packs ?? []) {
+    const active = new Date(p.expires_at).getTime() > Date.now();
+    if (active || !plan.has(p.user_id)) plan.set(p.user_id, active ? "active" : "expired");
+  }
 
   const today = myDay(new Date());
   const weekAgo = Date.now() - 7 * 86400_000;
@@ -169,6 +178,7 @@ export default async function AdminSpeakingPage() {
             <tr>
               <th className="pb-2">When</th>
               <th>Student</th>
+              <th>Plan</th>
               <th>Question</th>
               <th>Result</th>
               <th>Speech</th>
@@ -181,6 +191,16 @@ export default async function AdminSpeakingPage() {
                   {new Date(r.created_at).toLocaleString("en-GB", { timeZone: "Asia/Kuala_Lumpur", dateStyle: "short", timeStyle: "short" })}
                 </td>
                 <td className="pr-3">{email.get(r.user_id) ?? "?"}</td>
+                <td className="pr-3 whitespace-nowrap">
+                  {plan.get(r.user_id) === "active" ? (
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-sage-400/20 text-sage-600 font-medium">Paid</span>
+                  ) : plan.get(r.user_id) === "expired" ? (
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-medium">Paid (expired)</span>
+                  ) : (
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-ink/10 text-ink/70">Free</span>
+                  )}
+                  {r.pack_id && <p className="text-xs text-ink/50 mt-0.5">used a pack attempt</p>}
+                </td>
                 <td className="pr-3">{getCard(r.card_id)?.title ?? r.card_id}</td>
                 <td className="pr-3">
                   {r.status === "done" ? (
