@@ -14,7 +14,18 @@ export default async function SpeakingPage() {
   let retry: { id: string; cardId: string } | null = null;
   let packLeft = 0;
   let packExpiry: string | null = null;
+  let packHref = "/shop";
   if (user) {
+    // send students straight to the pack's page instead of the whole shop
+    const { data: packProduct } = await supabase
+      .from("products")
+      .select("id")
+      .not("speaking_pack_attempts", "is", null)
+      .eq("is_published", true)
+      .order("price_myr", { ascending: true })
+      .limit(1)
+      .maybeSingle();
+    if (packProduct) packHref = `/shop/${packProduct.id}`;
     // the attempts left and the newest re-markable failed recording (saved for 24h) are independent
     const since = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
     const [{ data }, { data: pack }, { data: lastFailed }] = await Promise.all([
@@ -51,7 +62,7 @@ export default async function SpeakingPage() {
       </p>
 
       {user ? (
-        <SpeakingPractice initialAttemptsLeft={attemptsLeft} initialPackLeft={packLeft} packExpiry={packExpiry} initialRetry={retry} />
+        <SpeakingPractice initialAttemptsLeft={attemptsLeft} initialPackLeft={packLeft} packExpiry={packExpiry} packHref={packHref} initialRetry={retry} />
       ) : (
         <div className="card text-center max-w-md mx-auto">
           <p className="text-4xl mb-3">🔒</p>

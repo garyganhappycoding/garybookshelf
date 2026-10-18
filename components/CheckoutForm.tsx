@@ -32,7 +32,7 @@ export default function CheckoutForm({
       <div className="card">
         <p className="font-medium mb-1">Order submitted</p>
         <p className="text-sm text-ink/60">
-          I'll check your receipt and email your download link once it's approved.
+          I'll check your receipt and email you once it's approved.
           You can track the status on{" "}
           <Link href="/dashboard" className="text-clay-600 font-medium">
             your dashboard

@@ -26,11 +26,13 @@ export default function SpeakingPractice({
   initialAttemptsLeft,
   initialPackLeft = 0,
   packExpiry = null,
+  packHref = "/shop",
   initialRetry = null,
 }: {
   initialAttemptsLeft: number;
   initialPackLeft?: number;
   packExpiry?: string | null;
+  packHref?: string;
   initialRetry?: { id: string; cardId: string } | null;
 }) {
   const [packLeft, setPackLeft] = useState(initialPackLeft);
@@ -284,7 +286,7 @@ export default function SpeakingPractice({
             {attemptsLeft + packLeft <= 0 && (
               <p className="mt-3 text-sm text-ink/60">
                 You've used today's 2 free attempts. Come back tomorrow, or{" "}
-                <Link href="/shop" className="text-clay-600 underline">get a Speaking pack</Link> for more.
+                <Link href={packHref} className="text-clay-600 underline">get a Speaking pack</Link> for more.
               </p>
             )}
           </>
