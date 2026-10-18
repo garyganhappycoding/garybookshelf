@@ -249,5 +249,6 @@ export type AnalysisResponse = {
   stats: FluencyStats;
   result: SpeakingResult;
   total: number;
-  attemptsLeft: number;
+  attemptsLeft: number; // free attempts left today
+  packLeft?: number; // attempts left in a paid pack
 };

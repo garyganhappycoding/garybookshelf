@@ -106,13 +106,33 @@ export async function approveOrder(orderId: string) {
 
   const { data: order, error } = await supabase
     .from("orders")
-    .select("id, product_id, profiles(email), products(title, external_link)")
+    .select("id, user_id, product_id, status, profiles(email), products(title, external_link, speaking_pack_attempts)")
     .eq("id", orderId)
     .single();
 
   if (error || !order) return { error: "Order not found." };
 
   await supabase.from("orders").update({ status: "completed", reviewed_at: new Date().toISOString() }).eq("id", orderId);
+
+  // A Speaking pack gives the student extra attempts, valid for 30 days from approval.
+  // order_id is unique, so approving the same order twice cannot grant it twice.
+  const packAttempts: number | null = (order as any).products?.speaking_pack_attempts ?? null;
+  if (packAttempts) {
+    const admin = createAdminClient();
+    const { error: packErr } = await admin.from("speaking_packs").upsert(
+      {
+        user_id: order.user_id,
+        order_id: order.id,
+        attempts_total: packAttempts,
+        expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+      },
+      { onConflict: "order_id", ignoreDuplicates: true }
+    );
+    if (packErr) {
+      console.error("speaking pack grant failed", packErr);
+      return { error: "Order approved but the pack could not be added. Please add it manually." };
+    }
+  }
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
@@ -122,7 +142,12 @@ export async function approveOrder(orderId: string) {
     const customerEmail = (order as any).profiles?.email;
 
     if (customerEmail) {
-      const downloadSection = externalLink
+      const downloadSection = packAttempts
+        ? `<a href="${siteUrl}/speaking"
+             style="display: inline-block; background: #B85C38; color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 500; margin: 16px 0;">
+             Start speaking practice
+           </a>`
+        : externalLink
         ? `<a href="${externalLink}"
              style="display: inline-block; background: #B85C38; color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 500; margin: 16px 0;">
              Get my download
@@ -143,7 +168,7 @@ export async function approveOrder(orderId: string) {
             <p style="color: #3B2F26; line-height: 1.6;">Hi,</p>
             <p style="color: #3B2F26; line-height: 1.6;">
               Your payment for <strong>${productTitle}</strong> has been verified.
-              Your download is ready and waiting for you.
+              ${packAttempts ? `Your ${packAttempts} speaking attempts are ready and last 30 days.` : "Your download is ready and waiting for you."}
             </p>
             ${downloadSection}
             <p style="color: #3B2F26; line-height: 1.6; font-size: 14px;">

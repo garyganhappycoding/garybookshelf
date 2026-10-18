@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
 
@@ -24,7 +25,7 @@ export default async function DashboardPage() {
 
   const { data: orders } = await supabase
     .from("orders")
-    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, products(title, external_link)")
+    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, products(title, external_link, speaking_pack_attempts)")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
@@ -47,7 +48,12 @@ export default async function DashboardPage() {
                 <span className={`text-xs px-3 py-1 rounded-full font-medium ${statusColor[order.status]}`}>
                   {statusLabel[order.status]}
                 </span>
-                {order.status === "completed" && (
+                {order.status === "completed" && order.products?.speaking_pack_attempts && (
+                  <Link href="/speaking" className="btn-secondary !py-1.5">
+                    Open Speaking
+                  </Link>
+                )}
+                {order.status === "completed" && !order.products?.speaking_pack_attempts && (
                   <DownloadButton
                     orderId={order.id}
                     initiallyOpened={Boolean(order.link_opened_at && order.products?.external_link)}

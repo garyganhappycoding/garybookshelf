@@ -12,11 +12,14 @@ export default async function SpeakingPage() {
 
   let attemptsLeft = 2;
   let retry: { id: string; cardId: string } | null = null;
+  let packLeft = 0;
+  let packExpiry: string | null = null;
   if (user) {
     // the attempts left and the newest re-markable failed recording (saved for 24h) are independent
     const since = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
-    const [{ data }, { data: lastFailed }] = await Promise.all([
+    const [{ data }, { data: pack }, { data: lastFailed }] = await Promise.all([
       supabase.rpc("speaking_attempts_left", { p_limit: 2 }),
+      supabase.rpc("speaking_pack_status"),
       supabase
         .from("speaking_attempts")
         .select("id,card_id,created_at")
@@ -29,6 +32,11 @@ export default async function SpeakingPage() {
         .maybeSingle(),
     ]);
     if (typeof data === "number") attemptsLeft = data;
+    const p = Array.isArray(pack) ? pack[0] : pack;
+    if (p?.pack_left) {
+      packLeft = p.pack_left;
+      packExpiry = p.next_expiry;
+    }
     if (lastFailed) retry = { id: lastFailed.id, cardId: lastFailed.card_id };
   }
 
@@ -43,7 +51,7 @@ export default async function SpeakingPage() {
       </p>
 
       {user ? (
-        <SpeakingPractice initialAttemptsLeft={attemptsLeft} initialRetry={retry} />
+        <SpeakingPractice initialAttemptsLeft={attemptsLeft} initialPackLeft={packLeft} packExpiry={packExpiry} initialRetry={retry} />
       ) : (
         <div className="card text-center max-w-md mx-auto">
           <p className="text-4xl mb-3">🔒</p>

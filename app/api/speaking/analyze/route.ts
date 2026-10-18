@@ -66,6 +66,16 @@ export async function POST(req: Request) {
   } = await supabase.auth.getUser();
   if (!user) return err("Please log in to practise speaking.", 401);
 
+  // free attempts left today + attempts left in the student's paid pack
+  const counts = async () => {
+    const [{ data: left }, { data: pack }] = await Promise.all([
+      supabase.rpc("speaking_attempts_left", { p_limit: DAILY_LIMIT }),
+      supabase.rpc("speaking_pack_status"),
+    ]);
+    const p = Array.isArray(pack) ? pack[0] : pack;
+    return { attemptsLeft: (left as number | null) ?? 0, packLeft: (p?.pack_left as number | undefined) ?? 0 };
+  };
+
   // 2. read the form
   let form: FormData;
   try {
@@ -111,7 +121,8 @@ export async function POST(req: Request) {
     p_limit: DAILY_LIMIT,
   });
   if (claimErr) return err("Could not start the attempt. Please try again.", 500);
-  if (!attemptId) return err("You've used your 2 attempts for today. Come back tomorrow!", 429, { attemptsLeft: 0 });
+  if (!attemptId)
+    return err("You've used today's 2 free attempts. Get a Speaking pack for more, or come back tomorrow!", 429, { attemptsLeft: 0, packLeft: 0, needPack: true });
   // the saved transcript moves to the new attempt, so it can only be used once
   if (prevId) await admin.from("speaking_attempts").update({ result: null }).eq("id", prevId);
 
@@ -130,8 +141,7 @@ export async function POST(req: Request) {
         ...meta,
       })
       .eq("id", attemptId);
-    const { data: left } = await supabase.rpc("speaking_attempts_left", { p_limit: DAILY_LIMIT });
-    return err(message, status, { attemptsLeft: left ?? undefined, ...(keep ? { retryAttemptId: attemptId } : {}) });
+    return err(message, status, { ...(await counts()), ...(keep ? { retryAttemptId: attemptId } : {}) });
   };
 
   try {
@@ -226,8 +236,8 @@ export async function POST(req: Request) {
       .update({ status: "done", total_score: total, result: { transcript, stats, result }, audio_bytes: audioFile?.size, ...meta })
       .eq("id", attemptId);
 
-    const { data: left } = await supabase.rpc("speaking_attempts_left", { p_limit: DAILY_LIMIT });
-    const body: AnalysisResponse = { attemptId, transcript, stats, result, total, attemptsLeft: left ?? 0 };
+    const { attemptsLeft, packLeft } = await counts();
+    const body: AnalysisResponse = { attemptId, transcript, stats, result, total, attemptsLeft, packLeft };
     return NextResponse.json(body);
   } catch (e) {
     console.error("speaking analyze error", e);

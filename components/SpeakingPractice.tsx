@@ -24,11 +24,16 @@ function bandLabel(total: number) {
 
 export default function SpeakingPractice({
   initialAttemptsLeft,
+  initialPackLeft = 0,
+  packExpiry = null,
   initialRetry = null,
 }: {
   initialAttemptsLeft: number;
+  initialPackLeft?: number;
+  packExpiry?: string | null;
   initialRetry?: { id: string; cardId: string } | null;
 }) {
+  const [packLeft, setPackLeft] = useState(initialPackLeft);
   const [retry, setRetry] = useState<{ id: string; cardId: string } | null>(initialRetry);
   const [ack, setAck] = useState(false);
   const [stage, setStage] = useState<Stage>("themes");
@@ -140,6 +145,7 @@ export default function SpeakingPractice({
       const json = await res.json();
       if (!res.ok) {
         if (typeof json.attemptsLeft === "number") setAttemptsLeft(json.attemptsLeft);
+        if (typeof json.packLeft === "number") setPackLeft(json.packLeft);
         // the server saved the transcript: offer a free re-mark
         if (json.retryAttemptId && cardRef.current) setRetry({ id: json.retryAttemptId, cardId: cardRef.current.id });
         else if (res.status === 410) setRetry(null);
@@ -150,6 +156,7 @@ export default function SpeakingPractice({
       setRetry(null);
       setData(json);
       setAttemptsLeft(json.attemptsLeft);
+      if (typeof json.packLeft === "number") setPackLeft(json.packLeft);
       setStage("result");
     } catch {
       setError("Network problem. Please check your connection and try again.");
@@ -188,7 +195,7 @@ export default function SpeakingPractice({
             pronunciation is judged only from how smoothly you speak (pauses, fillers). Ask your teacher for pronunciation feedback.
           </li>
           <li>This practises <b>Part 2</b> (individual long turn). For Part 3, answer the discussion questions yourself out loud.</li>
-          <li>You get <b>2 attempts per day</b>. Your recording is not stored, only the transcript and feedback.</li>
+          <li>You get <b>2 free attempts per day</b>. Need more? A Speaking pack adds extra attempts. Your recording is not stored, only the transcript and feedback.</li>
         </ul>
         <button className="btn-primary" onClick={() => setAck(true)}>
           I understand, let's practise
@@ -202,7 +209,15 @@ export default function SpeakingPractice({
     <>
     {showRetry && retryBanner}
     <div className="flex items-center justify-between mb-6 text-sm">
-      <span className="text-ink/60">Attempts left today: <b className="text-ink">{attemptsLeft} / 2</b></span>
+      <span className="text-ink/60">
+        Free attempts left today: <b className="text-ink">{attemptsLeft} / 2</b>
+        {(packLeft > 0 || packExpiry) && (
+          <>
+            {" "}· Pack attempts: <b className="text-ink">{packLeft}</b>
+            {packExpiry && packLeft > 0 && ` (until ${new Date(packExpiry).toLocaleDateString("en-MY", { day: "numeric", month: "short" })})`}
+          </>
+        )}
+      </span>
       {stage !== "themes" && stage !== "prep" && stage !== "recording" && stage !== "analyzing" && (
         <button onClick={reset} className="text-clay-600 hover:underline">← All themes</button>
       )}
@@ -261,12 +276,17 @@ export default function SpeakingPractice({
             {showIdeas && <IdeasBank theme={t} />}
             {error && <p className="mt-4 text-sm text-red-600 bg-red-50 rounded-xl p-3">{error}</p>}
             <div className="mt-6 flex flex-wrap gap-3">
-              <button className="btn-primary" disabled={attemptsLeft <= 0} onClick={beginPrep}>
+              <button className="btn-primary" disabled={attemptsLeft + packLeft <= 0} onClick={beginPrep}>
                 ▶ Start ({PREP_SECONDS}s prep, then {SPEAK_SECONDS / 60} min speaking)
               </button>
               <button className="btn-secondary" onClick={() => setCard(null)}>Change question</button>
             </div>
-            {attemptsLeft <= 0 && <p className="mt-3 text-sm text-ink/60">You've used today's 2 attempts. Come back tomorrow!</p>}
+            {attemptsLeft + packLeft <= 0 && (
+              <p className="mt-3 text-sm text-ink/60">
+                You've used today's 2 free attempts. Come back tomorrow, or{" "}
+                <Link href="/shop" className="text-clay-600 underline">get a Speaking pack</Link> for more.
+              </p>
+            )}
           </>
         )}
         {stage === "prep" && (
@@ -308,7 +328,7 @@ export default function SpeakingPractice({
   if (stage === "result" && data && card) return (
     <>
       {header}
-      <Result data={data} card={card} onAgain={() => { setData(null); setStage("card"); }} onThemes={reset} canRetry={attemptsLeft > 0} />
+      <Result data={data} card={card} onAgain={() => { setData(null); setStage("card"); }} onThemes={reset} canRetry={attemptsLeft + packLeft > 0} />
     </>
   );
 
