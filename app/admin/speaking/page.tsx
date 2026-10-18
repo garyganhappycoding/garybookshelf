@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCard, getTheme } from "@/lib/speaking/cards";
 import { FAIL_REASONS, type FailReason } from "@/lib/speaking/fail-reasons";
@@ -13,10 +14,10 @@ type Row = {
   status: "pending" | "done" | "failed";
   total_score: number | null;
   fail_reason: FailReason | null;
-  fail_detail: string | null;
-  duration_sec: number | null;
-  word_count: number | null;
-  pack_id: string | null;
+  fail_detail?: string | null;
+  duration_sec?: number | null;
+  word_count?: number | null;
+  pack_id?: string | null;
   created_at: string;
 };
 
@@ -25,7 +26,10 @@ const myDay = (d: Date | string) =>
 
 const sideColor = { student: "bg-amber-100 text-amber-800", ai: "bg-red-100 text-red-700", server: "bg-ink/10 text-ink/70" };
 
-export default async function AdminSpeakingPage() {
+const PAGE_SIZE = 20;
+
+export default async function AdminSpeakingPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
+  const { page: pageParam } = await searchParams;
   const supabase = await createClient();
   const {
     data: { user },
@@ -35,14 +39,33 @@ export default async function AdminSpeakingPage() {
   if (profile?.role !== "admin") redirect("/");
 
   const admin = createAdminClient();
-  const { data } = await admin
+
+  // Totals and charts use EVERY attempt. The database returns at most 1000 rows per request, so read in pages.
+  const rows: Row[] = [];
+  for (let from = 0; from < 100000; from += 1000) {
+    const { data } = await admin
+      .from("speaking_attempts")
+      .select("id,user_id,card_id,status,total_score,fail_reason,created_at")
+      .order("created_at", { ascending: false })
+      .range(from, from + 999);
+    rows.push(...((data ?? []) as Row[]));
+    if (!data || data.length < 1000) break;
+  }
+
+  // The "Recent attempts" table shows PAGE_SIZE attempts per page, with all the details.
+  const totalAttempts = rows.length;
+  const totalPages = Math.max(1, Math.ceil(totalAttempts / PAGE_SIZE));
+  const page = Math.min(Math.max(1, parseInt(pageParam ?? "1", 10) || 1), totalPages);
+  const { data: pageData } = await admin
     .from("speaking_attempts")
     .select("id,user_id,card_id,status,total_score,fail_reason,fail_detail,duration_sec,word_count,pack_id,created_at")
     .order("created_at", { ascending: false })
-    .limit(2000);
-  const rows = (data ?? []) as Row[];
+    .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
+  const pageRows = (pageData ?? []) as Row[];
 
-  const { data: profiles } = await admin.from("profiles").select("id,email");
+  // only look up the emails of the students on this page (a plain select would stop at 1000 profiles)
+  const pageUserIds = [...new Set(pageRows.map((r) => r.user_id))];
+  const { data: profiles } = await admin.from("profiles").select("id,email").in("id", pageUserIds);
   const email = new Map((profiles ?? []).map((p: any) => [p.id, p.email as string]));
 
   // Paid = the student has bought a Speaking pack. "active" = a pack that has not expired yet.
@@ -171,8 +194,13 @@ export default async function AdminSpeakingPage() {
         </div>
       </section>
 
-      <section className="card overflow-x-auto">
-        <h2 className="font-medium mb-3">Recent attempts</h2>
+      <section id="recent" className="card overflow-x-auto scroll-mt-6">
+        <div className="flex items-baseline justify-between gap-3 mb-3">
+          <h2 className="font-medium">All attempts, newest first</h2>
+          <p className="text-xs text-ink/50">
+            {totalAttempts === 0 ? "0" : `${(page - 1) * PAGE_SIZE + 1}-${Math.min(page * PAGE_SIZE, totalAttempts)}`} of {totalAttempts.toLocaleString()}
+          </p>
+        </div>
         <table className="w-full text-sm">
           <thead className="text-left text-ink/50">
             <tr>
@@ -185,7 +213,7 @@ export default async function AdminSpeakingPage() {
             </tr>
           </thead>
           <tbody>
-            {rows.slice(0, 40).map((r) => (
+            {pageRows.map((r) => (
               <tr key={r.id} className="border-t border-ink/10 align-top">
                 <td className="py-2 pr-3 whitespace-nowrap">
                   {new Date(r.created_at).toLocaleString("en-GB", { timeZone: "Asia/Kuala_Lumpur", dateStyle: "short", timeStyle: "short" })}
@@ -217,8 +245,42 @@ export default async function AdminSpeakingPage() {
             ))}
           </tbody>
         </table>
+        <Pager page={page} totalPages={totalPages} />
       </section>
     </div>
+  );
+}
+
+// Previous / numbered pages / Next. Shows the first page, the last page and a few around the current one.
+function Pager({ page, totalPages }: { page: number; totalPages: number }) {
+  if (totalPages <= 1) return null;
+  const nums = new Set([1, totalPages, page - 2, page - 1, page, page + 1, page + 2].filter((n) => n >= 1 && n <= totalPages));
+  const list = [...nums].sort((a, b) => a - b);
+  const href = (n: number) => `/admin/speaking?page=${n}#recent`;
+  const base = "min-w-9 text-center px-3 py-1.5 rounded-lg border text-sm";
+  return (
+    <nav className="flex flex-wrap items-center justify-center gap-1.5 mt-5" aria-label="Pages">
+      {page > 1 ? (
+        <Link href={href(page - 1)} className={`${base} border-ink/15 hover:border-clay-400`}>← Previous</Link>
+      ) : (
+        <span className={`${base} border-transparent text-ink/30`}>← Previous</span>
+      )}
+      {list.map((n, i) => (
+        <span key={n} className="flex items-center gap-1.5">
+          {i > 0 && n - list[i - 1] > 1 && <span className="text-ink/40">…</span>}
+          {n === page ? (
+            <span className={`${base} border-clay-600 bg-clay-600 text-white font-medium`} aria-current="page">{n}</span>
+          ) : (
+            <Link href={href(n)} className={`${base} border-ink/15 hover:border-clay-400`}>{n}</Link>
+          )}
+        </span>
+      ))}
+      {page < totalPages ? (
+        <Link href={href(page + 1)} className={`${base} border-ink/15 hover:border-clay-400`}>Next →</Link>
+      ) : (
+        <span className={`${base} border-transparent text-ink/30`}>Next →</span>
+      )}
+    </nav>
   );
 }
 
