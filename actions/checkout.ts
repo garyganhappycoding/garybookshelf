@@ -2,6 +2,8 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import { after } from "next/server";
+import { notifyAdminTelegram } from "@/lib/telegram";
 
 export type CheckoutState = {
   error?: string;
@@ -58,6 +60,16 @@ export async function submitOrder(
   if (insertError) {
     return { error: `Could not create order: ${insertError.message}` };
   }
+
+  // Tell Gary on Telegram (text only: the receipt image stays in Supabase and is deleted after 30 days).
+  // after() runs once the response is sent, so the student isn't kept waiting.
+  const { data: product } = await supabase.from("products").select("title").eq("id", productId).maybeSingle();
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "";
+  after(() =>
+    notifyAdminTelegram(
+      `🧾 New order to review\n${product?.title ?? "A product"}\nRM ${amountPaid.toFixed(2)} from ${user.email ?? "a student"}\n${siteUrl}/admin/orders`
+    )
+  );
 
   revalidatePath("/dashboard");
   return { success: true };
