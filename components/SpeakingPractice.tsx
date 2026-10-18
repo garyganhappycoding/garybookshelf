@@ -46,6 +46,8 @@ export default function SpeakingPractice({
   const [seconds, setSeconds] = useState(0);
   const [error, setError] = useState<string | null>(null);
   const [data, setData] = useState<AnalysisResponse | null>(null);
+  // The student's own recording, kept only in this browser tab so they can listen back. It is never uploaded again or stored.
+  const [audioUrl, setAudioUrl] = useState<string | null>(null);
 
   const recorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
@@ -68,6 +70,10 @@ export default function SpeakingPractice({
   }, [seconds, stage]);
 
   useEffect(() => () => stream.current?.getTracks().forEach((t) => t.stop()), []);
+  // free the recording from memory when the student leaves the page
+  const audioUrlRef = useRef<string | null>(null);
+  audioUrlRef.current = audioUrl;
+  useEffect(() => () => { if (audioUrlRef.current) URL.revokeObjectURL(audioUrlRef.current); }, []);
 
   function pickTheme(t: Theme) {
     setTheme(t);
@@ -120,9 +126,14 @@ export default function SpeakingPractice({
     stream.current?.getTracks().forEach((t) => t.stop());
     stream.current = null;
     const ext = mimeType.includes("mp4") ? "m4a" : mimeType.includes("ogg") ? "ogg" : "webm";
+    const blob = new Blob(chunks.current, { type: mimeType });
+    setAudioUrl((old) => {
+      if (old) URL.revokeObjectURL(old);
+      return URL.createObjectURL(blob);
+    });
     const form = new FormData();
     form.append("cardId", cardRef.current!.id);
-    form.append("audio", new Blob(chunks.current, { type: mimeType }), `speech.${ext}`);
+    form.append("audio", blob, `speech.${ext}`);
     await send(form);
   }
 
@@ -172,10 +183,20 @@ export default function SpeakingPractice({
         <b>Your last recording is saved.</b> The AI was busy, so it wasn't marked. Mark it now without speaking again.
       </span>
       <button className="btn-primary !py-1.5" onClick={retryMarking}>Mark my last recording</button>
+      {audioUrl && (
+        <div className="basis-full">
+          <p className="text-xs text-ink/60 mb-1">Listen to it first:</p>
+          <PlaybackPlayer url={audioUrl} />
+        </div>
+      )}
     </div>
   );
 
   function reset() {
+    setAudioUrl((old) => {
+      if (old) URL.revokeObjectURL(old);
+      return null;
+    });
     setData(null);
     setStage("themes");
     setTheme(null);
@@ -197,7 +218,7 @@ export default function SpeakingPractice({
             pronunciation is judged only from how smoothly you speak (pauses, fillers). Ask your teacher for pronunciation feedback.
           </li>
           <li>This practises <b>Part 2</b> (individual long turn). For Part 3, answer the discussion questions yourself out loud.</li>
-          <li>You get <b>2 free attempts per day</b>. Need more? A Speaking pack adds extra attempts. Your recording is not stored, only the transcript and feedback.</li>
+          <li>You get <b>2 free attempts per day</b>. Need more? A Speaking pack adds extra attempts. Your recording is not stored by us, only the transcript and feedback. You can listen back to it on the result page until you leave.</li>
         </ul>
         <button className="btn-primary" onClick={() => setAck(true)}>
           I understand, let's practise
@@ -330,7 +351,7 @@ export default function SpeakingPractice({
   if (stage === "result" && data && card) return (
     <>
       {header}
-      <Result data={data} card={card} onAgain={() => { setData(null); setStage("card"); }} onThemes={reset} canRetry={attemptsLeft + packLeft > 0} />
+      <Result data={data} card={card} audioUrl={audioUrl} onAgain={() => { setData(null); setStage("card"); }} onThemes={reset} canRetry={attemptsLeft + packLeft > 0} />
     </>
   );
 
@@ -403,7 +424,27 @@ function HighlightedTranscript({ data }: { data: AnalysisResponse }) {
   );
 }
 
-export function Result({ data, card, onAgain, onThemes, canRetry }: { data: AnalysisResponse; card: Card; onAgain?: () => void; onThemes?: () => void; canRetry?: boolean }) {
+// Plays the student's own recording. Browsers record voice as WebM without a length, which breaks the seek bar,
+// so we nudge the player to work out the real duration.
+function PlaybackPlayer({ url }: { url: string }) {
+  return (
+    <audio
+      controls
+      preload="metadata"
+      src={url}
+      className="w-full"
+      onLoadedMetadata={(e) => {
+        const a = e.currentTarget;
+        if (a.duration === Infinity) {
+          a.currentTime = 1e101;
+          a.addEventListener("timeupdate", () => { a.currentTime = 0; }, { once: true });
+        }
+      }}
+    />
+  );
+}
+
+export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { data: AnalysisResponse; card: Card; audioUrl?: string | null; onAgain?: () => void; onThemes?: () => void; canRetry?: boolean }) {
   const { result, stats, total } = data;
   const keys = Object.keys(criteriaInfo) as CriterionKey[];
   return (
@@ -440,6 +481,16 @@ export function Result({ data, card, onAgain, onThemes, canRetry }: { data: Anal
           ))}
         </ul>
       </section>
+
+      {audioUrl && (
+        <section className="card">
+          <h3 className="font-medium mb-1">🎧 Listen to your recording</h3>
+          <p className="text-xs text-ink/60 mb-3">
+            It stays on your device only and disappears when you leave this page. Listen along with the transcript below to catch fillers and long pauses.
+          </p>
+          <PlaybackPlayer url={audioUrl} />
+        </section>
+      )}
 
       <section className="card">
         <h3 className="font-medium mb-1">Your transcript</h3>
