@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 
 export default function ProductGallery({ images, title }: { images: string[]; title: string }) {
   const [active, setActive] = useState(0);
@@ -37,8 +38,7 @@ export default function ProductGallery({ images, title }: { images: string[]; ti
         onTouchEnd={handleTouchEnd}
         onClick={() => setLightboxOpen(true)}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={images[active]} alt={title} className="w-full h-full object-cover" />
+        <Image src={images[active]} alt={title} fill sizes="(max-width: 768px) 100vw, 600px" priority className="object-cover" />
         {images.length > 1 && (
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
             {images.map((_, i) => (
@@ -61,8 +61,9 @@ export default function ProductGallery({ images, title }: { images: string[]; ti
                 i === active ? "border-clay-600" : "border-transparent"
               }`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={img} alt="" className="w-full h-full object-cover" />
+              <span className="block relative w-full h-full">
+                <Image src={img} alt="" fill sizes="64px" className="object-cover" />
+              </span>
             </button>
           ))}
         </div>
@@ -94,11 +95,13 @@ export default function ProductGallery({ images, title }: { images: string[]; ti
             </button>
           )}
 
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={images[active]}
             alt={title}
-            className="max-w-[90vw] max-h-[85vh] object-contain"
+            width={1600}
+            height={1200}
+            sizes="90vw"
+            className="max-w-[90vw] max-h-[85vh] w-auto h-auto object-contain"
             onClick={(e) => e.stopPropagation()}
           />
 

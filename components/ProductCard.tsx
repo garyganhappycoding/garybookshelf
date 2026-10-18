@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 type Product = {
@@ -12,10 +13,16 @@ type Product = {
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link href={`/shop/${product.id}`} className="card block hover:border-clay-400 transition-colors">
-      <div className="aspect-[4/3] rounded-xl bg-cream-100 mb-3 overflow-hidden">
+      <div className="aspect-[4/3] rounded-xl bg-cream-100 mb-3 overflow-hidden relative">
         {product.image_url && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={product.image_url} alt={product.title} className="w-full h-full object-cover" />
+          // next/image serves a small cached WebP from Vercel instead of the full PNG from Supabase
+          <Image
+            src={product.image_url}
+            alt={product.title}
+            fill
+            sizes="(max-width: 640px) 90vw, 320px"
+            className="object-cover"
+          />
         )}
       </div>
       <p className="text-xs text-clay-600 uppercase tracking-wide mb-1">{product.category}</p>
