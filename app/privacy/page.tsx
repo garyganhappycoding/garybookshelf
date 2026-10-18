@@ -70,7 +70,8 @@ export default function PrivacyPage() {
           <li><b>Resend</b>: sends our emails, such as your order approval.</li>
           <li>
             <b>Telegram</b>: when you submit a receipt, the photo is sent to Gary's private Telegram chat so he can check
-            it. It is deleted from Telegram as soon as the order is approved or rejected.
+            it. It is deleted from Telegram as soon as the order is approved or rejected. Feedback you send us through the
+            site is also forwarded to that private chat, together with your email so we can reply.
           </li>
         </ul>
         <p>
