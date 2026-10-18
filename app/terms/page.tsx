@@ -1,5 +1,14 @@
 import Link from "next/link";
-import { CONTACT_EMAIL, FREE_PER_DAY, LEGAL_UPDATED, PACK_ATTEMPTS, PACK_DAYS, PACK_PRICE } from "@/lib/legal";
+import {
+  CONTACT_EMAIL,
+  FREE_PER_DAY,
+  INSTAGRAM_HANDLE,
+  INSTAGRAM_URL,
+  LEGAL_UPDATED,
+  PACK_ATTEMPTS,
+  PACK_DAYS,
+  PACK_PRICE,
+} from "@/lib/legal";
 
 export const metadata = { title: "Terms of use · Gary's Bookshelf" };
 
@@ -76,10 +85,13 @@ export default function TermsPage() {
         </ul>
       </Section>
 
-      <Section title="5. Refunds">
+      <Section title="5. No refunds, but tell us if something is wrong">
         <p>
-          Our products are digital, so once an order is approved and delivered it is normally not refundable. If you paid
-          twice by mistake, or something we sold does not work, email us within 7 days and we will fix it or refund you.
+          Our products are digital, so we do not give refunds. If there is a problem, such as a download or link that does
+          not work, a payment that was not approved, or an attempt that was not given back, please message us on Instagram (
+          <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="text-clay-600 underline">{INSTAGRAM_HANDLE}</a>)
+          or email{" "}
+          <a href={`mailto:${CONTACT_EMAIL}`} className="text-clay-600 underline">{CONTACT_EMAIL}</a> and we will help you.
           This does not affect any rights you have under Malaysian consumer law.
         </p>
       </Section>
