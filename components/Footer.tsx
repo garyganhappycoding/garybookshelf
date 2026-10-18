@@ -5,6 +5,8 @@ export default function Footer() {
         <p>&copy; {new Date().getFullYear()} Gary's Bookshelf</p>
         <div className="flex gap-5">
           <a href="/#about" className="hover:text-clay-600">About</a>
+          <a href="/privacy" className="hover:text-clay-600">Privacy</a>
+          <a href="/terms" className="hover:text-clay-600">Terms</a>
           <a href="mailto:hello@garysbookshelf.com" className="hover:text-clay-600">Contact</a>
           <a href="https://instagram.com/gary_bookshelf" target="_blank" className="hover:text-clay-600">Instagram</a>
         </div>
