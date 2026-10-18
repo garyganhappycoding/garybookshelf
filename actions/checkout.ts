@@ -3,7 +3,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
 import { after } from "next/server";
-import { notifyAdminTelegram } from "@/lib/telegram";
+import { sendReceiptForReview } from "@/lib/telegram";
 
 export type CheckoutState = {
   error?: string;
@@ -49,27 +49,28 @@ export async function submitOrder(
     return { error: `Upload failed: ${uploadError.message}` };
   }
 
-  const { error: insertError } = await supabase.from("orders").insert({
-    user_id: user.id,
-    product_id: productId,
-    amount_paid: amountPaid,
-    receipt_path: filePath,
-    status: "pending_verification",
-  });
+  const { data: newOrder, error: insertError } = await supabase
+    .from("orders")
+    .insert({
+      user_id: user.id,
+      product_id: productId,
+      amount_paid: amountPaid,
+      receipt_path: filePath,
+      status: "pending_verification",
+    })
+    .select("id")
+    .single();
 
   if (insertError) {
     return { error: `Could not create order: ${insertError.message}` };
   }
 
-  // Tell Gary on Telegram (text only: the receipt image stays in Supabase and is deleted after 30 days).
-  // after() runs once the response is sent, so the student isn't kept waiting.
+  // Send the receipt to Gary's Telegram with Approve / Reject buttons. after() runs once the response
+  // is sent, so the student isn't kept waiting. The photo is deleted from Telegram once he decides.
   const { data: product } = await supabase.from("products").select("title").eq("id", productId).maybeSingle();
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "";
-  after(() =>
-    notifyAdminTelegram(
-      `🧾 New order to review\n${product?.title ?? "A product"}\nRM ${amountPaid.toFixed(2)} from ${user.email ?? "a student"}\n${siteUrl}/admin/orders`
-    )
-  );
+  const caption = `🧾 New order to review\n${product?.title ?? "A product"}\nRM ${amountPaid.toFixed(2)} from ${user.email ?? "a student"}`;
+  const photo = new Blob([await receiptFile.arrayBuffer()], { type: receiptFile.type });
+  after(() => sendReceiptForReview(photo, `receipt.${fileExt || "jpg"}`, caption, newOrder.id));
 
   revalidatePath("/dashboard");
   return { success: true };
