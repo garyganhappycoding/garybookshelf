@@ -24,32 +24,41 @@ const MAX_SECONDS = 150; // 2 minutes + a little slack
 const MIN_WORDS = 25;
 const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const FALLBACK_MODEL = "openai/gpt-oss-20b"; // separate rate limits; used when the main model is busy
+// Free students use the lighter model first and may only borrow the main model up to this many times a day,
+// which keeps the main model's daily allowance free for paying students.
+const FREE_MAIN_DAILY_CAP = 45;
+const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+const CEREBRAS_URL = "https://api.cerebras.ai/v1/chat/completions";
+
+type Target = { url: string; key: string; model: string };
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
-// Retry once on rate limit / server error, then fall back to the smaller model.
-async function callGrok(apiKey: string, messages: unknown): Promise<Response> {
+// Try each target in turn (waiting briefly after a rate limit / server error) and report which model answered.
+async function callGrok(targets: Target[], messages: unknown): Promise<{ res: Response; model: string }> {
   let res: Response | null = null;
-  for (const model of [MODEL, MODEL, FALLBACK_MODEL]) {
+  let used = targets[0].model;
+  for (const t of targets) {
     if (res) {
       const wait = Math.min(Number(res.headers.get("retry-after")) || 2, 5);
       await sleep(wait * 1000);
     }
-    res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+    used = t.model;
+    res = await fetch(t.url, {
       method: "POST",
-      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      headers: { Authorization: `Bearer ${t.key}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        model,
+        model: t.model,
         messages,
         temperature: 0.2,
         reasoning_effort: "low",
         response_format: { type: "json_schema", json_schema: { name: "speaking_feedback", schema: resultSchema, strict: true } },
       }),
     });
-    if (res.ok || (res.status !== 429 && res.status < 500)) return res;
-    console.warn("grok busy", model, res.status);
+    if (res.ok || (res.status !== 429 && res.status < 500)) return { res, model: used };
+    console.warn("grok busy", t.url, t.model, res.status);
   }
-  return res!;
+  return { res: res!, model: used };
 }
 
 const err = (message: string, status: number, extra: Record<string, unknown> = {}) =>
@@ -75,6 +84,8 @@ export async function POST(req: Request) {
     const p = Array.isArray(pack) ? pack[0] : pack;
     return { attemptsLeft: (left as number | null) ?? 0, packLeft: (p?.pack_left as number | undefined) ?? 0 };
   };
+  // a student with an active pack is a paying student and gets priority on the AI (checked before this attempt is claimed)
+  const priority = (await counts()).packLeft > 0;
 
   // 2. read the form
   let form: FormData;
@@ -197,7 +208,25 @@ export async function POST(req: Request) {
 
     // 5. Grok marking against the rubric. If it fails, the transcript is kept for a free retry.
     const keep: SavedTranscript = { transcript, stats, duration };
-    const aiRes = await callGrok(apiKey, buildMessages(card, transcript, stats));
+    // Paying students go first: the main model with extra retries, then the lighter model, then Cerebras if a key is set.
+    // Free students start on the lighter model and only borrow the main one while today's shared allowance has room.
+    const groq = (model: string): Target => ({ url: GROQ_URL, key: apiKey, model });
+    const cerebrasKey = process.env.CEREBRAS_API_KEY;
+    let targets: Target[];
+    if (priority) {
+      targets = [groq(MODEL), groq(MODEL), groq(FALLBACK_MODEL), groq(MODEL)];
+      if (cerebrasKey) targets.splice(3, 0, { url: CEREBRAS_URL, key: cerebrasKey, model: "gpt-oss-120b" });
+    } else {
+      const since = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
+      const { count } = await admin
+        .from("speaking_attempts")
+        .select("id", { count: "exact", head: true })
+        .eq("model", MODEL)
+        .gte("created_at", since);
+      targets = [groq(FALLBACK_MODEL), groq(FALLBACK_MODEL)];
+      if ((count ?? 0) < FREE_MAIN_DAILY_CAP) targets.push(groq(MODEL));
+    }
+    const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats));
     if (!aiRes.ok) {
       const body = await aiRes.text();
       console.error("grok failed", aiRes.status, body);
@@ -233,7 +262,7 @@ export async function POST(req: Request) {
     // 6. save (transcript + feedback only, never the audio)
     await admin
       .from("speaking_attempts")
-      .update({ status: "done", total_score: total, result: { transcript, stats, result }, audio_bytes: audioFile?.size, ...meta })
+      .update({ status: "done", total_score: total, result: { transcript, stats, result }, audio_bytes: audioFile?.size, model: usedModel, ...meta })
       .eq("id", attemptId);
 
     const { attemptsLeft, packLeft } = await counts();
