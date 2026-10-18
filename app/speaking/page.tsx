@@ -11,9 +11,25 @@ export default async function SpeakingPage() {
   } = await supabase.auth.getUser();
 
   let attemptsLeft = 2;
+  let retry: { id: string; cardId: string } | null = null;
   if (user) {
-    const { data } = await supabase.rpc("speaking_attempts_left", { p_limit: 2 });
+    // the attempts left and the newest re-markable failed recording (saved for 24h) are independent
+    const since = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
+    const [{ data }, { data: lastFailed }] = await Promise.all([
+      supabase.rpc("speaking_attempts_left", { p_limit: 2 }),
+      supabase
+        .from("speaking_attempts")
+        .select("id,card_id,created_at")
+        .eq("user_id", user.id)
+        .eq("status", "failed")
+        .not("result", "is", null)
+        .gte("created_at", since)
+        .order("created_at", { ascending: false })
+        .limit(1)
+        .maybeSingle(),
+    ]);
     if (typeof data === "number") attemptsLeft = data;
+    if (lastFailed) retry = { id: lastFailed.id, cardId: lastFailed.card_id };
   }
 
   return (
@@ -27,7 +43,7 @@ export default async function SpeakingPage() {
       </p>
 
       {user ? (
-        <SpeakingPractice initialAttemptsLeft={attemptsLeft} />
+        <SpeakingPractice initialAttemptsLeft={attemptsLeft} initialRetry={retry} />
       ) : (
         <div className="card text-center max-w-md mx-auto">
           <p className="text-4xl mb-3">🔒</p>

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { cards, themes, getTheme, type Card, type Theme } from "@/lib/speaking/cards";
+import { cards, themes, getCard, getTheme, type Card, type Theme } from "@/lib/speaking/cards";
 import { BAND_MAX, criteriaInfo, type AnalysisResponse, type CriterionKey } from "@/lib/speaking/analyze";
 
 const PREP_SECONDS = 30;
@@ -22,7 +22,14 @@ function bandLabel(total: number) {
   return "Needs more practice (around A1)";
 }
 
-export default function SpeakingPractice({ initialAttemptsLeft }: { initialAttemptsLeft: number }) {
+export default function SpeakingPractice({
+  initialAttemptsLeft,
+  initialRetry = null,
+}: {
+  initialAttemptsLeft: number;
+  initialRetry?: { id: string; cardId: string } | null;
+}) {
+  const [retry, setRetry] = useState<{ id: string; cardId: string } | null>(initialRetry);
   const [ack, setAck] = useState(false);
   const [stage, setStage] = useState<Stage>("themes");
   const [theme, setTheme] = useState<Theme | null>(null);
@@ -105,20 +112,42 @@ export default function SpeakingPractice({ initialAttemptsLeft }: { initialAttem
   async function submit(mimeType: string) {
     stream.current?.getTracks().forEach((t) => t.stop());
     stream.current = null;
-    setStage("analyzing");
     const ext = mimeType.includes("mp4") ? "m4a" : mimeType.includes("ogg") ? "ogg" : "webm";
     const form = new FormData();
     form.append("cardId", cardRef.current!.id);
     form.append("audio", new Blob(chunks.current, { type: mimeType }), `speech.${ext}`);
+    await send(form);
+  }
+
+  // Re-mark the last recording whose AI marking failed (the transcript is saved on the server).
+  async function retryMarking() {
+    if (!retry) return;
+    const c = getCard(retry.cardId);
+    if (!c) return;
+    setCard(c);
+    cardRef.current = c;
+    const form = new FormData();
+    form.append("cardId", c.id);
+    form.append("retryAttemptId", retry.id);
+    await send(form);
+  }
+
+  async function send(form: FormData) {
+    setStage("analyzing");
+    setError(null);
     try {
       const res = await fetch("/api/speaking/analyze", { method: "POST", body: form });
       const json = await res.json();
       if (!res.ok) {
         if (typeof json.attemptsLeft === "number") setAttemptsLeft(json.attemptsLeft);
+        // the server saved the transcript: offer a free re-mark
+        if (json.retryAttemptId && cardRef.current) setRetry({ id: json.retryAttemptId, cardId: cardRef.current.id });
+        else if (res.status === 410) setRetry(null);
         setError(json.error ?? "Something went wrong.");
         setStage("card");
         return;
       }
+      setRetry(null);
       setData(json);
       setAttemptsLeft(json.attemptsLeft);
       setStage("result");
@@ -127,6 +156,15 @@ export default function SpeakingPractice({ initialAttemptsLeft }: { initialAttem
       setStage("card");
     }
   }
+
+  const retryBanner = retry && (
+    <div className="mb-5 rounded-xl border border-sage-400/40 bg-sage-400/10 p-4 text-sm flex flex-wrap items-center justify-between gap-3">
+      <span>
+        <b>Your last recording is saved.</b> The AI was busy, so it wasn't marked. Mark it now without speaking again.
+      </span>
+      <button className="btn-primary !py-1.5" onClick={retryMarking}>Mark my last recording</button>
+    </div>
+  );
 
   function reset() {
     setData(null);
@@ -159,13 +197,17 @@ export default function SpeakingPractice({ initialAttemptsLeft }: { initialAttem
     );
   }
 
+  const showRetry = stage === "themes" || stage === "card";
   const header = (
+    <>
+    {showRetry && retryBanner}
     <div className="flex items-center justify-between mb-6 text-sm">
       <span className="text-ink/60">Attempts left today: <b className="text-ink">{attemptsLeft} / 2</b></span>
       {stage !== "themes" && stage !== "prep" && stage !== "recording" && stage !== "analyzing" && (
         <button onClick={reset} className="text-clay-600 hover:underline">← All themes</button>
       )}
     </div>
+    </>
   );
 
   if (stage === "themes")
