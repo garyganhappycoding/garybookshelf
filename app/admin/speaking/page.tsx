@@ -19,6 +19,7 @@ type Row = {
   duration_sec?: number | null;
   word_count?: number | null;
   pack_id?: string | null;
+  model?: string | null;
   created_at: string;
 };
 
@@ -110,7 +111,7 @@ export default async function AdminSpeakingPage({
   const totalPages = Math.max(1, Math.ceil(totalFiltered / PAGE_SIZE));
   const page = Math.min(Math.max(1, parseInt(pageParam ?? "1", 10) || 1), totalPages);
   const { data: pageData } = await filtered(
-    "id,user_id,card_id,status,total_score,fail_reason,fail_detail,duration_sec,word_count,pack_id,created_at"
+    "id,user_id,card_id,status,total_score,fail_reason,fail_detail,duration_sec,word_count,pack_id,model,created_at"
   )
     .order("created_at", { ascending: false })
     .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
@@ -174,7 +175,7 @@ export default async function AdminSpeakingPage({
   const maxDay = Math.max(1, ...perDay.map((x) => x.n));
 
   return (
-    <div className="max-w-4xl mx-auto px-5 py-14 space-y-8">
+    <div className="max-w-[1500px] mx-auto px-5 sm:px-8 py-14 space-y-8">
       <div>
         <h1 className="text-2xl font-medium">Speaking usage</h1>
         <p className="text-sm text-ink/60">Times are Malaysia time. Failed attempts do not use up a student's daily limit.</p>
@@ -333,6 +334,7 @@ export default async function AdminSpeakingPage({
               <th>Plan</th>
               <th>Question</th>
               <th>Result</th>
+              <th>AI model</th>
               <th>Speech</th>
             </tr>
           </thead>
@@ -362,8 +364,9 @@ export default async function AdminSpeakingPage({
                   ) : (
                     "…"
                   )}
-                  {r.fail_detail && <p className="text-xs text-ink/50 max-w-xs break-words">{r.fail_detail}</p>}
+                  {r.fail_detail && <p className="text-xs text-ink/50 max-w-xl break-words">{r.fail_detail}</p>}
                 </td>
+                <td className="pr-3 text-ink/60 whitespace-nowrap">{r.model ? r.model.replace("openai/", "") : "-"}</td>
                 <td className="text-ink/60 whitespace-nowrap">{r.duration_sec != null ? `${Math.round(r.duration_sec)}s · ${r.word_count} words` : "-"}</td>
               </tr>
             ))}

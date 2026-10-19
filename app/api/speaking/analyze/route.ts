@@ -18,7 +18,7 @@ export const runtime = "nodejs";
 export const maxDuration = 60;
 
 const DAILY_LIMIT = 2;
-const SAVED_TRANSCRIPT_HOURS = 24; // how long a failed attempt's transcript can be re-marked
+const SAVED_TRANSCRIPT_HOURS = 24 * 7; // how long a failed attempt's transcript can be re-marked (7 days)
 type SavedTranscript = { transcript: string; stats: ReturnType<typeof computeStats>; duration: number };
 const MAX_AUDIO_BYTES = 6 * 1024 * 1024;
 const MAX_SECONDS = 150; // 2 minutes + a little slack
@@ -160,7 +160,10 @@ export async function POST(req: Request) {
         ...meta,
       })
       .eq("id", attemptId);
-    return err(message, status, { ...(await counts()), ...(keep ? { retryAttemptId: attemptId } : {}) });
+    return err(message, status, {
+      ...(await counts()),
+      ...(keep ? { retryAttemptId: attemptId, savedWords: keep.transcript.split(/\s+/).filter(Boolean).length } : {}),
+    });
   };
 
   try {
@@ -241,7 +244,7 @@ export async function POST(req: Request) {
       console.error("grok failed", aiRes.status, body);
       return fail(
         aiRes.status === 429 ? "ai_busy" : "ai_error",
-        "The marking service is busy. You were not charged an attempt, and your recording is saved: tap “Mark my last recording” to try again without speaking again.",
+        "The AI is busy right now. Your recording is safe and you were not charged an attempt. You can close or refresh this page and come back within 7 days to mark it.",
         502,
         `${aiRes.status} ${body}`,
         keep
@@ -254,7 +257,7 @@ export async function POST(req: Request) {
     } catch {
       return fail(
         "ai_error",
-        "The marking service gave an unreadable answer. You were not charged an attempt, and your recording is saved: tap “Mark my last recording” to try again.",
+        "The AI gave an unreadable answer. Your recording is safe and you were not charged an attempt. You can try again now or come back within 7 days to mark it.",
         502,
         "invalid JSON from model",
         keep

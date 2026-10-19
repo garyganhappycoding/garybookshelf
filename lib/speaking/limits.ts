@@ -6,8 +6,8 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 
 const MIN = 60 * 1000;
 const FAIL_WINDOW = 10 * MIN; // look at the last 10 minutes of failures
-const FAILS_ALLOWED_FREE = 3; // 3 failures in 10 minutes, then wait
-const FAILS_ALLOWED_PAID = 6; // paying students get more room
+const FAILS_ALLOWED_FREE = 4; // 4 failures in 10 minutes, then wait (the page's own automatic retries use up to 3 of them)
+const FAILS_ALLOWED_PAID = 8; // paying students get more room
 const FAILS_PER_DAY_FREE = 12; // free students: failures per Malaysia day
 const IN_FLIGHT_MS = 90 * 1000; // an attempt still "pending" after this long is treated as stuck
 const BUSY_WINDOW = 3 * MIN;

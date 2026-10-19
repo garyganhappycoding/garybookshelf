@@ -19,6 +19,14 @@ export async function GET(req: Request) {
   const admin = createAdminClient();
   const cutoff = new Date(Date.now() - KEEP_DAYS * 24 * 60 * 60 * 1000).toISOString();
 
+  // Transcripts saved for students whose marking failed are kept for 7 days (the page promises this), then removed.
+  await admin
+    .from("speaking_attempts")
+    .update({ result: null })
+    .eq("status", "failed")
+    .not("result", "is", null)
+    .lt("created_at", new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+
   const { data: orders, error } = await admin
     .from("orders")
     .select("receipt_path")

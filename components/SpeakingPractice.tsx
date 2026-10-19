@@ -10,7 +10,18 @@ const SPEAK_SECONDS = 120;
 
 type Stage = "themes" | "card" | "prep" | "recording" | "analyzing" | "result";
 
+const AUTO_DELAYS = [60, 120, 180, 240]; // seconds before each automatic retry (4 in total)
+
+export type SavedRec = { id: string; cardId: string; createdAt: string; words: number };
+
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+const savedWhen = (iso: string) => {
+  const mins = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 60000));
+  if (mins < 2) return "just now";
+  if (mins < 60) return `${mins} min ago`;
+  const h = Math.round(mins / 60);
+  return h < 24 ? `${h} h ago` : `${Math.round(h / 24)} day(s) ago`;
+};
 const clean = (w: string) => w.toLowerCase().replace(/[^a-z']/g, "");
 
 function bandLabel(total: number) {
@@ -27,13 +38,13 @@ export default function SpeakingPractice({
   initialPackLeft = 0,
   packExpiry = null,
   packHref = "/shop",
-  initialRetry = null,
+  initialSaved = [],
 }: {
   initialAttemptsLeft: number;
   initialPackLeft?: number;
   packExpiry?: string | null;
   packHref?: string;
-  initialRetry?: { id: string; cardId: string } | null;
+  initialSaved?: SavedRec[];
 }) {
   const [packLeft, setPackLeft] = useState(initialPackLeft);
   // seconds the student must wait before trying again (set after a failed attempt or when the server asks for a pause)
@@ -43,7 +54,12 @@ export default function SpeakingPractice({
     const id = setInterval(() => setCooldown((c) => Math.max(0, c - 1)), 1000);
     return () => clearInterval(id);
   }, [cooldown > 0]);
-  const [retry, setRetry] = useState<{ id: string; cardId: string } | null>(initialRetry);
+  // Recordings that were transcribed but not marked because the AI was busy. They are kept on the server for 7 days.
+  const [saved, setSaved] = useState<SavedRec[]>(initialSaved);
+  const activeRetry = useRef<string | null>(null); // which saved recording is being marked right now
+  // While the page stays open it retries for the student, slowly, so nobody needs to keep pressing the button.
+  const [autoOn, setAutoOn] = useState(false);
+  const autoDone = useRef(0);
   const [ack, setAck] = useState(false);
   const [stage, setStage] = useState<Stage>("themes");
   const [theme, setTheme] = useState<Theme | null>(null);
@@ -101,6 +117,8 @@ export default function SpeakingPractice({
 
   async function beginPrep() {
     setError(null);
+    setAutoOn(false); // a new recording replaces any automatic retry
+    autoDone.current = 0;
     // ask for the microphone now so the student isn't surprised mid-recording
     try {
       stream.current = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -144,18 +162,31 @@ export default function SpeakingPractice({
     await send(form);
   }
 
-  // Re-mark the last recording whose AI marking failed (the transcript is saved on the server).
-  async function retryMarking() {
-    if (!retry) return;
-    const c = getCard(retry.cardId);
+  // Re-mark a saved recording whose AI marking failed (the transcript is kept on the server, no new recording needed).
+  async function retryMarking(rec: SavedRec) {
+    const c = getCard(rec.cardId);
     if (!c) return;
     setCard(c);
     cardRef.current = c;
+    activeRetry.current = rec.id;
     const form = new FormData();
     form.append("cardId", c.id);
-    form.append("retryAttemptId", retry.id);
+    form.append("retryAttemptId", rec.id);
     await send(form);
   }
+
+  // Automatic retry: when the countdown ends and the page is still open, try the newest saved recording again.
+  useEffect(() => {
+    if (!autoOn || cooldown > 0 || stage !== "card") return;
+    const target = saved[0];
+    if (!target || autoDone.current >= AUTO_DELAYS.length) {
+      setAutoOn(false);
+      return;
+    }
+    autoDone.current += 1;
+    void retryMarking(target);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoOn, cooldown, stage]);
 
   async function send(form: FormData) {
     setStage("analyzing");
@@ -166,17 +197,37 @@ export default function SpeakingPractice({
       if (!res.ok) {
         if (typeof json.attemptsLeft === "number") setAttemptsLeft(json.attemptsLeft);
         if (typeof json.packLeft === "number") setPackLeft(json.packLeft);
-        // wait before the next try: what the server asks for, or at least 20 seconds after an AI failure
-        const wait = Math.max(typeof json.retryAfter === "number" ? Math.ceil(json.retryAfter) : 0, json.retryAttemptId ? 20 : 0);
-        if (wait > 0) setCooldown(wait);
-        // the server saved the transcript: offer a free re-mark
-        if (json.retryAttemptId && cardRef.current) setRetry({ id: json.retryAttemptId, cardId: cardRef.current.id });
-        else if (res.status === 410) setRetry(null);
+        const serverWait = typeof json.retryAfter === "number" ? Math.ceil(json.retryAfter) : 0;
+        const gone = activeRetry.current;
+        activeRetry.current = null;
+        if (json.retryAttemptId && cardRef.current) {
+          // the AI failed but the transcript is saved: keep it in the list (it replaces the one we just tried)
+          const rec: SavedRec = { id: json.retryAttemptId, cardId: cardRef.current.id, createdAt: new Date().toISOString(), words: json.savedWords ?? 0 };
+          setSaved((list) => [rec, ...list.filter((x) => x.id !== rec.id && x.id !== gone)].slice(0, 5));
+          // keep retrying for the student, slowly: 1, 2, 3 then 4 minutes apart
+          const more = autoDone.current < AUTO_DELAYS.length;
+          setAutoOn(more);
+          setCooldown(Math.max(serverWait, 20, more ? AUTO_DELAYS[autoDone.current] : 0));
+        } else if (res.status === 410 && gone) {
+          setSaved((list) => list.filter((x) => x.id !== gone)); // it expired
+          setAutoOn(false);
+        } else if (serverWait > 0) {
+          setCooldown(serverWait); // the server asked for a pause; automatic retry (if on) carries on afterwards
+        } else {
+          setAutoOn(false); // some other problem: don't retry automatically
+        }
         setError(json.error ?? "Something went wrong.");
         setStage("card");
         return;
       }
-      setRetry(null);
+      // marked: the saved recording that was used is gone from the list
+      if (activeRetry.current) {
+        const used = activeRetry.current;
+        setSaved((list) => list.filter((x) => x.id !== used));
+        activeRetry.current = null;
+      }
+      setAutoOn(false);
+      autoDone.current = 0;
       setData(json);
       setAttemptsLeft(json.attemptsLeft);
       if (typeof json.packLeft === "number") setPackLeft(json.packLeft);
@@ -187,17 +238,34 @@ export default function SpeakingPractice({
     }
   }
 
-  const retryBanner = retry && (
-    <div className="mb-5 rounded-xl border border-sage-400/40 bg-sage-400/10 p-4 text-sm flex flex-wrap items-center justify-between gap-3">
-      <span>
-        <b>Your last recording is saved.</b> The AI was busy, so it wasn't marked. Mark it now without speaking again.
-      </span>
-      <button className="btn-primary !py-1.5 disabled:opacity-60" disabled={cooldown > 0} onClick={retryMarking}>
-        {cooldown > 0 ? `Wait ${fmt(cooldown)}` : "Mark my last recording"}
-      </button>
+  const retryBanner = saved.length > 0 && (
+    <div className="mb-5 rounded-xl border border-sage-400/40 bg-sage-400/10 p-4 text-sm space-y-3">
+      <p>
+        <b>🛟 Your recording is safe.</b> The AI was busy, so it hasn't been marked yet. You can close or refresh this page and come back
+        within 7 days. Tap "Mark it now" then, without speaking again, and it won't use up another attempt.
+      </p>
+      {autoOn && (
+        <p className="text-ink/70">
+          ⏳ We're retrying for you automatically{cooldown > 0 ? ` in ${fmt(cooldown)}` : ""}, as long as this page stays open.{" "}
+          <button className="underline text-clay-700" onClick={() => setAutoOn(false)}>Stop</button>
+        </p>
+      )}
+      <ul className="space-y-2">
+        {saved.map((rec) => (
+          <li key={rec.id} className="flex flex-wrap items-center justify-between gap-2 rounded-lg bg-white/60 px-3 py-2">
+            <span>
+              <b>{getCard(rec.cardId)?.title ?? "Your recording"}</b>
+              <span className="text-ink/60"> · saved {savedWhen(rec.createdAt)}{rec.words ? ` · ${rec.words} words` : ""}</span>
+            </span>
+            <button className="btn-primary !py-1 !px-4 disabled:opacity-60" disabled={cooldown > 0} onClick={() => { setAutoOn(false); void retryMarking(rec); }}>
+              {cooldown > 0 ? `Wait ${fmt(cooldown)}` : "Mark it now"}
+            </button>
+          </li>
+        ))}
+      </ul>
       {audioUrl && (
-        <div className="basis-full">
-          <p className="text-xs text-ink/60 mb-1">Listen to it first:</p>
+        <div>
+          <p className="text-xs text-ink/60 mb-1">Listen to your last recording (this device only):</p>
           <PlaybackPlayer url={audioUrl} />
         </div>
       )}
@@ -205,6 +273,8 @@ export default function SpeakingPractice({
   );
 
   function reset() {
+    setAutoOn(false);
+    autoDone.current = 0;
     setAudioUrl((old) => {
       if (old) URL.revokeObjectURL(old);
       return null;
@@ -357,6 +427,10 @@ export default function SpeakingPractice({
         <p className="text-4xl mb-3 animate-pulse">🧠</p>
         <p className="font-medium">Listening to your speech and marking it…</p>
         <p className="text-sm text-ink/60 mt-1">This takes about 20 to 40 seconds.</p>
+        <p className="text-xs text-ink/50 mt-3">
+          Your recording is on its way to us. If you close this page after a few seconds, your result will be in My history, or your
+          recording will be saved on the Speaking page if the AI is busy.
+        </p>
       </div>
     );
 

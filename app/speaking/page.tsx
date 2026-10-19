@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import SpeakingPractice from "@/components/SpeakingPractice";
+import SpeakingPractice, { type SavedRec } from "@/components/SpeakingPractice";
 
 export const metadata = { title: "Speaking practice · Gary's Bookshelf" };
 
@@ -11,7 +11,7 @@ export default async function SpeakingPage() {
   } = await supabase.auth.getUser();
 
   let attemptsLeft = 2;
-  let retry: { id: string; cardId: string } | null = null;
+  let saved: SavedRec[] = [];
   let packLeft = 0;
   let packExpiry: string | null = null;
   let packHref = "/shop";
@@ -26,21 +26,20 @@ export default async function SpeakingPage() {
       .limit(1)
       .maybeSingle();
     if (packProduct) packHref = `/shop/${packProduct.id}`;
-    // the attempts left and the newest re-markable failed recording (saved for 24h) are independent
-    const since = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
-    const [{ data }, { data: pack }, { data: lastFailed }] = await Promise.all([
+    // the attempts left and the saved recordings (transcripts kept for 7 days when the AI was busy) are independent
+    const since = new Date(Date.now() - 7 * 24 * 3600 * 1000).toISOString();
+    const [{ data }, { data: pack }, { data: savedRows }] = await Promise.all([
       supabase.rpc("speaking_attempts_left", { p_limit: 2 }),
       supabase.rpc("speaking_pack_status"),
       supabase
         .from("speaking_attempts")
-        .select("id,card_id,created_at")
+        .select("id,card_id,created_at,result")
         .eq("user_id", user.id)
         .eq("status", "failed")
         .not("result", "is", null)
         .gte("created_at", since)
         .order("created_at", { ascending: false })
-        .limit(1)
-        .maybeSingle(),
+        .limit(5),
     ]);
     if (typeof data === "number") attemptsLeft = data;
     const p = Array.isArray(pack) ? pack[0] : pack;
@@ -48,7 +47,12 @@ export default async function SpeakingPage() {
       packLeft = p.pack_left;
       packExpiry = p.next_expiry;
     }
-    if (lastFailed) retry = { id: lastFailed.id, cardId: lastFailed.card_id };
+    saved = (savedRows ?? []).map((r: any) => ({
+      id: r.id,
+      cardId: r.card_id,
+      createdAt: r.created_at,
+      words: String(r.result?.transcript ?? "").split(/\s+/).filter(Boolean).length,
+    }));
   }
 
   return (
@@ -62,7 +66,7 @@ export default async function SpeakingPage() {
       </p>
 
       {user ? (
-        <SpeakingPractice initialAttemptsLeft={attemptsLeft} initialPackLeft={packLeft} packExpiry={packExpiry} packHref={packHref} initialRetry={retry} />
+        <SpeakingPractice initialAttemptsLeft={attemptsLeft} initialPackLeft={packLeft} packExpiry={packExpiry} packHref={packHref} initialSaved={saved} />
       ) : (
         <div className="card text-center max-w-md mx-auto">
           <p className="text-4xl mb-3">🔒</p>
