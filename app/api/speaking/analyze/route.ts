@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getCard } from "@/lib/speaking/cards";
+import { checkTryLimits } from "@/lib/speaking/limits";
 import type { FailReason } from "@/lib/speaking/fail-reasons";
 import {
   BAND_MAX,
@@ -98,6 +99,10 @@ export async function POST(req: Request) {
     return err("Could not read the recording.", 400);
   }
   const admin = createAdminClient();
+
+  // Slow down students who keep retrying while the AI is struggling (nothing is charged and no AI call is made).
+  const blocked = await checkTryLimits(admin, user.id, priority);
+  if (blocked) return err(blocked.message, 429, { ...(blocked.retryAfter ? { retryAfter: blocked.retryAfter } : {}), ...(await counts()) });
 
   // A retry re-uses the transcript saved when the AI marking failed, so no new recording or transcription is needed.
   const retryId = String(form.get("retryAttemptId") ?? "");

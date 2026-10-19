@@ -29,7 +29,8 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
   await admin.from("orders").update({ status: "completed", reviewed_at: new Date().toISOString() }).eq("id", orderId);
 
   // A Speaking pack gives the student extra attempts, valid for 30 days from approval.
-  // order_id is unique, so approving the same order twice cannot grant it twice.
+  // order_id is unique, so approving the same order twice cannot grant it twice (it only refreshes the 30 days,
+  // and attempts already used stay used). This also switches a pack back on if a rejected order is approved later.
   const packAttempts: number | null = (order as any).products?.speaking_pack_attempts ?? null;
   if (packAttempts) {
     const { error: packErr } = await admin.from("speaking_packs").upsert(
@@ -39,7 +40,7 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
         attempts_total: packAttempts,
         expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
       },
-      { onConflict: "order_id", ignoreDuplicates: true }
+      { onConflict: "order_id" }
     );
     if (packErr) {
       console.error("speaking pack grant failed", packErr);
@@ -105,6 +106,9 @@ export async function rejectOrderCore(orderId: string, reason: string, opts: { o
     .from("orders")
     .update({ status: "rejected", reject_reason: reason, reviewed_at: new Date().toISOString() })
     .eq("id", orderId);
+
+  // A rejected order must never leave attempts behind (the database does this too, as a second safety net).
+  await admin.from("speaking_packs").update({ expires_at: new Date().toISOString() }).eq("order_id", orderId);
 
   revalidatePath("/admin/orders");
   revalidatePath("/dashboard");

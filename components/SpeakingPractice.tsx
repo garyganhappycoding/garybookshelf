@@ -36,6 +36,13 @@ export default function SpeakingPractice({
   initialRetry?: { id: string; cardId: string } | null;
 }) {
   const [packLeft, setPackLeft] = useState(initialPackLeft);
+  // seconds the student must wait before trying again (set after a failed attempt or when the server asks for a pause)
+  const [cooldown, setCooldown] = useState(0);
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const id = setInterval(() => setCooldown((c) => Math.max(0, c - 1)), 1000);
+    return () => clearInterval(id);
+  }, [cooldown > 0]);
   const [retry, setRetry] = useState<{ id: string; cardId: string } | null>(initialRetry);
   const [ack, setAck] = useState(false);
   const [stage, setStage] = useState<Stage>("themes");
@@ -159,6 +166,9 @@ export default function SpeakingPractice({
       if (!res.ok) {
         if (typeof json.attemptsLeft === "number") setAttemptsLeft(json.attemptsLeft);
         if (typeof json.packLeft === "number") setPackLeft(json.packLeft);
+        // wait before the next try: what the server asks for, or at least 20 seconds after an AI failure
+        const wait = Math.max(typeof json.retryAfter === "number" ? Math.ceil(json.retryAfter) : 0, json.retryAttemptId ? 20 : 0);
+        if (wait > 0) setCooldown(wait);
         // the server saved the transcript: offer a free re-mark
         if (json.retryAttemptId && cardRef.current) setRetry({ id: json.retryAttemptId, cardId: cardRef.current.id });
         else if (res.status === 410) setRetry(null);
@@ -182,7 +192,9 @@ export default function SpeakingPractice({
       <span>
         <b>Your last recording is saved.</b> The AI was busy, so it wasn't marked. Mark it now without speaking again.
       </span>
-      <button className="btn-primary !py-1.5" onClick={retryMarking}>Mark my last recording</button>
+      <button className="btn-primary !py-1.5 disabled:opacity-60" disabled={cooldown > 0} onClick={retryMarking}>
+        {cooldown > 0 ? `Wait ${fmt(cooldown)}` : "Mark my last recording"}
+      </button>
       {audioUrl && (
         <div className="basis-full">
           <p className="text-xs text-ink/60 mb-1">Listen to it first:</p>
@@ -299,8 +311,8 @@ export default function SpeakingPractice({
             {showIdeas && <IdeasBank theme={t} />}
             {error && <p className="mt-4 text-sm text-red-600 bg-red-50 rounded-xl p-3">{error}</p>}
             <div className="mt-6 flex flex-wrap gap-3">
-              <button className="btn-primary" disabled={attemptsLeft + packLeft <= 0} onClick={beginPrep}>
-                ▶ Start ({PREP_SECONDS}s prep, then {SPEAK_SECONDS / 60} min speaking)
+              <button className="btn-primary disabled:opacity-60" disabled={attemptsLeft + packLeft <= 0 || cooldown > 0} onClick={beginPrep}>
+                {cooldown > 0 ? `Please wait ${fmt(cooldown)} before trying again` : `▶ Start (${PREP_SECONDS}s prep, then ${SPEAK_SECONDS / 60} min speaking)`}
               </button>
               <button className="btn-secondary" onClick={() => setCard(null)}>Change question</button>
             </div>
