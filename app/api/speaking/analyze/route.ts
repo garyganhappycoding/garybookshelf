@@ -231,7 +231,8 @@ export async function POST(req: Request) {
         .select("id", { count: "exact", head: true })
         .eq("model", MODEL)
         .gte("created_at", since);
-      targets = [groq(FALLBACK_MODEL), groq(FALLBACK_MODEL)];
+      // one try per model, no repeat tries: a busy AI is not made busier by retries from free students
+      targets = [groq(FALLBACK_MODEL)];
       if ((count ?? 0) < FREE_MAIN_DAILY_CAP) targets.push(groq(MODEL));
     }
     const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats));

@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import PagerKeys from "@/components/PagerKeys";
 import { getCard, getTheme } from "@/lib/speaking/cards";
 import { FAIL_REASONS, type FailReason } from "@/lib/speaking/fail-reasons";
 
@@ -27,9 +28,31 @@ const myDay = (d: Date | string) =>
 const sideColor = { student: "bg-amber-100 text-amber-800", ai: "bg-red-100 text-red-700", server: "bg-ink/10 text-ink/70" };
 
 const PAGE_SIZE = 20;
+const AI_REASONS = ["stt_error", "ai_busy", "ai_error"]; // failures caused by the AI service
+const OTHER_REASONS = ["stopped_early", "too_little_speech", "too_long", "server_error"]; // student side or our own server
 
-export default async function AdminSpeakingPage({ searchParams }: { searchParams: Promise<{ page?: string }> }) {
-  const { page: pageParam } = await searchParams;
+type Filters = { plan: "all" | "free" | "paid"; result: "all" | "marked" | "failed"; reason: "all" | "ai" | "other" };
+
+// builds /admin/speaking?... keeping the filters, for the filter buttons and the pager
+function hrefFor(f: Filters, page = 1) {
+  const p = new URLSearchParams();
+  if (f.plan !== "all") p.set("plan", f.plan);
+  if (f.result !== "all") p.set("result", f.result);
+  if (f.reason !== "all") p.set("reason", f.reason);
+  if (page > 1) p.set("page", String(page));
+  const s = p.toString();
+  return `/admin/speaking${s ? `?${s}` : ""}#recent`;
+}
+
+const hourLabel = (h: number) => `${h % 12 || 12}${h < 12 ? "am" : "pm"}`;
+
+export default async function AdminSpeakingPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string; plan?: string; result?: string; reason?: string }>;
+}) {
+  const sp = await searchParams;
+  const pageParam = sp.page;
   const supabase = await createClient();
   const {
     data: { user },
@@ -52,13 +75,43 @@ export default async function AdminSpeakingPage({ searchParams }: { searchParams
     if (!data || data.length < 1000) break;
   }
 
-  // The "Recent attempts" table shows PAGE_SIZE attempts per page, with all the details.
+  // Paid = the student has bought a Speaking pack. "active" = a pack that has not expired yet.
+  const { data: packs } = await admin.from("speaking_packs").select("user_id,expires_at");
+  const plan = new Map<string, "active" | "expired">();
+  for (const p of packs ?? []) {
+    const active = new Date(p.expires_at).getTime() > Date.now();
+    if (active || !plan.has(p.user_id)) plan.set(p.user_id, active ? "active" : "expired");
+  }
+  const paidIds = [...plan.keys()];
+
+  // Filters for the table, read from the address bar: ?plan=free|paid &result=marked|failed &reason=ai|other
+  const filters: Filters = {
+    plan: sp.plan === "free" || sp.plan === "paid" ? sp.plan : "all",
+    result: sp.result === "marked" || sp.result === "failed" ? sp.result : "all",
+    reason: sp.reason === "ai" || sp.reason === "other" ? sp.reason : "all",
+  };
+  if (filters.reason !== "all") filters.result = "failed"; // a failure reason only makes sense for failed attempts
+
+  const filtered = (cols: string, opts?: { count: "exact"; head?: boolean }) => {
+    let q: any = admin.from("speaking_attempts").select(cols, opts);
+    if (filters.plan === "paid") q = q.in("user_id", paidIds.length ? paidIds : ["00000000-0000-0000-0000-000000000000"]);
+    if (filters.plan === "free" && paidIds.length) q = q.not("user_id", "in", `(${paidIds.join(",")})`);
+    if (filters.reason === "ai") q = q.eq("status", "failed").in("fail_reason", AI_REASONS);
+    else if (filters.reason === "other") q = q.eq("status", "failed").or(`fail_reason.is.null,fail_reason.in.(${OTHER_REASONS.join(",")})`);
+    else if (filters.result === "marked") q = q.eq("status", "done");
+    else if (filters.result === "failed") q = q.eq("status", "failed");
+    return q;
+  };
+
+  // The attempts table shows PAGE_SIZE attempts per page (only the ones that match the filters), with all the details.
+  const { count: filteredCount } = await filtered("id", { count: "exact", head: true });
   const totalAttempts = rows.length;
-  const totalPages = Math.max(1, Math.ceil(totalAttempts / PAGE_SIZE));
+  const totalFiltered = filteredCount ?? 0;
+  const totalPages = Math.max(1, Math.ceil(totalFiltered / PAGE_SIZE));
   const page = Math.min(Math.max(1, parseInt(pageParam ?? "1", 10) || 1), totalPages);
-  const { data: pageData } = await admin
-    .from("speaking_attempts")
-    .select("id,user_id,card_id,status,total_score,fail_reason,fail_detail,duration_sec,word_count,pack_id,created_at")
+  const { data: pageData } = await filtered(
+    "id,user_id,card_id,status,total_score,fail_reason,fail_detail,duration_sec,word_count,pack_id,created_at"
+  )
     .order("created_at", { ascending: false })
     .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
   const pageRows = (pageData ?? []) as Row[];
@@ -68,13 +121,23 @@ export default async function AdminSpeakingPage({ searchParams }: { searchParams
   const { data: profiles } = await admin.from("profiles").select("id,email").in("id", pageUserIds);
   const email = new Map((profiles ?? []).map((p: any) => [p.id, p.email as string]));
 
-  // Paid = the student has bought a Speaking pack. "active" = a pack that has not expired yet.
-  const { data: packs } = await admin.from("speaking_packs").select("user_id,expires_at");
-  const plan = new Map<string, "active" | "expired">();
-  for (const p of packs ?? []) {
-    const active = new Date(p.expires_at).getTime() > Date.now();
-    if (active || !plan.has(p.user_id)) plan.set(p.user_id, active ? "active" : "expired");
+  // Busiest hours of the day (Malaysia time), last 14 days: all tries, and how many of them hit "AI busy"
+  const hourly = Array.from({ length: 24 }, () => ({ total: 0, busy: 0 }));
+  const since14 = Date.now() - 14 * 86400_000;
+  const daysSeen = new Set<string>();
+  for (const r of rows) {
+    if (+new Date(r.created_at) < since14) continue;
+    const h = Number(new Date(r.created_at).toLocaleString("en-GB", { timeZone: "Asia/Kuala_Lumpur", hour: "2-digit", hour12: false })) % 24;
+    hourly[h].total++;
+    if (r.fail_reason === "ai_busy") hourly[h].busy++;
+    daysSeen.add(myDay(r.created_at));
   }
+  const dayCount = Math.max(1, daysSeen.size);
+  const maxHour = Math.max(1, ...hourly.map((x) => x.total));
+  const peakHours = hourly
+    .map((x, h) => ({ h, ...x }))
+    .sort((a, b) => b.total - a.total)
+    .slice(0, 3);
 
   const today = myDay(new Date());
   const weekAgo = Date.now() - 7 * 86400_000;
@@ -133,6 +196,35 @@ export default async function AdminSpeakingPage({ searchParams }: { searchParams
               <p className="font-medium">{x.n}</p>
               <p className="text-ink/50">{x.d.slice(5)}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card">
+        <h2 className="font-medium mb-1">Busiest hours of the day</h2>
+        <p className="text-sm text-ink/60 mb-3">
+          Every try over the last {dayCount} days, by hour (Malaysia time). Red is the part that hit "AI busy". Peak:{" "}
+          {peakHours.map((x, i) => (
+            <span key={x.h}>
+              {i > 0 && ", "}
+              <b>{hourLabel(x.h)}</b> ({Math.round(x.total / dayCount)} a day)
+            </span>
+          ))}
+          .
+        </p>
+        <div className="flex items-end gap-1 h-36">
+          {hourly.map((x, h) => (
+            <div key={h} className="flex-1 flex flex-col justify-end items-stretch h-full" title={`${hourLabel(h)}: ${x.total} tries, ${x.busy} AI busy`}>
+              <div className="flex flex-col justify-end" style={{ height: `${(x.total / maxHour) * 100}%` }}>
+                {x.busy > 0 && <div className="bg-red-400 rounded-t" style={{ height: `${(x.busy / x.total) * 100}%`, minHeight: 2 }} />}
+                <div className={`bg-clay-400 ${x.busy === 0 ? "rounded-t" : ""}`} style={{ height: `${((x.total - x.busy) / x.total) * 100 || 0}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="flex gap-1 text-[10px] text-ink/50 mt-1">
+          {hourly.map((_, h) => (
+            <span key={h} className="flex-1 text-center">{h % 3 === 0 ? hourLabel(h) : ""}</span>
           ))}
         </div>
       </section>
@@ -198,9 +290,41 @@ export default async function AdminSpeakingPage({ searchParams }: { searchParams
         <div className="flex items-baseline justify-between gap-3 mb-3">
           <h2 className="font-medium">All attempts, newest first</h2>
           <p className="text-xs text-ink/50">
-            {totalAttempts === 0 ? "0" : `${(page - 1) * PAGE_SIZE + 1}-${Math.min(page * PAGE_SIZE, totalAttempts)}`} of {totalAttempts.toLocaleString()}
+            {totalFiltered === 0 ? "0" : `${(page - 1) * PAGE_SIZE + 1}-${Math.min(page * PAGE_SIZE, totalFiltered)}`} of {totalFiltered.toLocaleString()}
+            {totalFiltered !== totalAttempts && ` (filtered from ${totalAttempts.toLocaleString()})`}
           </p>
         </div>
+
+        <div className="space-y-2 mb-4 text-sm">
+          <FilterRow
+            label="Student"
+            current={filters.plan}
+            options={[["all", "Everyone"], ["free", "Free"], ["paid", "Paid"]]}
+            hrefFor={(v) => hrefFor({ ...filters, plan: v as Filters["plan"] })}
+          />
+          <FilterRow
+            label="Result"
+            current={filters.result}
+            options={[["all", "All"], ["marked", "Marked"], ["failed", "Failed"]]}
+            hrefFor={(v) => hrefFor({ ...filters, result: v as Filters["result"], reason: v === "marked" ? "all" : filters.reason })}
+          />
+          <FilterRow
+            label="Why it failed"
+            current={filters.reason}
+            options={[["all", "Any reason"], ["ai", "AI service"], ["other", "Other (student or server)"]]}
+            hrefFor={(v) => hrefFor({ ...filters, reason: v as Filters["reason"] })}
+          />
+          <p className="text-xs text-ink/50">
+            Tip: press <kbd className="px-1.5 py-0.5 rounded border border-ink/20">←</kbd> <kbd className="px-1.5 py-0.5 rounded border border-ink/20">→</kbd> on your keyboard to change page, <kbd className="px-1.5 py-0.5 rounded border border-ink/20">Home</kbd> / <kbd className="px-1.5 py-0.5 rounded border border-ink/20">End</kbd> for the first and last page. "AI service" means transcription failed, the AI was busy, or the AI returned a bad answer.
+          </p>
+        </div>
+
+        <PagerKeys
+          prev={page > 1 ? hrefFor(filters, page - 1) : null}
+          next={page < totalPages ? hrefFor(filters, page + 1) : null}
+          first={page > 1 ? hrefFor(filters, 1) : null}
+          last={page < totalPages ? hrefFor(filters, totalPages) : null}
+        />
         <table className="w-full text-sm">
           <thead className="text-left text-ink/50">
             <tr>
@@ -245,18 +369,48 @@ export default async function AdminSpeakingPage({ searchParams }: { searchParams
             ))}
           </tbody>
         </table>
-        <Pager page={page} totalPages={totalPages} />
+        {pageRows.length === 0 && <p className="text-sm text-ink/50 py-6 text-center">No attempts match these filters.</p>}
+        <Pager page={page} totalPages={totalPages} filters={filters} />
       </section>
     </div>
   );
 }
 
 // Previous / numbered pages / Next. Shows the first page, the last page and a few around the current one.
-function Pager({ page, totalPages }: { page: number; totalPages: number }) {
+function FilterRow({
+  label,
+  current,
+  options,
+  hrefFor,
+}: {
+  label: string;
+  current: string;
+  options: [string, string][];
+  hrefFor: (value: string) => string;
+}) {
+  return (
+    <div className="flex flex-wrap items-center gap-1.5">
+      <span className="w-28 shrink-0 text-ink/60">{label}</span>
+      {options.map(([value, text]) => (
+        <Link
+          key={value}
+          href={hrefFor(value)}
+          className={`px-3 py-1 rounded-full border text-xs ${
+            current === value ? "border-clay-600 bg-clay-600 text-white font-medium" : "border-ink/15 hover:border-clay-400"
+          }`}
+        >
+          {text}
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+function Pager({ page, totalPages, filters }: { page: number; totalPages: number; filters: Filters }) {
   if (totalPages <= 1) return null;
   const nums = new Set([1, totalPages, page - 2, page - 1, page, page + 1, page + 2].filter((n) => n >= 1 && n <= totalPages));
   const list = [...nums].sort((a, b) => a - b);
-  const href = (n: number) => `/admin/speaking?page=${n}#recent`;
+  const href = (n: number) => hrefFor(filters, n);
   const base = "min-w-9 text-center px-3 py-1.5 rounded-lg border text-sm";
   return (
     <nav className="flex flex-wrap items-center justify-center gap-1.5 mt-5" aria-label="Pages">
