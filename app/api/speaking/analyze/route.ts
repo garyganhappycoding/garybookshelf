@@ -27,7 +27,10 @@ const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const FALLBACK_MODEL = "openai/gpt-oss-20b"; // separate rate limits; used when the main model is busy
 // Free students use the lighter model first and may only borrow the main model up to this many times a day,
 // which keeps the main model's daily allowance free for paying students.
-const FREE_MAIN_DAILY_CAP = 45;
+// Real numbers from Groq: each model may use 200,000 tokens in a rolling 24 hours, and one marking costs about
+// 1,850 tokens. 80 free uses of the main model is about 148,000 tokens, which leaves about 50,000 (roughly 28
+// attempts) for paying students.
+const FREE_MAIN_DAILY_CAP = 80;
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 const CEREBRAS_URL = "https://api.cerebras.ai/v1/chat/completions";
 
@@ -148,7 +151,7 @@ export async function POST(req: Request) {
   const meta: { duration_sec?: number; word_count?: number } = {};
   // `reason` is stored so the admin page can show WHY it failed (see FAIL_REASONS in lib/speaking/fail-reasons.ts)
   // `keep` saves the transcript on the failed row so the student can retry the marking without recording again.
-  const fail = async (reason: FailReason, message: string, status: number, detail?: string, keep?: SavedTranscript) => {
+  const fail = async (reason: FailReason, message: string, status: number, detail?: string, keep?: SavedTranscript, retryAfter?: number) => {
     await admin
       .from("speaking_attempts")
       .update({
@@ -163,6 +166,7 @@ export async function POST(req: Request) {
     return err(message, status, {
       ...(await counts()),
       ...(keep ? { retryAttemptId: attemptId, savedWords: keep.transcript.split(/\s+/).filter(Boolean).length } : {}),
+      ...(retryAfter ? { retryAfter } : {}),
     });
   };
 
@@ -242,12 +246,21 @@ export async function POST(req: Request) {
     if (!aiRes.ok) {
       const body = await aiRes.text();
       console.error("grok failed", aiRes.status, body);
+      // Groq says how long until the limit frees up, e.g. "Please try again in 9m56.16s". Pass that on, so students
+      // wait the right amount of time instead of pressing retry every minute.
+      let wait: number | undefined;
+      const m = body.match(/try again in (?:(\d+)h)?(?:(\d+)m)?(\d+(?:\.\d+)?)s/i);
+      if (aiRes.status === 429 && m) wait = Math.min(Math.ceil((Number(m[1] ?? 0) * 3600) + Number(m[2] ?? 0) * 60 + Number(m[3] ?? 0)), 30 * 60);
+      const when = wait && wait >= 60 ? `about ${Math.ceil(wait / 60)} minutes` : "a few minutes";
       return fail(
         aiRes.status === 429 ? "ai_busy" : "ai_error",
-        "The AI is busy right now. Your recording is safe and you were not charged an attempt. You can close or refresh this page and come back within 7 days to mark it.",
+        aiRes.status === 429
+          ? `The AI has reached its limit for now and frees up again in ${when}. Your recording is safe and you were not charged an attempt. You can close or refresh this page and come back within 7 days to mark it.`
+          : "The AI had a problem. Your recording is safe and you were not charged an attempt. You can close or refresh this page and come back within 7 days to mark it.",
         502,
         `${aiRes.status} ${body}`,
-        keep
+        keep,
+        wait
       );
     }
     const aiJson = await aiRes.json();

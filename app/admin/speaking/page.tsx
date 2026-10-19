@@ -3,6 +3,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import PagerKeys from "@/components/PagerKeys";
+import DatePick from "@/components/DatePick";
 import { getCard, getTheme } from "@/lib/speaking/cards";
 import { FAIL_REASONS, type FailReason } from "@/lib/speaking/fail-reasons";
 
@@ -32,17 +33,73 @@ const PAGE_SIZE = 20;
 const AI_REASONS = ["stt_error", "ai_busy", "ai_error"]; // failures caused by the AI service
 const OTHER_REASONS = ["stopped_early", "too_little_speech", "too_long", "server_error"]; // student side or our own server
 
-type Filters = { plan: "all" | "free" | "paid"; result: "all" | "marked" | "failed"; reason: "all" | "ai" | "other" };
+type Peak = "day" | "week" | "month";
+type Filters = {
+  plan: "all" | "free" | "paid";
+  result: "all" | "marked" | "failed";
+  reason: "all" | "ai" | "other";
+  peak: Peak; // the "Busiest hours" chart: one day, one week or one month
+  date: string; // any date inside the period shown (YYYY-MM-DD, Malaysia time); empty means today
+};
 
-// builds /admin/speaking?... keeping the filters, for the filter buttons and the pager
-function hrefFor(f: Filters, page = 1) {
+function queryFor(f: Filters, page = 1) {
   const p = new URLSearchParams();
   if (f.plan !== "all") p.set("plan", f.plan);
   if (f.result !== "all") p.set("result", f.result);
   if (f.reason !== "all") p.set("reason", f.reason);
+  if (f.peak !== "week") p.set("peak", f.peak);
+  if (f.date) p.set("date", f.date);
   if (page > 1) p.set("page", String(page));
-  const s = p.toString();
-  return `/admin/speaking${s ? `?${s}` : ""}#recent`;
+  return p;
+}
+
+// builds /admin/speaking?... keeping every filter, for the filter buttons, the chart controls and the pager
+function hrefFor(f: Filters, page = 1, hash = "recent") {
+  const s = queryFor(f, page).toString();
+  return `/admin/speaking${s ? `?${s}` : ""}#${hash}`;
+}
+
+// ---- date maths for the Busiest hours chart (all in Malaysia time, UTC+8) ----
+const startOfDay = (d: string) => new Date(`${d}T00:00:00+08:00`);
+const addDays = (d: string, n: number) => myDay(new Date(startOfDay(d).getTime() + n * 86400_000 + 12 * 3600_000));
+const pad2 = (n: number) => String(n).padStart(2, "0");
+const showDate = (d: Date, opts: Intl.DateTimeFormatOptions) => d.toLocaleDateString("en-GB", { timeZone: "Asia/Kuala_Lumpur", ...opts });
+
+function periodOf(mode: Peak, anchor: string) {
+  if (mode === "day") {
+    const start = startOfDay(anchor);
+    return {
+      start,
+      end: new Date(start.getTime() + 86400_000),
+      prev: addDays(anchor, -1),
+      next: addDays(anchor, 1),
+      label: showDate(start, { weekday: "short", day: "numeric", month: "short", year: "numeric" }),
+    };
+  }
+  if (mode === "week") {
+    const dow = new Date(startOfDay(anchor).getTime() + 8 * 3600_000).getUTCDay(); // 0 = Sunday
+    const monday = addDays(anchor, -((dow + 6) % 7));
+    const start = startOfDay(monday);
+    const end = new Date(start.getTime() + 7 * 86400_000);
+    return {
+      start,
+      end,
+      prev: addDays(monday, -7),
+      next: addDays(monday, 7),
+      label: `${showDate(start, { day: "numeric", month: "short" })} to ${showDate(new Date(end.getTime() - 3600_000), { day: "numeric", month: "short", year: "numeric" })}`,
+    };
+  }
+  const [y, m] = anchor.split("-").map(Number);
+  const ym = (yy: number, mm: number) => `${yy}-${pad2(mm)}-01`;
+  const start = startOfDay(ym(y, m));
+  const nextFirst = m === 12 ? ym(y + 1, 1) : ym(y, m + 1);
+  return {
+    start,
+    end: startOfDay(nextFirst),
+    prev: m === 1 ? ym(y - 1, 12) : ym(y, m - 1),
+    next: nextFirst,
+    label: showDate(start, { month: "long", year: "numeric" }),
+  };
 }
 
 const hourLabel = (h: number) => `${h % 12 || 12}${h < 12 ? "am" : "pm"}`;
@@ -50,7 +107,7 @@ const hourLabel = (h: number) => `${h % 12 || 12}${h < 12 ? "am" : "pm"}`;
 export default async function AdminSpeakingPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; plan?: string; result?: string; reason?: string }>;
+  searchParams: Promise<{ page?: string; plan?: string; result?: string; reason?: string; peak?: string; date?: string }>;
 }) {
   const sp = await searchParams;
   const pageParam = sp.page;
@@ -90,6 +147,8 @@ export default async function AdminSpeakingPage({
     plan: sp.plan === "free" || sp.plan === "paid" ? sp.plan : "all",
     result: sp.result === "marked" || sp.result === "failed" ? sp.result : "all",
     reason: sp.reason === "ai" || sp.reason === "other" ? sp.reason : "all",
+    peak: sp.peak === "day" || sp.peak === "month" ? sp.peak : "week",
+    date: /^\d{4}-\d{2}-\d{2}$/.test(sp.date ?? "") && !Number.isNaN(startOfDay(sp.date!).getTime()) ? sp.date! : "",
   };
   if (filters.reason !== "all") filters.result = "failed"; // a failure reason only makes sense for failed attempts
 
@@ -122,23 +181,34 @@ export default async function AdminSpeakingPage({
   const { data: profiles } = await admin.from("profiles").select("id,email").in("id", pageUserIds);
   const email = new Map((profiles ?? []).map((p: any) => [p.id, p.email as string]));
 
-  // Busiest hours of the day (Malaysia time), last 14 days: all tries, and how many of them hit "AI busy"
+  // Busiest hours of the day (Malaysia time) for one day, one week or one month. Week and month show the AVERAGE
+  // number of tries per day in each hour, so a "busy hour" means busy on a typical day, not one unusual day.
+  const todayStr = myDay(new Date());
+  const anchor = filters.date && filters.date <= todayStr ? filters.date : todayStr;
+  const per = periodOf(filters.peak, anchor);
   const hourly = Array.from({ length: 24 }, () => ({ total: 0, busy: 0 }));
-  const since14 = Date.now() - 14 * 86400_000;
-  const daysSeen = new Set<string>();
   for (const r of rows) {
-    if (+new Date(r.created_at) < since14) continue;
+    const t = +new Date(r.created_at);
+    if (t < per.start.getTime() || t >= per.end.getTime()) continue;
     const h = Number(new Date(r.created_at).toLocaleString("en-GB", { timeZone: "Asia/Kuala_Lumpur", hour: "2-digit", hour12: false })) % 24;
     hourly[h].total++;
     if (r.fail_reason === "ai_busy") hourly[h].busy++;
-    daysSeen.add(myDay(r.created_at));
   }
-  const dayCount = Math.max(1, daysSeen.size);
-  const maxHour = Math.max(1, ...hourly.map((x) => x.total));
-  const peakHours = hourly
+  // days that have actually happened so far in this period (a week that is half over is averaged over the days so far)
+  const daysCounted = filters.peak === "day" ? 1 : Math.max(1, Math.ceil((Math.min(per.end.getTime(), Date.now()) - per.start.getTime()) / 86400_000));
+  const periodTotal = hourly.reduce((n, x) => n + x.total, 0);
+  const periodBusy = hourly.reduce((n, x) => n + x.busy, 0);
+  const bars = hourly.map((x) => ({ total: x.total / daysCounted, busy: x.busy / daysCounted, rawTotal: x.total, rawBusy: x.busy }));
+  const maxHour = Math.max(0.0001, ...bars.map((x) => x.total));
+  const peakHours = bars
     .map((x, h) => ({ h, ...x }))
+    .filter((x) => x.total > 0)
     .sort((a, b) => b.total - a.total)
     .slice(0, 3);
+  const fmtAvg = (n: number) => (filters.peak === "day" ? String(Math.round(n)) : n < 10 ? n.toFixed(1) : String(Math.round(n)));
+  const hasNext = per.end.getTime() <= Date.now();
+  const peakBase = queryFor({ ...filters, date: "" });
+  const pickBase = `/admin/speaking?${peakBase.toString() ? peakBase.toString() + "&" : ""}date=`;
 
   const today = myDay(new Date());
   const weekAgo = Date.now() - 7 * 86400_000;
@@ -175,7 +245,7 @@ export default async function AdminSpeakingPage({
   const maxDay = Math.max(1, ...perDay.map((x) => x.n));
 
   return (
-    <div className="max-w-[1500px] mx-auto px-5 sm:px-8 py-14 space-y-8">
+    <div className="w-full max-w-none px-4 sm:px-6 py-14 space-y-8">
       <div>
         <h1 className="text-2xl font-medium">Speaking usage</h1>
         <p className="text-sm text-ink/60">Times are Malaysia time. Failed attempts do not use up a student's daily limit.</p>
@@ -201,21 +271,75 @@ export default async function AdminSpeakingPage({
         </div>
       </section>
 
-      <section className="card">
-        <h2 className="font-medium mb-1">Busiest hours of the day</h2>
+      <section id="peak" className="card scroll-mt-6">
+        <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+          <div>
+            <h2 className="font-medium">Busiest hours of the day</h2>
+            <p className="text-sm text-ink/60">
+              {filters.peak === "day" ? "Tries in each hour" : "Average tries per day in each hour"} (Malaysia time). Red is the part that hit "AI busy".
+            </p>
+          </div>
+          <div className="flex gap-1.5">
+            {(["day", "week", "month"] as Peak[]).map((m) => (
+              <Link
+                key={m}
+                href={hrefFor({ ...filters, peak: m }, 1, "peak")}
+                scroll={false}
+                className={`px-3 py-1 rounded-full border text-xs ${
+                  filters.peak === m ? "border-clay-600 bg-clay-600 text-white font-medium" : "border-ink/15 hover:border-clay-400"
+                }`}
+              >
+                {m === "day" ? "Daily" : m === "week" ? "Weekly" : "Monthly"}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-2 mb-3">
+          <Link href={hrefFor({ ...filters, date: per.prev }, 1, "peak")} scroll={false} className="px-3 py-1 rounded-lg border border-ink/15 hover:border-clay-400 text-sm" aria-label="Previous period">
+            ←
+          </Link>
+          {hasNext ? (
+            <Link href={hrefFor({ ...filters, date: per.next === todayStr ? "" : per.next }, 1, "peak")} scroll={false} className="px-3 py-1 rounded-lg border border-ink/15 hover:border-clay-400 text-sm" aria-label="Next period">
+              →
+            </Link>
+          ) : (
+            <span className="px-3 py-1 rounded-lg border border-transparent text-ink/30 text-sm">→</span>
+          )}
+          <span className="font-medium text-sm min-w-44">{per.label}</span>
+          <DatePick baseHref={pickBase} date={anchor} max={todayStr} hash="peak" />
+          {filters.date && (
+            <Link href={hrefFor({ ...filters, date: "" }, 1, "peak")} scroll={false} className="text-xs text-clay-700 underline">
+              Back to today
+            </Link>
+          )}
+        </div>
+
         <p className="text-sm text-ink/60 mb-3">
-          Every try over the last {dayCount} days, by hour (Malaysia time). Red is the part that hit "AI busy". Peak:{" "}
-          {peakHours.map((x, i) => (
-            <span key={x.h}>
-              {i > 0 && ", "}
-              <b>{hourLabel(x.h)}</b> ({Math.round(x.total / dayCount)} a day)
-            </span>
-          ))}
-          .
+          {periodTotal.toLocaleString()} tries in this {filters.peak}
+          {periodBusy > 0 && <>, of which <b className="text-red-600">{periodBusy}</b> hit "AI busy"</>}.{" "}
+          {peakHours.length > 0 ? (
+            <>
+              Busiest:{" "}
+              {peakHours.map((x, i) => (
+                <span key={x.h}>
+                  {i > 0 && ", "}
+                  <b>{hourLabel(x.h)}</b> ({fmtAvg(x.total)}{filters.peak === "day" ? "" : " a day"})
+                </span>
+              ))}
+              .
+            </>
+          ) : (
+            "No tries in this period."
+          )}
         </p>
         <div className="flex items-end gap-1 h-36">
-          {hourly.map((x, h) => (
-            <div key={h} className="flex-1 flex flex-col justify-end items-stretch h-full" title={`${hourLabel(h)}: ${x.total} tries, ${x.busy} AI busy`}>
+          {bars.map((x, h) => (
+            <div
+              key={h}
+              className="flex-1 flex flex-col justify-end items-stretch h-full"
+              title={`${hourLabel(h)}: ${x.rawTotal} tries${filters.peak === "day" ? "" : ` (${fmtAvg(x.total)} a day)`}, ${x.rawBusy} AI busy`}
+            >
               <div className="flex flex-col justify-end" style={{ height: `${(x.total / maxHour) * 100}%` }}>
                 {x.busy > 0 && <div className="bg-red-400 rounded-t" style={{ height: `${(x.busy / x.total) * 100}%`, minHeight: 2 }} />}
                 <div className={`bg-clay-400 ${x.busy === 0 ? "rounded-t" : ""}`} style={{ height: `${((x.total - x.busy) / x.total) * 100 || 0}%` }} />
@@ -364,7 +488,7 @@ export default async function AdminSpeakingPage({
                   ) : (
                     "…"
                   )}
-                  {r.fail_detail && <p className="text-xs text-ink/50 max-w-xl break-words">{r.fail_detail}</p>}
+                  {r.fail_detail && <p className="text-xs text-ink/50 max-w-3xl break-words">{r.fail_detail}</p>}
                 </td>
                 <td className="pr-3 text-ink/60 whitespace-nowrap">{r.model ? r.model.replace("openai/", "") : "-"}</td>
                 <td className="text-ink/60 whitespace-nowrap">{r.duration_sec != null ? `${Math.round(r.duration_sec)}s · ${r.word_count} words` : "-"}</td>
