@@ -70,7 +70,7 @@ export default function PrivacyPage() {
         </ul>
         <p>
           Gary reads each message and can reply on your private tracking link. He shares a result on Instagram only if you said yes, and tags you only
-          if you said yes to that. The Bookshelf 100 page shows results without names. Result papers are stored privately, are kept as a record of the
+          if you said yes to that. The Bookshelf 100 page and its Wall of Wins show results without names or ages, unless you tick the box to show your first name or nickname. Result papers are stored privately, are kept as a record of the
           project, and Gary may save a copy in his Google Drive. They are not published without your permission, and you can ask us to delete yours at
           any time. If you are under 18, a parent or guardian must tick the box to agree.
         </p>

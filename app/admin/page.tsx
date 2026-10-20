@@ -49,7 +49,7 @@ export default async function AdminPage() {
         </Link>
         <Link href="/admin/project" className="card block hover:border-clay-400">
           <p className="font-medium mb-1">The Bookshelf 100</p>
-          <p className="text-sm text-ink/60">Progress updates and what-next votes</p>
+          <p className="text-sm text-ink/60">Wall of Wins and what-next votes</p>
         </Link>
         <Link href="/admin/ask-gary" className="card block hover:border-clay-400">
           <p className="font-medium mb-1">Ask Gary</p>

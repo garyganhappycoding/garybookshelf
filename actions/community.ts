@@ -99,7 +99,7 @@ export async function submitResult(formData: FormData): Promise<SubmitResult> {
   if (accountEmail && !isEmail(accountEmail)) return { error: "That email doesn't look right. You can also leave it empty." };
   if (consentStory === "tag" && !handle) return { error: "To tag you, please add your Instagram handle." };
 
-  const payload: Record<string, unknown> = { criterion, age_form: ageForm, video_link: videoLink || null, under18 };
+  const payload: Record<string, unknown> = { criterion, age_form: ageForm, video_link: videoLink || null, under18, show_name: formData.get("show_name") === "on" };
   let body = "";
   if (criterion === "grade") {
     const subject = clean(formData.get("subject"), 80);

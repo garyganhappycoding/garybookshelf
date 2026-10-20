@@ -189,6 +189,7 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
                   Story: <b>{r.consent_story === "tag" ? `OK, tag me (${r.contact})` : r.consent_story === "no_tag" ? "OK, don't tag" : "do NOT share"}</b>
                   {p.under18 ? ` · under 18, parent ok: ${r.parent_ok ? "yes" : "NO"}` : ""}
                   {r.display_name ? ` · name: ${r.display_name}` : ""}
+                  {p.show_name ? " · OK to show name on the wall" : " · name NOT shown on the wall"}
                   {r.contact && r.consent_story !== "tag" ? ` · IG: ${r.contact}` : ""}
                   {r.account_email ? ` · account email: ${r.account_email}` : " · no account email"}
                 </p>

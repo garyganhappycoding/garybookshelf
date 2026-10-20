@@ -143,19 +143,49 @@ export async function closePoll(formData: FormData) {
   revalidatePath("/admin/project");
 }
 
-export async function addUpdate(formData: FormData) {
+// Gary adds a win he got elsewhere (an Instagram message, for example) straight onto the Wall of Wins.
+export async function addWin(formData: FormData) {
   await requireAdmin();
-  const title = clean(formData.get("title"), 160);
-  const body = clean(formData.get("body"), 3000);
-  if (!title || !body) return;
-  await createAdminClient().from("project_updates").insert({ title, body });
-  revalidatePath("/100");
+  const criterion = clean(formData.get("criterion"), 10) === "study" ? "study" : "grade";
+  const name = clean(formData.get("name"), 60);
+  const story = clean(formData.get("story"), 2000);
+  const payload: Record<string, unknown> = {
+    criterion,
+    age_form: clean(formData.get("age_form"), 120),
+    show_name: !!name,
+    added_by_gary: true,
+  };
+  if (criterion === "grade") {
+    const before = clean(formData.get("before"), 30);
+    const after = clean(formData.get("after"), 30);
+    if (!before || !after) return;
+    Object.assign(payload, { subject: clean(formData.get("subject"), 80), exam: clean(formData.get("exam"), 80), before, after });
+  } else {
+    if (story.length < 10) return;
+    Object.assign(payload, { technique: clean(formData.get("technique"), 400) });
+  }
+  await createAdminClient().from("submissions").insert({
+    kind: "feedback",
+    status: "approved",
+    display_name: name || null,
+    body: story || null,
+    payload,
+    consent_story: "no_tag",
+    counts_for_goal: formData.get("counts") === "on",
+    reviewed_at: new Date().toISOString(),
+  });
+  refresh();
   revalidatePath("/admin/project");
 }
 
-export async function deleteUpdate(formData: FormData) {
+// Take a win off the wall (it stays in the inbox and still counts toward the 100).
+export async function hideWin(formData: FormData) {
   await requireAdmin();
-  await createAdminClient().from("project_updates").delete().eq("id", clean(formData.get("id"), 40));
-  revalidatePath("/100");
+  const admin = createAdminClient();
+  const id = clean(formData.get("id"), 40);
+  const { data } = await admin.from("submissions").select("payload").eq("id", id).maybeSingle();
+  if (!data) return;
+  await admin.from("submissions").update({ payload: { ...(data.payload as object), hidden: true } }).eq("id", id);
+  refresh();
   revalidatePath("/admin/project");
 }

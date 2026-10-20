@@ -119,8 +119,12 @@ export default function ResultForm() {
                 </label>
               ))}
             </fieldset>
+            <label className="flex gap-2 items-start text-sm">
+              <input type="checkbox" name="show_name" className="mt-1 accent-clay-600" />
+              <span>Show my first name or nickname next to my result on the website's Wall of Wins. Without this, it says just "a Form 5 student".</span>
+            </label>
             <div className="grid sm:grid-cols-2 gap-4">
-              <Field label="Your name or nickname" hint="Shown only if you say yes above">
+              <Field label="Your name or nickname" hint="Shown only if you tick the box above, or say yes to the story">
                 <input name="name" className={inputCls} maxLength={60} />
               </Field>
               <Field label="Your Instagram handle" hint={consent === "tag" ? "Needed so I can tag you" : "So I can reach you"} required={consent === "tag"}>
