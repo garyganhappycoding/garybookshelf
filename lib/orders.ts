@@ -3,6 +3,7 @@
 // person is allowed to do this BEFORE calling (admin session, or Gary's Telegram id).
 import { revalidatePath } from "next/cache";
 import { sendRawEmail } from "@/lib/community";
+import { siteUrl } from "@/lib/site";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export type OrderSummary = { title: string; email: string | null; amount: number };
@@ -50,13 +51,13 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
 
   let emailError: string | undefined;
   if (customerEmail) {
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+    const siteLink = siteUrl();
     const externalLink = (order as any).products?.external_link;
     const downloadSection = packAttempts
-      ? `<a href="${siteUrl}/speaking" style="${BUTTON}">Start speaking practice</a>`
+      ? `<a href="${siteLink}/speaking" style="${BUTTON}">Start speaking practice</a>`
       : externalLink
       ? `<a href="${externalLink}" style="${BUTTON}">Get my download</a>`
-      : `<a href="${siteUrl}/dashboard" style="${BUTTON}">Go to my dashboard</a>`;
+      : `<a href="${siteLink}/dashboard" style="${BUTTON}">Go to my dashboard</a>`;
 
     // sendRawEmail never throws and reports problems (unverified domain, wrong recipient, bad Gmail password) in its result
     const sent = await sendRawEmail(

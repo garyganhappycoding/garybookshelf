@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { clean, sendEmail } from "@/lib/community";
+import { siteUrl } from "@/lib/site";
 
 async function requireAdmin() {
   const supabase = await createClient();
@@ -95,7 +96,7 @@ export async function approveSubmission(formData: FormData) {
             rewardNote = "Could not add the attempt. Please add it by hand.";
           } else {
             granted = true;
-            const site = process.env.NEXT_PUBLIC_SITE_URL || "";
+            const site = siteUrl();
             const sent = await sendEmail(
               profile.email ?? email,
               "Thank you! You have a free Speaking attempt",

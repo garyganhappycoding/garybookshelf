@@ -4,6 +4,7 @@ import { headers } from "next/headers";
 import { Resend } from "resend";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { sendTelegramText } from "@/lib/telegram";
+import { siteUrl } from "@/lib/site";
 
 export const GOAL = 100; // The Bookshelf 100
 export const GOAL_DEADLINE = "2026-12-31";
@@ -99,7 +100,7 @@ export const sendEmail = (to: string, subject: string, inner: string, resendFrom
 // A short heads-up on Gary's own Telegram (the admin chat used for orders). Students never use the bot, they only
 // use the website forms. `path` is the admin page to open, for example /admin/inbox?tab=question.
 export async function notifyGary(title: string, summary: string, path = "/admin/inbox") {
-  const site = process.env.NEXT_PUBLIC_SITE_URL || "";
+  const site = siteUrl();
   await sendTelegramText(`${title}
 ${summary}
 
