@@ -33,7 +33,7 @@ Copy this template under "Entries":
 ### 2026-10-20 — Cerdek and Cikgu Minah: what to study
 - Source: https://cerdek.com/ and https://maxcacademy.com/testimonial
 - Insight: Gary learns four things from them: pricing, funnel, testimonials, and how they run their AI.
-- Apply to garybookshelf: study their price ladder and free-to-paid funnel (the speaking tab has 449 trying students but only 5 paying, so the funnel is the biggest lever). Collect student grade-improvement testimonials, since Gary's success metric is grades improved. TODO: Gary to add specifics he notices.
+- Apply to garybookshelf: study their price ladder and free-to-paid funnel (the speaking tab has 449 trying students but only 5 paying, so the funnel is the biggest lever). Collect student grade-improvement testimonials, since Gary's success metric is grades improved. Gary has not studied their pages in detail yet; what he has learned so far is their management (how they run the team and operations). TODO: Gary to add specifics when he goes through them.
 - Status: idea
 
 ### 2026-10-20 — Amin's reels: music and script flow

@@ -47,17 +47,29 @@
 
 ## Visual identity
 - Logo / mascot: **cute blue shark eating chips** (`public/dolphin-icon.png`, confirmed as the correct logo; the filename says "dolphin" but it is the shark). Round avatar, kawaii style: soft periwinkle body, pink blush cheeks, a bag of chips, thin dark outline.
-- Palette derived from the logo (proposed, not yet applied to the site):
-  | Role | Color | Hex |
-  |---|---|---|
-  | Primary (shark blue) | periwinkle | `#B4C6E9` (tint `#DCE6F7`, deep `#5B78B8` for buttons/links) |
-  | Accent (chips) | butter yellow | `#EEE1AC` (deeper `#E0B94A` for highlights) |
-  | Accent (cheeks) | blush pink | `#F4B6C2` |
-  | Ink / text | dark navy-black | `#1C2433` |
-  | Background | near-white | `#FCFCFC` |
-- Style: friendly, soft, rounded, playful illustrations; keep text high-contrast (use deep blue or ink for text, never pale blue on white).
-- **Gap:** the live site (`tailwind.config.ts`, email templates in `lib/orders.ts`) uses a warm cream / clay / sage "notebook" theme that does **not** match the shark logo. Decide whether to migrate the site to the shark palette. TODO: Gary to decide.
-- Fonts: TODO.
+- **Two palettes, both kept (Gary's decision):**
+  1. **Shark palette: use for videos, reels, thumbnails, social posts and any new brand material.**
+     | Role | Color | Hex |
+     |---|---|---|
+     | Primary (shark blue) | periwinkle | `#B4C6E9` (tint `#DCE6F7`, deep `#5B78B8` for buttons/links) |
+     | Accent (chips) | butter yellow | `#EEE1AC` (deeper `#E0B94A` for highlights) |
+     | Accent (cheeks) | blush pink | `#F4B6C2` |
+     | Ink / text | dark navy-black | `#1C2433` |
+     | Background | near-white | `#FCFCFC` |
+     Style: friendly, soft, rounded, playful; keep text high-contrast (deep blue or ink for text, never pale blue on white).
+  2. **Website palette: KEEP for the live site, emails and website pages** (Gary likes this look and background). Warm "notebook / paper" feel:
+     | Role | Hex |
+     |---|---|
+     | Page background (paper) | `#FBF6EC` |
+     | Cream tints | `#FEFCF8`, `#FAF3E7`, `#F4E7D3` (hero band) |
+     | Ink / text | `#3B2F26` |
+     | Clay (buttons, accents) | `#E0997B` / `#D2764F` / `#B85C38` (primary button) / `#8F4327` (hover, headings) |
+     | Sage (soft highlights) | `#9CB380` / `#7F9A63` / `#647E4A` |
+     Style rules from the code: Inter for body, **Caveat** (handwritten) for the logo/wordmark and warm accents; white cards with `rounded-2xl`, hairline `ink/10` border and small padding; **pill-shaped** (fully rounded) buttons, clay-filled for primary, white with border for secondary; hero is a cream band with a headline on the left and a photo on the right; faint ruled "notebook lines" background available; clay and sage used at low opacity for soft chips. Tone of copy is warm and first person ("Hi, I'm Gary...").
+  - When designing a **new website page or web tool**, use the website palette. When designing **video / Instagram / YouTube**, use the shark palette. When a page covers both worlds, use the website palette for the page and the shark mascot as the illustration.
+  - Site source of truth: `tailwind.config.ts`, `app/globals.css`, `app/layout.tsx`. Live site: https://garybookshelf-three.vercel.app/ (not reachable from Claude's cloud sandbox, so Claude reads the code instead; Gary can paste screenshots).
+- Fonts: site uses Inter + Caveat. TODO: pick video fonts.
+- Known inconsistency: homepage hero says "45k+ students" but Gary now has 52.4k followers (hero text in `app/page.tsx`). Update when asked.
 
 ## Content pillars
 1. How to study for [subject X]
@@ -66,7 +78,7 @@
 4. How to prepare for speaking practice
 
 ## Platforms & channels
-- **Main: Instagram** (reels). **Side: YouTube.**
+- **Main: Instagram** (reels): **52.4k followers** (as of 20 Oct 2026). **Side: YouTube:** **1k subscribers.**
 - Video style/script references: see `KNOWLEDGE.md`.
 
 ## Products / revenue
@@ -85,8 +97,18 @@
   - Conversion is the lever: more of the 449 trying students need to buy.
   - Note: RM5k/month needs about 500 students paying RM10 monthly (or a mix with notes and a higher-priced 1-to-1 service), so pricing/product mix matters.
 
+## Credibility (use in content and site copy)
+- Gary scored a **4.00 flat in matriculation** (photo on the homepage), and studied through SPM and matriculation.
+- Proof from students: only a few testimonials so far. Gary does **not** want to count those yet. Do not claim student results in copy until real before/after proof exists.
+
+## Decisions log
+- 1-to-1 diagnosis / tuition: **parked**. Gary does not plan to offer 1-to-1 now. Current business = **notes + speaking subscription only**.
+- Website colors: **keep** the warm theme (do not migrate to shark blue).
+- Both palettes are saved for future videos and websites.
+
 ## Growth goals & metrics
 - Students helped to learn how to learn: 100 this year → 10,000 in 5 years.
-- Impact metrics: grade improvement, students who begin self-studying. TODO: decide how to collect this (before/after grade form, testimonials).
+- Impact metrics: grade improvement, students who begin self-studying. Few testimonials so far and Gary is not counting them yet. TODO: decide how to collect real before/after proof.
 - Business metric: RM5,000/month profit.
-- TODO: Instagram follower target and email-list target.
+- Instagram: 52.4k followers, YouTube: 1k subs (20 Oct 2026). TODO: follower and email-list targets.
+- **Monthly profit planner (live):** https://claude.ai/artifact/LavGxGUYkMjfdusfWF47aH. Default plan: profit grows from RM200 (Nov 2026) to RM5,000 (Oct 2027) with 40% of money from notes and 60% from subscribers. At the goal month that needs about 320 subscribers and about 426 notes sold a month, which is about 0.6% of followers subscribing plus 0.8% buying notes. Gary types real subscribers and notes sold each month into the planner to track against the target. When asked for a monthly check-in, ask Gary for those two numbers and compare with the target.
