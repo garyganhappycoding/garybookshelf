@@ -29,7 +29,8 @@
 - **Top student requests (from DMs):** Sejarah, how to study, how to memorize, speaking, English, Science / Computer Science (mainly Java), Biology. These are the next notes and content to make.
 - **Seasonal spikes:** views and activity rise a lot in exam and trial-exam months. Gary's question: what to do in off-peak months to keep value and revenue up (see Priority actions).
 - **Telegram study groups** are an existing ecosystem Gary can use.
-- **Exam countdown** on the website (Gary likes it) and an exam-date offer.
+- **Time-critical:** the SPM English speaking test is 2–5 Nov and written papers run 23 Nov – 17 Dec, so the window to sell speaking to this cohort is only about two weeks. After 17 Dec the cohort leaves.
+- **Exam countdown** on the website (built, see `lib/exam-dates.ts`) (Gary likes it) and an exam-date offer.
 - **Checkout add-on:** notes + speaking attempts (to test). A bundle of notes plus subscription is not wanted now, but Gary will consider a bundle later.
 - **Ask Gary** (AI chat on the website) is the differentiator in progress: Gary's own learning method built into the AI, teaching students how to learn.
 - Ruled out for now (decided by Gary): partnerships with schools, tuition centres or teachers; school licenses (prices are too low to make sense); YouTube long-form (students don't watch it; channel is not active); other exam levels (focus stays Form 4–5); selling outside Malaysia (SPM is Malaysia-only). Creator collaborations were already tried and are part of the past journey; not a focus now.
