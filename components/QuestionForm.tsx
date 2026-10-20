@@ -45,7 +45,7 @@ export default function QuestionForm() {
           {(
             [
               ["free", "✍️ Just type", "Write whatever you want, in your own words"],
-              ["guided", "🧭 Answer a few questions", "5 short questions give me a clearer picture"],
+              ["guided", "🧭 Answer a few questions", "These 5 questions help me answer you better"],
             ] as const
           ).map(([v, title, text]) => (
             <label key={v} className={`border rounded-xl p-3.5 cursor-pointer ${mode === v ? "border-clay-600 bg-clay-600/5" : "border-ink/15"}`}>
@@ -75,6 +75,10 @@ export default function QuestionForm() {
         </>
       ) : (
         <>
+          <p className="text-sm bg-sage-400/10 border border-sage-400/30 rounded-xl p-3">
+            💡 <b>These questions help me answer you better.</b> They show me your situation clearly, so my advice fits you instead of being
+            general. It takes about 3 minutes.
+          </p>
           <Field label="1. Your age, and the form you're in or the exam you're sitting for" required>
             <input name="age_form" className={inputCls} placeholder="e.g. 16, Form 4, SPM next year" maxLength={120} required />
           </Field>
