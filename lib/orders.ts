@@ -2,7 +2,7 @@
 // and the Telegram buttons do exactly the same thing. Callers must check that the
 // person is allowed to do this BEFORE calling (admin session, or Gary's Telegram id).
 import { revalidatePath } from "next/cache";
-import { Resend } from "resend";
+import { sendRawEmail } from "@/lib/community";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export type OrderSummary = { title: string; email: string | null; amount: number };
@@ -49,24 +49,20 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
   }
 
   let emailError: string | undefined;
-  try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
+  if (customerEmail) {
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const externalLink = (order as any).products?.external_link;
+    const downloadSection = packAttempts
+      ? `<a href="${siteUrl}/speaking" style="${BUTTON}">Start speaking practice</a>`
+      : externalLink
+      ? `<a href="${externalLink}" style="${BUTTON}">Get my download</a>`
+      : `<a href="${siteUrl}/dashboard" style="${BUTTON}">Go to my dashboard</a>`;
 
-    if (customerEmail) {
-      const downloadSection = packAttempts
-        ? `<a href="${siteUrl}/speaking" style="${BUTTON}">Start speaking practice</a>`
-        : externalLink
-        ? `<a href="${externalLink}" style="${BUTTON}">Get my download</a>`
-        : `<a href="${siteUrl}/dashboard" style="${BUTTON}">Go to my dashboard</a>`;
-
-      // Resend reports problems (unverified domain, wrong recipient) in the result instead of throwing
-      const { error: mailErr } = await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
-        to: customerEmail,
-        subject: `Your order is approved: ${productTitle}`,
-        html: `
+    // sendRawEmail never throws and reports problems (unverified domain, wrong recipient, bad Gmail password) in its result
+    const sent = await sendRawEmail(
+      customerEmail,
+      `Your order is approved: ${productTitle}`,
+      `
           <div style="font-family: -apple-system, sans-serif; max-width: 480px; margin: 0 auto; background: #FBF6EC; padding: 32px 24px; border-radius: 16px;">
             <p style="font-family: cursive; font-size: 22px; color: #8F4327; margin: 0 0 20px;">gary's bookshelf</p>
             <h2 style="color: #3B2F26; margin: 0 0 12px;">Your order is confirmed 🎉</h2>
@@ -81,16 +77,9 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
             </p>
             <p style="color: #8a8a8a; font-size: 12px; margin-top: 24px;">— Gary</p>
           </div>
-        `,
-      });
-      if (mailErr) {
-        console.error("Resend email failed", mailErr);
-        emailError = mailErr.message;
-      }
-    }
-  } catch (e) {
-    console.error("Resend email failed", e);
-    emailError = e instanceof Error ? e.message : String(e);
+        `
+    );
+    if (!sent.ok) emailError = sent.error;
   }
 
   revalidatePath("/admin/orders");

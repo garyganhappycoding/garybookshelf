@@ -55,16 +55,33 @@ const EMAIL_FRAME = (inner: string) => `
     <p style="color: #8a8a8a; font-size: 12px; margin-top: 24px;">— Gary</p>
   </div>`;
 
-// Best-effort: an email problem must never break a form.
-export async function sendEmail(to: string, subject: string, inner: string, from?: string): Promise<{ ok: boolean; error?: string }> {
-  if (!process.env.RESEND_API_KEY) return { ok: false, error: "RESEND_API_KEY is not set" };
+// Sends one email. Two ways, tried in this order:
+//  1. Gmail (free, no domain needed): set GMAIL_USER and GMAIL_APP_PASSWORD. Emails go out from that Gmail address.
+//  2. Resend: set RESEND_API_KEY. Needs a verified domain to email anyone except the Resend account owner.
+// It never throws: an email problem must never break a form or an approval. The result says what went wrong.
+export async function sendRawEmail(to: string, subject: string, html: string, resendFrom?: string): Promise<{ ok: boolean; error?: string }> {
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailPass = process.env.GMAIL_APP_PASSWORD;
+  if (gmailUser && gmailPass) {
+    try {
+      const nodemailer = await import("nodemailer");
+      const transport = nodemailer.createTransport({ host: "smtp.gmail.com", port: 465, secure: true, auth: { user: gmailUser, pass: gmailPass.replace(/\s+/g, "") } });
+      await transport.sendMail({ from: `"Gary's Bookshelf" <${gmailUser}>`, to, subject, html });
+      return { ok: true };
+    } catch (e) {
+      console.error("gmail email failed", e);
+      return { ok: false, error: e instanceof Error ? e.message : String(e) };
+    }
+  }
+
+  if (!process.env.RESEND_API_KEY) return { ok: false, error: "No email sender is set up (add GMAIL_USER and GMAIL_APP_PASSWORD in Vercel)" };
   try {
     // Resend reports problems (for example "you can only send to your own address") in the result, not as an exception
     const { error } = await new Resend(process.env.RESEND_API_KEY).emails.send({
-      from: from || process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+      from: resendFrom || process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
       to,
       subject,
-      html: EMAIL_FRAME(inner),
+      html,
     });
     if (error) {
       console.error("email failed", error);
@@ -76,6 +93,8 @@ export async function sendEmail(to: string, subject: string, inner: string, from
     return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }
 }
+
+export const sendEmail = (to: string, subject: string, inner: string, resendFrom?: string) => sendRawEmail(to, subject, EMAIL_FRAME(inner), resendFrom);
 
 // A short heads-up to Gary's inbox (not Telegram: student messages stay out of the bot).
 export async function notifyGary(subject: string, summary: string) {
