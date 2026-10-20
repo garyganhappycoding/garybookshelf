@@ -616,77 +616,106 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
         </div>
       </section>
 
-      {free ? (
-        <LockedPanel />
-      ) : (
-        <>
-          {result.phrase_upgrades && result.phrase_upgrades.length > 0 && (
-            <section className="card">
-              <h3 className="font-medium mb-3">Replace these phrases to score higher</h3>
-              <div className="space-y-2 text-sm">
-                {result.phrase_upgrades.map((p, i) => (
-                  <div key={i}>
-                    <b className="text-red-700">{p.original}</b> → {p.better.map((b) => <span key={b} className="inline-block bg-sage-400/20 text-sage-600 rounded-full px-2.5 py-0.5 mr-1.5 mb-1">{b}</span>)}
-                    <p className="text-ink/60 text-xs">{p.note}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {result.essay_rewrite && result.essay_rewrite.length > 0 && (
-            <section className="card">
-              <h3 className="font-medium mb-1">Band upgrade: your sentences rewritten</h3>
-              <p className="text-xs text-ink/60 mb-3">
-                <span className="bg-clay-400/25 text-clay-700 rounded px-1">highlighted</span> phrases come from Gary&apos;s English essay notes. Use them in your own speaking and essays.
-              </p>
-              <div className="space-y-4 text-sm">
-                {result.essay_rewrite.map((r, i) => (
-                  <div key={i}>
-                    <p className="text-ink/60">Before: <i>“{r.original}”</i></p>
-                    <p className="font-medium text-sage-600">After: “<HighlightPhrases text={r.upgraded} phrases={r.phrases_used.map((p) => p.phrase)} />”</p>
-                    {r.phrases_used.length > 0 && (
-                      <p className="text-xs mt-1 flex flex-wrap gap-1.5">
-                        {r.phrases_used.map((p) => (
-                          <span key={p.phrase} className="bg-clay-400/20 text-clay-700 rounded-full px-2 py-0.5">{p.phrase} · {p.zh}</span>
-                        ))}
-                      </p>
-                    )}
-                    <p className="text-xs text-ink/60 mt-1">{r.why}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* reports made before the essay rewrite existed */}
-          {!result.essay_rewrite && result.band_upgrade_rewrite && result.band_upgrade_rewrite.length > 0 && (
-            <section className="card">
-              <h3 className="font-medium mb-3">Band upgrade: rewrite your own sentences</h3>
-              <div className="space-y-4 text-sm">
-                {result.band_upgrade_rewrite.map((r, i) => (
-                  <div key={i}>
-                    <p className="text-ink/60">Before: <i>“{r.original}”</i></p>
-                    <p className="font-medium text-sage-600">After: “{r.upgraded}”</p>
-                    <p className="text-xs text-ink/60">{r.why}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-        </>
-      )}
-
-      <section className="card">
-        <h3 className="font-medium mb-3">Band upgrade: vocabulary</h3>
-        <div className="space-y-3 text-sm">
-          {result.vocab_upgrades.map((v, i) => (
-            <div key={i}>
-              <b>{v.basic}</b> → {v.better.join(", ")}
-              <p className="text-xs text-ink/60 italic">e.g. {v.example}</p>
-            </div>
-          ))}
+      <section className="card space-y-5">
+        <div>
+          <h3 className="font-medium">Upgrade your English</h3>
+          <p className="text-xs text-ink/60">From one word, to a phrase, to a whole sentence, to phrases to take with you.</p>
         </div>
+
+        <div>
+          <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">Step 1 of 4 · Words</p>
+          <div className="space-y-3 text-sm">
+            {result.vocab_upgrades.map((v, i) => (
+              <div key={i}>
+                <b>{v.basic}</b> → {v.better.join(", ")}
+                <p className="text-xs text-ink/60 italic">e.g. {v.example}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {free ? (
+          <div className="border-t border-dashed border-ink/20 pt-4">
+            <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">Steps 2 to 4 · in the paid report</p>
+            <ul className="text-sm text-ink/70 space-y-1 mb-3">
+              <li>🔒 <b>Phrases:</b> better ways to say “I think”, “also”, “because of that”</li>
+              <li>🔒 <b>Sentences:</b> your own sentences rewritten one band higher, with phrases from Gary&apos;s English essay notes</li>
+              <li>🔒 <b>Essay toolkit:</b> phrases from Gary&apos;s notes to use next time, with Chinese meanings</li>
+              <li>🔒 All your other problems, plus pace, pauses and fillers</li>
+            </ul>
+            <p className="text-xs text-ink/60 mb-3">Buy a Speaking pack, then make a new attempt. New attempts made with an active pack get the full report. Your 2 free attempts a day stay.</p>
+            <Link href="/shop" className="btn-primary !py-1.5 inline-block">See Speaking packs</Link>
+          </div>
+        ) : (
+          <>
+            {result.phrase_upgrades && result.phrase_upgrades.length > 0 && (
+              <div className="border-t border-ink/10 pt-4">
+                <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">Step 2 of 4 · Phrases</p>
+                <div className="space-y-2 text-sm">
+                  {result.phrase_upgrades.map((p, i) => (
+                    <div key={i}>
+                      <b className="text-red-700">{p.original}</b> → {p.better.map((b) => <span key={b} className="inline-block bg-sage-400/20 text-sage-600 rounded-full px-2.5 py-0.5 mr-1.5 mb-1">{b}</span>)}
+                      <p className="text-ink/60 text-xs">{p.note}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {result.essay_rewrite && result.essay_rewrite.length > 0 && (
+              <div className="border-t border-ink/10 pt-4">
+                <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Step 3 of 4 · Sentences</p>
+                <p className="text-xs text-ink/60 mb-3">
+                  <span className="bg-clay-400/25 text-clay-700 rounded px-1">highlighted</span> phrases come from Gary&apos;s English essay notes.
+                </p>
+                <div className="space-y-4 text-sm">
+                  {result.essay_rewrite.map((r, i) => (
+                    <div key={i}>
+                      <p className="text-ink/60">Before: <i>“{r.original}”</i></p>
+                      <p className="font-medium text-sage-600">After: “<HighlightPhrases text={r.upgraded} phrases={r.phrases_used.map((p) => p.phrase)} />”</p>
+                      {r.phrases_used.length > 0 && (
+                        <p className="text-xs mt-1 flex flex-wrap gap-1.5">
+                          {r.phrases_used.map((p) => (
+                            <span key={p.phrase} className="bg-clay-400/20 text-clay-700 rounded-full px-2 py-0.5">{p.phrase} · {p.zh}</span>
+                          ))}
+                        </p>
+                      )}
+                      <p className="text-xs text-ink/60 mt-1">{r.why}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* reports made before the essay rewrite existed */}
+            {!result.essay_rewrite && result.band_upgrade_rewrite && result.band_upgrade_rewrite.length > 0 && (
+              <div className="border-t border-ink/10 pt-4">
+                <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">Sentences</p>
+                <div className="space-y-4 text-sm">
+                  {result.band_upgrade_rewrite.map((r, i) => (
+                    <div key={i}>
+                      <p className="text-ink/60">Before: <i>“{r.original}”</i></p>
+                      <p className="font-medium text-sage-600">After: “{r.upgraded}”</p>
+                      <p className="text-xs text-ink/60">{r.why}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {result.essay_toolkit && result.essay_toolkit.length > 0 && (
+              <div className="border-t border-ink/10 pt-4">
+                <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Step 4 of 4 · Your essay toolkit</p>
+                <p className="text-xs text-ink/60 mb-3">Phrases from Gary&apos;s English essay notes. Try to use two of them next time you speak or write.</p>
+                <p className="flex flex-wrap gap-2 text-sm">
+                  {result.essay_toolkit.map((p) => (
+                    <span key={p.phrase} className="bg-clay-400/20 text-clay-700 rounded-full px-3 py-1">{p.phrase} · {p.zh}</span>
+                  ))}
+                </p>
+              </div>
+            )}
+          </>
+        )}
       </section>
 
       <div className="card !bg-cream-50 text-sm">
@@ -701,23 +730,6 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
         </div>
       )}
     </div>
-  );
-}
-
-// Shown in free reports where the paid sections would be.
-function LockedPanel() {
-  return (
-    <section className="card !bg-cream-50 border-dashed">
-      <h3 className="font-medium mb-1">🔒 More in the paid report</h3>
-      <ul className="text-sm text-ink/70 list-disc pl-5 space-y-0.5 mb-3">
-        <li>All your other problems and how to fix them</li>
-        <li>Phrases to replace so you score higher</li>
-        <li>Your own sentences rewritten one band higher, using phrases from Gary&apos;s English essay notes</li>
-        <li>Pace, long pauses and fillers</li>
-      </ul>
-      <p className="text-xs text-ink/60 mb-3">Buy a Speaking pack, then make a new attempt. New attempts made with an active pack get the full report. Your 2 free attempts a day stay.</p>
-      <Link href="/shop" className="btn-primary !py-1.5 inline-block">See Speaking packs</Link>
-    </section>
   );
 }
 

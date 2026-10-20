@@ -13,7 +13,7 @@ import {
   type SpeakingResult,
   type SttWord,
 } from "@/lib/speaking/analyze";
-import { pickEssayPhrases, verifyUsedPhrases } from "@/lib/speaking/essay-vocab";
+import { pickEssayPhrases, pickToolkit, verifyUsedPhrases } from "@/lib/speaking/essay-vocab";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -297,11 +297,16 @@ export async function POST(req: Request) {
       result.problems = (result.problems ?? []).slice(0, 1);
       delete result.phrase_upgrades;
       delete result.essay_rewrite;
+      delete result.essay_toolkit;
       delete result.band_upgrade_rewrite;
     } else if (result.essay_rewrite) {
       // only highlight phrases that really came from Gary's essay notes and really appear in the sentence
       const offered = pickEssayPhrases(card);
       result.essay_rewrite = result.essay_rewrite.map((r) => ({ ...r, phrases_used: verifyUsedPhrases(r.phrases_used, r.upgraded, offered) }));
+    }
+    if (priority) {
+      const usedPhrases = (result.essay_rewrite ?? []).flatMap((r) => r.phrases_used.map((p) => p.phrase));
+      result.essay_toolkit = pickToolkit(card, usedPhrases);
     }
     const shownStats = priority
       ? stats

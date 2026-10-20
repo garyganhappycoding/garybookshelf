@@ -39,3 +39,15 @@ export function verifyUsedPhrases(used: unknown, upgraded: string, offered: Essa
   }
   return out;
 }
+
+const TOOLKIT_SIZE = 6;
+
+// General phrases from the essay notes for the student to try next time, not tied to this card's topic.
+// Phrases already used in the student's rewritten sentences are skipped. No AI call is needed for this.
+export function pickToolkit(card: Card, skip: string[] = [], all: EssayPhrase[] = ESSAY_VOCAB): { phrase: string; zh: string }[] {
+  const skipped = new Set(skip.map(norm));
+  // phrases from the movie/book/place review notes are left out: they only suit talking about reviews
+  const general = all.filter((p) => p.type === "general" && !p.source.includes("Review") && !skipped.has(norm(p.phrase)));
+  const start = general.length ? (hash(card.id) * 7 + 3) % general.length : 0;
+  return [...general.slice(start), ...general.slice(0, start)].slice(0, TOOLKIT_SIZE).map((p) => ({ phrase: p.phrase, zh: p.zh }));
+}
