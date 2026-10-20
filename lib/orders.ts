@@ -16,7 +16,7 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
 
   const { data: order, error } = await admin
     .from("orders")
-    .select("id, user_id, product_id, status, amount_paid, profiles(email), products(title, external_link, speaking_pack_attempts)")
+    .select("id, user_id, product_id, status, amount_paid, profiles(email), products(title, external_link, file_path, speaking_pack_attempts)")
     .eq("id", orderId)
     .single();
   if (error || !order) return { error: "Order not found." };
@@ -54,7 +54,10 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
     const externalLink = (order as any).products?.external_link;
 
     if (customerEmail) {
-      const downloadSection = packAttempts
+      const hasDownload = Boolean(externalLink || (order as any).products?.file_path);
+      const downloadSection = packAttempts && hasDownload
+        ? `<a href="${siteUrl}/dashboard" style="${BUTTON}">Get my notes and start speaking practice</a>`
+        : packAttempts
         ? `<a href="${siteUrl}/speaking" style="${BUTTON}">Start speaking practice</a>`
         : externalLink
         ? `<a href="${externalLink}" style="${BUTTON}">Get my download</a>`
@@ -71,7 +74,7 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
             <p style="color: #3B2F26; line-height: 1.6;">Hi,</p>
             <p style="color: #3B2F26; line-height: 1.6;">
               Your payment for <strong>${productTitle}</strong> has been verified.
-              ${packAttempts ? `Your ${packAttempts} speaking attempts are ready and last 30 days.` : "Your download is ready and waiting for you."}
+              ${packAttempts ? `Your ${packAttempts} speaking attempts are ready and last 30 days.${hasDownload ? " Your notes are ready on your dashboard too." : ""}` : "Your download is ready and waiting for you."}
             </p>
             ${downloadSection}
             <p style="color: #3B2F26; line-height: 1.6; font-size: 14px;">

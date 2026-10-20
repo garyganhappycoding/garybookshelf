@@ -21,6 +21,8 @@ export default async function SpeakingPage() {
       .from("products")
       .select("id")
       .not("speaking_pack_attempts", "is", null)
+      .is("external_link", null) // plain packs only, not notes bundles that also include attempts
+      .is("file_path", null)
       .eq("is_published", true)
       .order("price_myr", { ascending: true })
       .limit(1)
