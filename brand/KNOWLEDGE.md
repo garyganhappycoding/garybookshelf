@@ -30,6 +30,12 @@ Copy this template under "Entries":
 | Fisher Mode | video scripting | https://www.instagram.com/fisher_mode/ |
 
 ## Entries
+### 2026-10-20 — What students value most (from Gary)
+- Source: Gary's own observation of his audience
+- Insight: followers like his study techniques most; most-saved posts are "how to study [subject]" and "how to improve your grades". Most competing study accounts don't teach how to study at all.
+- Apply to garybookshelf: lead with technique content in every channel; treat notes as the packaged result of the method, not the headline.
+- Status: adopted
+
 ### 2026-10-20 — Cerdek and Cikgu Minah: what to study
 - Source: https://cerdek.com/ and https://maxcacademy.com/testimonial
 - Insight: Gary learns four things from them: pricing, funnel, testimonials, and how they run their AI.
