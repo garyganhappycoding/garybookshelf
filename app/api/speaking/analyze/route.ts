@@ -8,11 +8,12 @@ import {
   BAND_MAX,
   buildMessages,
   computeStats,
-  resultSchema,
+  buildResultSchema,
   type AnalysisResponse,
   type SpeakingResult,
   type SttWord,
 } from "@/lib/speaking/analyze";
+import { pickEssayPhrases, verifyUsedPhrases } from "@/lib/speaking/essay-vocab";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -42,7 +43,7 @@ type Target = { url: string; key: string; model: string };
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 // Try each target in turn (waiting briefly after a rate limit / server error) and report which model answered.
-async function callGrok(targets: Target[], messages: unknown): Promise<{ res: Response; model: string }> {
+async function callGrok(targets: Target[], messages: unknown, paid: boolean): Promise<{ res: Response; model: string }> {
   let res: Response | null = null;
   let used = targets[0].model;
   for (const t of targets) {
@@ -59,7 +60,7 @@ async function callGrok(targets: Target[], messages: unknown): Promise<{ res: Re
         messages,
         temperature: 0.2,
         reasoning_effort: "low",
-        response_format: { type: "json_schema", json_schema: { name: "speaking_feedback", schema: resultSchema, strict: true } },
+        response_format: { type: "json_schema", json_schema: { name: "speaking_feedback", schema: buildResultSchema(paid), strict: true } },
       }),
     });
     // A model that returns JSON missing required fields answers 400 "failed_generation". That is a one-off
@@ -246,7 +247,7 @@ export async function POST(req: Request) {
       targets = [groq(FALLBACK_MODEL)];
       if ((count ?? 0) < FREE_MAIN_DAILY_CAP) targets.push(groq(MODEL));
     }
-    const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats));
+    const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats, priority), priority);
     if (!aiRes.ok) {
       const body = await aiRes.text();
       console.error("grok failed", aiRes.status, body);
@@ -288,14 +289,32 @@ export async function POST(req: Request) {
       total += c.band;
     }
 
+    // Free and paid reports differ in what is STORED, not just what is shown: students can read their own attempt rows,
+    // so anything locked is removed here before saving. Free reports keep the score, comment, checklist, the top problem,
+    // vocabulary upgrades, the transcript and the repeated words. Paid reports keep everything.
+    const tier: "free" | "paid" = priority ? "paid" : "free";
+    if (!priority) {
+      result.problems = (result.problems ?? []).slice(0, 1);
+      delete result.phrase_upgrades;
+      delete result.essay_rewrite;
+      delete result.band_upgrade_rewrite;
+    } else if (result.essay_rewrite) {
+      // only highlight phrases that really came from Gary's essay notes and really appear in the sentence
+      const offered = pickEssayPhrases(card);
+      result.essay_rewrite = result.essay_rewrite.map((r) => ({ ...r, phrases_used: verifyUsedPhrases(r.phrases_used, r.upgraded, offered) }));
+    }
+    const shownStats = priority
+      ? stats
+      : { ...stats, wordsPerMinute: 0, longPauses: 0, longestPauseSec: 0, fillerCount: 0, fillers: [], repeatedPhrases: [] };
+
     // 6. save (transcript + feedback only, never the audio)
     await admin
       .from("speaking_attempts")
-      .update({ status: "done", total_score: total, result: { transcript, stats, result }, audio_bytes: audioFile?.size, model: usedModel, priority, ...meta })
+      .update({ status: "done", total_score: total, result: { transcript, stats: shownStats, result, tier }, audio_bytes: audioFile?.size, model: usedModel, priority, ...meta })
       .eq("id", attemptId);
 
     const { attemptsLeft, packLeft } = await counts();
-    const body: AnalysisResponse = { attemptId, transcript, stats, result, total, attemptsLeft, packLeft };
+    const body: AnalysisResponse = { attemptId, transcript, stats: shownStats, result, total, tier, attemptsLeft, packLeft };
     return NextResponse.json(body);
   } catch (e) {
     console.error("speaking analyze error", e);
