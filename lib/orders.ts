@@ -6,7 +6,7 @@ import { Resend } from "resend";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export type OrderSummary = { title: string; email: string | null; amount: number };
-export type OrderResult = { error?: string; summary?: OrderSummary };
+export type OrderResult = { error?: string; summary?: OrderSummary; emailError?: string };
 
 const BUTTON =
   "display: inline-block; background: #B85C38; color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 500; margin: 16px 0;";
@@ -48,6 +48,7 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
     }
   }
 
+  let emailError: string | undefined;
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -60,7 +61,8 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
         ? `<a href="${externalLink}" style="${BUTTON}">Get my download</a>`
         : `<a href="${siteUrl}/dashboard" style="${BUTTON}">Go to my dashboard</a>`;
 
-      await resend.emails.send({
+      // Resend reports problems (unverified domain, wrong recipient) in the result instead of throwing
+      const { error: mailErr } = await resend.emails.send({
         from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
         to: customerEmail,
         subject: `Your order is approved: ${productTitle}`,
@@ -81,14 +83,19 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
           </div>
         `,
       });
+      if (mailErr) {
+        console.error("Resend email failed", mailErr);
+        emailError = mailErr.message;
+      }
     }
   } catch (e) {
     console.error("Resend email failed", e);
+    emailError = e instanceof Error ? e.message : String(e);
   }
 
   revalidatePath("/admin/orders");
   revalidatePath("/dashboard");
-  return { summary };
+  return { summary, emailError };
 }
 
 export async function rejectOrderCore(orderId: string, reason: string, opts: { onlyIfPending?: boolean } = {}): Promise<OrderResult> {

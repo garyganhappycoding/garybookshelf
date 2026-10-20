@@ -56,17 +56,24 @@ const EMAIL_FRAME = (inner: string) => `
   </div>`;
 
 // Best-effort: an email problem must never break a form.
-export async function sendEmail(to: string, subject: string, inner: string) {
-  if (!process.env.RESEND_API_KEY) return;
+export async function sendEmail(to: string, subject: string, inner: string, from?: string): Promise<{ ok: boolean; error?: string }> {
+  if (!process.env.RESEND_API_KEY) return { ok: false, error: "RESEND_API_KEY is not set" };
   try {
-    await new Resend(process.env.RESEND_API_KEY).emails.send({
-      from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+    // Resend reports problems (for example "you can only send to your own address") in the result, not as an exception
+    const { error } = await new Resend(process.env.RESEND_API_KEY).emails.send({
+      from: from || process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
       to,
       subject,
       html: EMAIL_FRAME(inner),
     });
+    if (error) {
+      console.error("email failed", error);
+      return { ok: false, error: error.message };
+    }
+    return { ok: true };
   } catch (e) {
     console.error("email failed", e);
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
   }
 }
 
@@ -74,11 +81,14 @@ export async function sendEmail(to: string, subject: string, inner: string) {
 export async function notifyGary(subject: string, summary: string) {
   const site = process.env.NEXT_PUBLIC_SITE_URL || "";
   const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  // Resend's free test sender can only email the address of the Resend account itself, so set ADMIN_ALERT_EMAIL to that
+  // address. Without a verified domain, emails to anyone else (students) will not be delivered.
   await sendEmail(
-    CONTACT_EMAIL,
+    process.env.ADMIN_ALERT_EMAIL || CONTACT_EMAIL,
     subject,
     `<p style="color:#3B2F26;line-height:1.6;white-space:pre-line">${esc(summary)}</p>
-     <p><a href="${site}/admin/inbox" style="color:#B85C38">Open the inbox</a></p>`
+     <p><a href="${site}/admin/inbox" style="color:#B85C38">Open the inbox</a></p>`,
+    "Gary's Bookshelf <onboarding@resend.dev>"
   );
 }
 

@@ -95,15 +95,16 @@ export async function approveSubmission(formData: FormData) {
             rewardNote = "Could not add the attempt. Please add it by hand.";
           } else {
             granted = true;
-            rewardNote = "1 bonus attempt added and email sent.";
             const site = process.env.NEXT_PUBLIC_SITE_URL || "";
-            await sendEmail(
+            const sent = await sendEmail(
               profile.email ?? email,
               "Thank you! You have a free Speaking attempt",
               `<h2 style="color:#3B2F26;margin:0 0 12px">Thank you for sharing 🎉</h2>
                <p style="color:#3B2F26;line-height:1.6">I read what you sent me, and it means a lot. As a thank-you, I've added <b>1 free Speaking attempt</b> to your account. It lasts 30 days.</p>
                <p><a href="${site}/speaking" style="display:inline-block;background:#B85C38;color:white;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:500">Use it now</a></p>`
             );
+            // the attempt is added either way; say clearly if the email could not be delivered
+            rewardNote = sent.ok ? "1 bonus attempt added and email sent." : `1 bonus attempt added, but the email was NOT delivered (${sent.error}). Tell the student yourself.`;
           }
         }
       }
