@@ -33,6 +33,15 @@
   9. Lazy to study but still want better grades, don't know where to start
   10. Struggle to revise effectively or prepare for exams
 
+### Instagram insights, 19 Sep – 19 Oct 2026 (exported by Gary)
+- 52,515 followers. 1.4M reel views, 301K viewers, 20 reels in 30 days.
+- 61K likes, 3.5K comments, 2.7K reposts, **26K shares**, 14K saves.
+- **Follower age: 13–17 = 16.6%, 18–24 = 25.4%, 25–34 = 29.7%, 35–44 = 16.4%, 45–54 = 9.9%, 55+ = 2%.** Only about 8.7k followers are in the SPM age band. Caveat: age is self-reported and some students set an older age. The larger older groups may be parents, teachers, older students or general learners. TODO: check the viewer (not follower) age split.
+- Gender: 62.8% women, 37.2% men.
+- Top countries: Malaysia 88.9%, Taiwan 5.1%, Singapore 3.0%, Hong Kong 1.7%, China 0.3%. Top cities: Kuala Lumpur 12.7%, Johor Bahru 9.5%, Singapore 4.3%, Bukit Mertajam 4.0%, George Town 3.5%.
+- Reels in the report show formats that work: Chinese-language hooks like "English essay big update", "can't memorize Sejarah, do notes help?", "SPM account free notes" and an **"SPM is in 40 days" countdown**.
+- Telegram group: about **6k members**. No email list or WhatsApp group.
+
 ## Positioning (what makes Gary different)
 1. Emphasizes **how to study**: techniques nobody explains online right now.
 2. Explains specific concepts when many people ask for them.
@@ -85,6 +94,7 @@
 - Current products (prices):
   - **BI notes: RM5.** High-score essay (exam + extended version), vocab (basic to good level, general + specific categories), beautiful sentences, question analysis, speaking questions.
   - **BM notes: RM5.** High-score essay, vocab (basic to high level), beautiful sentences & phrases.
+  - **RM10 pack: English essay notes + 15 speaking attempts** (per Gary, 20 Oct 2026; Claude still needs to confirm how this relates to the old RM10 / 30 attempts pack).
   - **Speaking subscription: RM10 per month** (30 attempts; a RM5 / 15 attempts pack also exists). AI speaking practice with feedback; every student also gets 2 free attempts a day.
 - Payment: manual Touch 'n Go QR + receipt upload, admin approves (no card fees).
 - Planned / under consideration: **1-to-1 diagnosis** or **1-to-1 tuition** (undecided). Diagnosis fits Gary's positioning (analyzing effort, predicted grades and technique) best. TODO: decide, then price it.
@@ -97,6 +107,11 @@
   - Conversion is the lever: more of the 449 trying students need to buy.
   - Note: RM5k/month needs about 500 students paying RM10 monthly (or a mix with notes and a higher-priced 1-to-1 service), so pricing/product mix matters.
 
+## Exam calendar, SPM 2026 (from Lembaga Peperiksaan KPM, via Gary, 20 Oct 2026; Claude has not checked the official PDF)
+- Bahasa Melayu speaking test: 26–29 Oct. **English speaking test: 2–5 Nov.** Science practicals: 16–18 Nov. BM listening: 23 Nov. English listening: 24 Nov. **Written papers: 23 Nov – 17 Dec.**
+- After 17 Dec the SPM cohort leaves: off-peak. Target the current Form 4 students for 2027.
+- The site now has an exam countdown banner driven by `lib/exam-dates.ts` (edit that file each year).
+
 ## Credibility (use in content and site copy)
 - Gary scored a **4.00 flat in matriculation** (photo on the homepage), and studied through SPM and matriculation.
 - Proof from students: only a few testimonials so far. Gary does **not** want to count those yet. Do not claim student results in copy until real before/after proof exists.
@@ -105,6 +120,10 @@
 - 1-to-1 diagnosis / tuition: **parked**. Gary does not plan to offer 1-to-1 now. Current business = **notes + speaking subscription only**.
 - Website colors: **keep** the warm theme (do not migrate to shark blue).
 - Both palettes are saved for future videos and websites.
+- **Free vs paid speaking report (decided 20 Oct 2026):** free students get the transcript, progress history and repeated-words stats (on top of score, comment and points checklist). Paid students get the **higher-band rewrites and the remaining problems**. Still undecided: vocabulary upgrades, phrase upgrades, fluency stats (pauses/fillers). Progress history does not exist yet and must be built.
+- **No free attempts as a reward for feedback** (students would spam it). Find another way to collect feedback.
+- Shark logo not needed on the website.
+- Scheduling: Gary will use Metricool on its free plan, which cannot connect multiple accounts. Gary writes the reel scripts himself; Claude helps with hooks, captions and edits on request.
 - **Conversion plan (20 Oct 2026, discussed, not built yet):** (1) make the free speaking result a partial result and put the deeper feedback behind the paid pack; (2) add an **exam countdown** to the website (Gary likes it; needs exam dates); (3) test a checkout add-on: buy RM5 notes, add RM5 for speaking attempts (Gary suggested 10 attempts for the RM5 add-on, total RM10). Bundling notes + a full subscription is **not** wanted right now.
 
 ## Growth goals & metrics

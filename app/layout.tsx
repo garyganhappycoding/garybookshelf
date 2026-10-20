@@ -3,6 +3,7 @@ import { Inter, Caveat } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ExamCountdown from "@/components/ExamCountdown";
 
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
 const hand = Caveat({ subsets: ["latin"], variable: "--font-hand", weight: ["500", "700"] });
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${body.variable} ${hand.variable} font-sans`}>
+        <ExamCountdown />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
