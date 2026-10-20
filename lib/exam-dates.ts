@@ -29,7 +29,7 @@ export function nextExamEvent(today: string): { event: ExamEvent; daysLeft: numb
 
 // Time-limited offer shown on the banner. It ends 5 days before the English speaking test (2 Nov), so the last day is 28 Oct.
 export const BANNER_OFFER = {
-  text: "Get English essay notes + 15 speaking attempts for RM10",
+  text: "Discount offer: English essay notes + 15 speaking attempts for RM10",
   until: "2026-10-28", // last day of the offer, Malaysia time
   href: "/shop",
 };
