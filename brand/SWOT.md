@@ -1,7 +1,8 @@
 # garybookshelf — SWOT (work in progress)
 
 > Started 20 Oct 2026. Strengths answered by Gary; the other three sections are waiting for his answers.
-> Scope and time frame: TODO (12 months to Oct 2027 or the 5-year plan?). Judge against: TODO (RM5k/month, students helped, or both).
+> **Time frame:** next month first (Nov 2026), then review. **Judge against:** RM5,000 profit a month, and **100 students giving feedback by end of 2026**.
+> Numbers Gary will share later: Instagram insights, notes sales, exact audience split. Customer voice will come through the website feedback page.
 
 ## Strengths (Gary's own answers)
 - **What followers like most:** the content and the **study techniques** Gary delivers, and how he delivers them.
@@ -24,17 +25,31 @@
 - Dislikes nothing about the business at present.
 - From files: only about 1% of speaking users pay (5 of 449); few testimonials; no proof of grade gains yet.
 
-## Opportunities
-- Exam countdown and exam-date offers can create urgency (Gary likes this idea).
-- Checkout add-on: RM5 notes + RM5 for speaking attempts (to test).
-- Top-saved topics (subject-specific study methods) are a repeatable content engine.
-- TODO: Gary's answers.
+## Opportunities (Gary's answers, 20 Oct 2026)
+- **Top student requests (from DMs):** Sejarah, how to study, how to memorize, speaking, English, Science / Computer Science (mainly Java), Biology. These are the next notes and content to make.
+- **Seasonal spikes:** views and activity rise a lot in exam and trial-exam months. Gary's question: what to do in off-peak months to keep value and revenue up (see Priority actions).
+- **Telegram study groups** are an existing ecosystem Gary can use.
+- **Exam countdown** on the website (Gary likes it) and an exam-date offer.
+- **Checkout add-on:** notes + speaking attempts (to test). A bundle of notes plus subscription is not wanted now, but Gary will consider a bundle later.
+- **Ask Gary** (AI chat on the website) is the differentiator in progress: Gary's own learning method built into the AI, teaching students how to learn.
+- Ruled out for now (decided by Gary): partnerships with schools, tuition centres or teachers; school licenses (prices are too low to make sense); YouTube long-form (students don't watch it; channel is not active); other exam levels (focus stays Form 4–5); selling outside Malaysia (SPM is Malaysia-only). Creator collaborations were already tried and are part of the past journey; not a focus now.
 
-## Threats
-- TODO: Gary's answers.
+## Threats (Gary's answers, 20 Oct 2026)
+- **Closest competitors:** Cerdek (an all-subject AI) and Cikgu Minah (subject-focused). Gary's edge: his own learning method and style built into the AI, so it teaches students *how to learn*, not only the subject.
+- **Free AI tools (ChatGPT style):** Gary believes they can't replace his notes or speaking practice because both are built on his own essay database and rubric.
+- **Instagram:** Gary earns no money from Instagram itself, but students find the products through it. He hasn't seen income depend on it yet.
+- **Copying and resale:** Gary has seen people copy, resell and leak his notes. Plan: add watermarks.
+- **Platform dependence:** relies on Groq (AI), Supabase and Vercel. If limits or prices change, the business is in trouble. This is the main reason he is focusing on conversion now.
+- **Rule changes:** none known that affect him (SPM format).
+- **Biggest worry:** keeping conversion up in off-peak months, helping students get more value, and **not getting feedback from users**.
+- **Constraint:** the cost of AI.
+- **Sacrifices:** none chosen. Gary doesn't know what to drop first; YouTube is already inactive.
 
-## Open issue: video production speed
-- Goal: film and edit faster, with AI suggesting scripts. See the video workflow notes in `KNOWLEDGE.md` once agreed.
-
-## Priority actions (to fill after all four sections are done)
-TODO
+## Priority actions (draft, 20 Oct 2026; Gary to confirm)
+1. **Get to 100 feedback users by end of 2026.** Add a one-tap rating after each speaking result and reward feedback with extra attempts. Post a feedback request in the Telegram group.
+2. **Raise conversion before the peak ends:** free users see a partial report; the rest is paid (see decision log in BRAND.md). Add the exam countdown with an offer end date.
+3. **Plan for off-peak:** target next year's Form 5 students (current Form 4) early; sell the new notes students ask for (Sejarah, Science, Computer / Java, Biology); promote Ask Gary as a study-habit coach students use all year.
+4. **Own the audience:** grow the Telegram group and start an email list or WhatsApp channel, so sales don't depend only on Instagram reach.
+5. **Protect the notes:** watermark each file with the buyer's name or email, so leaks can be traced.
+6. **Reduce platform risk:** keep a second AI provider ready (Cerebras fallback already exists), watch the free-plan limits using the profit planner, and know the trigger for when to move to paid plans.
+7. **Save time:** batch scripts and film in one session, and schedule posts.
