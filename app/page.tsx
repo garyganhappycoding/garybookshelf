@@ -85,34 +85,6 @@ export default async function HomePage() {
         )}
       </section>
 
-      {/* BUILT BY ME */}
-      <section id="built-by-me" className="bg-white border-y border-ink/10">
-        <div className="max-w-5xl mx-auto px-5 py-16">
-          <h2 className="text-xl font-medium mb-1">Built by me</h2>
-          <p className="text-ink/60 mb-6">Apps and tools I've built as a solo developer</p>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {[
-              {
-                title: "10Vocab",
-                description: "Learn 10 new vocabulary words a day.",
-                url: "https://vocab-app-nine-kappa.vercel.app/",
-              },
-            ].map((project) => (
-              <a
-                key={project.title}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card block hover:border-clay-400 transition-colors"
-              >
-                <p className="font-medium mb-1">{project.title}</p>
-                <p className="text-sm text-ink/60">{project.description}</p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ABOUT */}
       <section id="about" className="max-w-5xl mx-auto px-5 py-16">
         <h2 className="text-xl font-medium mb-3">About</h2>

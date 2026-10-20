@@ -71,7 +71,9 @@ export async function submitQuestion(formData: FormData): Promise<SubmitResult> 
     .single();
   if (error || !data) return { error: "Sorry, that didn't go through. Please try again." };
 
-  after(() => notifyGary("New question", `${ageForm ? ageForm + "\n\n" : ""}${(mode === "free" ? freeText : problem).slice(0, 500)}`));
+  after(() =>
+    notifyGary("💬 New question in your inbox", `${ageForm ? ageForm + "\n" : ""}${(mode === "free" ? freeText : problem).slice(0, 300)}`, "/admin/inbox?tab=question")
+  );
   return { token: data.public_token };
 }
 
@@ -149,7 +151,8 @@ export async function submitResult(formData: FormData): Promise<SubmitResult> {
     .single();
   if (error || !data) return { error: "Sorry, that didn't go through. Please try again." };
 
-  after(() => notifyGary("New result feedback", `${criterion === "grade" ? "Grade improved" : "Started studying"} · ${ageForm}\n\n${body.slice(0, 400)}`));
+  const what = criterion === "grade" ? `Grades improved: ${payload.subject ?? ""} ${payload.before} to ${payload.after}` : "Started studying on their own";
+  after(() => notifyGary("📈 New result for The Bookshelf 100 (waiting for your approval)", `${what} · ${ageForm}`, "/admin/inbox?tab=feedback"));
   return { token: data.public_token };
 }
 

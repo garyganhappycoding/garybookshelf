@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import { headers } from "next/headers";
 import { Resend } from "resend";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { CONTACT_EMAIL } from "@/lib/legal";
+import { sendTelegramText } from "@/lib/telegram";
 
 export const GOAL = 100; // The Bookshelf 100
 export const GOAL_DEADLINE = "2026-12-31";
@@ -96,19 +96,14 @@ export async function sendRawEmail(to: string, subject: string, html: string, re
 
 export const sendEmail = (to: string, subject: string, inner: string, resendFrom?: string) => sendRawEmail(to, subject, EMAIL_FRAME(inner), resendFrom);
 
-// A short heads-up to Gary's inbox (not Telegram: student messages stay out of the bot).
-export async function notifyGary(subject: string, summary: string) {
+// A short heads-up on Gary's own Telegram (the admin chat used for orders). Students never use the bot, they only
+// use the website forms. `path` is the admin page to open, for example /admin/inbox?tab=question.
+export async function notifyGary(title: string, summary: string, path = "/admin/inbox") {
   const site = process.env.NEXT_PUBLIC_SITE_URL || "";
-  const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
-  // Resend's free test sender can only email the address of the Resend account itself, so set ADMIN_ALERT_EMAIL to that
-  // address. Without a verified domain, emails to anyone else (students) will not be delivered.
-  await sendEmail(
-    process.env.ADMIN_ALERT_EMAIL || CONTACT_EMAIL,
-    subject,
-    `<p style="color:#3B2F26;line-height:1.6;white-space:pre-line">${esc(summary)}</p>
-     <p><a href="${site}/admin/inbox" style="color:#B85C38">Open the inbox</a></p>`,
-    "Gary's Bookshelf <onboarding@resend.dev>"
-  );
+  await sendTelegramText(`${title}
+${summary}
+
+Open: ${site}${path}`);
 }
 
 export { EMAIL_FRAME };

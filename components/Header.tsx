@@ -37,9 +37,6 @@ export default async function Header() {
           <Link href="/shop" className="hover:text-clay-600">
             Shop
           </Link>
-          <Link href="/#built-by-me" className="hover:text-clay-600">
-            Built by me
-          </Link>
           {user ? (
             <>
               {isAdmin && (
