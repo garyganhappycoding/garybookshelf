@@ -701,7 +701,10 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
               <li>🔒 All your other problems, plus pace, pauses and fillers</li>
             </ul>
             <p className="text-xs text-ink/60 mb-3">Buy a Speaking pack, then make a new attempt. New attempts made with an active pack get the full report. Your 2 free attempts a day stay.</p>
-            <Link href="/shop" className="btn-primary !py-1.5 inline-block">See Speaking packs</Link>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link href="/shop#speaking-free-vs-paid" className="btn-primary !py-1.5 inline-block">Compare free and paid</Link>
+              <Link href="/shop" className="text-sm text-clay-600 underline">See Speaking packs</Link>
+            </div>
           </div>
         ) : (
           <>
