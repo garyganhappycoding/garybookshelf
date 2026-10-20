@@ -96,15 +96,34 @@ export async function GET(req: Request) {
     const [{ data: orders }, { count: waiting }, { count: feedback }] = await Promise.all([
       admin
         .from("orders")
-        .select("amount_paid, products(speaking_pack_attempts)")
+        .select("amount_paid, reviewed_at, products(title, speaking_pack_attempts, external_link, file_path)")
         .eq("status", "completed")
-        .gte("reviewed_at", since),
+        .gte("reviewed_at", prevStart.toISOString()),
       admin.from("orders").select("id", { count: "exact", head: true }).eq("status", "pending_verification"),
       admin.from("feedback").select("id", { count: "exact", head: true }).gte("created_at", since),
     ]);
-    const approved = orders ?? [];
-    const packOrders = approved.filter((o: any) => o.products?.speaking_pack_attempts);
     const sum = (rows: any[]) => rows.reduce((t, o) => t + Number(o.amount_paid ?? 0), 0);
+    const allOrders = orders ?? [];
+    const approved = allOrders.filter((o: any) => new Date(o.reviewed_at) >= weekStart);
+    const lastWeekOrders = allOrders.filter((o: any) => new Date(o.reviewed_at) < weekStart);
+
+    // sales per product, best seller first, so it is clear which package makes the money
+    const kindOf = (pr: any) =>
+      pr?.speaking_pack_attempts ? (pr.external_link || pr.file_path ? "notes + attempts" : "speaking pack") : "notes";
+    const byProduct = new Map<string, { kind: string; n: number; rm: number; prevN: number }>();
+    const rowFor = (o: any) => {
+      const title = o.products?.title ?? "Unknown product";
+      if (!byProduct.has(title)) byProduct.set(title, { kind: kindOf(o.products), n: 0, rm: 0, prevN: 0 });
+      return byProduct.get(title)!;
+    };
+    for (const o of approved) { const r = rowFor(o); r.n += 1; r.rm += Number(o.amount_paid ?? 0); }
+    for (const o of lastWeekOrders) rowFor(o).prevN += 1;
+    const total = sum(approved);
+    const productLines = [...byProduct.entries()]
+      .filter(([, r]) => r.n > 0)
+      .sort((a, b) => b[1].rm - a[1].rm)
+      .map(([title, r], i) => `${i + 1}. ${title} [${r.kind}]: ${r.n} sold, RM ${r.rm.toFixed(2)} (${pct(r.rm, total)}% of sales, last week ${r.prevN})`);
+    const lastTotal = sum(lastWeekOrders);
 
     const trend = (now_: number, before: number) => (before ? ` (${now_ >= before ? "+" : ""}${pct(now_ - before, before)}% vs last week)` : "");
     const lines = [
@@ -120,10 +139,10 @@ export async function GET(req: Request) {
       busiest ? `Busiest day: ${busiest[0]} (${busiest[1]} attempts)` : null,
       modelLine ? `AI models used: ${modelLine}` : null,
       ``,
-      `💰 Packs and orders`,
-      `New Speaking packs: ${packOrders.length} (RM ${sum(packOrders).toFixed(2)})`,
+      `💰 Sales by product`,
+      ...(productLines.length ? productLines : ["No orders approved this week."]),
+      `Total: ${approved.length} orders, RM ${total.toFixed(2)}${trend(total, lastTotal)}`,
       `Pack attempts used: ${packUsed}`,
-      `All orders approved: ${approved.length} (RM ${sum(approved).toFixed(2)})`,
       `Orders waiting for you: ${waiting ?? 0}`,
       `Feedback messages: ${feedback ?? 0}`,
     ].filter((l) => l !== null) as string[];

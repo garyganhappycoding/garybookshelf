@@ -1,4 +1,5 @@
 import type { Card } from "./cards";
+import { pickEssayPhrases } from "./essay-vocab";
 
 // ---------------------------------------------------------------
 // Rubric. Edit THIS block to match the official KSSM / SPM band
@@ -119,7 +120,19 @@ export function computeStats(transcript: string, words: SttWord[], durationSec: 
 // ---------------------------------------------------------------
 // Grok scoring prompt + JSON schema
 // ---------------------------------------------------------------
-export function buildMessages(card: Card, transcript: string, stats: FluencyStats) {
+// Rules for the parts of the report that only differ between free and paid students.
+const FREE_RULES = `- problems: give ONLY the single most important problem, with a concrete fix. Do not return phrase_upgrades or essay_rewrite.`;
+const PAID_RULES = `- Problems: the 3 to 5 most important ones, each with a concrete fix.
+- phrase_upgrades: ONLY multi-word expressions and linking words the student repeated or that are weak ("I think", "also", "because of that", "a lot of", "in my opinion"), each with 2-3 stronger alternatives. Never put a single basic word here, those belong in vocab_upgrades. Prioritise repeated phrases from the statistics.
+- essay_rewrite: choose 3 sentences from the transcript and rewrite each one band higher, working in phrases from the ESSAY PHRASE BANK in the user message wherever they fit naturally (never force a phrase; if none fit a sentence, still upgrade it without one). Keep the student's meaning and a natural teenage voice. In phrases_used list the exact bank phrases you used, copied letter for letter, and make sure each one appears in the rewritten sentence.`;
+
+function essayBank(card: Card): string {
+  const bank = pickEssayPhrases(card);
+  if (!bank.length) return "";
+  return `ESSAY PHRASE BANK (phrases from the teacher's own notes; use them in essay_rewrite)\n${bank.map((p) => `- ${p.phrase}`).join("\n")}\n`;
+}
+
+export function buildMessages(card: Card, transcript: string, stats: FluencyStats, paid = true) {
   const rubric = Object.values(criteriaInfo)
     .map((c) => `- ${c.label}: ${c.descriptor}`)
     .join("\n");
@@ -134,10 +147,8 @@ Rules:
 - Be realistic. A typical Form 5 student speaking for 2 minutes with some errors is around band 3-4. Reserve 5-6 for genuinely strong, accurate, varied speech. If the speech is very short, score lower.
 - The transcript is automatic, so ignore punctuation/capitalisation and do not criticise spelling. Do NOT comment on accent or pronunciation of individual sounds because you cannot hear it.
 - Quote the student's REAL words in "example" / "original" fields (exactly as in the transcript). Never invent quotes.
-- Problems: the 3 to 5 most important ones, each with a concrete fix.
-- phrase_upgrades: for words/phrases the student repeated or that are weak (good, nice, very, "I think", "also", "because of that"), give 2-3 stronger alternatives each. Prioritise the repeated items listed in the statistics.
-- band_upgrade_rewrite: choose 3 sentences from the transcript and rewrite each at a higher band (one band up), keeping the student's meaning and a natural teenage voice.
-- vocab_upgrades: 5 to 8 basic words the student used, each with 2-3 higher-band alternatives and a short example sentence.
+${paid ? PAID_RULES : FREE_RULES}
+- vocab_upgrades: 5 to 8 SINGLE basic words the student used (good, nice, very, big, important), never multi-word phrases, each with 2-3 higher-band alternatives and a short example sentence.
 - covered_points: one entry for EACH bullet on the card, said whether the student addressed it.
 - Write in simple, friendly English a Form 4 student can understand.`;
 
@@ -153,6 +164,7 @@ SPEAKING STATISTICS (computed from the audio timing)
 - Repeated words: ${stats.repeatedWords.map((w) => `${w.word} x${w.count}`).join(", ") || "none"}
 - Repeated phrases: ${stats.repeatedPhrases.map((p) => `"${p.phrase}" x${p.count}`).join(", ") || "none"}
 
+${paid ? essayBank(card) : ""}
 TRANSCRIPT
 <<<
 ${transcript}
@@ -173,9 +185,16 @@ const criterion = {
   additionalProperties: false,
 } as const;
 
-export const resultSchema = {
+const problemItem = {
   type: "object",
-  properties: {
+  properties: { issue: str, example: str, fix: str },
+  required: ["issue", "example", "fix"],
+  additionalProperties: false,
+} as const;
+
+// Free reports ask the AI for less (one problem, no phrase list, no essay rewrite), which also costs less.
+export function buildResultSchema(paid: boolean) {
+  const properties = {
     criteria: {
       type: "object",
       properties: { grammar: criterion, vocabulary: criterion, fluency: criterion, communication: criterion },
@@ -192,33 +211,7 @@ export const resultSchema = {
         additionalProperties: false,
       },
     },
-    problems: {
-      type: "array",
-      items: {
-        type: "object",
-        properties: { issue: str, example: str, fix: str },
-        required: ["issue", "example", "fix"],
-        additionalProperties: false,
-      },
-    },
-    phrase_upgrades: {
-      type: "array",
-      items: {
-        type: "object",
-        properties: { original: str, better: strArr, note: str },
-        required: ["original", "better", "note"],
-        additionalProperties: false,
-      },
-    },
-    band_upgrade_rewrite: {
-      type: "array",
-      items: {
-        type: "object",
-        properties: { original: str, upgraded: str, why: str },
-        required: ["original", "upgraded", "why"],
-        additionalProperties: false,
-      },
-    },
+    problems: { type: "array", items: problemItem },
     vocab_upgrades: {
       type: "array",
       items: {
@@ -228,18 +221,47 @@ export const resultSchema = {
         additionalProperties: false,
       },
     },
-  },
-  required: ["criteria", "overall_comment", "covered_points", "problems", "phrase_upgrades", "band_upgrade_rewrite", "vocab_upgrades"],
-  additionalProperties: false,
-} as const;
+    ...(paid
+      ? {
+          phrase_upgrades: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: { original: str, better: strArr, note: str },
+              required: ["original", "better", "note"],
+              additionalProperties: false,
+            },
+          },
+          essay_rewrite: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: { original: str, upgraded: str, phrases_used: strArr, why: str },
+              required: ["original", "upgraded", "phrases_used", "why"],
+              additionalProperties: false,
+            },
+          },
+        }
+      : {}),
+  };
+  return {
+    type: "object",
+    properties,
+    required: Object.keys(properties),
+    additionalProperties: false,
+  } as const;
+}
 
 export type SpeakingResult = {
   criteria: Record<CriterionKey, { band: number; comment: string }>;
   overall_comment: string;
   covered_points: { point: string; covered: boolean; note: string }[];
   problems: { issue: string; example: string; fix: string }[];
-  phrase_upgrades: { original: string; better: string[]; note: string }[];
-  band_upgrade_rewrite: { original: string; upgraded: string; why: string }[];
+  // paid reports only; free reports never contain these
+  phrase_upgrades?: { original: string; better: string[]; note: string }[];
+  band_upgrade_rewrite?: { original: string; upgraded: string; why: string }[]; // older reports
+  essay_rewrite?: { original: string; upgraded: string; phrases_used: { phrase: string; zh: string }[]; why: string }[];
+  essay_toolkit?: { phrase: string; zh: string }[]; // general phrases from Gary's essay notes to try next time
   vocab_upgrades: { basic: string; better: string[]; example: string }[];
 };
 
@@ -249,6 +271,7 @@ export type AnalysisResponse = {
   stats: FluencyStats;
   result: SpeakingResult;
   total: number;
+  tier?: "free" | "paid"; // missing on older reports, which are shown in full
   attemptsLeft: number; // free attempts left today
   packLeft?: number; // attempts left in a paid pack
 };

@@ -25,7 +25,7 @@ export default async function DashboardPage() {
 
   const { data: orders } = await supabase
     .from("orders")
-    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, products(title, external_link, speaking_pack_attempts)")
+    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, products(title, external_link, file_path, speaking_pack_attempts)")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
@@ -53,7 +53,8 @@ export default async function DashboardPage() {
                     Open Speaking
                   </Link>
                 )}
-                {order.status === "completed" && !order.products?.speaking_pack_attempts && (
+                {/* a plain speaking pack has nothing to download; a notes bundle with attempts shows both buttons */}
+                {order.status === "completed" && (!order.products?.speaking_pack_attempts || order.products?.external_link || order.products?.file_path) && (
                   <DownloadButton
                     orderId={order.id}
                     initiallyOpened={Boolean(order.link_opened_at && order.products?.external_link)}

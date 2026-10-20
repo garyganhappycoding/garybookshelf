@@ -589,6 +589,7 @@ function PlaybackPlayer({ url }: { url: string }) {
 
 export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { data: AnalysisResponse; card: Card; audioUrl?: string | null; onAgain?: () => void; onThemes?: () => void; canRetry?: boolean }) {
   const { result, stats, total } = data;
+  const free = data.tier === "free"; // older reports have no tier and are shown in full
   const keys = Object.keys(criteriaInfo) as CriterionKey[];
   return (
     <div className="space-y-6">
@@ -638,20 +639,29 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
       <section className="card">
         <h3 className="font-medium mb-1">Your transcript</h3>
         <p className="text-xs text-ink/60 mb-3">
-          <span className="bg-red-100 text-red-700 rounded px-1">fillers</span>{" "}
+          {!free && <span className="bg-red-100 text-red-700 rounded px-1">fillers</span>}{" "}
           <span className="bg-amber-100 text-amber-800 rounded px-1">repeated words</span>
         </p>
         <HighlightedTranscript data={data} />
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 text-center text-xs">
-          <Stat label="Words per min" value={String(stats.wordsPerMinute)} hint="aim: 110-150" />
-          <Stat label="Words" value={String(stats.wordCount)} />
-          <Stat label="Long pauses (1.5s+)" value={String(stats.longPauses)} />
-          <Stat label="Fillers" value={String(stats.fillerCount)} />
-        </div>
+        {free ? (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 text-center text-xs">
+            <Stat label="Words" value={String(stats.wordCount)} />
+            <Stat label="Repeated words" value={String(stats.repeatedWords.length)} />
+            <Stat label="Words per min" value="🔒" hint="Speaking pack" />
+            <Stat label="Pauses and fillers" value="🔒" hint="Speaking pack" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 text-center text-xs">
+            <Stat label="Words per min" value={String(stats.wordsPerMinute)} hint="aim: 110-150" />
+            <Stat label="Words" value={String(stats.wordCount)} />
+            <Stat label="Long pauses (1.5s+)" value={String(stats.longPauses)} />
+            <Stat label="Fillers" value={String(stats.fillerCount)} />
+          </div>
+        )}
       </section>
 
       <section className="card">
-        <h3 className="font-medium mb-3">Your problems and how to fix them</h3>
+        <h3 className="font-medium mb-3">{free ? "Your biggest problem and how to fix it" : "Your problems and how to fix them"}</h3>
         <div className="space-y-3">
           {result.problems.map((p, i) => (
             <div key={i} className="text-sm border-l-4 border-clay-400 pl-3">
@@ -663,41 +673,106 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
         </div>
       </section>
 
-      <section className="card">
-        <h3 className="font-medium mb-3">Replace these phrases to score higher</h3>
-        <div className="space-y-2 text-sm">
-          {result.phrase_upgrades.map((p, i) => (
-            <div key={i}>
-              <b className="text-red-700">{p.original}</b> → {p.better.map((b) => <span key={b} className="inline-block bg-sage-400/20 text-sage-600 rounded-full px-2.5 py-0.5 mr-1.5 mb-1">{b}</span>)}
-              <p className="text-ink/60 text-xs">{p.note}</p>
-            </div>
-          ))}
+      <section className="card space-y-5">
+        <div>
+          <h3 className="font-medium">Upgrade your English</h3>
+          <p className="text-xs text-ink/60">From one word, to a phrase, to a whole sentence, to phrases to take with you.</p>
         </div>
-      </section>
 
-      <section className="card">
-        <h3 className="font-medium mb-3">Band upgrade: rewrite your own sentences</h3>
-        <div className="space-y-4 text-sm">
-          {result.band_upgrade_rewrite.map((r, i) => (
-            <div key={i}>
-              <p className="text-ink/60">Before: <i>“{r.original}”</i></p>
-              <p className="font-medium text-sage-600">After: “{r.upgraded}”</p>
-              <p className="text-xs text-ink/60">{r.why}</p>
-            </div>
-          ))}
+        <div>
+          <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">Step 1 of 4 · Words</p>
+          <div className="space-y-3 text-sm">
+            {result.vocab_upgrades.map((v, i) => (
+              <div key={i}>
+                <b>{v.basic}</b> → {v.better.join(", ")}
+                <p className="text-xs text-ink/60 italic">e.g. {v.example}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
 
-      <section className="card">
-        <h3 className="font-medium mb-3">Band upgrade: vocabulary</h3>
-        <div className="space-y-3 text-sm">
-          {result.vocab_upgrades.map((v, i) => (
-            <div key={i}>
-              <b>{v.basic}</b> → {v.better.join(", ")}
-              <p className="text-xs text-ink/60 italic">e.g. {v.example}</p>
-            </div>
-          ))}
-        </div>
+        {free ? (
+          <div className="border-t border-dashed border-ink/20 pt-4">
+            <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">Steps 2 to 4 · in the paid report</p>
+            <ul className="text-sm text-ink/70 space-y-1 mb-3">
+              <li>🔒 <b>Phrases:</b> better ways to say “I think”, “also”, “because of that”</li>
+              <li>🔒 <b>Sentences:</b> your own sentences rewritten one band higher, with phrases from Gary&apos;s English essay notes</li>
+              <li>🔒 <b>Essay toolkit:</b> phrases from Gary&apos;s notes to use next time, with Chinese meanings</li>
+              <li>🔒 All your other problems, plus pace, pauses and fillers</li>
+            </ul>
+            <p className="text-xs text-ink/60 mb-3">Buy a Speaking pack, then make a new attempt. New attempts made with an active pack get the full report. Your 2 free attempts a day stay.</p>
+            <Link href="/shop" className="btn-primary !py-1.5 inline-block">See Speaking packs</Link>
+          </div>
+        ) : (
+          <>
+            {result.phrase_upgrades && result.phrase_upgrades.length > 0 && (
+              <div className="border-t border-ink/10 pt-4">
+                <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">Step 2 of 4 · Phrases</p>
+                <div className="space-y-2 text-sm">
+                  {result.phrase_upgrades.map((p, i) => (
+                    <div key={i}>
+                      <b className="text-red-700">{p.original}</b> → {p.better.map((b) => <span key={b} className="inline-block bg-sage-400/20 text-sage-600 rounded-full px-2.5 py-0.5 mr-1.5 mb-1">{b}</span>)}
+                      <p className="text-ink/60 text-xs">{p.note}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {result.essay_rewrite && result.essay_rewrite.length > 0 && (
+              <div className="border-t border-ink/10 pt-4">
+                <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Step 3 of 4 · Sentences</p>
+                <p className="text-xs text-ink/60 mb-3">
+                  <span className="bg-clay-400/25 text-clay-700 rounded px-1">highlighted</span> phrases come from Gary&apos;s English essay notes.
+                </p>
+                <div className="space-y-4 text-sm">
+                  {result.essay_rewrite.map((r, i) => (
+                    <div key={i}>
+                      <p className="text-ink/60">Before: <i>“{r.original}”</i></p>
+                      <p className="font-medium text-sage-600">After: “<HighlightPhrases text={r.upgraded} phrases={r.phrases_used.map((p) => p.phrase)} />”</p>
+                      {r.phrases_used.length > 0 && (
+                        <p className="text-xs mt-1 flex flex-wrap gap-1.5">
+                          {r.phrases_used.map((p) => (
+                            <span key={p.phrase} className="bg-clay-400/20 text-clay-700 rounded-full px-2 py-0.5">{p.phrase} · {p.zh}</span>
+                          ))}
+                        </p>
+                      )}
+                      <p className="text-xs text-ink/60 mt-1">{r.why}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* reports made before the essay rewrite existed */}
+            {!result.essay_rewrite && result.band_upgrade_rewrite && result.band_upgrade_rewrite.length > 0 && (
+              <div className="border-t border-ink/10 pt-4">
+                <p className="text-xs uppercase tracking-wide text-ink/50 mb-2">Sentences</p>
+                <div className="space-y-4 text-sm">
+                  {result.band_upgrade_rewrite.map((r, i) => (
+                    <div key={i}>
+                      <p className="text-ink/60">Before: <i>“{r.original}”</i></p>
+                      <p className="font-medium text-sage-600">After: “{r.upgraded}”</p>
+                      <p className="text-xs text-ink/60">{r.why}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {result.essay_toolkit && result.essay_toolkit.length > 0 && (
+              <div className="border-t border-ink/10 pt-4">
+                <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Step 4 of 4 · Your essay toolkit</p>
+                <p className="text-xs text-ink/60 mb-3">Phrases from Gary&apos;s English essay notes. Try to use two of them next time you speak or write.</p>
+                <p className="flex flex-wrap gap-2 text-sm">
+                  {result.essay_toolkit.map((p) => (
+                    <span key={p.phrase} className="bg-clay-400/20 text-clay-700 rounded-full px-3 py-1">{p.phrase} · {p.zh}</span>
+                  ))}
+                </p>
+              </div>
+            )}
+          </>
+        )}
       </section>
 
       <div className="card !bg-cream-50 text-sm">
@@ -714,6 +789,21 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
         </div>
       )}
     </div>
+  );
+}
+
+// Highlights each phrase wherever it appears in the text (ignoring capital letters).
+function HighlightPhrases({ text, phrases }: { text: string; phrases: string[] }) {
+  if (!phrases.length) return <>{text}</>;
+  const esc = (x: string) => x.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const re = new RegExp(`(${phrases.map(esc).join("|")})`, "gi");
+  const wanted = new Set(phrases.map((p) => p.toLowerCase()));
+  return (
+    <>
+      {text.split(re).map((part, i) =>
+        wanted.has(part.toLowerCase()) ? <mark key={i} className="bg-clay-400/25 text-clay-700 rounded px-0.5">{part}</mark> : <span key={i}>{part}</span>
+      )}
+    </>
   );
 }
 
