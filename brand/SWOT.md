@@ -25,6 +25,8 @@
 - From files: only about 1% of speaking users pay (5 of 449); few testimonials; no proof of grade gains yet.
 
 ## Opportunities
+- Exam countdown and exam-date offers can create urgency (Gary likes this idea).
+- Checkout add-on: RM5 notes + RM5 for speaking attempts (to test).
 - Top-saved topics (subject-specific study methods) are a repeatable content engine.
 - TODO: Gary's answers.
 

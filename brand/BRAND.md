@@ -105,6 +105,7 @@
 - 1-to-1 diagnosis / tuition: **parked**. Gary does not plan to offer 1-to-1 now. Current business = **notes + speaking subscription only**.
 - Website colors: **keep** the warm theme (do not migrate to shark blue).
 - Both palettes are saved for future videos and websites.
+- **Conversion plan (20 Oct 2026, discussed, not built yet):** (1) make the free speaking result a partial result and put the deeper feedback behind the paid pack; (2) add an **exam countdown** to the website (Gary likes it; needs exam dates); (3) test a checkout add-on: buy RM5 notes, add RM5 for speaking attempts (Gary suggested 10 attempts for the RM5 add-on, total RM10). Bundling notes + a full subscription is **not** wanted right now.
 
 ## Growth goals & metrics
 - Students helped to learn how to learn: 100 this year → 10,000 in 5 years.
