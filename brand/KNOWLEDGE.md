@@ -22,14 +22,20 @@ Copy this template under "Entries":
 | Source | Learn what | Link |
 |---|---|---|
 | AI companies | business management | (general) |
-| Cerdek | business/brand model | https://cerdek.com/ |
-| Cikgu Minah (MAXC Academy) | business/brand model, testimonials | https://maxcacademy.com/testimonial |
+| Cerdek | pricing, funnel, testimonials, how they operate their AI | https://cerdek.com/ |
+| Cikgu Minah (MAXC Academy) | pricing, funnel, testimonials, how they operate their AI | https://maxcacademy.com/testimonial |
 | addmath atlas | video editing style | https://www.instagram.com/addmaths.atlas/ |
 | Emily (emilykpx28) | video editing style | https://www.instagram.com/emilykpx28/ |
 | Amin (amin.studydaily) | video editing (music, flow) and **video scripting** (her scripts are very good) | https://www.instagram.com/amin.studydaily/reels/ |
 | Fisher Mode | video scripting | https://www.instagram.com/fisher_mode/ |
 
 ## Entries
+### 2026-10-20 — Cerdek and Cikgu Minah: what to study
+- Source: https://cerdek.com/ and https://maxcacademy.com/testimonial
+- Insight: Gary learns four things from them: pricing, funnel, testimonials, and how they run their AI.
+- Apply to garybookshelf: study their price ladder and free-to-paid funnel (the speaking tab has 449 trying students but only 5 paying, so the funnel is the biggest lever). Collect student grade-improvement testimonials, since Gary's success metric is grades improved. TODO: Gary to add specifics he notices.
+- Status: idea
+
 ### 2026-10-20 — Amin's reels: music and script flow
 - Source: amin.studydaily Instagram reels
 - Insight: music choice and the flow of the script are very strong.

@@ -12,10 +12,10 @@
 ## Mission & vision
 - Why it exists: help people **learn how to learn**.
 - How success is measured: (1) students' grades improved, (2) students start to self-study. Core question: *did I help students get better grades and better study habits?*
-- This year: help **100** people learn how to learn.
-- 5 years: help **10,000** people learn how to learn.
-- Long-term target: 1,000 people was the first stated milestone; the 100 → 10,000 targets above are the current plan.
-- Products' main purpose: make learning easier and more effective. Side mission: **RM5k profit per month** (confirm currency).
+- **By end of 2026: help 100 people** learn how to learn.
+- **Yearly run rate: 1,000 people a year** (the pace to build toward).
+- **5-year goal: 5,000 people** helped in total.
+- Products' main purpose: make learning easier and more effective. Side mission: **RM5,000 profit per month**.
 
 ## Audience
 - Broad: students in Malaysia (Form 1–3, Form 4–5, UEC, IGCSE).
@@ -42,12 +42,22 @@
 
 ## Voice & personality
 - Languages: English + Chinese + Malay mix, **mostly Chinese**. Match this in captions, scripts and UI copy.
-- Tone words: TODO
+- Personality: **friendly senior** (an older student who has been through SPM and genuinely wants you to do well; warm, relatable, practical, never preachy or condescending).
 - Never do / never say: TODO
 
 ## Visual identity
-- Logo: **shark logo** (Gary's current logo; Gary's account has it). Note: the repo still has `public/dolphin-icon.png` / `app/icon.png`, which may be outdated. TODO: add the shark logo file to `brand/` or `public/`.
-- Colors, fonts, style: none defined yet (see `tailwind.config.ts` for what the site uses now). TODO: decide a brand palette.
+- Logo / mascot: **cute blue shark eating chips** (`public/dolphin-icon.png`, confirmed as the correct logo; the filename says "dolphin" but it is the shark). Round avatar, kawaii style: soft periwinkle body, pink blush cheeks, a bag of chips, thin dark outline.
+- Palette derived from the logo (proposed, not yet applied to the site):
+  | Role | Color | Hex |
+  |---|---|---|
+  | Primary (shark blue) | periwinkle | `#B4C6E9` (tint `#DCE6F7`, deep `#5B78B8` for buttons/links) |
+  | Accent (chips) | butter yellow | `#EEE1AC` (deeper `#E0B94A` for highlights) |
+  | Accent (cheeks) | blush pink | `#F4B6C2` |
+  | Ink / text | dark navy-black | `#1C2433` |
+  | Background | near-white | `#FCFCFC` |
+- Style: friendly, soft, rounded, playful illustrations; keep text high-contrast (use deep blue or ink for text, never pale blue on white).
+- **Gap:** the live site (`tailwind.config.ts`, email templates in `lib/orders.ts`) uses a warm cream / clay / sage "notebook" theme that does **not** match the shark logo. Decide whether to migrate the site to the shark palette. TODO: Gary to decide.
+- Fonts: TODO.
 
 ## Content pillars
 1. How to study for [subject X]
@@ -60,15 +70,23 @@
 - Video style/script references: see `KNOWLEDGE.md`.
 
 ## Products / revenue
-- Current:
-  - **BI notes**: high-score essay (exam version + extended version), vocab (basic to good level, general + specific categories), beautiful sentences, question analysis, speaking questions.
-  - **BM notes**: high-score essay, vocab (basic to high level), beautiful sentences & phrases.
-  - **Speaking subscription**: AI speaking practice with feedback (free tier is limited, paying students get more).
-- Planned: TODO
-- Profit target: RM5k/month.
+- Current products (prices):
+  - **BI notes: RM5.** High-score essay (exam + extended version), vocab (basic to good level, general + specific categories), beautiful sentences, question analysis, speaking questions.
+  - **BM notes: RM5.** High-score essay, vocab (basic to high level), beautiful sentences & phrases.
+  - **Speaking subscription: RM10 per month** (30 attempts; a RM5 / 15 attempts pack also exists). AI speaking practice with feedback; every student also gets 2 free attempts a day.
+- Payment: manual Touch 'n Go QR + receipt upload, admin approves (no card fees).
+- Planned / under consideration: **1-to-1 diagnosis** or **1-to-1 tuition** (undecided). Diagnosis fits Gary's positioning (analyzing effort, predicted grades and technique) best. TODO: decide, then price it.
+- Profit target: RM5,000/month.
+- Cost and margin source: the "Speaking Profit Planner" artifact (https://claude.ai/artifact/729fGFHokRSyG2nDUdbiVD). Snapshot from 10–20 Oct 2026:
+  - 1,122 registered members; 449 students have tried speaking; 348 active in last 7 days; 5 paying students (about 1%); RM50 revenue.
+  - AI cost about RM0.009 per marked attempt; a full 30-attempt pack costs about RM0.27 of AI, so margin on paid packs is about 97–99%.
+  - Free students are the main cost (about RM36/month once Groq bills); roughly 4 packs a month covers it.
+  - Hosting (Groq, Supabase, Vercel) is on free plans; upgrading both costs about RM198/month and needs about 23 paying students first.
+  - Conversion is the lever: more of the 449 trying students need to buy.
+  - Note: RM5k/month needs about 500 students paying RM10 monthly (or a mix with notes and a higher-priced 1-to-1 service), so pricing/product mix matters.
 
 ## Growth goals & metrics
 - Students helped to learn how to learn: 100 this year → 10,000 in 5 years.
-- Impact metrics: grade improvement, students who begin self-studying.
-- Business metric: RM5k/month profit.
-- TODO: follower / sales / email-list targets.
+- Impact metrics: grade improvement, students who begin self-studying. TODO: decide how to collect this (before/after grade form, testimonials).
+- Business metric: RM5,000/month profit.
+- TODO: Instagram follower target and email-list target.
