@@ -69,7 +69,7 @@
   - When designing a **new website page or web tool**, use the website palette. When designing **video / Instagram / YouTube**, use the shark palette. When a page covers both worlds, use the website palette for the page and the shark mascot as the illustration.
   - Site source of truth: `tailwind.config.ts`, `app/globals.css`, `app/layout.tsx`. Live site: https://garybookshelf-three.vercel.app/ (not reachable from Claude's cloud sandbox, so Claude reads the code instead; Gary can paste screenshots).
 - Fonts: site uses Inter + Caveat. TODO: pick video fonts.
-- Known inconsistency: homepage hero says "45k+ students" but Gary now has 52.4k followers (hero text in `app/page.tsx`). Update when asked.
+- Homepage hero now says "52k+ followers" (updated 20 Oct 2026). Update the number as followers grow.
 
 ## Content pillars
 1. How to study for [subject X]

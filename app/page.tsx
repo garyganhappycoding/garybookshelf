@@ -27,7 +27,7 @@ export default async function HomePage() {
       <section className="bg-cream-200">
         <div className="max-w-5xl mx-auto px-5 py-20 flex flex-col sm:flex-row items-center gap-10">
           <div className="flex-1">
-            <p className="text-clay-700 text-sm mb-2">@gary_bookshelf &middot; 45k+ students</p>
+            <p className="text-clay-700 text-sm mb-2">@gary_bookshelf &middot; 52k+ followers</p>
             <h1 className="text-3xl sm:text-4xl font-medium text-ink max-w-xl mb-4">
               Hi, I'm Gary — I turn messy study habits into systems that work
             </h1>
