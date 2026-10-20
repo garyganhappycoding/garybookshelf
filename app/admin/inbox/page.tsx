@@ -128,10 +128,16 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
               <article key={r.id} className="card space-y-3">
                 <Head r={r} />
                 <Row k="Age / form" v={p.age_form} />
-                <Row k="Problem" v={r.body} />
-                <Row k="What happens" v={p.scenario} />
-                <Row k="Tried so far" v={p.tried} />
-                <Row k="Hoping for" v={p.wish} />
+                {p.mode === "free" ? (
+                  <Row k="Free message" v={r.body} />
+                ) : (
+                  <>
+                    <Row k="Problem" v={r.body} />
+                    <Row k="What happens" v={p.scenario} />
+                    <Row k="Tried so far" v={p.tried} />
+                    <Row k="Hoping for" v={p.wish} />
+                  </>
+                )}
                 <p className="text-xs text-ink/60">
                   {r.display_name ? `Name: ${r.display_name} · ` : "Anonymous · "}
                   {r.contact ? `Reply to: ${r.contact}` : "no contact given"}

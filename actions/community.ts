@@ -36,11 +36,19 @@ export async function submitQuestion(formData: FormData): Promise<SubmitResult> 
   const wish = clean(formData.get("wish"), 1500);
   const name = clean(formData.get("name"), 60);
   const contact = clean(formData.get("contact"), 120);
-  if (!ageForm) return { error: "Please tell me your age and form or exam." };
-  if (problem.length < 10) return { error: "Please tell me a little more about the problem." };
-  if (scenario.length < 10) return { error: "Please describe what happens when you face the problem." };
-  if (!tried) return { error: "Please tell me what you have tried so far, even if it's nothing." };
-  if (!wish) return { error: "Please tell me what kind of help you wish to get." };
+  // two ways to ask: "free" (type whatever you want) or "guided" (the five questions, for a clearer picture)
+  const mode = clean(formData.get("mode"), 10) === "free" ? "free" : "guided";
+  const freeText = clean(formData.get("free_text"), 4000);
+  if (mode === "free") {
+    if (freeText.length < 10) return { error: "Please write a little more, at least a sentence." };
+  } else {
+    if (!ageForm) return { error: "Please tell me your age and form or exam." };
+    if (problem.length < 10) return { error: "Please tell me a little more about the problem." };
+    if (scenario.length < 10) return { error: "Please describe what happens when you face the problem." };
+    if (!tried) return { error: "Please tell me what you have tried so far, even if it's nothing." };
+    if (!wish) return { error: "Please tell me what kind of help you wish to get." };
+  }
+  const publishOk = formData.get("publish_ok") === "on";
 
   const user = await maybeUser();
   const admin = createAdminClient();
@@ -52,15 +60,18 @@ export async function submitQuestion(formData: FormData): Promise<SubmitResult> 
       display_name: name || null,
       contact: contact || null,
       account_email: user?.email ?? null,
-      body: problem,
-      payload: { age_form: ageForm, scenario, tried, wish, publish_ok: formData.get("publish_ok") === "on" },
+      body: mode === "free" ? freeText : problem,
+      payload:
+        mode === "free"
+          ? { mode: "free", age_form: ageForm || null, publish_ok: publishOk }
+          : { mode: "guided", age_form: ageForm, scenario, tried, wish, publish_ok: publishOk },
       ip_hash: hash,
     })
     .select("public_token")
     .single();
   if (error || !data) return { error: "Sorry, that didn't go through. Please try again." };
 
-  after(() => notifyGary("New question", `${ageForm}\n\n${problem}`));
+  after(() => notifyGary("New question", `${ageForm ? ageForm + "\n\n" : ""}${(mode === "free" ? freeText : problem).slice(0, 500)}`));
   return { token: data.public_token };
 }
 
