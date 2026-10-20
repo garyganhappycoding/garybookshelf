@@ -94,11 +94,13 @@
 - Current products (prices):
   - **BI notes: RM5.** High-score essay (exam + extended version), vocab (basic to good level, general + specific categories), beautiful sentences, question analysis, speaking questions.
   - **BM notes: RM5.** High-score essay, vocab (basic to high level), beautiful sentences & phrases.
-  - **RM10 pack: English essay notes + 15 speaking attempts** (per Gary, 20 Oct 2026; Claude still needs to confirm how this relates to the old RM10 / 30 attempts pack).
+  - **RM10 pack: English essay notes + 15 speaking attempts** (new bundle).
+  - The **old RM10 pack for 30 attempts still stays on sale** (confirmed 20 Oct 2026).
   - **Speaking subscription: RM10 per month** (30 attempts; a RM5 / 15 attempts pack also exists). AI speaking practice with feedback; every student also gets 2 free attempts a day.
 - Payment: manual Touch 'n Go QR + receipt upload, admin approves (no card fees).
+- Essay notes live in Gary's Google Drive folder (https://drive.google.com/drive/folders/1aqkWuIkD0ij9L3LLVphsmOHnq_8S-WBh): about 30 Google Docs, one per state trial paper question (Part 2 Q2, Part 3 Q3/Q4/Q5), each with Question Analysis, Exam Version, Extended Version, Table 1 (phrases and vocab, General vs Specific, with Chinese meanings) and Table 2 (beautiful sentences with Chinese translation). Claude can read them through the Drive connector.
 - Planned / under consideration: **1-to-1 diagnosis** or **1-to-1 tuition** (undecided). Diagnosis fits Gary's positioning (analyzing effort, predicted grades and technique) best. TODO: decide, then price it.
-- Profit target: RM5,000/month.
+- Profit target: RM5,000/month (a goal, not current). In off-peak months notes bring about RM100 a month, which Gary considers a lot for off-peak.
 - Cost and margin source: the "Speaking Profit Planner" artifact (https://claude.ai/artifact/729fGFHokRSyG2nDUdbiVD). Snapshot from 10–20 Oct 2026:
   - 1,122 registered members; 449 students have tried speaking; 348 active in last 7 days; 5 paying students (about 1%); RM50 revenue.
   - AI cost about RM0.009 per marked attempt; a full 30-attempt pack costs about RM0.27 of AI, so margin on paid packs is about 97–99%.
@@ -120,10 +122,11 @@
 - 1-to-1 diagnosis / tuition: **parked**. Gary does not plan to offer 1-to-1 now. Current business = **notes + speaking subscription only**.
 - Website colors: **keep** the warm theme (do not migrate to shark blue).
 - Both palettes are saved for future videos and websites.
-- **Free vs paid speaking report (decided 20 Oct 2026):** free students get the transcript, progress history and repeated-words stats (on top of score, comment and points checklist). Paid students get the **higher-band rewrites and the remaining problems**. Still undecided: vocabulary upgrades, phrase upgrades, fluency stats (pauses/fillers). Progress history does not exist yet and must be built.
-- **No free attempts as a reward for feedback** (students would spam it). Find another way to collect feedback.
+- **Free vs paid speaking report (final decision, 20 Oct 2026):** FREE = score and criteria bands, overall comment, points checklist, problem #1, transcript, progress history (not built yet), repeated words, and **vocabulary upgrades**. PAID = everything else: remaining problems, higher-band rewrites, phrase upgrades, fluency stats (pauses, fillers), and a new **example rewrite of the student's own words using Gary's essay vocabulary** (not built yet). The paywall must be enforced on the server, not only hidden in the page.
+- **Feedback:** no free attempts as a reward (students would spam it). Gary says feedback collection is already settled; do nothing more on it.
 - Shark logo not needed on the website.
-- Scheduling: Gary will use Metricool on its free plan, which cannot connect multiple accounts. Gary writes the reel scripts himself; Claude helps with hooks, captions and edits on request.
+- Scheduling: skip Metricool for now (free plan cannot connect multiple accounts). Gary writes reel scripts himself; Claude helps with hooks, captions and edits on request. Reels send people to the website.
+- **AI cost cap for speaking (accepted 20 Oct 2026):** shadow budget RM50/month at about RM0.009 per attempt; alert at 80%; cap free use before paid students are affected.
 - **Conversion plan (20 Oct 2026, discussed, not built yet):** (1) make the free speaking result a partial result and put the deeper feedback behind the paid pack; (2) add an **exam countdown** to the website (Gary likes it; needs exam dates); (3) test a checkout add-on: buy RM5 notes, add RM5 for speaking attempts (Gary suggested 10 attempts for the RM5 add-on, total RM10). Bundling notes + a full subscription is **not** wanted right now.
 
 ## Growth goals & metrics
