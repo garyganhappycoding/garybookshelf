@@ -1,0 +1,85 @@
+// SERVER-ONLY helpers for the no-login pages: questions, "tell me your result" feedback and votes.
+import { createHash } from "node:crypto";
+import { headers } from "next/headers";
+import { Resend } from "resend";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { CONTACT_EMAIL } from "@/lib/legal";
+
+export const GOAL = 100; // The Bookshelf 100
+export const GOAL_DEADLINE = "2026-12-31";
+export const MAX_PROOF_BYTES = 5 * 1024 * 1024;
+
+// trim and cap text coming from a form
+export const clean = (v: unknown, max: number) => String(v ?? "").replace(/\u0000/g, "").trim().slice(0, max);
+export const isEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+
+// A private fingerprint of the visitor's internet address, used only to stop spam and double voting.
+// It is hashed with a secret, so the real address is never stored.
+export async function visitorHash(extra = "") {
+  const h = await headers();
+  const ip = (h.get("x-forwarded-for") ?? "").split(",")[0].trim() || h.get("x-real-ip") || "unknown";
+  return createHash("sha256").update(`${process.env.CRON_SECRET ?? "bookshelf"}|${ip}|${extra}`).digest("hex").slice(0, 40);
+}
+
+// Bots fill every field and submit instantly. A hidden field (honeypot) and a "form was opened at" time catch most of them.
+export function spamCheck(formData: FormData): string | null {
+  if (clean(formData.get("website"), 50)) return "Something went wrong. Please try again.";
+  const opened = Number(formData.get("t"));
+  const age = Date.now() - opened;
+  if (!opened || age < 4000) return "That was quick! Please take a moment to fill it in, then try again.";
+  if (age > 6 * 3600 * 1000) return "This page has been open for a long time. Please refresh it and try again.";
+  return null;
+}
+
+// at most 2 submissions in 10 minutes and 6 a day from the same visitor
+export async function tooManySubmissions(hash: string) {
+  const admin = createAdminClient();
+  const now = Date.now();
+  const count = async (ms: number) => {
+    const { count } = await admin
+      .from("submissions")
+      .select("id", { count: "exact", head: true })
+      .eq("ip_hash", hash)
+      .in("kind", ["question", "feedback"])
+      .gte("created_at", new Date(now - ms).toISOString());
+    return count ?? 0;
+  };
+  const [recent, day] = await Promise.all([count(10 * 60 * 1000), count(24 * 3600 * 1000)]);
+  return recent >= 2 || day >= 6;
+}
+
+const EMAIL_FRAME = (inner: string) => `
+  <div style="font-family: -apple-system, sans-serif; max-width: 480px; margin: 0 auto; background: #FBF6EC; padding: 32px 24px; border-radius: 16px;">
+    <p style="font-family: cursive; font-size: 22px; color: #8F4327; margin: 0 0 20px;">gary's bookshelf</p>
+    ${inner}
+    <p style="color: #8a8a8a; font-size: 12px; margin-top: 24px;">— Gary</p>
+  </div>`;
+
+// Best-effort: an email problem must never break a form.
+export async function sendEmail(to: string, subject: string, inner: string) {
+  if (!process.env.RESEND_API_KEY) return;
+  try {
+    await new Resend(process.env.RESEND_API_KEY).emails.send({
+      from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
+      to,
+      subject,
+      html: EMAIL_FRAME(inner),
+    });
+  } catch (e) {
+    console.error("email failed", e);
+  }
+}
+
+// A short heads-up to Gary's inbox (not Telegram: student messages stay out of the bot).
+export async function notifyGary(subject: string, summary: string) {
+  const site = process.env.NEXT_PUBLIC_SITE_URL || "";
+  const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+  await sendEmail(
+    CONTACT_EMAIL,
+    subject,
+    `<p style="color:#3B2F26;line-height:1.6;white-space:pre-line">${esc(summary)}</p>
+     <p><a href="${site}/admin/inbox" style="color:#B85C38">Open the inbox</a></p>`
+  );
+}
+
+export { EMAIL_FRAME };

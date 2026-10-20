@@ -5,8 +5,11 @@ export default function Footer() {
     <footer className="border-t border-ink/10 mt-20">
       <div className="max-w-5xl mx-auto px-5 py-10 text-sm text-ink/60 flex flex-col sm:flex-row justify-between gap-4">
         <p>&copy; {new Date().getFullYear()} Gary's Bookshelf</p>
-        <div className="flex gap-5">
+        <div className="flex flex-wrap gap-x-5 gap-y-2">
           <a href="/#about" className="hover:text-clay-600">About</a>
+          <a href="/question" className="hover:text-clay-600">Ask a question</a>
+          <a href="/feedback" className="hover:text-clay-600">Share your result</a>
+          <a href="/100" className="hover:text-clay-600">The 100</a>
           <a href="/privacy" className="hover:text-clay-600">Privacy</a>
           <a href="/terms" className="hover:text-clay-600">Terms</a>
           <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-clay-600">Contact</a>
