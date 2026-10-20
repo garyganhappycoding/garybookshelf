@@ -1,19 +1,16 @@
 import Link from "next/link";
-import { createClient, getCurrentUser } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/server";
 import ProductCard from "@/components/ProductCard";
 import ResourceCategoryAccordion from "@/components/ResourceCategoryAccordion";
-import FeedbackForm from "@/components/FeedbackForm";
 
 export default async function HomePage() {
   const supabase = await createClient();
 
   // run the three database calls at the same time, not one after another
   const [
-    user,
     { data: resources },
     { data: products },
   ] = await Promise.all([
-    getCurrentUser(),
     supabase.from("resources").select("*").order("created_at", { ascending: false }),
     supabase.from("products").select("*").eq("is_published", true).order("created_at", { ascending: false }).limit(3),
   ]);
@@ -35,9 +32,10 @@ export default async function HomePage() {
               Notes, resources, and tools I've built while studying my way through
               SPM, matriculation, and beyond.
             </p>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               <Link href="/shop" className="btn-primary">Browse my notes</Link>
               <Link href="#resources" className="btn-secondary">See free resources</Link>
+              <Link href="/hi" className="btn-secondary">💬 Say hi to Gary</Link>
             </div>
           </div>
           <div className="flex-shrink-0">
@@ -87,34 +85,6 @@ export default async function HomePage() {
         )}
       </section>
 
-      {/* BUILT BY ME */}
-      <section id="built-by-me" className="bg-white border-y border-ink/10">
-        <div className="max-w-5xl mx-auto px-5 py-16">
-          <h2 className="text-xl font-medium mb-1">Built by me</h2>
-          <p className="text-ink/60 mb-6">Apps and tools I've built as a solo developer</p>
-          <div className="grid sm:grid-cols-3 gap-4">
-            {[
-              {
-                title: "10Vocab",
-                description: "Learn 10 new vocabulary words a day.",
-                url: "https://vocab-app-nine-kappa.vercel.app/",
-              },
-            ].map((project) => (
-              <a
-                key={project.title}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card block hover:border-clay-400 transition-colors"
-              >
-                <p className="font-medium mb-1">{project.title}</p>
-                <p className="text-sm text-ink/60">{project.description}</p>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ABOUT */}
       <section id="about" className="max-w-5xl mx-auto px-5 py-16">
         <h2 className="text-xl font-medium mb-3">About</h2>
@@ -126,10 +96,19 @@ export default async function HomePage() {
         </p>
       </section>
 
-      {/* FEEDBACK */}
+      {/* SAY HI */}
       <section className="bg-white border-y border-ink/10">
-        <div className="max-w-3xl mx-auto px-5 py-16">
-          <FeedbackForm loggedIn={!!user} />
+        <div className="max-w-3xl mx-auto px-5 py-16 text-center">
+          <h2 className="font-hand text-4xl text-clay-700 mb-2">Say hi to Gary</h2>
+          <p className="text-ink/70 max-w-xl mx-auto mb-6 leading-relaxed">
+            Stuck with studying? Did my videos help you? Ask me a question, share your result, vote for my next video, or follow
+            The Bookshelf 100. No account needed.
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/hi" className="btn-primary">Open Gary's hub</Link>
+            <Link href="/question" className="btn-secondary">💬 Ask a question</Link>
+            <Link href="/feedback" className="btn-secondary">📈 Tell me your result</Link>
+          </div>
         </div>
       </section>
     </div>

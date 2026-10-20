@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { recordReaction } from "@/actions/community";
 import { cards, themes, getCard, getTheme, type Card, type Theme } from "@/lib/speaking/cards";
 import { BAND_MAX, criteriaInfo, type AnalysisResponse, type CriterionKey } from "@/lib/speaking/analyze";
 
@@ -510,6 +511,62 @@ function HighlightedTranscript({ data }: { data: AnalysisResponse }) {
   );
 }
 
+// One tap: was this feedback helpful? A thumb is saved straight away; a short note is optional.
+function ReactionBar({ attemptId }: { attemptId: string }) {
+  const [rating, setRating] = useState<1 | -1 | null>(null);
+  const [note, setNote] = useState("");
+  const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  async function tap(r: 1 | -1) {
+    setRating(r);
+    setBusy(true);
+    await recordReaction(attemptId, r);
+    setBusy(false);
+  }
+  async function send() {
+    if (!rating) return;
+    setBusy(true);
+    await recordReaction(attemptId, rating, note);
+    setBusy(false);
+    setSent(true);
+  }
+
+  return (
+    <div className="card text-center">
+      <p className="font-medium mb-3">Was this feedback helpful?</p>
+      <div className="flex justify-center gap-3">
+        {([1, -1] as const).map((r) => (
+          <button
+            key={r}
+            type="button"
+            disabled={busy}
+            onClick={() => tap(r)}
+            className={`text-3xl rounded-2xl border px-6 py-2 transition-colors ${rating === r ? "border-clay-600 bg-clay-600/10" : "border-ink/15 hover:border-clay-400"}`}
+            aria-label={r === 1 ? "Helpful" : "Not helpful"}
+          >
+            {r === 1 ? "👍" : "👎"}
+          </button>
+        ))}
+      </div>
+      {rating && !sent && (
+        <div className="mt-4 space-y-2 text-left">
+          <p className="text-sm text-ink/70">Thanks! Want to tell me more? (optional)</p>
+          <input
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            maxLength={300}
+            placeholder={rating === 1 ? "What helped most?" : "What was missing or wrong?"}
+            className="w-full border border-ink/15 rounded-xl px-3 py-2.5 text-base bg-white"
+          />
+          <button type="button" disabled={busy || !note.trim()} onClick={send} className="btn-secondary !py-1.5 text-sm disabled:opacity-50">Send</button>
+        </div>
+      )}
+      {sent && <p className="mt-3 text-sm text-sage-600">Thank you, Gary reads these.</p>}
+    </div>
+  );
+}
+
 // Plays the student's own recording. Browsers record voice as WebM without a length, which breaks the seek bar,
 // so we nudge the player to work out the real duration.
 function PlaybackPlayer({ url }: { url: string }) {
@@ -721,6 +778,8 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
       <div className="card !bg-cream-50 text-sm">
         <b>Part 3 practice:</b> now explain your opinion about the last bullet point out loud, with a reason and an example, for another minute.
       </div>
+
+      {onAgain && onThemes && <ReactionBar attemptId={data.attemptId} />}
 
       {onAgain && onThemes && (
         <div className="flex flex-wrap gap-3">

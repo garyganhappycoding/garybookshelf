@@ -2,11 +2,12 @@
 // and the Telegram buttons do exactly the same thing. Callers must check that the
 // person is allowed to do this BEFORE calling (admin session, or Gary's Telegram id).
 import { revalidatePath } from "next/cache";
-import { Resend } from "resend";
+import { sendRawEmail } from "@/lib/community";
+import { siteUrl } from "@/lib/site";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export type OrderSummary = { title: string; email: string | null; amount: number };
-export type OrderResult = { error?: string; summary?: OrderSummary };
+export type OrderResult = { error?: string; summary?: OrderSummary; emailError?: string };
 
 const BUTTON =
   "display: inline-block; background: #B85C38; color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 500; margin: 16px 0;";
@@ -48,26 +49,25 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
     }
   }
 
-  try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  let emailError: string | undefined;
+  if (customerEmail) {
+    const siteLink = siteUrl();
     const externalLink = (order as any).products?.external_link;
+    // a notes bundle that also includes speaking attempts sends the student to the dashboard, where both buttons are
+    const hasDownload = Boolean(externalLink || (order as any).products?.file_path);
+    const downloadSection = packAttempts && hasDownload
+      ? `<a href="${siteLink}/dashboard" style="${BUTTON}">Get my notes and start speaking practice</a>`
+      : packAttempts
+      ? `<a href="${siteLink}/speaking" style="${BUTTON}">Start speaking practice</a>`
+      : externalLink
+      ? `<a href="${externalLink}" style="${BUTTON}">Get my download</a>`
+      : `<a href="${siteLink}/dashboard" style="${BUTTON}">Go to my dashboard</a>`;
 
-    if (customerEmail) {
-      const hasDownload = Boolean(externalLink || (order as any).products?.file_path);
-      const downloadSection = packAttempts && hasDownload
-        ? `<a href="${siteUrl}/dashboard" style="${BUTTON}">Get my notes and start speaking practice</a>`
-        : packAttempts
-        ? `<a href="${siteUrl}/speaking" style="${BUTTON}">Start speaking practice</a>`
-        : externalLink
-        ? `<a href="${externalLink}" style="${BUTTON}">Get my download</a>`
-        : `<a href="${siteUrl}/dashboard" style="${BUTTON}">Go to my dashboard</a>`;
-
-      await resend.emails.send({
-        from: process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev",
-        to: customerEmail,
-        subject: `Your order is approved: ${productTitle}`,
-        html: `
+    // sendRawEmail never throws and reports problems (unverified domain, wrong recipient, bad Gmail password) in its result
+    const sent = await sendRawEmail(
+      customerEmail,
+      `Your order is approved: ${productTitle}`,
+      `
           <div style="font-family: -apple-system, sans-serif; max-width: 480px; margin: 0 auto; background: #FBF6EC; padding: 32px 24px; border-radius: 16px;">
             <p style="font-family: cursive; font-size: 22px; color: #8F4327; margin: 0 0 20px;">gary's bookshelf</p>
             <h2 style="color: #3B2F26; margin: 0 0 12px;">Your order is confirmed 🎉</h2>
@@ -82,16 +82,14 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
             </p>
             <p style="color: #8a8a8a; font-size: 12px; margin-top: 24px;">— Gary</p>
           </div>
-        `,
-      });
-    }
-  } catch (e) {
-    console.error("Resend email failed", e);
+        `
+    );
+    if (!sent.ok) emailError = sent.error;
   }
 
   revalidatePath("/admin/orders");
   revalidatePath("/dashboard");
-  return { summary };
+  return { summary, emailError };
 }
 
 export async function rejectOrderCore(orderId: string, reason: string, opts: { onlyIfPending?: boolean } = {}): Promise<OrderResult> {

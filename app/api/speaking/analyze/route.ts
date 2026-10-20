@@ -95,8 +95,15 @@ export async function POST(req: Request) {
     const p = Array.isArray(pack) ? pack[0] : pack;
     return { attemptsLeft: (left as number | null) ?? 0, packLeft: (p?.pack_left as number | undefined) ?? 0 };
   };
-  // a student with an active pack is a paying student and gets priority on the AI (checked before this attempt is claimed)
-  const priority = (await counts()).packLeft > 0;
+  // a student with an active BOUGHT pack is a paying student and gets priority on the AI (checked before this attempt is
+  // claimed). Bonus attempts given as a thank-you do not count, so they do not jump the queue.
+  const { data: bought } = await createAdminClient()
+    .from("speaking_packs")
+    .select("attempts_total,attempts_used")
+    .eq("user_id", user.id)
+    .eq("kind", "purchased")
+    .gt("expires_at", new Date().toISOString());
+  const priority = (bought ?? []).some((p) => p.attempts_used < p.attempts_total);
 
   // 2. read the form
   let form: FormData;

@@ -53,7 +53,7 @@ export async function POST(req: Request) {
   await answerCallback(cb.id, result.error ? "Done, but check the site." : action === "a" ? "Approved" : "Rejected");
   // the receipt photo is removed from Telegram once decided; only a short text line stays
   if (cb.message?.chat?.id && cb.message?.message_id) await deleteTelegramMessage(cb.message.chat.id, cb.message.message_id);
-  await sendTelegramText(`${action === "a" ? "✅ Approved" : "❌ Rejected"}: ${who}${result.error ? `\n⚠️ ${result.error}` : ""}`);
+  await sendTelegramText(`${action === "a" ? "✅ Approved" : "❌ Rejected"}: ${who}${result.error ? `\n⚠️ ${result.error}` : ""}${result.emailError ? `\n⚠️ The approval email was NOT delivered (${result.emailError}). Tell the student yourself.` : ""}`);
 
   return NextResponse.json({ ok: true });
 }

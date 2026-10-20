@@ -134,7 +134,7 @@ export default async function AdminSpeakingPage({
   }
 
   // Paid = the student has bought a Speaking pack. "active" = a pack that has not expired yet.
-  const { data: packs } = await admin.from("speaking_packs").select("user_id,expires_at");
+  const { data: packs } = await admin.from("speaking_packs").select("user_id,expires_at").eq("kind", "purchased");
   const plan = new Map<string, "active" | "expired">();
   for (const p of packs ?? []) {
     const active = new Date(p.expires_at).getTime() > Date.now();

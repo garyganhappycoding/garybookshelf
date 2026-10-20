@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export default async function AdminFeedbackPage() {
   const supabase = await createClient();
@@ -15,6 +16,9 @@ export default async function AdminFeedbackPage() {
     .from("feedback")
     .select("id, message, created_at, profiles(email)")
     .order("created_at", { ascending: false });
+
+  // opening this page counts as reading them, so the number on the Admin page goes back to 0
+  await createAdminClient().from("feedback").update({ seen_at: new Date().toISOString() }).is("seen_at", null);
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-14">
