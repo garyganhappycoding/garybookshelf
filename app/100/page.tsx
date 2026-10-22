@@ -4,7 +4,7 @@ import { GOAL, GOAL_DEADLINE } from "@/lib/community";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export const metadata = { title: "The Bookshelf 100 · Gary's Bookshelf" };
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 export default async function HundredPage() {
   const admin = createAdminClient();

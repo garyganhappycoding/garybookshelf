@@ -1,22 +1,28 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
+import { createClient } from "@/lib/supabase/client";
 import { submitOrder } from "@/actions/checkout";
 import Link from "next/link";
 
 export default function CheckoutForm({
   productId,
   amount,
-  isLoggedIn,
 }: {
   productId: string;
   amount: number;
-  isLoggedIn: boolean;
 }) {
+  // login state is read in the browser so the product page itself can be cached
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
+  useEffect(() => {
+    createClient().auth.getSession().then(({ data }) => setIsLoggedIn(!!data.session));
+  }, []);
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [fileName, setFileName] = useState<string | null>(null);
+
+  if (isLoggedIn === null) return <div className="card min-h-24" aria-hidden />;
 
   if (!isLoggedIn) {
     return (

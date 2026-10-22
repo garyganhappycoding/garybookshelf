@@ -1,7 +1,13 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import { notFound } from "next/navigation";
 import CheckoutForm from "@/components/CheckoutForm";
 import ProductGallery from "@/components/ProductGallery";
+
+export async function generateStaticParams() {
+  return [];
+}
+
+export const revalidate = 300;
 
 export default async function ProductPage({
   params,
@@ -9,7 +15,7 @@ export default async function ProductPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-  const supabase = await createClient();
+  const supabase = createPublicClient();
 
   const { data: product } = await supabase
     .from("products")
@@ -18,10 +24,6 @@ export default async function ProductPage({
     .single();
 
   if (!product) return notFound();
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
 
   const images: string[] = product.image_urls?.length ? product.image_urls : product.image_url ? [product.image_url] : [];
 
@@ -39,7 +41,6 @@ export default async function ProductPage({
         <CheckoutForm
           productId={product.id}
           amount={Number(product.price_myr)}
-          isLoggedIn={!!user}
         />
       </div>
     </div>

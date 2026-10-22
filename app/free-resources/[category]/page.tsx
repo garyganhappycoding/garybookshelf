@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { getResourcesByCategory } from "@/actions/resources";
 
+export const revalidate = 300;
+export async function generateStaticParams() {
+  return [];
+}
+
 export default async function FreeResourcesCategoryPage({
   params,
 }: {

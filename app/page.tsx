@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import ProductCard from "@/components/ProductCard";
 import ResourceCategoryAccordion from "@/components/ResourceCategoryAccordion";
 
+export const revalidate = 300;
+
 export default async function HomePage() {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
 
   // run the three database calls at the same time, not one after another
   const [

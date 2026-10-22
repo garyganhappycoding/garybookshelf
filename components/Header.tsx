@@ -1,21 +1,8 @@
 import Link from "next/link";
-import { createClient, getCurrentUser } from "@/lib/supabase/server";
-import { logout } from "@/actions/auth";
+import HeaderAccount from "@/components/HeaderAccount";
 
-export default async function Header() {
-  const user = await getCurrentUser();
-
-  let isAdmin = false;
-  if (user) {
-    const supabase = await createClient();
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("role")
-      .eq("id", user.id)
-      .single();
-    isAdmin = profile?.role === "admin";
-  }
-
+// Plain server component with no cookies, so pages can be cached. Login state lives in HeaderAccount.
+export default function Header() {
   return (
     <header className="border-b border-ink/10 bg-paper/80 backdrop-blur sm:sticky sm:top-0 z-30">
       {/* Phone: row 1 = logo + account buttons, row 2 = the page links (scroll sideways if needed). Wide screens: one row. */}
@@ -27,27 +14,7 @@ export default async function Header() {
         </Link>
 
         <nav aria-label="Account" className="order-2 sm:order-3 flex items-center gap-3 text-sm">
-          {user ? (
-            <>
-              {isAdmin && (
-                <Link href="/admin" className="hover:text-clay-600">
-                  Admin
-                </Link>
-              )}
-              <Link href="/dashboard" className="btn-secondary !py-1.5">
-                My orders
-              </Link>
-              <form action={logout}>
-                <button type="submit" className="text-ink/60 hover:text-clay-600 text-sm whitespace-nowrap">
-                  Sign out
-                </button>
-              </form>
-            </>
-          ) : (
-            <Link href="/login" className="btn-primary !py-1.5">
-              Log in
-            </Link>
-          )}
+          <HeaderAccount />
         </nav>
 
         <nav

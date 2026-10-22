@@ -3,7 +3,7 @@ import { GOAL } from "@/lib/community";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export const metadata = { title: "Say hi to Gary · Gary's Bookshelf" };
-export const dynamic = "force-dynamic";
+export const revalidate = 60;
 
 // The page behind the link in Gary's Instagram bio: everything a viewer might want to do, on big buttons, no login.
 export default async function HiPage() {

@@ -1,9 +1,11 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import ProductCard from "@/components/ProductCard";
 import SpeakingFreeVsPaid from "@/components/SpeakingFreeVsPaid";
 
+export const revalidate = 300;
+
 export default async function ShopPage() {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data: products } = await supabase
     .from("products")
     .select("*")

@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getResourceCategorySummaries } from "@/actions/resources";
 
+export const revalidate = 300;
+
 export default async function ContentHubPage() {
   const categories = await getResourceCategorySummaries("content_hub");
 

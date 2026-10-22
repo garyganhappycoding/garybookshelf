@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import { revalidatePath } from "next/cache";
 
 export type ResourceType = "content_hub" | "free_resource";
@@ -59,7 +60,7 @@ export async function getResourceCategories(type: ResourceType) {
 }
 
 export async function getResourceCategorySummaries(type: ResourceType) {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase.from("resources").select("category").eq("type", type);
   if (error) {
     console.error("getResourceCategorySummaries error:", error);
@@ -76,7 +77,7 @@ export async function getResourceCategorySummaries(type: ResourceType) {
 }
 
 export async function getResourcesByCategory(type: ResourceType, category: string) {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("resources")
     .select("*")
