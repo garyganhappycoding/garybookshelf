@@ -56,9 +56,9 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
     // a notes bundle that also includes speaking attempts sends the student to the dashboard, where both buttons are
     const hasDownload = Boolean(externalLink || (order as any).products?.file_path);
     const downloadSection = packAttempts && hasDownload
-      ? `<a href="${siteLink}/dashboard" style="${BUTTON}">Get my notes and start speaking practice</a>`
+      ? `<a href="${siteLink}/dashboard" style="${BUTTON}">Get my notes</a><br><a href="${siteLink}/speaking" style="${BUTTON}">Do my first speaking attempt</a>`
       : packAttempts
-      ? `<a href="${siteLink}/speaking" style="${BUTTON}">Start speaking practice</a>`
+      ? `<a href="${siteLink}/speaking" style="${BUTTON}">Do my first speaking attempt</a>`
       : externalLink
       ? `<a href="${externalLink}" style="${BUTTON}">Get my download</a>`
       : `<a href="${siteLink}/dashboard" style="${BUTTON}">Go to my dashboard</a>`;
@@ -74,11 +74,12 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
             <p style="color: #3B2F26; line-height: 1.6;">Hi,</p>
             <p style="color: #3B2F26; line-height: 1.6;">
               Your payment for <strong>${productTitle}</strong> has been verified.
-              ${packAttempts ? `Your ${packAttempts} speaking attempts are ready and last 30 days.${hasDownload ? " Your notes are ready on your dashboard too." : ""}` : "Your download is ready and waiting for you."}
+              ${packAttempts ? `Your ${packAttempts} speaking attempts are ready and last 30 days. Try your first one today, it takes about 3 minutes and gives you the full report.${hasDownload ? " Your notes are ready on your dashboard too." : ""}` : "Your download is ready and waiting for you."}
             </p>
             ${downloadSection}
             <p style="color: #3B2F26; line-height: 1.6; font-size: 14px;">
-              Thanks so much for supporting @gary_bookshelf — happy studying!
+              Thanks so much for supporting @gary_bookshelf — happy studying! After you try it, tell me how it went:
+              <a href="${siteLink}/feedback" style="color: #B85C38;">share your result</a>. I read every message.
             </p>
             <p style="color: #8a8a8a; font-size: 12px; margin-top: 24px;">— Gary</p>
           </div>

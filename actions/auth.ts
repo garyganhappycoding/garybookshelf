@@ -30,7 +30,7 @@ export async function signup(formData: FormData) {
     redirect(`/signup?error=${encodeURIComponent(error.message)}`);
   }
 
-  redirect("/dashboard");
+  redirect("/start"); // new members see where everything is first
 }
 
 export async function logout() {

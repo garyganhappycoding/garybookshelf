@@ -136,6 +136,11 @@
 - **AI cost cap for speaking (accepted 20 Oct 2026):** shadow budget RM50/month at about RM0.009 per attempt; alert at 80%; cap free use before paid students are affected.
 - **Conversion plan (20 Oct 2026, discussed, not built yet):** (1) make the free speaking result a partial result and put the deeper feedback behind the paid pack; (2) add an **exam countdown** to the website (Gary likes it; needs exam dates); (3) test a checkout add-on: buy RM5 notes, add RM5 for speaking attempts (Gary suggested 10 attempts for the RM5 add-on, total RM10). Bundling notes + a full subscription is **not** wanted right now.
 
+## Reporting rules (Gary, 24 Oct 2026)
+- **Sales = approved orders only** (status `completed`). Rejected orders (wrong receipt or a problem with the transaction) and orders still waiting are never counted in sales, buyers or revenue.
+- The RM10 bundle (English essay notes + 15 attempts) stays on sale for now. The banner offer text still ends 28 Oct 2026.
+- Idea under discussion: a RM2 starter pack for free users. Break-even is RM2 / cost per attempt (RM0.05 gives 40 attempts, the planner's measured cost of about RM0.01 gives about 200). Not decided.
+
 ## Growth goals & metrics
 - Students helped to learn how to learn: 100 this year → 10,000 in 5 years.
 - Impact metrics: grade improvement, students who begin self-studying. Few testimonials so far and Gary is not counting them yet. TODO: decide how to collect real before/after proof.

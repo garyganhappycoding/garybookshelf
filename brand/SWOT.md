@@ -54,3 +54,6 @@
 5. **Protect the notes:** watermark each file with the buyer's name or email, so leaks can be traced.
 6. **Reduce platform risk:** keep a second AI provider ready (Cerebras fallback already exists), watch the free-plan limits using the profit planner, and know the trigger for when to move to paid plans.
 7. **Save time:** batch scripts and film in one session, and schedule posts.
+
+## Built 24 Oct 2026 (on a pull request, waiting for Gary's merge)
+Start here page (`/start`), homepage hero with Speaking AI button and best sellers, signup now lands on /start, dashboard card for unused attempts, approval email "first attempt" button and feedback link, "Tell Gary your result" link in the speaking report and dashboard, bundle upgrade box and "Students also bought" on product pages.

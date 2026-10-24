@@ -29,9 +29,28 @@ export default async function DashboardPage() {
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
+  // attempts left in the student's Speaking pack, so the dashboard can invite them to use it
+  const { data: pack } = await supabase.rpc("speaking_pack_status");
+  const packRow = Array.isArray(pack) ? pack[0] : pack;
+  const packLeft: number = packRow?.pack_left ?? 0;
+  const packExpiry: string | null = packRow?.next_expiry ?? null;
+  const hasCompleted = (orders ?? []).some((o: any) => o.status === "completed");
+
   return (
     <div className="max-w-3xl mx-auto px-5 py-14">
       <h1 className="text-2xl font-medium mb-6">My orders</h1>
+
+      {packLeft > 0 && (
+        <div className="card !border-clay-400 mb-6">
+          <p className="font-medium mb-1">🎤 You have {packLeft} speaking attempts ready</p>
+          <p className="text-sm text-ink/70 mb-3">
+            {packExpiry ? `They are yours until ${new Date(packExpiry).toLocaleDateString("en-MY", { day: "numeric", month: "long" })}. ` : ""}
+            Your attempts give the full report: every problem, phrase upgrades, your sentences rewritten with phrases from Gary&apos;s notes, and your pace and fillers.
+            Do your first one now, it takes about 3 minutes.
+          </p>
+          <Link href="/speaking" className="btn-primary">Do my first attempt</Link>
+        </div>
+      )}
 
       {orders && orders.length > 0 ? (
         <div className="space-y-3">
@@ -65,7 +84,16 @@ export default async function DashboardPage() {
           ))}
         </div>
       ) : (
-        <p className="text-ink/50">No orders yet. Head to the shop to get started.</p>
+        <p className="text-ink/60">
+          No orders yet. New here? <Link href="/start" className="text-clay-600 underline">Start here</Link>, try the{" "}
+          <Link href="/speaking" className="text-clay-600 underline">free Speaking AI</Link>, or head to the{" "}
+          <Link href="/shop" className="text-clay-600 underline">shop</Link>.
+        </p>
+      )}
+      {hasCompleted && (
+        <p className="text-sm text-ink/60 mt-8">
+          Got your notes or attempts? <Link href="/feedback" className="text-clay-600 underline">Tell Gary how it went</Link>. He reads every message.
+        </p>
       )}
     </div>
   );

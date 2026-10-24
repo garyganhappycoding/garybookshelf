@@ -563,6 +563,9 @@ function ReactionBar({ attemptId }: { attemptId: string }) {
         </div>
       )}
       {sent && <p className="mt-3 text-sm text-sage-600">Thank you, Gary reads these.</p>}
+      <p className="mt-4 text-xs text-ink/55">
+        Did practising help your speaking or your grades? <Link href="/feedback" className="text-clay-600 underline">Tell Gary your result</Link>
+      </p>
     </div>
   );
 }
