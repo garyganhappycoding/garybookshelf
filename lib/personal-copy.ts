@@ -28,7 +28,7 @@ export async function ensurePersonalCopy(orderId: string): Promise<PersonalCopy 
   if (dlErr || !blob) throw new Error(`Could not read the product PDF: ${dlErr?.message ?? "missing"}`);
 
   const password = order.pdf_password ?? makePdfPassword();
-  const bytes = await personalizePdf(new Uint8Array(await blob.arrayBuffer()), email, password);
+  const bytes = await personalizePdf(new Uint8Array(await blob.arrayBuffer()), email, password, order.id);
 
   const path = `${order.id}.pdf`;
   const { error: upErr } = await admin.storage

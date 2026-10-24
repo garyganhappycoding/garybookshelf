@@ -12,7 +12,7 @@ export function makePdfPassword(length = 8): string {
   return out;
 }
 
-export async function personalizePdf(source: Uint8Array, email: string, password: string): Promise<Uint8Array> {
+export async function personalizePdf(source: Uint8Array, email: string, password: string, orderId = ""): Promise<Uint8Array> {
   const doc = await PDFDocument.load(source, { ignoreEncryption: false });
   const font = await doc.embedFont(StandardFonts.Helvetica);
   // standard fonts only know basic Latin, so anything else in the email is dropped from the watermark
@@ -35,9 +35,18 @@ export async function personalizePdf(source: Uint8Array, email: string, password
       rotate: degrees(30),
     });
 
-    const small = `For ${label} only. Do not share.`;
-    page.drawText(small, { x: 24, y: 14, size: 8, font, color: rgb(0.4, 0.4, 0.4), opacity: 0.55 });
+    // Gary's mark (so the notes are always credited to him) and who the copy belongs to
+    const brand = "garybookshelf  |  @gary_bookshelf";
+    page.drawText(brand, { x: 24, y: 26, size: 9, font, color: rgb(0.55, 0.28, 0.15), opacity: 0.7 });
+    page.drawText(`For ${label} only. Do not share.`, { x: 24, y: 14, size: 8, font, color: rgb(0.4, 0.4, 0.4), opacity: 0.55 });
+
+    // tiny, very faint order code in the top corner: lets Gary trace a leak even if the footer is cropped out
+    if (orderId) page.drawText(orderId, { x: width - 190, y: height - 10, size: 4, font, color: rgb(0.5, 0.5, 0.5), opacity: 0.18 });
   }
+
+  doc.setProducer("garybookshelf");
+  doc.setCreator("garybookshelf (@gary_bookshelf)");
+  if (orderId) doc.setSubject(`licensed:${orderId}`);
 
   doc.encrypt({
     userPassword: password,
