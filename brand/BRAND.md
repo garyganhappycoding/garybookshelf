@@ -139,7 +139,8 @@
 ## Reporting rules (Gary, 24 Oct 2026)
 - **Sales = approved orders only** (status `completed`). Rejected orders (wrong receipt or a problem with the transaction) and orders still waiting are never counted in sales, buyers or revenue.
 - The RM10 bundle (English essay notes + 15 attempts) stays on sale for now. The banner offer text still ends 28 Oct 2026.
-- Idea under discussion: a RM2 starter pack for free users. Break-even is RM2 / cost per attempt (RM0.05 gives 40 attempts, the planner's measured cost of about RM0.01 gives about 200). Not decided.
+- **Speaking pack ladder (decided 24 Oct 2026):** RM10 = 30 attempts, RM5 = 15 attempts (notes bundle RM10 = notes + 15), RM2.50 = 5 attempts. Every paid pack uses the strongest model and the full report (priority marking); free attempts use the weak model first. Per attempt: RM0.33 (30), RM0.33 (15), RM0.50 (5), so buying small packs never beats the 30 pack. AI cost about RM0.009 per attempt, so profit stays above 95%.
+- (Earlier idea: a RM2 starter pack for free users.) Break-even is RM2 / cost per attempt (RM0.05 gives 40 attempts, the planner's measured cost of about RM0.01 gives about 200). Not decided.
 
 ## Growth goals & metrics
 - Students helped to learn how to learn: 100 this year → 10,000 in 5 years.

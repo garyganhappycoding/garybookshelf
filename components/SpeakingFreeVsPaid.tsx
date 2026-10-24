@@ -10,7 +10,7 @@ const GROUPS: { title: string; rows: Row[] }[] = [
   {
     title: "Practice",
     rows: [
-      { feature: "Attempts", free: "2 every day", paid: "2 free every day, plus 15 or 30 more for 30 days" },
+      { feature: "Attempts", free: "2 every day", paid: "2 free every day, plus 5, 15 or 30 more for 30 days" },
       { feature: "If the AI fails to mark", free: "The attempt is given back", paid: "The attempt is given back" },
       { feature: "When the AI is busy", free: "Normal queue, and a short pause after repeated failed tries", paid: "Priority marking, and more room to try again" },
     ],
