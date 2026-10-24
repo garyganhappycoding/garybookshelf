@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { approveOrder, rejectOrder, getReceiptUrl } from "@/actions/admin";
+import { approveOrder, rejectOrder, getReceiptUrl, allowDownloadAgain } from "@/actions/admin";
 
 const statusColor: Record<string, string> = {
   pending_verification: "text-amber-700 bg-amber-100",
@@ -15,6 +15,7 @@ export default function OrderRow({ order }: { order: any }) {
   const [receiptGone, setReceiptGone] = useState(false);
   const [showReject, setShowReject] = useState(false);
   const [reason, setReason] = useState("");
+  const [released, setReleased] = useState(false);
 
   async function handleViewReceipt() {
     const result = await getReceiptUrl(order.receipt_path);
@@ -98,6 +99,18 @@ export default function OrderRow({ order }: { order: any }) {
               </button>
             </div>
           )}
+        </div>
+      )}
+
+      {order.status === "completed" && order.products?.personalize_pdf && (
+        <div className="mb-2">
+          <button
+            disabled={isPending}
+            onClick={() => startTransition(async () => { await allowDownloadAgain(order.id); setReleased(true); })}
+            className="text-sm text-clay-600 font-medium disabled:opacity-60"
+          >
+            {released ? "Downloads reset ✓" : "Allow this buyer to download again"}
+          </button>
         </div>
       )}
 

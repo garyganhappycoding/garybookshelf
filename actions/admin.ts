@@ -120,6 +120,14 @@ export async function approveOrder(orderId: string) {
   return { success: true };
 }
 
+// lets a buyer download a locked PDF again (for example when a download failed); the bandwidth log keeps the old rows
+export async function allowDownloadAgain(orderId: string) {
+  await requireAdmin();
+  await createAdminClient().from("file_downloads").update({ released: true }).eq("order_id", orderId);
+  revalidatePath("/dashboard");
+  return { success: true };
+}
+
 export async function rejectOrder(orderId: string, reason: string) {
   await requireAdmin();
   await rejectOrderCore(orderId, reason);

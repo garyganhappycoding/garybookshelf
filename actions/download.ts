@@ -5,7 +5,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { getOrderFileUrl } from "@/lib/personal-copy";
 import { productFiles } from "@/lib/product-files";
 
-export async function getDownloadUrl(orderId: string, fileIndex = 0): Promise<{ url?: string; error?: string; isLink?: boolean; password?: string }> {
+export async function getDownloadUrl(orderId: string, fileIndex = 0): Promise<{ url?: string; error?: string; isLink?: boolean; password?: string; oneTime?: boolean }> {
   const supabase = await createClient();
 
   const {
@@ -24,7 +24,7 @@ export async function getDownloadUrl(orderId: string, fileIndex = 0): Promise<{ 
 
   const { data: product } = await supabase
     .from("products")
-    .select("file_path, product_files, external_link, title")
+    .select("file_path, product_files, external_link, title, personalize_pdf")
     .eq("id", order.product_id)
     .single();
 
@@ -45,5 +45,6 @@ export async function getDownloadUrl(orderId: string, fileIndex = 0): Promise<{ 
 
   if (productFiles(product).length === 0) return { error: "No file or link set up for this product." };
 
-  return getOrderFileUrl(orderId, fileIndex);
+  const result = await getOrderFileUrl(orderId, fileIndex);
+  return product.personalize_pdf && result.url ? { ...result, oneTime: true } : result;
 }

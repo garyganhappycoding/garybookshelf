@@ -1,5 +1,6 @@
 import { productFiles } from "@/lib/product-files";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
@@ -29,7 +30,7 @@ export default async function DashboardPage() {
 
   const { data: orders } = await supabase
     .from("orders")
-    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, products(title, external_link, file_path, product_files, speaking_pack_attempts)")
+    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, products(title, external_link, file_path, product_files, personalize_pdf, speaking_pack_attempts)")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
@@ -39,6 +40,14 @@ export default async function DashboardPage() {
   const packLeft: number = packRow?.pack_left ?? 0;
   const packExpiry: string | null = packRow?.next_expiry ?? null;
   const hasCompleted = (orders ?? []).some((o: any) => o.status === "completed");
+
+  // which files of one-time (locked PDF) orders were already downloaded; read here on the server because buyers cannot read this table
+  const usedFiles = new Set<string>();
+  const lockedIds = (orders ?? []).filter((o: any) => o.products?.personalize_pdf).map((o: any) => o.id);
+  if (lockedIds.length) {
+    const { data: used } = await createAdminClient().from("file_downloads").select("order_id, file_index").in("order_id", lockedIds).eq("released", false);
+    for (const u of used ?? []) usedFiles.add(`${u.order_id}:${u.file_index}`);
+  }
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-14">
@@ -90,18 +99,35 @@ export default async function DashboardPage() {
                   <DownloadButton
                     orderId={order.id}
                     initiallyOpened={Boolean(order.link_opened_at && order.products?.external_link)}
+                    oneTime={Boolean(order.products?.personalize_pdf)}
+                    alreadyDownloaded={usedFiles.has(`${order.id}:0`)}
                   />
                 )}
               </div>
               {order.status === "completed" && productFiles(order.products ?? {}).length > 1 && (
-                <ul className="basis-full divide-y divide-ink/10 border-t border-ink/10">
+                <div className="basis-full">
+                  {order.products?.personalize_pdf && (
+                    <p className="text-sm text-clay-700 bg-clay-400/15 rounded-lg px-3 py-2 mb-2">
+                      Each file can be downloaded <strong>once</strong>. Please download on your own phone or laptop, where you will read it.
+                      每个文件只能下载一次，请用你自己要阅读的手机或电脑下载。
+                    </p>
+                  )}
+                <ul className="divide-y divide-ink/10 border-t border-ink/10">
                   {productFiles(order.products).map((f, i) => (
                     <li key={f.path} className="flex items-center justify-between gap-3 py-2">
                       <span className="text-sm break-all">{f.name}</span>
-                      <DownloadButton orderId={order.id} initiallyOpened={false} fileIndex={i} label="Download" />
+                      <DownloadButton
+                        orderId={order.id}
+                        initiallyOpened={false}
+                        fileIndex={i}
+                        label="Download"
+                        oneTime={Boolean(order.products?.personalize_pdf)}
+                        alreadyDownloaded={usedFiles.has(`${order.id}:${i}`)}
+                      />
                     </li>
                   ))}
                 </ul>
+                </div>
               )}
             </div>
           ))}

@@ -8,6 +8,8 @@ import { productFiles } from "@/lib/product-files";
 import { logDownload, storedSize } from "@/lib/download-log";
 
 export const COPY_KEEP_DAYS = 3;
+// A locked PDF can be downloaded once per file per order (Gary can allow it again from Admin → Orders).
+export const LOCKED_DOWNLOAD_LIMIT = 1;
 
 export { productFiles, type ProductFile } from "@/lib/product-files";
 
@@ -52,6 +54,16 @@ export async function getOrderFileUrl(orderId: string, index: number): Promise<{
     if (error || !data) return { error: "Could not generate download link." };
     await logDownload(order.id, order.product_id, index, await storedSize("digital-assets", "", file.path));
     return { url: data.signedUrl };
+  }
+
+  const { count: used } = await admin
+    .from("file_downloads")
+    .select("id", { count: "exact", head: true })
+    .eq("order_id", order.id)
+    .eq("file_index", index)
+    .eq("released", false);
+  if ((used ?? 0) >= LOCKED_DOWNLOAD_LIMIT) {
+    return { error: "You have already downloaded this file. Each file can be downloaded once. If the download failed, please message Gary." };
   }
 
   const password = await ensurePdfPassword(orderId);
