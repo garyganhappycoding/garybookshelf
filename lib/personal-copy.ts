@@ -5,6 +5,7 @@
 import { createAdminClient } from "@/lib/supabase/admin";
 import { makePdfPassword, personalizePdf } from "@/lib/personal-pdf";
 import { productFiles } from "@/lib/product-files";
+import { logDownload, storedSize } from "@/lib/download-log";
 
 export const COPY_KEEP_DAYS = 3;
 
@@ -35,7 +36,7 @@ export async function getOrderFileUrl(orderId: string, index: number): Promise<{
   const admin = createAdminClient();
   const { data: order } = await admin
     .from("orders")
-    .select("id, status, profiles(email), products(title, file_path, product_files, personalize_pdf)")
+    .select("id, status, product_id, profiles(email), products(title, file_path, product_files, personalize_pdf)")
     .eq("id", orderId)
     .single();
   const product = (order as any)?.products;
@@ -49,6 +50,7 @@ export async function getOrderFileUrl(orderId: string, index: number): Promise<{
   if (!product.personalize_pdf || !(isPdf(file.name) || isPdf(file.path))) {
     const { data, error } = await admin.storage.from("digital-assets").createSignedUrl(file.path, 60 * 10, { download: file.name });
     if (error || !data) return { error: "Could not generate download link." };
+    await logDownload(order.id, order.product_id, index, await storedSize("digital-assets", "", file.path));
     return { url: data.signedUrl };
   }
 
@@ -70,5 +72,6 @@ export async function getOrderFileUrl(orderId: string, index: number): Promise<{
 
   const { data, error } = await admin.storage.from("personal-copies").createSignedUrl(copyPath, 60 * 10, { download: file.name });
   if (error || !data) return { error: "Could not generate download link." };
+  await logDownload(order.id, order.product_id, index, await storedSize("personal-copies", order.id, `${index}.pdf`));
   return { url: data.signedUrl, password };
 }
