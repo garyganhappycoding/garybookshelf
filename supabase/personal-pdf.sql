@@ -7,3 +7,4 @@ alter table public.orders add column if not exists personal_pdf_path text;
 insert into storage.buckets (id, name, public)
 values ('personal-copies', 'personal-copies', false)
 on conflict (id) do nothing;
+alter table public.products add column if not exists product_files jsonb not null default '[]'::jsonb; -- list of {path,name} for bundles

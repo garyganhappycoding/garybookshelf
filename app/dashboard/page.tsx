@@ -1,7 +1,11 @@
+import { productFiles } from "@/lib/product-files";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
+
+// making a locked, watermarked PDF can take a few seconds for a big file
+export const maxDuration = 60;
 
 const statusLabel: Record<string, string> = {
   pending_verification: "Pending verification",
@@ -25,7 +29,7 @@ export default async function DashboardPage() {
 
   const { data: orders } = await supabase
     .from("orders")
-    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, products(title, external_link, file_path, speaking_pack_attempts)")
+    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, products(title, external_link, file_path, product_files, speaking_pack_attempts)")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
@@ -36,7 +40,7 @@ export default async function DashboardPage() {
       {orders && orders.length > 0 ? (
         <div className="space-y-3">
           {orders.map((order: any) => (
-            <div key={order.id} className="card flex items-center justify-between">
+            <div key={order.id} className="card flex flex-wrap items-center justify-between gap-y-3">
               <div>
                 <p className="font-medium">{order.products?.title}</p>
                 <p className="text-sm text-ink/60">RM {Number(order.amount_paid).toFixed(2)}</p>
@@ -60,13 +64,26 @@ export default async function DashboardPage() {
                   </Link>
                 )}
                 {/* a plain speaking pack has nothing to download; a notes bundle with attempts shows both buttons */}
-                {order.status === "completed" && (!order.products?.speaking_pack_attempts || order.products?.external_link || order.products?.file_path) && (
+                {order.status === "completed" && productFiles(order.products ?? {}).length > 1 && (
+                  <span className="text-xs text-ink/50">{productFiles(order.products).length} files below</span>
+                )}
+                {order.status === "completed" && productFiles(order.products ?? {}).length <= 1 && (!order.products?.speaking_pack_attempts || order.products?.external_link || order.products?.file_path) && (
                   <DownloadButton
                     orderId={order.id}
                     initiallyOpened={Boolean(order.link_opened_at && order.products?.external_link)}
                   />
                 )}
               </div>
+              {order.status === "completed" && productFiles(order.products ?? {}).length > 1 && (
+                <ul className="basis-full divide-y divide-ink/10 border-t border-ink/10">
+                  {productFiles(order.products).map((f, i) => (
+                    <li key={f.path} className="flex items-center justify-between gap-3 py-2">
+                      <span className="text-sm break-all">{f.name}</span>
+                      <DownloadButton orderId={order.id} initiallyOpened={false} fileIndex={i} label="Download" />
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>

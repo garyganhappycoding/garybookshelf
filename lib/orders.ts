@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 import { sendRawEmail } from "@/lib/community";
 import { siteUrl } from "@/lib/site";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { ensurePersonalCopy } from "@/lib/personal-copy";
+import { ensurePdfPassword } from "@/lib/personal-copy";
 
 export type OrderSummary = { title: string; email: string | null; amount: number };
 export type OrderResult = { error?: string; summary?: OrderSummary; emailError?: string };
@@ -18,7 +18,7 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
 
   const { data: order, error } = await admin
     .from("orders")
-    .select("id, user_id, product_id, status, amount_paid, profiles(email), products(title, external_link, file_path, speaking_pack_attempts)")
+    .select("id, user_id, product_id, status, amount_paid, profiles(email), products(title, external_link, file_path, product_files, speaking_pack_attempts)")
     .eq("id", orderId)
     .single();
   if (error || !order) return { error: "Order not found." };
@@ -50,15 +50,14 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
     }
   }
 
-  // A locked PDF is made for this buyer now (their email watermarked, their own password). If it fails the order stays
-  // approved, the copy is made the first time the buyer taps Download, and Gary is told.
+  // A locked PDF bundle gets one password per buyer now; the watermarked files themselves are made when the buyer taps Download.
   let pdfPassword: string | null = null;
   let pdfWarning: string | undefined;
   try {
-    pdfPassword = (await ensurePersonalCopy(orderId))?.password ?? null;
+    pdfPassword = await ensurePdfPassword(orderId);
   } catch (e: any) {
-    console.error("personal pdf failed", e);
-    pdfWarning = `Approved, but the locked PDF could not be made yet (${e?.message ?? "unknown"}). It will be made when the buyer taps Download.`;
+    console.error("pdf password failed", e);
+    pdfWarning = `Approved, but the PDF password could not be set (${e?.message ?? "unknown"}). It is set when the buyer taps Download.`;
   }
 
   let emailError: string | undefined;

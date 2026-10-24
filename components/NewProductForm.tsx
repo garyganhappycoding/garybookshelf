@@ -8,6 +8,7 @@ export default function NewProductForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const [isPending, startTransition] = useTransition();
   const [uploading, setUploading] = useState(false);
+  const [uploadMsg, setUploadMsg] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [deliveryType, setDeliveryType] = useState<"file" | "link">("file");
   const [previews, setPreviews] = useState<{ url: string; file: File }[]>([]);
@@ -50,22 +51,28 @@ export default function NewProductForm() {
       imageUrls.push(data.publicUrl);
     }
 
-    let filePath: string | null = null;
+    const files: { path: string; name: string }[] = [];
     let externalLink: string | null = null;
 
     if (deliveryType === "file") {
-      if (!assetFile || assetFile.size === 0) {
-        setError("Please attach the digital file to deliver to buyers.");
+      const assets = (formData.getAll("asset") as File[]).filter((f) => f && f.size > 0);
+      if (assets.length === 0) {
+        setError("Please attach the digital file(s) to deliver to buyers.");
         setUploading(false);
         return;
       }
-      const ext = assetFile.name.split(".").pop();
-      filePath = `${crypto.randomUUID()}.${ext}`;
-      const { error: upErr } = await supabase.storage.from("digital-assets").upload(filePath, assetFile);
-      if (upErr) {
-        setError(`Asset upload failed: ${upErr.message}`);
-        setUploading(false);
-        return;
+      for (let i = 0; i < assets.length; i++) {
+        setUploadMsg(`Uploading file ${i + 1} of ${assets.length}...`);
+        const asset = assets[i];
+        const ext = asset.name.split(".").pop();
+        const path = `${crypto.randomUUID()}.${ext}`;
+        const { error: upErr } = await supabase.storage.from("digital-assets").upload(path, asset);
+        if (upErr) {
+          setError(`Upload of "${asset.name}" failed: ${upErr.message}`);
+          setUploading(false);
+          return;
+        }
+        files.push({ path, name: asset.name });
       }
     } else {
       if (!link || link.trim() === "") {
@@ -85,7 +92,8 @@ export default function NewProductForm() {
         category,
         imageUrl: imageUrls[0] || null,
         imageUrls,
-        filePath,
+        filePath: null,
+        files,
         externalLink,
         personalizePdf: deliveryType === "file" && formData.get("personalizePdf") === "on",
       });
@@ -172,7 +180,8 @@ export default function NewProductForm() {
         <input type="hidden" name="deliveryType" value={deliveryType} />
         {deliveryType === "file" ? (
           <>
-            <input name="asset" type="file" className="w-full text-sm" />
+            <input name="asset" type="file" multiple className="w-full text-sm" />
+            <p className="text-xs text-ink/50 mt-1">You can pick several files at once (e.g. a whole bundle of PDFs).</p>
         <label className="flex items-start gap-2 text-sm mt-3">
           <input type="checkbox" name="personalizePdf" defaultChecked={false} className="mt-1" />
           <span>
@@ -189,7 +198,7 @@ export default function NewProductForm() {
       {error && <p className="text-sm text-red-600">{error}</p>}
 
       <button type="submit" disabled={isPending || uploading} className="btn-primary disabled:opacity-60">
-        {uploading ? "Uploading images..." : isPending ? "Saving..." : "Add product"}
+        {uploading ? uploadMsg || "Uploading..." : isPending ? "Saving..." : "Add product"}
       </button>
     </form>
   );

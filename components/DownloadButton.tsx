@@ -6,9 +6,13 @@ import { getDownloadUrl } from "@/actions/download";
 export default function DownloadButton({
   orderId,
   initiallyOpened,
+  fileIndex = 0,
+  label = "Download",
 }: {
   orderId: string;
   initiallyOpened: boolean;
+  fileIndex?: number;
+  label?: string;
 }) {
   const [loading, setLoading] = useState(false);
   const [opened, setOpened] = useState(initiallyOpened);
@@ -20,7 +24,7 @@ export default function DownloadButton({
     const newWindow = window.open("", "_blank");
 
     setLoading(true);
-    const result = await getDownloadUrl(orderId);
+    const result = await getDownloadUrl(orderId, fileIndex);
     setLoading(false);
 
     if (result.url) {
@@ -51,7 +55,7 @@ export default function DownloadButton({
 
   return (
     <button onClick={handleClick} disabled={loading} className="btn-primary !py-1.5 !px-4 text-sm disabled:opacity-60">
-      {loading ? "Loading..." : "Download"}
+      {loading ? "Preparing..." : label}
     </button>
   );
 }

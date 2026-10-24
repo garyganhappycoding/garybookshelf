@@ -1,41 +1,74 @@
-// SERVER-ONLY. Makes (once) the buyer's own locked + watermarked copy of a product's PDF and remembers its password.
+// SERVER-ONLY. Gives a buyer a download link for one file of their order. When the product is a "locked PDF" the file is
+// made for that buyer on the first tap: their email watermarked on every page and a password that is theirs alone.
+// Copies are not kept for long (the daily cleanup removes them after COPY_KEEP_DAYS); tapping Download again just makes
+// a fresh one with the same password. Originals stay in the "digital-assets" bucket and are stored once.
 import { createAdminClient } from "@/lib/supabase/admin";
 import { makePdfPassword, personalizePdf } from "@/lib/personal-pdf";
+import { productFiles } from "@/lib/product-files";
 
-export type PersonalCopy = { path: string; password: string };
+export const COPY_KEEP_DAYS = 3;
 
-// Safe to call again: if the copy already exists it is returned as is (the password never changes for an order).
-// Returns null when this order's product is not a locked PDF; throws if the copy could not be made.
-export async function ensurePersonalCopy(orderId: string): Promise<PersonalCopy | null> {
+export { productFiles, type ProductFile } from "@/lib/product-files";
+
+const isPdf = (name: string) => name.toLowerCase().endsWith(".pdf");
+
+// One password per order, used for every PDF in the bundle. Safe to call again: it never changes once set.
+export async function ensurePdfPassword(orderId: string): Promise<string | null> {
   const admin = createAdminClient();
-
   const { data: order } = await admin
     .from("orders")
-    .select("id, status, pdf_password, personal_pdf_path, profiles(email), products(file_path, personalize_pdf)")
+    .select("id, status, pdf_password, products(personalize_pdf, file_path, product_files, title)")
     .eq("id", orderId)
     .single();
   const product = (order as any)?.products;
-  if (!order || !product?.personalize_pdf || !product.file_path) return null;
-  if (order.status !== "completed") return null;
-  if (!String(product.file_path).toLowerCase().endsWith(".pdf")) {
-    throw new Error("This product is set to lock the PDF, but the uploaded file is not a .pdf.");
+  if (!order || order.status !== "completed" || !product?.personalize_pdf) return null;
+  if (!productFiles(product).some((f) => isPdf(f.name) || isPdf(f.path))) return null;
+  if (order.pdf_password) return order.pdf_password;
+
+  const password = makePdfPassword();
+  await admin.from("orders").update({ pdf_password: password }).eq("id", order.id).is("pdf_password", null);
+  const { data: fresh } = await admin.from("orders").select("pdf_password").eq("id", order.id).single();
+  return fresh?.pdf_password ?? password;
+}
+
+export async function getOrderFileUrl(orderId: string, index: number): Promise<{ url?: string; password?: string; error?: string }> {
+  const admin = createAdminClient();
+  const { data: order } = await admin
+    .from("orders")
+    .select("id, status, profiles(email), products(title, file_path, product_files, personalize_pdf)")
+    .eq("id", orderId)
+    .single();
+  const product = (order as any)?.products;
+  if (!order || order.status !== "completed" || !product) return { error: "Order not found." };
+
+  const files = productFiles(product);
+  const file = files[index];
+  if (!file) return { error: "No file or link set up for this product." };
+
+  // plain file: a short-lived link to the original
+  if (!product.personalize_pdf || !(isPdf(file.name) || isPdf(file.path))) {
+    const { data, error } = await admin.storage.from("digital-assets").createSignedUrl(file.path, 60 * 10, { download: file.name });
+    if (error || !data) return { error: "Could not generate download link." };
+    return { url: data.signedUrl };
   }
 
-  if (order.pdf_password && order.personal_pdf_path) return { path: order.personal_pdf_path, password: order.pdf_password };
+  const password = await ensurePdfPassword(orderId);
+  if (!password) return { error: "Could not prepare your PDF. Please try again." };
 
-  const email: string = (order as any).profiles?.email ?? "buyer";
-  const { data: blob, error: dlErr } = await admin.storage.from("digital-assets").download(product.file_path);
-  if (dlErr || !blob) throw new Error(`Could not read the product PDF: ${dlErr?.message ?? "missing"}`);
+  const copyPath = `${order.id}/${index}.pdf`;
+  const { data: existing } = await admin.storage.from("personal-copies").list(order.id, { search: `${index}.pdf` });
+  if (!existing?.some((f) => f.name === `${index}.pdf`)) {
+    const email: string = (order as any).profiles?.email ?? "buyer";
+    const { data: blob, error: dlErr } = await admin.storage.from("digital-assets").download(file.path);
+    if (dlErr || !blob) return { error: "Could not read the file. Please message Gary." };
+    const bytes = await personalizePdf(new Uint8Array(await blob.arrayBuffer()), email, password, order.id);
+    const { error: upErr } = await admin.storage
+      .from("personal-copies")
+      .upload(copyPath, bytes, { contentType: "application/pdf", upsert: true });
+    if (upErr) return { error: "Could not prepare your PDF. Please try again." };
+  }
 
-  const password = order.pdf_password ?? makePdfPassword();
-  const bytes = await personalizePdf(new Uint8Array(await blob.arrayBuffer()), email, password, order.id);
-
-  const path = `${order.id}.pdf`;
-  const { error: upErr } = await admin.storage
-    .from("personal-copies")
-    .upload(path, bytes, { contentType: "application/pdf", upsert: true });
-  if (upErr) throw new Error(`Could not save the buyer's copy: ${upErr.message}`);
-
-  await admin.from("orders").update({ pdf_password: password, personal_pdf_path: path }).eq("id", order.id);
-  return { path, password };
+  const { data, error } = await admin.storage.from("personal-copies").createSignedUrl(copyPath, 60 * 10, { download: file.name });
+  if (error || !data) return { error: "Could not generate download link." };
+  return { url: data.signedUrl, password };
 }

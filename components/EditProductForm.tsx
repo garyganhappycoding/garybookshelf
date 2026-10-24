@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import { productFiles, type ProductFile } from "@/lib/product-files";
 import { updateProductRecord } from "@/actions/admin";
 
 export default function EditProductForm({ product }: { product: any }) {
@@ -14,6 +15,9 @@ export default function EditProductForm({ product }: { product: any }) {
   const [deliveryType, setDeliveryType] = useState<"file" | "link">(product.external_link ? "link" : "file");
   const [previews, setPreviews] = useState<{ url: string; file: File }[]>([]);
   const [coverIndex, setCoverIndex] = useState(0);
+  const initialFiles = productFiles(product);
+  const [keptFiles, setKeptFiles] = useState<ProductFile[]>(initialFiles);
+  const [uploadMsg, setUploadMsg] = useState("");
 
   const existingImages: string[] = product.image_urls?.length ? product.image_urls : product.image_url ? [product.image_url] : [];
 
@@ -52,7 +56,7 @@ export default function EditProductForm({ product }: { product: any }) {
     const description = formData.get("description") as string;
     const price = parseFloat(formData.get("price") as string);
     const category = formData.get("category") as string;
-    const newAsset = formData.get("asset") as File | null;
+    const newAssets = (formData.getAll("asset") as File[]).filter((f) => f && f.size > 0);
     const link = formData.get("link") as string | null;
 
     let imageUrls: string[] | null = null;
@@ -73,19 +77,25 @@ export default function EditProductForm({ product }: { product: any }) {
       }
     }
 
-    let filePath: string | null = null;
+    let files: ProductFile[] | undefined;
     let externalLink: string | null = null;
 
     if (deliveryType === "link" && link && link.trim() !== "") {
       externalLink = link.trim();
-    } else if (deliveryType === "file" && newAsset && newAsset.size > 0) {
-      const ext = newAsset.name.split(".").pop();
-      filePath = `${crypto.randomUUID()}.${ext}`;
-      const { error: upErr } = await supabase.storage.from("digital-assets").upload(filePath, newAsset);
-      if (upErr) {
-        setError(`Asset upload failed: ${upErr.message}`);
-        setUploading(false);
-        return;
+    } else if (deliveryType === "file" && (newAssets.length > 0 || keptFiles.length !== initialFiles.length)) {
+      files = [...keptFiles];
+      for (let i = 0; i < newAssets.length; i++) {
+        setUploadMsg(`Uploading file ${i + 1} of ${newAssets.length}...`);
+        const asset = newAssets[i];
+        const ext = asset.name.split(".").pop();
+        const path = `${crypto.randomUUID()}.${ext}`;
+        const { error: upErr } = await supabase.storage.from("digital-assets").upload(path, asset);
+        if (upErr) {
+          setError(`Upload of "${asset.name}" failed: ${upErr.message}`);
+          setUploading(false);
+          return;
+        }
+        files.push({ path, name: asset.name });
       }
     }
 
@@ -98,7 +108,7 @@ export default function EditProductForm({ product }: { product: any }) {
         category,
         imageUrl: imageUrls ? imageUrls[0] : undefined,
         imageUrls: imageUrls || undefined,
-        filePath: filePath || undefined,
+        files,
         externalLink: externalLink || undefined,
         personalizePdf: deliveryType === "file" && formData.get("personalizePdf") === "on",
       });
@@ -208,8 +218,20 @@ export default function EditProductForm({ product }: { product: any }) {
           </div>
           {deliveryType === "file" ? (
             <>
-              <input name="asset" type="file" className="w-full text-sm" />
-              <p className="text-xs text-ink/50 mt-1">Leave empty to keep current file.</p>
+              {keptFiles.length > 0 && (
+                <ul className="mb-2 space-y-1">
+                  {keptFiles.map((f) => (
+                    <li key={f.path} className="flex items-center justify-between text-sm bg-ink/5 rounded-lg px-3 py-1.5">
+                      <span className="break-all">{f.name}</span>
+                      <button type="button" onClick={() => setKeptFiles((cur) => cur.filter((x) => x.path !== f.path))} className="text-red-600 text-xs ml-3 shrink-0">
+                        Remove
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <input name="asset" type="file" multiple className="w-full text-sm" />
+              <p className="text-xs text-ink/50 mt-1">Pick one or several files to add. Files listed above stay unless you remove them.</p>
         <label className="flex items-start gap-2 text-sm mt-3">
           <input type="checkbox" name="personalizePdf" defaultChecked={Boolean(product.personalize_pdf)} className="mt-1" />
           <span>
@@ -226,7 +248,7 @@ export default function EditProductForm({ product }: { product: any }) {
         {error && <p className="text-sm text-red-600">{error}</p>}
 
         <button type="submit" disabled={isPending || uploading} className="btn-primary disabled:opacity-60">
-          {uploading ? "Uploading..." : isPending ? "Saving..." : "Save changes"}
+          {uploading ? uploadMsg || "Uploading..." : isPending ? "Saving..." : "Save changes"}
         </button>
       </form>
     </div>

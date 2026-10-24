@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { COPY_KEEP_DAYS } from "@/lib/personal-copy";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -26,6 +27,16 @@ export async function GET(req: Request) {
     .eq("status", "failed")
     .not("result", "is", null)
     .lt("created_at", new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString());
+
+  // Locked PDF copies are made when a buyer taps Download and are only kept a few days (storage is limited);
+  // tapping Download again makes a fresh one with the same password.
+  const copyCutoff = Date.now() - COPY_KEEP_DAYS * 24 * 60 * 60 * 1000;
+  const { data: folders } = await admin.storage.from("personal-copies").list("", { limit: 1000 });
+  for (const folder of folders ?? []) {
+    const { data: files } = await admin.storage.from("personal-copies").list(folder.name, { limit: 100 });
+    const old = (files ?? []).filter((f) => f.created_at && new Date(f.created_at).getTime() < copyCutoff).map((f) => `${folder.name}/${f.name}`);
+    if (old.length) await admin.storage.from("personal-copies").remove(old);
+  }
 
   const { data: orders, error } = await admin
     .from("orders")
