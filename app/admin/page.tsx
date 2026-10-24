@@ -40,6 +40,7 @@ export default async function AdminPage() {
   const cards: CardInfo[] = [
     { href: "/admin/products", title: "Products", text: "Add and manage what's for sale" },
     { href: "/admin/orders", title: "Orders", text: orders ? `${orders} waiting to be approved` : "Approve or reject payments", badge: orders },
+    { href: "/admin/students", title: "Students", text: "Find a student, see purchases and attempts, add attempts" },
     { href: "/admin/resources", title: "Content & Resources", text: "Manage content hub and free downloads" },
     { href: "/admin/feedback", title: "Feedback", text: feedback ? `${feedback} new, not opened yet` : "See what customers are saying", badge: feedback },
     { href: "/admin/speaking", title: "Speaking", text: "Usage, scores and why attempts fail" },
