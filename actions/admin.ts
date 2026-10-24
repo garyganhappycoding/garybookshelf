@@ -31,6 +31,7 @@ export async function createProductRecord(data: {
   imageUrls: string[];
   filePath: string | null;
   externalLink: string | null;
+  personalizePdf?: boolean;
 }) {
   const supabase = await requireAdmin();
 
@@ -43,6 +44,7 @@ export async function createProductRecord(data: {
     image_urls: data.imageUrls,
     file_path: data.filePath,
     external_link: data.externalLink,
+    personalize_pdf: Boolean(data.personalizePdf),
   });
 
   if (error) return { error: error.message };
@@ -63,6 +65,7 @@ export async function updateProductRecord(
     imageUrls?: string[];
     filePath?: string | null;
     externalLink?: string | null;
+    personalizePdf?: boolean;
   }
 ) {
   const supabase = await requireAdmin();
@@ -74,6 +77,7 @@ export async function updateProductRecord(
     category: data.category,
   };
 
+  if (data.personalizePdf !== undefined) updates.personalize_pdf = data.personalizePdf;
   if (data.imageUrl !== undefined) updates.image_url = data.imageUrl;
   if (data.imageUrls !== undefined) updates.image_urls = data.imageUrls;
   if (data.filePath !== undefined) {

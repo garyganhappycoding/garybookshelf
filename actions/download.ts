@@ -2,8 +2,9 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { ensurePersonalCopy } from "@/lib/personal-copy";
 
-export async function getDownloadUrl(orderId: string): Promise<{ url?: string; error?: string; isLink?: boolean }> {
+export async function getDownloadUrl(orderId: string): Promise<{ url?: string; error?: string; isLink?: boolean; password?: string }> {
   const supabase = await createClient();
 
   const {
@@ -22,7 +23,7 @@ export async function getDownloadUrl(orderId: string): Promise<{ url?: string; e
 
   const { data: product } = await supabase
     .from("products")
-    .select("file_path, external_link")
+    .select("file_path, external_link, personalize_pdf, title")
     .eq("id", order.product_id)
     .single();
 
@@ -44,6 +45,24 @@ export async function getDownloadUrl(orderId: string): Promise<{ url?: string; e
   if (!product.file_path) return { error: "No file or link set up for this product." };
 
   const admin = createAdminClient();
+
+  // a locked PDF: hand over this buyer's own copy (made on approval, or now if that step failed)
+  if (product.personalize_pdf) {
+    try {
+      const copy = await ensurePersonalCopy(orderId);
+      if (copy) {
+        const { data: signed, error: signErr } = await admin.storage
+          .from("personal-copies")
+          .createSignedUrl(copy.path, 60 * 10, { download: `${product.title}.pdf` });
+        if (signErr || !signed) return { error: "Could not generate download link." };
+        return { url: signed.signedUrl, password: copy.password };
+      }
+    } catch (e) {
+      console.error("personal copy failed", e);
+      return { error: "Your locked PDF is not ready yet. Please try again in a minute or message Gary." };
+    }
+  }
+
   const { data, error } = await admin.storage
     .from("digital-assets")
     .createSignedUrl(product.file_path, 60 * 10);

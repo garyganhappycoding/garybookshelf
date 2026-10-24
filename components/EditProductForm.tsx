@@ -100,6 +100,7 @@ export default function EditProductForm({ product }: { product: any }) {
         imageUrls: imageUrls || undefined,
         filePath: filePath || undefined,
         externalLink: externalLink || undefined,
+        personalizePdf: deliveryType === "file" && formData.get("personalizePdf") === "on",
       });
       if (result?.error) setError(result.error);
       else router.push("/admin/products");
@@ -209,6 +210,13 @@ export default function EditProductForm({ product }: { product: any }) {
             <>
               <input name="asset" type="file" className="w-full text-sm" />
               <p className="text-xs text-ink/50 mt-1">Leave empty to keep current file.</p>
+        <label className="flex items-start gap-2 text-sm mt-3">
+          <input type="checkbox" name="personalizePdf" defaultChecked={Boolean(product.personalize_pdf)} className="mt-1" />
+          <span>
+            <strong>Lock each buyer's copy (PDF only).</strong> After you approve an order, the buyer gets their own copy with their email
+            printed faintly on every page, locked with a password only they receive.
+          </span>
+        </label>
             </>
           ) : (
             <input name="link" type="url" defaultValue={product.external_link || ""} placeholder="https://..." className="w-full border border-ink/15 rounded-lg px-3 py-2" />

@@ -25,7 +25,7 @@ export default async function DashboardPage() {
 
   const { data: orders } = await supabase
     .from("orders")
-    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, products(title, external_link, file_path, speaking_pack_attempts)")
+    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, products(title, external_link, file_path, speaking_pack_attempts)")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
@@ -40,6 +40,12 @@ export default async function DashboardPage() {
               <div>
                 <p className="font-medium">{order.products?.title}</p>
                 <p className="text-sm text-ink/60">RM {Number(order.amount_paid).toFixed(2)}</p>
+                {order.status === "completed" && order.pdf_password && (
+                  <p className="text-sm mt-1">
+                    PDF password: <span className="font-mono text-base tracking-wider bg-ink/5 px-2 py-0.5 rounded select-all">{order.pdf_password}</span>
+                    <span className="block text-xs text-ink/50">Only for you. Your email is printed on every page, so please don't share it.</span>
+                  </p>
+                )}
                 {order.status === "rejected" && order.reject_reason && (
                   <p className="text-sm text-red-600 mt-1">Reason: {order.reject_reason}</p>
                 )}

@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 import { sendRawEmail } from "@/lib/community";
 import { siteUrl } from "@/lib/site";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { ensurePersonalCopy } from "@/lib/personal-copy";
 
 export type OrderSummary = { title: string; email: string | null; amount: number };
 export type OrderResult = { error?: string; summary?: OrderSummary; emailError?: string };
@@ -49,6 +50,17 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
     }
   }
 
+  // A locked PDF is made for this buyer now (their email watermarked, their own password). If it fails the order stays
+  // approved, the copy is made the first time the buyer taps Download, and Gary is told.
+  let pdfPassword: string | null = null;
+  let pdfWarning: string | undefined;
+  try {
+    pdfPassword = (await ensurePersonalCopy(orderId))?.password ?? null;
+  } catch (e: any) {
+    console.error("personal pdf failed", e);
+    pdfWarning = `Approved, but the locked PDF could not be made yet (${e?.message ?? "unknown"}). It will be made when the buyer taps Download.`;
+  }
+
   let emailError: string | undefined;
   if (customerEmail) {
     const siteLink = siteUrl();
@@ -77,6 +89,9 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
               ${packAttempts ? `Your ${packAttempts} speaking attempts are ready and last 30 days.${hasDownload ? " Your notes are ready on your dashboard too." : ""}` : "Your download is ready and waiting for you."}
             </p>
             ${downloadSection}
+            ${pdfPassword ? `<p style="color: #3B2F26; line-height: 1.6;">Your PDF is locked with a password that is only for you:</p>
+            <p style="font-family: monospace; font-size: 22px; letter-spacing: 2px; background: white; display: inline-block; padding: 8px 16px; border-radius: 8px; color: #3B2F26; margin: 4px 0 12px;">${pdfPassword}</p>
+            <p style="color: #3B2F26; line-height: 1.6; font-size: 13px;">Your email is printed on every page, so please don't share the file. 请勿分享，你的邮箱已印在每一页。</p>` : ""}
             <p style="color: #3B2F26; line-height: 1.6; font-size: 14px;">
               Thanks so much for supporting @gary_bookshelf — happy studying!
             </p>
@@ -89,7 +104,7 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
 
   revalidatePath("/admin/orders");
   revalidatePath("/dashboard");
-  return { summary, emailError };
+  return { summary, emailError: emailError ?? pdfWarning };
 }
 
 export async function rejectOrderCore(orderId: string, reason: string, opts: { onlyIfPending?: boolean } = {}): Promise<OrderResult> {

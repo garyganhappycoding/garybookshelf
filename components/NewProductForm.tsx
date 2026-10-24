@@ -87,6 +87,7 @@ export default function NewProductForm() {
         imageUrls,
         filePath,
         externalLink,
+        personalizePdf: deliveryType === "file" && formData.get("personalizePdf") === "on",
       });
       if (result?.error) setError(result.error);
       else {
@@ -170,7 +171,16 @@ export default function NewProductForm() {
         </div>
         <input type="hidden" name="deliveryType" value={deliveryType} />
         {deliveryType === "file" ? (
-          <input name="asset" type="file" className="w-full text-sm" />
+          <>
+            <input name="asset" type="file" className="w-full text-sm" />
+        <label className="flex items-start gap-2 text-sm mt-3">
+          <input type="checkbox" name="personalizePdf" defaultChecked={false} className="mt-1" />
+          <span>
+            <strong>Lock each buyer's copy (PDF only).</strong> After you approve an order, the buyer gets their own copy with their email
+            printed faintly on every page, locked with a password only they receive.
+          </span>
+        </label>
+          </>
         ) : (
           <input name="link" type="url" placeholder="https://drive.google.com/..." className="w-full border border-ink/15 rounded-lg px-3 py-2" />
         )}
