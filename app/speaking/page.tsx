@@ -16,7 +16,7 @@ export default async function SpeakingPage() {
   let packExpiry: string | null = null;
   let packHref = "/shop";
   if (user) {
-    // send students straight to the pack's page instead of the whole shop
+    // send students straight to the 30-attempt pack's page (the biggest plain pack) instead of the whole shop
     const { data: packProduct } = await supabase
       .from("products")
       .select("id")
@@ -24,7 +24,7 @@ export default async function SpeakingPage() {
       .is("external_link", null) // plain packs only, not notes bundles that also include attempts
       .is("file_path", null)
       .eq("is_published", true)
-      .order("price_myr", { ascending: true })
+      .order("speaking_pack_attempts", { ascending: false })
       .limit(1)
       .maybeSingle();
     if (packProduct) packHref = `/shop/${packProduct.id}`;

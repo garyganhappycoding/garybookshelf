@@ -26,15 +26,8 @@ const MAX_SECONDS = 150; // 2 minutes + a little slack
 const MIN_WORDS = 25;
 const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const FALLBACK_MODEL = "openai/gpt-oss-20b"; // separate rate limits; used when the main model is busy
-// Free students use the lighter model first and may only borrow the main model up to this many times a day,
-// which keeps the main model's daily allowance free for paying students.
-// Free students are not paying, so they only get a small slice of the strong model: FREE_MAIN_SHARE of its
-// daily tokens. Real numbers from Groq: 200,000 tokens per model in a rolling 24 hours, about 1,850 tokens per
-// marking. 15% is about 16 free uses a day; everything else on the strong model is kept for paying students.
-const MODEL_DAILY_TOKENS = 200_000;
-const TOKENS_PER_MARKING = 1_850;
-const FREE_MAIN_SHARE = 0.15;
-const FREE_MAIN_DAILY_CAP = Math.floor((MODEL_DAILY_TOKENS * FREE_MAIN_SHARE) / TOKENS_PER_MARKING);
+// Free students use the lighter model only. The strong model's daily allowance (200,000 tokens in a rolling 24 hours on
+// Groq's free plan) is kept for paying students, who get the full report.
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 const CEREBRAS_URL = "https://api.cerebras.ai/v1/chat/completions";
 
@@ -243,16 +236,8 @@ export async function POST(req: Request) {
       targets = [groq(MODEL), groq(MODEL), groq(FALLBACK_MODEL), groq(MODEL)];
       if (cerebrasKey) targets.splice(3, 0, { url: CEREBRAS_URL, key: cerebrasKey, model: "gpt-oss-120b" });
     } else {
-      const since = new Date(Date.now() - 24 * 3600 * 1000).toISOString();
-      const { count } = await admin
-        .from("speaking_attempts")
-        .select("id", { count: "exact", head: true })
-        .eq("model", MODEL)
-        .eq("priority", false) // only free students' uses count against their small share, paying students' do not
-        .gte("created_at", since);
-      // one try per model, no repeat tries: a busy AI is not made busier by retries from free students
+      // one try, on the lighter model only: a busy AI is not made busier by retries from free students
       targets = [groq(FALLBACK_MODEL)];
-      if ((count ?? 0) < FREE_MAIN_DAILY_CAP) targets.push(groq(MODEL));
     }
     const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats, priority), priority);
     if (!aiRes.ok) {

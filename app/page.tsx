@@ -2,6 +2,7 @@ import Link from "next/link";
 import { createPublicClient } from "@/lib/supabase/public";
 import ProductCard from "@/components/ProductCard";
 import ResourceCategoryAccordion from "@/components/ResourceCategoryAccordion";
+import { getProductsBySales } from "@/lib/best-sellers";
 
 export const revalidate = 300;
 
@@ -11,11 +12,12 @@ export default async function HomePage() {
   // run the three database calls at the same time, not one after another
   const [
     { data: resources },
-    { data: products },
+    bestSellers,
   ] = await Promise.all([
     supabase.from("resources").select("*").order("created_at", { ascending: false }),
-    supabase.from("products").select("*").eq("is_published", true).order("created_at", { ascending: false }).limit(3),
+    getProductsBySales(), // best sellers first, counting approved orders only
   ]);
+  const products = bestSellers.slice(0, 3);
 
   const contentHub = resources?.filter((r) => r.type === "content_hub") || [];
   const freeResources = resources?.filter((r) => r.type === "free_resource") || [];
@@ -32,12 +34,12 @@ export default async function HomePage() {
             </h1>
             <p className="text-ink/70 max-w-lg mb-6 leading-relaxed">
               Notes, resources, and tools I've built while studying my way through
-              SPM, matriculation, and beyond.
+              SPM, matriculation, and beyond. Try the free AI speaking practice, grab my essay notes, and tell me how it goes.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="/shop" className="btn-primary">Browse my notes</Link>
-              <Link href="#resources" className="btn-secondary">See free resources</Link>
-              <Link href="/hi" className="btn-secondary">💬 Say hi to Gary</Link>
+              <Link href="/speaking" className="btn-primary">🎤 Try the Speaking AI free</Link>
+              <Link href="/start" className="btn-secondary">New here? Start here</Link>
+              <Link href="/shop" className="btn-secondary">Browse my notes</Link>
             </div>
           </div>
           <div className="flex-shrink-0">
@@ -72,7 +74,7 @@ export default async function HomePage() {
         <div className="flex items-center justify-between mb-6">
           <div>
             <h2 className="text-xl font-medium mb-1">From the shop</h2>
-            <p className="text-ink/60">Full notes and the upcoming course</p>
+            <p className="text-ink/60">Essay notes and Speaking packs, the ones students pick most</p>
           </div>
           <Link href="/shop" className="text-clay-600 text-sm font-medium">View all &rarr;</Link>
         </div>
@@ -92,7 +94,7 @@ export default async function HomePage() {
         <h2 className="text-xl font-medium mb-3">About</h2>
         <p className="text-ink/70 max-w-2xl leading-relaxed">
           I'm Gary — a student and the person behind @gary_bookshelf, where I share
-          study systems with 45,000+ students. Outside of content, I build apps
+          study systems with 52,000+ followers. Outside of content, I build apps
           and websites. This site is where my notes, free resources, and projects
           all live in one place.
         </p>

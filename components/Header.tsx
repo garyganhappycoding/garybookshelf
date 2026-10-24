@@ -21,6 +21,9 @@ export default function Header() {
           aria-label="Main"
           className="order-3 sm:order-2 basis-full sm:basis-auto sm:ml-auto sm:mr-6 flex items-center gap-4 sm:gap-6 text-[13px] sm:text-sm overflow-x-auto whitespace-nowrap pb-1 sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
         >
+          <Link href="/start" className="hover:text-clay-600 font-medium text-clay-700">
+            Start here
+          </Link>
           <Link href="/#resources" className="hover:text-clay-600">
             Free resources
           </Link>

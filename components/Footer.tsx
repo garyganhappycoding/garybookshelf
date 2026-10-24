@@ -6,6 +6,7 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-5 py-10 text-sm text-ink/60 flex flex-col sm:flex-row justify-between gap-4">
         <p>&copy; {new Date().getFullYear()} Gary's Bookshelf</p>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
+          <a href="/start" className="hover:text-clay-600">Start here</a>
           <a href="/#about" className="hover:text-clay-600">About</a>
           <a href="/question" className="hover:text-clay-600">Ask a question</a>
           <a href="/feedback" className="hover:text-clay-600">Share your result</a>
