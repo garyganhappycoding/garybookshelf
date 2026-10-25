@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import TestEmailButton from "@/components/TestEmailButton";
 
 export const dynamic = "force-dynamic";
 
@@ -88,6 +89,7 @@ export default async function AdminPage() {
           );
         })}
       </div>
+      <TestEmailButton />
     </div>
   );
 }
