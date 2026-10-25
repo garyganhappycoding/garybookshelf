@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { clean, sendEmail } from "@/lib/community";
+import { clean, notifyGary, sendEmail } from "@/lib/community";
 import { siteUrl } from "@/lib/site";
 
 async function requireAdmin() {
@@ -39,6 +39,28 @@ export async function replyTo(formData: FormData) {
     .from("submissions")
     .update({ status: "answered", reply, reply_url: url || null, replied_at: new Date().toISOString(), reviewed_at: new Date().toISOString() })
     .eq("id", id);
+
+  // If the student left an email address, send them the answer too (they may never open their tracking link again).
+  // Instagram handles get nothing: Gary replies there himself.
+  const { data: s } = await createAdminClient().from("submissions").select("kind, contact, public_token").eq("id", id).maybeSingle();
+  const to = (s?.contact ?? "").trim();
+  if (s?.kind === "question" && s.public_token && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) {
+    const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>");
+    const safeUrl = /^https?:\/\//i.test(url) ? url : "";
+    const link = `${siteUrl()}/track/${s.public_token}`;
+    const button = "display: inline-block; background: #B85C38; color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 500; margin: 12px 0;";
+    const sent = await sendEmail(
+      to,
+      "Gary answered your question",
+      `<h2 style="color: #3B2F26; margin: 0 0 12px;">Gary answered your question</h2>
+       <p style="color: #3B2F26; line-height: 1.6;">${esc(reply)}</p>
+       ${safeUrl ? `<p><a href="${safeUrl}" style="${button}">Watch or read the answer</a></p>` : ""}
+       <p style="color: #3B2F26; line-height: 1.6; font-size: 14px;">You can also see it any time on your private page:<br><a href="${link}" style="color: #8F4327;">${link}</a></p>`
+    );
+    if (!sent.ok) await notifyGary("⚠️ Reply saved but the email did not send", `To: ${to}
+Reason: ${sent.error ?? "unknown"}
+They can still see it on their tracking link.`);
+  }
   refresh();
 }
 
