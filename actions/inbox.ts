@@ -39,6 +39,7 @@ export async function replyTo(formData: FormData) {
     .from("submissions")
     .update({ status: "answered", reply, reply_url: url || null, replied_at: new Date().toISOString(), reviewed_at: new Date().toISOString() })
     .eq("id", id);
+  await createAdminClient().from("submission_messages").insert({ submission_id: id, sender: "gary", body: reply, link: /^https?:\/\//i.test(url) ? url : null });
 
   // If the student left an email address, send them the answer too (they may never open their tracking link again).
   // Instagram handles get nothing: Gary replies there himself.

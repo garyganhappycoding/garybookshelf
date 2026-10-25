@@ -62,6 +62,12 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
   const userIds = [...new Set(rows.map((r) => r.user_id).filter(Boolean))];
   const { data: profs } = userIds.length ? await admin.from("profiles").select("id,email").in("id", userIds) : { data: [] as any[] };
   const emailOf = new Map((profs ?? []).map((p: any) => [p.id, p.email as string]));
+  // the whole conversation for each question (Gary's answers and the student's follow-ups)
+  const qIds = rows.filter((r) => r.kind === "question").map((r) => r.id);
+  const { data: msgRows } = qIds.length
+    ? await admin.from("submission_messages").select("id,submission_id,sender,body,link,created_at").in("submission_id", qIds).order("created_at", { ascending: true })
+    : { data: [] as any[] };
+  const threadOf = (id: string) => (msgRows ?? []).filter((m: any) => m.submission_id === id);
   const proofUrl = new Map<string, string>();
   for (const r of rows) {
     if (r.proof_path) {
@@ -143,17 +149,26 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
                   {r.contact ? `Reply to: ${r.contact}` : "no contact given"}
                   {p.publish_ok ? " · OK to answer publicly (no name)" : ""}
                 </p>
-                {r.status !== "answered" && (
-                  <form action={replyTo} className="space-y-2">
-                    <input type="hidden" name="id" value={r.id} />
-                    <textarea name="reply" className={box} rows={3} placeholder="Your reply (shown on their private tracking link)" required />
-                    <input name="reply_url" className={box} placeholder="Link to your video or story answer (optional)" />
-                    <div className="flex gap-3 items-center">
-                      <button className="btn-primary !py-1.5 text-sm">Mark as answered</button>
-                    </div>
-                  </form>
+                {threadOf(r.id).length > 0 && (
+                  <div className="space-y-2">
+                    <p className="text-xs uppercase tracking-wide text-ink/50">Conversation</p>
+                    {threadOf(r.id).map((m: any) => (
+                      <div key={m.id} className={`rounded-lg p-3 text-sm whitespace-pre-line ${m.sender === "gary" ? "bg-sage-400/10" : "bg-amber-50 ml-6"}`}>
+                        <p className="text-xs text-ink/50 mb-1 not-italic">{m.sender === "gary" ? "You" : "Student"} · {when(m.created_at)}</p>
+                        {m.body}
+                        {m.link ? `\n${m.link}` : ""}
+                      </div>
+                    ))}
+                  </div>
                 )}
-                {r.status === "answered" && <p className="text-sm bg-sage-400/10 rounded-lg p-3 whitespace-pre-line">{r.reply}{r.reply_url ? `\n${r.reply_url}` : ""}</p>}
+                <form action={replyTo} className="space-y-2">
+                  <input type="hidden" name="id" value={r.id} />
+                  <textarea name="reply" className={box} rows={3} placeholder={r.status === "answered" || threadOf(r.id).length ? "Send another reply (shown on their private tracking link)" : "Your reply (shown on their private tracking link)"} required />
+                  <input name="reply_url" className={box} placeholder="Link to your video or story answer (optional)" />
+                  <div className="flex gap-3 items-center">
+                    <button className="btn-primary !py-1.5 text-sm">{r.status === "answered" || threadOf(r.id).length ? "Send reply" : "Mark as answered"}</button>
+                  </div>
+                </form>
                 {r.status === "new" && (
                   <form action={markRead}><input type="hidden" name="id" value={r.id} /><button className="text-xs text-clay-700 underline">Mark as read</button></form>
                 )}

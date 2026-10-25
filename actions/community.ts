@@ -203,3 +203,32 @@ export async function castVote(pollId: string, optionId: string): Promise<{ erro
   if (error) return error.code === "23505" ? { error: "You've already voted. Thank you!" } : { error: "Sorry, your vote didn't go through." };
   return { ok: true };
 }
+
+// ---------- a student replies to Gary's answer (from their private tracking link) ----------
+export async function sendFollowUp(formData: FormData): Promise<{ error?: string }> {
+  const bad = spamCheck(formData);
+  if (bad) return { error: bad };
+  const token = clean(formData.get("token"), 40);
+  const message = clean(formData.get("message"), 2000);
+  if (!/^[0-9a-f]{32}$/.test(token)) return { error: "This link is not valid." };
+  if (message.length < 2) return { error: "Please write a message first." };
+
+  const admin = createAdminClient();
+  const { data: sub } = await admin.from("submissions").select("id, kind, status").eq("public_token", token).eq("kind", "question").maybeSingle();
+  if (!sub) return { error: "This link is not valid." };
+
+  const { data: thread } = await admin.from("submission_messages").select("sender, created_at").eq("submission_id", sub.id).order("created_at", { ascending: true });
+  const msgs = thread ?? [];
+  if (!msgs.some((m) => m.sender === "gary")) return { error: "You can reply once Gary has answered." };
+  // only one open follow-up at a time: wait for Gary's answer before sending more
+  if (msgs[msgs.length - 1].sender === "student") return { error: "Your message was sent. Please wait for Gary's answer before sending another." };
+  if (msgs.filter((m) => m.sender === "student").length >= 10) return { error: "This conversation is full. Please send a new question instead." };
+
+  const { error } = await admin.from("submission_messages").insert({ submission_id: sub.id, sender: "student", body: message });
+  if (error) return { error: "Sorry, that didn't go through. Please try again." };
+  // back into "needs me" so it shows in the inbox with a badge
+  await admin.from("submissions").update({ status: "new" }).eq("id", sub.id);
+
+  after(() => notifyGary("💬 A student replied to your answer", message.slice(0, 300), "/admin/inbox?tab=question&show=all"));
+  return {};
+}
