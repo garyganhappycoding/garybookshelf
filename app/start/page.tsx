@@ -7,8 +7,8 @@ export const revalidate = 300;
 
 const PLACES = [
   { href: "/speaking", emoji: "🎤", title: "Speaking practice", text: "Pick a question, speak for 2 minutes, get a score and feedback from the AI. 2 free tries every day." },
-  { href: "/#resources", emoji: "📥", title: "Free resources", text: "Sample notes and templates, no charge." },
-  { href: "/#content-hub", emoji: "💡", title: "Content hub", text: "Study tips and highlights from my videos." },
+  { href: "/free-resources", emoji: "📥", title: "Free resources", text: "Sample notes and templates, no charge." },
+  { href: "/content-hub", emoji: "💡", title: "Content hub", text: "Study tips and highlights from my videos." },
   { href: "/shop", emoji: "📝", title: "Shop", text: "Essay notes for English and BM, and Speaking packs for more attempts." },
   { href: "/hi", emoji: "💬", title: "Say hi to Gary", text: "Ask a question, tell me your result, or vote for my next video. No account needed." },
   { href: "/ask-gary", emoji: "🤖", title: "Ask Gary", text: "My AI study buddy. Coming soon.", soon: true },
@@ -38,7 +38,7 @@ export default async function StartPage() {
         <p className="font-medium mb-2">Got 5 minutes? Do this:</p>
         <div className="flex flex-wrap gap-3">
           <Link href="/speaking" className="btn-primary">1. Try a speaking question</Link>
-          <Link href="/#resources" className="btn-secondary">2. Open a free resource</Link>
+          <Link href="/free-resources" className="btn-secondary">2. Open a free resource</Link>
           <Link href="/hi" className="btn-secondary">3. Tell Gary how it went</Link>
         </div>
       </div>
