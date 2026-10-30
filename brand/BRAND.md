@@ -139,7 +139,7 @@
 
 ## Reporting rules (Gary, 24 Oct 2026)
 - **Sales = approved orders only** (status `completed`). Rejected orders (wrong receipt or a problem with the transaction) and orders still waiting are never counted in sales, buyers or revenue.
-- The RM10 bundle (English essay notes + 15 attempts) stays on sale for now. The banner offer text still ends 28 Oct 2026.
+- The RM10 bundle (English essay notes + 15 attempts) stays on sale for now. The banner offer text still ends 28 Oct 2026. **30 Oct 2026: the expired offer line was removed from the bundle description (price stays RM10 for now) and the top menu was cut to four: Speaking, Shop, Free resources, Say hi. "Start here" stays on the homepage and footer; "Ask Gary" is hidden until it is built.**
 - **Speaking pack ladder (decided 24 Oct 2026):** RM10 = 30 attempts, RM5 = 15 attempts (notes bundle RM10 = notes + 15), RM2.50 = 5 attempts. Every paid pack uses the strongest model and the full report (priority marking); free attempts use the weak model first. Per attempt: RM0.33 (30), RM0.33 (15), RM0.50 (5), so buying small packs never beats the 30 pack. AI cost about RM0.009 per attempt, so profit stays above 95%.
 - The RM2.50 picture uses a **yellow** pill. The Speaking page's "get a pack" link goes to the **30-attempt** pack. No Cerebras key (Gary's decision, 24 Oct 2026). Free attempts use the weak model only (no borrowing of the strong model) and get the limited report, so the strong model's tokens go to paid reports.
 - (Earlier idea: a RM2 starter pack for free users.) Break-even is RM2 / cost per attempt (RM0.05 gives 40 attempts, the planner's measured cost of about RM0.01 gives about 200). Not decided.
