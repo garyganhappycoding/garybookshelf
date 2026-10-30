@@ -37,13 +37,11 @@ export default function CheckoutForm({
     return (
       <div className="card">
         <p className="font-medium mb-1">Order submitted</p>
-        <p className="text-sm text-ink/60">
-          I'll check your receipt and email you once it's approved.
-          You can track the status on{" "}
-          <Link href="/dashboard" className="text-clay-600 font-medium">
-            your dashboard
-          </Link>.
+        <p className="text-sm text-ink/60 mb-3">
+          I'll check your receipt, usually within a day. Once it's approved, your order is ready in <strong>My orders</strong>
+          (top right of every page), where you download your notes or start your attempts.
         </p>
+        <Link href="/dashboard" className="btn-primary !py-1.5 text-sm">Go to My orders</Link>
       </div>
     );
   }
@@ -51,6 +49,7 @@ export default function CheckoutForm({
   return (
     <div className="card">
       <p className="font-medium mb-3">Pay with Touch 'n Go</p>
+      <p className="text-xs text-ink/50 -mt-2 mb-3">After you pay and upload your receipt, your order shows in My orders (top right). I approve it by hand, usually within a day.</p>
 
       <div className="bg-cream-100 rounded-xl p-4 mb-4 text-center">
         {/* Replace /tng-qr.png with your real QR code image in /public */}
