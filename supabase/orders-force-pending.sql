@@ -1,5 +1,5 @@
--- NOT APPLIED YET. Stops a logged-in customer from inserting an order that is already "completed"
--- (the insert policy only checks user_id). Run in the Supabase SQL editor after reviewing.
+-- APPLIED to the live database on 30 Oct 2026. Stops a logged-in customer from inserting an order that is already "completed"
+-- (the insert policy only checks user_id).
 create or replace function public.orders_force_pending()
 returns trigger
 language plpgsql
