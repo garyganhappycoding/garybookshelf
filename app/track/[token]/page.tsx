@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createAdminClient } from "@/lib/supabase/admin";
 import FollowUpForm from "@/components/FollowUpForm";
+import MarkSeen from "@/components/MarkSeen";
 
 export const metadata = { title: "Your message · Gary's Bookshelf", robots: { index: false } };
 export const dynamic = "force-dynamic";
@@ -29,6 +30,8 @@ export default async function TrackPage({ params }: { params: Promise<{ token: s
   const waitingForGary = messages.length > 0 && messages[messages.length - 1].sender === "student";
   const dt = (iso: string) => new Date(iso).toLocaleString("en-GB", { timeZone: "Asia/Kuala_Lumpur", dateStyle: "medium", timeStyle: "short" });
 
+  const lastAt = messages.length ? messages[messages.length - 1].created_at : s.created_at;
+
   const isQuestion = s.kind === "question";
   const step = s.status === "answered" || s.status === "approved" ? 2 : s.status === "read" || s.status === "rejected" ? 1 : 0;
   const finalLabel = isQuestion ? "Answered" : "Picked up";
@@ -36,6 +39,7 @@ export default async function TrackPage({ params }: { params: Promise<{ token: s
 
   return (
     <div className="max-w-xl mx-auto px-5 py-12">
+      <MarkSeen token={token} lastAt={lastAt} />
       <h1 className="font-hand text-4xl text-clay-700 mb-1">{isQuestion ? "Your question" : "Your result"}</h1>
       <p className="text-sm text-ink/60 mb-6">Sent on {when(s.created_at)}. Keep this link private.</p>
 

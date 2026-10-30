@@ -1,4 +1,5 @@
 import QuestionForm from "@/components/QuestionForm";
+import ReplyCard from "@/components/ReplyCard";
 
 export const metadata = { title: "Ask Gary a question · Gary's Bookshelf" };
 
@@ -10,6 +11,7 @@ export default function QuestionPage() {
         Tell me what you're struggling with. No account needed, and it takes about 3 minutes. The more detail you give, the more useful my
         answer will be.
       </p>
+      <p className="mb-6"><ReplyCard compact /></p>
       <QuestionForm />
     </div>
   );

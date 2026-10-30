@@ -31,7 +31,8 @@ const FALLBACK_MODEL = "openai/gpt-oss-20b"; // separate rate limits; used when 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 const CEREBRAS_URL = "https://api.cerebras.ai/v1/chat/completions";
 
-type Target = { url: string; key: string; model: string };
+// onlyIfBadJson: only used when the previous answer was malformed JSON (a free student gets one more go at that, but a busy AI is never retried)
+type Target = { url: string; key: string; model: string; onlyIfBadJson?: boolean };
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -39,7 +40,9 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 async function callGrok(targets: Target[], messages: unknown, paid: boolean): Promise<{ res: Response; model: string }> {
   let res: Response | null = null;
   let used = targets[0].model;
+  let lastWasBadJson = false;
   for (const t of targets) {
+    if (t.onlyIfBadJson && !lastWasBadJson) continue;
     if (res) {
       const wait = Math.min(Number(res.headers.get("retry-after")) || 2, 5);
       await sleep(wait * 1000);
@@ -59,6 +62,7 @@ async function callGrok(targets: Target[], messages: unknown, paid: boolean): Pr
     // A model that returns JSON missing required fields answers 400 "failed_generation". That is a one-off
     // bad answer, not a bad request, so try again / try the next model like a busy error.
     const badJson = res.status === 400 && (await res.clone().text()).includes("failed_generation");
+    lastWasBadJson = badJson;
     if (res.ok || (res.status !== 429 && res.status < 500 && !badJson)) return { res, model: used };
     console.warn("grok busy or bad json", t.url, t.model, res.status);
   }
@@ -237,7 +241,8 @@ export async function POST(req: Request) {
       if (cerebrasKey) targets.splice(3, 0, { url: CEREBRAS_URL, key: cerebrasKey, model: "gpt-oss-120b" });
     } else {
       // one try, on the lighter model only: a busy AI is not made busier by retries from free students
-      targets = [groq(FALLBACK_MODEL)];
+      // (one extra go only when the model answered with broken JSON, which is a one-off and costs no rate-limit wait)
+      targets = [groq(FALLBACK_MODEL), { ...groq(FALLBACK_MODEL), onlyIfBadJson: true }];
     }
     const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats, priority), priority);
     if (!aiRes.ok) {

@@ -232,3 +232,41 @@ export async function sendFollowUp(formData: FormData): Promise<{ error?: string
   after(() => notifyGary("💬 A student replied to your answer", message.slice(0, 300), "/admin/inbox?tab=question&show=all"));
   return {};
 }
+
+export type ThreadSummary = { token: string; createdAt: string; question: string; status: string; lastSender: "gary" | "student" | null; lastAt: string; lastBody: string };
+
+// The questions a student can see: the ones whose private links this browser remembers, plus (if logged in) their own.
+// A tracking link is a secret, so only someone who holds it (or the account owner) can list the question.
+export async function getMyThreads(tokens: string[]): Promise<ThreadSummary[]> {
+  const valid = [...new Set((tokens ?? []).filter((t) => typeof t === "string" && /^[0-9a-f]{32}$/.test(t)))].slice(0, 20);
+  const admin = createAdminClient();
+  const cols = "id, public_token, created_at, body, status";
+
+  const byToken = valid.length ? (await admin.from("submissions").select(cols).eq("kind", "question").in("public_token", valid)).data ?? [] : [];
+  const user = await maybeUser();
+  const mine = user ? (await admin.from("submissions").select(cols).eq("kind", "question").eq("user_id", user.id).order("created_at", { ascending: false }).limit(20)).data ?? [] : [];
+
+  const rows = [...new Map([...byToken, ...mine].map((r) => [r.id, r])).values()];
+  if (!rows.length) return [];
+  const { data: msgs } = await admin
+    .from("submission_messages")
+    .select("submission_id, sender, body, created_at")
+    .in("submission_id", rows.map((r) => r.id))
+    .order("created_at", { ascending: true });
+
+  return rows
+    .map((r) => {
+      const thread = (msgs ?? []).filter((m) => m.submission_id === r.id);
+      const last = thread[thread.length - 1];
+      return {
+        token: r.public_token as string,
+        createdAt: r.created_at as string,
+        question: String(r.body ?? "").slice(0, 160),
+        status: r.status as string,
+        lastSender: (last?.sender ?? null) as "gary" | "student" | null,
+        lastAt: (last?.created_at ?? r.created_at) as string,
+        lastBody: last?.sender === "gary" ? String(last.body).slice(0, 160) : "",
+      };
+    })
+    .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+}

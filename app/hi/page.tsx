@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { GOAL } from "@/lib/community";
 import { createAdminClient } from "@/lib/supabase/admin";
+import ReplyCard from "@/components/ReplyCard";
 
 export const metadata = { title: "Say hi to Gary · Gary's Bookshelf" };
 export const revalidate = 60;
@@ -29,6 +30,7 @@ export default async function HiPage() {
         <p className="text-ink/70 mt-1">Pick what you'd like to do:</p>
       </div>
       <div className="space-y-3">
+        <ReplyCard />
         {items.map((i) => (
           <Link key={i.href} href={i.href} className="card !p-5 flex gap-4 items-center hover:border-clay-400">
             <span className="text-3xl">{i.emoji}</span>

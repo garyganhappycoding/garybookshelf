@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { addThread } from "@/lib/my-threads";
 
 export const inputCls =
   "w-full border border-ink/15 rounded-xl px-3.5 py-3 bg-white text-base focus:outline-none focus:border-clay-500 placeholder:text-ink/35";
@@ -39,7 +40,10 @@ export function BotTraps() {
 export function SentCard({ token, title, children }: { token: string; title: string; children?: React.ReactNode }) {
   const [url, setUrl] = useState(`/track/${token}`);
   const [copied, setCopied] = useState(false);
-  useEffect(() => setUrl(`${window.location.origin}/track/${token}`), [token]);
+  useEffect(() => {
+    setUrl(`${window.location.origin}/track/${token}`);
+    addThread(token); // so "Check Gary's reply" finds it later on this device
+  }, [token]);
   return (
     <div className="card text-center">
       <p className="text-4xl mb-2">🎉</p>
@@ -47,6 +51,7 @@ export function SentCard({ token, title, children }: { token: string; title: str
       {children}
       <div className="bg-cream-100 rounded-xl p-4 mt-4 text-left">
         <p className="text-sm font-medium mb-1">Your private tracking link</p>
+        <p className="text-xs text-sage-600 mb-1">✓ Saved on this device. Find Gary&apos;s reply any time under “Check Gary&apos;s reply” on the Say hi page.</p>
         <p className="text-xs text-ink/60 mb-2">
           Save it or take a screenshot. You don't need an account. Open it any time to see if Gary has read it or replied.
         </p>
