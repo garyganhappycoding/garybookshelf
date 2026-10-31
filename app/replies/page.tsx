@@ -35,7 +35,7 @@ export default function RepliesPage() {
       {state?.loggedIn && state.threads.length === 0 && (
         <div className="card mb-6">
           <p className="mb-3">Nothing here yet. Questions you ask while logged in show up here.</p>
-          <Link href="/question" className="btn-primary">Ask Gary a question</Link>
+          <Link prefetch={false} href="/question" className="btn-primary">Ask Gary a question</Link>
         </div>
       )}
 

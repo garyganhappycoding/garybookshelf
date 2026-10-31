@@ -36,8 +36,20 @@ export async function middleware(request: NextRequest) {
   return response;
 }
 
+// The proxy runs a serverless function on every request it matches, so it only matches pages and APIs where the server reads the
+// logged-in user. Public pages (home, shop, /hi, resources, privacy...) are served from the cache with no function call.
+// Everywhere else the browser keeps the session fresh by itself.
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    "/dashboard/:path*",
+    "/speaking/:path*",
+    "/admin/:path*",
+    "/track/:path*",
+    "/feedback",
+    "/question",
+    "/replies",
+    "/ask-gary/:path*",
+    "/api/speaking/:path*",
+    "/api/ask-gary/:path*",
   ],
 };

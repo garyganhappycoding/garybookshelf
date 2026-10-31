@@ -47,7 +47,7 @@ export default function HeaderAccount() {
           Admin
         </Link>
       )}
-      <Link href="/dashboard" className="btn-secondary !py-1.5">
+      <Link prefetch={false} href="/dashboard" className="btn-secondary !py-1.5">
         My orders
       </Link>
       <form action={logout}>

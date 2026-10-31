@@ -41,7 +41,7 @@ export default function CheckoutForm({
           I'll check your receipt, usually within a day. Once it's approved, your order is ready in <strong>My orders</strong>
           (top right of every page), where you download your notes or start your attempts.
         </p>
-        <Link href="/dashboard" className="btn-primary !py-1.5 text-sm">Go to My orders</Link>
+        <Link prefetch={false} href="/dashboard" className="btn-primary !py-1.5 text-sm">Go to My orders</Link>
       </div>
     );
   }

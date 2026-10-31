@@ -10,7 +10,7 @@ const mock = "rounded-2xl bg-white border border-ink/10 p-3 shadow-sm";
 
 function Card({ href, title, text, children, tag }: { href: string; title: string; text: string; children: React.ReactNode; tag?: string }) {
   return (
-    <Link href={href} className="group rounded-3xl bg-cream-100 border border-cream-200 p-4 flex flex-col hover:border-clay-400 hover:-translate-y-0.5 transition">
+    <Link href={href} prefetch={!["/speaking", "/question", "/feedback"].includes(href)} className="group rounded-3xl bg-cream-100 border border-cream-200 p-4 flex flex-col hover:border-clay-400 hover:-translate-y-0.5 transition">
       <div className="h-44 rounded-2xl bg-cream-50 flex items-center justify-center p-4 overflow-hidden">{children}</div>
       <p className="mt-4 font-semibold text-ink flex items-center gap-2">
         {title}
@@ -45,7 +45,7 @@ export default function HomePage() {
         </h1>
         <p className="text-ink/60 mt-5 max-w-lg mx-auto">Study systems from a 4.00-flat student, plus an AI that marks your SPM speaking and tells you what to fix.</p>
         <div className="mt-7 flex flex-col items-center gap-3">
-          <Link href="/speaking" className="btn-primary !px-8 !py-3 text-base">Try Speaking AI free</Link>
+          <Link prefetch={false} href="/speaking" className="btn-primary !px-8 !py-3 text-base">Try Speaking AI free</Link>
           <Link href="/start" className="text-sm text-ink/60 underline">New here? See how it works</Link>
         </div>
       </section>

@@ -32,7 +32,7 @@ export default async function HiPage() {
       <div className="space-y-3">
         <ReplyCard />
         {items.map((i) => (
-          <Link key={i.href} href={i.href} className="card !p-5 flex gap-4 items-center hover:border-clay-400">
+          <Link key={i.href} href={i.href} prefetch={!["/question", "/feedback"].includes(i.href)} className="card !p-5 flex gap-4 items-center hover:border-clay-400">
             <span className="text-3xl">{i.emoji}</span>
             <span>
               <span className="block font-medium">{i.title}</span>
@@ -42,7 +42,7 @@ export default async function HiPage() {
         ))}
       </div>
       <p className="text-center text-sm text-ink/50 mt-6">
-        <Link href="/shop" className="underline">Shop</Link> · <Link href="/speaking" className="underline">Speaking practice</Link> ·{" "}
+        <Link href="/shop" className="underline">Shop</Link> · <Link prefetch={false} href="/speaking" className="underline">Speaking practice</Link> ·{" "}
         <Link href="/" className="underline">Home</Link>
       </p>
     </div>

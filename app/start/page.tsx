@@ -37,7 +37,7 @@ export default async function StartPage() {
       <div className="card !bg-cream-50 mb-10">
         <p className="font-medium mb-2">Got 5 minutes? Do this:</p>
         <div className="flex flex-wrap gap-3">
-          <Link href="/speaking" className="btn-primary">1. Try a speaking question</Link>
+          <Link prefetch={false} href="/speaking" className="btn-primary">1. Try a speaking question</Link>
           <Link href="/free-resources" className="btn-secondary">2. Open a free resource</Link>
           <Link href="/hi" className="btn-secondary">3. Tell Gary how it went</Link>
         </div>
@@ -46,7 +46,7 @@ export default async function StartPage() {
       <h2 className="text-xl font-medium mb-3">What is on this website</h2>
       <div className="grid sm:grid-cols-2 gap-3 mb-12">
         {PLACES.map((p) => (
-          <Link key={p.title} href={p.href} className="card flex gap-4 hover:border-clay-400">
+          <Link key={p.title} href={p.href} prefetch={!["/speaking"].includes(p.href)} className="card flex gap-4 hover:border-clay-400">
             <span className="text-2xl">{p.emoji}</span>
             <span>
               <span className="block font-medium">
@@ -103,11 +103,11 @@ export default async function StartPage() {
           <p className="font-medium">👍 After a speaking report</p>
           <p className="text-sm text-ink/65">Tap the thumbs at the bottom of your report. Add a few words if you like.</p>
         </div>
-        <Link href="/feedback" className="card hover:border-clay-400">
+        <Link prefetch={false} href="/feedback" className="card hover:border-clay-400">
           <p className="font-medium">📈 Tell me your result</p>
           <p className="text-sm text-ink/65">Did your grades improve, or did you start studying on your own? Share it.</p>
         </Link>
-        <Link href="/question" className="card hover:border-clay-400">
+        <Link prefetch={false} href="/question" className="card hover:border-clay-400">
           <p className="font-medium">💬 Ask a question</p>
           <p className="text-sm text-ink/65">Stuck with studying? Tell me what is going on.</p>
         </Link>
