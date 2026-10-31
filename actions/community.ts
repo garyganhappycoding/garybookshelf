@@ -26,6 +26,9 @@ async function maybeUser() {
 export async function submitQuestion(formData: FormData): Promise<SubmitResult> {
   const bad = spamCheck(formData);
   if (bad) return { error: bad };
+  // questions need a free account, so the student can read Gary's reply later under their account
+  const user = await maybeUser();
+  if (!user) return { error: "Please log in or create a free account first, so you can read my reply here later." };
   const hash = await visitorHash();
   if (await tooManySubmissions(hash)) return { error: "You've already sent a few. Please try again tomorrow." };
 
@@ -50,16 +53,15 @@ export async function submitQuestion(formData: FormData): Promise<SubmitResult> 
   }
   const publishOk = formData.get("publish_ok") === "on";
 
-  const user = await maybeUser();
   const admin = createAdminClient();
   const { data, error } = await admin
     .from("submissions")
     .insert({
       kind: "question",
-      user_id: user?.id ?? null,
+      user_id: user.id,
       display_name: name || null,
       contact: contact || null,
-      account_email: user?.email ?? null,
+      account_email: user.email ?? null,
       body: mode === "free" ? freeText : problem,
       payload:
         mode === "free"
@@ -81,6 +83,8 @@ export async function submitQuestion(formData: FormData): Promise<SubmitResult> 
 export async function submitResult(formData: FormData): Promise<SubmitResult> {
   const bad = spamCheck(formData);
   if (bad) return { error: bad };
+  const user = await maybeUser();
+  if (!user) return { error: "Please log in or create a free account first, so you can read my reply here later." };
   const hash = await visitorHash();
   if (await tooManySubmissions(hash)) return { error: "You've already sent a few. Please try again tomorrow." };
 
@@ -89,7 +93,6 @@ export async function submitResult(formData: FormData): Promise<SubmitResult> {
   const ageForm = clean(formData.get("age_form"), 120);
   const name = clean(formData.get("name"), 60);
   const handle = clean(formData.get("handle"), 60);
-  const accountEmail = clean(formData.get("account_email"), 120).toLowerCase();
   const videoLink = clean(formData.get("video_link"), 300);
   const consent = clean(formData.get("consent_story"), 10);
   const consentStory = consent === "tag" || consent === "no_tag" ? consent : "no";
@@ -98,7 +101,6 @@ export async function submitResult(formData: FormData): Promise<SubmitResult> {
 
   if (!ageForm) return { error: "Please tell me your age and form or exam." };
   if (under18 && !parentOk) return { error: "Please ask a parent or guardian, then tick the box to say they agree." };
-  if (accountEmail && !isEmail(accountEmail)) return { error: "That email doesn't look right. You can also leave it empty." };
   if (consentStory === "tag" && !handle) return { error: "To tag you, please add your Instagram handle." };
 
   const payload: Record<string, unknown> = { criterion, age_form: ageForm, video_link: videoLink || null, under18, show_name: formData.get("show_name") === "on" };
@@ -131,15 +133,14 @@ export async function submitResult(formData: FormData): Promise<SubmitResult> {
     if (upErr) return { error: "We couldn't upload the file. Please try a smaller photo, or send without it." };
   }
 
-  const user = await maybeUser();
   const { data, error } = await admin
     .from("submissions")
     .insert({
       kind: "feedback",
-      user_id: user?.id ?? null,
+      user_id: user.id,
       display_name: name || null,
       contact: handle || null,
-      account_email: accountEmail || user?.email || null,
+      account_email: user.email ?? null, // the reward goes to this account
       body,
       payload,
       proof_path: proofPath,
@@ -214,8 +215,12 @@ export async function sendFollowUp(formData: FormData): Promise<{ error?: string
   if (message.length < 2) return { error: "Please write a message first." };
 
   const admin = createAdminClient();
-  const { data: sub } = await admin.from("submissions").select("id, kind, status").eq("public_token", token).eq("kind", "question").maybeSingle();
+  const { data: sub } = await admin.from("submissions").select("id, kind, status, user_id").eq("public_token", token).eq("kind", "question").maybeSingle();
   if (!sub) return { error: "This link is not valid." };
+  if (sub.user_id) {
+    const me = await maybeUser();
+    if (!me || me.id !== sub.user_id) return { error: "Please log in with the account you asked from." };
+  }
 
   const { data: thread } = await admin.from("submission_messages").select("sender, created_at").eq("submission_id", sub.id).order("created_at", { ascending: true });
   const msgs = thread ?? [];
@@ -235,38 +240,37 @@ export async function sendFollowUp(formData: FormData): Promise<{ error?: string
 
 export type ThreadSummary = { token: string; createdAt: string; question: string; status: string; lastSender: "gary" | "student" | null; lastAt: string; lastBody: string };
 
-// The questions a student can see: the ones whose private links this browser remembers, plus (if logged in) their own.
-// A tracking link is a secret, so only someone who holds it (or the account owner) can list the question.
-export async function getMyThreads(tokens: string[]): Promise<ThreadSummary[]> {
-  const valid = [...new Set((tokens ?? []).filter((t) => typeof t === "string" && /^[0-9a-f]{32}$/.test(t)))].slice(0, 20);
-  const admin = createAdminClient();
-  const cols = "id, public_token, created_at, body, status";
-
-  const byToken = valid.length ? (await admin.from("submissions").select(cols).eq("kind", "question").in("public_token", valid)).data ?? [] : [];
+// The questions of the logged-in student, newest first, with the last message of each. Only the account that asked can see them.
+export async function getMyThreads(): Promise<{ loggedIn: boolean; threads: ThreadSummary[] }> {
   const user = await maybeUser();
-  const mine = user ? (await admin.from("submissions").select(cols).eq("kind", "question").eq("user_id", user.id).order("created_at", { ascending: false }).limit(20)).data ?? [] : [];
-
-  const rows = [...new Map([...byToken, ...mine].map((r) => [r.id, r])).values()];
-  if (!rows.length) return [];
+  if (!user) return { loggedIn: false, threads: [] };
+  const admin = createAdminClient();
+  const { data: rows } = await admin
+    .from("submissions")
+    .select("id, public_token, created_at, body, status")
+    .eq("kind", "question")
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false })
+    .limit(30);
+  if (!rows?.length) return { loggedIn: true, threads: [] };
   const { data: msgs } = await admin
     .from("submission_messages")
     .select("submission_id, sender, body, created_at")
     .in("submission_id", rows.map((r) => r.id))
     .order("created_at", { ascending: true });
 
-  return rows
-    .map((r) => {
-      const thread = (msgs ?? []).filter((m) => m.submission_id === r.id);
-      const last = thread[thread.length - 1];
-      return {
-        token: r.public_token as string,
-        createdAt: r.created_at as string,
-        question: String(r.body ?? "").slice(0, 160),
-        status: r.status as string,
-        lastSender: (last?.sender ?? null) as "gary" | "student" | null,
-        lastAt: (last?.created_at ?? r.created_at) as string,
-        lastBody: last?.sender === "gary" ? String(last.body).slice(0, 160) : "",
-      };
-    })
-    .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
+  const threads = rows.map((r) => {
+    const thread = (msgs ?? []).filter((m) => m.submission_id === r.id);
+    const last = thread[thread.length - 1];
+    return {
+      token: r.public_token as string,
+      createdAt: r.created_at as string,
+      question: String(r.body ?? "").slice(0, 160),
+      status: r.status as string,
+      lastSender: (last?.sender ?? null) as "gary" | "student" | null,
+      lastAt: (last?.created_at ?? r.created_at) as string,
+      lastBody: last?.sender === "gary" ? String(last.body).slice(0, 160) : "",
+    };
+  });
+  return { loggedIn: true, threads };
 }

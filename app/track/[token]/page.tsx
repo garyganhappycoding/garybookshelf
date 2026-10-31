@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { createAdminClient } from "@/lib/supabase/admin";
 import FollowUpForm from "@/components/FollowUpForm";
 import MarkSeen from "@/components/MarkSeen";
+import { getCurrentUser } from "@/lib/supabase/server";
 
 export const metadata = { title: "Your message · Gary's Bookshelf", robots: { index: false } };
 export const dynamic = "force-dynamic";
@@ -15,11 +16,26 @@ export default async function TrackPage({ params }: { params: Promise<{ token: s
   if (!/^[0-9a-f]{32}$/.test(token)) notFound();
   const { data: s } = await createAdminClient()
     .from("submissions")
-    .select("id,kind,status,created_at,reply,reply_url,replied_at,body,payload,counts_for_goal")
+    .select("id,kind,status,user_id,created_at,reply,reply_url,replied_at,body,payload,counts_for_goal")
     .eq("public_token", token)
     .in("kind", ["question", "feedback"])
     .maybeSingle();
   if (!s) notFound();
+
+  // a question asked from an account is only for that account
+  if (s.user_id) {
+    const me = await getCurrentUser();
+    if (!me || me.id !== s.user_id) {
+      return (
+        <div className="max-w-xl mx-auto px-5 py-12">
+          <div className="card text-center">
+            <p className="mb-3">Please log in with the account you asked from to read Gary&apos;s reply.</p>
+            <Link href={`/login?next=${encodeURIComponent(`/track/${token}`)}`} className="btn-primary">Log in</Link>
+          </div>
+        </div>
+      );
+    }
+  }
 
   const { data: thread } = await createAdminClient()
     .from("submission_messages")

@@ -51,7 +51,8 @@ export default async function DashboardPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-14">
-      <h1 className="text-2xl font-medium mb-6">My orders</h1>
+      <h1 className="text-2xl font-medium mb-2">My orders</h1>
+      <p className="text-sm mb-6"><Link href="/replies" className="text-clay-700 underline">💌 Gary&apos;s replies to my questions</Link></p>
 
       {packLeft > 0 && (
         <div className="card !border-clay-400 mb-6">

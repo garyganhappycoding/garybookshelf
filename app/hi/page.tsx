@@ -15,7 +15,7 @@ export default async function HiPage() {
     .eq("counts_for_goal", true);
 
   const items = [
-    { href: "/question", emoji: "💬", title: "Ask Gary a question", text: "Stuck with studying? Tell me what's going on. No account needed." },
+    { href: "/question", emoji: "💬", title: "Ask Gary a question", text: "Stuck with studying? Tell me what's going on. I reply here on the website." },
     { href: "/feedback", emoji: "📈", title: "Tell me your result", text: "Did your grades improve, or did you start studying on your own? Share it." },
     { href: "/vote", emoji: "🗳️", title: "Vote for my next video", text: "Help choose what I make next." },
     { href: "/100", emoji: "🎯", title: `The Bookshelf 100 · ${count ?? 0} of ${GOAL}`, text: "Our goal this year: help 100 people learn how to learn." },

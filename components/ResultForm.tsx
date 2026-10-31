@@ -131,9 +131,7 @@ export default function ResultForm() {
                 <input name="handle" className={inputCls} placeholder="@yourname" maxLength={60} />
               </Field>
             </div>
-            <Field label="Email you use on Gary's Bookshelf" hint="Only if you have an account, so I can thank you properly. It is never shown.">
-              <input name="account_email" type="email" className={inputCls} maxLength={120} />
-            </Field>
+            <p className="text-xs text-ink/50">I will thank you through your account, and my reply will be on this website under Gary&apos;s replies.</p>
 
             <label className="flex gap-2 items-start text-sm">
               <input type="checkbox" name="under18" className="mt-1 accent-clay-600" checked={under18} onChange={(e) => setUnder18(e.target.checked)} />

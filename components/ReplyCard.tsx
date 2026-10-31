@@ -3,15 +3,14 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getMyThreads } from "@/actions/community";
-import { getSeen, getThreads } from "@/lib/my-threads";
+import { getSeen } from "@/lib/my-threads";
 
 // "Check Gary's reply" entry for the start pages. Shows a red "New reply" tag when Gary has answered and the student has not opened it yet.
 export default function ReplyCard({ compact = false }: { compact?: boolean }) {
   const [fresh, setFresh] = useState(0);
 
   useEffect(() => {
-    const tokens = getThreads();
-    getMyThreads(tokens).then((threads) => setFresh(threads.filter((t) => t.lastSender === "gary" && t.lastAt > getSeen(t.token)).length));
+    getMyThreads().then(({ threads }) => setFresh(threads.filter((t) => t.lastSender === "gary" && t.lastAt > getSeen(t.token)).length));
   }, []);
 
   if (compact)
@@ -29,7 +28,7 @@ export default function ReplyCard({ compact = false }: { compact?: boolean }) {
           Check Gary&apos;s reply
           {fresh > 0 && <span className="ml-2 bg-red-600 text-white text-xs rounded-full px-2 py-0.5 align-middle">{fresh} new</span>}
         </span>
-        <span className="block text-sm text-ink/60">Asked a question before? See my answer and reply to me here.</span>
+        <span className="block text-sm text-ink/60">Asked a question while logged in? Read my answer and reply to me here.</span>
       </span>
     </Link>
   );

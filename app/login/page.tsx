@@ -4,7 +4,7 @@ import Link from "next/link";
 export default async function LoginPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; next?: string }>;
 }) {
   const params = await searchParams;
 
@@ -12,6 +12,7 @@ export default async function LoginPage({
     <div className="max-w-sm mx-auto px-5 py-20">
       <h1 className="text-2xl font-medium mb-6">Log in</h1>
       <form action={login} className="space-y-4">
+        <input type="hidden" name="next" value={params.next ?? ""} />
         <div>
           <label className="block text-sm font-medium mb-1">Email</label>
           <input name="email" type="email" required className="w-full border border-ink/15 rounded-lg px-3 py-2" />
@@ -30,7 +31,7 @@ export default async function LoginPage({
       </form>
       <p className="text-sm text-ink/60 mt-4">
         No account yet?{" "}
-        <Link href="/signup" className="text-clay-600 font-medium">Sign up</Link>
+        <Link href={params.next ? `/signup?next=${encodeURIComponent(params.next)}` : "/signup"} className="text-clay-600 font-medium">Sign up</Link>
       </p>
     </div>
   );

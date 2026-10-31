@@ -99,13 +99,13 @@ export default function QuestionForm() {
 
       <div className="border-t border-ink/10 pt-5 space-y-4">
         <p className="text-sm text-ink/60">
-          Name and contact are your choice. Leave them empty to stay anonymous, but then I can't message you back. You can still
-          check your tracking link after you send.
+          My reply will appear on this website under <b>Gary&apos;s replies</b> (log in to read it). Your name is never shown unless you
+          say it&apos;s okay. Instagram or email below are optional.
         </p>
         <Field label="Your name or nickname">
           <input name="name" className={inputCls} maxLength={60} />
         </Field>
-        <Field label="Where can I reply?" hint="Your Instagram handle or email">
+        <Field label="Anywhere else I can reach you? (optional)" hint="Your Instagram handle or email">
           <input name="contact" className={inputCls} placeholder="@yourname or you@email.com" maxLength={120} />
         </Field>
         <label className="flex gap-2 items-start text-sm">

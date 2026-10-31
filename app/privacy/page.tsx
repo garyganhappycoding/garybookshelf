@@ -49,11 +49,11 @@ export default function PrivacyPage() {
         </ul>
       </Section>
 
-      <Section title="2. Questions, results and votes you send us (no account needed)">
+      <Section title="2. Questions, results and votes you send us">
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <b>Questions:</b> your age and form or exam, what you write about your problem, and, if you choose, a name and an Instagram handle or
-            email so Gary can reply.
+            <b>Questions:</b> your age and form or exam, what you write about your problem, saved with your account so you can read Gary&apos;s reply, and, if you choose, a name and an Instagram handle or
+            email.
           </li>
           <li>
             <b>Results (The Bookshelf 100):</b> your age and form, your subject and results before and now, and what helped. You may attach a result
@@ -69,7 +69,7 @@ export default function PrivacyPage() {
           </li>
         </ul>
         <p>
-          Gary reads each message and can reply on your private tracking link. He shares a result on Instagram only if you said yes, and tags you only
+          Questions and results need a free account. Gary reads each message and replies on the website, where only you can see the conversation when you are logged in (the Gary&apos;s replies page). Votes need no account. He shares a result on Instagram only if you said yes, and tags you only
           if you said yes to that. The Bookshelf 100 page and its Wall of Wins show results without names or ages, unless you tick the box to show your first name or nickname. Result papers are stored privately, are kept as a record of the
           project, and Gary may save a copy in his Google Drive. They are not published without your permission, and you can ask us to delete yours at
           any time. If you are under 18, a parent or guardian must tick the box to agree.

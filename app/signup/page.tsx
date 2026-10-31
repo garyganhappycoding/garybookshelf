@@ -4,7 +4,7 @@ import Link from "next/link";
 export default async function SignupPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; next?: string }>;
 }) {
   const params = await searchParams;
 
@@ -12,6 +12,7 @@ export default async function SignupPage({
     <div className="max-w-sm mx-auto px-5 py-20">
       <h1 className="text-2xl font-medium mb-6">Create an account</h1>
       <form action={signup} className="space-y-4">
+        <input type="hidden" name="next" value={params.next ?? ""} />
         <div>
           <label className="block text-sm font-medium mb-1">Email</label>
           <input name="email" type="email" required className="w-full border border-ink/15 rounded-lg px-3 py-2" />

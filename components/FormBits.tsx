@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { addThread } from "@/lib/my-threads";
 
 export const inputCls =
   "w-full border border-ink/15 rounded-xl px-3.5 py-3 bg-white text-base focus:outline-none focus:border-clay-500 placeholder:text-ink/35";
@@ -37,35 +36,18 @@ export function BotTraps() {
 }
 
 // After sending: a private tracking link, so a student without an account can see what happened to it.
-export function SentCard({ token, title, children }: { token: string; title: string; children?: React.ReactNode }) {
-  const [url, setUrl] = useState(`/track/${token}`);
-  const [copied, setCopied] = useState(false);
-  useEffect(() => {
-    setUrl(`${window.location.origin}/track/${token}`);
-    addThread(token); // so "Check Gary's reply" finds it later on this device
-  }, [token]);
+export function SentCard({ title, children }: { token?: string; title: string; children?: React.ReactNode }) {
   return (
     <div className="card text-center">
       <p className="text-4xl mb-2">🎉</p>
       <h2 className="text-xl font-medium mb-2">{title}</h2>
       {children}
       <div className="bg-cream-100 rounded-xl p-4 mt-4 text-left">
-        <p className="text-sm font-medium mb-1">Your private tracking link</p>
-        <p className="text-xs text-sage-600 mb-1">✓ Saved on this device. Find Gary&apos;s reply any time under “Check Gary&apos;s reply” on the Say hi page.</p>
-        <p className="text-xs text-ink/60 mb-2">
-          Save it or take a screenshot. You don't need an account. Open it any time to see if Gary has read it or replied.
+        <p className="text-sm font-medium mb-1">Where to find my reply</p>
+        <p className="text-xs text-ink/60 mb-3">
+          Log in any time and open <b>Gary&apos;s replies</b>. A red “new” tag shows when I have answered. You can also reply to me there.
         </p>
-        <p className="text-xs break-all text-clay-700 mb-2">{url}</p>
-        <div className="flex gap-2">
-          <button
-            type="button"
-            className="btn-secondary !py-1.5 text-sm"
-            onClick={() => navigator.clipboard?.writeText(url).then(() => setCopied(true), () => setCopied(false))}
-          >
-            {copied ? "Copied!" : "Copy link"}
-          </button>
-          <Link href={`/track/${token}`} className="btn-primary !py-1.5 text-sm">Open it</Link>
-        </div>
+        <Link href="/replies" className="btn-primary !py-1.5 text-sm">Open Gary&apos;s replies</Link>
       </div>
     </div>
   );

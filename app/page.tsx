@@ -27,7 +27,7 @@ const FAQ = [
   ["How do I pay?", "Touch 'n Go. Upload your receipt and I approve it by hand, usually within a day. Your notes and attempts then appear in My orders."],
   ["Where do I find what I bought?", "Log in and tap “My orders” at the top right. After I approve your payment, your download button or Speaking attempts are there. I also email you when it is approved."],
   ["Can I share my PDFs?", "Please don't. Each Sains Komputer PDF is made just for you, locked with your own password and carries your email on every page."],
-  ["Will you answer my question?", "Yes. Ask on the question page, no account needed. Come back to “Check Gary's reply” (under the cards) to read my answer and reply."],
+  ["Will you answer my question?", "Yes. Ask on the question page with a free account. My answer appears under “Gary's replies” after you log in, and you can reply to me there."],
 ];
 
 export default function HomePage() {
@@ -107,7 +107,7 @@ export default function HomePage() {
             </div>
           </Card>
 
-          <Card href="/question" title="Ask me a question" text="Stuck with studying? Tell me your problem. No account needed. I answer it, and you can reply to me.">
+          <Card href="/question" title="Ask me a question" text="Stuck with studying? Tell me your problem. I answer it on the website, and you can reply to me.">
             <div className="w-full max-w-[250px] space-y-2 text-xs">
               <p className="bg-white border border-ink/10 rounded-2xl rounded-bl-sm px-3 py-2 shadow-sm w-4/5">How do I memorise formulas?</p>
               <p className="bg-sage-400/20 rounded-2xl rounded-br-sm px-3 py-2 ml-auto w-5/6">Gary: Try active recall. Test the chapter without looking.</p>

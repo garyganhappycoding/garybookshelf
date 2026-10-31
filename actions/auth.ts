@@ -3,6 +3,12 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
+// only allow a path on this site (for example "/question"), never another website
+const safeNext = (v: FormDataEntryValue | null, fallback: string) => {
+  const n = String(v ?? "");
+  return n.startsWith("/") && !n.startsWith("//") && !n.includes("\\") ? n : fallback;
+};
+
 export async function login(formData: FormData) {
   const supabase = await createClient();
 
@@ -15,7 +21,7 @@ export async function login(formData: FormData) {
     redirect(`/login?error=${encodeURIComponent(error.message)}`);
   }
 
-  redirect("/dashboard");
+  redirect(safeNext(formData.get("next"), "/dashboard"));
 }
 
 export async function signup(formData: FormData) {
@@ -30,7 +36,7 @@ export async function signup(formData: FormData) {
     redirect(`/signup?error=${encodeURIComponent(error.message)}`);
   }
 
-  redirect("/start"); // new members see where everything is first
+  redirect(safeNext(formData.get("next"), "/start")); // new members see where everything is first
 }
 
 export async function logout() {

@@ -10,7 +10,7 @@ const PLACES = [
   { href: "/free-resources", emoji: "📥", title: "Free resources", text: "Sample notes and templates, no charge." },
   { href: "/content-hub", emoji: "💡", title: "Content hub", text: "Study tips and highlights from my videos." },
   { href: "/shop", emoji: "📝", title: "Shop", text: "Essay notes for English and BM, and Speaking packs for more attempts." },
-  { href: "/hi", emoji: "💬", title: "Say hi to Gary", text: "Ask a question, tell me your result, or vote for my next video. No account needed." },
+  { href: "/hi", emoji: "💬", title: "Say hi to Gary", text: "Ask a question or tell me your result with a free account, and read my reply on the site. Voting needs no account." },
   { href: "/ask-gary", emoji: "🤖", title: "Ask Gary", text: "My AI study buddy. Coming soon.", soon: true },
 ];
 
