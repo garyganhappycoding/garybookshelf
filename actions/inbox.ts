@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { clean, notifyGary, sendEmail } from "@/lib/community";
+import { clean, sendEmail } from "@/lib/community";
 import { siteUrl } from "@/lib/site";
 
 async function requireAdmin() {
@@ -41,28 +41,7 @@ export async function replyTo(formData: FormData) {
     .eq("id", id);
   await createAdminClient().from("submission_messages").insert({ submission_id: id, sender: "gary", body: reply, link: /^https?:\/\//i.test(url) ? url : null });
 
-  // If the student left an email address, send them the answer too (they may never open their tracking link again).
-  // Instagram handles get nothing: Gary replies there himself.
-  const { data: s } = await createAdminClient().from("submissions").select("kind, contact, account_email, public_token").eq("id", id).maybeSingle();
-  const contact = (s?.contact ?? "").trim();
-  const to = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact) ? contact : (s?.account_email ?? "").trim();
-  if (s?.kind === "question" && s.public_token && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) {
-    const esc = (t: string) => t.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\n/g, "<br>");
-    const safeUrl = /^https?:\/\//i.test(url) ? url : "";
-    const link = `${siteUrl()}/replies`;
-    const button = "display: inline-block; background: #B85C38; color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 500; margin: 12px 0;";
-    const sent = await sendEmail(
-      to,
-      "Gary answered your question",
-      `<h2 style="color: #3B2F26; margin: 0 0 12px;">Gary answered your question</h2>
-       <p style="color: #3B2F26; line-height: 1.6;">${esc(reply)}</p>
-       ${safeUrl ? `<p><a href="${safeUrl}" style="${button}">Watch or read the answer</a></p>` : ""}
-       <p style="color: #3B2F26; line-height: 1.6; font-size: 14px;">You can read it any time (and reply) under Gary's replies after you log in:<br><a href="${link}" style="color: #8F4327;">${link}</a></p>`
-    );
-    if (!sent.ok) await notifyGary("⚠️ Reply saved but the email did not send", `To: ${to}
-Reason: ${sent.error ?? "unknown"}
-They can still see it on their tracking link.`);
-  }
+  // No email: the student reads the reply on the website (Gary's replies) and can answer back there.
   refresh();
 }
 

@@ -163,7 +163,7 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
                 )}
                 <form action={replyTo} className="space-y-2">
                   <input type="hidden" name="id" value={r.id} />
-                  <textarea name="reply" className={box} rows={3} placeholder={r.status === "answered" || threadOf(r.id).length ? "Send another reply (shown on their private tracking link)" : "Your reply (shown on their private tracking link)"} required />
+                  <textarea name="reply" className={box} rows={3} placeholder={r.status === "answered" || threadOf(r.id).length ? "Send another reply (they read it on the website under Gary's replies)" : "Your reply (they read it on the website under Gary's replies)"} required />
                   <input name="reply_url" className={box} placeholder="Link to your video or story answer (optional)" />
                   <div className="flex gap-3 items-center">
                     <button className="btn-primary !py-1.5 text-sm">{r.status === "answered" || threadOf(r.id).length ? "Send reply" : "Mark as answered"}</button>
