@@ -49,3 +49,37 @@ export async function sendTestEmail(): Promise<{ ok: boolean; to?: string; via?:
   );
   return { ok: r.ok, to: user.email, via, error: r.error };
 }
+
+// ---------- actions on a student's orders (used by the buttons on the Students page) ----------
+export type OrderActionResult = { ok: boolean; message: string };
+
+export async function approveStudentOrder(orderId: string): Promise<OrderActionResult> {
+  await requireAdmin();
+  const { approveOrderCore } = await import("@/lib/orders");
+  const r = await approveOrderCore(orderId, { onlyIfPending: true });
+  revalidatePath("/admin/students");
+  if (r.error) return { ok: false, message: r.error };
+  return {
+    ok: true,
+    message: r.emailError
+      ? `Approved. The email did not send (${r.emailError}); the student can still see it in My orders.`
+      : "Approved. The student has been emailed.",
+  };
+}
+
+export async function rejectStudentOrder(orderId: string, reason: string): Promise<OrderActionResult> {
+  await requireAdmin();
+  const { rejectOrderCore } = await import("@/lib/orders");
+  const r = await rejectOrderCore(orderId, reason.slice(0, 300), { onlyIfPending: true });
+  revalidatePath("/admin/students");
+  return r.error ? { ok: false, message: r.error } : { ok: true, message: "Rejected." };
+}
+
+// lets the student download a locked PDF again (the bandwidth log keeps the old rows)
+export async function allowRedownload(orderId: string): Promise<OrderActionResult> {
+  await requireAdmin();
+  const { error } = await createAdminClient().from("file_downloads").update({ released: true }).eq("order_id", orderId).eq("released", false);
+  revalidatePath("/admin/students");
+  revalidatePath("/dashboard");
+  return error ? { ok: false, message: error.message } : { ok: true, message: "Done. The student can download each file once more." };
+}

@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { addAttempts } from "@/actions/students";
+import StudentOrderActions from "@/components/StudentOrderActions";
+import { productFiles } from "@/lib/product-files";
 
 export const metadata = { title: "Students · Admin" };
 export const dynamic = "force-dynamic";
@@ -28,11 +30,26 @@ export default async function StudentsPage({ searchParams }: { searchParams: Pro
 
   const [{ data: orders }, { data: packs }, { data: attempts }] = ids.length
     ? await Promise.all([
-        admin.from("orders").select("user_id, status, amount_paid, created_at, products(title)").in("user_id", ids).order("created_at", { ascending: false }),
+        admin.from("orders").select("id, user_id, status, amount_paid, created_at, receipt_path, reject_reason, products(title, personalize_pdf, product_files, file_path)").in("user_id", ids).order("created_at", { ascending: false }),
         admin.from("speaking_packs").select("user_id, kind, attempts_total, attempts_used, expires_at").in("user_id", ids),
         admin.from("speaking_attempts").select("user_id").in("user_id", ids).limit(20000),
       ])
     : [{ data: [] }, { data: [] }, { data: [] }];
+
+  // locked-PDF downloads still counting (not reset) and, for payments waiting for you, a private link to the receipt
+  const orderIds = (orders ?? []).map((o: any) => o.id);
+  const { data: dls } = orderIds.length
+    ? await admin.from("file_downloads").select("order_id, file_index").in("order_id", orderIds).eq("released", false)
+    : { data: [] as { order_id: string; file_index: number }[] };
+  const downloadedFiles = new Map<string, number>();
+  for (const d of dls ?? []) downloadedFiles.set(d.order_id, (downloadedFiles.get(d.order_id) ?? 0) + 1);
+  const receiptUrl = new Map<string, string>();
+  for (const o of (orders ?? []) as any[]) {
+    if (o.status === "pending_verification" && o.receipt_path) {
+      const { data: signed } = await admin.storage.from("receipts").createSignedUrl(o.receipt_path, 600);
+      if (signed?.signedUrl) receiptUrl.set(o.id, signed.signedUrl);
+    }
+  }
 
   const now = Date.now();
   const attemptCount = new Map<string, number>();
@@ -74,15 +91,28 @@ export default async function StudentsPage({ searchParams }: { searchParams: Pro
                     <p className="text-ink/50">Nothing yet</p>
                   ) : (
                     <ul className="space-y-1">
-                      {mine.map((o, i) => (
-                        <li key={i} className="flex justify-between gap-3">
-                          <span>
-                            {(o as any).products?.title ?? "Product"}{" "}
-                            <span className="text-xs text-ink/50">{myDate(o.created_at)}</span>
-                          </span>
-                          <span className={o.status === "completed" ? "text-sage-600" : o.status === "rejected" ? "text-red-600" : "text-amber-700"}>
-                            RM {Number(o.amount_paid).toFixed(0)} · {o.status === "pending_verification" ? "pending" : o.status}
-                          </span>
+                      {mine.map((o: any) => (
+                        <li key={o.id} className="border-b border-ink/5 pb-2 last:border-0">
+                          <div className="flex justify-between gap-3">
+                            <span>
+                              {o.products?.title ?? "Product"}{" "}
+                              <span className="text-xs text-ink/50">{myDate(o.created_at)}</span>
+                            </span>
+                            <span className={o.status === "completed" ? "text-sage-600" : o.status === "rejected" ? "text-red-600" : "text-amber-700"}>
+                              RM {Number(o.amount_paid).toFixed(0)} · {o.status === "pending_verification" ? "pending" : o.status}
+                            </span>
+                          </div>
+                          {receiptUrl.get(o.id) && (
+                            <a href={receiptUrl.get(o.id)} target="_blank" rel="noreferrer" className="text-xs text-clay-700 underline">View receipt</a>
+                          )}
+                          {o.status === "rejected" && o.reject_reason && <p className="text-xs text-ink/50">Reason: {o.reject_reason}</p>}
+                          <StudentOrderActions
+                            orderId={o.id}
+                            status={o.status}
+                            lockedPdf={Boolean(o.products?.personalize_pdf)}
+                            downloaded={downloadedFiles.get(o.id) ?? 0}
+                            files={productFiles(o.products ?? {}).length}
+                          />
                         </li>
                       ))}
                     </ul>
