@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { getDownloadUrl } from "@/actions/download";
+import { IN_APP_BROWSER } from "@/components/InAppBrowserNotice";
 
 export default function DownloadButton({
   orderId,
@@ -23,6 +24,13 @@ export default function DownloadButton({
   const [downloaded, setDownloaded] = useState(alreadyDownloaded);
 
   async function handleClick() {
+    // app browsers (Instagram, Facebook, TikTok...) usually cannot save files, so do not use up the one download there
+    if (oneTime && IN_APP_BROWSER.test(navigator.userAgent)) {
+      alert(
+        "Please open this page in Safari or Chrome first (tap the ⋯ menu, then Open in browser), log in and download there. Your download has not been used.\n\n请先用 Safari / Chrome 打开此页面（点 ⋯ →「在浏览器中打开」）再下载。你的下载次数没有被使用。"
+      );
+      return;
+    }
     if (
       oneTime &&
       !window.confirm(

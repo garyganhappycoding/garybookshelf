@@ -4,6 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
+import InAppBrowserNotice from "@/components/InAppBrowserNotice";
 
 // making a locked, watermarked PDF can take a few seconds for a big file
 export const maxDuration = 60;
@@ -51,6 +52,7 @@ export default async function DashboardPage() {
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-14">
+      <InAppBrowserNotice />
       <h1 className="text-2xl font-medium mb-2">My orders</h1>
       <p className="text-sm mb-6"><Link href="/replies" className="text-clay-700 underline">💌 Gary&apos;s replies to my questions</Link></p>
 
