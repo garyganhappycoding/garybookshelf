@@ -35,7 +35,7 @@ export default async function SpeakingPage() {
       supabase.rpc("speaking_pack_status"),
       supabase
         .from("speaking_attempts")
-        .select("id,card_id,created_at,result")
+        .select("id,card_id,part,created_at,result")
         .eq("user_id", user.id)
         .eq("status", "failed")
         .not("result", "is", null)
@@ -52,6 +52,7 @@ export default async function SpeakingPage() {
     saved = (savedRows ?? []).map((r: any) => ({
       id: r.id,
       cardId: r.card_id,
+      part: r.part === 3 ? 3 : 2,
       createdAt: r.created_at,
       words: String(r.result?.transcript ?? "").split(/\s+/).filter(Boolean).length,
     }));
@@ -64,7 +65,7 @@ export default async function SpeakingPage() {
         {user && <Link href="/speaking/history" className="btn-secondary !py-1.5 shrink-0">My history</Link>}
       </div>
       <p className="text-ink/70 mb-8">
-        Pick a theme, get a Part 2 question, speak for 2 minutes and get AI feedback based on the four speaking criteria.
+        Pick Part 2 (cue card, 1 minute) or Part 3 (discussion, 2 minutes), speak, and get AI feedback marked with the official SPM speaking scales.
       </p>
 
       {user ? (

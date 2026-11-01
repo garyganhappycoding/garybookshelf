@@ -4,16 +4,16 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { recordReaction } from "@/actions/community";
 import { cards, themes, getCard, getTheme, type Card, type Theme } from "@/lib/speaking/cards";
-import { BAND_MAX, criteriaInfo, type AnalysisResponse, type CriterionKey } from "@/lib/speaking/analyze";
+import { BAND_MAX, criterionLabel, criterionOrder, type AnalysisResponse } from "@/lib/speaking/analyze";
+import { PART3_CHECKLIST, PART_INFO, type Part } from "@/lib/speaking/parts";
 
 const PREP_SECONDS = 30;
-const SPEAK_SECONDS = 120;
 
 type Stage = "themes" | "card" | "prep" | "recording" | "analyzing" | "result";
 
 const AUTO_DELAYS = [60, 120, 180, 240]; // seconds before each automatic retry (4 in total)
 
-export type SavedRec = { id: string; cardId: string; createdAt: string; words: number };
+export type SavedRec = { id: string; cardId: string; createdAt: string; words: number; part?: Part };
 
 const fmt = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 const savedWhen = (iso: string) => {
@@ -65,6 +65,10 @@ export default function SpeakingPractice({
   const [stage, setStage] = useState<Stage>("themes");
   const [theme, setTheme] = useState<Theme | null>(null);
   const [card, setCard] = useState<Card | null>(null);
+  // Part 2 = cue card, 1 minute. Part 3 = discussion question, 2 minutes.
+  const [part, setPart] = useState<Part>(2);
+  const partRef = useRef<Part>(2);
+  partRef.current = part;
   const [showIdeas, setShowIdeas] = useState(true);
   const [attemptsLeft, setAttemptsLeft] = useState(initialAttemptsLeft);
   const [seconds, setSeconds] = useState(0);
@@ -140,7 +144,7 @@ export default function SpeakingPractice({
     rec.onstop = () => void submit(rec.mimeType || mime || "audio/webm");
     recorder.current = rec;
     rec.start();
-    setSeconds(SPEAK_SECONDS);
+    setSeconds(PART_INFO[partRef.current].speakSeconds);
     setStage("recording");
   }
 
@@ -159,6 +163,7 @@ export default function SpeakingPractice({
     });
     const form = new FormData();
     form.append("cardId", cardRef.current!.id);
+    form.append("part", String(partRef.current));
     form.append("audio", blob, `speech.${ext}`);
     await send(form);
   }
@@ -169,9 +174,12 @@ export default function SpeakingPractice({
     if (!c) return;
     setCard(c);
     cardRef.current = c;
+    setPart(rec.part ?? 2);
+    partRef.current = rec.part ?? 2;
     activeRetry.current = rec.id;
     const form = new FormData();
     form.append("cardId", c.id);
+    form.append("part", String(rec.part ?? 2));
     form.append("retryAttemptId", rec.id);
     await send(form);
   }
@@ -300,7 +308,10 @@ export default function SpeakingPractice({
             The AI marks your <b>words, grammar, vocabulary, pace and ideas</b>. It cannot hear your <b>pronunciation or accent</b>, so
             pronunciation is judged only from how smoothly you speak (pauses, fillers). Ask your teacher for pronunciation feedback.
           </li>
-          <li>This practises <b>Part 2</b> (individual long turn). For Part 3, answer the discussion questions yourself out loud.</li>
+          <li>
+            Two kinds of question: <b>Part 2</b> (cue card, speak for <b>1 minute</b>) and <b>Part 3</b> (discussion question, speak for <b>2 minutes</b>).
+            You are marked with the official SPM speaking scales: <b>Grammar, Vocabulary, Communicative Competence and Overall Spoken Performance</b>, each out of 6, so the total is /24.
+          </li>
           <li>You get <b>2 free attempts per day</b>. Need more? A Speaking pack adds extra attempts. Your recording is not stored by us, only the transcript and feedback. You can listen back to it on the result page until you leave.</li>
         </ul>
         <button className="btn-primary" onClick={() => setAck(true)}>
@@ -335,6 +346,19 @@ export default function SpeakingPractice({
     return (
       <>
         {header}
+        <h2 className="text-lg font-medium mb-2">What do you want to practise?</h2>
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          {([2, 3] as Part[]).map((n) => (
+            <button
+              key={n}
+              onClick={() => setPart(n)}
+              className={`card text-left transition-colors ${part === n ? "!border-clay-600 bg-clay-400/10" : "hover:border-clay-400"}`}
+            >
+              <p className="font-medium">{PART_INFO[n].short} · {PART_INFO[n].speakSeconds / 60} min</p>
+              <p className="text-xs text-ink/60">{n === 2 ? "Cue card: individual long turn" : "Discussion question: give and explain your opinion"}</p>
+            </button>
+          ))}
+        </div>
         <h2 className="text-lg font-medium mb-1">Choose a theme</h2>
         <p className="text-sm text-ink/60 mb-4">Pick a theme, then a question (or get a random one).</p>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -361,7 +385,7 @@ export default function SpeakingPractice({
           {cards.filter((c) => c.theme === theme.id).map((c) => (
             <button key={c.id} onClick={() => chooseCard(c)} className="card w-full text-left hover:border-clay-400 transition-colors !py-3">
               <p className="font-medium">{c.title}</p>
-              <p className="text-sm text-ink/60">{c.prompt}</p>
+              <p className="text-sm text-ink/60">{part === 3 ? c.discussion : c.prompt}</p>
             </button>
           ))}
         </div>
@@ -373,7 +397,7 @@ export default function SpeakingPractice({
     return (
       <>
         {header}
-        <CueCard card={card} />
+        <CueCard card={card} part={part} />
         {stage === "card" && (
           <>
             <button onClick={() => setShowIdeas((v) => !v)} className="text-sm text-clay-600 hover:underline mt-4">
@@ -383,7 +407,7 @@ export default function SpeakingPractice({
             {error && <p className="mt-4 text-sm text-red-600 bg-red-50 rounded-xl p-3">{error}</p>}
             <div className="mt-6 flex flex-wrap gap-3">
               <button className="btn-primary disabled:opacity-60" disabled={attemptsLeft + packLeft <= 0 || cooldown > 0} onClick={beginPrep}>
-                {cooldown > 0 ? `Please wait ${fmt(cooldown)} before trying again` : `▶ Start (${PREP_SECONDS}s prep, then ${SPEAK_SECONDS / 60} min speaking)`}
+                {cooldown > 0 ? `Please wait ${fmt(cooldown)} before trying again` : `▶ Start (${PREP_SECONDS}s prep, then ${PART_INFO[part].speakSeconds / 60} min speaking)`}
               </button>
               <button className="btn-secondary" onClick={() => setCard(null)}>Change question</button>
             </div>
@@ -410,13 +434,13 @@ export default function SpeakingPractice({
     return (
       <>
         {header}
-        <CueCard card={card} />
+        <CueCard card={card} part={part} />
         <div className="mt-6 card text-center">
           <p className="inline-flex items-center gap-2 text-red-600 font-medium">
             <span className="w-3 h-3 rounded-full bg-red-600 animate-pulse" /> Recording
           </p>
           <p className="text-5xl font-medium my-3 tabular-nums">{fmt(Math.max(seconds, 0))}</p>
-          <p className="text-sm text-ink/60 mb-4">Keep talking until the timer ends. Cover every bullet point.</p>
+          <p className="text-sm text-ink/60 mb-4">{part === 3 ? "Keep talking until the timer ends. Give your opinion, two reasons and an example." : "Keep talking until the timer ends. Cover every bullet point."}</p>
           <button className="btn-primary" onClick={stopRecording}>■ Finish & get feedback</button>
         </div>
       </>
@@ -438,7 +462,7 @@ export default function SpeakingPractice({
   if (stage === "result" && data && card) return (
     <>
       {header}
-      <Result data={data} card={card} audioUrl={audioUrl} onAgain={() => { setData(null); setStage("card"); }} onThemes={reset} canRetry={attemptsLeft + packLeft > 0} />
+      <Result data={{ ...data, part: data.part ?? part }} card={card} audioUrl={audioUrl} onAgain={() => { setData(null); setStage("card"); }} onThemes={reset} canRetry={attemptsLeft + packLeft > 0} onOtherPart={() => { setPart(part === 2 ? 3 : 2); setData(null); setStage("card"); }} />
     </>
   );
 
@@ -446,10 +470,24 @@ export default function SpeakingPractice({
 }
 
 // ---------- pieces ----------
-function CueCard({ card }: { card: Card }) {
+function CueCard({ card, part }: { card: Card; part: Part }) {
+  if (part === 3)
+    return (
+      <div className="bg-white border-2 border-ink/20 rounded-lg p-5 shadow-sm">
+        <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Part 3 · Discussion · 2 minutes</p>
+        <h2 className="text-xl font-bold mb-2">{card.title}</h2>
+        <p className="font-semibold text-lg mb-3">{card.discussion}</p>
+        <p className="font-semibold mb-1">A good answer:</p>
+        <ul className="list-disc pl-6 space-y-1 text-sm">
+          {PART3_CHECKLIST.map((p) => (
+            <li key={p}>{p}</li>
+          ))}
+        </ul>
+      </div>
+    );
   return (
     <div className="bg-white border-2 border-ink/20 rounded-lg p-5 shadow-sm">
-      <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Part 2 · Candidate booklet</p>
+      <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Part 2 · Candidate booklet · 1 minute</p>
       <h2 className="text-xl font-bold mb-2">{card.title}</h2>
       <p className="font-semibold mb-3">{card.prompt}</p>
       <p className="font-semibold mb-1">You should say:</p>
@@ -590,10 +628,11 @@ function PlaybackPlayer({ url }: { url: string }) {
   );
 }
 
-export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { data: AnalysisResponse; card: Card; audioUrl?: string | null; onAgain?: () => void; onThemes?: () => void; canRetry?: boolean }) {
+export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry, onOtherPart }: { data: AnalysisResponse; card: Card; audioUrl?: string | null; onAgain?: () => void; onThemes?: () => void; canRetry?: boolean; onOtherPart?: () => void }) {
   const { result, stats, total } = data;
   const free = data.tier === "free"; // older reports have no tier and are shown in full
-  const keys = Object.keys(criteriaInfo) as CriterionKey[];
+  const keys = criterionOrder(Object.keys(result.criteria));
+  const partNow: Part = data.part ?? 2;
   return (
     <div className="space-y-6">
       <p className="text-xs text-ink/50 bg-amber-50 border border-amber-200 rounded-xl p-3">
@@ -601,7 +640,7 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
       </p>
 
       <div className="card text-center">
-        <p className="text-sm text-ink/60">{card.title}</p>
+        <p className="text-sm text-ink/60">{card.title} · {PART_INFO[partNow].short}</p>
         <p className="text-5xl font-medium my-2">{total}<span className="text-xl text-ink/50"> / {4 * BAND_MAX}</span></p>
         <p className="font-medium text-clay-700">{bandLabel(total)}</p>
         <p className="text-sm text-ink/70 mt-3">{result.overall_comment}</p>
@@ -611,17 +650,17 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
         {keys.map((k) => (
           <div key={k} className="card">
             <div className="flex justify-between items-baseline">
-              <p className="font-medium">{criteriaInfo[k].label}</p>
-              <p className="font-medium text-clay-700">{result.criteria[k].band} / {BAND_MAX}</p>
+              <p className="font-medium">{criterionLabel(k)}</p>
+              <p className="font-medium text-clay-700">{result.criteria[k]?.band ?? 0} / {BAND_MAX}</p>
             </div>
-            <div className="h-2 bg-ink/10 rounded-full my-2"><div className="h-2 bg-clay-500 rounded-full" style={{ width: `${(result.criteria[k].band / BAND_MAX) * 100}%` }} /></div>
-            <p className="text-sm text-ink/70">{result.criteria[k].comment}</p>
+            <div className="h-2 bg-ink/10 rounded-full my-2"><div className="h-2 bg-clay-500 rounded-full" style={{ width: `${((result.criteria[k]?.band ?? 0) / BAND_MAX) * 100}%` }} /></div>
+            <p className="text-sm text-ink/70">{result.criteria[k]?.comment}</p>
           </div>
         ))}
       </section>
 
       <section className="card">
-        <h3 className="font-medium mb-2">Did you cover every point?</h3>
+        <h3 className="font-medium mb-2">{partNow === 3 ? "Was your answer complete?" : "Did you cover every point?"}</h3>
         <ul className="space-y-1 text-sm">
           {result.covered_points.map((c, i) => (
             <li key={i}><span>{c.covered ? "✅" : "❌"}</span> <b>{c.point}</b> <span className="text-ink/60">: {c.note}</span></li>
@@ -781,9 +820,22 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry }: { 
         )}
       </section>
 
-      <div className="card !bg-cream-50 text-sm">
-        <b>Part 3 practice:</b> now explain your opinion about the last bullet point out loud, with a reason and an example, for another minute.
-      </div>
+      {onOtherPart ? (
+        <div className="card !bg-cream-50 text-sm flex flex-wrap items-center justify-between gap-3">
+          <span>
+            {partNow === 2 ? (
+              <>
+                <b>Next: Part 3.</b> Practise the discussion question for this topic (2 minutes): give your opinion, two reasons and an example.
+              </>
+            ) : (
+              <>
+                <b>Next: Part 2.</b> Practise the cue card for this topic (1 minute).
+              </>
+            )}
+          </span>
+          <button className="btn-secondary !py-1.5" onClick={onOtherPart}>Try {partNow === 2 ? "Part 3" : "Part 2"}</button>
+        </div>
+      ) : null}
 
       {onAgain && onThemes && <ReactionBar attemptId={data.attemptId} />}
 

@@ -19,7 +19,7 @@ export default async function SpeakingHistoryDetailPage({ params }: { params: Pr
   // row-level security means a student can only ever read their own attempts
   const { data: attempt } = await supabase
     .from("speaking_attempts")
-    .select("id,card_id,status,total_score,result,created_at")
+    .select("id,card_id,part,status,total_score,result,created_at")
     .eq("id", id)
     .single();
   const card = attempt ? getCard(attempt.card_id) : undefined;
@@ -32,6 +32,7 @@ export default async function SpeakingHistoryDetailPage({ params }: { params: Pr
     stats: stored.stats,
     result: stored.result,
     tier: stored.tier,
+    part: (attempt as { part?: number }).part === 3 ? 3 : 2,
     total: Number(attempt.total_score ?? 0),
     attemptsLeft: 0,
   };

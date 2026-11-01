@@ -19,7 +19,8 @@ export type Card = {
   theme: ThemeId;
   title: string;
   prompt: string;
-  points: string[]; // "You should say" bullets
+  points: string[]; // "You should say" bullets (Part 2)
+  discussion: string; // the Part 3 discussion question for this topic
 };
 
 type Raw = [n: number, theme: ThemeId, title: string, prompt: string, points: string[]];
@@ -98,12 +99,91 @@ const raw: Raw[] = [
   [75, "health", "My favourite exercise", "Talk about your favourite exercise.", ["what is it", "when and how often you do it", "reasons for choosing this exercise", "the benefits of doing this exercise"]],
 ];
 
+// Part 3 discussion questions, one per topic (keyed by the page number in the source PDF). Written from the opinion bullet of each card.
+const PART3: Record<number, string> = {
+  3: "Do people need to travel to other places? Why or why not?",
+  4: "Do you think teenagers need to use social media wisely? Why or why not?",
+  5: "Do you think being kind to others can change the world? Why or why not?",
+  7: "Is salary the most important thing when choosing a job? Why or why not?",
+  8: "Should parents ask their children to do house chores? Why or why not?",
+  9: "Do you think music helps students in their studies? Why or why not?",
+  10: "What would you change to improve your hometown, and why?",
+  11: "Why is it important not to be easily influenced by advertisements?",
+  12: "Why is it important for teenagers to have good role models at home?",
+  13: "Why is it important to build a good relationship with neighbours?",
+  14: "Why is it important to have good neighbours?",
+  15: "What challenges do teenagers face when they try to stay fit and healthy, and how can they overcome them?",
+  16: "Do you prefer to shop online or in a store? Why?",
+  17: "Why is it important not to use technology too much?",
+  18: "Why is it important to have a close relationship with extended family members?",
+  19: "Why is it important to be mindful when shopping online?",
+  20: "Can people live without the Internet? Why or why not? How can people stay safe online?",
+  21: "What can people learn from moments that make them feel proud?",
+  22: "Do you prefer e-books to printed books? Why or why not?",
+  23: "How can planting trees save the environment?",
+  24: "Should teenagers work after SPM? Why or why not?",
+  25: "Is it important to keep your house clean? Why or why not?",
+  26: "Do you prefer taking photographs or videos? Why?",
+  27: "Should school clean-up be made compulsory for pupils? Why or why not?",
+  28: "Do you think influencers are good role models? Why or why not?",
+  29: "Should parents play a role in reducing their children's screen time? Why or why not?",
+  30: "Are hobbies useful for teenagers? Why or why not?",
+  31: "Is it useful to know more than one language? Why or why not?",
+  32: "Does taking part in volunteering programmes increase a person's self-confidence? Why or why not?",
+  33: "Does charity bring a good impact to society? Why or why not?",
+  34: "Should everyone have someone to respect? Why or why not?",
+  35: "Should someone receive a present on every birthday? Why or why not?",
+  37: "Should teenagers have the freedom to buy everything they want? Why or why not?",
+  38: "Is reading a culture in your country? Why or why not?",
+  39: "Can computers replace teachers in the future? Why or why not?",
+  40: "If you could turn back time, what would you change? Why?",
+  41: "If you were given a chance, would you like to be an actor or actress? Why or why not?",
+  42: "Do you think someone could travel the world in 80 days? Why or why not?",
+  43: "Can spending time with family and friends help you become a better person? Why or why not?",
+  44: "Do you think you have done enough to keep your area green? Why or why not?",
+  45: "If you were given a chance, would you exchange your life with your pet? Why or why not?",
+  46: "How does social media help teenagers to make new friends?",
+  47: "Does eating healthy snacks help students' overall diet? Why or why not?",
+  48: "Would you buy a product because of an advertisement? Why or why not?",
+  49: "Are e-books better than physical books? Why or why not?",
+  50: "How do colours and images influence buyers?",
+  51: "Is an active lifestyle important for all age groups? Why or why not?",
+  52: "Do colours affect your mood? Why or why not?",
+  53: "If your favourite shop introduced a membership programme, would you join it? Why or why not?",
+  54: "Is it important to take care of the environment? Why or why not?",
+  55: "How do electronic devices make our lives easier?",
+  56: "How do smartphone apps help people in their daily lives?",
+  57: "Is online communication better than face-to-face interaction? Why or why not?",
+  58: "Is it good to have different opinions when handling a team project? Why or why not?",
+  59: "Why is learning life skills important for teenagers?",
+  60: "Should everyone use home electrical appliances? Why or why not?",
+  61: "How can we encourage more people to live a healthy lifestyle?",
+  62: "How can you help a friend who is dealing with stress?",
+  63: "What are the key factors needed to be a good athlete?",
+  64: "How can we prepare ourselves when looking for a job?",
+  65: "Should nature spots be kept free from development? Why or why not?",
+  66: "How can teenagers maintain strong friendships?",
+  67: "Should teenagers learn how to cook? Why or why not?",
+  68: "Why is having a good sleeping habit important for health?",
+  69: "What makes a holiday meaningful, in your opinion?",
+  70: "Is it important for people to face their fears? Why or why not?",
+  71: "Why is spending time with family important?",
+  72: "Why are social activities important in developing students' responsibility?",
+  73: "What makes a gift special, in your opinion?",
+  74: "Is spending money on expensive items a good choice? Why or why not?",
+  75: "What are the benefits of regular exercise for teenagers?",
+};
+
+// safety net for a card without a written question: turn its last bullet into a plain discussion prompt
+const fallbackQuestion = (points: string[]) => `Give your opinion: ${points[points.length - 1].replace(/\?$/, "")}. Explain your reasons.`;
+
 export const cards: Card[] = raw.map(([n, theme, title, prompt, points]) => ({
   id: `p2-${n}`,
   theme,
   title,
   prompt,
   points,
+  discussion: PART3[n] ?? fallbackQuestion(points),
 }));
 
 export const getCard = (id: string) => cards.find((c) => c.id === id);

@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getCard } from "@/lib/speaking/cards";
 import { checkTryLimits } from "@/lib/speaking/limits";
+import { PART_INFO, toPart, type Part } from "@/lib/speaking/parts";
 import type { FailReason } from "@/lib/speaking/fail-reasons";
 import {
   BAND_MAX,
@@ -23,8 +24,7 @@ const DAILY_LIMIT = 2;
 const SAVED_TRANSCRIPT_HOURS = 24 * 7; // how long a failed attempt's transcript can be re-marked (7 days)
 type SavedTranscript = { transcript: string; stats: ReturnType<typeof computeStats>; duration: number };
 const MAX_AUDIO_BYTES = 6 * 1024 * 1024;
-const MAX_SECONDS = 150; // 2 minutes + a little slack
-const MIN_WORDS = 25;
+// time and word limits come from PART_INFO: Part 2 is 1 minute, Part 3 is 2 minutes (each plus a little slack)
 const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const FALLBACK_MODEL = "openai/gpt-oss-20b"; // separate rate limits; used when the main model is busy
 // Free students use the lighter model only. The strong model's daily allowance (200,000 tokens in a rolling 24 hours on
@@ -109,11 +109,12 @@ export async function POST(req: Request) {
   const retryId = String(form.get("retryAttemptId") ?? "");
   let saved: SavedTranscript | null = null;
   let cardId = String(form.get("cardId") ?? "");
+  let part: Part = toPart(form.get("part"));
   let prevId: string | null = null;
   if (retryId) {
     const { data: prev } = await admin
       .from("speaking_attempts")
-      .select("id,card_id,status,fail_reason,result,created_at")
+      .select("id,card_id,part,status,fail_reason,result,created_at")
       .eq("id", retryId)
       .eq("user_id", user.id) // only your own saved recording
       .maybeSingle();
@@ -123,6 +124,7 @@ export async function POST(req: Request) {
       return err("That saved recording has expired. Please record again.", 410);
     saved = { transcript: s.transcript, stats: s.stats, duration: s.duration ?? 0 };
     cardId = prev.card_id;
+    part = toPart((prev as { part?: number }).part);
     prevId = prev.id;
   }
 
@@ -143,6 +145,7 @@ export async function POST(req: Request) {
   if (claimErr) return err("Could not start the attempt. Please try again.", 500);
   if (!attemptId)
     return err("You've used today's 2 free attempts. Get a Speaking pack for more, or come back tomorrow!", 429, { attemptsLeft: 0, packLeft: 0, needPack: true });
+  await admin.from("speaking_attempts").update({ part }).eq("id", attemptId);
   // the saved transcript moves to the new attempt, so it can only be used once
   if (prevId) await admin.from("speaking_attempts").update({ result: null }).eq("id", prevId);
 
@@ -211,8 +214,9 @@ export async function POST(req: Request) {
       meta.duration_sec = Math.round(duration * 10) / 10;
       meta.word_count = wordCount;
 
-      if (duration > MAX_SECONDS) return fail("too_long", "Recording is longer than 2 minutes.", 400);
-      if (wordCount < MIN_WORDS)
+      const limits = PART_INFO[part];
+      if (duration > limits.maxSeconds) return fail("too_long", `Recording is longer than ${limits.speakSeconds / 60} minute${limits.speakSeconds > 60 ? "s" : ""}.`, 400);
+      if (wordCount < limits.minWords)
         return fail(
           duration < 20 ? "stopped_early" : "too_little_speech",
           "We couldn't hear enough speech to mark. Check your microphone and try again. You were not charged an attempt.",
@@ -238,7 +242,7 @@ export async function POST(req: Request) {
       // (one extra go only when the model answered with broken JSON, which is a one-off and costs no rate-limit wait)
       targets = [groq(FALLBACK_MODEL), { ...groq(FALLBACK_MODEL), onlyIfBadJson: true }];
     }
-    const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats, priority), priority);
+    const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats, priority, part), priority);
     if (!aiRes.ok) {
       const body = await aiRes.text();
       console.error("grok failed", aiRes.status, body);
@@ -276,6 +280,7 @@ export async function POST(req: Request) {
     // clamp bands, round to half bands
     let total = 0;
     for (const c of Object.values(result.criteria)) {
+      if (!c) continue;
       c.band = Math.min(BAND_MAX, Math.max(0, Math.round(c.band * 2) / 2));
       total += c.band;
     }
@@ -306,11 +311,11 @@ export async function POST(req: Request) {
     // 6. save (transcript + feedback only, never the audio)
     await admin
       .from("speaking_attempts")
-      .update({ status: "done", total_score: total, result: { transcript, stats: shownStats, result, tier }, audio_bytes: audioFile?.size, model: usedModel, priority, ...meta })
+      .update({ status: "done", total_score: total, result: { transcript, stats: shownStats, result, tier, part }, audio_bytes: audioFile?.size, model: usedModel, priority, ...meta })
       .eq("id", attemptId);
 
     const { attemptsLeft, packLeft } = await counts();
-    const body: AnalysisResponse = { attemptId, transcript, stats: shownStats, result, total, tier, attemptsLeft, packLeft };
+    const body: AnalysisResponse = { attemptId, transcript, stats: shownStats, result, total, tier, part, attemptsLeft, packLeft };
     return NextResponse.json(body);
   } catch (e) {
     console.error("speaking analyze error", e);

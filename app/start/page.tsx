@@ -6,7 +6,7 @@ export const metadata = { title: "Start here · Gary's Bookshelf", description: 
 export const revalidate = 300;
 
 const PLACES = [
-  { href: "/speaking", emoji: "🎤", title: "Speaking practice", text: "Pick a question, speak for 2 minutes, get a score and feedback from the AI. 2 free tries every day." },
+  { href: "/speaking", emoji: "🎤", title: "Speaking practice", text: "Pick a Part 2 or Part 3 question, speak for 1 or 2 minutes, get a score and feedback from the AI. 2 free tries every day." },
   { href: "/free-resources", emoji: "📥", title: "Free resources", text: "Sample notes and templates, no charge." },
   { href: "/content-hub", emoji: "💡", title: "Content hub", text: "Study tips and highlights from my videos." },
   { href: "/shop", emoji: "📝", title: "Shop", text: "Essay notes for English and BM, and Speaking packs for more attempts." },
@@ -17,7 +17,7 @@ const PLACES = [
 const SPEAKING_STEPS = [
   ["Sign up (free)", "You need an account so your results are saved. Your 2 free tries a day come with it."],
   ["Choose a theme and a question", "Tap a theme, then pick a question or tap Random question. Open the ideas bank if you are stuck."],
-  ["Plan for 30 seconds, then speak for 2 minutes", "Cover every bullet on the card. Do not stop early: very short answers cannot be marked well."],
+  ["Plan for 30 seconds, then speak", "Part 2 (cue card) is 1 minute and Part 3 (discussion) is 2 minutes. Cover every bullet or give your opinion with reasons. Do not stop early: very short answers cannot be marked well."],
   ["Read your report", "You get a score out of 24, how well you covered each point, your biggest problem and better words to use."],
   ["Fix one thing and try again", "Take the biggest problem, fix it, and do the same question again. That is how the score goes up."],
 ];

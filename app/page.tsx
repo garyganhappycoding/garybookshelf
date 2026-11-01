@@ -53,7 +53,7 @@ export default function HomePage() {
       {/* FEATURE CARDS */}
       <section className="max-w-5xl mx-auto px-5 pb-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <Card href="/speaking" title="SPM Speaking Practice" text="Pick a question, speak for 2 minutes, get your score out of 24 and what to fix. 2 free tries a day." tag="Free">
+          <Card href="/speaking" title="SPM Speaking Practice" text="Pick a Part 2 or Part 3 question, speak for 1 or 2 minutes, get your score out of 24 and what to fix. 2 free tries a day." tag="Free">
             <div className={`${mock} w-full max-w-[250px]`}>
               <p className="text-[11px] text-ink/50 mb-1">AI examiner</p>
               <p className="text-sm">Tell me about a film you enjoyed.</p>
