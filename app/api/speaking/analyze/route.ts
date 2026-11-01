@@ -38,6 +38,7 @@ async function callGrok(targets: Target[], messages: unknown, paid: boolean): Pr
   let res: Response | null = null;
   let used = targets[0].label ?? targets[0].model;
   let lastWasBadJson = false;
+  let thinFallback: { res: Response; model: string } | null = null;
   for (const t of targets) {
     if (t.onlyIfBadJson && !lastWasBadJson) continue;
     if (res) {
@@ -53,11 +54,34 @@ async function callGrok(targets: Target[], messages: unknown, paid: boolean): Pr
     // A model that returns JSON missing required fields answers 400 "failed_generation". That is a one-off
     // bad answer, not a bad request, so try again / try the next model like a busy error.
     const badJson = res.status === 400 && (await res.clone().text()).includes("failed_generation");
+    // Some models (the backup especially) return valid JSON that is nearly empty: every list [] and the comment "...".
+    // That is not a report, so a paying student's answer like that is thrown away and the next model is tried.
+    const thin = paid && res.ok && (await isThinReport(res.clone()));
     lastWasBadJson = badJson;
+    if (thin) {
+      console.warn("thin report from", used);
+      thinFallback = { res, model: used };
+      continue;
+    }
     if (res.ok || (res.status !== 429 && res.status < 500 && !badJson)) return { res, model: used };
     console.warn("grok busy or bad json", t.url, t.model, res.status);
   }
+  // every model gave a thin report: better a short report than none
+  if (thinFallback && res?.ok) return thinFallback;
   return { res: res!, model: used };
+}
+
+// A paid report must have the lists filled in. Checks the parts the page shows, not the wording.
+async function isThinReport(res: Response): Promise<boolean> {
+  try {
+    const body = await res.json();
+    const r = JSON.parse(body?.choices?.[0]?.message?.content ?? "{}");
+    const n = (k: string) => (Array.isArray(r[k]) ? r[k].length : 0);
+    const comment = String(r.overall_comment ?? "").trim();
+    return comment.length < 30 || n("problems") === 0 || n("covered_points") === 0 || n("vocab_upgrades") === 0 || n("essay_rewrite") === 0;
+  } catch {
+    return false; // unreadable here: leave it to the normal handling below
+  }
 }
 
 const err = (message: string, status: number, extra: Record<string, unknown> = {}) =>

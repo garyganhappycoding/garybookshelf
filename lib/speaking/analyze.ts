@@ -188,6 +188,7 @@ Rules:
 ${paid ? PAID_RULES : FREE_RULES}
 - vocab_upgrades: 5 to 8 SINGLE basic words the student used (good, nice, very, big, important), never multi-word phrases, each with 2-3 higher-band alternatives and a short example sentence.
 - covered_points: one entry for EACH item in the CHECKLIST below, saying whether the student did it.
+- Never leave a list empty and never answer "..." for overall_comment: fill in EVERY field with real content, even for a short or weak answer.
 - Write in simple, friendly English a Form 4 student can understand.`;
 
   const checklist = part === 3 ? PART3_CHECKLIST : card.points;
