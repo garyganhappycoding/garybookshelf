@@ -1,5 +1,6 @@
 import { signup } from "@/actions/auth";
 import Link from "next/link";
+import GoogleButton from "@/components/GoogleButton";
 
 export default async function SignupPage({
   searchParams,
@@ -11,6 +12,8 @@ export default async function SignupPage({
   return (
     <div className="max-w-sm mx-auto px-5 py-20">
       <h1 className="text-2xl font-medium mb-6">Create an account</h1>
+      <GoogleButton next={params.next} />
+      <p className="text-xs text-ink/40 text-center my-4">or sign up with email · 或用邮箱注册</p>
       <form action={signup} className="space-y-4">
         <input type="hidden" name="next" value={params.next ?? ""} />
         <div>

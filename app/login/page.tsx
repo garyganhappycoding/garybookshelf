@@ -1,5 +1,6 @@
 import { login } from "@/actions/auth";
 import Link from "next/link";
+import GoogleButton from "@/components/GoogleButton";
 
 export default async function LoginPage({
   searchParams,
@@ -11,6 +12,8 @@ export default async function LoginPage({
   return (
     <div className="max-w-sm mx-auto px-5 py-20">
       <h1 className="text-2xl font-medium mb-6">Log in</h1>
+      <GoogleButton next={params.next} />
+      <p className="text-xs text-ink/40 text-center my-4">or log in with email · 或用邮箱登录</p>
       <form action={login} className="space-y-4">
         <input type="hidden" name="next" value={params.next ?? ""} />
         <div>
