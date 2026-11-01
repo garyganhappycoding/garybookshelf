@@ -67,6 +67,7 @@ export default function SpeakingPractice({
   const [card, setCard] = useState<Card | null>(null);
   // Part 2 = cue card, 1 minute. Part 3 = discussion question, 2 minutes.
   const [part, setPart] = useState<Part>(2);
+  const [onlyUncommon, setOnlyUncommon] = useState(false); // 冷门题 only
   const partRef = useRef<Part>(2);
   partRef.current = part;
   const [showIdeas, setShowIdeas] = useState(true);
@@ -114,10 +115,17 @@ export default function SpeakingPractice({
     setError(null);
     setStage("card");
   }
+  // a random 冷门题 from any theme
+  function randomUncommon() {
+    const list = cards.filter((c) => c.uncommon);
+    const c = list[Math.floor(Math.random() * list.length)];
+    setTheme(getTheme(c.theme));
+    chooseCard(c);
+  }
   function randomCard() {
     if (!theme) return;
-    const list = cards.filter((c) => c.theme === theme.id && c.id !== card?.id);
-    chooseCard(list[Math.floor(Math.random() * list.length)]);
+    const list = cards.filter((c) => c.theme === theme.id && c.id !== card?.id && (!onlyUncommon || c.uncommon));
+    if (list.length) chooseCard(list[Math.floor(Math.random() * list.length)]);
   }
 
   async function beginPrep() {
@@ -360,13 +368,14 @@ export default function SpeakingPractice({
           ))}
         </div>
         <h2 className="text-lg font-medium mb-1">Choose a theme</h2>
-        <p className="text-sm text-ink/60 mb-4">Pick a theme, then a question (or get a random one).</p>
+        <p className="text-sm text-ink/60 mb-3">Pick a theme, then a question (or get a random one).</p>
+        <button onClick={randomUncommon} className="btn-secondary !py-1.5 text-sm mb-4">🎲 Random 冷门题 (uncommon topic)</button>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           {themes.map((t) => (
             <button key={t.id} onClick={() => pickTheme(t)} className="card text-left hover:border-clay-400 transition-colors">
               <span className="text-2xl">{t.emoji}</span>
               <p className="font-medium mt-1">{t.name}</p>
-              <p className="text-xs text-ink/50">{cards.filter((c) => c.theme === t.id).length} questions</p>
+              <p className="text-xs text-ink/50">{cards.filter((c) => c.theme === t.id).length} questions · {cards.filter((c) => c.theme === t.id && c.uncommon).length} 冷门</p>
             </button>
           ))}
         </div>
@@ -380,11 +389,25 @@ export default function SpeakingPractice({
         <h2 className="text-lg font-medium mb-3">
           {theme.emoji} {theme.name}
         </h2>
-        <button className="btn-primary mb-4" onClick={randomCard}>🎲 Random question</button>
+        <button className="btn-primary mb-3" onClick={randomCard}>🎲 Random question</button>
+        <div className="flex gap-2 mb-4 text-sm">
+          {([false, true] as const).map((u) => (
+            <button
+              key={String(u)}
+              onClick={() => setOnlyUncommon(u)}
+              className={`px-3 py-1 rounded-full border ${onlyUncommon === u ? "border-clay-600 bg-clay-600 text-white" : "border-ink/15"}`}
+            >
+              {u ? "冷门题 only" : "All questions"}
+            </button>
+          ))}
+        </div>
         <div className="space-y-2">
-          {cards.filter((c) => c.theme === theme.id).map((c) => (
+          {cards.filter((c) => c.theme === theme.id && (!onlyUncommon || c.uncommon)).map((c) => (
             <button key={c.id} onClick={() => chooseCard(c)} className="card w-full text-left hover:border-clay-400 transition-colors !py-3">
-              <p className="font-medium">{c.title}</p>
+              <p className="font-medium">
+                {c.title}
+                {c.uncommon && <span className="ml-2 text-[11px] font-medium bg-clay-600 text-white px-2 py-0.5 rounded-full align-middle">冷门</span>}
+              </p>
               <p className="text-sm text-ink/60">{part === 3 ? c.discussion : c.prompt}</p>
             </button>
           ))}
@@ -474,7 +497,7 @@ function CueCard({ card, part }: { card: Card; part: Part }) {
   if (part === 3)
     return (
       <div className="bg-white border-2 border-ink/20 rounded-lg p-5 shadow-sm">
-        <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Part 3 · Discussion · 2 minutes</p>
+        <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Part 3 · Discussion · 2 minutes{card.uncommon ? " · 冷门题" : ""}</p>
         <h2 className="text-xl font-bold mb-2">{card.title}</h2>
         <p className="font-semibold text-lg mb-3">{card.discussion}</p>
         <p className="font-semibold mb-1">A good answer:</p>
@@ -487,7 +510,7 @@ function CueCard({ card, part }: { card: Card; part: Part }) {
     );
   return (
     <div className="bg-white border-2 border-ink/20 rounded-lg p-5 shadow-sm">
-      <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Part 2 · Candidate booklet · 1 minute</p>
+      <p className="text-xs uppercase tracking-wide text-ink/50 mb-1">Part 2 · Candidate booklet · 1 minute{card.uncommon ? " · 冷门题" : ""}</p>
       <h2 className="text-xl font-bold mb-2">{card.title}</h2>
       <p className="font-semibold mb-3">{card.prompt}</p>
       <p className="font-semibold mb-1">You should say:</p>

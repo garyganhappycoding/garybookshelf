@@ -1,6 +1,8 @@
 // Part 2 cue cards from the speaking question bank (individual long turn).
 // `n` is the page number in the source PDF, used to build a stable id.
 
+import { UNCOMMON } from "./uncommon";
+
 export type ThemeId =
   | "family"
   | "tech"
@@ -21,6 +23,7 @@ export type Card = {
   prompt: string;
   points: string[]; // "You should say" bullets (Part 2)
   discussion: string; // the Part 3 discussion question for this topic
+  uncommon?: boolean; // 冷门题: a topic that rarely comes out in SPM or trial papers
 };
 
 type Raw = [n: number, theme: ThemeId, title: string, prompt: string, points: string[]];
@@ -177,7 +180,7 @@ const PART3: Record<number, string> = {
 // safety net for a card without a written question: turn its last bullet into a plain discussion prompt
 const fallbackQuestion = (points: string[]) => `Give your opinion: ${points[points.length - 1].replace(/\?$/, "")}. Explain your reasons.`;
 
-export const cards: Card[] = raw.map(([n, theme, title, prompt, points]) => ({
+const mainCards: Card[] = raw.map(([n, theme, title, prompt, points]) => ({
   id: `p2-${n}`,
   theme,
   title,
@@ -185,6 +188,19 @@ export const cards: Card[] = raw.map(([n, theme, title, prompt, points]) => ({
   points,
   discussion: PART3[n] ?? fallbackQuestion(points),
 }));
+
+// the uncommon (冷门) set, added after the main bank
+const uncommonCards: Card[] = UNCOMMON.map(([theme, title, prompt, points, discussion], i) => ({
+  id: `u-${i + 1}`,
+  theme,
+  title,
+  prompt,
+  points,
+  discussion,
+  uncommon: true,
+}));
+
+export const cards: Card[] = [...mainCards, ...uncommonCards];
 
 export const getCard = (id: string) => cards.find((c) => c.id === id);
 
