@@ -20,9 +20,12 @@ export default function RedownloadRequest({ orderId, alreadyRequested }: { order
   return (
     <div className="mt-2">
       {!open ? (
-        <button type="button" onClick={() => setOpen(true)} className="text-sm text-clay-700 underline">
-          A file failed or need to download again? Request re-download · 下载失败／需要重新下载？
-        </button>
+        <div>
+          <p className="text-xs text-ink/60 mb-2">A file failed, or you need to download again? · 下载失败或需要重新下载？</p>
+          <button type="button" onClick={() => setOpen(true)} className="btn-secondary !py-2 text-sm w-full sm:w-auto">
+            🔁 Request re-download · 申请重新下载
+          </button>
+        </div>
       ) : (
         <div className="space-y-2">
           <p className="text-sm">Tell Gary what happened (optional) · 简单说明情况（可选）</p>
