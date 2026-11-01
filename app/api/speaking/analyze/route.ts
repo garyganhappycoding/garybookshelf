@@ -4,7 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { getCard } from "@/lib/speaking/cards";
 import { checkTryLimits } from "@/lib/speaking/limits";
 import { PART_INFO, toPart, type Part } from "@/lib/speaking/parts";
-import { alertPaidFailure } from "@/lib/speaking/alerts";
+import { alertPaidFailure, alertThinReport } from "@/lib/speaking/alerts";
 import type { FailReason } from "@/lib/speaking/fail-reasons";
 import {
   BAND_MAX,
@@ -34,11 +34,12 @@ const FALLBACK_MODEL = "openai/gpt-oss-20b"; // separate rate limits; used when 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 // Try each target in turn (waiting briefly after a rate limit / server error) and report which model answered.
-async function callGrok(targets: Target[], messages: unknown, paid: boolean): Promise<{ res: Response; model: string }> {
+async function callGrok(targets: Target[], messages: unknown, paid: boolean): Promise<{ res: Response; model: string; thinModels: string[]; stillThin: boolean }> {
   let res: Response | null = null;
   let used = targets[0].label ?? targets[0].model;
   let lastWasBadJson = false;
   let thinFallback: { res: Response; model: string } | null = null;
+  const thinModels: string[] = [];
   for (const t of targets) {
     if (t.onlyIfBadJson && !lastWasBadJson) continue;
     if (res) {
@@ -61,14 +62,15 @@ async function callGrok(targets: Target[], messages: unknown, paid: boolean): Pr
     if (thin) {
       console.warn("thin report from", used);
       thinFallback = { res, model: used };
+      thinModels.push(used);
       continue;
     }
-    if (res.ok || (res.status !== 429 && res.status < 500 && !badJson)) return { res, model: used };
+    if (res.ok || (res.status !== 429 && res.status < 500 && !badJson)) return { res, model: used, thinModels, stillThin: false };
     console.warn("grok busy or bad json", t.url, t.model, res.status);
   }
-  // every model gave a thin report: better a short report than none
-  if (thinFallback && res?.ok) return thinFallback;
-  return { res: res!, model: used };
+  // no model gave a full report; a thin one is better than none
+  if (thinFallback) return { ...thinFallback, thinModels, stillThin: true };
+  return { res: res!, model: used, thinModels, stillThin: false };
 }
 
 // A paid report must have the lists filled in. Checks the parts the page shows, not the wording.
@@ -323,7 +325,7 @@ export async function POST(req: Request) {
       // (one extra go only when the model answered with broken JSON, which is a one-off and costs no rate-limit wait)
       targets = [groq(FALLBACK_MODEL), { ...groq(FALLBACK_MODEL), onlyIfBadJson: true }];
     }
-    const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats, paidRun, part), paidRun);
+    const { res: aiRes, model: usedModel, thinModels, stillThin } = await callGrok(targets, buildMessages(card, transcript, stats, paidRun, part), paidRun);
     if (!aiRes.ok) {
       const body = await aiRes.text();
       console.error("grok failed", aiRes.status, body);
@@ -402,6 +404,9 @@ export async function POST(req: Request) {
         .update({ status: "done", total_score: total, result: { transcript, stats: shownStats, result, tier, part }, audio_bytes: audioFile?.size, model: usedModel, priority, ...meta })
         .eq("id", attemptId);
     }
+
+    // tell Gary when a paying student's AI gave a nearly empty answer (even if another model then did better)
+    if (paidRun && thinModels.length) after(() => alertThinReport(attemptId!, thinModels, usedModel, stillThin, user.email, transcript));
 
     const { attemptsLeft, packLeft } = await counts();
     const body: AnalysisResponse = { attemptId: attemptId!, transcript, stats: shownStats, result, total, tier, part, edited: remark ? true : undefined, attemptsLeft, packLeft };
