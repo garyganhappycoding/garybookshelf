@@ -1,9 +1,10 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { getCard } from "@/lib/speaking/cards";
 import { checkTryLimits } from "@/lib/speaking/limits";
 import { PART_INFO, toPart, type Part } from "@/lib/speaking/parts";
+import { alertPaidFailure } from "@/lib/speaking/alerts";
 import type { FailReason } from "@/lib/speaking/fail-reasons";
 import {
   BAND_MAX,
@@ -153,6 +154,8 @@ export async function POST(req: Request) {
   // `reason` is stored so the admin page can show WHY it failed (see FAIL_REASONS in lib/speaking/fail-reasons.ts)
   // `keep` saves the transcript on the failed row so the student can retry the marking without recording again.
   const fail = async (reason: FailReason, message: string, status: number, detail?: string, keep?: SavedTranscript, retryAfter?: number) => {
+    // a paying student should never be left stuck: tell Gary (at most every 10 minutes) when the AI side failed for one
+    if (priority && ["ai_busy", "ai_error", "stt_error"].includes(reason)) after(() => alertPaidFailure(reason, detail, user.email));
     await admin
       .from("speaking_attempts")
       .update({

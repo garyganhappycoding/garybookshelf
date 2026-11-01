@@ -9,7 +9,8 @@ export type Target = {
   onlyIfBadJson?: boolean; // only used when the previous answer was malformed JSON (free students get one more go at that, never a retry on a busy AI)
 };
 
-export const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+// GROQ_CHAT_URL is only for tests (point it at a fake server to rehearse a Groq outage); in production it is unset.
+export const GROQ_URL = process.env.GROQ_CHAT_URL || "https://api.groq.com/openai/v1/chat/completions";
 export const CEREBRAS_URL = "https://api.cerebras.ai/v1/chat/completions";
 export const OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 
