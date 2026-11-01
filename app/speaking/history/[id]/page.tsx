@@ -25,13 +25,14 @@ export default async function SpeakingHistoryDetailPage({ params }: { params: Pr
   const card = attempt ? getCard(attempt.card_id) : undefined;
   if (!attempt || attempt.status !== "done" || !attempt.result || !card) notFound();
 
-  const stored = attempt.result as { transcript: string; stats: AnalysisResponse["stats"]; result: AnalysisResponse["result"]; tier?: "free" | "paid" };
+  const stored = attempt.result as { transcript: string; stats: AnalysisResponse["stats"]; result: AnalysisResponse["result"]; tier?: "free" | "paid"; edited?: boolean };
   const data: AnalysisResponse = {
     attemptId: attempt.id,
     transcript: stored.transcript,
     stats: stored.stats,
     result: stored.result,
     tier: stored.tier,
+    edited: stored.edited,
     part: (attempt as { part?: number }).part === 3 ? 3 : 2,
     total: Number(attempt.total_score ?? 0),
     attemptsLeft: 0,

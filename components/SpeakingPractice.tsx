@@ -651,7 +651,62 @@ function PlaybackPlayer({ url }: { url: string }) {
   );
 }
 
-export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry, onOtherPart }: { data: AnalysisResponse; card: Card; audioUrl?: string | null; onAgain?: () => void; onThemes?: () => void; canRetry?: boolean; onOtherPart?: () => void }) {
+// Speech-to-text sometimes hears words wrongly. The student can fix them once, and the same attempt is marked again.
+function TranscriptFixer({ data, onFixed }: { data: AnalysisResponse; onFixed: (d: AnalysisResponse) => void }) {
+  const [open, setOpen] = useState(false);
+  const [text, setText] = useState(data.transcript);
+  const [busy, setBusy] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function submit() {
+    setBusy(true);
+    setError(null);
+    try {
+      const form = new FormData();
+      form.append("remarkAttemptId", data.attemptId);
+      form.append("transcript", text);
+      const res = await fetch("/api/speaking/analyze", { method: "POST", body: form });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        setError(json.error ?? "Something went wrong. Please try again.");
+      } else {
+        onFixed(json as AnalysisResponse);
+        setOpen(false);
+      }
+    } catch {
+      setError("No connection. Please try again.");
+    }
+    setBusy(false);
+  }
+
+  if (data.edited)
+    return <p className="text-xs text-sage-600 mt-3">✅ You corrected this transcript and it was marked again. (You can correct each attempt once.)</p>;
+  if (!open)
+    return (
+      <button type="button" onClick={() => setOpen(true)} className="btn-secondary !py-1.5 text-sm mt-3">
+        ✏️ Something heard wrongly? Fix the transcript · 听错了？修改文字
+      </button>
+    );
+  return (
+    <div className="mt-3 space-y-2">
+      <p className="text-xs text-ink/60">
+        Change only the words that were heard wrongly, so the text matches what you really said (keep your own grammar mistakes). Your answer is then marked again.
+        You can do this once. It does not use another attempt. · 只改听错的字，保持你原本说的内容，系统会重新评分。每次练习只能修改一次，不会扣次数。
+      </p>
+      <textarea value={text} onChange={(e) => setText(e.target.value)} rows={8} maxLength={5000} className="w-full border border-ink/15 rounded-xl px-3 py-2 text-sm bg-white" />
+      {error && <p className="text-sm text-red-600">{error}</p>}
+      <div className="flex items-center gap-3">
+        <button type="button" disabled={busy || text.trim() === data.transcript.trim()} onClick={submit} className="btn-primary !py-1.5 text-sm disabled:opacity-50">
+          {busy ? "Marking again… (about 20 seconds)" : "Save and mark again"}
+        </button>
+        <button type="button" disabled={busy} onClick={() => { setOpen(false); setText(data.transcript); setError(null); }} className="text-sm text-ink/50">Cancel</button>
+      </div>
+    </div>
+  );
+}
+
+export function Result({ data: initial, card, audioUrl, onAgain, onThemes, canRetry, onOtherPart }: { data: AnalysisResponse; card: Card; audioUrl?: string | null; onAgain?: () => void; onThemes?: () => void; canRetry?: boolean; onOtherPart?: () => void }) {
+  const [data, setData] = useState(initial); // starts as the report passed in; replaced when the student corrects the transcript
   const { result, stats, total } = data;
   const free = data.tier === "free"; // older reports have no tier and are shown in full
   const keys = criterionOrder(Object.keys(result.criteria));
@@ -708,6 +763,7 @@ export function Result({ data, card, audioUrl, onAgain, onThemes, canRetry, onOt
           <span className="bg-amber-100 text-amber-800 rounded px-1">repeated words</span>
         </p>
         <HighlightedTranscript data={data} />
+        <TranscriptFixer data={data} onFixed={(d) => setData({ ...d, part: d.part ?? data.part })} />
         {free ? (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 text-center text-xs">
             <Stat label="Words" value={String(stats.wordCount)} />

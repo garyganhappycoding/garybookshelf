@@ -315,6 +315,7 @@ export type AnalysisResponse = {
   total: number;
   part?: Part; // missing on older reports, which were all Part 2
   tier?: "free" | "paid"; // missing on older reports, which are shown in full
+  edited?: boolean; // the student corrected the transcript and the report was marked again (allowed once per attempt)
   attemptsLeft: number; // free attempts left today
   packLeft?: number; // attempts left in a paid pack
 };

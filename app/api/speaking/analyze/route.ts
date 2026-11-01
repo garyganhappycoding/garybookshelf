@@ -78,11 +78,33 @@ async function isThinReport(res: Response): Promise<boolean> {
     const r = JSON.parse(body?.choices?.[0]?.message?.content ?? "{}");
     const n = (k: string) => (Array.isArray(r[k]) ? r[k].length : 0);
     const comment = String(r.overall_comment ?? "").trim();
-    return comment.length < 30 || n("problems") === 0 || n("covered_points") === 0 || n("vocab_upgrades") === 0 || n("essay_rewrite") === 0;
+    const thin = comment.length < 30 || n("problems") === 0 || n("covered_points") === 0 || n("vocab_upgrades") === 0 || n("essay_rewrite") === 0;
+    if (thin) console.warn("thin report details", { provider: body?.provider, finish: body?.choices?.[0]?.finish_reason, tokens: body?.usage }); // OpenRouter names the company that served the model
+    return thin;
   } catch {
     return false; // unreadable here: leave it to the normal handling below
   }
 }
+
+// The corrected transcript may fix words but not become a different answer: similar length, and most words must already be in the original.
+function checkEditedTranscript(original: string, edited: string): string | null {
+  const tok = (s: string) => s.toLowerCase().split(/\s+/).map((w) => w.replace(/[^a-z0-9']/g, "")).filter(Boolean);
+  const a = tok(original);
+  const b = tok(edited);
+  if (b.length < PART_MIN_EDIT_WORDS) return "The transcript is too short.";
+  if (b.length < a.length * 0.75 || b.length > a.length * 1.25) return "Please only fix the words that were heard wrongly. Do not add or remove sentences.";
+  const pool = new Map<string, number>();
+  for (const w of a) pool.set(w, (pool.get(w) ?? 0) + 1);
+  let missing = 0;
+  for (const w of b) {
+    const n = pool.get(w) ?? 0;
+    if (n > 0) pool.set(w, n - 1);
+    else missing++;
+  }
+  if (missing > b.length * 0.3) return "That is too different from what was recorded. Please only fix the words that were heard wrongly.";
+  return null;
+}
+const PART_MIN_EDIT_WORDS = 10;
 
 const err = (message: string, status: number, extra: Record<string, unknown> = {}) =>
   NextResponse.json({ error: message, ...extra }, { status });
@@ -153,6 +175,31 @@ export async function POST(req: Request) {
     prevId = prev.id;
   }
 
+  // A student fixes words the speech-to-text got wrong and the SAME attempt is marked again: no new attempt is used, it can
+  // be done once per attempt, and the corrected text must stay close to the original so it cannot be rewritten into a better answer.
+  const remarkId = String(form.get("remarkAttemptId") ?? "");
+  let remark: { id: string; tier: "free" | "paid"; original: string; stats: ReturnType<typeof computeStats> } | null = null;
+  if (remarkId) {
+    const { data: prev } = await admin
+      .from("speaking_attempts")
+      .select("id,card_id,part,status,result,created_at")
+      .eq("id", remarkId)
+      .eq("user_id", user.id)
+      .maybeSingle();
+    const s = prev?.result as { transcript?: string; stats?: ReturnType<typeof computeStats>; tier?: "free" | "paid"; edited?: boolean } | null | undefined;
+    if (!prev || prev.status !== "done" || !s?.transcript || !s.stats) return err("That attempt could not be found.", 404);
+    if (s.edited) return err("You already corrected this transcript once. Record a new attempt to try again.", 409);
+    if (Date.now() - new Date(prev.created_at).getTime() > SAVED_TRANSCRIPT_HOURS * 3600 * 1000) return err("This attempt is too old to be corrected.", 410);
+    const edited = String(form.get("transcript") ?? "").replace(/\u0000/g, "").trim().slice(0, 5000);
+    const problem = checkEditedTranscript(s.transcript, edited);
+    if (problem) return err(problem, 400);
+    cardId = prev.card_id;
+    part = toPart((prev as { part?: number }).part);
+    remark = { id: prev.id, tier: s.tier === "free" ? "free" : "paid", original: s.transcript, stats: s.stats };
+    saved = { transcript: edited, stats: { ...computeStats(edited, [], s.stats.durationSec), longPauses: s.stats.longPauses, longestPauseSec: s.stats.longestPauseSec }, duration: s.stats.durationSec };
+  }
+  const paidRun = remark ? remark.tier === "paid" : priority; // a corrected report keeps the tier it was first made in
+
   const card = getCard(cardId);
   const audio = saved ? null : form.get("audio");
   if (!card) return err("Unknown question.", 400);
@@ -163,23 +210,30 @@ export async function POST(req: Request) {
   const audioFile = audio instanceof File ? audio : null;
 
   // 3. claim one of today's 2 attempts (atomic, enforced in the database)
-  const { data: attemptId, error: claimErr } = await supabase.rpc("claim_speaking_attempt", {
-    p_card: card.id,
-    p_limit: DAILY_LIMIT,
-  });
-  if (claimErr) return err("Could not start the attempt. Please try again.", 500);
-  if (!attemptId)
-    return err("You've used today's 2 free attempts. Get a Speaking pack for more, or come back tomorrow!", 429, { attemptsLeft: 0, packLeft: 0, needPack: true });
-  await admin.from("speaking_attempts").update({ part }).eq("id", attemptId);
-  // the saved transcript moves to the new attempt, so it can only be used once
-  if (prevId) await admin.from("speaking_attempts").update({ result: null }).eq("id", prevId);
+  // (a corrected transcript re-marks the attempt it came from and claims nothing)
+  let attemptId: string | null = remark?.id ?? null;
+  if (!remark) {
+    const { data: claimed, error: claimErr } = await supabase.rpc("claim_speaking_attempt", {
+      p_card: card.id,
+      p_limit: DAILY_LIMIT,
+    });
+    if (claimErr) return err("Could not start the attempt. Please try again.", 500);
+    if (!claimed)
+      return err("You've used today's 2 free attempts. Get a Speaking pack for more, or come back tomorrow!", 429, { attemptsLeft: 0, packLeft: 0, needPack: true });
+    attemptId = claimed as string;
+    await admin.from("speaking_attempts").update({ part }).eq("id", attemptId);
+    // the saved transcript moves to the new attempt, so it can only be used once
+    if (prevId) await admin.from("speaking_attempts").update({ result: null }).eq("id", prevId);
+  }
 
   const meta: { duration_sec?: number; word_count?: number } = {};
   // `reason` is stored so the admin page can show WHY it failed (see FAIL_REASONS in lib/speaking/fail-reasons.ts)
   // `keep` saves the transcript on the failed row so the student can retry the marking without recording again.
   const fail = async (reason: FailReason, message: string, status: number, detail?: string, keep?: SavedTranscript, retryAfter?: number) => {
     // a paying student should never be left stuck: tell Gary (at most every 10 minutes) when the AI side failed for one
-    if (priority && ["ai_busy", "ai_error", "stt_error"].includes(reason)) after(() => alertPaidFailure(reason, detail, user.email));
+    if (paidRun && ["ai_busy", "ai_error", "stt_error"].includes(reason)) after(() => alertPaidFailure(reason, detail, user.email));
+    // a failed correction leaves the original report exactly as it was, and the student can try again
+    if (remark) return err("The AI could not re-mark it right now. Your original report is unchanged. Please try again in a moment.", status, { ...(retryAfter ? { retryAfter } : {}) });
     await admin
       .from("speaking_attempts")
       .update({
@@ -260,7 +314,7 @@ export async function POST(req: Request) {
     // Free students start on the lighter model and only borrow the main one while today's shared allowance has room.
     const groq = (model: string): Target => ({ url: GROQ_URL, key: apiKey, model, kind: "groq" });
     let targets: Target[];
-    if (priority) {
+    if (paidRun) {
       // main model, then the BACKUP right away (the lighter model's allowance is used up by free students first), then Groq again.
       // The backup is only ever in this paid list: free students never reach it.
       targets = [groq(MODEL), ...backupTargets(), groq(MODEL), groq(FALLBACK_MODEL), groq(MODEL)];
@@ -269,7 +323,7 @@ export async function POST(req: Request) {
       // (one extra go only when the model answered with broken JSON, which is a one-off and costs no rate-limit wait)
       targets = [groq(FALLBACK_MODEL), { ...groq(FALLBACK_MODEL), onlyIfBadJson: true }];
     }
-    const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats, priority, part), priority);
+    const { res: aiRes, model: usedModel } = await callGrok(targets, buildMessages(card, transcript, stats, paidRun, part), paidRun);
     if (!aiRes.ok) {
       const body = await aiRes.text();
       console.error("grok failed", aiRes.status, body);
@@ -315,8 +369,8 @@ export async function POST(req: Request) {
     // Free and paid reports differ in what is STORED, not just what is shown: students can read their own attempt rows,
     // so anything locked is removed here before saving. Free reports keep the score, comment, checklist, the top problem,
     // vocabulary upgrades, the transcript and the repeated words. Paid reports keep everything.
-    const tier: "free" | "paid" = priority ? "paid" : "free";
-    if (!priority) {
+    const tier: "free" | "paid" = paidRun ? "paid" : "free";
+    if (!paidRun) {
       result.problems = (result.problems ?? []).slice(0, 1);
       delete result.phrase_upgrades;
       delete result.essay_rewrite;
@@ -327,22 +381,30 @@ export async function POST(req: Request) {
       const offered = pickEssayPhrases(card);
       result.essay_rewrite = result.essay_rewrite.map((r) => ({ ...r, phrases_used: verifyUsedPhrases(r.phrases_used, r.upgraded, offered) }));
     }
-    if (priority) {
+    if (paidRun) {
       const usedPhrases = (result.essay_rewrite ?? []).flatMap((r) => r.phrases_used.map((p) => p.phrase));
       result.essay_toolkit = pickToolkit(card, usedPhrases);
     }
-    const shownStats = priority
+    const shownStats = paidRun
       ? stats
       : { ...stats, wordsPerMinute: 0, longPauses: 0, longestPauseSec: 0, fillerCount: 0, fillers: [], repeatedPhrases: [] };
 
     // 6. save (transcript + feedback only, never the audio)
-    await admin
-      .from("speaking_attempts")
-      .update({ status: "done", total_score: total, result: { transcript, stats: shownStats, result, tier, part }, audio_bytes: audioFile?.size, model: usedModel, priority, ...meta })
-      .eq("id", attemptId);
+    if (remark) {
+      // same attempt, same tier: only the transcript, the report and the score change (the original words are kept)
+      await admin
+        .from("speaking_attempts")
+        .update({ total_score: total, result: { transcript, originalTranscript: remark.original, edited: true, stats: shownStats, result, tier, part }, model: usedModel, word_count: meta.word_count })
+        .eq("id", remark.id);
+    } else {
+      await admin
+        .from("speaking_attempts")
+        .update({ status: "done", total_score: total, result: { transcript, stats: shownStats, result, tier, part }, audio_bytes: audioFile?.size, model: usedModel, priority, ...meta })
+        .eq("id", attemptId);
+    }
 
     const { attemptsLeft, packLeft } = await counts();
-    const body: AnalysisResponse = { attemptId, transcript, stats: shownStats, result, total, tier, part, attemptsLeft, packLeft };
+    const body: AnalysisResponse = { attemptId: attemptId!, transcript, stats: shownStats, result, total, tier, part, edited: remark ? true : undefined, attemptsLeft, packLeft };
     return NextResponse.json(body);
   } catch (e) {
     console.error("speaking analyze error", e);
