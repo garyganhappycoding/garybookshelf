@@ -83,3 +83,33 @@ export async function allowRedownload(orderId: string): Promise<OrderActionResul
   revalidatePath("/dashboard");
   return error ? { ok: false, message: error.message } : { ok: true, message: "Done. The student can download each file once more." };
 }
+
+// Admin-only: checks that each backup AI key in Vercel really works with the same strict JSON format the marker uses.
+export async function testBackupAi(): Promise<{ lines: { label: string; ok: boolean; note: string }[] }> {
+  await requireAdmin();
+  const { backupTargets, requestBody } = await import("@/lib/speaking/providers");
+  const targets = backupTargets();
+  if (!targets.length) return { lines: [{ label: "Backup AI", ok: false, note: "No backup key is set in Vercel yet (OPENROUTER_API_KEY or CEREBRAS_API_KEY)." }] };
+
+  const schema = { type: "object", properties: { ok: { type: "boolean" }, word: { type: "string" } }, required: ["ok", "word"], additionalProperties: false };
+  const messages = [{ role: "user", content: 'Return ok true and the word "ready".' }];
+  const lines: { label: string; ok: boolean; note: string }[] = [];
+  for (const t of targets) {
+    const label = t.label ?? t.model;
+    const started = Date.now();
+    try {
+      const res = await fetch(t.url, { method: "POST", headers: { Authorization: `Bearer ${t.key}`, "Content-Type": "application/json" }, body: requestBody(t, messages, schema, "backup_test") });
+      const text = await res.text();
+      if (!res.ok) {
+        lines.push({ label, ok: false, note: `${res.status}: ${text.slice(0, 220)}` });
+        continue;
+      }
+      const content = JSON.parse(text)?.choices?.[0]?.message?.content ?? "";
+      const parsed = JSON.parse(content);
+      lines.push({ label, ok: parsed?.ok === true, note: parsed?.ok === true ? `works (${Date.now() - started} ms)` : `answered but not as expected: ${content.slice(0, 120)}` });
+    } catch (e) {
+      lines.push({ label, ok: false, note: e instanceof Error ? e.message : String(e) });
+    }
+  }
+  return { lines };
+}

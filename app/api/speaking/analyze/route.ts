@@ -13,6 +13,7 @@ import {
   type SpeakingResult,
   type SttWord,
 } from "@/lib/speaking/analyze";
+import { backupTargets, GROQ_URL, requestBody, type Target } from "@/lib/speaking/providers";
 import { pickEssayPhrases, pickToolkit, verifyUsedPhrases } from "@/lib/speaking/essay-vocab";
 
 export const runtime = "nodejs";
@@ -28,18 +29,13 @@ const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const FALLBACK_MODEL = "openai/gpt-oss-20b"; // separate rate limits; used when the main model is busy
 // Free students use the lighter model only. The strong model's daily allowance (200,000 tokens in a rolling 24 hours on
 // Groq's free plan) is kept for paying students, who get the full report.
-const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
-const CEREBRAS_URL = "https://api.cerebras.ai/v1/chat/completions";
-
-// onlyIfBadJson: only used when the previous answer was malformed JSON (a free student gets one more go at that, but a busy AI is never retried)
-type Target = { url: string; key: string; model: string; onlyIfBadJson?: boolean };
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 // Try each target in turn (waiting briefly after a rate limit / server error) and report which model answered.
 async function callGrok(targets: Target[], messages: unknown, paid: boolean): Promise<{ res: Response; model: string }> {
   let res: Response | null = null;
-  let used = targets[0].model;
+  let used = targets[0].label ?? targets[0].model;
   let lastWasBadJson = false;
   for (const t of targets) {
     if (t.onlyIfBadJson && !lastWasBadJson) continue;
@@ -47,17 +43,11 @@ async function callGrok(targets: Target[], messages: unknown, paid: boolean): Pr
       const wait = Math.min(Number(res.headers.get("retry-after")) || 2, 5);
       await sleep(wait * 1000);
     }
-    used = t.model;
+    used = t.label ?? t.model;
     res = await fetch(t.url, {
       method: "POST",
       headers: { Authorization: `Bearer ${t.key}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: t.model,
-        messages,
-        temperature: 0.2,
-        reasoning_effort: "low",
-        response_format: { type: "json_schema", json_schema: { name: "speaking_feedback", schema: buildResultSchema(paid), strict: true } },
-      }),
+      body: requestBody(t, messages, buildResultSchema(paid)),
     });
     // A model that returns JSON missing required fields answers 400 "failed_generation". That is a one-off
     // bad answer, not a bad request, so try again / try the next model like a busy error.
@@ -198,11 +188,15 @@ export async function POST(req: Request) {
       // a prompt with fillers nudges Whisper to keep "um/uh" instead of silently dropping them
       stt.append("prompt", "Umm, let me think, uh, like, you know, I mean, er, well...");
       stt.append("file", audioFile!, audioFile!.name || "speech.webm");
-      const sttRes = await fetch("https://api.groq.com/openai/v1/audio/transcriptions", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${apiKey}` },
-        body: stt,
-      });
+      const transcribe = (model: string) => {
+        const form = new FormData();
+        for (const [k, v] of stt.entries()) form.append(k, k === "model" ? model : v);
+        return fetch("https://api.groq.com/openai/v1/audio/transcriptions", { method: "POST", headers: { Authorization: `Bearer ${apiKey}` }, body: form });
+      };
+      let sttRes = await transcribe("whisper-large-v3-turbo");
+      // The turbo model has a daily limit shared by everyone. When it is used up, paying students switch to the standard
+      // Whisper model, which has its own separate allowance that free students never touch.
+      if (!sttRes.ok && priority && (sttRes.status === 429 || sttRes.status >= 500)) sttRes = await transcribe("whisper-large-v3");
       if (!sttRes.ok) {
         const body = await sttRes.text();
         console.error("stt failed", sttRes.status, body);
@@ -233,12 +227,12 @@ export async function POST(req: Request) {
     const keep: SavedTranscript = { transcript, stats, duration };
     // Paying students go first: the main model with extra retries, then the lighter model, then Cerebras if a key is set.
     // Free students start on the lighter model and only borrow the main one while today's shared allowance has room.
-    const groq = (model: string): Target => ({ url: GROQ_URL, key: apiKey, model });
-    const cerebrasKey = process.env.CEREBRAS_API_KEY;
+    const groq = (model: string): Target => ({ url: GROQ_URL, key: apiKey, model, kind: "groq" });
     let targets: Target[];
     if (priority) {
-      targets = [groq(MODEL), groq(MODEL), groq(FALLBACK_MODEL), groq(MODEL)];
-      if (cerebrasKey) targets.splice(3, 0, { url: CEREBRAS_URL, key: cerebrasKey, model: "gpt-oss-120b" });
+      // main model, then the BACKUP right away (the lighter model's allowance is used up by free students first), then Groq again.
+      // The backup is only ever in this paid list: free students never reach it.
+      targets = [groq(MODEL), ...backupTargets(), groq(MODEL), groq(FALLBACK_MODEL), groq(MODEL)];
     } else {
       // one try, on the lighter model only: a busy AI is not made busier by retries from free students
       // (one extra go only when the model answered with broken JSON, which is a one-off and costs no rate-limit wait)
