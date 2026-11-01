@@ -24,7 +24,7 @@ function Card({ href, title, text, children, tag }: { href: string; title: strin
 const FAQ = [
   ["Who is Gary?", "I'm Gary, the person behind @gary_bookshelf (52k+ followers). I got 4.00 flat in matriculation and I share the study systems that worked for me."],
   ["Is it free?", "Yes to start. You get 2 free Speaking attempts every day, plus free resources. Notes and extra attempts are paid, from RM2.50."],
-  ["How do I pay?", "Touch 'n Go. Upload your receipt and I approve it by hand, usually within a day. Your notes and attempts then appear in My orders."],
+  ["How do I pay?", "Touch 'n Go. Upload your receipt and I approve it by hand, usually within a day. Your notes and attempts then appear in My orders. See the 8 steps at /how-to-buy."],
   ["Where do I find what I bought?", "Log in and tap “My orders” at the top right. After I approve your payment, your download button or Speaking attempts are there. I also email you when it is approved."],
   ["Can I share my PDFs?", "Please don't. Each Sains Komputer PDF is made just for you, locked with your own password and carries your email on every page."],
   ["Will you answer my question?", "Yes. Ask on the question page with a free account. My answer appears under “Gary's replies” after you log in, and you can reply to me there."],

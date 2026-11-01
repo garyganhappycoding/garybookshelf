@@ -49,7 +49,7 @@ export default function CheckoutForm({
   return (
     <div className="card">
       <p className="font-medium mb-3">Pay with Touch 'n Go</p>
-      <p className="text-xs text-ink/50 -mt-2 mb-3">After you pay and upload your receipt, your order shows in My orders (top right). I approve it by hand, usually within a day.</p>
+      <p className="text-xs text-ink/50 -mt-2 mb-3">After you pay and upload your receipt, your order shows in My orders (top right). I approve it by hand, usually within a day. <Link href="/how-to-buy" className="underline text-clay-700">Need help? See the steps · 购买步骤</Link></p>
 
       <div className="bg-cream-100 rounded-xl p-4 mb-4 text-center">
         {/* Replace /tng-qr.png with your real QR code image in /public */}

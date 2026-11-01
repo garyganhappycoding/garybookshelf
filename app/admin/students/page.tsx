@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { addAttempts } from "@/actions/students";
 import StudentOrderActions from "@/components/StudentOrderActions";
+import RedownloadRequestsAdmin, { type PendingRequest } from "@/components/RedownloadRequestsAdmin";
 import { productFiles } from "@/lib/product-files";
 
 export const metadata = { title: "Students · Admin" };
@@ -51,6 +52,22 @@ export default async function StudentsPage({ searchParams }: { searchParams: Pro
     }
   }
 
+  // students who asked to download again
+  const { data: reqRows } = await admin
+    .from("redownload_requests")
+    .select("id, order_id, note, created_at, orders(profiles(email), products(title))")
+    .eq("status", "pending")
+    .order("created_at", { ascending: true })
+    .limit(50);
+  const pendingRequests: PendingRequest[] = (reqRows ?? []).map((r: any) => ({
+    id: r.id,
+    orderId: r.order_id,
+    email: r.orders?.profiles?.email ?? "?",
+    product: r.orders?.products?.title ?? "Order",
+    note: r.note,
+    createdAt: r.created_at,
+  }));
+
   const now = Date.now();
   const attemptCount = new Map<string, number>();
   for (const a of attempts ?? []) attemptCount.set(a.user_id, (attemptCount.get(a.user_id) ?? 0) + 1);
@@ -60,6 +77,8 @@ export default async function StudentsPage({ searchParams }: { searchParams: Pro
       <Link href="/admin" className="text-sm text-clay-600">&larr; Admin</Link>
       <h1 className="text-2xl font-medium mt-2 mb-1">Students</h1>
       <p className="text-ink/60 text-sm mb-5">Search by email. Shows what they bought and their Speaking attempts, and lets you add attempts by hand.</p>
+
+      <RedownloadRequestsAdmin requests={pendingRequests} />
 
       <form className="flex gap-2 mb-6">
         <input name="q" defaultValue={q} placeholder="Search email, e.g. gmail.com or ali" className="flex-1 border border-ink/15 rounded-lg px-3 py-2" />

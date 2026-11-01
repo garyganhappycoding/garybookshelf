@@ -28,11 +28,12 @@ export default async function AdminPage() {
   // How many things are waiting for you in each place. Speaking never counts: it is not something to approve.
   const admin = createAdminClient();
   const head = (table: string) => admin.from(table).select("id", { count: "exact", head: true });
-  const [{ count: pendingOrders }, { count: newQuestions }, { count: pendingResults }, { count: unreadFeedback }] = await Promise.all([
+  const [{ count: pendingOrders }, { count: newQuestions }, { count: pendingResults }, { count: unreadFeedback }, { count: pendingRedownloads }] = await Promise.all([
     head("orders").eq("status", "pending_verification"),
     head("submissions").eq("kind", "question").eq("status", "new"),
     head("submissions").eq("kind", "feedback").in("status", ["new", "read"]),
     head("feedback").is("seen_at", null),
+    head("redownload_requests").eq("status", "pending"),
   ]);
   const orders = pendingOrders ?? 0;
   const questions = newQuestions ?? 0;
@@ -42,7 +43,7 @@ export default async function AdminPage() {
   const cards: CardInfo[] = [
     { href: "/admin/products", title: "Products", text: "Add and manage what's for sale" },
     { href: "/admin/orders", title: "Orders", text: orders ? `${orders} waiting to be approved` : "Approve or reject payments", badge: orders },
-    { href: "/admin/students", title: "Students", text: "Find a student, see purchases and attempts, add attempts" },
+    { href: "/admin/students", title: "Students", text: pendingRedownloads ? `${pendingRedownloads} re-download request${pendingRedownloads === 1 ? "" : "s"} waiting` : "Find a student, see purchases and attempts, add attempts", badge: pendingRedownloads ?? 0 },
     { href: "/admin/resources", title: "Content & Resources", text: "Manage content hub and free downloads" },
     { href: "/admin/feedback", title: "Feedback", text: feedback ? `${feedback} new, not opened yet` : "See what customers are saying", badge: feedback },
     { href: "/admin/speaking", title: "Speaking", text: "Usage, scores and why attempts fail" },

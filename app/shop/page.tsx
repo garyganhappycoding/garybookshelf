@@ -17,7 +17,7 @@ export default async function ShopPage() {
     <div className="max-w-5xl mx-auto px-5 py-14">
       <h1 className="text-2xl font-medium mb-1">Shop</h1>
       <p className="text-ink/60 mb-8">
-        Pay with Touch &apos;n Go. After I approve your payment, your order is in{" "}
+        First time buying? <Link href="/how-to-buy" className="text-clay-600 underline font-medium">See the 8 steps · 购买步骤</Link>. Pay with Touch &apos;n Go. After I approve your payment, your order is in{" "}
         <Link href="/dashboard" className="text-clay-600 underline">My orders</Link> (top right), ready to download.{" "}
         <a href="#speaking-free-vs-paid" className="text-clay-600 underline">Not sure about the Speaking AI? Compare free and paid.</a>
       </p>

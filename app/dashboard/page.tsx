@@ -5,6 +5,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
 import InAppBrowserNotice from "@/components/InAppBrowserNotice";
+import RedownloadRequest from "@/components/RedownloadRequest";
 
 // making a locked, watermarked PDF can take a few seconds for a big file
 export const maxDuration = 60;
@@ -49,12 +50,19 @@ export default async function DashboardPage() {
     const { data: used } = await createAdminClient().from("file_downloads").select("order_id, file_index").in("order_id", lockedIds).eq("released", false);
     for (const u of used ?? []) usedFiles.add(`${u.order_id}:${u.file_index}`);
   }
+  // orders where Gary has not yet answered a re-download request
+  const requestedOrders = new Set<string>();
+  if (lockedIds.length) {
+    const { data: reqs } = await createAdminClient().from("redownload_requests").select("order_id").in("order_id", lockedIds).eq("status", "pending");
+    for (const r of reqs ?? []) requestedOrders.add(r.order_id);
+  }
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-14">
       <InAppBrowserNotice />
       <h1 className="text-2xl font-medium mb-2">My orders</h1>
-      <p className="text-sm mb-6"><Link href="/replies" className="text-clay-700 underline">💌 Gary&apos;s replies to my questions</Link></p>
+      <p className="text-sm mb-1"><Link href="/replies" className="text-clay-700 underline">💌 Gary&apos;s replies to my questions</Link></p>
+      <p className="text-sm mb-6"><Link href="/how-to-buy" className="text-clay-700 underline">📖 How to buy and download · 购买与下载步骤</Link></p>
 
       {packLeft > 0 && (
         <div className="card !border-clay-400 mb-6">
@@ -130,6 +138,11 @@ export default async function DashboardPage() {
                     </li>
                   ))}
                 </ul>
+                </div>
+              )}
+              {order.status === "completed" && order.products?.personalize_pdf && (
+                <div className="basis-full">
+                  <RedownloadRequest orderId={order.id} alreadyRequested={requestedOrders.has(order.id)} />
                 </div>
               )}
             </div>
