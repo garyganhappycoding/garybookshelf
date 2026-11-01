@@ -134,9 +134,12 @@ export default async function AdminSpeakingPage({
   }
 
   // Paid = the student has bought a Speaking pack. "active" = a pack that has not expired yet.
-  const { data: packs } = await admin.from("speaking_packs").select("user_id,expires_at").eq("kind", "purchased");
+  const { data: packs } = await admin.from("speaking_packs").select("user_id,expires_at,created_at").eq("kind", "purchased");
   const plan = new Map<string, "active" | "expired">();
+  const firstBought = new Map<string, number>(); // when each student first bought a pack
   for (const p of packs ?? []) {
+    const at = new Date(p.created_at).getTime();
+    if (at < (firstBought.get(p.user_id) ?? Infinity)) firstBought.set(p.user_id, at);
     const active = new Date(p.expires_at).getTime() > Date.now();
     if (active || !plan.has(p.user_id)) plan.set(p.user_id, active ? "active" : "expired");
   }
@@ -470,7 +473,10 @@ export default async function AdminSpeakingPage({
                 </td>
                 <td className="pr-3">{email.get(r.user_id) ?? "?"}</td>
                 <td className="pr-3 whitespace-nowrap">
-                  {plan.get(r.user_id) === "active" ? (
+                  {plan.has(r.user_id) && new Date(r.created_at).getTime() < (firstBought.get(r.user_id) ?? 0) ? (
+                    // made before they bought a pack, so it ran in the free lane (the backup AI is only used for paid attempts)
+                    <span className="text-xs px-2 py-0.5 rounded-full bg-ink/10 text-ink/70" title="This attempt was made before they bought a pack">Free then</span>
+                  ) : plan.get(r.user_id) === "active" ? (
                     <span className="text-xs px-2 py-0.5 rounded-full bg-sage-400/20 text-sage-600 font-medium">Paid</span>
                   ) : plan.get(r.user_id) === "expired" ? (
                     <span className="text-xs px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 font-medium">Paid (expired)</span>
