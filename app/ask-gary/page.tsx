@@ -20,7 +20,7 @@ function ComingSoon() {
       <p className="text-sm text-ink/60 mb-8">When it opens, each member can ask {DAILY_LIMIT} questions per day.</p>
       <div className="flex justify-center gap-3">
         <Link href="/free-resources" className="btn-primary">Free resources</Link>
-        <Link href="/speaking" className="btn-secondary">Try Speaking practice</Link>
+        <Link prefetch={false}  href="/speaking" className="btn-secondary">Try Speaking practice</Link>
       </div>
     </div>
   );

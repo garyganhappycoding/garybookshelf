@@ -62,7 +62,7 @@ export default async function SpeakingPage() {
     <div className="max-w-3xl mx-auto px-5 py-14">
       <div className="flex items-start justify-between gap-3">
         <h1 className="font-hand text-4xl text-clay-700 mb-1">Speaking practice</h1>
-        {user && <Link href="/speaking/history" className="btn-secondary !py-1.5 shrink-0">My history</Link>}
+        {user && <Link prefetch={false}  href="/speaking/history" className="btn-secondary !py-1.5 shrink-0">My history</Link>}
       </div>
       <p className="text-ink/70 mb-8">
         Pick Part 2 (cue card, 1 minute) or Part 3 (discussion, 2 minutes), speak, and get AI feedback marked with the official SPM speaking scales.
@@ -76,8 +76,8 @@ export default async function SpeakingPage() {
           <p className="font-medium mb-1">Members only</p>
           <p className="text-sm text-ink/70 mb-4">Log in or create a free account to practise speaking (2 attempts every day).</p>
           <div className="flex justify-center gap-3">
-            <Link href="/login" className="btn-primary">Log in</Link>
-            <Link href="/signup" className="btn-secondary">Sign up</Link>
+            <Link prefetch={false}  href="/login" className="btn-primary">Log in</Link>
+            <Link prefetch={false}  href="/signup" className="btn-secondary">Sign up</Link>
           </div>
         </div>
       )}

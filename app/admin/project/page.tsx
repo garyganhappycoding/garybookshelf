@@ -39,7 +39,7 @@ export default async function AdminProjectPage() {
       <div>
         <h1 className="text-2xl font-medium">The Bookshelf 100: Wall of Wins and votes</h1>
         <p className="text-sm text-ink/60">
-          Results you approve in the <Link href="/admin/inbox" className="underline">inbox</Link> appear on the wall at{" "}
+          Results you approve in the <Link prefetch={false}  href="/admin/inbox" className="underline">inbox</Link> appear on the wall at{" "}
           <Link href="/100" className="underline">/100</Link> by themselves. Votes show on <Link href="/vote" className="underline">/vote</Link>.
         </p>
       </div>

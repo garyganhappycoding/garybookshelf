@@ -29,7 +29,7 @@ export default async function LoginPage({
         )}
         <button type="submit" className="btn-primary w-full">Log in</button>
         <p className="text-sm text-right">
-          <Link href="/forgot-password" className="text-clay-600">Forgot password?</Link>
+          <Link prefetch={false}  href="/forgot-password" className="text-clay-600">Forgot password?</Link>
         </p>
       </form>
       <p className="text-sm text-ink/60 mt-4">

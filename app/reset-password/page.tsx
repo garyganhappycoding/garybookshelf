@@ -60,7 +60,7 @@ export default function ResetPasswordPage() {
       {ready === "no" && (
         <>
           <p className="text-sm text-red-600 mb-4">This reset link is invalid or has expired. Please request a new one.</p>
-          <Link href="/forgot-password" className="btn-primary">Request a new link</Link>
+          <Link prefetch={false}  href="/forgot-password" className="btn-primary">Request a new link</Link>
         </>
       )}
 

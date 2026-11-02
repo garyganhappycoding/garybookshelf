@@ -30,7 +30,7 @@ export default async function TrackPage({ params }: { params: Promise<{ token: s
         <div className="max-w-xl mx-auto px-5 py-12">
           <div className="card text-center">
             <p className="mb-3">Please log in with the account you asked from to read Gary&apos;s reply.</p>
-            <Link href={`/login?next=${encodeURIComponent(`/track/${token}`)}`} className="btn-primary">Log in</Link>
+            <Link prefetch={false}  href={`/login?next=${encodeURIComponent(`/track/${token}`)}`} className="btn-primary">Log in</Link>
           </div>
         </div>
       );

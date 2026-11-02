@@ -74,7 +74,7 @@ export default async function StudentsPage({ searchParams }: { searchParams: Pro
 
   return (
     <div className="max-w-4xl mx-auto px-5 py-12">
-      <Link href="/admin" className="text-sm text-clay-600">&larr; Admin</Link>
+      <Link prefetch={false}  href="/admin" className="text-sm text-clay-600">&larr; Admin</Link>
       <h1 className="text-2xl font-medium mt-2 mb-1">Students</h1>
       <p className="text-ink/60 text-sm mb-5">Search by email. Shows what they bought and their Speaking attempts, and lets you add attempts by hand.</p>
 

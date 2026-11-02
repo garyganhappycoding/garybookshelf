@@ -11,8 +11,8 @@ export default function LoginWall({ next, what }: { next: string; what: string }
         You need a free account so you can come back and read my reply here on the website. It takes less than a minute.
       </p>
       <div className="flex flex-wrap gap-3 justify-center">
-        <Link href={`/login${q}`} className="btn-primary">Log in</Link>
-        <Link href={`/signup${q}`} className="btn-secondary">Create a free account</Link>
+        <Link prefetch={false}  href={`/login${q}`} className="btn-primary">Log in</Link>
+        <Link prefetch={false}  href={`/signup${q}`} className="btn-secondary">Create a free account</Link>
       </div>
     </div>
   );

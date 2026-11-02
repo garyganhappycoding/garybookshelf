@@ -61,7 +61,7 @@ export default async function DashboardPage() {
     <div className="max-w-3xl mx-auto px-5 py-14">
       <InAppBrowserNotice />
       <h1 className="text-2xl font-medium mb-2">My orders</h1>
-      <p className="text-sm mb-1"><Link href="/replies" className="text-clay-700 underline">💌 Gary&apos;s replies to my questions</Link></p>
+      <p className="text-sm mb-1"><Link prefetch={false}  href="/replies" className="text-clay-700 underline">💌 Gary&apos;s replies to my questions</Link></p>
       <p className="text-sm mb-6"><Link href="/how-to-buy" className="text-clay-700 underline">📖 How to buy and download · 购买与下载步骤</Link></p>
 
       {packLeft > 0 && (
@@ -72,7 +72,7 @@ export default async function DashboardPage() {
             Your attempts give the full report: every problem, phrase upgrades, your sentences rewritten with phrases from Gary&apos;s notes, and your pace and fillers.
             Do your first one now, it takes about 3 minutes.
           </p>
-          <Link href="/speaking" className="btn-primary">Do my first attempt</Link>
+          <Link prefetch={false}  href="/speaking" className="btn-primary">Do my first attempt</Link>
         </div>
       )}
 
@@ -98,7 +98,7 @@ export default async function DashboardPage() {
                   {statusLabel[order.status]}
                 </span>
                 {order.status === "completed" && order.products?.speaking_pack_attempts && (
-                  <Link href="/speaking" className="btn-secondary !py-1.5">
+                  <Link prefetch={false}  href="/speaking" className="btn-secondary !py-1.5">
                     Open Speaking
                   </Link>
                 )}
@@ -151,13 +151,13 @@ export default async function DashboardPage() {
       ) : (
         <p className="text-ink/60">
           No orders yet. New here? <Link href="/start" className="text-clay-600 underline">Start here</Link>, try the{" "}
-          <Link href="/speaking" className="text-clay-600 underline">free Speaking AI</Link>, or head to the{" "}
+          <Link prefetch={false}  href="/speaking" className="text-clay-600 underline">free Speaking AI</Link>, or head to the{" "}
           <Link href="/shop" className="text-clay-600 underline">shop</Link>.
         </p>
       )}
       {hasCompleted && (
         <p className="text-sm text-ink/60 mt-8">
-          Got your notes or attempts? <Link href="/feedback" className="text-clay-600 underline">Tell Gary how it went</Link>. He reads every message.
+          Got your notes or attempts? <Link prefetch={false}  href="/feedback" className="text-clay-600 underline">Tell Gary how it went</Link>. He reads every message.
         </p>
       )}
     </div>

@@ -35,7 +35,7 @@ export default async function SpeakingHistoryPage() {
           <h1 className="font-hand text-4xl text-clay-700">My speaking history</h1>
           <p className="text-sm text-ink/60">Your past attempts. Tap one to see the full feedback again.</p>
         </div>
-        <Link href="/speaking" className="btn-primary !py-1.5 shrink-0">Practise</Link>
+        <Link prefetch={false}  href="/speaking" className="btn-primary !py-1.5 shrink-0">Practise</Link>
       </div>
 
       {rows.length === 0 ? (
@@ -69,7 +69,7 @@ export default async function SpeakingHistoryPage() {
             {rows.map((r) => {
               const card = getCard(r.card_id);
               return (
-                <Link key={r.id} href={`/speaking/history/${r.id}`} className="card !py-3 flex items-center justify-between gap-3 hover:border-clay-400">
+                <Link prefetch={false}  key={r.id} href={`/speaking/history/${r.id}`} className="card !py-3 flex items-center justify-between gap-3 hover:border-clay-400">
                   <div className="min-w-0">
                     <p className="font-medium truncate">{card?.title ?? "Question"}</p>
                     <p className="text-xs text-ink/50">

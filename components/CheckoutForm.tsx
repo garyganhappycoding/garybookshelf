@@ -28,7 +28,7 @@ export default function CheckoutForm({
     return (
       <div className="card">
         <p className="mb-3 text-ink/70">Log in to purchase this item.</p>
-        <Link href="/login" className="btn-primary">Log in</Link>
+        <Link prefetch={false}  href="/login" className="btn-primary">Log in</Link>
       </div>
     );
   }

@@ -56,7 +56,7 @@ export default function FeedbackForm({ loggedIn }: { loggedIn: boolean }) {
           </div>
         </>
       ) : (
-        <Link href="/login" className="btn-primary !py-1.5 !px-4 text-sm inline-block">
+        <Link prefetch={false}  href="/login" className="btn-primary !py-1.5 !px-4 text-sm inline-block">
           Log in to leave feedback
         </Link>
       )}

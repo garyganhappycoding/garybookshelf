@@ -31,7 +31,7 @@ export default async function SignupPage({
       </form>
       <p className="text-sm text-ink/60 mt-4">
         Already have an account?{" "}
-        <Link href="/login" className="text-clay-600 font-medium">Log in</Link>
+        <Link prefetch={false}  href="/login" className="text-clay-600 font-medium">Log in</Link>
       </p>
     </div>
   );

@@ -33,7 +33,7 @@ export default async function AdminProductsPage() {
               <p className="text-sm text-ink/60">RM {Number(p.price_myr).toFixed(2)} &middot; {p.category}</p>
             </div>
             <div className="flex items-center gap-3">
-              <Link href={`/admin/products/${p.id}/edit`} className="text-sm text-clay-600 font-medium">
+              <Link prefetch={false}  href={`/admin/products/${p.id}/edit`} className="text-sm text-clay-600 font-medium">
                 Edit
               </Link>
               <DeleteProductButton productId={p.id} />

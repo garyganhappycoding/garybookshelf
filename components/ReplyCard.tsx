@@ -15,13 +15,13 @@ export default function ReplyCard({ compact = false }: { compact?: boolean }) {
 
   if (compact)
     return (
-      <Link href="/replies" className="text-sm underline text-clay-700">
+      <Link prefetch={false}  href="/replies" className="text-sm underline text-clay-700">
         Already asked? Check Gary&apos;s reply{fresh > 0 && <span className="ml-2 bg-red-600 text-white text-xs rounded-full px-2 py-0.5 no-underline">{fresh} new</span>}
       </Link>
     );
 
   return (
-    <Link href="/replies" className="card !p-5 flex gap-4 items-center hover:border-clay-400">
+    <Link prefetch={false}  href="/replies" className="card !p-5 flex gap-4 items-center hover:border-clay-400">
       <span className="text-3xl">💌</span>
       <span className="flex-1">
         <span className="block font-medium">

@@ -90,7 +90,7 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
           <h1 className="text-2xl font-medium">Inbox</h1>
           <p className="text-sm text-ink/60">Questions and results sent from your Instagram link. Nothing here goes to Telegram.</p>
         </div>
-        <Link href="/admin/project" className="btn-secondary !py-1.5 text-sm">Updates and votes</Link>
+        <Link prefetch={false}  href="/admin/project" className="btn-secondary !py-1.5 text-sm">Updates and votes</Link>
       </div>
 
       <section className="grid grid-cols-2 sm:grid-cols-4 gap-3">

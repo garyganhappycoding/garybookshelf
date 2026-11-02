@@ -47,7 +47,7 @@ export function SentCard({ title, children }: { token?: string; title: string; c
         <p className="text-xs text-ink/60 mb-3">
           Log in any time and open <b>Gary&apos;s replies</b>. A red “new” tag shows when I have answered. You can also reply to me there.
         </p>
-        <Link href="/replies" className="btn-primary !py-1.5 text-sm">Open Gary&apos;s replies</Link>
+        <Link prefetch={false}  href="/replies" className="btn-primary !py-1.5 text-sm">Open Gary&apos;s replies</Link>
       </div>
     </div>
   );

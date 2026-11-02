@@ -41,7 +41,7 @@ export default async function AdminResourcesPage() {
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <Link href={`/admin/resources/${r.id}/edit`} className="text-sm text-clay-600 font-medium">
+                <Link prefetch={false}  href={`/admin/resources/${r.id}/edit`} className="text-sm text-clay-600 font-medium">
                   Edit
                 </Link>
                 <DeleteResourceButton resourceId={r.id} />
@@ -62,7 +62,7 @@ export default async function AdminResourcesPage() {
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <Link href={`/admin/resources/${r.id}/edit`} className="text-sm text-clay-600 font-medium">
+                <Link prefetch={false}  href={`/admin/resources/${r.id}/edit`} className="text-sm text-clay-600 font-medium">
                   Edit
                 </Link>
                 <DeleteResourceButton resourceId={r.id} />

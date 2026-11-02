@@ -61,13 +61,13 @@ export default async function HundredPage() {
             <p className="text-4xl mb-2">📌</p>
             <p className="font-medium mb-1">The first win goes here</p>
             <p className="text-sm text-ink/60 mb-4">When students share how their grades improved, their results appear on this wall.</p>
-            <Link href="/feedback" className="btn-primary">Be the first</Link>
+            <Link prefetch={false}  href="/feedback" className="btn-primary">Be the first</Link>
           </div>
         )}
 
         {(wins ?? []).length > 0 && (
           <div className="text-center mt-4">
-            <Link href="/feedback" className="btn-primary">Add my result to the wall</Link>
+            <Link prefetch={false}  href="/feedback" className="btn-primary">Add my result to the wall</Link>
           </div>
         )}
         <p className="text-xs text-ink/50 text-center mt-3">Ages are never shown. Names appear only if the student agreed.</p>
@@ -80,12 +80,12 @@ export default async function HundredPage() {
           <li className="card !p-4">📈 <b>Your grades improved</b>, about 10% or more in the same type of exam, after watching my videos. Adding your result paper helps me check it.</li>
           <li className="card !p-4">📚 <b>You started to study on your own</b> because of my videos, and you actually did what I taught.</li>
         </ul>
-        <Link href="/feedback" className="btn-primary mt-4 inline-block">Add my result</Link>
+        <Link prefetch={false}  href="/feedback" className="btn-primary mt-4 inline-block">Add my result</Link>
         <p className="text-xs text-ink/50 mt-3">You choose whether I can share yours on Instagram, and whether I tag you. Under 18? A parent or guardian needs to agree.</p>
       </section>
 
       <div className="flex flex-wrap gap-3 text-sm">
-        <Link href="/question" className="btn-secondary">Ask a question</Link>
+        <Link prefetch={false}  href="/question" className="btn-secondary">Ask a question</Link>
         <Link href="/vote" className="btn-secondary">Vote for the next video</Link>
       </div>
     </div>

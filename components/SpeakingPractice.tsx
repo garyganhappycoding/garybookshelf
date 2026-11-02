@@ -625,7 +625,7 @@ function ReactionBar({ attemptId }: { attemptId: string }) {
       )}
       {sent && <p className="mt-3 text-sm text-sage-600">Thank you, Gary reads these.</p>}
       <p className="mt-4 text-xs text-ink/55">
-        Did practising help your speaking or your grades? <Link href="/feedback" className="text-clay-600 underline">Tell Gary your result</Link>
+        Did practising help your speaking or your grades? <Link prefetch={false}  href="/feedback" className="text-clay-600 underline">Tell Gary your result</Link>
       </p>
     </div>
   );
@@ -922,7 +922,7 @@ export function Result({ data: initial, card, audioUrl, onAgain, onThemes, canRe
         <div className="flex flex-wrap gap-3">
           <button className="btn-primary" disabled={!canRetry} onClick={onAgain}>Try this question again</button>
           <button className="btn-secondary" onClick={onThemes}>Choose another theme</button>
-          <Link href="/speaking/history" className="btn-secondary">My history</Link>
+          <Link prefetch={false}  href="/speaking/history" className="btn-secondary">My history</Link>
         </div>
       )}
     </div>

@@ -41,14 +41,14 @@ export default async function SpeakingHistoryDetailPage({ params }: { params: Pr
   return (
     <div className="max-w-3xl mx-auto px-5 py-14">
       <div className="flex items-center justify-between mb-6 text-sm">
-        <Link href="/speaking/history" className="text-clay-600 hover:underline">← My history</Link>
+        <Link prefetch={false}  href="/speaking/history" className="text-clay-600 hover:underline">← My history</Link>
         <span className="text-ink/50">
           {new Date(attempt.created_at).toLocaleString("en-GB", { timeZone: "Asia/Kuala_Lumpur", dateStyle: "medium", timeStyle: "short" })}
         </span>
       </div>
       <Result data={data} card={card} />
       <div className="mt-6">
-        <Link href="/speaking" className="btn-primary">Practise again</Link>
+        <Link prefetch={false}  href="/speaking" className="btn-primary">Practise again</Link>
       </div>
     </div>
   );

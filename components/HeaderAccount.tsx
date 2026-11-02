@@ -35,7 +35,7 @@ export default function HeaderAccount() {
 
   if (state === "out")
     return (
-      <Link href="/login" className="btn-primary !py-1.5">
+      <Link prefetch={false}  href="/login" className="btn-primary !py-1.5">
         Log in
       </Link>
     );
@@ -43,7 +43,7 @@ export default function HeaderAccount() {
   return (
     <>
       {isAdmin && (
-        <Link href="/admin" className="hover:text-clay-600">
+        <Link prefetch={false}  href="/admin" className="hover:text-clay-600">
           Admin
         </Link>
       )}

@@ -26,8 +26,8 @@ export default function RepliesPage() {
         <div className="card text-center">
           <p className="mb-3">Log in to see your questions and my replies.</p>
           <div className="flex gap-3 justify-center">
-            <Link href="/login?next=%2Freplies" className="btn-primary">Log in</Link>
-            <Link href="/signup?next=%2Freplies" className="btn-secondary">Create a free account</Link>
+            <Link prefetch={false}  href="/login?next=%2Freplies" className="btn-primary">Log in</Link>
+            <Link prefetch={false}  href="/signup?next=%2Freplies" className="btn-secondary">Create a free account</Link>
           </div>
         </div>
       )}

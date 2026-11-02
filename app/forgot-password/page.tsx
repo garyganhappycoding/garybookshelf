@@ -31,7 +31,7 @@ export default function ForgotPasswordPage() {
           <p className="text-sm text-ink/70 mb-4">
             If an account exists for <b>{email}</b>, we've sent a link to reset your password. Check your inbox (and spam folder).
           </p>
-          <Link href="/login" className="text-clay-600 font-medium text-sm">← Back to log in</Link>
+          <Link prefetch={false}  href="/login" className="text-clay-600 font-medium text-sm">← Back to log in</Link>
         </>
       ) : (
         <>
@@ -53,7 +53,7 @@ export default function ForgotPasswordPage() {
             </button>
           </form>
           <p className="text-sm text-ink/60 mt-4">
-            <Link href="/login" className="text-clay-600 font-medium">← Back to log in</Link>
+            <Link prefetch={false}  href="/login" className="text-clay-600 font-medium">← Back to log in</Link>
           </p>
         </>
       )}

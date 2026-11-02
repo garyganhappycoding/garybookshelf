@@ -16,7 +16,7 @@ export default async function VotePage() {
       <div className="max-w-xl mx-auto px-5 py-12 text-center">
         <h1 className="font-hand text-4xl text-clay-700 mb-2">Vote for my next video</h1>
         <p className="text-ink/70 mb-4">There's no vote open right now. Check my Instagram story, or send me an idea.</p>
-        <Link href="/question" className="btn-primary">Send an idea</Link>
+        <Link prefetch={false}  href="/question" className="btn-primary">Send an idea</Link>
       </div>
     );
 
