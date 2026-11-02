@@ -78,12 +78,11 @@ export async function rejectStudentOrder(orderId: string, reason: string): Promi
 // lets the student download a locked PDF again (the bandwidth log keeps the old rows)
 export async function allowRedownload(orderId: string): Promise<OrderActionResult> {
   await requireAdmin();
-  const admin = createAdminClient();
-  const { error } = await admin.from("file_downloads").update({ released: true }).eq("order_id", orderId).eq("released", false);
-  await admin.from("redownload_requests").update({ status: "done", handled_at: new Date().toISOString() }).eq("order_id", orderId).eq("status", "pending");
+  const { releaseOrderDownloads } = await import("@/lib/redownload");
+  const { error } = await releaseOrderDownloads(orderId);
   revalidatePath("/admin/students");
   revalidatePath("/dashboard");
-  return error ? { ok: false, message: error.message } : { ok: true, message: "Done. The student can download each file once more." };
+  return error ? { ok: false, message: error } : { ok: true, message: "Done. The student can download each file once more." };
 }
 
 // Admin-only: checks that each backup AI key in Vercel really works with the same strict JSON format the marker uses.

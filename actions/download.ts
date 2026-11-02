@@ -71,12 +71,20 @@ export async function requestRedownload(orderId: string, note: string): Promise<
   if (open?.length) return { ok: true, message: "You already asked. Gary will review it soon." };
 
   const clean = note.replace(/\u0000/g, "").trim().slice(0, 300);
-  const { error } = await admin.from("redownload_requests").insert({ order_id: orderId, user_id: user.id, note: clean || null });
-  if (error) return { ok: false, message: "Sorry, that didn't go through. Please try again." };
+  const { data: created, error } = await admin.from("redownload_requests").insert({ order_id: orderId, user_id: user.id, note: clean || null }).select("id").single();
+  if (error || !created) return { ok: false, message: "Sorry, that didn't go through. Please try again." };
 
   try {
-    const { notifyGary } = await import("@/lib/community");
-    await notifyGary("🔁 Re-download request", `${user.email}\n${(order as any).products?.title ?? ""}${clean ? `\n“${clean}”` : ""}`, "/admin/students");
+    // Telegram message with Allow / Decline buttons: a tap there does the same as the button on the website
+    const { sendTelegramButtons } = await import("@/lib/telegram");
+    const { siteUrl } = await import("@/lib/site");
+    await sendTelegramButtons(
+      `🔁 Re-download request\n${user.email}\n${(order as any).products?.title ?? ""}${clean ? `\n“${clean}”` : ""}\n\nOpen: ${siteUrl()}/admin/students`,
+      [
+        { text: "✅ Allow download again", callback_data: `d:${created.id}` },
+        { text: "❌ Decline", callback_data: `x:${created.id}` },
+      ]
+    );
   } catch {
     /* the request is saved even if the alert fails */
   }

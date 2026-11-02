@@ -52,7 +52,7 @@ export default function StudentOrderActions({
               {downloaded} of {files} files downloaded
             </span>
             <button
-              disabled={pending || downloaded === 0}
+              disabled={pending} // always available: Gary can also allow a download by hand, even when nothing shows as downloaded
               onClick={() => run(() => allowRedownload(orderId))}
               className="text-clay-700 font-medium underline disabled:opacity-40 disabled:no-underline"
             >

@@ -52,6 +52,18 @@ export async function sendReceiptForReview(photo: Blob, filename: string, captio
   if (!sent) await sendTelegramText(`${caption}\n(The receipt photo could not be sent. Review it on the website.)`);
 }
 
+// A text message with a row of buttons. Each button is { text, callback_data }; the webhook acts on the tap.
+export async function sendTelegramButtons(text: string, buttons: { text: string; callback_data: string }[]) {
+  const chat = adminChatId();
+  if (!chat) return;
+  await call("sendMessage", JSON.stringify({ chat_id: chat, text, disable_web_page_preview: true, reply_markup: { inline_keyboard: [buttons] } }));
+}
+
+// Replaces a message's text and removes its buttons (used once a button has been tapped).
+export async function editTelegramText(chatId: number | string, messageId: number, text: string) {
+  await call("editMessageText", JSON.stringify({ chat_id: chatId, message_id: messageId, text, disable_web_page_preview: true }));
+}
+
 export async function answerCallback(callbackId: string, text: string) {
   await call("answerCallbackQuery", JSON.stringify({ callback_query_id: callbackId, text }));
 }

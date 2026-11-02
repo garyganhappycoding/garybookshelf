@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { approveOrderCore, rejectOrderCore } from "@/lib/orders";
-import { adminChatId, answerCallback, deleteTelegramMessage, sendTelegramText } from "@/lib/telegram";
+import { adminChatId, answerCallback, deleteTelegramMessage, editTelegramText, sendTelegramText } from "@/lib/telegram";
+import { declineRequest, getRequestInfo, releaseOrderDownloads } from "@/lib/redownload";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -34,6 +35,31 @@ export async function POST(req: Request) {
   }
 
   const [action, orderId] = String(cb.data ?? "").split(":");
+
+  // Re-download requests: d = allow the student to download again, x = decline (the id is the request's id)
+  if ((action === "d" || action === "x") && UUID.test(orderId ?? "")) {
+    const info = await getRequestInfo(orderId);
+    if (!info) {
+      await answerCallback(cb.id, "That request no longer exists.");
+      return NextResponse.json({ ok: true });
+    }
+    let line: string;
+    if (action === "d") {
+      // allowed even if the request was already closed on the website: it is safe to repeat
+      const r = await releaseOrderDownloads(info.orderId);
+      line = r.error ? `⚠️ Could not allow ${info.email}: ${r.error}` : `✅ Allowed: ${info.email} can download each file once more\n${info.product}`;
+    } else if (info.status !== "pending") {
+      line = `ℹ️ Already handled earlier (${info.status}): ${info.email}\n${info.product}`;
+    } else {
+      await declineRequest(info.id);
+      line = `❌ Declined: ${info.email}\n${info.product}`;
+    }
+    await answerCallback(cb.id, line.startsWith("⚠️") ? "Failed" : action === "d" ? "Allowed" : "Done");
+    if (cb.message?.chat?.id && cb.message?.message_id) await editTelegramText(cb.message.chat.id, cb.message.message_id, line);
+    else await sendTelegramText(line);
+    return NextResponse.json({ ok: true });
+  }
+
   if ((action !== "a" && action !== "r") || !UUID.test(orderId ?? "")) {
     await answerCallback(cb.id, "Unknown action.");
     return NextResponse.json({ ok: true });
