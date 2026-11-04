@@ -15,7 +15,7 @@ import {
   type SpeakingResult,
   type SttWord,
 } from "@/lib/speaking/analyze";
-import { backupTargets, GROQ_URL, requestBody, type Target } from "@/lib/speaking/providers";
+import { backupTargets, GROQ_URL, openRouterCreditLeft, requestBody, type Target } from "@/lib/speaking/providers";
 import { pickEssayPhrases, pickToolkit, verifyUsedPhrases } from "@/lib/speaking/essay-vocab";
 
 export const runtime = "nodejs";
@@ -24,7 +24,9 @@ export const maxDuration = 60;
 const DAILY_LIMIT = 2;
 // How many FREE attempts a day may use the paid OpenRouter backup (about US$0.0005 each). Paying students are never counted against this,
 // so the backup credit always stays available for them. Change it with FREE_BACKUP_DAILY in Vercel.
-const FREE_BACKUP_DAILY = Number(process.env.FREE_BACKUP_DAILY) || 150;
+const FREE_BACKUP_DAILY = Number(process.env.FREE_BACKUP_DAILY) || 250;
+// Free students stop using the backup once the key has only this much credit left (US$), so the rest is kept for paying students.
+const FREE_BACKUP_RESERVE = Number(process.env.FREE_BACKUP_RESERVE_USD) || 2.5;
 const SAVED_TRANSCRIPT_HOURS = 24 * 7; // how long a failed attempt's transcript can be re-marked (7 days)
 type SavedTranscript = { transcript: string; stats: ReturnType<typeof computeStats>; duration: number };
 const MAX_AUDIO_BYTES = 6 * 1024 * 1024;
@@ -338,8 +340,10 @@ export async function POST(req: Request) {
           .like("model", "openrouter:%")
           .eq("priority", false)
           .gte("created_at", new Date(Date.now() - 24 * 3600 * 1000).toISOString());
-        if ((count ?? 0) < FREE_BACKUP_DAILY) backup = backupTargets();
-        else after(() => alertFreeBackupCap(FREE_BACKUP_DAILY));
+        const left = await openRouterCreditLeft(); // null = OpenRouter did not say: only the daily count limits then
+        if ((count ?? 0) >= FREE_BACKUP_DAILY) after(() => alertFreeBackupCap(`${FREE_BACKUP_DAILY} free attempts used the OpenRouter backup in the last 24 hours.`));
+        else if (left !== null && left <= FREE_BACKUP_RESERVE) after(() => alertFreeBackupCap(`The OpenRouter key is down to about US$${left.toFixed(2)}, which is the reserve kept for paying students.`));
+        else backup = backupTargets();
       }
       targets = [groq(FALLBACK_MODEL), { ...groq(FALLBACK_MODEL), onlyIfBadJson: true }, ...backup];
     }

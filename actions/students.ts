@@ -112,5 +112,11 @@ export async function testBackupAi(): Promise<{ lines: { label: string; ok: bool
       lines.push({ label, ok: false, note: e instanceof Error ? e.message : String(e) });
     }
   }
+  // what is left on the OpenRouter key (free students stop using the backup at the reserve, 2.50 by default)
+  if (process.env.OPENROUTER_API_KEY) {
+    const { openRouterCreditLeft } = await import("@/lib/speaking/providers");
+    const left = await openRouterCreditLeft();
+    lines.push(left === null ? { label: "OpenRouter credit", ok: false, note: "OpenRouter did not report how much credit is left, so only the daily limit applies to free students." } : { label: "OpenRouter credit", ok: true, note: `about US$${left.toFixed(2)} left on the key` });
+  }
   return { lines };
 }

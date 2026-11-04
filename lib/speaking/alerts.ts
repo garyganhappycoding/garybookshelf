@@ -21,12 +21,12 @@ export async function alertThinReport(attemptId: string, models: string[], final
 }
 
 // Free students used up today's share of the OpenRouter backup, so they wait for Groq again. Told to Gary once a day.
-export async function alertFreeBackupCap(cap: number) {
+export async function alertFreeBackupCap(why: string) {
   try {
     const day = new Date().toISOString().slice(0, 10);
     const { error } = await createAdminClient().from("site_alerts").insert({ key: `free-backup-cap-${day}` });
     if (error) return;
-    await notifyGary("ℹ️ Free students used today's backup AI share", `${cap} free attempts used the OpenRouter backup in the last 24 hours. Free students now wait for Groq again, and the rest is kept for paying students. Change FREE_BACKUP_DAILY in Vercel to raise it.`, "/admin/speaking");
+    await notifyGary("ℹ️ Free students used today's backup AI share", `${why} Free students now wait for Groq again and what is left is kept for paying students. Raise FREE_BACKUP_DAILY (attempts a day) or lower FREE_BACKUP_RESERVE_USD in Vercel to change this.`, "/admin/speaking");
   } catch (e) {
     console.error("free backup cap alert failed", e);
   }
