@@ -4,7 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { getCard } from "@/lib/speaking/cards";
 import { checkTryLimits } from "@/lib/speaking/limits";
 import { PART_INFO, toPart, type Part } from "@/lib/speaking/parts";
-import { alertPaidFailure, alertThinReport } from "@/lib/speaking/alerts";
+import { alertFreeBackupCap, alertPaidFailure, alertThinReport } from "@/lib/speaking/alerts";
 import type { FailReason } from "@/lib/speaking/fail-reasons";
 import {
   BAND_MAX,
@@ -22,6 +22,9 @@ export const runtime = "nodejs";
 export const maxDuration = 60;
 
 const DAILY_LIMIT = 2;
+// How many FREE attempts a day may use the paid OpenRouter backup (about US$0.0005 each). Paying students are never counted against this,
+// so the backup credit always stays available for them. Change it with FREE_BACKUP_DAILY in Vercel.
+const FREE_BACKUP_DAILY = Number(process.env.FREE_BACKUP_DAILY) || 150;
 const SAVED_TRANSCRIPT_HOURS = 24 * 7; // how long a failed attempt's transcript can be re-marked (7 days)
 type SavedTranscript = { transcript: string; stats: ReturnType<typeof computeStats>; duration: number };
 const MAX_AUDIO_BYTES = 6 * 1024 * 1024;
@@ -327,7 +330,18 @@ export async function POST(req: Request) {
     } else {
       // one try on Groq's lighter model (a busy AI is not made busier by retries from free students; one extra go only when
       // the model answered with broken JSON). If Groq is busy or failing, the OpenRouter backup marks it instead.
-      targets = [groq(FALLBACK_MODEL), { ...groq(FALLBACK_MODEL), onlyIfBadJson: true }, ...backupTargets()];
+      let backup: Target[] = [];
+      if (backupTargets().length) {
+        const { count } = await admin
+          .from("speaking_attempts")
+          .select("id", { count: "exact", head: true })
+          .like("model", "openrouter:%")
+          .eq("priority", false)
+          .gte("created_at", new Date(Date.now() - 24 * 3600 * 1000).toISOString());
+        if ((count ?? 0) < FREE_BACKUP_DAILY) backup = backupTargets();
+        else after(() => alertFreeBackupCap(FREE_BACKUP_DAILY));
+      }
+      targets = [groq(FALLBACK_MODEL), { ...groq(FALLBACK_MODEL), onlyIfBadJson: true }, ...backup];
     }
     const { res: aiRes, model: usedModel, thinModels, stillThin } = await callGrok(targets, buildMessages(card, transcript, stats, paidRun, part), paidRun);
     if (!aiRes.ok) {

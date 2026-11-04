@@ -20,6 +20,9 @@ export async function GET(req: Request) {
   const admin = createAdminClient();
   const cutoff = new Date(Date.now() - KEEP_DAYS * 24 * 60 * 60 * 1000).toISOString();
 
+  // Speaking attempts that never finished are marked failed, which refunds the pack attempt they were using up.
+  await admin.rpc("sweep_stale_speaking_attempts");
+
   // Transcripts saved for students whose marking failed are kept for 7 days (the page promises this), then removed.
   await admin
     .from("speaking_attempts")
