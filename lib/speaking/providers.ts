@@ -1,5 +1,6 @@
-// The AI services the Speaking marker can call. Groq is the main one. A backup (OpenRouter and/or Cerebras) is used ONLY for
-// paying students, so free students can never use it up: backupTargets() is only ever added to the paid list in the route.
+// The AI services the Speaking marker can call. Groq is the main one. The backup (OpenRouter and/or Cerebras) is tried after Groq
+// fails or is busy, for paying students first in line and, since 4 Nov 2026, for free students too (Gary's decision: nobody
+// should meet "AI busy"). A paid attempt that is made when the pack is used up counts as a free attempt.
 export type Target = {
   url: string;
   key: string;

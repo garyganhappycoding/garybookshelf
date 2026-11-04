@@ -29,6 +29,29 @@ export async function markRead(formData: FormData) {
   refresh();
 }
 
+// "Clear": Gary already dealt with this question somewhere else (for example a private message on Instagram). It leaves the
+// "Needs me" list and the new-question count, but nothing is shown to the student and nothing is deleted. Stored in the payload
+// (no database change); "Everything" still shows it and has a Bring back button.
+async function setCleared(id: string, cleared: boolean) {
+  const admin = createAdminClient();
+  const { data } = await admin.from("submissions").select("payload,status").eq("id", id).eq("kind", "question").maybeSingle();
+  if (!data) return;
+  const payload = { ...((data.payload as object) ?? {}), cleared };
+  await admin.from("submissions").update({ payload, reviewed_at: new Date().toISOString() }).eq("id", id);
+}
+
+export async function clearQuestion(formData: FormData) {
+  await requireAdmin();
+  await setCleared(clean(formData.get("id"), 40), true);
+  refresh();
+}
+
+export async function unclearQuestion(formData: FormData) {
+  await requireAdmin();
+  await setCleared(clean(formData.get("id"), 40), false);
+  refresh();
+}
+
 export async function replyTo(formData: FormData) {
   await requireAdmin();
   const id = clean(formData.get("id"), 40);

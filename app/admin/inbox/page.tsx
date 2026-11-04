@@ -2,13 +2,16 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { approveSubmission, markRead, rejectSubmission, replyTo } from "@/actions/inbox";
+import { approveSubmission, clearQuestion, markRead, rejectSubmission, replyTo, unclearQuestion } from "@/actions/inbox";
+import QuestionCardMaker from "@/components/QuestionCardMaker";
 import { GOAL } from "@/lib/community";
 
 export const dynamic = "force-dynamic";
 
 const PAGE_SIZE = 20;
 type Tab = "question" | "feedback" | "reaction";
+// questions Gary cleared (dealt with elsewhere) are kept out of "Needs me" and the new-question count
+const NOT_CLEARED = "payload->>cleared.is.null,payload->>cleared.neq.true";
 const box = "w-full border border-ink/15 rounded-xl px-3 py-2 bg-white text-sm";
 const when = (iso: string) => new Date(iso).toLocaleString("en-GB", { timeZone: "Asia/Kuala_Lumpur", dateStyle: "medium", timeStyle: "short" });
 
@@ -40,7 +43,7 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
     return q;
   };
   const [{ count: newQuestions }, { count: pendingResults }, { count: approved }, { count: up }, { count: down }] = await Promise.all([
-    head("question", ["new"]),
+    head("question", ["new"]).or(NOT_CLEARED),
     head("feedback", ["new", "read"]),
     admin.from("submissions").select("id", { count: "exact", head: true }).eq("kind", "feedback").eq("counts_for_goal", true),
     admin.from("submissions").select("id", { count: "exact", head: true }).eq("kind", "reaction").filter("payload->>rating", "eq", "1"),
@@ -49,9 +52,11 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
 
   // the list for the chosen tab
   let q = admin.from("submissions").select("*", { count: "exact" }).eq("kind", tab);
-  if (show === "todo" && tab === "question") q = q.in("status", ["new", "read"]);
+  if (show === "todo" && tab === "question") q = q.in("status", ["new", "read"]).or(NOT_CLEARED);
   if (show === "todo" && tab === "feedback") q = q.in("status", ["new", "read"]);
-  const { count: listCount } = await admin.from("submissions").select("id", { count: "exact", head: true }).eq("kind", tab).in("status", show === "todo" && tab !== "reaction" ? ["new", "read"] : ["new", "read", "answered", "approved", "rejected"]);
+  let countQuery = admin.from("submissions").select("id", { count: "exact", head: true }).eq("kind", tab).in("status", show === "todo" && tab !== "reaction" ? ["new", "read"] : ["new", "read", "answered", "approved", "rejected"]);
+  if (show === "todo" && tab === "question") countQuery = countQuery.or(NOT_CLEARED);
+  const { count: listCount } = await countQuery;
   const total = listCount ?? 0;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
   const page = Math.min(Math.max(1, parseInt(sp.page ?? "1", 10) || 1), totalPages);
@@ -132,7 +137,7 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
             const p = r.payload ?? {};
             return (
               <article key={r.id} className="card space-y-3">
-                <Head r={r} />
+                <Head r={r} cleared={!!p.cleared} />
                 <Row k="Age / form" v={p.age_form} />
                 {p.mode === "free" ? (
                   <Row k="Free message" v={r.body} />
@@ -149,6 +154,14 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
                   {r.contact ? `Reply to: ${r.contact}` : "no contact given"}
                   {p.publish_ok ? " · OK to answer publicly (no name)" : ""}
                 </p>
+                <div className="flex flex-wrap items-start gap-3">
+                  <QuestionCardMaker
+                    id={r.id}
+                    text={p.mode === "free" ? r.body ?? "" : [r.body, p.scenario, p.tried, p.wish].filter(Boolean).join("\n\n")}
+                    ageForm={p.age_form ?? ""}
+                    publishOk={!!p.publish_ok}
+                  />
+                </div>
                 {threadOf(r.id).length > 0 && (
                   <div className="space-y-2">
                     <p className="text-xs uppercase tracking-wide text-ink/50">Conversation</p>
@@ -169,9 +182,19 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
                     <button className="btn-primary !py-1.5 text-sm">{r.status === "answered" || threadOf(r.id).length ? "Send reply" : "Mark as answered"}</button>
                   </div>
                 </form>
-                {r.status === "new" && (
-                  <form action={markRead}><input type="hidden" name="id" value={r.id} /><button className="text-xs text-clay-700 underline">Mark as read</button></form>
-                )}
+                <div className="flex flex-wrap gap-4 items-center">
+                  {r.status === "new" && !p.cleared && (
+                    <form action={markRead}><input type="hidden" name="id" value={r.id} /><button className="text-xs text-clay-700 underline">Mark as read</button></form>
+                  )}
+                  {p.cleared ? (
+                    <form action={unclearQuestion}><input type="hidden" name="id" value={r.id} /><button className="text-xs text-clay-700 underline">Bring back to “Needs me”</button></form>
+                  ) : (
+                    <form action={clearQuestion}>
+                      <input type="hidden" name="id" value={r.id} />
+                      <button className="btn-secondary !py-1 !px-3 text-xs" title="Already dealt with (for example by private message). It leaves the Needs me list. The student sees nothing.">Clear ✓</button>
+                    </form>
+                  )}
+                </div>
               </article>
             );
           })}
@@ -241,11 +264,14 @@ export default async function AdminInboxPage({ searchParams }: { searchParams: P
   );
 }
 
-function Head({ r }: { r: any }) {
+function Head({ r, cleared }: { r: any; cleared?: boolean }) {
   return (
     <div className="flex items-center justify-between gap-3">
       <span className="text-xs text-ink/50">{when(r.created_at)}</span>
-      <span className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${statusStyle[r.status] ?? ""}`}>{r.status}</span>
+      <span className="flex items-center gap-2">
+        {cleared && <span className="text-xs px-2.5 py-0.5 rounded-full font-medium bg-ink/10 text-ink/70">cleared</span>}
+        <span className={`text-xs px-2.5 py-0.5 rounded-full font-medium ${statusStyle[r.status] ?? ""}`}>{r.status}</span>
+      </span>
     </div>
   );
 }

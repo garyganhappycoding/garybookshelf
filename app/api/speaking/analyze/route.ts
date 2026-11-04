@@ -28,8 +28,9 @@ const MAX_AUDIO_BYTES = 6 * 1024 * 1024;
 // time and word limits come from PART_INFO: Part 2 is 1 minute, Part 3 is 2 minutes (each plus a little slack)
 const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const FALLBACK_MODEL = "openai/gpt-oss-20b"; // separate rate limits; used when the main model is busy
-// Free students use the lighter model only. The strong model's daily allowance (200,000 tokens in a rolling 24 hours on
-// Groq's free plan) is kept for paying students, who get the full report.
+// Free students start on the lighter model only. The strong model's daily allowance (200,000 tokens in a rolling 24 hours on
+// Groq's free plan) is kept for paying students, who get the full report. When Groq is busy or down, free students are
+// marked by the OpenRouter backup too (Gary's decision, 4 Nov 2026), so they do not meet "AI busy"; they still get the limited free report.
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
@@ -39,13 +40,16 @@ async function callGrok(targets: Target[], messages: unknown, paid: boolean): Pr
   let used = targets[0].label ?? targets[0].model;
   let lastWasBadJson = false;
   let thinFallback: { res: Response; model: string } | null = null;
+  let prevUrl = "";
   const thinModels: string[] = [];
   for (const t of targets) {
     if (t.onlyIfBadJson && !lastWasBadJson) continue;
-    if (res) {
+    if (res && t.url === prevUrl) {
+      // only pause before trying the SAME service again; switching to another provider needs no wait
       const wait = Math.min(Number(res.headers.get("retry-after")) || 2, 5);
       await sleep(wait * 1000);
     }
+    prevUrl = t.url;
     used = t.label ?? t.model;
     res = await fetch(t.url, {
       method: "POST",
@@ -321,9 +325,9 @@ export async function POST(req: Request) {
       // The backup is only ever in this paid list: free students never reach it.
       targets = [groq(MODEL), ...backupTargets(), groq(MODEL), groq(FALLBACK_MODEL), groq(MODEL)];
     } else {
-      // one try, on the lighter model only: a busy AI is not made busier by retries from free students
-      // (one extra go only when the model answered with broken JSON, which is a one-off and costs no rate-limit wait)
-      targets = [groq(FALLBACK_MODEL), { ...groq(FALLBACK_MODEL), onlyIfBadJson: true }];
+      // one try on Groq's lighter model (a busy AI is not made busier by retries from free students; one extra go only when
+      // the model answered with broken JSON). If Groq is busy or failing, the OpenRouter backup marks it instead.
+      targets = [groq(FALLBACK_MODEL), { ...groq(FALLBACK_MODEL), onlyIfBadJson: true }, ...backupTargets()];
     }
     const { res: aiRes, model: usedModel, thinModels, stillThin } = await callGrok(targets, buildMessages(card, transcript, stats, paidRun, part), paidRun);
     if (!aiRes.ok) {
