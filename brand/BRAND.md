@@ -114,6 +114,10 @@
 - After 17 Dec the SPM cohort leaves: off-peak. Target the current Form 4 students for 2027.
 - The site now has an exam countdown banner driven by `lib/exam-dates.ts` (edit that file each year).
 
+## In progress: vocab by question (Gary, 7 Nov 2026)
+- Idea: for each theme, a vocab table for every thing a question asks (for example "what is technology / why is it useful / should we use it wisely"). Each term has a Chinese meaning, level and a scenario sentence, and the question is shown below its tables. Technology draft made first (9 speaking Part 2 cards, 36 tables, 186 terms); questions come from the speaking cards in `lib/speaking/cards.ts`, the Part 3 questions in the speaking冲刺包 Drive docs, and the Question Analysis in the essay trial-paper docs. Gary to check the draft before the other themes are done.
+- **speaking冲刺包** (12 PDFs from Gary's Drive folder, RM15, blue pill picture made 30 Oct 2026). Gary must reword the drafting notes in the Docs ("your folder", "I added") before selling.
+
 ## Credibility (use in content and site copy)
 - Gary scored a **4.00 flat in matriculation** (photo on the homepage), and studied through SPM and matriculation.
 - Proof from students: only a few testimonials so far. Gary does **not** want to count those yet. Do not claim student results in copy until real before/after proof exists.
