@@ -30,6 +30,12 @@ Copy this template under "Entries":
 | Fisher Mode | video scripting | https://www.instagram.com/fisher_mode/ |
 
 ## Entries
+### 2026-11-07 — UBBI live week lessons (31 Oct - 4 Nov 2026)
+- Source: Gary's own live week, compiled from the database; full numbers in `brand/UBBI-LIVE-REPORT-31OCT-4NOV.md`
+- Insight: 230 orders / RM2,830 in 5 days (83% in the first 2 days), 508 sign-ups, 25% of new sign-ups bought. But 57% of speaking attempts failed "AI busy" and 48% of speaking users never saw a report. Failed tries caused retry storms. Downloads on phones caused 24 re-download requests. Emails and analytics were missing.
+- Apply to garybookshelf: before any live, size the AI for about 1,000 tries on the busiest day (paid tier or two providers for everyone), cap tries, switch Vercel to Pro for the week, set up email and web analytics, and keep a download fallback. Sell bundles (RM15 sold 163 vs RM5 notes 48).
+- Status: adopted (report written; fixes partly done: backup AI for free students, stuck-attempt refunds, CPU cuts)
+
 ### 2026-10-20 — What students value most (from Gary)
 - Source: Gary's own observation of his audience
 - Insight: followers like his study techniques most; most-saved posts are "how to study [subject]" and "how to improve your grades". Most competing study accounts don't teach how to study at all.
