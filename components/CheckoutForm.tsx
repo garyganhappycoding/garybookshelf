@@ -2,21 +2,29 @@
 
 import { useEffect, useState, useTransition } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { submitOrder } from "@/actions/checkout";
+import { submitOrder, getMyPrice } from "@/actions/checkout";
 import Link from "next/link";
 
 export default function CheckoutForm({
   productId,
-  amount,
+  amount: normalAmount,
 }: {
   productId: string;
   amount: number;
 }) {
+  // the real price for this buyer is worked out on the server (member discount)
+  const [amount, setAmount] = useState(normalAmount);
+  const [priceNote, setPriceNote] = useState<string | null>(null);
   // login state is read in the browser so the product page itself can be cached
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
   useEffect(() => {
-    createClient().auth.getSession().then(({ data }) => setIsLoggedIn(!!data.session));
-  }, []);
+    createClient().auth.getSession().then(({ data }) => {
+      setIsLoggedIn(!!data.session);
+      getMyPrice(productId).then((p) => {
+        if (p) { setAmount(p.price); setPriceNote(p.note); }
+      });
+    });
+  }, [productId]);
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
@@ -62,13 +70,14 @@ export default function CheckoutForm({
         <p className="text-sm text-ink/60">
           {process.env.NEXT_PUBLIC_TNG_NAME || "Gary Tan"} &middot; RM {amount.toFixed(2)}
         </p>
+        {priceNote && <p className="text-xs text-clay-700 mt-1">{priceNote}</p>}
       </div>
 
       <form
         action={(formData) => {
           setError(null);
           startTransition(async () => {
-            const result = await submitOrder(productId, amount, formData);
+            const result = await submitOrder(productId, formData);
             if (result.error) setError(result.error);
             if (result.success) setSuccess(true);
           });

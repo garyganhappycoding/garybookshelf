@@ -6,7 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import { productFiles, type ProductFile } from "@/lib/product-files";
 import { updateProductRecord } from "@/actions/admin";
 
-export default function EditProductForm({ product }: { product: any }) {
+export default function EditProductForm({ product, otherProducts = [] }: { product: any; otherProducts?: { id: string; title: string }[] }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [uploading, setUploading] = useState(false);
@@ -111,6 +111,8 @@ export default function EditProductForm({ product }: { product: any }) {
         files,
         externalLink: externalLink || undefined,
         personalizePdf: deliveryType === "file" && formData.get("personalizePdf") === "on",
+        memberDiscountProductId: ((formData.get("memberProduct") as string) || "") || null,
+        memberPrice: formData.get("memberPrice") ? parseFloat(formData.get("memberPrice") as string) : null,
       });
       if (result?.error) setError(result.error);
       else router.push("/admin/products");
@@ -232,6 +234,22 @@ export default function EditProductForm({ product }: { product: any }) {
               )}
               <input name="asset" type="file" multiple className="w-full text-sm" />
               <p className="text-xs text-ink/50 mt-1">Pick one or several files to add. Files listed above stay unless you remove them.</p>
+        <div className="border border-ink/10 rounded-xl p-3 mt-4">
+          <p className="text-sm font-medium mb-1">Member discount (optional)</p>
+          <p className="text-xs text-ink/50 mb-2">
+            A cheaper price for people who already have an <strong>approved</strong> order for another product. One discount per account.
+            Example: RM10 normally, RM5 for buyers of the speaking冲刺包.
+          </p>
+          <div className="grid grid-cols-2 gap-3">
+            <select name="memberProduct" defaultValue={product.member_discount_product_id || ""} className="border border-ink/15 rounded-lg px-3 py-2 text-sm">
+              <option value="">No member discount</option>
+              {otherProducts.map((p) => (
+                <option key={p.id} value={p.id}>Bought: {p.title}</option>
+              ))}
+            </select>
+            <input name="memberPrice" type="number" step="0.01" min="0" defaultValue={product.member_price_myr ?? ""} placeholder="Member price (RM)" className="border border-ink/15 rounded-lg px-3 py-2 text-sm" />
+          </div>
+        </div>
         <label className="flex items-start gap-2 text-sm mt-3">
           <input type="checkbox" name="personalizePdf" defaultChecked={Boolean(product.personalize_pdf)} className="mt-1" />
           <span>
