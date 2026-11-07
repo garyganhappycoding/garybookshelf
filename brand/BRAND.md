@@ -114,8 +114,9 @@
 - After 17 Dec the SPM cohort leaves: off-peak. Target the current Form 4 students for 2027.
 - The site now has an exam countdown banner driven by `lib/exam-dates.ts` (edit that file each year).
 
-## In progress: vocab by question (Gary, 7 Nov 2026)
-- Idea: for each theme, a vocab table for every thing a question asks (for example "what is technology / why is it useful / should we use it wisely"). Each term has a Chinese meaning, level and a scenario sentence, and the question is shown below its tables. Technology draft made first (9 speaking Part 2 cards, 36 tables, 186 terms); questions come from the speaking cards in `lib/speaking/cards.ts`, the Part 3 questions in the speaking冲刺包 Drive docs, and the Question Analysis in the essay trial-paper docs. Gary to check the draft before the other themes are done.
+## In progress: vocab by essay question (Gary, 7 Nov 2026)
+- Gary wants **essay questions only** (not the speaking cue cards). For each theme, every essay question is split into the points it asks; each point has an idea and vocab for **Reason / Example / Result**. Table columns: vocab, 中文, level, scenario, example sentence. The question is listed below its tables.
+- Source: the "Question Analysis" tables in the trial-paper docs in Gary's essay Drive folder (the question paper itself is an image, so questions are rebuilt from the analysis). Technology draft done (7 questions, 37 points, 222 terms). Waiting for Gary's check before the other themes.
 - **speaking冲刺包** (12 PDFs from Gary's Drive folder, RM15, blue pill picture made 30 Oct 2026). Gary must reword the drafting notes in the Docs ("your folder", "I added") before selling.
 
 ## Credibility (use in content and site copy)
