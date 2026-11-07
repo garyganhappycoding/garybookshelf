@@ -141,6 +141,13 @@
 - **AI cost cap for speaking (accepted 20 Oct 2026):** shadow budget RM50/month at about RM0.009 per attempt; alert at 80%; cap free use before paid students are affected.
 - **Conversion plan (20 Oct 2026, discussed, not built yet):** (1) make the free speaking result a partial result and put the deeper feedback behind the paid pack; (2) add an **exam countdown** to the website (Gary likes it; needs exam dates); (3) test a checkout add-on: buy RM5 notes, add RM5 for speaking attempts (Gary suggested 10 attempts for the RM5 add-on, total RM10). Bundling notes + a full subscription is **not** wanted right now.
 
+## Next-year backlog (Gary, 7 Nov 2026: speaking season is over, build these before the 2027 push, not now)
+1. **Offer after the free speaking result:** one clear card on the result page ("Want the full report and the notes? RM15", link to the 冲刺包). In 2026, 273 of 567 speaking users never saw a report, so also show it on the error screen.
+2. **Ask buyers for before/after scores:** after the exam, ask each pack/bundle buyer for their result (feeds The Bookshelf 100, the homepage and the Wall of Wins; only 1 result was approved in 2026).
+3. **Score history chart:** a simple chart of a student's last scores on the Speaking page ("10, 11, 12, 13") so paid students see their improvement.
+- Also on the list from the 2026 live report (`brand/UBBI-LIVE-REPORT-31OCT-4NOV.md`, section 7): AI capacity for peak day, Vercel Pro for the live week, web analytics, real email sender, server-side checkout price, 2 downloads per file.
+- After 17 Dec 2026 the SPM cohort leaves; target current Form 4 students for 2027.
+
 ## Reporting rules (Gary, 24 Oct 2026)
 - **Sales = approved orders only** (status `completed`). Rejected orders (wrong receipt or a problem with the transaction) and orders still waiting are never counted in sales, buyers or revenue.
 - The RM10 bundle (English essay notes + 15 attempts) stays on sale for now. The banner offer text still ends 28 Oct 2026. **30 Oct 2026: the expired offer line was removed from the bundle description (price stays RM10 for now) and the top menu was cut to four: Speaking, Shop, Free resources, Say hi. "Start here" stays on the homepage and footer; "Ask Gary" is hidden until it is built.**
