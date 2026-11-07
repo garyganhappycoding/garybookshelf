@@ -117,6 +117,7 @@
 ## In progress: vocab by essay question (Gary, 7 Nov 2026)
 - Gary wants **essay questions only** (not the speaking cue cards). For each theme, every essay question is split into the points it asks; each point has an idea and vocab for **Reason / Example / Result**. Table columns: vocab, 中文, level, scenario, example sentence. The question is listed below its tables.
 - Source: the "Question Analysis" tables in the trial-paper docs in Gary's essay Drive folder (the question paper itself is an image, so questions are rebuilt from the analysis). Technology draft done (7 questions, 37 points, 222 terms). Waiting for Gary's check before the other themes.
+- Technology essay vocab draft now shows the **original question image** under each question (taken from the top of each trial-paper doc). Also drafted: **universal opening and closing paragraphs** (3 openings: statement, question, saying or scene; 3 closings: summary and opinion, call to action, quote or question), with a theme bank built from each theme's universal phrases. Both waiting for Gary's check.
 - **speaking冲刺包** (12 PDFs from Gary's Drive folder, RM15, blue pill picture made 30 Oct 2026). Gary must reword the drafting notes in the Docs ("your folder", "I added") before selling.
 
 ## Credibility (use in content and site copy)
