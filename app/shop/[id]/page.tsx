@@ -1,6 +1,7 @@
 import { createPublicClient } from "@/lib/supabase/public";
 import { notFound } from "next/navigation";
 import CheckoutForm from "@/components/CheckoutForm";
+import { productFiles } from "@/lib/product-files";
 import ProductPrice from "@/components/ProductPrice";
 import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
@@ -52,18 +53,29 @@ export default async function ProductPage({
         <p className="text-xs text-clay-600 uppercase tracking-wide mb-1 mt-4">{product.category}</p>
         <h1 className="text-2xl font-medium mb-2">{product.title}</h1>
         <p className="text-ink/70 leading-relaxed mb-4 whitespace-pre-line">{product.description}</p>
+        {product.price_per_file_myr != null ? (
+          <div>
+            <p className="text-xl font-medium text-clay-700">RM {Number(product.price_per_file_myr).toFixed(2)} per file</p>
+            <p className="text-sm text-ink/60 mt-1">
+              Buy only the files you need, or all {productFiles(product).length} files for RM {(Number(product.price_per_file_myr) * productFiles(product).length).toFixed(2)}. Choose on the right.
+            </p>
+          </div>
+        ) : (
         <ProductPrice
           productId={product.id}
           normalPrice={Number(product.price_myr)}
           memberPrice={product.member_discount_product_id && product.member_price_myr != null ? Number(product.member_price_myr) : null}
           memberProductTitle={memberProductTitle}
         />
+        )}
       </div>
 
       <div>
         <CheckoutForm
           productId={product.id}
           amount={Number(product.price_myr)}
+          fileOptions={product.price_per_file_myr != null ? productFiles(product).map((f) => f.name.replace(/\.pdf$/i, "")) : undefined}
+          pricePerFile={product.price_per_file_myr != null ? Number(product.price_per_file_myr) : null}
         />
       </div>
 

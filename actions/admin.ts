@@ -72,6 +72,7 @@ export async function updateProductRecord(
     memberDiscountProductId?: string | null;
     memberPrice?: number | null;
     isPublished?: boolean;
+    pricePerFile?: number | null;
   }
 ) {
   const supabase = await requireAdmin();
@@ -85,6 +86,7 @@ export async function updateProductRecord(
 
   if (data.personalizePdf !== undefined) updates.personalize_pdf = data.personalizePdf;
   if (data.isPublished !== undefined) updates.is_published = data.isPublished;
+  if (data.pricePerFile !== undefined) updates.price_per_file_myr = data.pricePerFile;
   if (data.memberDiscountProductId !== undefined) {
     updates.member_discount_product_id = data.memberDiscountProductId;
     updates.member_price_myr = data.memberDiscountProductId ? data.memberPrice ?? null : null;
