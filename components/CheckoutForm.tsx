@@ -15,13 +15,14 @@ export default function CheckoutForm({
   // the real price for this buyer is worked out on the server (member discount)
   const [amount, setAmount] = useState(normalAmount);
   const [priceNote, setPriceNote] = useState<string | null>(null);
+  const [discounted, setDiscounted] = useState(false);
   // login state is read in the browser so the product page itself can be cached
   const [isLoggedIn, setIsLoggedIn] = useState<boolean | null>(null);
   useEffect(() => {
     createClient().auth.getSession().then(({ data }) => {
       setIsLoggedIn(!!data.session);
       getMyPrice(productId).then((p) => {
-        if (p) { setAmount(p.price); setPriceNote(p.note); }
+        if (p) { setAmount(p.price); setPriceNote(p.note); setDiscounted(p.discounted); }
       });
     });
   }, [productId]);
@@ -67,9 +68,18 @@ export default function CheckoutForm({
           alt="Touch 'n Go QR code"
           className="w-40 h-40 object-contain mx-auto mb-2"
         />
-        <p className="text-sm text-ink/60">
-          {process.env.NEXT_PUBLIC_TNG_NAME || "Gary Tan"} &middot; RM {amount.toFixed(2)}
-        </p>
+        <p className="text-sm text-ink/60">{process.env.NEXT_PUBLIC_TNG_NAME || "Gary Tan"}</p>
+        {discounted ? (
+          <>
+            <p className="text-xs font-semibold uppercase tracking-wide text-clay-700 mt-2">Member price</p>
+            <p className="flex items-baseline justify-center gap-3">
+              <span className="text-4xl font-bold text-clay-700">Pay RM {amount.toFixed(2)}</span>
+              <span className="text-xl text-ink/45 line-through">RM {normalAmount.toFixed(2)}</span>
+            </p>
+          </>
+        ) : (
+          <p className="text-2xl font-semibold text-ink mt-1">Pay RM {amount.toFixed(2)}</p>
+        )}
         {priceNote && <p className="text-xs text-clay-700 mt-1">{priceNote}</p>}
       </div>
 
