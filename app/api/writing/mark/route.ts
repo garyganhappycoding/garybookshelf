@@ -2,7 +2,7 @@ import { NextResponse, after } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { alertPaidFailure } from "@/lib/speaking/alerts";
-import { ADMIN_PER_DAY, FREE_PER_DAY, writingAccess } from "@/lib/writing/config";
+import { writingAccess } from "@/lib/writing/config";
 import { backupTargets, GROQ_URL, openRouterCreditLeft, requestBody, type Target } from "@/lib/speaking/providers";
 import {
   BAND_MAX,
@@ -92,9 +92,9 @@ export async function POST(req: Request) {
   if (!user) return err("Please log in to get your essay marked.", 401);
 
   // closed for students until WRITING_OPEN=true; admins can always test
-  const access = await writingAccess(supabase, user.id);
+  const access = await writingAccess(supabase, user);
   if (!access.allowed) return err("Essay marking is coming soon.", 403);
-  const perDay = access.isAdmin ? ADMIN_PER_DAY : FREE_PER_DAY;
+  const perDay = access.perDay;
 
   // 1. read and check the form
   let body: Record<string, unknown>;
@@ -129,7 +129,7 @@ export async function POST(req: Request) {
     .eq("kind", "purchased")
     .gt("expires_at", new Date().toISOString());
   // admins test both reports: the full one by default, or the free one when they tick "test as a free student"
-  const paid = access.isAdmin ? body.asFree !== true : (bought ?? []).some((p) => p.attempts_used < p.attempts_total);
+  const paid = access.canTest ? body.asFree !== true : (bought ?? []).some((p) => p.attempts_used < p.attempts_total);
 
   // 3. one at a time, and a short wait after repeated failures, so retries do not pile onto a busy AI
   const { data: recent } = await admin

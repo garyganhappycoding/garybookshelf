@@ -122,3 +122,16 @@ revoke all on function public.claim_writing_attempt(int, text, text, text, int, 
 grant execute on function public.claim_writing_attempt(int, text, text, text, int, int) to authenticated;
 revoke all on function public.writing_attempts_left(int) from public, anon;
 grant execute on function public.writing_attempts_left(int) to authenticated;
+
+-- ============================================================
+-- Beta testers (added 8 Nov 2026). Gary's friends can use /writing while WRITING_OPEN is off.
+-- Add one with:  insert into public.writing_beta_testers (email, note) values ('friend@gmail.com', 'name');
+-- Remove with:   delete from public.writing_beta_testers where email = 'friend@gmail.com';
+-- Applied to the live project (migration "writing_beta_testers").
+-- ============================================================
+create table if not exists public.writing_beta_testers (
+  email text primary key,
+  note text,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+alter table public.writing_beta_testers enable row level security; -- no policies: only the server (service role) can read or change it

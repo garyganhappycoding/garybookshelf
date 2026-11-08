@@ -2,7 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import WritingMarker from "@/components/WritingMarker";
 import WritingComingSoon from "@/components/WritingComingSoon";
-import { ADMIN_PER_DAY, FREE_PER_DAY, WRITING_OPEN, writingAccess } from "@/lib/writing/config";
+import { FREE_PER_DAY, noAccess, writingAccess } from "@/lib/writing/config";
 
 export const metadata = { title: "Essay marking · Gary's Bookshelf" };
 export const dynamic = "force-dynamic";
@@ -14,7 +14,7 @@ export default async function WritingPage() {
   } = await supabase.auth.getUser();
 
   // closed for students until WRITING_OPEN=true (admins can always test)
-  const access = user ? await writingAccess(supabase, user.id) : { isAdmin: false, allowed: WRITING_OPEN };
+  const access = user ? await writingAccess(supabase, user) : noAccess;
   if (!access.allowed) return <WritingComingSoon />;
 
   let attemptsLeft = FREE_PER_DAY;
@@ -33,7 +33,7 @@ export default async function WritingPage() {
       .limit(1)
       .maybeSingle();
     if (packProduct) packHref = `/shop/${packProduct.id}`;
-    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: access.isAdmin ? ADMIN_PER_DAY : FREE_PER_DAY }), supabase.rpc("speaking_pack_status")]);
+    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: access.perDay }), supabase.rpc("speaking_pack_status")]);
     if (typeof left === "number") attemptsLeft = left;
     const p = Array.isArray(pack) ? pack[0] : pack;
     if (p?.pack_left) packLeft = p.pack_left;
@@ -54,7 +54,7 @@ export default async function WritingPage() {
       </p>
 
       {user ? (
-        <WritingMarker initialAttemptsLeft={attemptsLeft} initialPackLeft={packLeft} packHref={packHref} isAdmin={access.isAdmin} />
+        <WritingMarker initialAttemptsLeft={attemptsLeft} initialPackLeft={packLeft} packHref={packHref} isAdmin={access.canTest} />
       ) : (
         <div className="card text-center max-w-md mx-auto">
           <p className="text-4xl mb-3">🔒</p>
