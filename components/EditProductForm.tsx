@@ -112,6 +112,7 @@ export default function EditProductForm({ product, otherProducts = [] }: { produ
         externalLink: externalLink || undefined,
         personalizePdf: deliveryType === "file" && formData.get("personalizePdf") === "on",
         isPublished: formData.get("isPublished") === "on",
+        pricePerFile: formData.get("pricePerFile") ? parseFloat(formData.get("pricePerFile") as string) : null,
         memberDiscountProductId: ((formData.get("memberProduct") as string) || "") || null,
         memberPrice: formData.get("memberPrice") ? parseFloat(formData.get("memberPrice") as string) : null,
       });
@@ -241,6 +242,13 @@ export default function EditProductForm({ product, otherProducts = [] }: { produ
             <strong>Show in the shop.</strong> Untick to hide this item from the shop while you are still setting it up (for example before the files are uploaded).
           </span>
         </label>
+        <div className="border border-ink/10 rounded-xl p-3 mt-4">
+          <p className="text-sm font-medium mb-1">Sell files separately (optional)</p>
+          <p className="text-xs text-ink/50 mb-2">
+            For an item with several files: buyers tick the files they want and the total is shown at the payment QR. Enter the price of ONE file, or leave empty to sell all files together at the price above.
+          </p>
+          <input name="pricePerFile" type="number" step="0.01" min="0" defaultValue={product.price_per_file_myr ?? ""} placeholder="Price per file (RM)" className="border border-ink/15 rounded-lg px-3 py-2 text-sm w-full sm:w-60" />
+        </div>
         <div className="border border-ink/10 rounded-xl p-3 mt-4">
           <p className="text-sm font-medium mb-1">Member discount (optional)</p>
           <p className="text-xs text-ink/50 mb-2">
