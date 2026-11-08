@@ -111,6 +111,7 @@ export default function EditProductForm({ product, otherProducts = [] }: { produ
         files,
         externalLink: externalLink || undefined,
         personalizePdf: deliveryType === "file" && formData.get("personalizePdf") === "on",
+        isPublished: formData.get("isPublished") === "on",
         memberDiscountProductId: ((formData.get("memberProduct") as string) || "") || null,
         memberPrice: formData.get("memberPrice") ? parseFloat(formData.get("memberPrice") as string) : null,
       });
@@ -234,6 +235,12 @@ export default function EditProductForm({ product, otherProducts = [] }: { produ
               )}
               <input name="asset" type="file" multiple className="w-full text-sm" />
               <p className="text-xs text-ink/50 mt-1">Pick one or several files to add. Files listed above stay unless you remove them.</p>
+        <label className="flex items-start gap-2 text-sm mt-4">
+          <input type="checkbox" name="isPublished" defaultChecked={product.is_published !== false} className="mt-1" />
+          <span>
+            <strong>Show in the shop.</strong> Untick to hide this item from the shop while you are still setting it up (for example before the files are uploaded).
+          </span>
+        </label>
         <div className="border border-ink/10 rounded-xl p-3 mt-4">
           <p className="text-sm font-medium mb-1">Member discount (optional)</p>
           <p className="text-xs text-ink/50 mb-2">
