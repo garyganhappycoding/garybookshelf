@@ -43,6 +43,7 @@ export const config = {
   matcher: [
     "/dashboard/:path*",
     "/speaking/:path*",
+    "/writing/:path*",
     "/admin/:path*",
     "/track/:path*",
     "/feedback",
@@ -50,6 +51,7 @@ export const config = {
     "/replies",
     "/ask-gary/:path*",
     "/api/speaking/:path*",
+    "/api/writing/:path*",
     "/api/ask-gary/:path*",
   ],
 };

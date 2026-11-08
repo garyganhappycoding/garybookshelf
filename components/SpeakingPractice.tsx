@@ -733,6 +733,7 @@ export function Result({ data: initial, card, audioUrl, onAgain, onThemes, canRe
             </div>
             <div className="h-2 bg-ink/10 rounded-full my-2"><div className="h-2 bg-clay-500 rounded-full" style={{ width: `${((result.criteria[k]?.band ?? 0) / BAND_MAX) * 100}%` }} /></div>
             <p className="text-sm text-ink/70">{result.criteria[k]?.comment}</p>
+            {result.criteria[k]?.next_band && <p className="text-sm text-clay-700 mt-2">⬆ {result.criteria[k]?.next_band}</p>}
           </div>
         ))}
       </section>
@@ -775,7 +776,11 @@ export function Result({ data: initial, card, audioUrl, onAgain, onThemes, canRe
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 text-center text-xs">
             <Stat label="Words per min" value={String(stats.wordsPerMinute)} hint="aim: 110-150" />
             <Stat label="Words" value={String(stats.wordCount)} />
-            <Stat label="Long pauses (1.5s+)" value={String(stats.longPauses)} />
+            {stats.pausesOver3s === undefined ? (
+              <Stat label="Long pauses (1.5s+)" value={String(stats.longPauses)} />
+            ) : (
+              <Stat label="Long stops (3s+)" value={String(stats.pausesOver3s)} hint="short pauses are fine" />
+            )}
             <Stat label="Fillers" value={String(stats.fillerCount)} />
           </div>
         )}

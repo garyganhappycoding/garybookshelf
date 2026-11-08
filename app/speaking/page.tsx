@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import SpeakingPractice, { type SavedRec } from "@/components/SpeakingPractice";
+import { WRITING_OPEN, writingAccess } from "@/lib/writing/config";
 
 export const metadata = { title: "Speaking practice · Gary's Bookshelf" };
 
@@ -9,6 +10,9 @@ export default async function SpeakingPage() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
+  // the Essay marking button stays hidden from students until WRITING_OPEN=true (admins always see it)
+  const showWriting = user ? (await writingAccess(supabase, user.id)).allowed : WRITING_OPEN;
 
   let attemptsLeft = 2;
   let saved: SavedRec[] = [];
@@ -62,7 +66,10 @@ export default async function SpeakingPage() {
     <div className="max-w-3xl mx-auto px-5 py-14">
       <div className="flex items-start justify-between gap-3">
         <h1 className="font-hand text-4xl text-clay-700 mb-1">Speaking practice</h1>
-        {user && <Link prefetch={false}  href="/speaking/history" className="btn-secondary !py-1.5 shrink-0">My history</Link>}
+        <div className="flex gap-2 shrink-0">
+          {showWriting && <Link prefetch={false} href="/writing" className="btn-secondary !py-1.5">Essay marking</Link>}
+          {user && <Link prefetch={false} href="/speaking/history" className="btn-secondary !py-1.5">My history</Link>}
+        </div>
       </div>
       <p className="text-ink/70 mb-8">
         Pick Part 2 (cue card, 1 minute) or Part 3 (discussion, 2 minutes), speak, and get AI feedback marked with the official SPM speaking scales.
