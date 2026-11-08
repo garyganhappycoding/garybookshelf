@@ -47,6 +47,7 @@ export default async function AdminPage() {
     { href: "/admin/resources", title: "Content & Resources", text: "Manage content hub and free downloads" },
     { href: "/admin/feedback", title: "Feedback", text: feedback ? `${feedback} new, not opened yet` : "See what customers are saying", badge: feedback },
     { href: "/admin/speaking", title: "Speaking", text: "Usage, scores and why attempts fail" },
+    { href: "/admin/writing", title: "Essay marking", text: "Topics, scores and full reports (beta)" },
     {
       href: "/admin/inbox",
       title: "Inbox",
