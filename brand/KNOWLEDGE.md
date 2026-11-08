@@ -30,6 +30,18 @@ Copy this template under "Entries":
 | Fisher Mode | video scripting | https://www.instagram.com/fisher_mode/ |
 
 ## Entries
+### 2026-11-08 — Professional feedback on the speaking AI's marking
+- Source: a professional examiner's feedback, passed on by Gary
+- Insight: (1) prioritise what costs marks: one basic word like "fun" next to varied vocabulary is not a fault; (2) "um" and short pauses are fine, only long stops (about 5s+) cost marks; (3) every scale got a 3 by habit, so each band must be justified against the descriptor; (4) grammar: a MISTAKE (slip, once or twice) is ignored, an ERROR (same wrong pattern again and again) costs marks, and nothing is deducted if it is not obvious; grammar covers complex and compound sentences, cohesive devices, connectors and tenses; (5) Overall Spoken Performance depends on partner interaction and how much the interlocutor must help, so in solo practice judge it as "could they carry on alone".
+- Apply to garybookshelf: built into `lib/speaking/analyze.ts` (SCORING_METHOD, WHAT_MATTERS, GRAMMAR_RULES, HESITATION_RULES). Revisit after Gary checks a batch of real reports.
+- Status: adopted (not yet deployed or tested on real recordings)
+
+### 2026-11-08 — SPM 2025 English Paper 2 answer-quality report (KMJ)
+- Source: *Kupasan Mutu Jawapan SPM 2025 BI Kertas 2 (1119/2)*, Lembaga Peperiksaan; Gary sent the PDF
+- Insight: what high vs average answers look like for Part 1 (email), Part 2 (essay), Part 3 (story, report, article) on the four criteria Content, Communicative Achievement, Organisation, Language. Full write-up in `brand/ESSAY-BENCHMARK.md`. The most common losses: omitting or misreading a content point, wrong tone for the genre (reports written like stories), only simple connectors, misused advanced words.
+- Apply to garybookshelf: model essays in Gary's notes and the planned essay-marking AI must follow this benchmark. Gary will add good and bad essays as calibration samples.
+- Status: adopted (benchmark written; marking AI not built yet, waiting for Gary's samples)
+
 ### 2026-11-07 — UBBI live week lessons (31 Oct - 4 Nov 2026)
 - Source: Gary's own live week, compiled from the database; full numbers in `brand/UBBI-LIVE-REPORT-31OCT-4NOV.md`
 - Insight: 230 orders / RM2,830 in 5 days (83% in the first 2 days), 508 sign-ups, 25% of new sign-ups bought. But 57% of speaking attempts failed "AI busy" and 48% of speaking users never saw a report. Failed tries caused retry storms. Downloads on phones caused 24 re-download requests. Emails and analytics were missing.

@@ -207,7 +207,7 @@ export async function POST(req: Request) {
     cardId = prev.card_id;
     part = toPart((prev as { part?: number }).part);
     remark = { id: prev.id, tier: s.tier === "free" ? "free" : "paid", original: s.transcript, stats: s.stats };
-    saved = { transcript: edited, stats: { ...computeStats(edited, [], s.stats.durationSec), longPauses: s.stats.longPauses, longestPauseSec: s.stats.longestPauseSec }, duration: s.stats.durationSec };
+    saved = { transcript: edited, stats: { ...computeStats(edited, [], s.stats.durationSec), longPauses: s.stats.longPauses, longestPauseSec: s.stats.longestPauseSec, pausesOver3s: s.stats.pausesOver3s, stopsOver5s: s.stats.stopsOver5s }, duration: s.stats.durationSec };
   }
   const paidRun = remark ? remark.tier === "paid" : priority; // a corrected report keeps the tier it was first made in
 
@@ -411,7 +411,7 @@ export async function POST(req: Request) {
     }
     const shownStats = paidRun
       ? stats
-      : { ...stats, wordsPerMinute: 0, longPauses: 0, longestPauseSec: 0, fillerCount: 0, fillers: [], repeatedPhrases: [] };
+      : { ...stats, wordsPerMinute: 0, longPauses: 0, longestPauseSec: 0, pausesOver3s: 0, stopsOver5s: 0, fillerCount: 0, fillers: [], repeatedPhrases: [] };
 
     // 6. save (transcript + feedback only, never the audio)
     if (remark) {
