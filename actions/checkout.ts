@@ -40,11 +40,14 @@ export async function submitOrder(
   const picked = formData.getAll("files").map((v) => Number(v)).filter((n) => Number.isInteger(n) && n >= 0);
   const priced = await getPriceForUser(supabase, productId, user.id, picked);
   if (!priced) return { error: "This product is no longer available." };
-  const { data: sold } = await supabase.from("products").select("price_per_file_myr, product_files, file_path, title").eq("id", productId).maybeSingle();
+  const { data: sold } = await supabase.from("products").select("price_per_file_myr, free_file_indexes, product_files, file_path, title").eq("id", productId).maybeSingle();
   const perFile = sold?.price_per_file_myr != null;
   const allFiles = perFile ? productFiles(sold as any) : [];
-  const fileIndexes = perFile ? Array.from(new Set(picked)).filter((i) => i < allFiles.length).sort((a, b) => a - b) : null;
-  if (perFile && !fileIndexes?.length) return { error: "Please tick at least one file you want to buy." };
+  const freeFiles: number[] = (sold as any)?.free_file_indexes ?? [];
+  const paidPicked = Array.from(new Set(picked)).filter((i) => i < allFiles.length && !freeFiles.includes(i));
+  if (perFile && !paidPicked.length) return { error: "Please tick at least one file you want to buy." };
+  // free bonus files are always included in the order
+  const fileIndexes = perFile ? Array.from(new Set([...paidPicked, ...freeFiles.filter((i) => i < allFiles.length)])).sort((a, b) => a - b) : null;
   const amountPaid = priced.price;
 
   const receiptFile = formData.get("receipt") as File | null;
