@@ -1,6 +1,7 @@
 import { createPublicClient } from "@/lib/supabase/public";
 import { notFound } from "next/navigation";
 import CheckoutForm from "@/components/CheckoutForm";
+import ProductPrice from "@/components/ProductPrice";
 import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
@@ -51,12 +52,12 @@ export default async function ProductPage({
         <p className="text-xs text-clay-600 uppercase tracking-wide mb-1 mt-4">{product.category}</p>
         <h1 className="text-2xl font-medium mb-2">{product.title}</h1>
         <p className="text-ink/70 leading-relaxed mb-4 whitespace-pre-line">{product.description}</p>
-        <p className="text-xl font-medium text-clay-700">RM {Number(product.price_myr).toFixed(2)}</p>
-        {product.member_discount_product_id && product.member_price_myr != null && Number(product.member_price_myr) < Number(product.price_myr) && (
-          <p className="text-sm text-clay-700 mt-1">
-            RM {Number(product.member_price_myr).toFixed(2)} for buyers of {memberProductTitle ?? "our other pack"}. Log in to see your price.
-          </p>
-        )}
+        <ProductPrice
+          productId={product.id}
+          normalPrice={Number(product.price_myr)}
+          memberPrice={product.member_discount_product_id && product.member_price_myr != null ? Number(product.member_price_myr) : null}
+          memberProductTitle={memberProductTitle}
+        />
       </div>
 
       <div>
