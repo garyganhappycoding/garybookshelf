@@ -56,9 +56,16 @@ export default async function ProductPage({
         {product.price_per_file_myr != null ? (
           <div>
             <p className="text-xl font-medium text-clay-700">RM {Number(product.price_per_file_myr).toFixed(2)} per file</p>
-            <p className="text-sm text-ink/60 mt-1">
-              Buy only the files you need, or all {productFiles(product).length} files for RM {(Number(product.price_per_file_myr) * productFiles(product).length).toFixed(2)}. Choose on the right.
-            </p>
+            {(() => {
+              const free: number[] = product.free_file_indexes ?? [];
+              const paid = productFiles(product).filter((_, i) => !free.includes(i)).length;
+              return (
+                <p className="text-sm text-ink/60 mt-1">
+                  Buy only the files you need, or all {paid} files for RM {(Number(product.price_per_file_myr) * paid).toFixed(2)}. Choose on the right.
+                  {free.length > 0 && <> Plus {free.length} <strong>free</strong> bonus file{free.length > 1 ? "s" : ""} with every order.</>}
+                </p>
+              );
+            })()}
           </div>
         ) : (
         <ProductPrice
@@ -76,6 +83,7 @@ export default async function ProductPage({
           amount={Number(product.price_myr)}
           fileOptions={product.price_per_file_myr != null ? productFiles(product).map((f) => f.name.replace(/\.pdf$/i, "")) : undefined}
           pricePerFile={product.price_per_file_myr != null ? Number(product.price_per_file_myr) : null}
+          freeIndexes={product.free_file_indexes ?? []}
         />
       </div>
 

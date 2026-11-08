@@ -17,7 +17,7 @@ export type MyPrice = {
 export async function getPriceForUser(supabase: SupabaseClient, productId: string, userId: string | null, selected?: number[]): Promise<MyPrice | null> {
   const { data: product } = await supabase
     .from("products")
-    .select("price_myr, member_discount_product_id, member_price_myr, price_per_file_myr, product_files, file_path, title")
+    .select("price_myr, member_discount_product_id, member_price_myr, price_per_file_myr, free_file_indexes, product_files, file_path, title")
     .eq("id", productId)
     .maybeSingle();
   if (!product) return null;
@@ -25,7 +25,9 @@ export async function getPriceForUser(supabase: SupabaseClient, productId: strin
   // A product sold file by file (e.g. one PDF = RM10): the price is the number of files the buyer picked times the per-file price.
   if (product.price_per_file_myr != null) {
     const count = productFiles(product).length;
-    const picked = Array.from(new Set(selected ?? [])).filter((i) => Number.isInteger(i) && i >= 0 && i < count);
+    const free: number[] = product.free_file_indexes ?? [];
+    // free bonus files never count towards the price
+    const picked = Array.from(new Set(selected ?? [])).filter((i) => Number.isInteger(i) && i >= 0 && i < count && !free.includes(i));
     const price = Number(product.price_per_file_myr) * picked.length;
     return { price, normalPrice: price, discounted: false, note: null };
   }

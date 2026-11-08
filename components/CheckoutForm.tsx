@@ -10,14 +10,17 @@ export default function CheckoutForm({
   amount: normalAmount,
   fileOptions,
   pricePerFile,
+  freeIndexes = [],
 }: {
   productId: string;
   amount: number;
   fileOptions?: string[]; // names of the files, when the product is sold file by file
   pricePerFile?: number | null;
+  freeIndexes?: number[]; // free bonus files: always included, never counted in the price
 }) {
   const byFile = Boolean(fileOptions?.length && pricePerFile != null);
   const [picked, setPicked] = useState<number[]>([]);
+  const paidIdx = (fileOptions ?? []).map((_, i) => i).filter((i) => !freeIndexes.includes(i));
   // the real price for this buyer is worked out on the server (member discount)
   const [amount, setAmount] = useState(byFile ? 0 : normalAmount);
   const [priceNote, setPriceNote] = useState<string | null>(null);
@@ -71,7 +74,13 @@ export default function CheckoutForm({
           <p className="font-medium text-sm mb-1">1. Choose what you want to buy</p>
           <p className="text-xs text-ink/50 mb-2">RM {Number(pricePerFile).toFixed(2)} for each file. Tick one or more.</p>
           <ul className="space-y-2">
-            {fileOptions!.map((name, i) => (
+            {fileOptions!.map((name, i) => freeIndexes.includes(i) ? (
+              <li key={i} className="flex items-center gap-3 border border-dashed border-clay-700/50 bg-clay-400/10 rounded-lg px-3 py-2">
+                <span className="text-clay-700 text-sm font-bold">FREE</span>
+                <span className="flex-1 text-sm">{name}</span>
+                <span className="text-xs text-ink/60">included, bonus</span>
+              </li>
+            ) : (
               <li key={i}>
                 <label className="flex items-center gap-3 border border-ink/15 rounded-lg px-3 py-2 cursor-pointer has-[:checked]:border-clay-700 has-[:checked]:bg-clay-400/10">
                   <input
@@ -93,8 +102,8 @@ export default function CheckoutForm({
               </li>
             ))}
           </ul>
-          <button type="button" className="text-xs underline text-clay-700 mt-2" onClick={() => setPicked(picked.length === fileOptions!.length ? [] : fileOptions!.map((_, i) => i))}>
-            {picked.length === fileOptions!.length ? "Clear all" : "Select all"}
+          <button type="button" className="text-xs underline text-clay-700 mt-2" onClick={() => setPicked(picked.length === paidIdx.length ? [] : paidIdx)}>
+            {picked.length === paidIdx.length ? "Clear all" : "Select all"}
           </button>
         </div>
       )}

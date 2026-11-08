@@ -112,6 +112,10 @@ export default function EditProductForm({ product, otherProducts = [] }: { produ
         externalLink: externalLink || undefined,
         personalizePdf: deliveryType === "file" && formData.get("personalizePdf") === "on",
         isPublished: formData.get("isPublished") === "on",
+        freeFileIndexes: String(formData.get("freeFiles") || "")
+          .split(/[,\s，]+/)
+          .map((x) => parseInt(x, 10) - 1)
+          .filter((n) => Number.isInteger(n) && n >= 0),
         pricePerFile: formData.get("pricePerFile") ? parseFloat(formData.get("pricePerFile") as string) : null,
         memberDiscountProductId: ((formData.get("memberProduct") as string) || "") || null,
         memberPrice: formData.get("memberPrice") ? parseFloat(formData.get("memberPrice") as string) : null,
@@ -248,6 +252,8 @@ export default function EditProductForm({ product, otherProducts = [] }: { produ
             For an item with several files: buyers tick the files they want and the total is shown at the payment QR. Enter the price of ONE file, or leave empty to sell all files together at the price above.
           </p>
           <input name="pricePerFile" type="number" step="0.01" min="0" defaultValue={product.price_per_file_myr ?? ""} placeholder="Price per file (RM)" className="border border-ink/15 rounded-lg px-3 py-2 text-sm w-full sm:w-60" />
+          <p className="text-xs text-ink/50 mt-3 mb-1">Free bonus files: type the file numbers (1 = first file in the list above, 2 = second…), for example <strong>6</strong>. Free files come with every order and are not counted in the price.</p>
+          <input name="freeFiles" defaultValue={(product.free_file_indexes ?? []).map((i: number) => i + 1).join(", ")} placeholder="e.g. 6" className="border border-ink/15 rounded-lg px-3 py-2 text-sm w-full sm:w-60" />
         </div>
         <div className="border border-ink/10 rounded-xl p-3 mt-4">
           <p className="text-sm font-medium mb-1">Member discount (optional)</p>
