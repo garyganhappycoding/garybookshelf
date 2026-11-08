@@ -26,12 +26,12 @@ export default function ProductPrice({
   if (mine?.discounted) {
     return (
       <div className="mt-1">
-        <p className="inline-block bg-clay-700 text-white text-sm font-semibold rounded-full px-3 py-1 mb-2">
+        <p className="inline-block bg-clay-700 text-white text-sm font-semibold rounded-md px-3 py-1.5 mb-3 leading-snug">
           Member price: you already bought {memberProductTitle ?? "our other pack"}
         </p>
         <p className="flex items-baseline gap-3">
-          <span className="text-5xl font-bold text-clay-700">RM {mine.price.toFixed(2)}</span>
-          <span className="text-2xl text-ink/45 line-through">RM {normalPrice.toFixed(2)}</span>
+          <span className="text-5xl font-bold text-clay-700 whitespace-nowrap">RM {mine.price.toFixed(2)}</span>
+          <span className="text-2xl text-ink/45 line-through whitespace-nowrap">RM {normalPrice.toFixed(2)}</span>
         </p>
         <p className="text-sm text-ink/60 mt-1">Pay only RM {mine.price.toFixed(2)}, not RM {normalPrice.toFixed(2)}.</p>
       </div>
