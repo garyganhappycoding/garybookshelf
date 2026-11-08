@@ -4,7 +4,7 @@ import { productFiles } from "@/lib/product-files";
 const ownedFiles = (order: any) =>
   productFiles(order.products ?? {})
     .map((f, i) => ({ f, i }))
-    .filter(({ i }) => !order.file_indexes || order.file_indexes.includes(i));
+    .filter(({ i }) => !order.file_indexes || order.file_indexes.includes(i) || (order.products?.free_file_indexes ?? []).includes(i)); // free bonus files always show
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import Link from "next/link";
@@ -38,7 +38,7 @@ export default async function DashboardPage() {
 
   const { data: orders } = await supabase
     .from("orders")
-    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, file_indexes, products(title, external_link, file_path, product_files, personalize_pdf, speaking_pack_attempts)")
+    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, file_indexes, products(title, external_link, file_path, product_files, personalize_pdf, speaking_pack_attempts, free_file_indexes)")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
