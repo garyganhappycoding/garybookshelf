@@ -16,10 +16,12 @@ export default async function EditProductPage({ params }: { params: Promise<{ id
   const { data: product } = await supabase.from("products").select("*").eq("id", id).single();
   if (!product) return notFound();
 
+  const { data: others } = await supabase.from("products").select("id, title").neq("id", id).order("title");
+
   return (
     <div className="max-w-3xl mx-auto px-5 py-14">
       <h1 className="text-2xl font-medium mb-6">Edit product</h1>
-      <EditProductForm product={product} />
+      <EditProductForm product={product} otherProducts={others ?? []} />
     </div>
   );
 }

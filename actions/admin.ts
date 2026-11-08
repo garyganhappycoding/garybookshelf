@@ -69,6 +69,8 @@ export async function updateProductRecord(
     externalLink?: string | null;
     files?: { path: string; name: string }[];
     personalizePdf?: boolean;
+    memberDiscountProductId?: string | null;
+    memberPrice?: number | null;
   }
 ) {
   const supabase = await requireAdmin();
@@ -81,6 +83,10 @@ export async function updateProductRecord(
   };
 
   if (data.personalizePdf !== undefined) updates.personalize_pdf = data.personalizePdf;
+  if (data.memberDiscountProductId !== undefined) {
+    updates.member_discount_product_id = data.memberDiscountProductId;
+    updates.member_price_myr = data.memberDiscountProductId ? data.memberPrice ?? null : null;
+  }
   if (data.imageUrl !== undefined) updates.image_url = data.imageUrl;
   if (data.imageUrls !== undefined) updates.image_urls = data.imageUrls;
   if (data.files !== undefined) {

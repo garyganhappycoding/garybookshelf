@@ -36,6 +36,12 @@ export default async function ProductPage({
       : undefined;
   const alsoBought = others.filter((p) => p.id !== upgrade?.id).slice(0, 3);
 
+  let memberProductTitle: string | null = null;
+  if (product.member_discount_product_id) {
+    const { data: mp } = await supabase.from("products").select("title").eq("id", product.member_discount_product_id).maybeSingle();
+    memberProductTitle = mp?.title ?? null;
+  }
+
   const images: string[] = product.image_urls?.length ? product.image_urls : product.image_url ? [product.image_url] : [];
 
   return (
@@ -46,6 +52,11 @@ export default async function ProductPage({
         <h1 className="text-2xl font-medium mb-2">{product.title}</h1>
         <p className="text-ink/70 leading-relaxed mb-4 whitespace-pre-line">{product.description}</p>
         <p className="text-xl font-medium text-clay-700">RM {Number(product.price_myr).toFixed(2)}</p>
+        {product.member_discount_product_id && product.member_price_myr != null && Number(product.member_price_myr) < Number(product.price_myr) && (
+          <p className="text-sm text-clay-700 mt-1">
+            RM {Number(product.member_price_myr).toFixed(2)} for buyers of {memberProductTitle ?? "our other pack"}. Log in to see your price.
+          </p>
+        )}
       </div>
 
       <div>
