@@ -82,6 +82,14 @@ export default function CheckoutForm({
                   <span className="flex-1 text-sm">{name}</span>
                   <span className="text-sm text-ink/60">RM {Number(pricePerFile).toFixed(2)}</span>
                 </label>
+                {/* a file that covers both Form 4 and Form 5 (e.g. "T4 T5 B2") */}
+                {/\bT4\s+T5\b/i.test(name) && (
+                  <p className="text-xs text-clay-700 bg-clay-400/15 rounded-lg px-3 py-2 mt-1">
+                    This file is a <strong>combination of Form 4 and Form 5</strong>. The chapter is the same and the concept is the same, so one file covers both. Don't buy the same thing twice.
+                    <br />
+                    这是<strong>第四、第五级合并</strong>的文件。章节和概念一样，一份就够，不用重复购买。
+                  </p>
+                )}
               </li>
             ))}
           </ul>
