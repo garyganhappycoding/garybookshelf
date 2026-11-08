@@ -72,15 +72,15 @@ export default function CheckoutForm({
         {discounted ? (
           <>
             <p className="text-xs font-semibold uppercase tracking-wide text-clay-700 mt-2">Member price</p>
-            <p className="flex items-baseline justify-center gap-3">
-              <span className="text-4xl font-bold text-clay-700">Pay RM {amount.toFixed(2)}</span>
-              <span className="text-xl text-ink/45 line-through">RM {normalAmount.toFixed(2)}</span>
+            <p className="flex items-baseline justify-center gap-3 whitespace-nowrap">
+              <span className="text-3xl font-bold text-clay-700">Pay RM {amount.toFixed(2)}</span>
+              <span className="text-lg text-ink/45 line-through">RM {normalAmount.toFixed(2)}</span>
             </p>
           </>
         ) : (
           <p className="text-2xl font-semibold text-ink mt-1">Pay RM {amount.toFixed(2)}</p>
         )}
-        {priceNote && <p className="text-xs text-clay-700 mt-1">{priceNote}</p>}
+        {priceNote && !discounted && <p className="text-xs text-clay-700 mt-1">{priceNote}</p>}
       </div>
 
       <form
