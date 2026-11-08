@@ -16,7 +16,7 @@ export default async function WritingHistoryDetailPage({ params }: { params: Pro
     data: { user },
   } = await supabase.auth.getUser();
   if (!user) redirect("/login");
-  if (!(await writingAccess(supabase, user.id)).allowed) return <WritingComingSoon />;
+  if (!(await writingAccess(supabase, user)).allowed) return <WritingComingSoon />;
 
   // row-level security means a student can only ever read their own essays
   const { data: a } = await supabase.from("writing_attempts").select("id,part,genre,question,essay,word_count,status,total_score,result,tier").eq("id", id).single();

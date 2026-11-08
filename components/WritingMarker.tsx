@@ -150,7 +150,7 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
         {isAdmin && (
           <label className="flex items-center gap-2 text-sm rounded-xl bg-cream-100 p-3">
             <input type="checkbox" checked={asFree} onChange={(e) => setAsFree(e.target.checked)} />
-            Admin: test as a free student (shows the free report). Students cannot see this page yet.
+            Tester: tick this to see what a free student sees (marks and why only). Untick to see the full paid report. Students cannot see this page yet.
           </label>
         )}
 

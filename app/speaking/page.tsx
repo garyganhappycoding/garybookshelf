@@ -12,7 +12,7 @@ export default async function SpeakingPage() {
   } = await supabase.auth.getUser();
 
   // the Essay marking button stays hidden from students until WRITING_OPEN=true (admins always see it)
-  const showWriting = user ? (await writingAccess(supabase, user.id)).allowed : WRITING_OPEN;
+  const showWriting = user ? (await writingAccess(supabase, user)).allowed : WRITING_OPEN;
 
   let attemptsLeft = 2;
   let saved: SavedRec[] = [];
