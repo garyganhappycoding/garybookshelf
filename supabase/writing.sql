@@ -135,3 +135,9 @@ create table if not exists public.writing_beta_testers (
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 alter table public.writing_beta_testers enable row level security; -- no policies: only the server (service role) can read or change it
+
+-- ============================================================
+-- "review" is a Part 3 type in the state trial papers (added 8 Nov 2026). Allow it in the genre check.
+-- ============================================================
+alter table public.writing_attempts drop constraint if exists writing_attempts_genre_check;
+alter table public.writing_attempts add constraint writing_attempts_genre_check check (genre in ('email', 'essay', 'story', 'report', 'article', 'review'));

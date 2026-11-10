@@ -30,6 +30,12 @@ Copy this template under "Entries":
 | Fisher Mode | video scripting | https://www.instagram.com/fisher_mode/ |
 
 ## Entries
+### 2026-11-09 — Examiners' guide for SPM English Paper 2 writing (the standard marking benchmark)
+- Source: "SPM Instructions for Writing Examiners V3" (25 pages, © ES 2021, for examiner use only), link: https://online.anyflip.com/jshpx/zpkn/mobile/index.html (page images at `.../files/mobile/N.webp`)
+- Insight: each part has its own scale (one continuum: Part 1 band 5 ~ B1, Part 2 ~ B2, Part 3 ~ C1); Content is judged by the cumulative effect on the reader, and **misreading one aspect of the task is about band 3, a global misreading band 1, a missing reason band 3 or 4**; accuracy is only a tie-breaker; length is not a criterion; "linking words" are basic and "cohesive devices" (incl. reference words like "it") are higher. Page map in the memory note `reference-spm-writing-examiner-guide`.
+- Apply to garybookshelf: the essay marker uses our own paraphrase of these rules (`lib/writing/mark.ts`, `brand/MARKING-RULES.md`). The guide is marked strictly confidential (must not be reproduced or used for teaching or test practice), so never copy the descriptors or show them to students.
+- Status: adopted (paraphrased); confidentiality risk flagged to Gary
+
 ### 2026-11-08 — Professional feedback on the speaking AI's marking
 - Source: a professional examiner's feedback, passed on by Gary
 - Insight: (1) prioritise what costs marks: one basic word like "fun" next to varied vocabulary is not a fault; (2) "um" and short pauses are fine, only long stops (about 5s+) cost marks; (3) every scale got a 3 by habit, so each band must be justified against the descriptor; (4) grammar: a MISTAKE (slip, once or twice) is ignored, an ERROR (same wrong pattern again and again) costs marks, and nothing is deducted if it is not obvious; grammar covers complex and compound sentences, cohesive devices, connectors and tenses; (5) Overall Spoken Performance depends on partner interaction and how much the interlocutor must help, so in solo practice judge it as "could they carry on alone".

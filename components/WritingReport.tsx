@@ -89,16 +89,23 @@ export default function WritingReport({ data, packHref = "/shop" }: { data: Repo
       </section>
 
       <section className="card">
-        <p className="font-medium mb-2">Did you answer every point?</p>
+        <p className="font-medium mb-0.5">Did you answer every point?</p>
+        <p className="text-xs text-ink/50 mb-2">✓ answered as asked · ◐ answered, but not quite as asked · ✗ not answered</p>
         <ul className="space-y-1.5">
-          {result.points.map((p, i) => (
-            <li key={i} className="text-sm flex gap-2">
-              <span className={p.covered ? "text-sage-600" : "text-clay-600"}>{p.covered ? "✓" : "✗"}</span>
-              <span>
-                <span className="font-medium">{p.point}.</span> <span className="text-ink/70">{p.note}</span>
-              </span>
-            </li>
-          ))}
+          {result.points.map((p, i) => {
+            // status comes from the requirement check; older essays only have covered true/false
+            const mark = p.status ? (p.status === "full" ? "✓" : p.status === "minor" || p.status === "wrong_kind" ? "◐" : "✗") : p.covered ? "✓" : "✗";
+            const good = p.status ? p.status === "full" : p.covered;
+            return (
+              <li key={i} className="text-sm flex gap-2">
+                <span className={good ? "text-sage-600" : "text-clay-600"}>{mark}</span>
+                <span>
+                  <span className="font-medium">{p.point}.</span> <span className="text-ink/70">{p.note}</span>
+                  {p.student_sentence && p.status && p.status !== "full" && <span className="block text-xs text-ink/50 mt-0.5">You wrote: &ldquo;{p.student_sentence}&rdquo;</span>}
+                </span>
+              </li>
+            );
+          })}
         </ul>
       </section>
 

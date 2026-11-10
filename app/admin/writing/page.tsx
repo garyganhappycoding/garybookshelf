@@ -338,7 +338,14 @@ export default async function AdminWritingPage({ searchParams }: { searchParams:
                             {ev && (
                               <div className="text-xs text-ink/70 rounded-xl bg-white border border-ink/10 p-3">
                                 <p className="font-medium mb-1">What the marker counted before scoring</p>
-                                <p>Linkers ({ev.linkers_used.length}): {ev.linkers_used.join(", ") || "none"}</p>
+                                {ev.linkers_used ? (
+                                  <p>Linkers: {ev.linkers_used.join(", ") || "none"}</p>
+                                ) : (
+                                  <>
+                                    <p>Basic connectors: {(ev.basic_connectors ?? []).join(", ") || "none"}</p>
+                                    <p>Cohesive devices: {(ev.cohesive_devices ?? []).join(", ") || "none"}</p>
+                                  </>
+                                )}
                                 <p>Less common words ({ev.less_common_words.length}): {ev.less_common_words.join(", ") || "none"}</p>
                                 <p>
                                   Complex sentences: {ev.complex_sentence_count} · Introduction: {ev.has_introduction ? "yes" : "no"} · Closing sentence: {ev.has_closing_sentence ? "yes" : "no"}
