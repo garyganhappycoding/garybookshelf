@@ -141,3 +141,13 @@ alter table public.writing_beta_testers enable row level security; -- no policie
 -- ============================================================
 alter table public.writing_attempts drop constraint if exists writing_attempts_genre_check;
 alter table public.writing_attempts add constraint writing_attempts_genre_check check (genre in ('email', 'essay', 'story', 'report', 'article', 'review'));
+
+-- ============================================================
+-- Free essays are limited per WEEK, not per day (Gary, 10 Nov 2026): 3 a week, Monday to Sunday in Malaysia time.
+-- Applied to the live project (migration "writing_free_limit_per_week"). These definitions REPLACE the daily versions above:
+-- the only change is that free essays are counted since the start of the current week instead of the current day.
+-- (The code passes p_limit = 3 for students and a big number for admins and beta testers.)
+-- ============================================================
+-- claim_writing_attempt(p_part, p_genre, p_question, p_essay, p_words, p_limit default 3):
+--   ... and (created_at at time zone 'Asia/Kuala_Lumpur') >= date_trunc('week', now() at time zone 'Asia/Kuala_Lumpur')
+-- writing_attempts_left(p_limit default 3): same week condition.
