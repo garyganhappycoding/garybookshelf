@@ -32,6 +32,18 @@ export async function alertFreeBackupCap(why: string) {
   }
 }
 
+// Same idea for essay marking: free essays used up today's share of the OpenRouter backup. Told to Gary once a day.
+export async function alertWritingFreeBackupCap(why: string) {
+  try {
+    const day = new Date().toISOString().slice(0, 10);
+    const { error } = await createAdminClient().from("site_alerts").insert({ key: `writing-free-backup-cap-${day}` });
+    if (error) return;
+    await notifyGary("ℹ️ Free essays used today's backup AI share", `${why} Free essays now wait for Groq again and what is left is kept for paying students. Raise WRITING_FREE_BACKUP_DAILY (essays a day) in Vercel to change this.`, "/admin/writing");
+  } catch (e) {
+    console.error("writing free backup cap alert failed", e);
+  }
+}
+
 export async function alertPaidFailure(reason: string, detail: string | undefined, email: string | null | undefined) {
   try {
     const bucket = Math.floor(Date.now() / (10 * 60 * 1000));

@@ -176,8 +176,9 @@ function judge(req: Requirement, c: RequirementCheckRaw | undefined): { status: 
   }
 
   const minor: string[] = [];
-  if (req.needs_reason && !c.has_reason) minor.push("you did not give the reason that was asked for");
-  if (req.number === "one" && c.items_given > 1) minor.push("the question asked for ONE, but you gave several");
+  // a "give a reason" requirement IS the reason, so it does not need another one; "only one" is enforced only when the question says so in words
+  if (req.needs_reason && req.kind !== "explanation_or_reason" && req.kind !== "opinion" && !c.has_reason) minor.push("you did not give the reason that was asked for");
+  if (req.number === "one" && c.items_given > 1 && /\b(one|single|only)\b/i.test(req.asked)) minor.push("the question asked for ONE, but you gave several");
   if ((req.number === "two" || req.number === "at_least_two") && c.items_given < 2) minor.push("the question asked for more than one, but you gave only one");
   if (minor.length) return { status: "minor", note: `You answered this, but ${minor.join(" and ")}.`, sentence };
 

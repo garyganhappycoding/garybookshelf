@@ -51,7 +51,7 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
       const res = await fetch("/api/writing/mark", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ part, genre, question: finalQuestion, essay, ...(isAdmin ? { asFree } : {}) }),
+        body: JSON.stringify({ part, genre, question: finalQuestion, essay, ...(chosen ? { questionId: chosen.id } : {}), ...(isAdmin ? { asFree } : {}) }),
       });
       const json = await res.json().catch(() => ({}));
       if (typeof json.attemptsLeft === "number") setAttemptsLeft(json.attemptsLeft);
@@ -80,7 +80,7 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
           </button>
         </div>
         <p className="text-xs text-ink/50 text-center mt-3">
-          {attemptsLeft > 0 ? `${attemptsLeft} free essay left today. ` : "Today's free essay is used. "}
+          {attemptsLeft > 0 ? `${attemptsLeft} free essay${attemptsLeft > 1 ? "s" : ""} left this week. ` : "Your free essays for this week are used. "}
           {packLeft > 0 ? `${packLeft} pack credit${packLeft > 1 ? "s" : ""} left (shared with speaking).` : ""}
         </p>
       </div>
@@ -223,12 +223,12 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
             {busy ? "Marking… (about 20 seconds)" : "Mark my essay"}
           </button>
           <p className="text-xs text-ink/60">
-            {attemptsLeft > 0 ? "1 free essay today" : packLeft > 0 ? `Uses 1 of your ${packLeft} pack credits` : "No free essay left today"}
+            {attemptsLeft > 0 ? `${attemptsLeft} free essay${attemptsLeft > 1 ? "s" : ""} left this week` : packLeft > 0 ? `Uses 1 of your ${packLeft} pack credits` : "No free essay left this week (they come back on Monday)"}
           </p>
         </div>
         {attemptsLeft + packLeft <= 0 && (
           <p className="text-sm text-ink/70">
-            You have used today&apos;s free essay. A <a className="underline" href={packHref}>Speaking pack</a> gives you more (credits work for speaking and writing).
+            You have used this week&apos;s free essays (they come back on Monday). A <a className="underline" href={packHref}>pack</a> gives you more.
           </p>
         )}
       </div>

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import WritingMarker from "@/components/WritingMarker";
 import WritingComingSoon from "@/components/WritingComingSoon";
-import { FREE_PER_DAY, noAccess, writingAccess } from "@/lib/writing/config";
+import { FREE_PER_WEEK, noAccess, writingAccess } from "@/lib/writing/config";
 
 export const metadata = { title: "Essay marking · Gary's Bookshelf" };
 export const dynamic = "force-dynamic";
@@ -17,7 +17,7 @@ export default async function WritingPage() {
   const access = user ? await writingAccess(supabase, user) : noAccess;
   if (!access.allowed) return <WritingComingSoon />;
 
-  let attemptsLeft = FREE_PER_DAY;
+  let attemptsLeft = FREE_PER_WEEK;
   let packLeft = 0;
   let packHref = "/shop";
   if (user) {
@@ -33,7 +33,7 @@ export default async function WritingPage() {
       .limit(1)
       .maybeSingle();
     if (packProduct) packHref = `/shop/${packProduct.id}`;
-    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: access.perDay }), supabase.rpc("speaking_pack_status")]);
+    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: access.perWeek }), supabase.rpc("speaking_pack_status")]);
     if (typeof left === "number") attemptsLeft = left;
     const p = Array.isArray(pack) ? pack[0] : pack;
     if (p?.pack_left) packLeft = p.pack_left;
@@ -59,7 +59,7 @@ export default async function WritingPage() {
         <div className="card text-center max-w-md mx-auto">
           <p className="text-4xl mb-3">🔒</p>
           <p className="font-medium mb-1">Members only</p>
-          <p className="text-sm text-ink/70 mb-4">Log in or create a free account to get an essay marked (1 free essay every day).</p>
+          <p className="text-sm text-ink/70 mb-4">Log in or create a free account to get an essay marked (3 free essays every week).</p>
           <div className="flex justify-center gap-3">
             <Link prefetch={false} href="/login" className="btn-primary">
               Log in

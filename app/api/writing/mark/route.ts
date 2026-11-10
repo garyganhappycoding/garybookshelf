@@ -1,8 +1,9 @@
 import { NextResponse, after } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { alertPaidFailure } from "@/lib/speaking/alerts";
-import { writingAccess } from "@/lib/writing/config";
+import { alertPaidFailure, alertWritingFreeBackupCap } from "@/lib/speaking/alerts";
+import { FREE_PER_WEEK, writingAccess } from "@/lib/writing/config";
+import { getQuestion, questionText } from "@/lib/writing/questions";
 import { backupTargets, GROQ_URL, openRouterCreditLeft, requestBody, type Target } from "@/lib/speaking/providers";
 import {
   BAND_MAX,
@@ -37,6 +38,10 @@ export const maxDuration = 60;
 const MODEL = process.env.GROQ_MODEL || "openai/gpt-oss-120b";
 const FALLBACK_MODEL = "openai/gpt-oss-20b";
 const FREE_BACKUP_RESERVE = Number(process.env.FREE_BACKUP_RESERVE_USD) || 2.5; // free essays leave the backup alone when its credit is this low
+// How many FREE essays a day may use the paid OpenRouter backup (about RM0.01 each). Paying students are never counted, so the backup
+// credit always stays available for them. Change it with WRITING_FREE_BACKUP_DAILY in Vercel. Once the Groq key's own allowance is used up
+// (about 25 to 40 essays a day), every extra free essay needs the backup, so this number IS the daily number of extra free essays.
+const FREE_BACKUP_DAILY = Number(process.env.WRITING_FREE_BACKUP_DAILY) || 150;
 const IN_FLIGHT_MS = 90 * 1000;
 const MAX_QUESTION = 1500;
 
@@ -53,15 +58,30 @@ function usable(r: any, needPoints: boolean): r is WritingResult {
   return String(r.summary ?? "").trim().length >= 15 && (!needPoints || (Array.isArray(r.points) && r.points.length > 0));
 }
 
+type AiFail = { status: number; detail: string; retryAfter?: number };
+type CallOpts = { deadline: number; maxWaitS: number };
+
+// Seconds the provider says to wait: the retry-after header, or "Please try again in 7.5s" / "9m56s" in the message.
+function retryAfterSeconds(res: Response, text: string): number | undefined {
+  const h = Number(res.headers.get("retry-after"));
+  if (h > 0) return Math.ceil(h);
+  const m = text.match(/try again in (?:(\d+)h)?(?:(\d+)m)?(\d+(?:\.\d+)?)s/i);
+  if (m) return Math.ceil(Number(m[1] ?? 0) * 3600 + Number(m[2] ?? 0) * 60 + Number(m[3]));
+  return undefined;
+}
+
 // Calls the AI targets in turn until one returns JSON that passes `valid`. Used for the requirement check and the marking itself.
+// Groq is always tried first. When Groq says "too many tokens this minute" and the wait is short, we WAIT for it and try Groq again
+// instead of paying for the OpenRouter backup (Gary, 10 Nov 2026). A long limit (the daily allowance is used up) moves straight on.
 async function callJson<T>(
   targets: Target[],
   messages: unknown,
   schema: object,
   schemaName: string,
-  valid: (r: any) => r is T
-): Promise<{ result: T; model: string } | { status: number; detail: string }> {
-  let last: { status: number; detail: string } = { status: 502, detail: "no model tried" };
+  valid: (r: any) => r is T,
+  opts: CallOpts
+): Promise<{ result: T; model: string } | AiFail> {
+  let last: AiFail = { status: 502, detail: "no model tried" };
   let prevUrl = "";
   let waited = false;
   for (const t of targets) {
@@ -71,57 +91,79 @@ async function callJson<T>(
     }
     prevUrl = t.url;
     const model = t.label ?? t.model;
-    try {
-      const res = await fetch(t.url, {
-        method: "POST",
-        headers: { Authorization: `Bearer ${t.key}`, "Content-Type": "application/json" },
-        body: requestBody(t, messages, schema, schemaName),
-      });
-      if (!res.ok) {
-        last = { status: res.status, detail: (await res.text()).slice(0, 400) };
-        continue;
-      }
-      const json = await res.json();
-      let parsed: unknown;
+    for (let attempt = 0; attempt < 2; attempt++) {
       try {
-        parsed = JSON.parse(json?.choices?.[0]?.message?.content ?? "");
-      } catch {
-        last = { status: 502, detail: `unreadable JSON from ${model}` };
-        continue;
+        const res = await fetch(t.url, {
+          method: "POST",
+          headers: { Authorization: `Bearer ${t.key}`, "Content-Type": "application/json" },
+          body: requestBody(t, messages, schema, schemaName),
+        });
+        if (!res.ok) {
+          const text = (await res.text()).slice(0, 400);
+          last = { status: res.status, detail: text, retryAfter: retryAfterSeconds(res, text) };
+          const short = last.retryAfter !== undefined && last.retryAfter <= opts.maxWaitS && Date.now() + last.retryAfter * 1000 + 20_000 < opts.deadline;
+          if (res.status === 429 && t.kind === "groq" && attempt === 0 && short) {
+            await sleep((last.retryAfter as number) * 1000 + 500);
+            continue; // same target again
+          }
+          break; // next target
+        }
+        const json = await res.json();
+        let parsed: unknown;
+        try {
+          parsed = JSON.parse(json?.choices?.[0]?.message?.content ?? "");
+        } catch {
+          last = { status: 502, detail: `unreadable JSON from ${model}` };
+          break;
+        }
+        if (!valid(parsed)) {
+          last = { status: 502, detail: `thin or invalid answer from ${model}` };
+          break;
+        }
+        return { result: parsed, model };
+      } catch (e) {
+        last = { status: 502, detail: e instanceof Error ? e.message : String(e) };
+        break;
       }
-      if (!valid(parsed)) {
-        last = { status: 502, detail: `thin or invalid answer from ${model}` };
-        continue;
-      }
-      return { result: parsed, model };
-    } catch (e) {
-      last = { status: 502, detail: e instanceof Error ? e.message : String(e) };
     }
   }
   return last;
 }
 
-// The requirement check (see lib/writing/requirements.ts): A reads only the question, B answers yes/no questions about the essay,
-// and code decides each point's status and the cap on Content. If any step fails, marking carries on without it.
-async function runRequirementCheck(targets: Target[], question: string, essay: string): Promise<{ points: PointResult[]; summary: RequirementSummary } | null> {
+// The requirement check (see lib/writing/requirements.ts): A reads only the question (skipped when the question is one of the saved ones,
+// whose requirements are already written), B labels the student's sentences, and code decides each point's status and the cap on Content.
+// If any step fails, marking carries on without it.
+async function runRequirementCheck(
+  targets: Target[],
+  question: string,
+  essay: string,
+  opts: CallOpts,
+  preReqs?: Requirement[]
+): Promise<{ points: PointResult[]; summary: RequirementSummary } | null> {
   try {
-    const a = await callJson<{ requirements: Requirement[] }>(
-      targets,
-      buildRequirementMessages(question),
-      requirementsSchema,
-      "requirements",
-      (r): r is { requirements: Requirement[] } => Array.isArray(r?.requirements) && r.requirements.length > 0 && r.requirements.length <= 8
-    );
-    if ("status" in a) return null;
+    let reqs = preReqs;
+    if (!reqs || reqs.length === 0) {
+      const a = await callJson<{ requirements: Requirement[] }>(
+        targets,
+        buildRequirementMessages(question),
+        requirementsSchema,
+        "requirements",
+        (r): r is { requirements: Requirement[] } => Array.isArray(r?.requirements) && r.requirements.length > 0 && r.requirements.length <= 8,
+        opts
+      );
+      if ("status" in a) return null;
+      reqs = a.result.requirements;
+    }
     const b = await callJson<{ checks: RequirementCheckRaw[] }>(
       targets,
-      buildCheckMessages(a.result.requirements, essay),
+      buildCheckMessages(reqs, essay),
       checksSchema,
       "requirement_check",
-      (r): r is { checks: RequirementCheckRaw[] } => Array.isArray(r?.checks) && r.checks.length > 0
+      (r): r is { checks: RequirementCheckRaw[] } => Array.isArray(r?.checks) && r.checks.length > 0,
+      opts
     );
     if ("status" in b) return null;
-    return evaluateRequirements(a.result.requirements, b.result.checks);
+    return evaluateRequirements(reqs, b.result.checks);
   } catch (e) {
     console.error("requirement check failed", e);
     return null;
@@ -141,7 +183,7 @@ export async function POST(req: Request) {
   // closed for students until WRITING_OPEN=true; admins can always test
   const access = await writingAccess(supabase, user);
   if (!access.allowed) return err("Essay marking is coming soon.", 403);
-  const perDay = access.perDay;
+  const perWeek = access.perWeek;
 
   // 1. read and check the form
   let body: Record<string, unknown>;
@@ -163,7 +205,7 @@ export async function POST(req: Request) {
 
   const admin = createAdminClient();
   const counts = async () => {
-    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: perDay }), supabase.rpc("speaking_pack_status")]);
+    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: perWeek }), supabase.rpc("speaking_pack_status")]);
     const p = Array.isArray(pack) ? pack[0] : pack;
     return { attemptsLeft: (left as number | null) ?? 0, packLeft: (p?.pack_left as number | undefined) ?? 0 };
   };
@@ -191,24 +233,27 @@ export async function POST(req: Request) {
   if (rows.filter((r) => r.status === "failed").length >= (paid ? 6 : 3))
     return err("A few tries in a row didn't work, so we're pausing for a few minutes to keep the AI available for everyone. Please try again soon.", 429, { retryAfter: 120 });
 
-  // 4. claim today's free essay or a pack credit (atomic, in the database)
+  // 4. claim one of this week's free essays or a pack credit (atomic, in the database)
   const { data: claimed, error: claimErr } = await supabase.rpc("claim_writing_attempt", {
     p_part: part,
     p_genre: genre,
     p_question: question,
     p_essay: essay,
     p_words: words,
-    p_limit: perDay,
+    p_limit: perWeek,
   });
   if (claimErr) return err("Could not start the marking. Please try again.", 500);
-  if (!claimed) return err("You've used today's free essay. A Speaking pack gives you more (credits work for speaking and writing), or come back tomorrow!", 429, { attemptsLeft: 0, packLeft: 0, needPack: true });
+  if (!claimed) return err(`You've used your ${FREE_PER_WEEK} free essays for this week. They come back on Monday. An essay pack gives you more, or come back on Monday!`, 429, { attemptsLeft: 0, packLeft: 0, needPack: true });
   const attemptId = claimed as string;
 
-  const fail = async (reason: string, message: string, status: number, detail?: string) => {
+  const fail = async (reason: string, message: string, status: number, detail?: string, retryAfter?: number) => {
     if (paid && ["ai_busy", "ai_error"].includes(reason)) after(() => alertPaidFailure(reason, detail, user.email));
     await admin.from("writing_attempts").update({ status: "failed", fail_reason: reason, fail_detail: detail?.slice(0, 500) }).eq("id", attemptId); // refunds the essay
-    return err(message, status, await counts());
+    return err(message, status, { ...(await counts()), ...(retryAfter ? { retryAfter } : {}) });
   };
+
+  // time budget for this request (the function may run 60 seconds): waiting on Groq's short limits must fit inside it
+  const opts = { deadline: Date.now() + 52_000, maxWaitS: paid ? 12 : 25 };
 
   try {
     // 5. mark it. Paying students: main model, then the backup, then Groq again. Free: the lighter model, then the backup only while it has spare credit.
@@ -220,24 +265,49 @@ export async function POST(req: Request) {
       let backup: Target[] = [];
       if (backupTargets().length) {
         const left = await openRouterCreditLeft();
-        if (left === null || left > FREE_BACKUP_RESERVE) backup = backupTargets();
+        if (left !== null && left <= FREE_BACKUP_RESERVE) {
+          after(() => alertWritingFreeBackupCap(`The OpenRouter key is down to about US$${left.toFixed(2)}, which is the reserve kept for paying students.`));
+        } else {
+          // a daily cap on FREE essays that use the paid OpenRouter backup, so free use can never run the bill away (paying students are never counted)
+          const { count } = await admin
+            .from("writing_attempts")
+            .select("id", { count: "exact", head: true })
+            .like("model", "openrouter:%")
+            .eq("tier", "free")
+            .gte("created_at", new Date(Date.now() - 24 * 3600 * 1000).toISOString());
+          if ((count ?? 0) >= FREE_BACKUP_DAILY) after(() => alertWritingFreeBackupCap(`${FREE_BACKUP_DAILY} free essays used the OpenRouter backup in the last 24 hours.`));
+          else backup = backupTargets();
+        }
       }
       targets = [groq(FALLBACK_MODEL), ...backup];
     }
     // the requirement check needs the strong model: the light one mislabelled sentences in testing (10 Nov 2026). Its calls are short.
     const checkTargets = paid ? [groq(MODEL), ...backupTargets(), groq(FALLBACK_MODEL)] : [groq(MODEL), ...targets];
-    const check = await runRequirementCheck(checkTargets, question, essay);
+    // a question picked from the saved list already has its requirements written, so the first AI step is skipped (the text must match exactly)
+    const bankQ = typeof body.questionId === "string" ? getQuestion(body.questionId) : undefined;
+    const preReqs = bankQ && bankQ.requirements?.length && questionText(bankQ) === question ? bankQ.requirements : undefined;
+    const check = await runRequirementCheck(checkTargets, question, essay, opts, preReqs);
     const out = await callJson<WritingResult>(
       targets,
       buildMessages({ part, genre, question, essay, paid, checkSummary: check ? checkSummaryText(check.points, check.summary) : undefined }),
       buildResultSchema(paid, !check),
       "essay_marking",
-      (r): r is WritingResult => usable(r, !check)
+      (r): r is WritingResult => usable(r, !check),
+      opts
     );
     if ("status" in out) {
       console.error("writing marking failed", out.status, out.detail);
       const busy = out.status === 429;
-      return fail(busy ? "ai_busy" : "ai_error", busy ? "The AI is busy right now. You were not charged. Please try again in a few minutes." : "The AI had a problem. You were not charged. Please try again.", 502, `${out.status} ${out.detail}`);
+      // Groq (and, for free essays, the capped backup) had no room. Tell the student how long to wait; the essay is refunded.
+      const wait = out.retryAfter;
+      const when = wait === undefined ? "a few minutes" : wait >= 90 ? `about ${Math.ceil(wait / 60)} minutes` : `about ${Math.max(10, wait)} seconds`;
+      return fail(
+        busy ? "ai_busy" : "ai_error",
+        busy ? `A lot of students are marking essays right now. Please wait ${when} and try again. You were not charged.` : "The AI had a problem. You were not charged. Please try again.",
+        502,
+        `${out.status} ${out.detail}`,
+        wait
+      );
     }
     const { result, model } = out;
 
