@@ -11,12 +11,25 @@ import {
   buildMessages,
   buildResultSchema,
   countWords,
+  HARD_MAX_WORDS,
   verifyHighlights,
   type Genre,
   type WritingPart,
   type WritingResponse,
   type WritingResult,
 } from "@/lib/writing/mark";
+import {
+  buildCheckMessages,
+  buildRequirementMessages,
+  checkSummaryText,
+  checksSchema,
+  evaluateRequirements,
+  requirementsSchema,
+  type PointResult,
+  type Requirement,
+  type RequirementCheckRaw,
+  type RequirementSummary,
+} from "@/lib/writing/requirements";
 
 export const runtime = "nodejs";
 export const maxDuration = 60;
@@ -31,16 +44,23 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const err = (message: string, status: number, extra: Record<string, unknown> = {}) => NextResponse.json({ error: message, ...extra }, { status });
 
 // A usable report has a real explanation for all four marks. Anything thinner is treated like a failed try and the next model is used.
-function usable(r: any): r is WritingResult {
+function usable(r: any, needPoints: boolean): r is WritingResult {
   if (!r || typeof r !== "object" || !r.criteria) return false;
   for (const c of CRITERIA) {
     const x = r.criteria[c];
     if (!x || typeof x.band !== "number" || String(x.why ?? "").trim().length < 15) return false;
   }
-  return String(r.summary ?? "").trim().length >= 15 && Array.isArray(r.points) && r.points.length > 0;
+  return String(r.summary ?? "").trim().length >= 15 && (!needPoints || (Array.isArray(r.points) && r.points.length > 0));
 }
 
-async function callAi(targets: Target[], messages: unknown, paid: boolean): Promise<{ result: WritingResult; model: string } | { status: number; detail: string }> {
+// Calls the AI targets in turn until one returns JSON that passes `valid`. Used for the requirement check and the marking itself.
+async function callJson<T>(
+  targets: Target[],
+  messages: unknown,
+  schema: object,
+  schemaName: string,
+  valid: (r: any) => r is T
+): Promise<{ result: T; model: string } | { status: number; detail: string }> {
   let last: { status: number; detail: string } = { status: 502, detail: "no model tried" };
   let prevUrl = "";
   let waited = false;
@@ -55,7 +75,7 @@ async function callAi(targets: Target[], messages: unknown, paid: boolean): Prom
       const res = await fetch(t.url, {
         method: "POST",
         headers: { Authorization: `Bearer ${t.key}`, "Content-Type": "application/json" },
-        body: requestBody(t, messages, buildResultSchema(paid), "essay_marking"),
+        body: requestBody(t, messages, schema, schemaName),
       });
       if (!res.ok) {
         last = { status: res.status, detail: (await res.text()).slice(0, 400) };
@@ -69,8 +89,8 @@ async function callAi(targets: Target[], messages: unknown, paid: boolean): Prom
         last = { status: 502, detail: `unreadable JSON from ${model}` };
         continue;
       }
-      if (!usable(parsed)) {
-        last = { status: 502, detail: `thin report from ${model}` };
+      if (!valid(parsed)) {
+        last = { status: 502, detail: `thin or invalid answer from ${model}` };
         continue;
       }
       return { result: parsed, model };
@@ -79,6 +99,33 @@ async function callAi(targets: Target[], messages: unknown, paid: boolean): Prom
     }
   }
   return last;
+}
+
+// The requirement check (see lib/writing/requirements.ts): A reads only the question, B answers yes/no questions about the essay,
+// and code decides each point's status and the cap on Content. If any step fails, marking carries on without it.
+async function runRequirementCheck(targets: Target[], question: string, essay: string): Promise<{ points: PointResult[]; summary: RequirementSummary } | null> {
+  try {
+    const a = await callJson<{ requirements: Requirement[] }>(
+      targets,
+      buildRequirementMessages(question),
+      requirementsSchema,
+      "requirements",
+      (r): r is { requirements: Requirement[] } => Array.isArray(r?.requirements) && r.requirements.length > 0 && r.requirements.length <= 8
+    );
+    if ("status" in a) return null;
+    const b = await callJson<{ checks: RequirementCheckRaw[] }>(
+      targets,
+      buildCheckMessages(a.result.requirements, essay),
+      checksSchema,
+      "requirement_check",
+      (r): r is { checks: RequirementCheckRaw[] } => Array.isArray(r?.checks) && r.checks.length > 0
+    );
+    if ("status" in b) return null;
+    return evaluateRequirements(a.result.requirements, b.result.checks);
+  } catch (e) {
+    console.error("requirement check failed", e);
+    return null;
+  }
 }
 
 export async function POST(req: Request) {
@@ -107,12 +154,12 @@ export async function POST(req: Request) {
   const genre = String(body.genre ?? "") as Genre;
   if (![1, 2, 3].includes(part) || !PART_INFO[part].genres.includes(genre)) return err("Please pick the part and the type of writing.", 400);
   const question = String(body.question ?? "").replace(/\u0000/g, "").trim().slice(0, MAX_QUESTION);
-  const essay = String(body.essay ?? "").replace(/\u0000/g, "").replace(/\r\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim().slice(0, 6000);
+  const essay = String(body.essay ?? "").replace(/\u0000/g, "").replace(/\r\n/g, "\n").replace(/\n{3,}/g, "\n\n").trim().slice(0, 12000);
   if (question.length < 15) return err("Please paste the question, so the marker knows what you were asked to write.", 400);
   const words = countWords(essay);
   const limits = PART_INFO[part];
   if (words < limits.minWords) return err(`That looks too short to mark (${words} words). ${limits.label} should be ${limits.words}.`, 400);
-  if (words > limits.maxWords) return err(`That is too long (${words} words). ${limits.label} should be ${limits.words}.`, 400);
+  if (words > HARD_MAX_WORDS) return err(`That is very long (${words} words). Please keep it under ${HARD_MAX_WORDS} words.`, 400); // longer than asked is fine, this is only a safety cap
 
   const admin = createAdminClient();
   const counts = async () => {
@@ -177,7 +224,16 @@ export async function POST(req: Request) {
       }
       targets = [groq(FALLBACK_MODEL), ...backup];
     }
-    const out = await callAi(targets, buildMessages({ part, genre, question, essay, paid }), paid);
+    // the requirement check needs the strong model: the light one mislabelled sentences in testing (10 Nov 2026). Its calls are short.
+    const checkTargets = paid ? [groq(MODEL), ...backupTargets(), groq(FALLBACK_MODEL)] : [groq(MODEL), ...targets];
+    const check = await runRequirementCheck(checkTargets, question, essay);
+    const out = await callJson<WritingResult>(
+      targets,
+      buildMessages({ part, genre, question, essay, paid, checkSummary: check ? checkSummaryText(check.points, check.summary) : undefined }),
+      buildResultSchema(paid, !check),
+      "essay_marking",
+      (r): r is WritingResult => usable(r, !check)
+    );
     if ("status" in out) {
       console.error("writing marking failed", out.status, out.detail);
       const busy = out.status === 429;
@@ -191,10 +247,27 @@ export async function POST(req: Request) {
       const x = result.criteria[c];
       x.band = Math.min(BAND_MAX, Math.max(0, Math.round(x.band)));
       // models like to write "Not applicable" or "Not 6" for a top mark: say something true instead
-      if (x.band >= BAND_MAX && /not applicable|not a 6|not 6|no higher|highest band|top band/i.test(x.why_not_next)) {
+      if (x.band >= BAND_MAX && /^\s*not\s+\d|not applicable|no higher|highest band|top band/i.test(x.why_not_next)) {
         x.why_not_next = "Nothing is missing against this criterion. Keep doing what you did here.";
       }
       total += x.band;
+    }
+
+    // The requirement check decides which points were really answered and caps Content (examiners' standard: one misread aspect = about 3).
+    if (check) {
+      result.points = check.points;
+      result.requirement_check = check.summary;
+      const content = result.criteria.content;
+      if (content.band > check.summary.cap) {
+        total -= content.band - check.summary.cap;
+        content.band = check.summary.cap;
+        // the AI's text said a higher mark, so replace it with the check's own explanation
+        const bad = check.points.filter((p) => p.status !== "full");
+        const detail = bad.map((p) => `For "${p.point}": ${p.note}${p.student_sentence ? ` (you wrote: "${p.student_sentence.slice(0, 120)}")` : ""}`).join(" ");
+        content.why = `You got ${content.band} for Content because the question was not answered exactly as asked. ${detail}`.trim();
+        content.why_not_next = `Not ${content.band + 1} because every point must be answered exactly as the question asks, in the right person and the right way.`;
+        if (content.next_band) content.next_band = `To reach ${content.band + 1}: read each part of the question again, check who it is about and how many things it wants, and answer it exactly, with the reason if one is asked.`;
+      }
     }
 
     // Free and paid reports differ in what is STORED: students can read their own rows, so locked parts are removed before saving.
