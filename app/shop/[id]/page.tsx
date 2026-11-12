@@ -1,6 +1,8 @@
 import { createPublicClient } from "@/lib/supabase/public";
 import { notFound } from "next/navigation";
 import CheckoutForm from "@/components/CheckoutForm";
+import { productFiles } from "@/lib/product-files";
+import ProductPrice from "@/components/ProductPrice";
 import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
@@ -36,6 +38,12 @@ export default async function ProductPage({
       : undefined;
   const alsoBought = others.filter((p) => p.id !== upgrade?.id).slice(0, 3);
 
+  let memberProductTitle: string | null = null;
+  if (product.member_discount_product_id) {
+    const { data: mp } = await supabase.from("products").select("title").eq("id", product.member_discount_product_id).maybeSingle();
+    memberProductTitle = mp?.title ?? null;
+  }
+
   const images: string[] = product.image_urls?.length ? product.image_urls : product.image_url ? [product.image_url] : [];
 
   return (
@@ -45,7 +53,28 @@ export default async function ProductPage({
         <p className="text-xs text-clay-600 uppercase tracking-wide mb-1 mt-4">{product.category}</p>
         <h1 className="text-2xl font-medium mb-2">{product.title}</h1>
         <p className="text-ink/70 leading-relaxed mb-4 whitespace-pre-line">{product.description}</p>
-        <p className="text-xl font-medium text-clay-700">RM {Number(product.price_myr).toFixed(2)}</p>
+        {product.price_per_file_myr != null ? (
+          <div>
+            <p className="text-xl font-medium text-clay-700">RM {Number(product.price_per_file_myr).toFixed(2)} per file</p>
+            {(() => {
+              const free: number[] = product.free_file_indexes ?? [];
+              const paid = productFiles(product).filter((_, i) => !free.includes(i)).length;
+              return (
+                <p className="text-sm text-ink/60 mt-1">
+                  Buy only the files you need, or all {paid} files for RM {(Number(product.price_per_file_myr) * paid).toFixed(2)}. Choose on the right.
+                  {free.length > 0 && <> Plus {free.length} <strong>free</strong> bonus file{free.length > 1 ? "s" : ""} with every order.</>}
+                </p>
+              );
+            })()}
+          </div>
+        ) : (
+        <ProductPrice
+          productId={product.id}
+          normalPrice={Number(product.price_myr)}
+          memberPrice={product.member_discount_product_id && product.member_price_myr != null ? Number(product.member_price_myr) : null}
+          memberProductTitle={memberProductTitle}
+        />
+        )}
         {product.writing_pack_attempts ? (
           <p className="text-sm text-ink/70 mt-2">✍️ Includes {product.writing_pack_attempts} essay markings, valid for 30 days after your payment is approved.</p>
         ) : null}
@@ -55,6 +84,9 @@ export default async function ProductPage({
         <CheckoutForm
           productId={product.id}
           amount={Number(product.price_myr)}
+          fileOptions={product.price_per_file_myr != null ? productFiles(product).map((f) => f.name.replace(/\.pdf$/i, "")) : undefined}
+          pricePerFile={product.price_per_file_myr != null ? Number(product.price_per_file_myr) : null}
+          freeIndexes={product.free_file_indexes ?? []}
         />
       </div>
 

@@ -6,7 +6,7 @@ import { createClient } from "@/lib/supabase/client";
 import { productFiles, type ProductFile } from "@/lib/product-files";
 import { updateProductRecord } from "@/actions/admin";
 
-export default function EditProductForm({ product }: { product: any }) {
+export default function EditProductForm({ product, otherProducts = [] }: { product: any; otherProducts?: { id: string; title: string }[] }) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [uploading, setUploading] = useState(false);
@@ -111,6 +111,14 @@ export default function EditProductForm({ product }: { product: any }) {
         files,
         externalLink: externalLink || undefined,
         personalizePdf: deliveryType === "file" && formData.get("personalizePdf") === "on",
+        isPublished: formData.get("isPublished") === "on",
+        freeFileIndexes: String(formData.get("freeFiles") || "")
+          .split(/[,\s，]+/)
+          .map((x) => parseInt(x, 10) - 1)
+          .filter((n) => Number.isInteger(n) && n >= 0),
+        pricePerFile: formData.get("pricePerFile") ? parseFloat(formData.get("pricePerFile") as string) : null,
+        memberDiscountProductId: ((formData.get("memberProduct") as string) || "") || null,
+        memberPrice: formData.get("memberPrice") ? parseFloat(formData.get("memberPrice") as string) : null,
       });
       if (result?.error) setError(result.error);
       else router.push("/admin/products");
@@ -232,6 +240,37 @@ export default function EditProductForm({ product }: { product: any }) {
               )}
               <input name="asset" type="file" multiple className="w-full text-sm" />
               <p className="text-xs text-ink/50 mt-1">Pick one or several files to add. Files listed above stay unless you remove them.</p>
+        <label className="flex items-start gap-2 text-sm mt-4">
+          <input type="checkbox" name="isPublished" defaultChecked={product.is_published !== false} className="mt-1" />
+          <span>
+            <strong>Show in the shop.</strong> Untick to hide this item from the shop while you are still setting it up (for example before the files are uploaded).
+          </span>
+        </label>
+        <div className="border border-ink/10 rounded-xl p-3 mt-4">
+          <p className="text-sm font-medium mb-1">Sell files separately (optional)</p>
+          <p className="text-xs text-ink/50 mb-2">
+            For an item with several files: buyers tick the files they want and the total is shown at the payment QR. Enter the price of ONE file, or leave empty to sell all files together at the price above.
+          </p>
+          <input name="pricePerFile" type="number" step="0.01" min="0" defaultValue={product.price_per_file_myr ?? ""} placeholder="Price per file (RM)" className="border border-ink/15 rounded-lg px-3 py-2 text-sm w-full sm:w-60" />
+          <p className="text-xs text-ink/50 mt-3 mb-1">Free bonus files: type the file numbers (1 = first file in the list above, 2 = second…), for example <strong>6</strong>. Free files come with every order and are not counted in the price.</p>
+          <input name="freeFiles" defaultValue={(product.free_file_indexes ?? []).map((i: number) => i + 1).join(", ")} placeholder="e.g. 6" className="border border-ink/15 rounded-lg px-3 py-2 text-sm w-full sm:w-60" />
+        </div>
+        <div className="border border-ink/10 rounded-xl p-3 mt-4">
+          <p className="text-sm font-medium mb-1">Member discount (optional)</p>
+          <p className="text-xs text-ink/50 mb-2">
+            A cheaper price for people who already have an <strong>approved</strong> order for another product. One discount per account.
+            Example: RM10 normally, RM5 for buyers of the speaking冲刺包.
+          </p>
+          <div className="grid grid-cols-2 gap-3">
+            <select name="memberProduct" defaultValue={product.member_discount_product_id || ""} className="border border-ink/15 rounded-lg px-3 py-2 text-sm">
+              <option value="">No member discount</option>
+              {otherProducts.map((p) => (
+                <option key={p.id} value={p.id}>Bought: {p.title}</option>
+              ))}
+            </select>
+            <input name="memberPrice" type="number" step="0.01" min="0" defaultValue={product.member_price_myr ?? ""} placeholder="Member price (RM)" className="border border-ink/15 rounded-lg px-3 py-2 text-sm" />
+          </div>
+        </div>
         <label className="flex items-start gap-2 text-sm mt-3">
           <input type="checkbox" name="personalizePdf" defaultChecked={Boolean(product.personalize_pdf)} className="mt-1" />
           <span>

@@ -58,13 +58,18 @@ export async function getOrderFileUrl(orderId: string, index: number): Promise<{
   const admin = createAdminClient();
   const { data: order } = await admin
     .from("orders")
-    .select("id, status, product_id, profiles(email), products(title, file_path, product_files, personalize_pdf)")
+    .select("id, status, product_id, file_indexes, profiles(email), products(title, file_path, product_files, personalize_pdf, free_file_indexes)")
     .eq("id", orderId)
     .single();
   const product = (order as any)?.products;
   if (!order || order.status !== "completed" || !product) return { error: "Order not found." };
 
   const files = productFiles(product);
+  // a buyer who picked some files only gets those
+  const allowed: number[] | null = (order as any).file_indexes ?? null;
+  // free bonus files always belong to every order of this product
+  const freeFiles: number[] = product.free_file_indexes ?? [];
+  if (allowed && !allowed.includes(index) && !freeFiles.includes(index)) return { error: "This file is not part of your order." };
   const file = files[index];
   if (!file) return { error: "No file or link set up for this product." };
 

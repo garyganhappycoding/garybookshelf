@@ -1,4 +1,10 @@
 import { productFiles } from "@/lib/product-files";
+
+// the files this order includes (everything, unless the buyer picked some), with each file's place in the product
+const ownedFiles = (order: any) =>
+  productFiles(order.products ?? {})
+    .map((f, i) => ({ f, i }))
+    .filter(({ i }) => !order.file_indexes || order.file_indexes.includes(i) || (order.products?.free_file_indexes ?? []).includes(i)); // free bonus files always show
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import Link from "next/link";
@@ -32,7 +38,7 @@ export default async function DashboardPage() {
 
   const { data: orders } = await supabase
     .from("orders")
-    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, products(title, external_link, file_path, product_files, personalize_pdf, speaking_pack_attempts, writing_pack_attempts)")
+    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, file_indexes, products(title, external_link, file_path, product_files, personalize_pdf, speaking_pack_attempts, writing_pack_attempts, free_file_indexes)")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
@@ -124,19 +130,20 @@ export default async function DashboardPage() {
                   </Link>
                 )}
                 {/* a plain speaking pack has nothing to download; a notes bundle with attempts shows both buttons */}
-                {order.status === "completed" && productFiles(order.products ?? {}).length > 1 && (
-                  <span className="text-xs text-ink/50">{productFiles(order.products).length} files below</span>
+                {order.status === "completed" && ownedFiles(order).length > 1 && (
+                  <span className="text-xs text-ink/50">{ownedFiles(order).length} files below</span>
                 )}
-                {order.status === "completed" && productFiles(order.products ?? {}).length <= 1 && ((!order.products?.speaking_pack_attempts && !order.products?.writing_pack_attempts) || order.products?.external_link || order.products?.file_path) && (
+                {order.status === "completed" && ownedFiles(order).length <= 1 && ((!order.products?.speaking_pack_attempts && !order.products?.writing_pack_attempts) || order.products?.external_link || order.products?.file_path) && (
                   <DownloadButton
                     orderId={order.id}
                     initiallyOpened={Boolean(order.link_opened_at && order.products?.external_link)}
+                    fileIndex={ownedFiles(order)[0]?.i ?? 0}
                     oneTime={Boolean(order.products?.personalize_pdf)}
-                    alreadyDownloaded={usedFiles.has(`${order.id}:0`)}
+                    alreadyDownloaded={usedFiles.has(`${order.id}:${ownedFiles(order)[0]?.i ?? 0}`)}
                   />
                 )}
               </div>
-              {order.status === "completed" && productFiles(order.products ?? {}).length > 1 && (
+              {order.status === "completed" && ownedFiles(order).length > 1 && (
                 <div className="basis-full">
                   {order.products?.personalize_pdf && (
                     <p className="text-sm text-clay-700 bg-clay-400/15 rounded-lg px-3 py-2 mb-2">
@@ -145,7 +152,7 @@ export default async function DashboardPage() {
                     </p>
                   )}
                 <ul className="divide-y divide-ink/10 border-t border-ink/10">
-                  {productFiles(order.products).map((f, i) => (
+                  {ownedFiles(order).map(({ f, i }) => (
                     <li key={f.path} className="flex items-center justify-between gap-3 py-2">
                       <span className="text-sm break-all">{f.name}</span>
                       <DownloadButton
