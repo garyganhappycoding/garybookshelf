@@ -18,7 +18,7 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
 
   const { data: order, error } = await admin
     .from("orders")
-    .select("id, user_id, product_id, status, amount_paid, profiles(email), products(title, external_link, file_path, product_files, speaking_pack_attempts)")
+    .select("id, user_id, product_id, status, amount_paid, profiles(email), products(title, external_link, file_path, product_files, speaking_pack_attempts, writing_pack_attempts)")
     .eq("id", orderId)
     .single();
   if (error || !order) return { error: "Order not found." };
@@ -50,6 +50,25 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
     }
   }
 
+  // An essay pack (or a bundle that includes essay markings) gives the student essay credits, valid for 30 days from approval.
+  // They are separate from the speaking attempts. order_id is unique, so approving the same order twice cannot grant it twice.
+  const essayAttempts: number | null = (order as any).products?.writing_pack_attempts ?? null;
+  if (essayAttempts) {
+    const { error: essayErr } = await admin.from("writing_packs").upsert(
+      {
+        user_id: order.user_id,
+        order_id: order.id,
+        attempts_total: essayAttempts,
+        expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(),
+      },
+      { onConflict: "order_id" }
+    );
+    if (essayErr) {
+      console.error("essay pack grant failed", essayErr);
+      return { error: "Order approved but the essay credits could not be added. Please add them manually (Admin, Students).", summary };
+    }
+  }
+
   // A locked PDF bundle gets one password per buyer now; the watermarked files themselves are made when the buyer taps Download.
   let pdfPassword: string | null = null;
   let pdfWarning: string | undefined;
@@ -66,13 +85,16 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
     const externalLink = (order as any).products?.external_link;
     // a notes bundle that also includes speaking attempts sends the student to the dashboard, where both buttons are
     const hasDownload = Boolean(externalLink || (order as any).products?.file_path);
-    const downloadSection = packAttempts && hasDownload
+    const essayButton = `<a href="${siteLink}/writing" style="${BUTTON}">Mark my first essay</a>`;
+    const baseSection = packAttempts && hasDownload
       ? `<a href="${siteLink}/dashboard" style="${BUTTON}">Get my notes</a><br><a href="${siteLink}/speaking" style="${BUTTON}">Do my first speaking attempt</a>`
       : packAttempts
       ? `<a href="${siteLink}/speaking" style="${BUTTON}">Do my first speaking attempt</a>`
       : externalLink
       ? `<a href="${externalLink}" style="${BUTTON}">Get my download</a>`
       : `<a href="${siteLink}/dashboard" style="${BUTTON}">Go to my dashboard</a>`;
+    // an essay pack with nothing to download shows only the essay button; a notes bundle with essay markings shows both
+    const downloadSection = essayAttempts && !packAttempts && !hasDownload ? essayButton : essayAttempts ? `${baseSection}<br>${essayButton}` : baseSection;
 
     // sendRawEmail never throws and reports problems (unverified domain, wrong recipient, bad Gmail password) in its result
     const sent = await sendRawEmail(
@@ -85,7 +107,7 @@ export async function approveOrderCore(orderId: string, opts: { onlyIfPending?: 
             <p style="color: #3B2F26; line-height: 1.6;">Hi,</p>
             <p style="color: #3B2F26; line-height: 1.6;">
               Your payment for <strong>${productTitle}</strong> has been verified.
-              ${packAttempts ? `Your ${packAttempts} speaking attempts are ready and last 30 days. Try your first one today, it takes about 3 minutes and gives you the full report.${hasDownload ? " Your notes are ready on your dashboard too." : ""}` : "Your download is ready and waiting for you."}
+              ${essayAttempts ? `Your ${essayAttempts} essay markings are ready and last 30 days. Paste your essay, pick the question, and you get your estimated mark with the reason for every mark.${hasDownload ? " Your notes are ready on your dashboard too." : ""} ` : ""}${packAttempts ? `Your ${packAttempts} speaking attempts are ready and last 30 days. Try your first one today, it takes about 3 minutes and gives you the full report.${hasDownload ? " Your notes are ready on your dashboard too." : ""}` : essayAttempts && !hasDownload ? "" : "Your download is ready and waiting for you."}
             </p>
             ${downloadSection}
             ${pdfPassword ? `<p style="color: #3B2F26; line-height: 1.6;">Your PDF is locked with a password that is only for you:</p>

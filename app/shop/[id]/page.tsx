@@ -75,6 +75,9 @@ export default async function ProductPage({
           memberProductTitle={memberProductTitle}
         />
         )}
+        {product.writing_pack_attempts ? (
+          <p className="text-sm text-ink/70 mt-2">✍️ Includes {product.writing_pack_attempts} essay markings, valid for 30 days after your payment is approved.</p>
+        ) : null}
       </div>
 
       <div>

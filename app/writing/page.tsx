@@ -2,7 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import WritingMarker from "@/components/WritingMarker";
 import WritingComingSoon from "@/components/WritingComingSoon";
-import { FREE_PER_WEEK, noAccess, writingAccess } from "@/lib/writing/config";
+import { FREE_TOTAL, noAccess, writingAccess } from "@/lib/writing/config";
 
 export const metadata = { title: "Essay marking · Gary's Bookshelf" };
 export const dynamic = "force-dynamic";
@@ -17,23 +17,24 @@ export default async function WritingPage() {
   const access = user ? await writingAccess(supabase, user) : noAccess;
   if (!access.allowed) return <WritingComingSoon />;
 
-  let attemptsLeft = FREE_PER_WEEK;
+  let attemptsLeft = FREE_TOTAL;
   let packLeft = 0;
   let packHref = "/shop";
   if (user) {
-    // the biggest plain pack's page, so students land on what they need instead of the whole shop
+    // the biggest plain ESSAY pack's page, so students land on what they need instead of the whole shop
     const { data: packProduct } = await supabase
       .from("products")
       .select("id")
-      .not("speaking_pack_attempts", "is", null)
+      .not("writing_pack_attempts", "is", null)
       .is("external_link", null)
       .is("file_path", null)
+      .is("speaking_pack_attempts", null)
       .eq("is_published", true)
-      .order("speaking_pack_attempts", { ascending: false })
+      .order("writing_pack_attempts", { ascending: false })
       .limit(1)
       .maybeSingle();
     if (packProduct) packHref = `/shop/${packProduct.id}`;
-    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: access.perWeek }), supabase.rpc("speaking_pack_status")]);
+    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: access.freeTotal }), supabase.rpc("writing_pack_status")]);
     if (typeof left === "number") attemptsLeft = left;
     const p = Array.isArray(pack) ? pack[0] : pack;
     if (p?.pack_left) packLeft = p.pack_left;
@@ -58,8 +59,14 @@ export default async function WritingPage() {
       ) : (
         <div className="card text-center max-w-md mx-auto">
           <p className="text-4xl mb-3">🔒</p>
-          <p className="font-medium mb-1">Members only</p>
-          <p className="text-sm text-ink/70 mb-4">Log in or create a free account to get an essay marked (3 free essays every week).</p>
+          <p className="font-medium mb-1">Log in to mark your essay</p>
+          <p className="text-sm text-ink/70 mb-3">Only members can use essay marking. A free account gets you <b>10 free essays</b>.</p>
+          <ul className="text-sm text-ink/70 text-left space-y-1 mb-4 mx-auto max-w-xs">
+            <li>✓ An estimated mark out of 20 on the four SPM criteria</li>
+            <li>✓ The reason for every mark</li>
+            <li>✓ A check that you answered every point of the question</li>
+            <li>🔒 With an essay pack: how to reach the next mark, and your essay with the words that earned and lost marks highlighted</li>
+          </ul>
           <div className="flex justify-center gap-3">
             <Link prefetch={false} href="/login" className="btn-primary">
               Log in

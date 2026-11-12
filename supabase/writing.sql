@@ -151,3 +151,27 @@ alter table public.writing_attempts add constraint writing_attempts_genre_check 
 -- claim_writing_attempt(p_part, p_genre, p_question, p_essay, p_words, p_limit default 3):
 --   ... and (created_at at time zone 'Asia/Kuala_Lumpur') >= date_trunc('week', now() at time zone 'Asia/Kuala_Lumpur')
 -- writing_attempts_left(p_limit default 3): same week condition.
+
+-- ============================================================
+-- ESSAY CREDIT PACKS (10 Nov 2026). Essay credits are SEPARATE from speaking attempts. Applied (migration "writing_packs").
+--   * table public.writing_packs (user, order, attempts_total, attempts_used, expires_at, kind purchased|bonus), one row per order
+--   * products.writing_pack_attempts: how many essay markings a product gives (null = none)
+--   * claim_writing_attempt: this week's free essays first, then one credit from an essay pack (writing_packs)
+--   * writing_pack_status(): credits left + next expiry for the signed-in student
+--   * refund_writing_pack_attempt: a failed essay gives its credit back
+--   * expire_pack_on_reject(): also expires the order's essay credits when an order is rejected
+--   * writing_attempts.pack_id now references writing_packs
+-- A student is "paid" (full report on every essay) while they have a purchased essay pack with credits left.
+-- Granting: lib/orders.ts approveOrderCore creates the pack when an order for such a product is approved (30 days).
+-- Drafts created, UNPUBLISHED: "Essay Marking Pack: 10 essays" RM5, "Essay Marking Pack: 20 essays" RM10 (changed from 25 to 20 by Gary on 13 Nov 2026).
+-- To include essay markings in the 英文作文冲刺包 when essay marking opens to students:
+--   update public.products set writing_pack_attempts = 10 where id = '0f13b817-4ff7-44f7-aef7-8ccef7776a62';
+-- (do NOT do it earlier: buyers would get credits for a feature that is still "Coming soon", and the 30 days would run out.)
+-- ============================================================
+
+-- ============================================================
+-- FREE ESSAYS ARE A ONE-TIME 10 PER PERSON (13 Nov 2026), replacing "3 a week". Applied (migration "writing_free_lifetime_anti_farming").
+--   * canonical_email(): Gmail ignores dots and +tags, so those addresses are one person; other providers: +tag dropped
+--   * claim_writing_attempt / writing_attempts_left count free essays EVER used by every account sharing the same canonical email
+--   * writing_attempts.ip_hash (short sha256 of the IP): the app limits free essays to 30 per network per 24 hours
+-- ============================================================

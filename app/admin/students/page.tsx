@@ -2,7 +2,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { addAttempts } from "@/actions/students";
+import { addAttempts, addEssayCredits } from "@/actions/students";
 import StudentOrderActions from "@/components/StudentOrderActions";
 import RedownloadRequestsAdmin, { type PendingRequest } from "@/components/RedownloadRequestsAdmin";
 import { productFiles } from "@/lib/product-files";
@@ -29,13 +29,15 @@ export default async function StudentsPage({ searchParams }: { searchParams: Pro
   const { data: students } = await query;
   const ids = (students ?? []).map((s) => s.id);
 
-  const [{ data: orders }, { data: packs }, { data: attempts }] = ids.length
+  const [{ data: orders }, { data: packs }, { data: attempts }, { data: essayPacks }, { data: essays }] = ids.length
     ? await Promise.all([
         admin.from("orders").select("id, user_id, status, amount_paid, created_at, receipt_path, reject_reason, products(title, personalize_pdf, product_files, file_path)").in("user_id", ids).order("created_at", { ascending: false }),
         admin.from("speaking_packs").select("user_id, kind, attempts_total, attempts_used, expires_at").in("user_id", ids),
         admin.from("speaking_attempts").select("user_id").in("user_id", ids).limit(20000),
+        admin.from("writing_packs").select("user_id, kind, attempts_total, attempts_used, expires_at").in("user_id", ids),
+        admin.from("writing_attempts").select("user_id").in("user_id", ids).eq("status", "done").limit(20000),
       ])
-    : [{ data: [] }, { data: [] }, { data: [] }];
+    : [{ data: [] }, { data: [] }, { data: [] }, { data: [] }, { data: [] }];
 
   // locked-PDF downloads still counting (not reset) and, for payments waiting for you, a private link to the receipt
   const orderIds = (orders ?? []).map((o: any) => o.id);
@@ -95,6 +97,12 @@ export default async function StudentsPage({ searchParams }: { searchParams: Pro
           const left = live.reduce((n, p) => n + Math.max(0, p.attempts_total - p.attempts_used), 0);
           const paidLeft = live.filter((p) => p.kind === "purchased").reduce((n, p) => n + Math.max(0, p.attempts_total - p.attempts_used), 0);
           const soonest = live.filter((p) => p.attempts_total > p.attempts_used).map((p) => p.expires_at).sort()[0];
+          // essay credits (separate from speaking)
+          const eLive = (essayPacks ?? []).filter((p) => p.user_id === s.id && new Date(p.expires_at).getTime() > now);
+          const eLeft = eLive.reduce((n, p) => n + Math.max(0, p.attempts_total - p.attempts_used), 0);
+          const ePaidLeft = eLive.filter((p) => p.kind === "purchased").reduce((n, p) => n + Math.max(0, p.attempts_total - p.attempts_used), 0);
+          const eSoonest = eLive.filter((p) => p.attempts_total > p.attempts_used).map((p) => p.expires_at).sort()[0];
+          const essayCount = (essays ?? []).filter((e) => e.user_id === s.id).length;
 
           return (
             <div key={s.id} className="card">
@@ -145,6 +153,12 @@ export default async function StudentsPage({ searchParams }: { searchParams: Pro
                     {soonest && <span className="text-xs text-ink/50"> · next expiry {myDate(soonest)}</span>}
                   </p>
                   <p className="text-ink/60">{attemptCount.get(s.id) ?? 0} attempts made in total</p>
+                  <p className="text-xs uppercase tracking-wide text-ink/50 mt-3 mb-1">Essay marking</p>
+                  <p>
+                    <strong>{eLeft}</strong> essay credits left{ePaidLeft ? ` (${ePaidLeft} paid)` : ""}
+                    {eSoonest && <span className="text-xs text-ink/50"> · next expiry {myDate(eSoonest)}</span>}
+                  </p>
+                  <p className="text-ink/60">{essayCount} essays marked in total</p>
                 </div>
               </div>
 
@@ -163,6 +177,26 @@ export default async function StudentsPage({ searchParams }: { searchParams: Pro
                   <select name="kind" className="border border-ink/15 rounded-lg px-2 py-1.5">
                     <option value="bonus">Bonus (free report)</option>
                     <option value="purchased">Paid (full report)</option>
+                  </select>
+                </label>
+                <button className="btn-secondary !py-1.5">Add</button>
+              </form>
+
+              <form action={addEssayCredits} className="flex flex-wrap items-end gap-2 mt-3 text-sm">
+                <input type="hidden" name="userId" value={s.id} />
+                <label className="block">
+                  <span className="block text-xs text-ink/50">Add essay credits</span>
+                  <input name="count" type="number" min={1} max={200} defaultValue={10} required className="w-20 border border-ink/15 rounded-lg px-2 py-1.5" />
+                </label>
+                <label className="block">
+                  <span className="block text-xs text-ink/50">Valid days</span>
+                  <input name="days" type="number" min={1} max={365} defaultValue={30} className="w-20 border border-ink/15 rounded-lg px-2 py-1.5" />
+                </label>
+                <label className="block">
+                  <span className="block text-xs text-ink/50">Type</span>
+                  <select name="kind" className="border border-ink/15 rounded-lg px-2 py-1.5">
+                    <option value="purchased">Paid (full report)</option>
+                    <option value="bonus">Bonus (free report)</option>
                   </select>
                 </label>
                 <button className="btn-secondary !py-1.5">Add</button>

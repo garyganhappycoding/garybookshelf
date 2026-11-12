@@ -30,6 +30,22 @@ export async function addAttempts(formData: FormData) {
   revalidatePath("/admin/students");
 }
 
+// Gives a student essay-marking credits by hand (separate from Speaking attempts). "purchased" = full report (use it when fixing a paid
+// order or thanking the first 冲刺包 buyers), "bonus" = credits that keep the free report. Valid for `days` days.
+export async function addEssayCredits(formData: FormData) {
+  await requireAdmin();
+  const userId = String(formData.get("userId") ?? "");
+  const count = Math.floor(Number(formData.get("count")));
+  const days = Math.floor(Number(formData.get("days") || 30));
+  const kind = formData.get("kind") === "bonus" ? "bonus" : "purchased";
+  if (!/^[0-9a-f-]{36}$/i.test(userId) || !(count >= 1 && count <= 200) || !(days >= 1 && days <= 365)) return;
+
+  await createAdminClient()
+    .from("writing_packs")
+    .insert({ user_id: userId, attempts_total: count, expires_at: new Date(Date.now() + days * 86400_000).toISOString(), kind });
+  revalidatePath("/admin/students");
+}
+
 // Admin-only check that email really sends: mails the logged-in admin's own address and reports the exact error if it fails.
 export async function sendTestEmail(): Promise<{ ok: boolean; to?: string; via?: string; error?: string }> {
   const supabase = await createClient();

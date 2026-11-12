@@ -80,7 +80,7 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
           </button>
         </div>
         <p className="text-xs text-ink/50 text-center mt-3">
-          {attemptsLeft > 0 ? `${attemptsLeft} free essay${attemptsLeft > 1 ? "s" : ""} left this week. ` : "Your free essays for this week are used. "}
+          {attemptsLeft > 0 ? `${attemptsLeft} free essay${attemptsLeft > 1 ? "s" : ""} left. ` : "Your free essays are used. "}
           {packLeft > 0 ? `${packLeft} pack credit${packLeft > 1 ? "s" : ""} left (shared with speaking).` : ""}
         </p>
       </div>
@@ -223,12 +223,12 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
             {busy ? "Marking… (about 20 seconds)" : "Mark my essay"}
           </button>
           <p className="text-xs text-ink/60">
-            {attemptsLeft > 0 ? `${attemptsLeft} free essay${attemptsLeft > 1 ? "s" : ""} left this week` : packLeft > 0 ? `Uses 1 of your ${packLeft} pack credits` : "No free essay left this week (they come back on Monday)"}
+            {attemptsLeft > 0 ? `${attemptsLeft} free essay${attemptsLeft > 1 ? "s" : ""} left` : packLeft > 0 ? `Uses 1 of your ${packLeft} pack credits` : "No free essay left"}
           </p>
         </div>
         {attemptsLeft + packLeft <= 0 && (
           <p className="text-sm text-ink/70">
-            You have used this week&apos;s free essays (they come back on Monday). A <a className="underline" href={packHref}>pack</a> gives you more.
+            You have used all your free essays. A <a className="underline" href={packHref}>pack</a> gives you more.
           </p>
         )}
       </div>
