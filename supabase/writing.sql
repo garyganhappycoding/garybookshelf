@@ -163,8 +163,15 @@ alter table public.writing_attempts add constraint writing_attempts_genre_check 
 --   * writing_attempts.pack_id now references writing_packs
 -- A student is "paid" (full report on every essay) while they have a purchased essay pack with credits left.
 -- Granting: lib/orders.ts approveOrderCore creates the pack when an order for such a product is approved (30 days).
--- Drafts created, UNPUBLISHED: "Essay Marking Pack: 10 essays" RM5, "Essay Marking Pack: 25 essays" RM10.
+-- Drafts created, UNPUBLISHED: "Essay Marking Pack: 10 essays" RM5, "Essay Marking Pack: 20 essays" RM10 (changed from 25 to 20 by Gary on 13 Nov 2026).
 -- To include essay markings in the 英文作文冲刺包 when essay marking opens to students:
 --   update public.products set writing_pack_attempts = 10 where id = '0f13b817-4ff7-44f7-aef7-8ccef7776a62';
 -- (do NOT do it earlier: buyers would get credits for a feature that is still "Coming soon", and the 30 days would run out.)
+-- ============================================================
+
+-- ============================================================
+-- FREE ESSAYS ARE A ONE-TIME 10 PER PERSON (13 Nov 2026), replacing "3 a week". Applied (migration "writing_free_lifetime_anti_farming").
+--   * canonical_email(): Gmail ignores dots and +tags, so those addresses are one person; other providers: +tag dropped
+--   * claim_writing_attempt / writing_attempts_left count free essays EVER used by every account sharing the same canonical email
+--   * writing_attempts.ip_hash (short sha256 of the IP): the app limits free essays to 30 per network per 24 hours
 -- ============================================================

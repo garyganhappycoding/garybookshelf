@@ -278,7 +278,7 @@ export type WritingResponse = {
   essay: string;
   wordCount: number;
   result: WritingResult;
-  attemptsLeft: number; // free essays left this week
+  attemptsLeft: number; // free essays left
   packLeft: number; // credits left in a paid pack
 };
 

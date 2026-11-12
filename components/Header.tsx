@@ -1,5 +1,7 @@
 import Link from "next/link";
 import HeaderAccount from "@/components/HeaderAccount";
+import EssayNavLink from "@/components/EssayNavLink";
+import { WRITING_OPEN } from "@/lib/writing/config";
 
 // Plain server component with no cookies, so pages can be cached. Login state lives in HeaderAccount.
 export default function Header() {
@@ -25,6 +27,8 @@ export default function Header() {
           <Link prefetch={false} href="/speaking" className="hover:text-clay-600 font-medium text-clay-700">
             Speaking
           </Link>
+          {/* essay marking is its own page; the link shows to everyone once WRITING_OPEN=true, until then only to admins and beta testers */}
+          <EssayNavLink open={WRITING_OPEN} />
           <Link href="/shop" className="hover:text-clay-600">
             Shop
           </Link>

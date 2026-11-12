@@ -2,7 +2,8 @@ import { NextResponse, after } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { alertPaidFailure, alertWritingFreeBackupCap } from "@/lib/speaking/alerts";
-import { FREE_PER_WEEK, writingAccess } from "@/lib/writing/config";
+import { createHash } from "node:crypto";
+import { FREE_PER_IP_DAY, FREE_TOTAL, writingAccess } from "@/lib/writing/config";
 import { getQuestion, questionText } from "@/lib/writing/questions";
 import { backupTargets, GROQ_URL, openRouterCreditLeft, requestBody, type Target } from "@/lib/speaking/providers";
 import {
@@ -183,7 +184,12 @@ export async function POST(req: Request) {
   // closed for students until WRITING_OPEN=true; admins can always test
   const access = await writingAccess(supabase, user);
   if (!access.allowed) return err("Essay marking is coming soon.", 403);
-  const perWeek = access.perWeek;
+  const freeTotal = access.freeTotal;
+  // free essays need a confirmed email (stops throwaway sign-ups with made-up addresses); testers are exempt
+  if (!access.canTest && !user.email_confirmed_at) return err("Please confirm your email first (check your inbox for the link), then you can mark your essay.", 403);
+  // a short fingerprint of the network address, kept only to spot one person making many accounts
+  const rawIp = (req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || req.headers.get("x-real-ip") || "";
+  const ipHash = rawIp ? createHash("sha256").update(rawIp).digest("hex").slice(0, 16) : null;
 
   // 1. read and check the form
   let body: Record<string, unknown>;
@@ -205,7 +211,7 @@ export async function POST(req: Request) {
 
   const admin = createAdminClient();
   const counts = async () => {
-    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: perWeek }), supabase.rpc("writing_pack_status")]);
+    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: freeTotal }), supabase.rpc("writing_pack_status")]);
     const p = Array.isArray(pack) ? pack[0] : pack;
     return { attemptsLeft: (left as number | null) ?? 0, packLeft: (p?.pack_left as number | undefined) ?? 0 };
   };
@@ -233,18 +239,31 @@ export async function POST(req: Request) {
   if (rows.filter((r) => r.status === "failed").length >= (paid ? 6 : 3))
     return err("A few tries in a row didn't work, so we're pausing for a few minutes to keep the AI available for everyone. Please try again soon.", 429, { retryAfter: 120 });
 
-  // 4. claim one of this week's free essays or a pack credit (atomic, in the database)
+  // 3b. one network may only mark so many FREE essays a day (paying students and testers are not limited)
+  if (!paid && !access.canTest && ipHash) {
+    const { count: ipCount } = await admin
+      .from("writing_attempts")
+      .select("id", { count: "exact", head: true })
+      .eq("ip_hash", ipHash)
+      .eq("tier", "free")
+      .neq("status", "failed")
+      .gte("created_at", new Date(Date.now() - 24 * 3600 * 1000).toISOString());
+    if ((ipCount ?? 0) >= FREE_PER_IP_DAY) return err("Too many free essays have been marked from this network today. Please try again tomorrow, or get an essay pack.", 429, { needPack: true });
+  }
+
+  // 4. claim one of the free essays (10 per person, once) or a pack credit (atomic, in the database)
   const { data: claimed, error: claimErr } = await supabase.rpc("claim_writing_attempt", {
     p_part: part,
     p_genre: genre,
     p_question: question,
     p_essay: essay,
     p_words: words,
-    p_limit: perWeek,
+    p_limit: freeTotal,
   });
   if (claimErr) return err("Could not start the marking. Please try again.", 500);
-  if (!claimed) return err(`You've used your ${FREE_PER_WEEK} free essays for this week. They come back on Monday. An essay pack gives you more, or come back on Monday!`, 429, { attemptsLeft: 0, packLeft: 0, needPack: true });
+  if (!claimed) return err(`You've used your ${FREE_TOTAL} free essays. An essay pack gives you more.`, 429, { attemptsLeft: 0, packLeft: 0, needPack: true });
   const attemptId = claimed as string;
+  if (ipHash) await admin.from("writing_attempts").update({ ip_hash: ipHash }).eq("id", attemptId);
 
   const fail = async (reason: string, message: string, status: number, detail?: string, retryAfter?: number) => {
     if (paid && ["ai_busy", "ai_error"].includes(reason)) after(() => alertPaidFailure(reason, detail, user.email));
