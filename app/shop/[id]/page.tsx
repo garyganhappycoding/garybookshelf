@@ -46,6 +46,9 @@ export default async function ProductPage({
         <h1 className="text-2xl font-medium mb-2">{product.title}</h1>
         <p className="text-ink/70 leading-relaxed mb-4 whitespace-pre-line">{product.description}</p>
         <p className="text-xl font-medium text-clay-700">RM {Number(product.price_myr).toFixed(2)}</p>
+        {product.writing_pack_attempts ? (
+          <p className="text-sm text-ink/70 mt-2">✍️ Includes {product.writing_pack_attempts} essay markings, valid for 30 days after your payment is approved.</p>
+        ) : null}
       </div>
 
       <div>

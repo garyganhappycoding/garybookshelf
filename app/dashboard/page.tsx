@@ -32,7 +32,7 @@ export default async function DashboardPage() {
 
   const { data: orders } = await supabase
     .from("orders")
-    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, products(title, external_link, file_path, product_files, personalize_pdf, speaking_pack_attempts)")
+    .select("id, status, amount_paid, created_at, reject_reason, link_opened_at, pdf_password, products(title, external_link, file_path, product_files, personalize_pdf, speaking_pack_attempts, writing_pack_attempts)")
     .eq("user_id", user.id)
     .order("created_at", { ascending: false });
 
@@ -41,6 +41,11 @@ export default async function DashboardPage() {
   const packRow = Array.isArray(pack) ? pack[0] : pack;
   const packLeft: number = packRow?.pack_left ?? 0;
   const packExpiry: string | null = packRow?.next_expiry ?? null;
+  // essay markings left in the student's essay pack
+  const { data: essayPack } = await supabase.rpc("writing_pack_status");
+  const essayRow = Array.isArray(essayPack) ? essayPack[0] : essayPack;
+  const essayLeft: number = essayRow?.pack_left ?? 0;
+  const essayExpiry: string | null = essayRow?.next_expiry ?? null;
   const hasCompleted = (orders ?? []).some((o: any) => o.status === "completed");
 
   // which files of one-time (locked PDF) orders were already downloaded; read here on the server because buyers cannot read this table
@@ -76,6 +81,17 @@ export default async function DashboardPage() {
         </div>
       )}
 
+      {essayLeft > 0 && (
+        <div className="card !border-clay-400 mb-6">
+          <p className="font-medium mb-1">✍️ You have {essayLeft} essay markings ready</p>
+          <p className="text-sm text-ink/70 mb-3">
+            {essayExpiry ? `They are yours until ${new Date(essayExpiry).toLocaleDateString("en-MY", { day: "numeric", month: "long" })}. ` : ""}
+            Every essay you mark with them gets the full report: the reason for every mark, how to reach the next mark, and your essay with the words that earned and lost marks highlighted.
+          </p>
+          <Link prefetch={false} href="/writing" className="btn-primary">Mark an essay</Link>
+        </div>
+      )}
+
       {orders && orders.length > 0 ? (
         <div className="space-y-3">
           {orders.map((order: any) => (
@@ -102,11 +118,16 @@ export default async function DashboardPage() {
                     Open Speaking
                   </Link>
                 )}
+                {order.status === "completed" && order.products?.writing_pack_attempts && (
+                  <Link prefetch={false} href="/writing" className="btn-secondary !py-1.5">
+                    Open essay marking
+                  </Link>
+                )}
                 {/* a plain speaking pack has nothing to download; a notes bundle with attempts shows both buttons */}
                 {order.status === "completed" && productFiles(order.products ?? {}).length > 1 && (
                   <span className="text-xs text-ink/50">{productFiles(order.products).length} files below</span>
                 )}
-                {order.status === "completed" && productFiles(order.products ?? {}).length <= 1 && (!order.products?.speaking_pack_attempts || order.products?.external_link || order.products?.file_path) && (
+                {order.status === "completed" && productFiles(order.products ?? {}).length <= 1 && ((!order.products?.speaking_pack_attempts && !order.products?.writing_pack_attempts) || order.products?.external_link || order.products?.file_path) && (
                   <DownloadButton
                     orderId={order.id}
                     initiallyOpened={Boolean(order.link_opened_at && order.products?.external_link)}

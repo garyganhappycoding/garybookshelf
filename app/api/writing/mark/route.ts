@@ -205,14 +205,14 @@ export async function POST(req: Request) {
 
   const admin = createAdminClient();
   const counts = async () => {
-    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: perWeek }), supabase.rpc("speaking_pack_status")]);
+    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: perWeek }), supabase.rpc("writing_pack_status")]);
     const p = Array.isArray(pack) ? pack[0] : pack;
     return { attemptsLeft: (left as number | null) ?? 0, packLeft: (p?.pack_left as number | undefined) ?? 0 };
   };
 
-  // 2. a paying student = an active BOUGHT pack with credits left (bonus packs do not count), same rule as speaking
+  // 2. a paying student = an active BOUGHT essay pack with credits left (bonus credits do not count); essay credits are separate from speaking
   const { data: bought } = await admin
-    .from("speaking_packs")
+    .from("writing_packs")
     .select("attempts_total,attempts_used")
     .eq("user_id", user.id)
     .eq("kind", "purchased")

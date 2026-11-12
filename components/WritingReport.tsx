@@ -81,7 +81,7 @@ export default function WritingReport({ data, packHref = "/shop" }: { data: Repo
               {paid && x.next_band ? (
                 <p className="text-sm text-clay-700 mt-1.5">⬆ {x.next_band}</p>
               ) : !paid ? (
-                <p className="text-xs text-ink/40 mt-2">🔒 How to reach {Math.min(BAND_MAX, x.band + 1)}: Speaking pack</p>
+                <p className="text-xs text-ink/40 mt-2">🔒 How to reach {Math.min(BAND_MAX, x.band + 1)}: essay pack</p>
               ) : null}
             </div>
           );
@@ -151,7 +151,7 @@ export default function WritingReport({ data, packHref = "/shop" }: { data: Repo
       {!paid && (
         <section className="card text-center">
           <p className="font-medium mb-1">🔒 Want to know exactly how to get the next mark?</p>
-          <p className="text-sm text-ink/70 mb-3">A Speaking pack unlocks, for every essay: how to reach the next mark for each criterion, your essay with the words that earned and lost marks highlighted, and the single biggest gain. Pack credits work for speaking and writing.</p>
+          <p className="text-sm text-ink/70 mb-3">An essay pack unlocks, for every essay: how to reach the next mark for each criterion, your essay with the words that earned and lost marks highlighted, and the single biggest gain. Essay credits last 30 days.</p>
           <Link prefetch={false} href={packHref} className="btn-primary">
             See the packs
           </Link>

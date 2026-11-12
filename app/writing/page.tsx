@@ -21,19 +21,20 @@ export default async function WritingPage() {
   let packLeft = 0;
   let packHref = "/shop";
   if (user) {
-    // the biggest plain pack's page, so students land on what they need instead of the whole shop
+    // the biggest plain ESSAY pack's page, so students land on what they need instead of the whole shop
     const { data: packProduct } = await supabase
       .from("products")
       .select("id")
-      .not("speaking_pack_attempts", "is", null)
+      .not("writing_pack_attempts", "is", null)
       .is("external_link", null)
       .is("file_path", null)
+      .is("speaking_pack_attempts", null)
       .eq("is_published", true)
-      .order("speaking_pack_attempts", { ascending: false })
+      .order("writing_pack_attempts", { ascending: false })
       .limit(1)
       .maybeSingle();
     if (packProduct) packHref = `/shop/${packProduct.id}`;
-    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: access.perWeek }), supabase.rpc("speaking_pack_status")]);
+    const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: access.perWeek }), supabase.rpc("writing_pack_status")]);
     if (typeof left === "number") attemptsLeft = left;
     const p = Array.isArray(pack) ? pack[0] : pack;
     if (p?.pack_left) packLeft = p.pack_left;
