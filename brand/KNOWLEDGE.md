@@ -30,6 +30,12 @@ Copy this template under "Entries":
 | Fisher Mode | video scripting | https://www.instagram.com/fisher_mode/ |
 
 ## Entries
+### 2026-11-13 — No required counts for linkers or vocabulary (Gary's correction)
+- Source: Gary, while checking the SPM writing live-talk score card
+- Insight: Claude had written "at least 6 linkers" and "4 to 8 less common words" in `brand/ESSAY-BENCHMARK.md` and put "6 linkers" on the talk's score card. Neither is in the examiners' guide. Language has **no required counts**; what counts is variety where it fits and correct control. In Part 1 the top level is simple connectors used correctly. "Use fancy words only if sure" is also too cautious: the Part 2 and Part 3 top levels allow occasional misuse of less common words.
+- Apply to garybookshelf: never put numeric targets for linkers, vocabulary or complex sentences in notes, talks, the score card or the marker. Benchmark rules 4 and 5 marked [superseded] and rewritten. Gary has already corrected the live-talk doc himself.
+- Status: adopted
+
 ### 2026-11-09 — Examiners' guide for SPM English Paper 2 writing (the standard marking benchmark)
 - Source: "SPM Instructions for Writing Examiners V3" (25 pages, © ES 2021, for examiner use only), link: https://online.anyflip.com/jshpx/zpkn/mobile/index.html (page images at `.../files/mobile/N.webp`)
 - Insight: each part has its own scale (one continuum: Part 1 band 5 ~ B1, Part 2 ~ B2, Part 3 ~ C1); Content is judged by the cumulative effect on the reader, and **misreading one aspect of the task is about band 3, a global misreading band 1, a missing reason band 3 or 4**; accuracy is only a tie-breaker; length is not a criterion; "linking words" are basic and "cohesive devices" (incl. reference words like "it") are higher. Page map in the memory note `reference-spm-writing-examiner-guide`.

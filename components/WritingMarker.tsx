@@ -7,7 +7,7 @@ import { getQuestion, questionText, questionsFor, type BankQuestion } from "@/li
 
 const oneLine = (s: string, n: number) => (s.length > n ? s.slice(0, n).trimEnd() + "…" : s);
 
-export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, packHref, isAdmin = false }: { initialAttemptsLeft: number; initialPackLeft: number; packHref: string; isAdmin?: boolean }) {
+export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, initialFreeToday, freePoolTotal, packHref, isAdmin = false }: { initialAttemptsLeft: number; initialPackLeft: number; initialFreeToday: number; freePoolTotal: number; packHref: string; isAdmin?: boolean }) {
   const [asFree, setAsFree] = useState(false); // admin only: see the free student's report
   const [part, setPart] = useState<WritingPart>(3);
   const [genre, setGenre] = useState<Genre>("story");
@@ -18,6 +18,7 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
   const [data, setData] = useState<ReportData | null>(null);
   const [attemptsLeft, setAttemptsLeft] = useState(initialAttemptsLeft);
   const [packLeft, setPackLeft] = useState(initialPackLeft);
+  const [freeToday, setFreeToday] = useState(initialFreeToday); // free essays left today for the WHOLE site
 
   // the question: pick one from the saved list, or type / paste your own
   const [qMode, setQMode] = useState<"pick" | "own">("pick");
@@ -31,7 +32,7 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
   const tooShort = words < info.minWords;
   const tooLong = words > HARD_MAX_WORDS; // only a safety cap: writing more than asked is allowed
   const longer = words > info.maxWords && !tooLong; // a friendly note only
-  const canSend = !busy && finalQuestion.length >= 15 && !tooShort && !tooLong && attemptsLeft + packLeft > 0;
+  const canSend = !busy && finalQuestion.length >= 15 && !tooShort && !tooLong && (packLeft > 0 || isAdmin || (attemptsLeft > 0 && freeToday > 0));
 
   const pickPart = (p: WritingPart) => {
     setPart(p);
@@ -56,6 +57,7 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
       const json = await res.json().catch(() => ({}));
       if (typeof json.attemptsLeft === "number") setAttemptsLeft(json.attemptsLeft);
       if (typeof json.packLeft === "number") setPackLeft(json.packLeft);
+      if (typeof json.freeToday === "number") setFreeToday(json.freeToday);
       if (!res.ok) {
         setError(json.error ?? "Something went wrong. You were not charged. Please try again.");
         return;
@@ -70,6 +72,13 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
     }
   }
 
+  const poolNote = (
+    <p className={`text-xs text-center mt-3 ${freeToday > 0 ? "text-clay-700" : "text-ink/60"}`}>
+      🔥 <b>{freeToday}</b> of {freePoolTotal} free essays left today, shared by everyone on the site. {freeToday > 0 ? "When they are gone, free marking stops until midnight (Malaysia time). " : "They come back at midnight (Malaysia time). "}
+      Essays marked with a pack never use them.
+    </p>
+  );
+
   if (data) {
     return (
       <div>
@@ -81,8 +90,9 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
         </div>
         <p className="text-xs text-ink/50 text-center mt-3">
           {attemptsLeft > 0 ? `${attemptsLeft} free essay${attemptsLeft > 1 ? "s" : ""} left. ` : "Your free essays are used. "}
-          {packLeft > 0 ? `${packLeft} pack credit${packLeft > 1 ? "s" : ""} left (shared with speaking).` : ""}
+          {packLeft > 0 ? `${packLeft} pack credit${packLeft > 1 ? "s" : ""} left.` : ""}
         </p>
+        {poolNote}
       </div>
     );
   }
@@ -231,7 +241,13 @@ export default function WritingMarker({ initialAttemptsLeft, initialPackLeft, pa
             You have used all your free essays. A <a className="underline" href={packHref}>pack</a> gives you more.
           </p>
         )}
+        {attemptsLeft > 0 && packLeft <= 0 && freeToday <= 0 && (
+          <p className="text-sm text-ink/70">
+            Today&apos;s free essays for everyone are all used. Come back after midnight, or get a <a className="underline" href={packHref}>pack</a> to mark now.
+          </p>
+        )}
       </div>
+      {poolNote}
     </div>
   );
 }

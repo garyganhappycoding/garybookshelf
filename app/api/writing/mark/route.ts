@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { alertPaidFailure, alertWritingFreeBackupCap } from "@/lib/speaking/alerts";
 import { createHash } from "node:crypto";
-import { FREE_PER_IP_DAY, FREE_TOTAL, writingAccess } from "@/lib/writing/config";
+import { FREE_PER_IP_DAY, FREE_POOL_DAILY, FREE_TOTAL, freePoolLeft, writingAccess } from "@/lib/writing/config";
 import { getQuestion, questionText } from "@/lib/writing/questions";
 import { backupTargets, GROQ_URL, openRouterCreditLeft, requestBody, type Target } from "@/lib/speaking/providers";
 import {
@@ -213,7 +213,7 @@ export async function POST(req: Request) {
   const counts = async () => {
     const [{ data: left }, { data: pack }] = await Promise.all([supabase.rpc("writing_attempts_left", { p_limit: freeTotal }), supabase.rpc("writing_pack_status")]);
     const p = Array.isArray(pack) ? pack[0] : pack;
-    return { attemptsLeft: (left as number | null) ?? 0, packLeft: (p?.pack_left as number | undefined) ?? 0 };
+    return { attemptsLeft: (left as number | null) ?? 0, packLeft: (p?.pack_left as number | undefined) ?? 0, freeToday: await freePoolLeft() };
   };
 
   // 2. a paying student = an active BOUGHT essay pack with credits left (bonus credits do not count); essay credits are separate from speaking
@@ -238,6 +238,12 @@ export async function POST(req: Request) {
     return err("Your last essay is still being marked. Please wait for it to finish.", 429, { retryAfter: 30 });
   if (rows.filter((r) => r.status === "failed").length >= (paid ? 6 : 3))
     return err("A few tries in a row didn't work, so we're pausing for a few minutes to keep the AI available for everyone. Please try again soon.", 429, { retryAfter: 120 });
+
+  // 3a. the whole site shares a daily pool of free essays; paying students (pack credits) never use it
+  if (!paid && !access.canTest) {
+    const poolLeft = await freePoolLeft();
+    if (poolLeft <= 0) return err(`Today's ${FREE_POOL_DAILY} free essays for everyone are all used up. They come back at midnight (Malaysia time). An essay pack lets you mark any time.`, 429, { freeToday: 0, needPack: true });
+  }
 
   // 3b. one network may only mark so many FREE essays a day (paying students and testers are not limited)
   if (!paid && !access.canTest && ipHash) {

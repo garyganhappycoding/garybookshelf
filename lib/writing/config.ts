@@ -3,7 +3,8 @@ import { createAdminClient } from "@/lib/supabase/admin";
 
 // Master switch. Essay marking is CLOSED for students unless WRITING_OPEN=true is set in Vercel / .env.local (Gary, 8 Nov 2026:
 // "do not let the user access it first"). Admins and beta testers can always use it.
-export const WRITING_OPEN = process.env.WRITING_OPEN === "true";
+// OPEN to students since 15 Nov 2026 (Gary: "let the user have access to the marking essay function"). To close it again, set WRITING_OPEN=false in Vercel.
+export const WRITING_OPEN = process.env.WRITING_OPEN !== "false";
 
 export const FREE_TOTAL = 10; // free essays per PERSON, once, never reset (Gary, 13 Nov 2026; was 3 a week). Counted across accounts that share one inbox (Gmail dots and +tags). After that an essay pack credit is used (see supabase/writing.sql)
 export const FREE_PER_IP_DAY = Number(process.env.WRITING_FREE_PER_IP_DAY) || 30; // free essays one network (IP) may mark in 24 hours: generous, because a school shares one IP
@@ -32,4 +33,23 @@ export async function writingAccess(supabase: SupabaseClient, user: Pick<User, "
   }
   const canTest = isAdmin || isBeta;
   return { isAdmin, isBeta, canTest, allowed: WRITING_OPEN || canTest, freeTotal: isAdmin ? ADMIN_TOTAL : isBeta ? BETA_TOTAL : FREE_TOTAL };
+}
+
+// A DAILY pool of free essays for the whole site (Gary, 13 Nov 2026): students see "N free essays left today, shared by everyone", which
+// makes the free ones feel scarce. Essays done with pack credits (paying students) never use it. Resets at midnight, Malaysia time.
+// Change the size with WRITING_FREE_POOL_DAILY in Vercel (about RM0.007 per essay that needs the paid backup, so 100 a day is at most about RM21 a month).
+export const FREE_POOL_DAILY = Number(process.env.WRITING_FREE_POOL_DAILY) || 100;
+
+// Free essays still available today for everyone (counts essays that are not pack credits and not failed, since midnight in Malaysia).
+export async function freePoolLeft(): Promise<number> {
+  const MYT = 8 * 3600_000;
+  const start = Math.floor((Date.now() + MYT) / 86_400_000) * 86_400_000 - MYT;
+  const { count } = await createAdminClient()
+    .from("writing_attempts")
+    .select("id", { count: "exact", head: true })
+    .is("pack_id", null)
+    .neq("status", "failed")
+    .or("tier.eq.free,tier.is.null")
+    .gte("created_at", new Date(start).toISOString());
+  return Math.max(FREE_POOL_DAILY - (count ?? 0), 0);
 }

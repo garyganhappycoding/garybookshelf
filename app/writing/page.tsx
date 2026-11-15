@@ -2,7 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import WritingMarker from "@/components/WritingMarker";
 import WritingComingSoon from "@/components/WritingComingSoon";
-import { FREE_TOTAL, noAccess, writingAccess } from "@/lib/writing/config";
+import { FREE_POOL_DAILY, FREE_TOTAL, freePoolLeft, noAccess, writingAccess } from "@/lib/writing/config";
 
 export const metadata = { title: "Essay marking · Gary's Bookshelf" };
 export const dynamic = "force-dynamic";
@@ -17,6 +17,7 @@ export default async function WritingPage() {
   const access = user ? await writingAccess(supabase, user) : noAccess;
   if (!access.allowed) return <WritingComingSoon />;
 
+  const freeToday = await freePoolLeft();
   let attemptsLeft = FREE_TOTAL;
   let packLeft = 0;
   let packHref = "/shop";
@@ -55,12 +56,13 @@ export default async function WritingPage() {
       </p>
 
       {user ? (
-        <WritingMarker initialAttemptsLeft={attemptsLeft} initialPackLeft={packLeft} packHref={packHref} isAdmin={access.canTest} />
+        <WritingMarker initialAttemptsLeft={attemptsLeft} initialPackLeft={packLeft} initialFreeToday={freeToday} freePoolTotal={FREE_POOL_DAILY} packHref={packHref} isAdmin={access.canTest} />
       ) : (
         <div className="card text-center max-w-md mx-auto">
           <p className="text-4xl mb-3">🔒</p>
           <p className="font-medium mb-1">Log in to mark your essay</p>
           <p className="text-sm text-ink/70 mb-3">Only members can use essay marking. A free account gets you <b>10 free essays</b>.</p>
+          <p className="text-sm font-medium text-clay-700 mb-3">🔥 {freeToday} of {FREE_POOL_DAILY} free essays left today, shared by everyone on the site.</p>
           <ul className="text-sm text-ink/70 text-left space-y-1 mb-4 mx-auto max-w-xs">
             <li>✓ An estimated mark out of 20 on the four SPM criteria</li>
             <li>✓ The reason for every mark</li>

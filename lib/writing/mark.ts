@@ -280,6 +280,7 @@ export type WritingResponse = {
   result: WritingResult;
   attemptsLeft: number; // free essays left
   packLeft: number; // credits left in a paid pack
+  freeToday?: number; // free essays left today for the whole site (shared by everyone)
 };
 
 // The AI returns quotes; keep only those that really appear in the essay (case-insensitive), turn them into positions, and drop overlaps.
