@@ -38,7 +38,7 @@ export default function ProductGallery({ images, title }: { images: string[]; ti
         onTouchEnd={handleTouchEnd}
         onClick={() => setLightboxOpen(true)}
       >
-        <Image src={images[active]} alt={title} fill sizes="(max-width: 768px) 100vw, 600px" priority className="object-cover" />
+        <Image src={images[active]} alt={title} fill sizes="(max-width: 768px) 100vw, 600px" priority className="object-contain" />
         {images.length > 1 && (
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
             {images.map((_, i) => (
@@ -62,7 +62,7 @@ export default function ProductGallery({ images, title }: { images: string[]; ti
               }`}
             >
               <span className="block relative w-full h-full">
-                <Image src={img} alt="" fill sizes="64px" className="object-cover" />
+                <Image src={img} alt="" fill sizes="64px" className="object-contain bg-white" />
               </span>
             </button>
           ))}
