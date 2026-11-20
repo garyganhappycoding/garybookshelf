@@ -53,6 +53,9 @@ export default async function ProductPage({
         <p className="text-xs text-clay-600 uppercase tracking-wide mb-1 mt-4">{product.category}</p>
         <h1 className="text-2xl font-medium mb-2">{product.title}</h1>
         <p className="text-ink/70 leading-relaxed mb-4 whitespace-pre-line">{product.description}</p>
+        <p className="text-sm mb-4">
+          <Link href="/which-to-buy" className="text-clay-600 underline">不确定是不是这个？看「我该买哪一个」 · Not sure? See which one to buy</Link>
+        </p>
         {product.price_per_file_myr != null ? (
           <div>
             <p className="text-xl font-medium text-clay-700">RM {Number(product.price_per_file_myr).toFixed(2)} per file</p>
