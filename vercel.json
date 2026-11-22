@@ -2,6 +2,7 @@
   "regions": ["syd1"],
   "crons": [
     { "path": "/api/cron/cleanup-receipts", "schedule": "0 19 * * *" },
-    { "path": "/api/cron/weekly-report", "schedule": "0 1 * * 1" }
+    { "path": "/api/cron/weekly-report", "schedule": "0 1 * * 1" },
+    { "path": "/api/cron/channel-reminders", "schedule": "30 0 * * *" }
   ]
 }
