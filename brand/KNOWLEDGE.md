@@ -30,6 +30,12 @@ Copy this template under "Entries":
 | Fisher Mode | video scripting | https://www.instagram.com/fisher_mode/ |
 
 ## Entries
+### 2026-11-17 — Become an "artisan" (Dan Koe) and own the audience in 2027
+- Source: Gary, citing Dan Koe
+- Insight: an artisan makes a series of products that keep people watching; it does not need huge reach, only authenticity. Not "how to do it" teaching but "what I understood, what I failed at, how I overcame it": the process, as long-form video. Gary also wants a personal place to reach his audience directly (not Instagram, which depends on the platform's reach).
+- Apply to garybookshelf: a monthly long-form process series for batch 09 (Form 5 in 2027) and batch 10 (Form 4 in 2027); a Telegram channel for personal updates; a year calendar in `brand/CALENDAR-2027.md` that pushes notes in exam months. Note the SWOT decision that YouTube long-form was ruled out because students don't watch it: needs revisiting.
+- Status: adopted in part. Gary decided on 17 Nov 2026: **long-form goes to YouTube** (supersedes the SWOT note that YouTube long-form was ruled out), a Telegram channel is the personal place, and his own month-by-month plan is in `brand/CALENDAR-2027.md`.
+
 ### 2026-11-13 — No required counts for linkers or vocabulary (Gary's correction)
 - Source: Gary, while checking the SPM writing live-talk score card
 - Insight: Claude had written "at least 6 linkers" and "4 to 8 less common words" in `brand/ESSAY-BENCHMARK.md` and put "6 linkers" on the talk's score card. Neither is in the examiners' guide. Language has **no required counts**; what counts is variety where it fits and correct control. In Part 1 the top level is simple connectors used correctly. "Use fancy words only if sure" is also too cautious: the Part 2 and Part 3 top levels allow occasional misuse of less common words.
