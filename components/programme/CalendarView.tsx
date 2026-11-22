@@ -87,7 +87,7 @@ export default function CalendarView() {
           <>
             <p className="text-xs text-ink/60">第 {wk} 周 · {themeOf(wk)} · {levelOf(wk)}</p>
             <p className="mt-1">{task[0]}：{task[1]}</p>
-            <Link href="/programme/today" className="btn-primary inline-block mt-3 text-sm">打开这一天</Link>
+            <Link href={`/programme/today?state=${stateId}`} className="btn-primary inline-block mt-3 text-sm">打开这一天</Link>
           </>
         )}
       </div>
