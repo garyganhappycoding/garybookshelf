@@ -32,9 +32,22 @@ const PAPERS: Paper[] = [
   { date: "2026-12-17", subject: "Add Math", times: "Paper 1 8:15am, Paper 2 2:30pm", free: "addmath checklist" },
 ];
 
+// Gary's rule (23 Nov 2026): promote a 冲刺包 every 2 weeks in the run-up to each exam, and remind him
+// 1 month before. Add each exam here once its date is known (trial, mid-year, SPM 2027 dates come out
+// around August 2027). Dates are Malaysia calendar days, YYYY-MM-DD.
+const EXAMS: { date: string; name: string }[] = [];
+const SPM_2027_CHECK = "2027-08-18"; // last year the SPM timetable came out on 18 Aug
+
 export function channelReminders(today: string = todayInMalaysia()): string[] {
   const out: string[] = [];
   const dow = weekday(today);
+
+  for (const e of EXAMS) {
+    const daysTo = Math.round((asDay(e.date) - asDay(today)) / DAY);
+    if (daysTo === 30) out.push(`📅 1 month to ${e.name} (${e.date}). Prepare the 冲刺包 and plan its promo posts: one every 2 weeks until the exam.`);
+    if (daysTo === 28 || daysTo === 14) out.push(`🚀 ${daysTo} days to ${e.name}: post the 冲刺包 promotion today (channel and Instagram).`);
+  }
+  if (today === SPM_2027_CHECK) out.push(`🗓 The SPM 2027 timetable should be out about now. Send me the dates so I can add them to the exam list and the 冲刺包 reminders.`);
 
   // The evening before each paper: write the good-luck post.
   const tomorrow = addDays(today, 1);
