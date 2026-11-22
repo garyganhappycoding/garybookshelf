@@ -114,15 +114,35 @@ export const holidayName = (h: Holiday) => (ZH[h.name] ?? h.name) + (h.sub ? "�
 export const examsOn = (exams: Exam[], k: string) =>
   exams.map((e, i) => ({ e, i })).filter((x) => x.e.start && x.e.end && k >= x.e.start && k <= x.e.end);
 
-/** Numbers for the header: week, school days left, RM earned back, streak. `missed` = school days not done so far. */
-export function facts(cal: Calendar, today: string, missed: number) {
-  let passed = 0, left = 0;
+function lastSchoolDayBefore(cal: Calendar, today: string) {
+  let d = addDays(parse(today), -1);
+  while (!cal.isSchool(d)) d = addDays(d, -1);
+  return key(d);
+}
+
+export type DayStatus = "done" | "missed" | "makeup";
+
+/** Sample history for the preview: a day that was missed and never made up, and one made up later (补做). */
+export const DEMO_STATUS: Record<string, DayStatus> = { "2027-01-20": "makeup", "2027-02-03": "missed", "2027-02-10": "makeup" };
+
+/** Status of a school day in the past: done on time unless the sample history says otherwise. */
+export function statusOf(cal: Calendar, k: string, today: string, brokenDemo = false): DayStatus | null {
+  if (k >= today || !cal.isSchool(parse(k))) return null;
+  if (brokenDemo && k === lastSchoolDayBefore(cal, today)) return "missed";
+  return DEMO_STATUS[k] ?? "done";
+}
+
+/** Numbers for the header. RM1 is earned for every school day done (on time or made up). Streak = on-time days in a row up to yesterday. */
+export function facts(cal: Calendar, today: string, brokenDemo = false) {
+  let left = 0, earned = 0, streak = 0;
+  const all: string[] = [];
   for (let d = parse("2027-01-01"); key(d) <= "2027-12-31"; d = addDays(d, 1)) {
     if (!cal.isSchool(d)) continue;
-    if (key(d) < today) passed += 1; else left += 1; // today still counts as to-do
+    if (key(d) < today) all.push(key(d)); else left += 1; // today still counts as to-do
   }
-  const done = Math.max(0, passed - missed);
-  return { week: cal.weekOf(parse(today)), weeks: cal.weeks, left, total: cal.days, earned: Math.min(done, 200), streak: done };
+  for (const k of all) { const st = statusOf(cal, k, today, brokenDemo); if (st === "done" || st === "makeup") earned += 1; }
+  for (let i = all.length - 1; i >= 0 && statusOf(cal, all[i], today, brokenDemo) === "done"; i--) streak += 1;
+  return { week: cal.weekOf(parse(today)), weeks: cal.weeks, left, total: cal.days, earned: Math.min(earned, 200), streak };
 }
 
 // Friend-group pricing: 1 person RM200, 2 people each RM190 (5% off), 3 people each RM180 (10% off). Max 3.

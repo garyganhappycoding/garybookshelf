@@ -2,14 +2,19 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
-  STATES, WEEKDAY_ZH, DEMO_TODAY, addDays, buildCalendar, cn, examsOn, facts, holidayName, key, levelOf, mondayOf, parse, themeOf, type Calendar,
+  STATES, WEEKDAY_ZH, DEMO_TODAY, addDays, buildCalendar, cn, examsOn, facts, holidayName, key, levelOf, mondayOf, parse, statusOf, themeOf, type Calendar,
 } from "@/lib/programme/calendar";
 import { useProgramme } from "./useProgramme";
 
-const EXAM_COLORS = ["bg-clay-500", "bg-sage-500", "bg-sky-500", "bg-purple-500"];
+const EXAM_COLORS = ["bg-purple-300 text-purple-900", "bg-sky-300 text-sky-900", "bg-pink-300 text-pink-900", "bg-teal-300 text-teal-900"];
 
-function cellTone(cal: Calendar, d: Date) {
+const STATUS_TONE = { done: "bg-sage-500 text-white", missed: "bg-red-200 text-red-800", makeup: "bg-yellow-200 text-yellow-900" } as const;
+
+function cellTone(cal: Calendar, d: Date, exam: number, today: string, broken: boolean) {
   const k = key(d);
+  if (exam >= 0) return EXAM_COLORS[exam % 4];
+  const st = statusOf(cal, k, today, broken);
+  if (st) return STATUS_TONE[st];
   if (cal.hol[k]) return "bg-clay-400/25 text-clay-700";
   if (cal.breakOf(k)) return "bg-ink/5 text-ink/50";
   if (cal.isSchool(d) || (cal.inTerm(k) && !cal.dayOff.includes(d.getDay()))) return "bg-sage-400/25";
@@ -20,7 +25,8 @@ export default function CalendarView() {
   const { stateId, exams, saveState } = useProgramme();
   const [selected, setSelected] = useState(DEMO_TODAY);
   const cal = useMemo(() => buildCalendar(stateId), [stateId]);
-  const f = facts(cal, DEMO_TODAY, 0);
+  const [broken, setBroken] = useState(false);
+  const f = facts(cal, DEMO_TODAY, broken);
 
   const d = parse(selected), wd = d.getDay(), hol = cal.hol[selected], locked = selected > DEMO_TODAY, wk = cal.weekOf(d);
   const task = cal.tasks[wd];
@@ -30,13 +36,16 @@ export default function CalendarView() {
       <h1 className="text-2xl font-medium mb-1">陪你读书 2027</h1>
       <p className="text-sm text-ink/60 mb-4">示范日期：{cn(parse(DEMO_TODAY))}（真实网站用当天日期）</p>
 
-      <div className="card mb-5">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div><p className="text-2xl font-semibold tabular-nums">{f.week ? `第 ${f.week}/${f.weeks} 周` : "学校假期"}</p></div>
-          <div><p className="text-2xl font-semibold tabular-nums">还剩 {f.left}/{f.total} 天上课</p></div>
-          <div><p className="text-2xl font-semibold tabular-nums text-clay-600">已赚回 RM{f.earned}/200</p></div>
-          <div><p className="text-2xl font-semibold tabular-nums">连续 {f.streak} 天</p></div>
+      <div className="card mb-5 !py-4">
+        <div className="flex items-center justify-between gap-2 whitespace-nowrap text-[13px] sm:text-xl font-semibold tabular-nums">
+          <span>{f.week ? `第 ${f.week}/${f.weeks} 周` : "学校假期"}</span>
+          <span>{f.left}/{f.total} 天上课</span>
+          <span className="text-clay-600">赚回 RM{f.earned}/200</span>
+          <span className={f.streak > 0 ? "" : "grayscale opacity-60"}><span aria-hidden>🔥</span> {f.streak}</span>
         </div>
+        <button type="button" onClick={() => setBroken(!broken)} className="mt-2 text-xs text-ink/50 underline">
+          示范：{broken ? "恢复连续" : "模拟昨天没做（火变灰）"}
+        </button>
       </div>
 
       <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -50,7 +59,11 @@ export default function CalendarView() {
       </div>
 
       <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-ink/70 mb-4">
-        <span><i className="inline-block w-3 h-3 rounded bg-sage-400/40 align-middle mr-1" />上课日</span>
+        <span><i className="inline-block w-3 h-3 rounded bg-sage-500 align-middle mr-1" />已完成</span>
+        <span><i className="inline-block w-3 h-3 rounded bg-red-200 align-middle mr-1" />没完成</span>
+        <span><i className="inline-block w-3 h-3 rounded bg-yellow-200 align-middle mr-1" />补做</span>
+        <span><i className="inline-block w-3 h-3 rounded bg-sage-400/30 align-middle mr-1" />上课日</span>
+        <span><i className="inline-block w-3 h-3 rounded bg-purple-300 align-middle mr-1" />考试</span>
         <span><i className="inline-block w-3 h-3 rounded bg-clay-400/40 align-middle mr-1" />公共假期（含补假）</span>
         <span><i className="inline-block w-3 h-3 rounded bg-ink/10 align-middle mr-1" />学校假期 / 周末</span>
         <span><i className="inline-block w-3 h-3 rounded border border-dashed border-ink/40 align-middle mr-1" />还没开放</span>
@@ -101,13 +114,8 @@ export default function CalendarView() {
                       const ex = examsOn(exams, k), lock = k > DEMO_TODAY;
                       return (
                         <button key={k} type="button" onClick={() => setSelected(k)} aria-label={cn(day) + (lock ? "，还没开放" : "")}
-                          className={`relative rounded py-1.5 ${cellTone(cal, day)} ${lock ? "border border-dashed border-ink/30" : ""} ${k === DEMO_TODAY ? "ring-2 ring-clay-600" : ""} ${k === selected ? "outline outline-2 outline-ink" : ""}`}>
+                          className={`relative rounded py-1.5 ${cellTone(cal, day, ex.length ? ex[0].i : -1, DEMO_TODAY, broken)} ${lock ? "border border-dashed border-ink/30" : ""} ${k === DEMO_TODAY ? "ring-2 ring-clay-600" : ""} ${k === selected ? "outline outline-2 outline-ink" : ""}`}>
                           {day.getDate()}
-                          {ex.length > 0 && (
-                            <span className="absolute inset-x-0.5 bottom-0 flex h-1 gap-px">
-                              {ex.map((x) => <span key={x.e.id} className={`flex-1 ${EXAM_COLORS[x.i % 4]}`} />)}
-                            </span>
-                          )}
                         </button>
                       );
                     }),
