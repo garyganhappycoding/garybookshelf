@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { approveOrderCore, rejectOrderCore } from "@/lib/orders";
 import { adminChatId, answerCallback, deleteTelegramMessage, editTelegramText, sendTelegramText } from "@/lib/telegram";
+import { confirmGroup } from "@/lib/programme/groups";
 import { declineRequest, getRequestInfo, releaseOrderDownloads } from "@/lib/redownload";
 
 export const runtime = "nodejs";
@@ -55,6 +56,16 @@ export async function POST(req: Request) {
       line = `❌ Declined: ${info.email}\n${info.product}`;
     }
     await answerCallback(cb.id, line.startsWith("⚠️") ? "Failed" : action === "d" ? "Allowed" : "Done");
+    if (cb.message?.chat?.id && cb.message?.message_id) await editTelegramText(cb.message.chat.id, cb.message.message_id, line);
+    else await sendTelegramText(line);
+    return NextResponse.json({ ok: true });
+  }
+
+  // 陪你读书 friend group: g = confirm every receipt in the group at once
+  if (action === "g" && UUID.test(orderId ?? "")) {
+    const r = await confirmGroup(orderId);
+    await answerCallback(cb.id, r.error ? "Failed" : "Confirmed");
+    const line = r.error ? `⚠️ ${r.error}` : `✅ 朋友组 ${r.groupNo} 已确认，全组开通。组长在网站上拿到朋友的链接。`;
     if (cb.message?.chat?.id && cb.message?.message_id) await editTelegramText(cb.message.chat.id, cb.message.message_id, line);
     else await sendTelegramText(line);
     return NextResponse.json({ ok: true });
