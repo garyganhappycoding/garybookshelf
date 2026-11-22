@@ -61,6 +61,7 @@ export default async function AdminPage() {
       badge: results,
     },
     { href: "/programme", title: "陪你读书 (preview)", text: "Yearly habit programme layout. Admin only, sample data" },
+    { href: "/programme/join", title: "陪你读书 sales page (preview)", text: "How the product page and friend-group sign-up will look. Admin only" },
     { href: "/admin/ask-gary", title: "Ask Gary", text: "Coming soon. Not built yet.", disabled: true },
   ];
 
