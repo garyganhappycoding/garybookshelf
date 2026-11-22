@@ -45,6 +45,7 @@ export const config = {
     "/speaking/:path*",
     "/writing/:path*",
     "/admin/:path*",
+    "/programme/:path*",
     "/track/:path*",
     "/feedback",
     "/question",
