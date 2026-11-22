@@ -107,8 +107,9 @@ export async function confirmGroup(groupId: string): Promise<{ error?: string; g
 /** Reject one member's receipt: the group goes back to waiting and the alert will fire again once it is re-uploaded. */
 export async function rejectMember(memberId: string): Promise<{ error?: string }> {
   const admin = createAdminClient();
-  const { data: m } = await admin.from("programme_members").select("group_id").eq("id", memberId).single();
+  const { data: m } = await admin.from("programme_members").select("group_id, receipt_path").eq("id", memberId).single();
   if (!m) return { error: "找不到这位成员。" };
+  if (m.receipt_path) await admin.storage.from("receipts").remove([m.receipt_path]);
   await admin.from("programme_members").update({ status: "rejected", receipt_path: null }).eq("id", memberId);
   await admin.from("programme_groups").update({ status: "waiting" }).eq("id", m.group_id).neq("status", "active");
   return {};
