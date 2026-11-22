@@ -60,6 +60,7 @@ export default async function AdminPage() {
       text: results ? `${results} result${results === 1 ? "" : "s"} waiting for your approval` : "Wall of Wins and what-next votes",
       badge: results,
     },
+    { href: "/admin/programme-groups", title: "陪你读书 groups", text: "Friend-group receipts: confirm a whole group at once" },
     { href: "/programme", title: "陪你读书 (preview)", text: "Yearly habit programme layout. Admin only, sample data" },
     { href: "/programme/join", title: "陪你读书 sales page (preview)", text: "How the product page and friend-group sign-up will look. Admin only" },
     { href: "/admin/ask-gary", title: "Ask Gary", text: "Coming soon. Not built yet.", disabled: true },
