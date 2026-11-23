@@ -62,6 +62,7 @@ export default async function AdminPage() {
     },
     { href: "/admin/programme-inbox", title: "陪你读书 inbox", text: "Comments to approve, reports, answers the AI was unsure about" },
     { href: "/admin/programme-groups", title: "陪你读书 groups", text: "Friend-group receipts: confirm a whole group at once" },
+    { href: "/programme/content", title: "陪你读书 content review", text: "Week 1 daily tasks and sample answers. Mark each block right or wrong. Admin only" },
     { href: "/programme", title: "陪你读书 (preview)", text: "Yearly habit programme layout. Admin only, sample data" },
     { href: "/programme/join", title: "陪你读书 sales page (preview)", text: "How the product page and friend-group sign-up will look. Admin only" },
     { href: "/admin/ask-gary", title: "Ask Gary", text: "Coming soon. Not built yet.", disabled: true },
