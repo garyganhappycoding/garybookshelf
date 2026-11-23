@@ -6,7 +6,7 @@ import { createGroupAction, receiptAction, type ActionResult } from "@/app/progr
 
 export type GroupView = {
   groupNo: number; size: number; price: number; status: "waiting" | "ready" | "active" | "cancelled"; isLeader: boolean; canEnter: boolean;
-  members: { id: string; email: string; role: "leader" | "friend"; status: string; me: boolean; link: string | null }[];
+  members: { id: string; email: string; role: "leader" | "friend"; status: string; me: boolean}[];
 };
 
 const STATUS_ZH: Record<string, string> = {
@@ -56,8 +56,6 @@ function NewGroup() {
 }
 
 export default function JoinView({ group }: { group: GroupView | null }) {
-  const [copied, setCopied] = useState("");
-  const copy = (t: string) => { navigator.clipboard?.writeText(t).then(() => setCopied(t)).catch(() => {}); };
   const mine = group?.members.find((m) => m.me);
 
   return (
@@ -79,7 +77,7 @@ export default function JoinView({ group }: { group: GroupView | null }) {
               <li>组长选人数，拿到一个朋友组号码，发给朋友。</li>
               <li>每个人按这个价钱各自付款，各自上传自己的收据。</li>
               <li>全部人的收据都交齐，Gary 才会收到通知，一次确认全部。</li>
-              <li>确认之后，组长在这里拿到每位朋友的专属链接，发给朋友。一条链接只给一个人。</li>
+              <li>确认之后，我们会发一封邮件通知每个人账号已开通，直接登录就能用，不需要任何链接。</li>
             </ol>
             <p className="rounded-lg bg-clay-400/15 p-3"><b>只要有一个人没付款，大家都不能开始。</b>等最后一位付款并被确认，三个人同时开通。</p>
           </div>
@@ -105,19 +103,17 @@ export default function JoinView({ group }: { group: GroupView | null }) {
                 <li key={m.id}>
                   <div className="flex flex-wrap justify-between gap-2">
                     <span>{m.role === "leader" ? "组长" : "朋友"} · {m.email}{m.me ? "（我）" : ""}</span>
-                    <span className="text-ink/60">{STATUS_ZH[m.status] ?? m.status}</span>
+                    <span className={m.status === "awaiting_receipt" || m.status === "rejected" ? "text-clay-700" : "text-sage-600"}>
+                      {m.status === "awaiting_receipt" || m.status === "rejected" ? "⏳ " : "✅ "}{STATUS_ZH[m.status] ?? m.status}
+                    </span>
                   </div>
-                  {m.link && (
-                    <div className="mt-1 rounded-lg bg-ink/5 p-2 break-all">
-                      <p className="text-xs text-ink/60 mb-1">给这位朋友的链接（只给他一个人）</p>
-                      <p className="font-mono text-xs">{m.link}</p>
-                      <button type="button" onClick={() => copy(m.link!)} className="btn-secondary text-xs mt-2">{copied === m.link ? "已复制" : "复制链接"}</button>
-                    </div>
-                  )}
                 </li>
               ))}
             </ul>
-            {group.members.length < group.size && <p className="text-xs text-ink/60 mt-3">还差 {group.size - group.members.length} 位朋友。把号码 {group.groupNo} 发给他们。</p>}
+            {Array.from({ length: Math.max(0, group.size - group.members.length) }, (_, i) => (
+              <p key={i} className="text-sm text-clay-700 mt-3">⏳ 还有一位朋友没加入 · 把号码 {group.groupNo} 发给 TA，请 TA 尽快上传收据</p>
+            ))}
+            {group.status !== "active" && <p className="text-xs text-ink/60 mt-3">大家都交了收据、Gary 确认之后，三个人同时开通。看到还有人没交，可以提醒 TA 快一点。</p>}
           </div>
 
           {group.status !== "active" && mine && (mine.status === "awaiting_receipt" || mine.status === "rejected") && (

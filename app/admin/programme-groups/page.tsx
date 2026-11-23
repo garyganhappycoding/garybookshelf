@@ -26,13 +26,6 @@ async function rejectAction(form: FormData) {
   await rejectMember(String(form.get("member_id")));
   revalidatePath("/admin/programme-groups");
 }
-async function resumeAction(form: FormData) {
-  "use server";
-  await assertAdmin();
-  await createAdminClient().from("programme_members").update({ paused: false, first_ip: null, link_used_at: null }).eq("id", String(form.get("member_id")));
-  revalidatePath("/admin/programme-groups");
-}
-
 const MEMBER: Record<string, string> = { awaiting_receipt: "还没交收据", receipt_uploaded: "收据已交", confirmed: "已确认", rejected: "收据被退回" };
 const LABEL: Record<string, string> = { waiting: "等人交收据", ready: "收齐了，等你确认", active: "已开通", cancelled: "已取消" };
 const TONE: Record<string, string> = { waiting: "bg-yellow-100 text-yellow-900", ready: "bg-clay-400/25 text-clay-700", active: "bg-sage-400/30", cancelled: "bg-ink/10" };
@@ -76,9 +69,6 @@ export default async function ProgrammeGroupsPage() {
                   <div className="flex gap-2 mt-2">
                     {g.status !== "active" && m.receipt_path && (
                       <form action={rejectAction}><input type="hidden" name="member_id" value={m.id} /><button className="btn-secondary text-xs">这张收据不对</button></form>
-                    )}
-                    {m.paused && (
-                      <form action={resumeAction}><input type="hidden" name="member_id" value={m.id} /><button className="btn-secondary text-xs">链接换了网络已暂停，恢复</button></form>
                     )}
                   </div>
                 </li>

@@ -1,9 +1,9 @@
 // SERVER-ONLY. 陪你读书 friend groups: sign-up, receipts, all-pay-first confirmation and per-friend links.
 // Rules (Gary, 2026-11-23): max 3 people; 1 = RM200, 2 = RM190 each, 3 = RM180 each; every member pays their own receipt;
 // nobody gets access until EVERY member of the group is confirmed; Gary gets one Telegram message when the group is complete.
-import { createHmac, timingSafeEqual } from "crypto";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { adminChatId, deleteTelegramMessage, editTelegramText, sendReceiptAlbum, sendTelegramButtons, sendTelegramText } from "@/lib/telegram";
+import { sendEmail } from "@/lib/community";
 import { siteUrl } from "@/lib/site";
 import { GROUP_PRICE } from "./calendar";
 
@@ -18,15 +18,6 @@ export type Member = {
 };
 
 const MAX_RECEIPT = 5 * 1024 * 1024;
-
-// A friend's link is HMAC(memberId) so it can be shown to the leader again later without storing the secret part.
-const secret = () => process.env.SUPABASE_SERVICE_ROLE_KEY ?? "dev-only-secret";
-export const linkSig = (memberId: string) => createHmac("sha256", secret()).update("programme-link:" + memberId).digest("hex").slice(0, 32);
-export const linkOk = (memberId: string, sig: string) => {
-  const a = Buffer.from(linkSig(memberId)), b = Buffer.from(sig);
-  return a.length === b.length && timingSafeEqual(a, b);
-};
-export const friendLink = (memberId: string) => `${siteUrl()}/programme/link/${memberId}/${linkSig(memberId)}`;
 
 export async function createGroup(userId: string, email: string, size: number): Promise<{ error?: string; group?: Group }> {
   if (![1, 2, 3].includes(size)) return { error: "最多 3 个人。" };
@@ -112,8 +103,28 @@ export async function confirmGroup(groupId: string): Promise<{ error?: string; g
   if (ms.length < g.size || !ms.every((m) => m.receipt_path)) return { error: "还有人没交收据，不能确认。" };
   await admin.from("programme_members").update({ status: "confirmed" }).eq("group_id", groupId);
   await clearTelegramReceipts(g.telegram_msgs, `✅ 朋友组 ${g.group_no} 已确认，全组开通。`);
+  await emailActivated(ms.map((m) => m.email));
   await admin.from("programme_groups").update({ status: "active", activated_at: new Date().toISOString() }).eq("id", groupId);
   return { groupNo: g.group_no };
+}
+
+/** Everyone in the group is told by email that their account is active. Only sent once the programme is open to students. */
+async function emailActivated(emails: string[]) {
+  if (process.env.PROGRAMME_OPEN !== "true") return;
+  const link = `${siteUrl()}/programme`;
+  const button = "display:inline-block;background:#B85C38;color:white;padding:12px 24px;border-radius:999px;text-decoration:none;font-weight:500;margin:16px 0;";
+  for (const to of emails) {
+    await sendEmail(
+      to,
+      "你的陪你读书开通了 · Your 陪你读书 is active",
+      `<h2 style="color:#3B2F26;margin:0 0 12px;">你的陪你读书开通了 🎉</h2>
+       <p style="color:#3B2F26;line-height:1.6;">你的付款已经确认，账号现在就可以用。用这个邮箱登录，选好州属和年级，就能看到你的日历和今天的任务。</p>
+       <p style="color:#3B2F26;line-height:1.6;">Your payment is confirmed and your account is active. Sign in with this email, choose your state and form, and your calendar is ready.</p>
+       <a href="${link}" style="${button}">开始 · Start</a>
+       <p style="color:#3B2F26;line-height:1.6;font-size:13px;">这个账号只给你一个人用，请不要把账号借给别人。 This account is only for you, please do not share it.</p>
+       <p style="color:#8a8a8a;font-size:12px;margin-top:24px;">— Gary</p>`,
+    );
+  }
 }
 
 /** After a decision the receipt photos are removed from Telegram; only a short text line stays (same habit as the order receipts). */
@@ -139,27 +150,6 @@ export async function rejectMember(memberId: string): Promise<{ error?: string }
   return {};
 }
 
-/** A friend opens their link: must be signed in with the email they paid with. First IP is recorded; a different IP later pauses and alerts Gary. */
-export async function redeemLink(memberId: string, sig: string, userEmail: string | null, ip: string): Promise<{ ok: boolean; message: string }> {
-  if (!linkOk(memberId, sig)) return { ok: false, message: "这条链接不对，请向组长拿新的链接。" };
-  const admin = createAdminClient();
-  const { data: m } = await admin.from("programme_members").select("*, programme_groups(status, group_no)").eq("id", memberId).single();
-  if (!m || (m as any).programme_groups?.status !== "active") return { ok: false, message: "朋友组还没开通，要等全部人付款并被确认。" };
-  if (!userEmail || userEmail.toLowerCase() !== m.email) return { ok: false, message: `这条链接是给另一位同学的。请用付款时写的邮箱登录。` };
-  if (m.paused) return { ok: false, message: "这条链接暂时停用了，Gary 会联系你。" };
-  if (!m.link_used_at) {
-    await admin.from("programme_members").update({ link_used_at: new Date().toISOString(), first_ip: ip }).eq("id", memberId);
-    return { ok: true, message: "欢迎！你的陪你读书已经开通。" };
-  }
-  if (m.first_ip && m.first_ip !== ip) {
-    // Different network from the first time: not blocked automatically (people switch Wi-Fi and mobile data), just paused and Gary is told.
-    await admin.from("programme_members").update({ paused: true }).eq("id", memberId);
-    await sendTelegramText(`⚠️ 陪你读书 · 朋友组 ${(m as any).programme_groups.group_no}：${m.email} 的链接换了网络再次打开，已暂停。到后台决定要不要恢复。\n${siteUrl()}/admin/programme-groups`);
-    return { ok: false, message: "为了安全，这条链接暂停了，Gary 会联系你。" };
-  }
-  return { ok: true, message: "欢迎回来。" };
-}
-
 export async function myGroup(userId: string) {
   const admin = createAdminClient();
   const { data: mine } = await admin.from("programme_members").select("group_id").eq("user_id", userId).limit(1);
@@ -170,10 +160,16 @@ export async function myGroup(userId: string) {
   return g ? { group: g as Group, members: (members ?? []) as Member[] } : null;
 }
 
-/** A paid, confirmed place: the leader once the group is confirmed, a friend once they opened their own link and the link is not paused. */
+/** A paid, confirmed place: everyone in a confirmed group (leader and friends alike), unless Gary paused them. */
 export async function hasPlace(userId: string) {
   const { data } = await createAdminClient().from("programme_members")
-    .select("role, status, link_used_at, paused, programme_groups(status)").eq("user_id", userId).eq("status", "confirmed");
-  return (data ?? []).some((m: any) => m.programme_groups?.status === "active" && !m.paused && (m.role === "leader" || m.link_used_at));
+    .select("status, paused, programme_groups(status)").eq("user_id", userId).eq("status", "confirmed");
+  return (data ?? []).some((m: any) => m.programme_groups?.status === "active" && !m.paused && true);
 }
 
+
+/** "ab***@gmail.com": classmates in a friend group can see who has paid, without seeing each other's full email. */
+export function maskEmail(e: string) {
+  const [u, d] = e.split("@");
+  return `${u.slice(0, 2)}***@${d ?? ""}`;
+}
