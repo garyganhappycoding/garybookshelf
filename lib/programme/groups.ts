@@ -3,7 +3,7 @@
 // nobody gets access until EVERY member of the group is confirmed; Gary gets one Telegram message when the group is complete.
 import { createHmac, timingSafeEqual } from "crypto";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { sendTelegramButtons, sendTelegramText } from "@/lib/telegram";
+import { sendReceiptAlbum, sendTelegramButtons, sendTelegramText } from "@/lib/telegram";
 import { siteUrl } from "@/lib/site";
 import { GROUP_PRICE } from "./calendar";
 
@@ -83,10 +83,19 @@ export async function maybeAlertGroupComplete(groupId: string) {
   const ms = members ?? [];
   if (ms.length < g.size || !ms.every((m) => m.status === "receipt_uploaded" || m.status === "confirmed")) return;
   await admin.from("programme_groups").update({ status: "ready", alert_sent_at: new Date().toISOString() }).eq("id", groupId);
-  const lines = ms.map((m) => `• ${m.role === "leader" ? "组长" : "朋友"} ${m.email}`).join("\n");
+  // the receipts themselves go straight into Telegram so Gary does not have to open the website
+  const photos: { blob: Blob; filename: string; caption: string }[] = [];
+  for (const m of ms) {
+    if (!m.receipt_path) continue;
+    const { data: file } = await admin.storage.from("receipts").download(m.receipt_path);
+    if (file) photos.push({ blob: file, filename: m.receipt_path.split("/").pop() ?? "receipt.jpg", caption: `${m.role === "leader" ? "组长" : "朋友"} · ${m.email} · RM${g.price_each}` });
+  }
+  await sendReceiptAlbum(photos);
   await sendTelegramButtons(
-    `📚 陪你读书 · 朋友组 ${g.group_no}（${g.size} 人，每人 RM${g.price_each}）\n全部收据都交齐了：\n${lines}\n\n到后台看收据：${siteUrl()}/admin/programme-groups\n收据都没问题就按确认，三个人同时开通。`,
-    [{ text: "✅ 确认全部", callback_data: `g:${g.id}` }],
+    `📚 陪你读书 · 朋友组 ${g.group_no}（${g.size} 人，每人 RM${g.price_each}）
+全部收据都交齐了，上面是每个人的收据。
+金额都对就按确认，全组同时开通。有不对的，到网站按「这张收据不对」。`,
+    [{ text: "✅ 确认全部", callback_data: `g:${g.id}` }, { text: "去网站处理", url: `${siteUrl()}/admin/programme-groups` }],
   );
 }
 

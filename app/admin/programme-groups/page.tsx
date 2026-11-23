@@ -33,6 +33,7 @@ async function resumeAction(form: FormData) {
   revalidatePath("/admin/programme-groups");
 }
 
+const MEMBER: Record<string, string> = { awaiting_receipt: "还没交收据", receipt_uploaded: "收据已交", confirmed: "已确认", rejected: "收据被退回" };
 const LABEL: Record<string, string> = { waiting: "等人交收据", ready: "收齐了，等你确认", active: "已开通", cancelled: "已取消" };
 const TONE: Record<string, string> = { waiting: "bg-yellow-100 text-yellow-900", ready: "bg-clay-400/25 text-clay-700", active: "bg-sage-400/30", cancelled: "bg-ink/10" };
 
@@ -68,7 +69,7 @@ export default async function ProgrammeGroupsPage() {
             <ul className="space-y-3">
               {ms.map((m) => (
                 <li key={m.id} className="text-sm border-t border-ink/10 pt-3">
-                  <p>{m.role === "leader" ? "组长" : "朋友"} · {m.email} · <span className="text-ink/60">{m.status}</span></p>
+                  <p>{m.role === "leader" ? "组长" : "朋友"} · {m.email} · <span className="text-ink/60">{MEMBER[m.status] ?? m.status}</span></p>
                   {m.url ? (
                     <a href={m.url} target="_blank" rel="noreferrer" className="inline-block mt-2"><img src={m.url} alt="收据" className="max-h-48 rounded-lg border border-ink/10" /></a>
                   ) : <p className="text-ink/50 mt-1">还没有收据</p>}
