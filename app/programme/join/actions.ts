@@ -1,17 +1,13 @@
 "use server";
 import { revalidatePath } from "next/cache";
-import { createClient } from "@/lib/supabase/server";
-import { requireProgrammeAdmin } from "@/lib/programme/gate";
+import { requireProgrammeSignedIn } from "@/lib/programme/gate";
 import { createGroup, submitReceipt } from "@/lib/programme/groups";
 
 export type ActionResult = { error?: string; ok?: boolean };
 
 async function who() {
-  await requireProgrammeAdmin(); // pilot is admin-only for now
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user?.email) return null;
-  return { id: user.id, email: user.email };
+  const a = await requireProgrammeSignedIn(); // admin always; students once PROGRAMME_OPEN is on
+  return a.email ? { id: a.userId, email: a.email } : null;
 }
 
 export async function createGroupAction(_: ActionResult, form: FormData): Promise<ActionResult> {

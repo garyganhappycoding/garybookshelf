@@ -4,11 +4,10 @@ import { useActionState, useState } from "react";
 import { buildCalendar, cn, levelOf, parse, themeOf, WEEKDAY_ZH } from "@/lib/programme/calendar";
 import { taskFor } from "@/lib/programme/content";
 import { answerAction, commentAction, reportAction, type Result } from "@/app/programme/today/actions";
-import { useProgramme } from "./useProgramme";
 
 export type TodayData = {
   day: string; lang: "BM" | "BI"; state: string; submitted: boolean; submissionId: string | null;
-  feedback: string | null; aiStatus: string | null;
+  demo: boolean; feedback: string | null; aiStatus: string | null;
   comments: { id: string; nickname: string; body: string; mine: boolean; waiting: boolean }[];
 };
 const init: Result = {};
@@ -29,8 +28,7 @@ function ReportBox({ kind, target, label }: { kind: "comment" | "ai_feedback"; t
 }
 
 export default function TodayView({ data }: { data: TodayData }) {
-  const { stateId } = useProgramme();
-  const state = data.state || stateId;
+  const state = data.state;
   const cal = buildCalendar(state);
   const d = parse(data.day), wk = cal.weekOf(d);
   const task = taskFor(cal, data.day, data.lang);
@@ -41,13 +39,13 @@ export default function TodayView({ data }: { data: TodayData }) {
 
   return (
     <div>
-      <p className="text-sm text-ink/60">{cn(d)} 星期{WEEKDAY_ZH[d.getDay()]}（示范日期）</p>
+      <p className="text-sm text-ink/60">{cn(d)} 星期{WEEKDAY_ZH[d.getDay()]}{data.demo ? "（示范日期）" : ""}</p>
       <h1 className="text-2xl font-medium mb-1">今天</h1>
       {wk > 0 && <p className="text-sm text-ink/60 mb-4">第 {wk} 周 · {themeOf(wk)} · {levelOf(wk)}</p>}
 
       <div role="tablist" className="flex gap-2 mb-4">
         {(["BM", "BI"] as const).map((l) => (
-          <Link key={l} role="tab" aria-selected={data.lang === l} href={`/programme/today?lang=${l}&state=${state}`}
+          <Link key={l} role="tab" aria-selected={data.lang === l} href={`/programme/today?lang=${l}`}
             className={data.lang === l ? "btn-primary text-sm" : "btn-secondary text-sm"}>{l}</Link>
         ))}
       </div>
@@ -79,7 +77,7 @@ export default function TodayView({ data }: { data: TodayData }) {
               </div>
             ) : (
               <form action={answerForm} className="space-y-3">
-                <input type="hidden" name="day" value={data.day} /><input type="hidden" name="lang" value={data.lang} /><input type="hidden" name="state" value={state} />
+                <input type="hidden" name="day" value={data.day} /><input type="hidden" name="lang" value={data.lang} />
                 <textarea name="answer" rows={5} required aria-label="我的答案" placeholder="写在这里，交上去之后才看得到同学的"
                   className="w-full rounded-lg border border-ink/20 bg-white p-3 text-sm" />
                 <button disabled={answering} className="btn-primary text-sm disabled:opacity-50">{answering ? "交上去中，AI 在看…" : "交上去，然后看同学的"}</button>
@@ -105,7 +103,7 @@ export default function TodayView({ data }: { data: TodayData }) {
                   ))}
                 </ul>
                 <form action={commentForm} onSubmit={() => setTimeout(() => setText(""), 0)} className="space-y-2">
-                  <input type="hidden" name="day" value={data.day} /><input type="hidden" name="lang" value={data.lang} /><input type="hidden" name="state" value={state} />
+                  <input type="hidden" name="day" value={data.day} /><input type="hidden" name="lang" value={data.lang} />
                   <textarea name="body" value={text} onChange={(e) => setText(e.target.value)} rows={2} aria-label="写留言" placeholder="写下你今天怎么做的，或问同学一个问题"
                     className="w-full rounded-lg border border-ink/20 bg-white p-2 text-sm" />
                   {com.error && <p role="alert" className="text-sm text-red-700">{com.error}</p>}

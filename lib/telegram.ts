@@ -53,10 +53,11 @@ export async function sendReceiptForReview(photo: Blob, filename: string, captio
 }
 
 // A text message with a row of buttons. Each button is { text, callback_data }; the webhook acts on the tap.
-export async function sendTelegramButtons(text: string, buttons: ({ text: string; callback_data: string } | { text: string; url: string })[]) {
+export async function sendTelegramButtons(text: string, buttons: ({ text: string; callback_data: string } | { text: string; url: string })[]): Promise<number | null> {
   const chat = adminChatId();
-  if (!chat) return;
-  await call("sendMessage", JSON.stringify({ chat_id: chat, text, disable_web_page_preview: true, reply_markup: { inline_keyboard: [buttons] } }));
+  if (!chat) return null;
+  const r = await call("sendMessage", JSON.stringify({ chat_id: chat, text, disable_web_page_preview: true, reply_markup: { inline_keyboard: [buttons] } }));
+  return r?.result?.message_id ?? null;
 }
 
 // Replaces a message's text and removes its buttons (used once a button has been tapped).
@@ -73,20 +74,21 @@ export async function deleteTelegramMessage(chatId: number | string, messageId: 
 }
 
 // Several receipt photos in one album (2 to 10), each with its own caption. One photo goes as a normal photo.
-export async function sendReceiptAlbum(items: { blob: Blob; filename: string; caption: string }[]) {
+export async function sendReceiptAlbum(items: { blob: Blob; filename: string; caption: string }[]): Promise<number[]> {
   const chat = adminChatId();
-  if (!chat || !token() || items.length === 0) return;
+  if (!chat || !token() || items.length === 0) return [];
   if (items.length === 1) {
     const form = new FormData();
     form.append("chat_id", chat);
     form.append("caption", items[0].caption);
     form.append("photo", items[0].blob, items[0].filename);
-    await call("sendPhoto", form, false);
-    return;
+    const one = await call("sendPhoto", form, false);
+    return one?.result?.message_id ? [one.result.message_id] : [];
   }
   const form = new FormData();
   form.append("chat_id", chat);
   form.append("media", JSON.stringify(items.map((it, i) => ({ type: "photo", media: `attach://p${i}`, caption: it.caption }))));
   items.forEach((it, i) => form.append(`p${i}`, it.blob, it.filename));
-  await call("sendMediaGroup", form, false);
+  const album = await call("sendMediaGroup", form, false);
+  return Array.isArray(album?.result) ? album.result.map((m: any) => m.message_id) : [];
 }

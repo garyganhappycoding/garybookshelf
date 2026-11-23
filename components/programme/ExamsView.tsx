@@ -1,11 +1,15 @@
 "use client";
 import Link from "next/link";
-import type { Exam } from "@/lib/programme/calendar";
-import { useProgramme } from "./useProgramme";
+import { useState, useTransition } from "react";
+import { DEFAULT_EXAMS, type Exam } from "@/lib/programme/calendar";
+import { saveExamsAction } from "@/app/programme/settings/actions";
 
-export default function ExamsView() {
-  const { exams, saveExams, resetExams } = useProgramme();
-  const patch = (id: string, p: Partial<Exam>) => saveExams(exams.map((e) => (e.id === id ? { ...e, ...p } : e)));
+export default function ExamsView({ initial }: { initial: Exam[] }) {
+  const [exams, setExams] = useState<Exam[]>(initial);
+  const [msg, setMsg] = useState("");
+  const [pending, start] = useTransition();
+  const patch = (id: string, p: Partial<Exam>) => { setMsg(""); setExams(exams.map((e) => (e.id === id ? { ...e, ...p } : e))); };
+  const save = () => start(async () => { const r = await saveExamsAction(exams); setMsg(r.error ?? "已保存。"); });
   return (
     <div>
       <Link href="/programme/settings" className="text-sm text-ink/60 underline">← 设置</Link>
@@ -26,8 +30,11 @@ export default function ExamsView() {
           </div>
         ))}
       </div>
-      <button type="button" onClick={resetExams} className="btn-secondary mt-4 text-sm">恢复成估计日期</button>
-      <p className="text-xs text-ink/50 mt-3">示范：改动只存在这个浏览器里。真实网站会存在每个学生自己的账号里。</p>
+      <div className="flex gap-2 mt-4">
+        <button type="button" onClick={save} disabled={pending} className="btn-primary text-sm disabled:opacity-50">保存</button>
+        <button type="button" onClick={() => { setExams(DEFAULT_EXAMS); setMsg(""); }} className="btn-secondary text-sm">恢复成估计日期</button>
+      </div>
+      {msg && <p className="text-sm text-ink/70 mt-2">{msg}</p>}
     </div>
   );
 }

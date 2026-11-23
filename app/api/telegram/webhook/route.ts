@@ -66,8 +66,7 @@ export async function POST(req: Request) {
     const r = await confirmGroup(orderId);
     await answerCallback(cb.id, r.error ? "Failed" : "Confirmed");
     const line = r.error ? `⚠️ ${r.error}` : `✅ 朋友组 ${r.groupNo} 已确认，全组开通。组长在网站上拿到朋友的链接。`;
-    if (cb.message?.chat?.id && cb.message?.message_id) await editTelegramText(cb.message.chat.id, cb.message.message_id, line);
-    else await sendTelegramText(line);
+    if (r.error) await sendTelegramText(line);
     return NextResponse.json({ ok: true });
   }
 
