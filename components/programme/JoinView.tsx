@@ -1,10 +1,11 @@
 "use client";
+import Link from "next/link";
 import { useActionState, useState } from "react";
 import { GROUP_PRICE } from "@/lib/programme/calendar";
 import { createGroupAction, receiptAction, type ActionResult } from "@/app/programme/join/actions";
 
 export type GroupView = {
-  groupNo: number; size: number; price: number; status: "waiting" | "ready" | "active" | "cancelled"; isLeader: boolean;
+  groupNo: number; size: number; price: number; status: "waiting" | "ready" | "active" | "cancelled"; isLeader: boolean; canEnter: boolean;
   members: { id: string; email: string; role: "leader" | "friend"; status: string; me: boolean; link: string | null }[];
 };
 
@@ -62,7 +63,8 @@ export default function JoinView({ group }: { group: GroupView | null }) {
   return (
     <div>
       <h1 className="text-2xl font-medium mb-1">加入陪你读书</h1>
-      <p className="text-sm text-ink/60 mb-4">一年 RM200，大约每个上课日 RM1。每做完一个上课日，就赚回 RM1。</p>
+      <p className="text-sm text-ink/60 mb-2">一年 RM200，大约每个上课日 RM1。每做完一个上课日，就「赚回」RM1。</p>
+      <p className="text-xs text-ink/60 mb-4">「赚回」是给你的鼓励，用来看自己坚持了多少，<b>不是退款</b>。付款之后不能退款，请想清楚再报名。</p>
 
       {!group ? (
         <>
@@ -89,10 +91,13 @@ export default function JoinView({ group }: { group: GroupView | null }) {
             <p className="text-3xl font-semibold tabular-nums">{group.groupNo}</p>
             <p className="text-sm text-ink/70 mt-1">{group.size} 人 · 每人 RM{group.price}</p>
             <p className="mt-2 text-sm">
-              {group.status === "active" ? "✅ 已开通" : group.status === "ready" ? "全部收据已交齐，等 Gary 确认。" : "还在等大家交收据。没交齐之前，谁都还不能开始。"}
+              {group.status === "active" ? "✅ 已开通。" : group.status === "ready" ? "全部收据已交齐，等 Gary 确认。" : "还在等大家交收据。没交齐之前，谁都还不能开始。"}
             </p>
           </div>
 
+          {group.canEnter && (
+            <Link href="/programme" className="btn-primary inline-block text-sm mb-4">进入陪你读书</Link>
+          )}
           <div className="card mb-4">
             <p className="font-medium mb-2">成员（{group.members.length}/{group.size}）</p>
             <ul className="space-y-3 text-sm">

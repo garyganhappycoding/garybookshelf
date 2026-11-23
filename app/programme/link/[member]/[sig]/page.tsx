@@ -29,7 +29,7 @@ export default async function LinkPage({ params }: { params: Promise<{ member: s
     <div className="max-w-md mx-auto px-5 py-14">
       <h1 className="text-xl font-medium mb-2">陪你读书</h1>
       <p className={`text-sm mb-4 ${r.ok ? "" : "text-red-700"}`}>{r.message}</p>
-      {r.ok && <Link href="/programme" className="btn-primary text-sm">进入</Link>}
+      {r.ok && <Link href="/programme/start" className="btn-primary text-sm">开始设置我的日历</Link>}
     </div>
   );
 }

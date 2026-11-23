@@ -114,34 +114,46 @@ export const holidayName = (h: Holiday) => (ZH[h.name] ?? h.name) + (h.sub ? "�
 export const examsOn = (exams: Exam[], k: string) =>
   exams.map((e, i) => ({ e, i })).filter((x) => x.e.start && x.e.end && k >= x.e.start && k <= x.e.end);
 
+export type DayStatus = "done" | "missed" | "makeup";
+export type History = Record<string, DayStatus>; // every school day before today -> its status
+
 function lastSchoolDayBefore(cal: Calendar, today: string) {
   let d = addDays(parse(today), -1);
   while (!cal.isSchool(d)) d = addDays(d, -1);
   return key(d);
 }
 
-export type DayStatus = "done" | "missed" | "makeup";
+const schoolDaysBefore = (cal: Calendar, today: string) => {
+  const out: string[] = [];
+  for (let d = parse("2027-01-01"); key(d) <= "2027-12-31" && key(d) < today; d = addDays(d, 1)) if (cal.isSchool(d)) out.push(key(d));
+  return out;
+};
 
-/** Sample history for the preview: a day that was missed and never made up, and one made up later (补做). */
-export const DEMO_STATUS: Record<string, DayStatus> = { "2027-01-20": "makeup", "2027-02-03": "missed", "2027-02-10": "makeup" };
+/** Sample history for the admin preview: one day missed for good, two made up later (补做). `broken` makes yesterday missed. */
+export function demoHistory(cal: Calendar, today: string, broken = false): History {
+  const sample: History = { "2027-01-20": "makeup", "2027-02-03": "missed", "2027-02-10": "makeup" };
+  const h: History = {};
+  for (const k of schoolDaysBefore(cal, today)) h[k] = sample[k] ?? "done";
+  if (broken && schoolDaysBefore(cal, today).length) h[lastSchoolDayBefore(cal, today)] = "missed";
+  return h;
+}
 
-/** Status of a school day in the past: done on time unless the sample history says otherwise. */
-export function statusOf(cal: Calendar, k: string, today: string, brokenDemo = false): DayStatus | null {
-  if (k >= today || !cal.isSchool(parse(k))) return null;
-  if (brokenDemo && k === lastSchoolDayBefore(cal, today)) return "missed";
-  return DEMO_STATUS[k] ?? "done";
+/** Real history: a school day counts as done once the student has handed in an answer for it. made_up = handed in after the day was over. */
+export function realHistory(cal: Calendar, today: string, subs: { day: string; made_up: boolean }[]): History {
+  const by = new Map(subs.map((s) => [s.day, s.made_up]));
+  const h: History = {};
+  for (const k of schoolDaysBefore(cal, today)) h[k] = !by.has(k) ? "missed" : by.get(k) ? "makeup" : "done";
+  return h;
 }
 
 /** Numbers for the header. RM1 is earned for every school day done (on time or made up). Streak = on-time days in a row up to yesterday. */
-export function facts(cal: Calendar, today: string, brokenDemo = false) {
-  let left = 0, earned = 0, streak = 0;
-  const all: string[] = [];
-  for (let d = parse("2027-01-01"); key(d) <= "2027-12-31"; d = addDays(d, 1)) {
-    if (!cal.isSchool(d)) continue;
-    if (key(d) < today) all.push(key(d)); else left += 1; // today still counts as to-do
-  }
-  for (const k of all) { const st = statusOf(cal, k, today, brokenDemo); if (st === "done" || st === "makeup") earned += 1; }
-  for (let i = all.length - 1; i >= 0 && statusOf(cal, all[i], today, brokenDemo) === "done"; i--) streak += 1;
+export function facts(cal: Calendar, today: string, history: History) {
+  let left = 0;
+  for (let d = parse("2027-01-01"); key(d) <= "2027-12-31"; d = addDays(d, 1)) if (cal.isSchool(d) && key(d) >= today) left += 1; // today still counts as to-do
+  const days = Object.keys(history).sort();
+  const earned = days.filter((k) => history[k] !== "missed").length;
+  let streak = 0;
+  for (let i = days.length - 1; i >= 0 && history[days[i]] === "done"; i--) streak += 1;
   return { week: cal.weekOf(parse(today)), weeks: cal.weeks, left, total: cal.days, earned: Math.min(earned, 200), streak };
 }
 

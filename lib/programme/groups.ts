@@ -3,7 +3,7 @@
 // nobody gets access until EVERY member of the group is confirmed; Gary gets one Telegram message when the group is complete.
 import { createHmac, timingSafeEqual } from "crypto";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { sendReceiptAlbum, sendTelegramButtons, sendTelegramText } from "@/lib/telegram";
+import { adminChatId, deleteTelegramMessage, editTelegramText, sendReceiptAlbum, sendTelegramButtons, sendTelegramText } from "@/lib/telegram";
 import { siteUrl } from "@/lib/site";
 import { GROUP_PRICE } from "./calendar";
 
@@ -90,13 +90,15 @@ export async function maybeAlertGroupComplete(groupId: string) {
     const { data: file } = await admin.storage.from("receipts").download(m.receipt_path);
     if (file) photos.push({ blob: file, filename: m.receipt_path.split("/").pop() ?? "receipt.jpg", caption: `${m.role === "leader" ? "组长" : "朋友"} · ${m.email} · RM${g.price_each}` });
   }
-  await sendReceiptAlbum(photos);
-  await sendTelegramButtons(
+  const albumIds = await sendReceiptAlbum(photos);
+  const buttonId = await sendTelegramButtons(
     `📚 陪你读书 · 朋友组 ${g.group_no}（${g.size} 人，每人 RM${g.price_each}）
 全部收据都交齐了，上面是每个人的收据。
 金额都对就按确认，全组同时开通。有不对的，到网站按「这张收据不对」。`,
     [{ text: "✅ 确认全部", callback_data: `g:${g.id}` }, { text: "去网站处理", url: `${siteUrl()}/admin/programme-groups` }],
   );
+  // remembered so the receipt photos can be removed from Telegram once the group is decided
+  await admin.from("programme_groups").update({ telegram_msgs: { album: albumIds, button: buttonId } }).eq("id", groupId);
 }
 
 /** Gary confirms the whole group at once. Nothing opens for anyone until this runs. */
@@ -109,14 +111,27 @@ export async function confirmGroup(groupId: string): Promise<{ error?: string; g
   const ms = members ?? [];
   if (ms.length < g.size || !ms.every((m) => m.receipt_path)) return { error: "还有人没交收据，不能确认。" };
   await admin.from("programme_members").update({ status: "confirmed" }).eq("group_id", groupId);
+  await clearTelegramReceipts(g.telegram_msgs, `✅ 朋友组 ${g.group_no} 已确认，全组开通。`);
   await admin.from("programme_groups").update({ status: "active", activated_at: new Date().toISOString() }).eq("id", groupId);
   return { groupNo: g.group_no };
+}
+
+/** After a decision the receipt photos are removed from Telegram; only a short text line stays (same habit as the order receipts). */
+async function clearTelegramReceipts(msgs: { album?: number[]; button?: number | null } | null, line: string) {
+  const chat = adminChatId();
+  if (!chat || !msgs) return;
+  for (const id of msgs.album ?? []) await deleteTelegramMessage(chat, id);
+  if (msgs.button) await editTelegramText(chat, msgs.button, line);
 }
 
 /** Reject one member's receipt: the group goes back to waiting and the alert will fire again once it is re-uploaded. */
 export async function rejectMember(memberId: string): Promise<{ error?: string }> {
   const admin = createAdminClient();
   const { data: m } = await admin.from("programme_members").select("group_id, receipt_path").eq("id", memberId).single();
+  if (m) {
+    const { data: gg } = await admin.from("programme_groups").select("telegram_msgs, group_no, status").eq("id", m.group_id).single();
+    if (gg && gg.status !== "active") await clearTelegramReceipts(gg.telegram_msgs, `↩️ 朋友组 ${gg.group_no} 有收据被退回，等重新上传。`);
+  }
   if (!m) return { error: "找不到这位成员。" };
   if (m.receipt_path) await admin.storage.from("receipts").remove([m.receipt_path]);
   await admin.from("programme_members").update({ status: "rejected", receipt_path: null }).eq("id", memberId);
@@ -154,3 +169,11 @@ export async function myGroup(userId: string) {
   const { data: members } = await admin.from("programme_members").select("*").eq("group_id", gid).order("created_at");
   return g ? { group: g as Group, members: (members ?? []) as Member[] } : null;
 }
+
+/** A paid, confirmed place: the leader once the group is confirmed, a friend once they opened their own link and the link is not paused. */
+export async function hasPlace(userId: string) {
+  const { data } = await createAdminClient().from("programme_members")
+    .select("role, status, link_used_at, paused, programme_groups(status)").eq("user_id", userId).eq("status", "confirmed");
+  return (data ?? []).some((m: any) => m.programme_groups?.status === "active" && !m.paused && (m.role === "leader" || m.link_used_at));
+}
+

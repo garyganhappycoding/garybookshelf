@@ -2,18 +2,17 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
-  STATES, WEEKDAY_ZH, DEMO_TODAY, addDays, buildCalendar, cn, examsOn, facts, holidayName, key, levelOf, mondayOf, parse, statusOf, themeOf, type Calendar,
+  WEEKDAY_ZH, addDays, buildCalendar, cn, demoHistory, examsOn, facts, holidayName, key, levelOf, mondayOf, parse, realHistory, themeOf, type Calendar, type Exam, type History,
 } from "@/lib/programme/calendar";
-import { useProgramme } from "./useProgramme";
 
 const EXAM_COLORS = ["bg-purple-300 text-purple-900", "bg-sky-300 text-sky-900", "bg-pink-300 text-pink-900", "bg-teal-300 text-teal-900"];
 
 const STATUS_TONE = { done: "bg-sage-500 text-white", missed: "bg-red-200 text-red-800", makeup: "bg-yellow-200 text-yellow-900" } as const;
 
-function cellTone(cal: Calendar, d: Date, exam: number, today: string, broken: boolean) {
+function cellTone(cal: Calendar, d: Date, exam: number, history: History) {
   const k = key(d);
   if (exam >= 0) return EXAM_COLORS[exam % 4];
-  const st = statusOf(cal, k, today, broken);
+  const st = history[k];
   if (st) return STATUS_TONE[st];
   if (cal.hol[k]) return "bg-clay-400/25 text-clay-700";
   if (cal.breakOf(k)) return "bg-ink/5 text-ink/50";
@@ -21,20 +20,28 @@ function cellTone(cal: Calendar, d: Date, exam: number, today: string, broken: b
   return "bg-ink/5 text-ink/40";
 }
 
-export default function CalendarView() {
-  const { stateId, exams, saveState } = useProgramme();
-  const [selected, setSelected] = useState(DEMO_TODAY);
+export type CalendarProps = {
+  state: string; form: number; exams: Exam[]; today: string;
+  subs: { day: string; made_up: boolean }[]; // real answers handed in
+  demo: boolean; // the admin preview: sample history instead of real answers
+};
+
+export default function CalendarView({ state: stateId, form, exams, today: TODAY, subs, demo }: CalendarProps) {
+  const [selected, setSelected] = useState(TODAY);
   const cal = useMemo(() => buildCalendar(stateId), [stateId]);
   const [broken, setBroken] = useState(false);
-  const f = facts(cal, DEMO_TODAY, broken);
+  const history = useMemo(() => (demo ? demoHistory(cal, TODAY, broken) : realHistory(cal, TODAY, subs)), [cal, demo, broken, subs, TODAY]);
+  const f = facts(cal, TODAY, history);
 
-  const d = parse(selected), wd = d.getDay(), hol = cal.hol[selected], locked = selected > DEMO_TODAY, wk = cal.weekOf(d);
+  const d = parse(selected), wd = d.getDay(), hol = cal.hol[selected], locked = selected > TODAY, wk = cal.weekOf(d);
   const task = cal.tasks[wd];
 
   return (
     <div>
       <h1 className="text-2xl font-medium mb-1">陪你读书 2027</h1>
-      <p className="text-sm text-ink/60 mb-4">示范日期：{cn(parse(DEMO_TODAY))}（真实网站用当天日期）</p>
+      <p className="text-sm text-ink/60 mb-4">
+        {demo ? `示范日期：${cn(parse(TODAY))}` : `今天：${cn(parse(TODAY))}`}{!demo && TODAY < "2027-01-04" ? " · 第 1 周从 2027 年 1 月 4 日开始" : ""}
+      </p>
 
       <div className="card mb-5 !py-4">
         <div className="flex items-center justify-between gap-2 whitespace-nowrap text-[13px] sm:text-xl font-semibold tabular-nums">
@@ -43,17 +50,17 @@ export default function CalendarView() {
           <span className="text-clay-600">赚回 RM{f.earned}/200</span>
           <span className={f.streak > 0 ? "" : "grayscale opacity-60"}><span aria-hidden>🔥</span> {f.streak}</span>
         </div>
-        <button type="button" onClick={() => setBroken(!broken)} className="mt-2 text-xs text-ink/50 underline">
-          示范：{broken ? "恢复连续" : "模拟昨天没做（火变灰）"}
-        </button>
+        {demo && (
+          <button type="button" onClick={() => setBroken(!broken)} className="mt-2 text-xs text-ink/50 underline">
+            示范：{broken ? "恢复连续" : "模拟昨天没做（火变灰）"}
+          </button>
+        )}
       </div>
 
-      <div className="flex flex-wrap items-center gap-3 mb-4">
-        <label className="text-sm text-ink/70" htmlFor="state">我的州属</label>
-        <select id="state" value={stateId} onChange={(e) => saveState(e.target.value)} className="rounded-lg border border-ink/20 bg-white px-3 py-2 text-sm">
-          {STATES.map((s) => <option key={s.id} value={s.id}>{s.zh}（{s.group} 组）</option>)}
-        </select>
-        <p className="text-xs text-ink/60 basis-full">
+      <div className="mb-4 text-sm">
+        <span className="text-ink/70">{cal.state.zh} · Form {form} · {cal.group} 组</span>
+        <Link href="/programme/settings" className="ml-2 text-xs text-ink/50 underline">改</Link>
+        <p className="text-xs text-ink/60 mt-1">
           {cal.group === "A" ? "A 组学校星期日到四上课，星期五和六休息。每周任务也提早一天。" : "B 组学校星期一到五上课，星期六和日休息。"}
         </p>
       </div>
@@ -87,7 +94,7 @@ export default function CalendarView() {
           <>
             <p className="text-xs text-ink/60">第 {wk} 周 · {themeOf(wk)} · {levelOf(wk)}</p>
             <p className="mt-1">{task[0]}：{task[1]}</p>
-            <Link href={`/programme/today?state=${stateId}`} className="btn-primary inline-block mt-3 text-sm">打开这一天</Link>
+            <Link href="/programme/today" className="btn-primary inline-block mt-3 text-sm">打开这一天</Link>
           </>
         )}
       </div>
@@ -111,10 +118,10 @@ export default function CalendarView() {
                     ...Array.from({ length: 7 }, (_, i) => {
                       const day = addDays(mon, i), k = key(day);
                       if (day.getMonth() !== m) return <span key={k} />;
-                      const ex = examsOn(exams, k), lock = k > DEMO_TODAY;
+                      const ex = examsOn(exams, k), lock = k > TODAY;
                       return (
                         <button key={k} type="button" onClick={() => setSelected(k)} aria-label={cn(day) + (lock ? "，还没开放" : "")}
-                          className={`relative rounded py-1.5 ${cellTone(cal, day, ex.length ? ex[0].i : -1, DEMO_TODAY, broken)} ${lock ? "border border-dashed border-ink/30" : ""} ${k === DEMO_TODAY ? "ring-2 ring-clay-600" : ""} ${k === selected ? "outline outline-2 outline-ink" : ""}`}>
+                          className={`relative rounded py-1.5 ${cellTone(cal, day, ex.length ? ex[0].i : -1, history)} ${lock ? "border border-dashed border-ink/30" : ""} ${k === TODAY ? "ring-2 ring-clay-600" : ""} ${k === selected ? "outline outline-2 outline-ink" : ""}`}>
                           {day.getDate()}
                         </button>
                       );
