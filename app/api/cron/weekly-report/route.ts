@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { sendTelegramText } from "@/lib/telegram";
+import { siteUrl } from "@/lib/site";
 import { BAND_MAX } from "@/lib/speaking/analyze";
 import { FAIL_REASONS, type FailReason } from "@/lib/speaking/fail-reasons";
 
@@ -37,6 +38,16 @@ async function fetchAttempts(since: string): Promise<Attempt[]> {
     if (!data || data.length < 1000) break;
   }
   return rows;
+}
+
+// Run one optional part of the report; if it fails, return null so the rest of the report still goes out.
+async function safe<T>(fn: () => Promise<T>): Promise<T | null> {
+  try {
+    return await fn();
+  } catch (e) {
+    console.error("weekly report part failed", e);
+    return null;
+  }
 }
 
 const avg = (nums: number[]) => (nums.length ? nums.reduce((a, b) => a + b, 0) / nums.length : 0);
@@ -126,10 +137,93 @@ export async function GET(req: Request) {
     const lastTotal = sum(lastWeekOrders);
 
     const trend = (now_: number, before: number) => (before ? ` (${now_ >= before ? "+" : ""}${pct(now_ - before, before)}% vs last week)` : "");
+
+    // essay marking, sign-ups, API spend and website health. Each part is optional: if one fails the rest still send.
+    const essay = await safe(async () => {
+      const rows: { user_id: string; status: string; tier: string | null; total_score: number | null; model: string | null; created_at: string }[] = [];
+      for (let from = 0; from < 10000; from += 1000) {
+        const { data } = await admin.from("writing_attempts").select("user_id,status,tier,total_score,model,created_at").gte("created_at", prevStart.toISOString()).order("created_at").range(from, from + 999);
+        rows.push(...(data ?? []));
+        if (!data || data.length < 1000) break;
+      }
+      const cw = rows.filter((r) => new Date(r.created_at) >= weekStart);
+      const pw = rows.length - cw.length;
+      const done = cw.filter((r) => r.status === "done");
+      return { cw, pw, done, students: new Set(cw.map((r) => r.user_id)), failed: cw.filter((r) => r.status === "failed").length, paid: done.filter((r) => r.tier === "paid").length };
+    });
+    const signups = await safe(async () => {
+      const q = (gte: string, lt?: string) => {
+        let s = admin.from("profiles").select("id", { count: "exact", head: true }).gte("created_at", gte);
+        if (lt) s = s.lt("created_at", lt);
+        return s;
+      };
+      const [{ count: now_ }, { count: before }, { count: all }] = await Promise.all([q(weekStart.toISOString()), q(prevStart.toISOString(), weekStart.toISOString()), admin.from("profiles").select("id", { count: "exact", head: true })]);
+      return { now: now_ ?? 0, before: before ?? 0, all: all ?? 0 };
+    });
+    // "active" = signed in and did something real: practised speaking or got an essay marked this week
+    const active = new Set<string>([...c.rows.map((a) => a.user_id), ...(essay ? [...essay.students] : [])]);
+    const activePrev = new Set<string>(prev.map((a) => a.user_id));
+
+    const spend = await safe(async () => {
+      const key = process.env.OPENROUTER_API_KEY;
+      if (!key) return null;
+      const res = await fetch("https://openrouter.ai/api/v1/key", { headers: { Authorization: `Bearer ${key}` }, signal: AbortSignal.timeout(5000) });
+      if (!res.ok) return null;
+      const d = (await res.json())?.data ?? {};
+      return { week: Number(d.usage_weekly ?? NaN), total: Number(d.usage ?? NaN), left: typeof d.limit_remaining === "number" ? d.limit_remaining : null };
+    });
+
+    const health = await safe(async () => {
+      const t0 = Date.now();
+      const res = await fetch(siteUrl(), { cache: "no-store", signal: AbortSignal.timeout(10000) });
+      return { ok: res.ok, status: res.status, ms: Date.now() - t0 };
+    });
+    // Visitors and the Vercel deployment need a Vercel token (VERCEL_TOKEN, VERCEL_PROJECT_ID, optional VERCEL_TEAM_ID).
+    const vercel = await safe(async () => {
+      const token = process.env.VERCEL_TOKEN;
+      const pid = process.env.VERCEL_PROJECT_ID;
+      if (!token || !pid) return null;
+      const team = process.env.VERCEL_TEAM_ID ? `&teamId=${process.env.VERCEL_TEAM_ID}` : "";
+      const headers = { Authorization: `Bearer ${token}` };
+      const [dep, vis] = await Promise.all([
+        fetch(`https://api.vercel.com/v6/deployments?projectId=${pid}&target=production&limit=1${team}`, { headers, signal: AbortSignal.timeout(8000) }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+        fetch(`https://api.vercel.com/v1/query/web-analytics/visits/count?projectId=${pid}&since=${weekStart.getTime()}&until=${now}${team}`, { headers, signal: AbortSignal.timeout(8000) }).then((r) => (r.ok ? r.json() : null)).catch(() => null),
+      ]);
+      return { state: dep?.deployments?.[0]?.state as string | undefined, visitors: vis ? (vis.count ?? vis.visitors ?? vis.data?.count ?? null) : null };
+    });
+
+    const essayLines = essay
+      ? [
+          `✍️ Essay marking`,
+          `Students: ${essay.students.size} · Essays marked: ${essay.done.length}${trend(essay.done.length, essay.pw)}`,
+          `Paid reports: ${essay.paid} · Free reports: ${essay.done.length - essay.paid} · Failed: ${essay.failed}`,
+          essay.done.length ? `Average score: ${avg(essay.done.map((r) => Number(r.total_score ?? 0))).toFixed(1)} / 20` : null,
+        ]
+      : [`✍️ Essay marking: could not be read`];
+    const growthLines = [
+      `👥 Students`,
+      signups ? `New sign-ups: ${signups.now}${trend(signups.now, signups.before)} · Total accounts: ${signups.all}` : `New sign-ups: could not be read`,
+      `Active students (practised speaking or marked an essay): ${active.size}${trend(active.size, activePrev.size)}`,
+      vercel?.visitors != null ? `Visitors: ${vercel.visitors}` : `Visitors: not connected yet (see setup note)`,
+    ];
+    const techLines = [
+      `🛠 Website and API`,
+      health ? `Website: ${health.ok ? "up ✅" : `problem ⚠️ (HTTP ${health.status})`}, home page answered in ${health.ms} ms` : `Website: no answer ⚠️`,
+      vercel?.state ? `Latest Vercel deployment: ${vercel.state}` : null,
+      spend && !Number.isNaN(spend.week) ? `OpenRouter spent: US$ ${spend.week.toFixed(2)} this week (US$ ${spend.total.toFixed(2)} in total${spend.left != null ? `, US$ ${spend.left.toFixed(2)} left` : ""})` : `OpenRouter spend: could not be read`,
+      `Groq: free tier, no charge`,
+    ];
+
     const lines = [
-      `📊 Speaking weekly report`,
+      `📊 Weekly report`,
       `${day(weekStart)} to ${day(new Date(now))}`,
       ``,
+      `💰 Sales`,
+      `Total: ${approved.length} orders, RM ${total.toFixed(2)}${trend(total, lastTotal)}`,
+      ...(productLines.length ? productLines : ["No orders approved this week."]),
+      `Orders waiting for you: ${waiting ?? 0}`,
+      ``,
+      `🎤 Speaking`,
       `Students who practised: ${c.students}${trend(c.students, p.students)}`,
       `Attempts marked: ${c.done.length}${trend(c.done.length, p.done.length)}`,
       `Failed attempts: ${c.failed.length} (${pct(c.failed.length, c.rows.length)}% of all attempts)`,
@@ -138,12 +232,14 @@ export async function GET(req: Request) {
       `Average recording: ${Math.round(avg(c.done.map((a) => Number(a.duration_sec ?? 0))))} s`,
       busiest ? `Busiest day: ${busiest[0]} (${busiest[1]} attempts)` : null,
       modelLine ? `AI models used: ${modelLine}` : null,
-      ``,
-      `💰 Sales by product`,
-      ...(productLines.length ? productLines : ["No orders approved this week."]),
-      `Total: ${approved.length} orders, RM ${total.toFixed(2)}${trend(total, lastTotal)}`,
       `Pack attempts used: ${packUsed}`,
-      `Orders waiting for you: ${waiting ?? 0}`,
+      ``,
+      ...essayLines,
+      ``,
+      ...growthLines,
+      ``,
+      ...techLines,
+      ``,
       `Feedback messages: ${feedback ?? 0}`,
     ].filter((l) => l !== null) as string[];
 
@@ -151,7 +247,7 @@ export async function GET(req: Request) {
     return NextResponse.json({ ok: true });
   } catch (e) {
     console.error("weekly report failed", e);
-    await sendTelegramText("⚠️ The weekly Speaking report could not be built. Check the Vercel logs.");
+    await sendTelegramText("⚠️ The weekly report could not be built. Check the Vercel logs.");
     return NextResponse.json({ error: "failed" }, { status: 500 });
   }
 }
