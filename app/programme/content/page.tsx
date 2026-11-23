@@ -4,6 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { requireProgrammeAdmin } from "@/lib/programme/gate";
 import { WEEKS, type Block, type L } from "@/lib/programme/week-content";
 import Shell from "@/components/programme/Shell";
+import HighlightEssay from "@/components/programme/HighlightEssay";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +28,7 @@ function Marked({ text, marks }: { text: string; marks?: { phrase: string; color
   const re = new RegExp(`(${marks.map((m) => esc(m.phrase)).join("|")})`, "gi");
   return <>{text.split(re).map((part, i) => {
     const m = marks.find((x) => x.phrase.toLowerCase() === part.toLowerCase());
-    return m ? <mark key={i} className={m.color === 1 ? "bg-yellow-200 rounded px-0.5" : "bg-sky-200 rounded px-0.5"}>{part}</mark> : <span key={i}>{part}</span>;
+    return m ? <mark key={i} className={m.color === 1 ? "bg-blue-200 rounded px-0.5" : "bg-red-200 rounded px-0.5"}>{part}</mark> : <span key={i}>{part}</span>;
   })}</>;
 }
 
@@ -49,16 +50,35 @@ function ReviewBox({ week, lang, item, review, back }: { week: number; lang: str
   );
 }
 
-function Body({ b, t }: { b: Block; t: (l: L) => string }) {
+function Body({ b, t, lang }: { b: Block; t: (l: L) => string; lang: "en" | "zh" }) {
   switch (b.type) {
     case "steps": return <ol className="list-decimal pl-5 space-y-1">{b.items.map((s, i) => <li key={i}>{t(s)}</li>)}</ol>;
     case "prompt": return <p className="rounded-lg bg-cream/60 p-3 font-mono text-[13px] leading-relaxed">{t(b.text)}</p>;
     case "checks": return <ul className="list-disc pl-5 space-y-1">{b.items.map((s, i) => <li key={i}>{t(s)}</li>)}</ul>;
-    case "text": return (
-      <div className="space-y-2 leading-relaxed">
-        {b.paragraphs.map((p, i) => <p key={i}><Marked text={p} marks={b.highlight} /></p>)}
-        {b.highlight && <p className="text-xs text-ink/60"><mark className="bg-yellow-200 px-0.5 rounded">颜色 1 / colour 1</mark> · <mark className="bg-sky-200 px-0.5 rounded">颜色 2 / colour 2</mark></p>}
-        {b.note && <p className="text-sm text-ink/70">{t(b.note)}</p>}
+    case "text":
+      if (b.interactive) return <HighlightEssay paragraphs={b.paragraphs} lang={lang} />;
+      return (
+        <div className="space-y-2 leading-relaxed">
+          {b.paragraphs.map((p, i) => <p key={i}><Marked text={p} marks={b.highlight} /></p>)}
+          {b.highlight && <p className="text-xs text-ink/60"><mark className="bg-blue-200 px-0.5 rounded">{lang === "en" ? "blue: this week's list" : "蓝色：本周词表"}</mark> · <mark className="bg-red-200 px-0.5 rounded">{lang === "en" ? "red: good words" : "红色：好词"}</mark></p>}
+          {b.note && <p className="text-sm text-ink/70">{t(b.note)}</p>}
+        </div>
+      );
+    case "quiz": return (
+      <div>
+        <ol className="space-y-2">
+          {b.rows.map((r, i) => (
+            <li key={i} className="flex flex-wrap items-center gap-2 text-sm">
+              <span className="w-6 text-ink/50">{i + 1}</span>
+              <span className="w-56 font-medium">{r.zh}</span>
+              <input placeholder="English" className="flex-1 min-w-[10rem] rounded-lg border border-ink/20 bg-white px-3 py-1.5" />
+            </li>
+          ))}
+        </ol>
+        <details className="mt-3 text-sm">
+          <summary className="cursor-pointer text-ink/60">{lang === "en" ? "Show the answers (after the student checks)" : "看答案（学生做完才看）"}</summary>
+          <ol className="list-decimal pl-5 mt-2 space-y-1">{b.rows.map((r, i) => <li key={i}>{r.answer}</li>)}</ol>
+        </details>
       </div>
     );
     case "vocab": return (
@@ -81,8 +101,6 @@ export default async function ContentReview({ searchParams }: { searchParams: Pr
   const t = (l: L) => l[lang];
   const { data } = await createAdminClient().from("programme_content_reviews").select("item, verdict, note").eq("lang", week.lang).eq("week", week.n);
   const reviews = new Map<string, Review>((data ?? []).map((r) => [r.item as string, r as Review]));
-  const total = week.days.reduce((n, d) => n + d.blocks.length, 0);
-  const wrong = [...reviews.values()].filter((r) => r.verdict === "wrong").length;
   const href = (l: string, d: string) => `/programme/content?l=${l}&d=${d}`;
 
   return (
@@ -91,7 +109,6 @@ export default async function ContentReview({ searchParams }: { searchParams: Pr
         <p className="text-xs text-ink/60">内容审核 · 只有你看得到</p>
         <h1 className="text-2xl font-medium">第 {week.n} 周 · {week.lang} · {t(week.theme)}</h1>
         <p className="text-sm text-ink/70 mt-1">范文：{week.essay}（{week.source}）</p>
-        <p className="text-sm text-ink/70">已审 {reviews.size}/{total} 块，其中错 {wrong} 块。每一块下面按「对」或「错」，错的写上应该怎样改。</p>
       </div>
 
       <div className="flex flex-wrap items-center gap-2 mb-3 text-sm">
@@ -100,14 +117,11 @@ export default async function ContentReview({ searchParams }: { searchParams: Pr
         <Link href={href("zh", day.key)} className={lang === "zh" ? "btn-primary text-xs" : "btn-secondary text-xs"}>中文</Link>
       </div>
       <div className="flex flex-wrap gap-2 mb-5">
-        {week.days.map((d) => {
-          const done = d.blocks.filter((b) => reviews.has(`${d.key}.${b.id}`)).length;
-          return (
-            <Link key={d.key} href={href(lang, d.key)} className={d.key === day.key ? "btn-primary text-xs" : "btn-secondary text-xs"}>
-              {t(d.label)} · {done}/{d.blocks.length}
-            </Link>
-          );
-        })}
+        {week.days.map((d) => (
+          <Link key={d.key} href={href(lang, d.key)} className={d.key === day.key ? "btn-primary text-xs" : "btn-secondary text-xs"}>
+            {t(d.label)}
+          </Link>
+        ))}
       </div>
 
       <h2 className="text-lg font-medium mb-1">{t(day.label)}{day.minutes ? ` · ${day.minutes} min` : ""}</h2>
@@ -120,7 +134,7 @@ export default async function ContentReview({ searchParams }: { searchParams: Pr
                 {t(b.title)}
                 {b.reveal && <span className="ml-2 rounded bg-clay-400/20 px-2 py-0.5 text-xs text-clay-700">{lang === "en" ? "shown after the student submits" : "学生交了之后才看到"}</span>}
               </p>
-              <Body b={b} t={t} />
+              <Body b={b} t={t} lang={lang} />
               <ReviewBox week={week.n} lang={week.lang} item={item} review={reviews.get(item)} back={day.key} />
             </section>
           );
