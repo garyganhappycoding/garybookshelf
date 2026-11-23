@@ -30,7 +30,7 @@ const ZH: Record<string, string> = {
   "Thaipusam": "大宝森节", "Christmas Eve": "平安夜", "Gawai Dayak Festival": "Gawai 节",
 };
 
-export const THEMES = ["Technology", "Environment", "Health & Sports", "School & Education", "Finance & Consumerism", "People & Culture", "Teenagers & Society", "Travel / Leisure / Home", "Review", "Report", "Story"];
+export const THEMES = ["Technology", "Environment", "Health & Sports", "School & Education", "Finance & Consumerism", "People & Culture", "Travel / Leisure / Home", "Teenagers & Society", "Review", "Report", "Story"];
 export const LEVELS = ["B1 基础", "B2 进阶", "B2 到 C1 提高", "C1 挑战"];
 
 export type Exam = { id: string; name: string; start: string; end: string };
