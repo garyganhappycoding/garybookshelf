@@ -1,0 +1,55 @@
+{
+  "n": 32, "lang": "bi",
+  "theme": "Report",
+  "level": "C1",
+  "essayTitle": "Report on the International Students' Visit",
+  "source": "SPM 2026 Trial · Kelantan · English Paper 2 · Part 3 Q4 · Report, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1RoLHr62An8i2xe0pJc_cieXuaGFCoA4i9ewuwLljhiA/edit",
+  "paragraphs": [
+    "This report is about the visit of a group of international students to our school from 3 to 9 August 2026. The visit was organised by the International Relations Club.",
+    "A total of 15 international students took part in the programme. They were accompanied by three teachers from their home schools. The students came from Japan, South Korea and Indonesia. Each of them was paired with a local buddy throughout the week.",
+    "First and foremost, a cultural night was held in the school hall on the first evening. Our students performed traditional dances such as the zapin, while the visitors showcased their own cultural performances. Furthermore, the visitors took part in a batik painting workshop. Many of them were fascinated by the intricate patterns and proudly brought their artwork home. They also sampled local delicacies at the Central Market.",
+    "The programme taught us to appreciate cultural diversity. We discovered that despite our different backgrounds, we share many common values. Moreover, it improved our confidence in communicating in English. Many students who were usually shy found themselves chatting freely with their new friends.",
+    "In conclusion, the programme was a resounding success. It is recommended that the school continue such exchange programmes to broaden students' horizons and foster international friendships."
+  ],
+  "points": [
+    {"code": "C1", "text": "number of students involved"},
+    {"code": "C2", "text": "their nationalities"},
+    {"code": "C3", "text": "different activities held during the week – activity 1"},
+    {"code": "C4", "text": "different activities – activity 2"},
+    {"code": "C5", "text": "lessons learnt from the programme – lesson 1"},
+    {"code": "C6", "text": "lessons learnt – lesson 2"}
+  ],
+  "openingIdx": [0],
+  "keyPoint": {"idx": 2, "prompt": "different activities held during the week – activity 1"},
+  "closingIdx": [4],
+  "words": [
+    {"word": "accompanied by", "zh": "由……陪同", "example": "They were accompanied by three teachers from their home schools."},
+    {"word": "in the vicinity of", "zh": "在……附近", "example": null},
+    {"word": "run smoothly", "zh": "顺利进行", "example": "The event would run more smoothly."},
+    {"word": "be assigned different tasks", "zh": "被分配不同任务", "example": "Participants were divided into groups and assigned different tasks."},
+    {"word": "encounter challenges", "zh": "遇到挑战", "example": "We encountered a few challenges during the programme."},
+    {"word": "adjust our plan", "zh": "调整计划", "example": "As a result, we had to adjust our plan and work extra hard to finish on time."},
+    {"word": "worked hand in hand", "zh": "携手合作", "example": "Teachers and students worked hand in hand."},
+    {"word": "transformed the area", "zh": "改变了这个地方", "example": "The area was transformed into a clean and pleasant place."},
+    {"word": "equipped with gloves and bags", "zh": "配备手套和垃圾袋", "example": "Each group was equipped with gloves and rubbish bags."},
+    {"word": "teach valuable lessons", "zh": "教导宝贵的教训", "example": "The programme taught us valuable lessons."}
+  ],
+  "goodPhrases": [
+    {"phrase": "accompanied by", "zh": "由……陪同"},
+    {"phrase": "showcased", "zh": "展示"},
+    {"phrase": "resounding success", "zh": "巨大的成功"},
+    {"phrase": "broaden students' horizons", "zh": "拓宽学生的视野"},
+    {"phrase": "cultural diversity", "zh": "文化多元性"},
+    {"phrase": "intricate patterns", "zh": "复杂精细的图案"},
+    {"phrase": "sampled local delicacies", "zh": "品尝当地美食"},
+    {"phrase": "foster international friendships", "zh": "促进国际友谊"},
+    {"phrase": "exchange programmes", "zh": "交流项目"}
+  ],
+  "gaps": [
+    "No example sentence for 'in the vicinity of': the pack's sentence was scrambled in the PDF text.",
+    "Only 'accompanied by' is in the essay's vocabulary table. The other examples come from the Report pack: 'be assigned different tasks' (RP3 answer), 'encounter challenges' and 'adjust our plan' (RP5 answer), 'teach valuable lessons' (RP7 answer, inflected 'taught'), 'worked hand in hand', 'transformed the area', 'equipped with gloves and bags' (Q2 Clean-up table), 'run smoothly' (Q5 table, sentence reads 'would run more smoothly').",
+    "paragraphs: the To/Prepared by lines and the sub-headings were left out; only the 5 body paragraphs are given.",
+    "goodPhrases: the row 'thunderous applause' is marked (Extended) and was left out."
+  ]
+}

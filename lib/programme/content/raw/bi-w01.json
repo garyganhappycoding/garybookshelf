@@ -1,0 +1,147 @@
+{
+  "n": 1,
+  "lang": "bi",
+  "theme": "Technology",
+  "level": "B2",
+  "essayTitle": "Smartphones: Friend or Foe?",
+  "source": "SBP 2026 · Paper 2 · Part 3 Q3 · Article, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1SDgi3vO_fswGcENFe1G0v0G2zULSZ_onQKb7NBtq3xI/edit",
+  "paragraphs": [
+    "Can you imagine a day without your smartphone? For most teenagers today, this small device has become an extension of themselves. Technology has truly transformed the way we live.",
+    "A technology commonly used by teenagers is the smartphone. It is no longer just a device for making calls, but a camera, a library and a classroom rolled into one.",
+    "First and foremost, smartphones make learning more convenient. With educational apps and online videos, students can revise anytime and anywhere, even on a bus ride home. Complex topics can be explained through animations at the tap of a finger. Furthermore, smartphones help teenagers stay connected with family and friends. A quick message lets parents know that their children are safe.",
+    "However, teenagers must use their smartphones responsibly by limiting their screen time. Setting a daily time limit prevents them from becoming addicted to social media and games, which can affect their sleep and studies. Moreover, they should think twice before sharing anything online. Posting personal details or hurtful comments can have serious consequences that last for years.",
+    "In a nutshell, the smartphone is a double-edged sword. If we use it wisely, it can be a powerful tool that enriches our lives rather than controls them."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "state a technology commonly used by teenagers (ONE technology)"
+    },
+    {
+      "code": "C2",
+      "text": "explain the benefits – benefit 1 (skema: students should mention TWO benefits)"
+    },
+    {
+      "code": "C3",
+      "text": "benefits – benefit 2"
+    },
+    {
+      "code": "C4",
+      "text": "discuss how teenagers can use it responsibly – way 1"
+    },
+    {
+      "code": "C5",
+      "text": "use it responsibly – way 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 2,
+    "prompt": "explain the benefits – benefit 1 (skema: students should mention TWO benefits)"
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "in this digital age",
+      "zh": "在这个数字时代",
+      "example": "In this digital age, almost every teenager owns a smartphone."
+    },
+    {
+      "word": "technology has revolutionised the way we …",
+      "zh": "科技彻底改变了我们……的方式",
+      "example": "Technology has revolutionised the way we communicate."
+    },
+    {
+      "word": "at the touch of a button",
+      "zh": "一键之间",
+      "example": "We can order food at the touch of a button."
+    },
+    {
+      "word": "… is just a click away",
+      "zh": "只需轻轻一点",
+      "example": "Information on any topic is just a click away."
+    },
+    {
+      "word": "stay connected with …",
+      "zh": "与……保持联系",
+      "example": "Video calls help us stay connected with relatives overseas."
+    },
+    {
+      "word": "be glued to their screens",
+      "zh": "盯着屏幕不放",
+      "example": "Many teenagers are glued to their screens until midnight."
+    },
+    {
+      "word": "fall victim to …",
+      "zh": "成为……的受害者",
+      "example": "Careless users often fall victim to online scams."
+    },
+    {
+      "word": "think twice before …",
+      "zh": "三思而后……",
+      "example": "Moreover, they should think twice before sharing anything online."
+    },
+    {
+      "word": "strike a balance between … and …",
+      "zh": "在……与……之间取得平衡",
+      "example": "Students must strike a balance between screen time and real life."
+    },
+    {
+      "word": "a double-edged sword",
+      "zh": "双刃剑",
+      "example": "In a nutshell, the smartphone is a double-edged sword."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "transformed",
+      "zh": "彻底改变"
+    },
+    {
+      "phrase": "anytime and anywhere",
+      "zh": "随时随地"
+    },
+    {
+      "phrase": "at the tap of a finger",
+      "zh": "只需轻轻一点"
+    },
+    {
+      "phrase": "think twice",
+      "zh": "三思而后行"
+    },
+    {
+      "phrase": "a double-edged sword",
+      "zh": "双刃剑"
+    },
+    {
+      "phrase": "enriches our lives",
+      "zh": "丰富我们的生活"
+    },
+    {
+      "phrase": "digital footprint",
+      "zh": "数字足迹"
+    },
+    {
+      "phrase": "an extension of themselves",
+      "zh": "身体的一部分（形影不离）"
+    },
+    {
+      "phrase": "rolled into one",
+      "zh": "集于一身"
+    },
+    {
+      "phrase": "addicted to",
+      "zh": "沉迷于"
+    },
+    {
+      "phrase": "screen time",
+      "zh": "屏幕使用时间"
+    }
+  ],
+  "gaps": []
+}

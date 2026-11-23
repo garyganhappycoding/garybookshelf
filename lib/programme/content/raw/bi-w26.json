@@ -1,0 +1,166 @@
+{
+  "n": 26,
+  "lang": "bi",
+  "theme": "School & Education",
+  "level": "C1",
+  "essayTitle": "Examination Mode",
+  "source": "SPM Essay (older format, no trial paper named) · Essay on examinations",
+  "essayUrl": "https://drive.google.com/file/d/1ChE6soT7Z_MWEvxjStsic-QKtNfKAP_v/view",
+  "paragraphs": [
+    "Examinations are a crucial part of the education system in Malaysia. From primary school to university, students are required to sit for various exams that assess their academic knowledge and skills. These exams play a significant role in determining a student’s progress, grades, and future opportunities. However, there is ongoing debate about whether examinations are the best method to evaluate students.",
+    "In my opinion, examinations are useful, but they are not always a fair representation of a student's abilities. Exams put a lot of pressure on students to perform well within a limited time frame, which can lead to stress and anxiety. Some students may excel in exam settings, while others, who may have a deeper understanding of the subject, might not do as well due to nerves or time constraints.",
+    "There are both advantages and disadvantages to having examinations. One of the main advantages is that exams provide a standardized way to measure a student’s knowledge and compare their performance with their peers. They also motivate students to study and prepare thoroughly. On the other hand, exams focus heavily on memorization rather than understanding, which can limit critical thinking and creativity. Additionally, the stress of exams may negatively affect students' mental health.",
+    "As for whether examinations should be abolished, I believe they should not be entirely removed but reformed. While exams serve a purpose in education, alternative assessment methods such as project-based learning or continuous assessment could be incorporated to provide a more balanced evaluation of students’ skills and knowledge.",
+    "In conclusion, examinations in Malaysia play an important role in education, but they also come with challenges. By improving the examination system and combining it with other forms of assessment, we can ensure a fairer and more holistic approach to evaluating students."
+  ],
+  "points": [],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "enrich school life",
+      "zh": "丰富校园生活",
+      "example": "Co-curricular activities enrich school life."
+    },
+    {
+      "word": "foster teamwork",
+      "zh": "培养团队合作",
+      "example": "For example, a school camp fosters teamwork and builds leadership."
+    },
+    {
+      "word": "suffer from anxiety",
+      "zh": "承受焦虑",
+      "example": "As a result, they suffer from anxiety, lose motivation and even burn out."
+    },
+    {
+      "word": "burn out",
+      "zh": "身心俱疲",
+      "example": "As a result, they suffer from anxiety, lose motivation and even burn out."
+    },
+    {
+      "word": "hinder our studies",
+      "zh": "妨碍我们的学业",
+      "example": "Distractions hinder our studies."
+    },
+    {
+      "word": "break our concentration",
+      "zh": "打断我们的专注",
+      "example": "This is because notifications break our concentration and games are far more tempting than homework."
+    },
+    {
+      "word": "fall behind in my work",
+      "zh": "功课落后",
+      "example": "As a result, I fall behind in my work and submit assignments late."
+    },
+    {
+      "word": "cram for exams",
+      "zh": "临时抱佛脚",
+      "example": "For example, a student cramming the night before an exam usually forgets what they learnt."
+    },
+    {
+      "word": "prioritise important tasks",
+      "zh": "优先处理重要任务",
+      "example": "Students should prioritise important tasks."
+    },
+    {
+      "word": "demand immediate attention",
+      "zh": "需要立即关注",
+      "example": "This is because urgent assignments demand immediate attention."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "crucial part",
+      "zh": "关键部分"
+    },
+    {
+      "phrase": "assess academic knowledge and skills",
+      "zh": "评估学术知识与技能"
+    },
+    {
+      "phrase": "significant role",
+      "zh": "重要角色"
+    },
+    {
+      "phrase": "ongoing debate",
+      "zh": "持续的争议"
+    },
+    {
+      "phrase": "fair representation",
+      "zh": "公平的表现"
+    },
+    {
+      "phrase": "limited time frame",
+      "zh": "有限时间"
+    },
+    {
+      "phrase": "standardized way to measure",
+      "zh": "标准化的评估方式"
+    },
+    {
+      "phrase": "compare performance with peers",
+      "zh": "与同龄人比较表现"
+    },
+    {
+      "phrase": "motivate students to study",
+      "zh": "激励学生学习"
+    },
+    {
+      "phrase": "focus heavily on memorization",
+      "zh": "过度强调记忆"
+    },
+    {
+      "phrase": "limit critical thinking and creativity",
+      "zh": "限制批判性思维与创造力"
+    },
+    {
+      "phrase": "negatively affect mental health",
+      "zh": "对心理健康造成负面影响"
+    },
+    {
+      "phrase": "alternative assessment methods",
+      "zh": "替代评估方式"
+    },
+    {
+      "phrase": "project-based learning",
+      "zh": "项目式学习"
+    },
+    {
+      "phrase": "continuous assessment",
+      "zh": "持续评估"
+    },
+    {
+      "phrase": "balanced evaluation",
+      "zh": "平衡的评估"
+    },
+    {
+      "phrase": "holistic approach",
+      "zh": "全面方法"
+    },
+    {
+      "phrase": "reform the system",
+      "zh": "改革制度"
+    },
+    {
+      "phrase": "ensure fairness",
+      "zh": "确保公平"
+    },
+    {
+      "phrase": "academic progress and future opportunities",
+      "zh": "学术进步与未来机会"
+    }
+  ],
+  "gaps": [
+    "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
+    "None of the 10 words appears in this essay's vocabulary table; all examples come from the School & Education theme pack (Universal answers S3, S4, S5, S6, S7). The sentences for 'suffer from anxiety'/'burn out' (shared) and 'cram for exams' were rebuilt from the scrambled watermarked PDF; 'cram for exams' is only found as 'cramming' in the pack sentence. Please check them.",
+    "No question-style essay with a Question Analysis table is left for this theme, so weeks 26 and 37 use the older-format essays in the '7. school' folder."
+  ]
+}

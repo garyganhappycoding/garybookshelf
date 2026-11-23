@@ -1,0 +1,144 @@
+{
+  "n": 8,
+  "lang": "bi",
+  "theme": "Teenagers & Society",
+  "level": "B2",
+  "essayTitle": "Small Hands, Big Difference",
+  "source": "SPM 2026 Trial – WPKL – English Paper 2 · Part 2 · Question 2 · Essay (125–150 words)",
+  "essayUrl": "https://docs.google.com/document/d/1d3K2opUXEj15PH1Ly9L8ulgjkFEJKjd3Ecb7K9xmr_w/edit",
+  "paragraphs": [
+    "Teenagers can play a meaningful role in society. One way teenagers can help is by volunteering at old folks' homes. Spending time with the elderly brings joy to lonely senior citizens. Furthermore, teenagers can help by taking part in gotong-royong to clean up their neighbourhood. A cleaner environment benefits everyone.",
+    "One benefit of community service is that it nurtures empathy in young people. By helping the less fortunate, students learn to count their blessings. Moreover, community service equips teenagers with valuable life skills. For example, organising a charity drive sharpens their leadership skills.",
+    "One way to encourage more teenagers to get involved in charity events is to give recognition to volunteers. Schools could award certificates or co-curricular merit points to students who volunteer. As a result, more students would be motivated to lend a helping hand. In a nutshell, every small act of kindness can make a big difference."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "the different ways teenagers can help – \"ways\" is plural, so give at least two (way 1)"
+    },
+    {
+      "code": "C2",
+      "text": "ways teenagers can help – way 2"
+    },
+    {
+      "code": "C3",
+      "text": "the benefits of community service – \"benefits\" is plural (benefit 1)"
+    },
+    {
+      "code": "C4",
+      "text": "benefits of community service – benefit 2"
+    },
+    {
+      "code": "C5",
+      "text": "ONE way to encourage more teenagers to get involved in charity events (give only one)"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 0,
+    "prompt": "the different ways teenagers can help – \"ways\" is plural, so give at least two (way 1)"
+  },
+  "closingIdx": [
+    2
+  ],
+  "words": [
+    {
+      "word": "the future leaders of the nation",
+      "zh": "国家未来的领袖",
+      "example": "Teenagers are the future leaders of the nation, so their values matter."
+    },
+    {
+      "word": "give in to peer pressure",
+      "zh": "屈服于同侪压力",
+      "example": null
+    },
+    {
+      "word": "fall into bad company",
+      "zh": "结交坏朋友",
+      "example": null
+    },
+    {
+      "word": "a friend in need is a friend indeed",
+      "zh": "患难见真情",
+      "example": null
+    },
+    {
+      "word": "through thick and thin",
+      "zh": "同甘共苦",
+      "example": null
+    },
+    {
+      "word": "lend a helping hand",
+      "zh": "伸出援手",
+      "example": "As a result, more students would be motivated to lend a helping hand."
+    },
+    {
+      "word": "make a positive difference in society",
+      "zh": "为社会带来正面改变",
+      "example": null
+    },
+    {
+      "word": "bridge the generation gap",
+      "zh": "弥合代沟",
+      "example": "Family dinners help bridge the generation gap."
+    },
+    {
+      "word": "set a good example for …",
+      "zh": "为……树立好榜样",
+      "example": "Prefects should set a good example for juniors."
+    },
+    {
+      "word": "it takes a village to raise a child",
+      "zh": "养育一个孩子需要整个社区的力量",
+      "example": "It takes a village to raise a child, so parents, schools and society must work together."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "meaningful",
+      "zh": "有意义的"
+    },
+    {
+      "phrase": "nurtures empathy",
+      "zh": "培养同理心"
+    },
+    {
+      "phrase": "the less fortunate",
+      "zh": "不幸的人；弱势群体"
+    },
+    {
+      "phrase": "count their blessings",
+      "zh": "知足惜福"
+    },
+    {
+      "phrase": "lend a helping hand",
+      "zh": "伸出援手"
+    },
+    {
+      "phrase": "equips … with",
+      "zh": "使……具备"
+    },
+    {
+      "phrase": "gotong-royong",
+      "zh": "社区大扫除（集体劳动）"
+    },
+    {
+      "phrase": "charity drive",
+      "zh": "慈善募捐活动"
+    },
+    {
+      "phrase": "co-curricular merit points",
+      "zh": "课外活动积分"
+    }
+  ],
+  "gaps": [
+    "No example sentence for: 'give in to peer pressure', 'fall into bad company', 'a friend in need is a friend indeed', 'through thick and thin', 'make a positive difference in society'. The Teenagers & Society pack's Universal phrases section (and some Universal answers) have scrambled example sentences in the PDF text, so those were not copied (left null).",
+    "'the future leaders of the nation', 'bridge the generation gap', 'set a good example for …', 'it takes a village to raise a child': examples copied from the pack's clean Universal phrases sentences. 'lend a helping hand': from the essay's vocabulary table.",
+    "The essay has 3 paragraphs only (Part 2) and no separate conclusion paragraph; closingIdx = [2] (paragraph 3 ends with 'In a nutshell, ...'). keyPoint = paragraph 1 (C1, ways to help).",
+    "goodPhrases: only Table 1 rows used by the Exam Version; the Extended-only rows 'take … for granted' and 'fosters a sense of belonging' were left out.",
+    "The '(C1)' ... mark tags were removed from the essay text.",
+    "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 8 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used."
+  ]
+}

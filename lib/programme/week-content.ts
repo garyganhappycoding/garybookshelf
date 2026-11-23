@@ -10,7 +10,13 @@ export type Block =
   | { id: string; type: "quiz"; title: L; rows: { zh: string; answer: string }[]; reveal?: boolean }
   | { id: string; type: "table"; title: L; head: L[]; rows: string[][]; reveal?: boolean }
   | { id: string; type: "checks"; title: L; items: L[]; reveal?: boolean };
-export type Day = { key: string; label: L; minutes: number; blocks: Block[] };
+/** What the student has to hand in on a day. Filled in for every week by withResponses() in content/index.ts. */
+export type Response =
+  | { kind: "sentences"; words: { word: string; zh: string }[] }        // day 1: one sentence per word, then the quiz
+  | { kind: "highlight" }                                                // day 2: tap-to-highlight the essay
+  | { kind: "text"; optional?: boolean }                                 // days 3 to 5 (and the optional full essay on Sunday)
+  | { kind: "none" };                                                    // rest day, or a week whose essay is not ready
+export type Day = { key: string; label: L; minutes: number; blocks: Block[]; response?: Response };
 export type Week = { n: number; lang: "BI" | "BM"; theme: L; essay: string; source: string; days: Day[] };
 
 const ESSAY = [

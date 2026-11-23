@@ -1,0 +1,54 @@
+{
+  "n": 21, "lang": "bi",
+  "theme": "Report",
+  "level": "B2 to C1",
+  "essayTitle": "Report on the Class Clean-up Programme",
+  "source": "SPM 2026 Trial · Terengganu (MPP3) · English Paper 2 · Part 3 Q5 · Report, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1s_xXAxN-eaudPzz3bjj_VenSFXBmDcxruQMYgtFFKh0/edit",
+  "paragraphs": [
+    "The clean-up programme took place on Saturday, 15 August 2026, from 8.00 a.m. to 12.00 noon. It was organised by Class 5 Cengal to promote a greener environment in our school area. A total of 35 students and two teachers took part. The main objective was to instil a sense of responsibility among students towards their surroundings.",
+    "First and foremost, we collected litter around the school compound and along the road outside the school gate. Armed with gloves and garbage bags, we gathered more than 20 bags of rubbish, mostly plastic bottles and food wrappers. Furthermore, we cleared the clogged drains and sorted the recyclable items. This helped prevent stagnant water, which can become a breeding ground for Aedes mosquitoes. Some students also planted flowering shrubs near the canteen to beautify the area.",
+    "Firstly, the school could hold a monthly \"Green Saturday\" so that cleaning up becomes a routine. Regular practice would help students cultivate the habit naturally. Secondly, a class cleanliness competition could be introduced. Attractive rewards would spur every class to keep its surroundings spotless.",
+    "In conclusion, the programme was a great success. Many participants said they would now think twice before littering. It is hoped that every student will play their part in keeping our school clean and green."
+  ],
+  "points": [
+    {"code": "C1", "text": "mention when the programme took place"},
+    {"code": "C2", "text": "describe what you did during the programme – activity 1"},
+    {"code": "C3", "text": "what you did – activity 2"},
+    {"code": "C4", "text": "suggest ways to make clean-up practices a habit – \"ways\" is plural (way 1)"},
+    {"code": "C5", "text": "ways to make it a habit – way 2"}
+  ],
+  "openingIdx": [0],
+  "keyPoint": {"idx": 1, "prompt": "describe what you did during the programme – activity 1"},
+  "closingIdx": [3],
+  "words": [
+    {"word": "be divided into groups", "zh": "被分成小组", "example": "We were divided into groups to cover more areas."},
+    {"word": "a regular schedule", "zh": "固定的日程", "example": "We should hold a clean-up on a regular schedule."},
+    {"word": "a rewards system", "zh": "奖励制度", "example": "A rewards system motivates students to keep the school clean."},
+    {"word": "finish on time", "zh": "按时完成", "example": "As a result, we had to adjust our plan and work extra hard to finish on time."},
+    {"word": "the whole class participated", "zh": "全班参加", "example": "The whole class participated with great enthusiasm."},
+    {"word": "provide an account of", "zh": "汇报……", "example": "The purpose of this report is to provide an account of the visit held last Saturday."},
+    {"word": "outline the aims", "zh": "概述目的", "example": "It outlines the aims, describes the activities and puts forward suggestions."},
+    {"word": "put forward suggestions", "zh": "提出建议", "example": "It outlines the aims, describes the activities and puts forward suggestions."},
+    {"word": "evaluate the programme", "zh": "评估活动", "example": "As a result, the school can evaluate the programme and plan future events."},
+    {"word": "attract wide participation", "zh": "吸引广泛参与", "example": null}
+  ],
+  "goodPhrases": [
+    {"phrase": "promote a greener environment", "zh": "推动更环保的环境"},
+    {"phrase": "instil a sense of responsibility", "zh": "灌输责任感"},
+    {"phrase": "routine", "zh": "常规；惯例"},
+    {"phrase": "cultivate (a habit)", "zh": "培养（习惯）"},
+    {"phrase": "spur", "zh": "激励；鞭策"},
+    {"phrase": "play their part", "zh": "尽自己的一份力"},
+    {"phrase": "spotless", "zh": "一尘不染的"},
+    {"phrase": "stagnant water", "zh": "积水；死水"},
+    {"phrase": "a breeding ground for", "zh": "……的滋生地"},
+    {"phrase": "clogged drains", "zh": "堵塞的沟渠"}
+  ],
+  "gaps": [
+    "No example sentence for 'attract wide participation': the pack's sentence was scrambled in the PDF text.",
+    "None of this week's words are in the essay or its vocabulary table; all examples come from the Report pack: 'be divided into groups', 'a regular schedule', 'a rewards system', 'the whole class participated' (Q2 Clean-up table), 'finish on time' (RP5 answer, last sentence), 'provide an account of', 'outline the aims', 'put forward suggestions', 'evaluate the programme' (RP1 answer; the same sentence serves both 'outline the aims' and 'put forward suggestions').",
+    "paragraphs: the report has no To/From block; the sub-headings (Introduction, Activities Carried Out, Suggestions, Conclusion) and the 'Prepared by' lines were left out, so there are 4 body paragraphs. The doc says the date and details are invented for the model answer.",
+    "goodPhrases: rows marked (Extended) (eye-opening, a one-off event) were left out."
+  ]
+}

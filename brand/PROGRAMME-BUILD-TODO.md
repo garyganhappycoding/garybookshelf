@@ -21,20 +21,20 @@ This file is the single source of truth for unattended runs: read it first, do t
 ## Work list
 ### A. Week content (44 weeks x 2 languages), stored as data
 Format: `lib/programme/content/bi/w01.ts` ... `w44.ts` and `bm/w01.ts` ... (type `Week` in `lib/programme/week-content.ts`; week 1 BI is the finished model).
-- [ ] A0 Move BI week 1 into `lib/programme/content/bi/w01.ts` and add `getWeek(lang, n)`; keep the review page working for all weeks.
+- [x] A0 (done: lib/programme/content/index.ts getWeek, build.ts makeWeek, scripts/build-content.mjs merges raw/*.json into data.bi.json/data.bm.json; week 1 BI stays the reviewed override) Move BI week 1 into `lib/programme/content/bi/w01.ts` and add `getWeek(lang, n)`; keep the review page working for all weeks.
 - [ ] A1 BI weeks 1 to 44. Words and order: `brand/PROGRAMME-BI-VOCAB.md`. Essays: Gary's reorganised Drive folder 15igSQPwFQlLPoCzjGVjCfQoOvgQx7xOA (11 themes x 4 rounds; the theme packs are linked in the vocab file). Per week: essay text, question points, 10 words + example sentence (from the essay or the theme pack's universal phrases), quiz, highlight lists, Wed/Thu/Fri references taken from the essay.
 - [ ] A2 BM weeks 1 to 44. Words: `brand/PROGRAMME-BM-VOCAB.md`; essay text from the Malay folder 1-Dd... (see `brand/PROGRAMME-BM-VOCAB.md` links). Examples = the `ayat` column. Wed opening, Thu one isi, Fri closing = from the essay.
 - [ ] A3 Gaps list: write every week that could not be filled (missing essay, no table) to the "Gaps" section below instead of inventing content.
 
 ### B. Student UI (the real thing, not the review prototype)
-- [ ] B1 Profile column `instruction_lang` (en | zh) + switch in the settings page and on the Today page. Default zh.
-- [ ] B2 Today page renders the day card from the week content (calendar week n -> content week n, both languages the same day, 10 min each).
-- [ ] B3 Day 1: 10 sentence boxes + quiz (scored on the server against the answer key; saves quiz_correct/quiz_total and `details`).
-- [ ] B4 Day 2: tap-to-highlight, saved in `details`; answer key shown after submit.
-- [ ] B5 Days 3 to 5: one text box; the reference (from the essay) is shown only after submit.
-- [ ] B6 Saturday rest card; Sunday choice (full essay or rest).
-- [ ] B7 AI feedback prompt per day type, using the "What the AI checks" list of that day (no word-count checks).
-- [ ] B8 Everything saves to programme_submissions (+ answer log) and shows on /admin/programme-performance.
+- [~] B1 (done: column + switch on the Today page; TODO: switch also in settings page) Profile column `instruction_lang` (en | zh) + switch in the settings page and on the Today page. Default zh.
+- [x] B2 Today page renders the day card from the week content (calendar week n -> content week n, both languages the same day, 10 min each).
+- [x] B3 Day 1: 10 sentence boxes + quiz (scored on the server against the answer key; saves quiz_correct/quiz_total and `details`).
+- [x] B4 Day 2: tap-to-highlight, saved in `details`; answer key shown after submit.
+- [x] B5 Days 3 to 5: one text box; the reference (from the essay) is shown only after submit.
+- [x] B6 Saturday rest card; Sunday choice (full essay or rest).
+- [x] B7 AI feedback prompt per day type, using the "What the AI checks" list of that day (no word-count checks).
+- [x] B8 Everything saves to programme_submissions (+ answer log) and shows on /admin/programme-performance.
 
 ### C. Test run (do it yourself and fix what breaks)
 - [ ] C1 Throw-away student with a confirmed place: go through a full week in the browser (desktop + mobile width), both languages, both instruction languages. Check saved rows, AI feedback, performance page.
@@ -43,10 +43,17 @@ Format: `lib/programme/content/bi/w01.ts` ... `w44.ts` and `bm/w01.ts` ... (type
 - [ ] C4 Write `brand/PROGRAMME-MORNING-REPORT.md`: what works, what does not, what Gary should test first, every gap.
 
 ## Gaps (fill in as you find them)
-- (none yet)
+- Raw extraction status: run `ls lib/programme/content/raw` then `node scripts/build-content.mjs`. Agents were still running when this was written; BI weeks of themes 1-6 (weeks 1-6,12-17,23-28,34-39) and BM weeks 26-44 may be missing: re-run the extraction for missing weeks per brand/PROGRAMME-CONTENT-SPEC.md.
+- THEME ORDER MISMATCH: calendar.ts THEMES puts Teenagers (7) before Travel (8); the BI vocab file puts Travel at weeks 7/18/29/40 and Teenagers at 8/19/30/41. The student Today page uses the content theme (correct). CalendarView / week list still use calendar.ts themeOf: change it to the content's theme names.
+- BM week 4 (Sukan): no content. BM week 3/22 (Kebersihan): examples are near matches (see its gaps).
+- Many BI words have no example sentence (pack PDFs scrambled by watermark): see each raw file's `gaps`. The Monday table shows a blank example for those.
+- BI essays chosen by agents for Review/Report/Story and Travel/Teenagers: Gary should check the choices (listed in each raw file's gaps).
+- BM key paragraph (keyPoint.idx) is a guess for most weeks (first body paragraph); BM week 14 may need idx 4.
+- Admin-only: Today page accepts ?date=YYYY-MM-DD for the admin to walk through days (students always get the real date).
 
 ## Progress log (newest first, one line per run)
+- 2026-11-24 01:45 generator, student Today UI (Day 1 sentences+quiz, Day 2 highlight, text days, language toggle, saving) built and tested in the browser as an admin test user (Mon, Tue pass). Remaining: finish extraction, test Wed to Sun + BM + mobile, settings switch, calendar theme names, cleanup test user ui-test-*, morning report.
 - 2026-11-23 23:45 spec written (brand/PROGRAMME-CONTENT-SPEC.md); 7 extraction agents launched, writing lib/programme/content/raw/*.json (bi-wNN.json, bm-wNN.json). Next: A0 generator + B student UI while they run.
 - 2026-11-23 23:25 list created. Nothing built yet.
 
-RUNNING: 2026-11-23 23:40 (interactive session, extraction agents running)
+RUNNING: no

@@ -1,0 +1,100 @@
+{
+  "n": 10,
+  "lang": "bm",
+  "theme": "Kebudayaan dan Makanan",
+  "level": null,
+  "essayTitle": "Usaha-Usaha untuk Mempopularkan Makanan Tradisional",
+  "source": null,
+  "essayUrl": "https://docs.google.com/document/d/1kHNMQJhQRoIt2rrYhQYg1rAiahm05OXmDco1FQMhtJg/edit",
+  "paragraphs": [
+    "Apabila berbicara tentang makanan yang paling sedap, Malaysia pasti menjadi salah satu negara yang paling terkenal kerana negara kita terdiri daripada pelbagai kaum dan kebudayaan yang unik. Sebenarnya, Malaysia digelar sebagai syurga makanan. Sebagai contohnya, kaum Melayu ada karipap, kaum India ada tose, kaum Cina pula ada kuih bulan. Kerencaman makanan daripada setiap kaum telah menarik kedatangan pelancong asing sehingga nama Malaysia terkenal sebagai destinasi pelancongan gastronomi. Oleh itu, kita sebagai rakyat perlu mencurahkan inisiatif yang istiqamah untuk mempopularkan makanan tradisonal sekali gus memomentumkan ekonomi.",
+    "Daya inovasi dan kreativiti diperlukan untuk mempopularkan makanan tradisional. Pembungkusan hidangan secara kreatif dapat menarik perhatian pelanggan selagi rasa dan keenakan makanan tersebut dikekalkan. Sebagai contohnya, pembungkusan kuih dodol yang eksklusif dapat dijadikan cenderamata kepada rakan atau saudara mara yang datang dari negara asing. Dengan ini, rakyat dari negara asal berpeluang untuk mencuba makanan tradisional di Malaysia yang sedap sehingga menjilat jari kerana tak kenal maka tak cinta. Tambahan pula, makanan tradisional akan semakin popular selepas dipromosikan di pentas antarabangsa. Jadi, rakyat dapat menjamu selera makanan ala Barat sambil menikmati makanan sajian tradisional bak kata peribahasa \"yang lama dikelek, yang baru didukung\". Tegasnya, pembungkusan yang inovatif dapat mempopularkan makanan tradisional.",
+    "Selain itu, pihak pengusaha makanan tradisional perlu mempromosikan produk makanan tradisional di Malaysia dengan menjalinkan kerjasama dengan pempengaruh. Pengusaha makanan yang menghidu peluang perniagaan akan mencari platform yang sesuai pada peringkat domestik dan antarabangsa untuk membuat publisiti tentang produk makanan keluaran mereka. Sebagai contohnya, pengusaha makanan tradisional dapat mencari pempengaruh untuk memperkenalkan makan tradisional dengan membuat vlog. Melalui demonstrasi penyediaan makanan tradisional dan gambar-gambar makanan tradisional dapat dipopularkan dan mampu bersaing secara kompetitif pada peringkat antarabangsa mahupun peringkat rantau yang sama. Bulan kian terang, bayang kian suluh bahawa pihak pengusaha dapat menjalinkan kerjasama dengan pempengaruh untuk mempromosikan makanan tradisional agar masyarakat terutamanya golongan muda dapat mengenali warisan budaya mereka",
+    "Akhirnya, penggunaan alat-alat teknologi juga perlu diimplementasikan untuk meningkatkan kualiti makanan tradisional. Pengusaha makanan tradisional dapat menggunakan jentera dan mesin canggih untuk meningkatkan kualiti dan kuantiti produk. Pengusaha makanan tradisional perlu menjalankan anjakan paradigma dengan mengaplikasikan penggunaan mesin berteknologi tinggi untuk membuat kuih dodol. Secara tidak langsung, proses pembuatan dapat dipercepat dan kualiti dan keselamatan makanan juga terjamin. Produktiviti yang meningkat juga dapat memenuhi permintaan pasaran tempatan sehingga menembusi pasaran global. Jadi, makanan tradisional akan menjadi popular dan melangkaui pasaran global dengan penggunaan alat-alat teknologi yang moden.",
+    "Tuntasnya, pelbagai usaha perlu direncanakan dan diimplementasikan untuk mempopularkan makanan tradisional. Ingatlah bahawa beraneka makanan tradisional merupakan aset yang tidak ternilai untuk menarik pelancong dan memajukan bidang pelancongan. Jadi, masyarakat perlu bekerjasama untuk mempopularkan status makanan tradisional. Biarlah kita genggam bara api, biar sampai jadi arang agar makanan tradisional tidak lenyap ditelan oleh zaman. Dengan ini, makanan tradisional dapat dinikmati oleh masyarakat empat pelosok dunia ini."
+  ],
+  "points": [],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "destinasi pelancongan gastronomi",
+      "zh": "美食旅游目的地",
+      "example": "Kerencaman makanan daripada setiap kaum telah menarik kedatangan pelancong asing sehingga nama Malaysia terkenal sebagai destinasi pelancongan gastronomi."
+    },
+    {
+      "word": "mencurahkan inisiatif yang istiqamah",
+      "zh": "持续付出努力",
+      "example": "Oleh itu, kita sebagai rakyat perlu mencurahkan inisiatif yang istiqamah untuk mempopularkan makanan tradisonal sekali gus memomentumkan ekonomi."
+    },
+    {
+      "word": "memomentumkan ekonomi",
+      "zh": "推动经济",
+      "example": "Oleh itu, kita sebagai rakyat perlu mencurahkan inisiatif yang istiqamah untuk mempopularkan makanan tradisonal sekali gus memomentumkan ekonomi."
+    },
+    {
+      "word": "Daya inovasi dan kreativiti",
+      "zh": "创新与创意能力",
+      "example": "Daya inovasi dan kreativiti diperlukan untuk mempopularkan makanan tradisional."
+    },
+    {
+      "word": "Pembungkusan hidangan secara kreatif",
+      "zh": "创意包装菜肴",
+      "example": "Pembungkusan hidangan secara kreatif dapat menarik perhatian pelanggan selagi rasa dan keenakan makanan tersebut dikekalkan."
+    },
+    {
+      "word": "dipromosikan di pentas antarabangsa",
+      "zh": "在国际舞台上推广",
+      "example": "Tambahan pula, makanan tradisional akan semakin popular selepas dipromosikan di pentas antarabangsa."
+    },
+    {
+      "word": "menjalinkan kerjasama dengan pempengaruh",
+      "zh": "与网红建立合作关系",
+      "example": "Selain itu, pihak pengusaha makanan tradisional perlu mempromosikan produk makanan tradisional di Malaysia dengan menjalinkan kerjasama dengan pempengaruh."
+    },
+    {
+      "word": "menghidu peluang perniagaan",
+      "zh": "嗅到商机",
+      "example": "Pengusaha makanan yang menghidu peluang perniagaan akan mencari platform yang sesuai pada peringkat domestik dan antarabangsa untuk membuat publisiti tentang produk makanan keluaran mereka."
+    },
+    {
+      "word": "membuat publisiti",
+      "zh": "进行宣传",
+      "example": "Pengusaha makanan yang menghidu peluang perniagaan akan mencari platform yang sesuai pada peringkat domestik dan antarabangsa untuk membuat publisiti tentang produk makanan keluaran mereka."
+    },
+    {
+      "word": "bersaing secara kompetitif",
+      "zh": "具有竞争力地竞争",
+      "example": "Melalui demonstrasi penyediaan makanan tradisional dan gambar-gambar makanan tradisional dapat dipopularkan dan mampu bersaing secara kompetitif pada peringkat antarabangsa mahupun peringkat rantau yang sama."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "menjilat jari kerana tak kenal maka tak cinta",
+      "zh": "赞不绝口，且因了解而喜爱"
+    },
+    {
+      "phrase": "yang lama dikelek, yang baru didukung",
+      "zh": "不忘旧，也迎新"
+    },
+    {
+      "phrase": "Bulan kian terang, bayang kian suluh",
+      "zh": "真相愈发明朗清晰"
+    },
+    {
+      "phrase": "genggam bara api, biar sampai jadi arang",
+      "zh": "一不做二不休，坚持到底"
+    }
+  ],
+  "gaps": [
+    "keyPoint.prompt is null (no Question Analysis table); level and source are null"
+  ]
+}
