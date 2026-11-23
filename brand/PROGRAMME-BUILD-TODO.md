@@ -52,6 +52,7 @@ Format: `lib/programme/content/bi/w01.ts` ... `w44.ts` and `bm/w01.ts` ... (type
 - Admin-only: Today page accepts ?date=YYYY-MM-DD for the admin to walk through days (students always get the real date).
 
 ## Progress log (newest first, one line per run)
+- 2026-11-24 02:10 tested as admin test user: BI wk1 Mon (10 sentences + quiz 9/10 + AI), Tue (highlight, saved), BI wk7 Wed (generated week, AI), BM wk1 Wed (generated). Test user and rows deleted. AI task now includes the week's 10 words. Still to test: Thu/Fri/Sun, mobile width, Chinese/English toggle click, calendar theme names.
 - 2026-11-24 01:45 generator, student Today UI (Day 1 sentences+quiz, Day 2 highlight, text days, language toggle, saving) built and tested in the browser as an admin test user (Mon, Tue pass). Remaining: finish extraction, test Wed to Sun + BM + mobile, settings switch, calendar theme names, cleanup test user ui-test-*, morning report.
 - 2026-11-23 23:45 spec written (brand/PROGRAMME-CONTENT-SPEC.md); 7 extraction agents launched, writing lib/programme/content/raw/*.json (bi-wNN.json, bm-wNN.json). Next: A0 generator + B student UI while they run.
 - 2026-11-23 23:25 list created. Nothing built yet.

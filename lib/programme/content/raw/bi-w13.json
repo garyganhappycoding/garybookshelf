@@ -1,0 +1,156 @@
+{
+  "n": 13,
+  "lang": "bi",
+  "theme": "Environment",
+  "level": "B2 to C1",
+  "essayTitle": "Going Green, One Step at a Time",
+  "source": "Negeri Sembilan 2026 · Paper 2 · Part 3 Q5 · Article, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1BXjyXOs1EdkSQA_YX40fpualDjD2OWRiw2g47Xl5z6E/edit",
+  "paragraphs": [
+    "Every year, our planet suffers from mountains of waste, rising temperatures and polluted oceans. However, each of us can make a difference by adopting an eco-friendly lifestyle.",
+    "Yes, I strongly believe in an eco-friendly lifestyle. One eco-friendly practice that I do is refusing single-use plastics. I always carry a reusable water bottle, a steel straw and a tote bag wherever I go. When I buy food from stalls, I bring my own container.",
+    "What inspired me to start was a documentary about marine pollution. I was heartbroken to see a sea turtle with a plastic straw stuck in its nose. Furthermore, my mother inspired me by setting a good example at home. She has been bringing her own containers to the market for years.",
+    "We should adapt to this way of life because it helps to conserve our natural resources. Reducing plastic waste means less oil is used and fewer landfills are needed. Moreover, an eco-friendly lifestyle can save us money in the long run. For instance, reusable items last for years, so we do not need to keep buying new ones.",
+    "In conclusion, protecting the Earth is not merely an option but a responsibility. Small changes today can create a greener tomorrow for future generations."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Do you believe in an eco-friendly lifestyle? Tell us about an eco-friendly practice that you do (ONE practice)"
+    },
+    {
+      "code": "C2",
+      "text": "What inspired you to start? – inspiration 1"
+    },
+    {
+      "code": "C3",
+      "text": "What inspired you to start? – inspiration 2"
+    },
+    {
+      "code": "C4",
+      "text": "Why should we adapt to this way of life? – reason 1"
+    },
+    {
+      "code": "C5",
+      "text": "Why should we adapt? – reason 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "Do you believe in an eco-friendly lifestyle? Tell us about an eco-friendly practice that you do (ONE practice)"
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "cut down on waste",
+      "zh": "减少浪费",
+      "example": "This habit helps me cut down on waste."
+    },
+    {
+      "word": "set a good example",
+      "zh": "树立好榜样",
+      "example": "Furthermore, my mother inspired me by setting a good example at home."
+    },
+    {
+      "word": "rising temperatures",
+      "zh": "气温上升",
+      "example": "Every year, our planet suffers from mountains of waste, rising temperatures and polluted oceans."
+    },
+    {
+      "word": "disposable",
+      "zh": "一次性的",
+      "example": "Disposable items are used once and thrown away."
+    },
+    {
+      "word": "lead to a cleaner environment",
+      "zh": "带来更干净的环境",
+      "example": "Eco-friendly habits lead to a cleaner and healthier environment."
+    },
+    {
+      "word": "pressing environmental problem",
+      "zh": "紧迫的环境问题",
+      "example": "Plastic pollution is a pressing environmental problem."
+    },
+    {
+      "word": "greenhouse gas emissions",
+      "zh": "温室气体排放",
+      "example": "This is because greenhouse gas emissions trap heat while deforestation removes the trees that absorb carbon."
+    },
+    {
+      "word": "minimise waste",
+      "zh": "尽量减少废物",
+      "example": "This is because it minimises the amount of waste sent to landfills."
+    },
+    {
+      "word": "conserve natural resources",
+      "zh": "保护自然资源",
+      "example": "We should adapt to this way of life because it helps to conserve our natural resources."
+    },
+    {
+      "word": "enforce stricter laws",
+      "zh": "执行更严厉的法律",
+      "example": "The authorities must enforce stricter laws."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "make a difference",
+      "zh": "带来改变"
+    },
+    {
+      "phrase": "conserve our natural resources",
+      "zh": "保护自然资源"
+    },
+    {
+      "phrase": "in the long run",
+      "zh": "从长远来看"
+    },
+    {
+      "phrase": "not merely an option but a responsibility",
+      "zh": "不仅是选择，更是责任"
+    },
+    {
+      "phrase": "future generations",
+      "zh": "子孙后代"
+    },
+    {
+      "phrase": "overwhelming",
+      "zh": "令人不知所措的"
+    },
+    {
+      "phrase": "habitats",
+      "zh": "栖息地"
+    },
+    {
+      "phrase": "single-use plastics",
+      "zh": "一次性塑料"
+    },
+    {
+      "phrase": "marine pollution",
+      "zh": "海洋污染"
+    },
+    {
+      "phrase": "setting a good example",
+      "zh": "树立好榜样"
+    },
+    {
+      "phrase": "landfills",
+      "zh": "垃圾填埋场"
+    },
+    {
+      "phrase": "reusable",
+      "zh": "可重复使用的"
+    }
+  ],
+  "gaps": [
+    "'set a good example' and 'conserve natural resources': the essay table has 'setting a good example' and 'conserve our natural resources', so those table sentences are used.",
+    "'rising temperatures' is taken from the essay's first sentence (not in its table).",
+    "'cut down on waste', 'disposable' and 'lead to a cleaner environment': no table, Universal phrase or Universal answer sentence has them, so the example is the pack's keyword sentence from the trial-paper section (section 4). 'lead to a cleaner environment' there reads 'lead to a cleaner and healthier environment'.",
+    "'minimise waste': the pack's Universal answer (E5) only has 'minimises the amount of waste', so the example has the inflected form."
+  ]
+}

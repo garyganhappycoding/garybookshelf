@@ -46,7 +46,9 @@ export function aiTask(week: Week, day: Day) {
   const steps = day.blocks.find((b) => b.type === "steps");
   const checks = day.blocks.find((b) => b.type === "checks");
   const en = (l: { en: string }) => l.en;
-  return `${day.label.en} of the week on "${week.essay}". Task: ${steps && steps.type === "steps" ? steps.items.map(en).join(" ") : ""} ` +
+  const vocab = week.days.flatMap((d) => d.blocks).find((b) => b.type === "vocab");
+  const words = vocab && vocab.type === "vocab" ? vocab.rows.map((r) => r.word.replace(/…/g, "").trim()).join("; ") : "";
+  return `This week's 10 words are: ${words}. ${day.label.en} of the week on "${week.essay}". Task: ${steps && steps.type === "steps" ? steps.items.map(en).join(" ") : ""} ` +
     `The AI should check: ${checks && checks.type === "checks" ? checks.items.map(en).join(" ") : "that the answer fits the task"} Do not check or mention word counts.`;
 }
 
