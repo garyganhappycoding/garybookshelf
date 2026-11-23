@@ -1,0 +1,162 @@
+{
+  "n": 27,
+  "lang": "bi",
+  "theme": "Finance & Consumerism",
+  "level": "C1",
+  "essayTitle": "Managing Pocket Money",
+  "source": "SPM Essay (older format, no trial paper named) · Essay on managing pocket money",
+  "essayUrl": "https://drive.google.com/file/d/1Yj48zN9bequVAN6aqWIC1u01ooz7MqgH/view",
+  "paragraphs": [
+    "Managing pocket money effectively is a crucial life skill that can benefit individuals of all ages. By learning to budget and save, one can achieve financial stability and reach personal goals. This essay will discuss the advantages of saving pocket money, the challenges encountered in the process, and strategies for promoting awareness about the importance of responsible financial management.",
+    "One of the primary benefits of saving pocket money is the development of financial literacy. By tracking income and expenses, individuals gain a better understanding of their spending habits and can make informed decisions about their finances. Additionally, saving money can provide a sense of security and reduce stress associated with unexpected expenses. In the long run, consistent savings can lead to significant financial accomplishments, such as purchasing a desired item or funding future education.",
+    "However, saving pocket money can be challenging for many people, especially young individuals who may face peer pressure to spend. Impulsive buying and the allure of instant gratification can hinder savings efforts. Furthermore, unforeseen expenses, such as medical bills or unexpected repairs, can deplete savings and make it difficult to stay on track.",
+    "To raise awareness about the importance of saving pocket money, schools and communities can play a vital role. Educational programs can be implemented to teach children and adolescents about personal finance concepts, including budgeting, saving, and investing. Additionally, financial literacy workshops and seminars can be organized for adults to help them improve their money management skills. Encouraging open discussions about finances and providing resources to support saving can also contribute to a more financially literate society.",
+    "In conclusion, saving pocket money is a valuable habit that can lead to numerous benefits, including financial security, personal satisfaction, and the development of essential life skills. While challenges may arise, overcoming them through effective strategies and education is crucial. By promoting financial literacy and fostering a culture of responsible money management, individuals can make informed decisions and achieve their financial goals."
+  ],
+  "points": [],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "splurge on",
+      "zh": "挥霍在……上",
+      "example": null
+    },
+    {
+      "word": "fuel consumerism",
+      "zh": "助长消费主义",
+      "example": "Advertising and peer pressure fuel consumerism."
+    },
+    {
+      "word": "flaunt the latest products",
+      "zh": "炫耀最新产品",
+      "example": "This is because attractive ads create the desire to buy and friends flaunt the latest products."
+    },
+    {
+      "word": "make a realistic budget",
+      "zh": "制定切实的预算",
+      "example": "The best solution is to make a realistic budget."
+    },
+    {
+      "word": "prioritise our needs",
+      "zh": "优先考虑需求",
+      "example": "This is because it helps us prioritise our needs."
+    },
+    {
+      "word": "raise financial awareness",
+      "zh": "提高理财意识",
+      "example": "The results will help us raise financial awareness."
+    },
+    {
+      "word": "wise money habits",
+      "zh": "明智的理财习惯",
+      "example": "I firmly believe that wise money habits start young."
+    },
+    {
+      "word": "think before we spend",
+      "zh": "花钱前先想一想",
+      "example": "Therefore, we should think before we spend, because a penny saved is a penny earned."
+    },
+    {
+      "word": "with the aim of",
+      "zh": "目的是",
+      "example": null
+    },
+    {
+      "word": "gain insight",
+      "zh": "深入了解",
+      "example": "We wanted to gain insight into how pupils use their money."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "a crucial life skill",
+      "zh": "关键的生活技能"
+    },
+    {
+      "phrase": "financial stability",
+      "zh": "财务稳定"
+    },
+    {
+      "phrase": "reach personal goals",
+      "zh": "实现个人目标"
+    },
+    {
+      "phrase": "development of financial literacy",
+      "zh": "财务素养的培养"
+    },
+    {
+      "phrase": "tracking income and expenses",
+      "zh": "记录收入和支出"
+    },
+    {
+      "phrase": "spending habits",
+      "zh": "消费习惯"
+    },
+    {
+      "phrase": "make informed decisions",
+      "zh": "做出明智的决定"
+    },
+    {
+      "phrase": "sense of security",
+      "zh": "安全感"
+    },
+    {
+      "phrase": "reduce stress",
+      "zh": "减轻压力"
+    },
+    {
+      "phrase": "significant financial accomplishments",
+      "zh": "重要的财务成就"
+    },
+    {
+      "phrase": "peer pressure",
+      "zh": "同伴压力"
+    },
+    {
+      "phrase": "impulsive buying",
+      "zh": "冲动购物"
+    },
+    {
+      "phrase": "instant gratification",
+      "zh": "即时满足"
+    },
+    {
+      "phrase": "unforeseen expenses",
+      "zh": "意外开支"
+    },
+    {
+      "phrase": "financial literacy workshops",
+      "zh": "财务素养讲座"
+    },
+    {
+      "phrase": "money management skills",
+      "zh": "理财技能"
+    },
+    {
+      "phrase": "open discussions about finances",
+      "zh": "关于理财的开放讨论"
+    },
+    {
+      "phrase": "financially literate society",
+      "zh": "具备财务素养的社会"
+    },
+    {
+      "phrase": "responsible money management",
+      "zh": "负责任的理财方式"
+    }
+  ],
+  "gaps": [
+    "'splurge on' and 'with the aim of' have no usable example sentence: in the Finance & Consumerism theme pack they appear only in scrambled text (answer F4) or as an unfinished sentence ('The survey was done with the aim of ...').",
+    "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
+    "None of the 10 words appears in this essay's vocabulary table; examples come from the Finance & Consumerism theme pack (Universal answers F5, F7, F11 and trial-paper sentences). The sentence for 'gain insight' was rebuilt from the scrambled trial-paper text; please check it."
+  ]
+}

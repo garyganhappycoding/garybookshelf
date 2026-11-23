@@ -1,0 +1,72 @@
+{
+  "n": 25,
+  "lang": "bi",
+  "theme": "Health & Sports",
+  "level": "C1",
+  "essayTitle": null,
+  "source": null,
+  "essayUrl": null,
+  "paragraphs": [],
+  "points": [],
+  "openingIdx": [],
+  "keyPoint": null,
+  "closingIdx": [],
+  "words": [
+    {
+      "word": "reduce the risk of chronic diseases",
+      "zh": "降低慢性病风险",
+      "example": "As a result, we reduce the risk of chronic diseases such as diabetes and maintain a healthy weight."
+    },
+    {
+      "word": "build resilience",
+      "zh": "培养抗挫力",
+      "example": "As a result, students develop leadership skills and build resilience."
+    },
+    {
+      "word": "prone to obesity",
+      "zh": "容易肥胖",
+      "example": "As a result, they gain excess weight, become prone to obesity and lack energy."
+    },
+    {
+      "word": "gain excess weight",
+      "zh": "体重过重",
+      "example": "As a result, they gain excess weight, become prone to obesity and lack energy."
+    },
+    {
+      "word": "high in sugar and fat",
+      "zh": "高糖高脂",
+      "example": "This is because fast food is cheap and high in sugar and fat."
+    },
+    {
+      "word": "consume excessive sugar",
+      "zh": "摄入过量糖分",
+      "example": "For example, a student who drinks sweet drinks every day consumes far too much sugar."
+    },
+    {
+      "word": "adopt a balanced diet",
+      "zh": "采取均衡饮食",
+      "example": "We should adopt a balanced diet."
+    },
+    {
+      "word": "vital for our well-being",
+      "zh": "对我们的健康至关重要",
+      "example": "Good sleep is vital for our well-being."
+    },
+    {
+      "word": "avoid burnout",
+      "zh": "避免过度疲劳",
+      "example": "As a result, we avoid burnout, think more clearly and maintain a healthy routine."
+    },
+    {
+      "word": "greatest asset",
+      "zh": "最大的财富",
+      "example": "I firmly believe that health is our greatest asset."
+    }
+  ],
+  "goodPhrases": [],
+  "gaps": [
+    "no distinct essay left for this round",
+    "The Health folder has only 2 essays in the new or study-bundle format (SBP Popularity of Sports, Health 01); both are used in weeks 3 and 14. Three older .docx drafts remain unused (SPM Essay_ The Importance of Keeping Healthy, Healthy Downtime, Sports and Participation).",
+    "Examples are the Health & Sports pack's Universal answers (H1, H2, H4, H5, H7, H9, H11). 'consume excessive sugar': the answer (H5) says 'consumes far too much sugar', a related sentence rather than the exact phrase."
+  ]
+}
