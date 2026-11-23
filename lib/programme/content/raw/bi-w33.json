@@ -1,0 +1,53 @@
+{
+  "n": 33, "lang": "bi",
+  "theme": "Story",
+  "level": "C1",
+  "essayTitle": "The House at the Edge of the Village",
+  "source": "SPM 2026 Trial · Perlis · English Paper 2 · Part 3 Q5 · Story, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1umexjD6RYv_4vkAuPFvRMDYy8_MGGQTb-fPPbuPHkBM/edit",
+  "paragraphs": [
+    "The old wooden house at the edge of Kampung Sena had been abandoned for decades. The village elders had always warned us never to go near it, but one evening, curiosity got the better of my friends and me.",
+    "As we stepped inside, the floorboards creaked eerily beneath our feet. Suddenly, the front door slammed shut behind us, and a cold gust of wind blew out our torches. In the pitch darkness, we heard faint whispers coming from the room upstairs.",
+    "Trembling, we switched on our phone lights and saw an old shrine covered with flowers and burning incense. Someone was still tending to it. As Faiz stepped back in fright, the rotten floor gave way, and he fell through up to his waist.",
+    "That night taught me that we must respect places that are sacred to the local community. The house was not merely an empty building but a place where the villagers still honoured their ancestors. Furthermore, I learnt that the advice of our elders is rooted in wisdom and experience. Their warnings were not mere superstition, as the decaying house was truly dangerous.",
+    "We pulled Faiz out and fled without looking back. As we stood at the edge of the village, in that chilling silence, I finally understood why the elders warned us not to go there."
+  ],
+  "points": [
+    {"code": "C1", "text": "describe what happened that scared you and the group – event 1"},
+    {"code": "C2", "text": "what happened that scared you – event 2"},
+    {"code": "C3", "text": "share what you learned about respecting local culture and traditions – lesson 1"},
+    {"code": "C4", "text": "what you learned – lesson 2"}
+  ],
+  "openingIdx": [0],
+  "keyPoint": {"idx": 1, "prompt": "describe what happened that scared you and the group – event 1"},
+  "closingIdx": [4],
+  "words": [
+    {"word": "my voice trembling", "zh": "声音颤抖", "example": "\"Who is there?\" I whispered, my voice trembling."},
+    {"word": "lower my guard", "zh": "放松戒备", "example": "As a result, I let out a sigh of relief and lowered my guard."},
+    {"word": "come to a head", "zh": "到了紧要关头", "example": null},
+    {"word": "seize the chance", "zh": "抓住机会", "example": null},
+    {"word": "a split-second decision", "zh": "瞬间的决定", "example": null},
+    {"word": "dash down the stairs", "zh": "冲下楼梯", "example": "We dashed down the stairs and ducked behind a wall."},
+    {"word": "duck behind", "zh": "躲在……后面", "example": "We dashed down the stairs and ducked behind a wall."},
+    {"word": "gasp for breath", "zh": "喘着气", "example": "Gasping for breath, we clutched each other's hands."},
+    {"word": "change me forever", "zh": "永远改变了我", "example": "The experience changed me forever."},
+    {"word": "open my eyes to", "zh": "让我看清……", "example": "This is because it opened my eyes to the value of family and kindness."}
+  ],
+  "goodPhrases": [
+    {"phrase": "curiosity got the better of", "zh": "好奇心占了上风"},
+    {"phrase": "eerily", "zh": "怪异地；阴森地"},
+    {"phrase": "pitch darkness", "zh": "漆黑一片"},
+    {"phrase": "gave way", "zh": "塌陷；断裂"},
+    {"phrase": "rooted in wisdom and experience", "zh": "源于智慧和经验"},
+    {"phrase": "sacred", "zh": "神圣的"},
+    {"phrase": "honoured their ancestors", "zh": "缅怀祖先"},
+    {"phrase": "superstition", "zh": "迷信"},
+    {"phrase": "decaying", "zh": "腐朽的"}
+  ],
+  "gaps": [
+    "No example sentence for 'come to a head', 'seize the chance', 'a split-second decision': the pack's ST6 sentences were scrambled in the PDF text, and none of these is in the essay.",
+    "None of this week's words are in the essay or its vocabulary table. All examples come from the Story pack answers: ST5 ('my voice trembling', 'lower my guard'), ST7 ('dash down the stairs' and 'duck behind' share one sentence; 'gasp for breath' appears as 'Gasping for breath'), ST9 ('change me forever' appears as 'changed me forever', 'open my eyes to' as 'opened my eyes to').",
+    "The question's required last line is the last sentence of the final paragraph; the Question Analysis row for it has no C code, so it is not in points.",
+    "goodPhrases: rows marked (Extended) (musty smell, creeping vines, trespassed) were left out."
+  ]
+}

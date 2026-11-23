@@ -1,0 +1,52 @@
+{
+  "n": 42, "lang": "bi",
+  "theme": "Review",
+  "level": "C1",
+  "essayTitle": "A Night of Music to Remember",
+  "source": "SPM 2026 Trial · Kelantan · English Paper 2 · Part 3 Q5 · Review, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1FfCKsP7jvbkOH32UbXFHbZCsaYOukEK3wAmlgaTRiV0/edit",
+  "paragraphs": [
+    "Have you ever felt music so powerful that it gave you goosebumps? Last month, I attended a live performance that did exactly that, and I would like to share my experience.",
+    "The performer was the Malaysian Philharmonic Orchestra. It was an orchestral concert held at Dewan Filharmonik Petronas in Kuala Lumpur. The programme featured classical masterpieces as well as beloved Malaysian folk songs arranged for the orchestra.",
+    "I thoroughly enjoyed the performance because the musicians played with remarkable precision and passion. Every instrument blended seamlessly, creating a rich and powerful sound. Furthermore, the medley of Malaysian folk songs touched my heart. Hearing familiar tunes such as \"Rasa Sayang\" played by a full orchestra filled me with a deep sense of pride.",
+    "Moreover, the atmosphere in the concert hall was simply magical. The elegant hall had excellent acoustics, so even the softest notes could be heard clearly. The audience sat in pin-drop silence throughout each piece. When the final piece ended, the audience rose to their feet and gave a standing ovation.",
+    "In a nutshell, it was an unforgettable evening that I would recommend to anyone. Even if you are not a fan of classical music, this experience may change your mind."
+  ],
+  "points": [
+    {"code": "C1", "text": "Who was the performer?"},
+    {"code": "C2", "text": "What kind of performance was it?"},
+    {"code": "C3", "text": "Did you enjoy the performance? Why? – reason 1"},
+    {"code": "C4", "text": "Why? – reason 2"},
+    {"code": "C5", "text": "Why? – reason 3"}
+  ],
+  "openingIdx": [0],
+  "keyPoint": {"idx": 2, "prompt": "Did you enjoy the performance? Why? – reason 1"},
+  "closingIdx": [4],
+  "words": [
+    {"word": "satisfy your cravings", "zh": "满足你的渴望", "example": "This dish will satisfy your cravings."},
+    {"word": "captivating", "zh": "迷人的", "example": "The performance was truly captivating."},
+    {"word": "an electrifying atmosphere", "zh": "令人兴奋的气氛", "example": "The hall had an electrifying atmosphere."},
+    {"word": "a renowned artist", "zh": "知名艺术家", "example": "A renowned artist headlined the event."},
+    {"word": "showcase their talent", "zh": "展示他们的才华", "example": "The students showcased their talent."},
+    {"word": "appeal to all ages", "zh": "适合所有年龄", "example": "The show appeals to all ages."},
+    {"word": "a hassle-free visit", "zh": "无麻烦的游览", "example": "The visit was hassle-free because everything is in one place."},
+    {"word": "a gripping storyline", "zh": "引人入胜的故事情节", "example": "It has a gripping storyline."},
+    {"word": "a thought-provoking plot", "zh": "发人深省的情节", "example": "The thought-provoking plot stays in your mind."},
+    {"word": "vivid illustrations", "zh": "生动的插图", "example": "The vivid illustrations bring the story to life."}
+  ],
+  "goodPhrases": [
+    {"phrase": "gave you goosebumps", "zh": "让你起鸡皮疙瘩"},
+    {"phrase": "masterpieces", "zh": "杰作"},
+    {"phrase": "remarkable precision and passion", "zh": "非凡的精准与热情"},
+    {"phrase": "pin-drop silence", "zh": "鸦雀无声"},
+    {"phrase": "standing ovation", "zh": "起立鼓掌"},
+    {"phrase": "blended seamlessly", "zh": "完美融合"},
+    {"phrase": "medley", "zh": "混合曲；组曲"},
+    {"phrase": "acoustics", "zh": "音响效果"}
+  ],
+  "gaps": [
+    "No word of this week appears in the essay or its vocabulary table; 'captivating' is in the other (Johor movie) essay only.",
+    "All examples come from the Review pack tables (Q1 Popular Food, Q2 Shopping Mall, Q3 Live Performance, Q6 Local Movie, Q7 Comic Book), not from the Universal phrases section; the Q2 sentence for 'a hassle-free visit' reads 'The visit was hassle-free because …'.",
+    "goodPhrases: rows marked (Extended) (spellbound, wholeheartedly, a blend of East and West, heritage) were left out."
+  ]
+}

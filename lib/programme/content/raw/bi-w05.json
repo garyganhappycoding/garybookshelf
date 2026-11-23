@@ -1,0 +1,167 @@
+{
+  "n": 5,
+  "lang": "bi",
+  "theme": "Finance & Consumerism",
+  "level": "B2",
+  "essayTitle": "Teenagers and the Allure of Luxury",
+  "source": "SPM Essay (Final Clean Version) · no trial paper named",
+  "essayUrl": "https://docs.google.com/document/d/1QtayMuCvnTRSehhqlXrscMKkX6pKbpebOURrlHNAyXg/edit",
+  "paragraphs": [
+    "Teenagers are frequently easily influenced by advertisements that promote a luxurious lifestyle, often equating expensive brands with personal worth. This essay explores my personal experience with branded purchases, the drawbacks of unnecessary spending, and strategies for smart consumption.",
+    "I recently gave in to the pressure and bought a designer backpack. I felt a quick rush of social validation when my friends praised it, but the high price tag caused immediate financial strain. I soon realised that the bag didn't make me any happier or more capable; it was simply a showy extra.",
+    "The disadvantages of buying unnecessary items are significant. Firstly, it quickly depletes savings that could be used for education or genuine needs. Secondly, chasing trends leads to always wanting more, as the next 'must-have' item quickly replaces the old one. This focus on materialism distracts us from building character and essential life skills.",
+    "To be a smart consumer, we must adopt careful habits. The first step is to differentiate between needs and wants by using a \"cooling-off\" period before making large purchases. Secondly, always research alternatives and seek value over status. Finally, teenagers should prioritize saving and investing, recognizing that financial stability is far more valuable than temporary social approval.",
+    "In conclusion, the temptation of buying stylish brands is powerful, but the long-term cost is too high. We must choose saving money instead of following fashion, teaching ourselves to prioritize financial security and self-worth over brand labels. By making smart, careful choices today, we secure a brighter, more stable future."
+  ],
+  "points": [],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "money does not grow on trees",
+      "zh": "钱不是大风刮来的",
+      "example": "Money does not grow on trees, yet many teenagers spend carelessly."
+    },
+    {
+      "word": "live within our means",
+      "zh": "量入为出",
+      "example": "As a result, we spend wisely, avoid wasting money and live within our means."
+    },
+    {
+      "word": "go on a shopping spree",
+      "zh": "疯狂购物",
+      "example": "Some teenagers go on a shopping spree the moment they get their allowance."
+    },
+    {
+      "word": "keep track of spending",
+      "zh": "记录开销",
+      "example": "A budgeting app helps us keep track of our spending."
+    },
+    {
+      "word": "save for a rainy day",
+      "zh": "未雨绸缪、存钱备用",
+      "example": "This article explains what influences our spending and how we can save for a rainy day."
+    },
+    {
+      "word": "distinguish between needs and wants",
+      "zh": "分清需要与想要",
+      "example": "Teenagers must learn to distinguish between needs and wants."
+    },
+    {
+      "word": "make informed decisions",
+      "zh": "做出明智决定",
+      "example": "Reading reviews helps us make informed decisions."
+    },
+    {
+      "word": "too good to be true",
+      "zh": "好得令人难以置信",
+      "example": "If a deal seems too good to be true, it probably is."
+    },
+    {
+      "word": "fall into the debt trap",
+      "zh": "陷入债务陷阱",
+      "example": "Buy-now-pay-later plans can make teenagers fall into the debt trap."
+    },
+    {
+      "word": "a penny saved is a penny earned",
+      "zh": "省一分就是赚一分",
+      "example": "Remember, a penny saved is a penny earned."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "easily influenced",
+      "zh": "容易受影响的"
+    },
+    {
+      "phrase": "quick rush",
+      "zh": "快速的冲动/激增"
+    },
+    {
+      "phrase": "showy extra",
+      "zh": "炫耀的附加品"
+    },
+    {
+      "phrase": "always wanting more",
+      "zh": "总是想要更多"
+    },
+    {
+      "phrase": "careful habits",
+      "zh": "谨慎的习惯"
+    },
+    {
+      "phrase": "saving money instead of following fashion",
+      "zh": "节约而非跟随潮流"
+    },
+    {
+      "phrase": "luxurious lifestyle",
+      "zh": "奢华的生活方式"
+    },
+    {
+      "phrase": "financial strain",
+      "zh": "财务紧张/负担"
+    },
+    {
+      "phrase": "depletes savings",
+      "zh": "耗尽储蓄"
+    },
+    {
+      "phrase": "differentiate between needs and wants",
+      "zh": "区分需求和欲望"
+    },
+    {
+      "phrase": "cooling-off period",
+      "zh": "冷静期"
+    },
+    {
+      "phrase": "value over status",
+      "zh": "价值重于地位"
+    },
+    {
+      "phrase": "financial stability",
+      "zh": "财务稳定"
+    },
+    {
+      "phrase": "social approval",
+      "zh": "社会认可"
+    },
+    {
+      "phrase": "self-worth",
+      "zh": "自我价值"
+    },
+    {
+      "phrase": "materialism",
+      "zh": "物质主义"
+    },
+    {
+      "phrase": "essential life skills",
+      "zh": "基本生活技能"
+    },
+    {
+      "phrase": "chasing trends",
+      "zh": "追逐潮流"
+    },
+    {
+      "phrase": "unnecessary spending",
+      "zh": "不必要的消费"
+    },
+    {
+      "phrase": "smart consumption",
+      "zh": "精明的消费"
+    }
+  ],
+  "gaps": [
+    "The Drive doc (Finance 01) has no exam question, no Question Analysis table and no Exam Version, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
+    "The Finance & Consumerism folder has no essay in the Question Analysis format; weeks 5, 16, 27 and 38 use its four essays in the order Finance 01, Teenagers and Money (Article 07), Managing Pocket Money, Beware When Spending.",
+    "Only 'differentiate between needs and wants' (a similar phrase to the week word 'distinguish between needs and wants') appears in the essay's own table; all 10 examples come from the Finance & Consumerism theme pack (Universal phrases, Universal answer F2 and the Universal opening).",
+    "The watermarked pack PDF is scrambled: the sentences for 'go on a shopping spree', 'keep track of spending' and 'distinguish between needs and wants' were rebuilt from the scrambled text of Universal phrases 3 to 6. Please check them."
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "n": 2,
+  "lang": "bi",
+  "theme": "Environment",
+  "level": "B2",
+  "essayTitle": "Technology Alone Cannot Save Our Planet",
+  "source": "Perlis 2026 · Paper 2 · Part 3 Q4 · Article, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1E8cDSzEn_PO1jgTyn6MOARsmoseSgZvJf4GaunuSVaM/edit",
+  "paragraphs": [
+    "Environmental problems are getting worse every year. While technology offers promising solutions, I believe it cannot save our planet without changes in human behaviour.",
+    "One environmental problem faced today is plastic pollution. Millions of tonnes of plastic waste end up in our oceans every year, choking marine life and contaminating the food chain. Even our own beaches in Perlis are often littered with plastic bottles after the monsoon season.",
+    "This problem is happening mainly because of our throwaway culture. Many people use single-use plastics for convenience and discard them after just a few minutes. Furthermore, poor waste management systems worsen the situation. In many areas, rubbish is not properly collected or recycled, so it often ends up in rivers and seas.",
+    "Technology can help solve environmental problems by creating eco-friendly alternatives. For example, scientists have developed biodegradable packaging made from plant materials that decomposes within months. Moreover, smart recycling machines can make waste management more efficient. Some machines even reward users with points for every bottle they recycle, encouraging good habits.",
+    "In conclusion, technology is a powerful tool, but it is not a magic wand. Only when innovation goes hand in hand with responsible behaviour can we truly protect our planet for generations to come."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "describe an environmental problem faced today (ONE problem)"
+    },
+    {
+      "code": "C2",
+      "text": "give reasons why this problem is happening – reason 1"
+    },
+    {
+      "code": "C3",
+      "text": "reasons – reason 2"
+    },
+    {
+      "code": "C4",
+      "text": "explain how technology can help solve environmental problems – way 1"
+    },
+    {
+      "code": "C5",
+      "text": "how technology can help – way 2"
+    },
+    {
+      "code": "Stand",
+      "text": "\"expressing your opinion on this issue\" – state your view"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "describe an environmental problem faced today (ONE problem)"
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "… has become a growing concern in recent years",
+      "zh": "……近年来已成为日益严重的问题",
+      "example": "Littering has become a growing concern in recent years."
+    },
+    {
+      "word": "the primary cause of … is …",
+      "zh": "……的主要原因是……",
+      "example": "The primary cause of extreme heat is climate change."
+    },
+    {
+      "word": "… has devastating consequences",
+      "zh": "……带来毁灭性的后果",
+      "example": "Deforestation has devastating consequences for wildlife."
+    },
+    {
+      "word": "on the brink of extinction",
+      "zh": "濒临灭绝",
+      "example": "Many orangutans are on the brink of extinction."
+    },
+    {
+      "word": "reduce, reuse and recycle",
+      "zh": "减少、重复使用、回收",
+      "example": "Every family can reduce, reuse and recycle."
+    },
+    {
+      "word": "raise awareness about …",
+      "zh": "提高对……的意识",
+      "example": "Schools should run campaigns to raise awareness about recycling."
+    },
+    {
+      "word": "enforce stricter penalties",
+      "zh": "执行更严厉的惩罚",
+      "example": "The authorities must enforce stricter penalties on illegal loggers."
+    },
+    {
+      "word": "adopt an eco-friendly lifestyle",
+      "zh": "采取环保的生活方式",
+      "example": "We can adopt an eco-friendly lifestyle by bringing reusable bags."
+    },
+    {
+      "word": "every little bit counts",
+      "zh": "点滴皆重要",
+      "example": "Switching off one light seems small, but every little bit counts."
+    },
+    {
+      "word": "for the sake of future generations",
+      "zh": "为了子孙后代",
+      "example": "We must act now for the sake of future generations."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "promising solutions",
+      "zh": "有前景的解决方案"
+    },
+    {
+      "phrase": "not a magic wand",
+      "zh": "不是万能的魔杖"
+    },
+    {
+      "phrase": "goes hand in hand with",
+      "zh": "与……齐头并进"
+    },
+    {
+      "phrase": "for generations to come",
+      "zh": "为子孙后代"
+    },
+    {
+      "phrase": "worsen the situation",
+      "zh": "使情况恶化"
+    },
+    {
+      "phrase": "turning a chore into a rewarding habit",
+      "zh": "把苦差事变成有回报的习惯"
+    },
+    {
+      "phrase": "choking marine life",
+      "zh": "使海洋生物窒息"
+    },
+    {
+      "phrase": "contaminating the food chain",
+      "zh": "污染食物链"
+    },
+    {
+      "phrase": "throwaway culture",
+      "zh": "用完即弃的文化"
+    },
+    {
+      "phrase": "discard",
+      "zh": "丢弃"
+    },
+    {
+      "phrase": "biodegradable",
+      "zh": "可生物降解的"
+    },
+    {
+      "phrase": "overflowing landfills",
+      "zh": "爆满的垃圾填埋场"
+    }
+  ],
+  "gaps": [
+    "None of the 10 words appears in the Perlis essay's vocabulary table; all 10 example sentences are the Environment pack's 'Universal phrases' sentences (the PDF text layer was scrambled, so they were read from the rendered page).",
+    "The question analysis has a sixth row (Stand), kept as a point with code 'Stand'."
+  ]
+}

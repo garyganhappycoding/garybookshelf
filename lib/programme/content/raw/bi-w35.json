@@ -1,0 +1,72 @@
+{
+  "n": 35,
+  "lang": "bi",
+  "theme": "Environment",
+  "level": "C1",
+  "essayTitle": null,
+  "source": null,
+  "essayUrl": null,
+  "paragraphs": [],
+  "points": [],
+  "openingIdx": [],
+  "keyPoint": null,
+  "closingIdx": [],
+  "words": [
+    {
+      "word": "contaminate",
+      "zh": "污染",
+      "example": "For example, bottles and food wrappers clog our drains and contaminate rivers."
+    },
+    {
+      "word": "disrupt the ecosystem",
+      "zh": "破坏生态系统",
+      "example": "Pollution disrupts the ecosystem."
+    },
+    {
+      "word": "pose a threat to public health",
+      "zh": "对公共健康构成威胁",
+      "example": "Poor waste management poses a threat to public health."
+    },
+    {
+      "word": "a holistic approach",
+      "zh": "整体性的方法",
+      "example": "A holistic approach is needed to protect nature."
+    },
+    {
+      "word": "a lasting solution",
+      "zh": "长久的解决办法",
+      "example": "Only together can they provide a lasting solution."
+    },
+    {
+      "word": "no quick fix",
+      "zh": "没有速成的方法",
+      "example": "There is no quick fix to pollution."
+    },
+    {
+      "word": "a change in mindset",
+      "zh": "观念的转变",
+      "example": "We need a change in mindset."
+    },
+    {
+      "word": "make a lasting difference",
+      "zh": "带来长远的改变",
+      "example": "Together, we can make a lasting difference."
+    },
+    {
+      "word": "live in harmony with nature",
+      "zh": "与自然和谐共处",
+      "example": "We should learn to live in harmony with nature."
+    },
+    {
+      "word": "pave the way for a greener future",
+      "zh": "为更环保的未来铺路",
+      "example": "Small actions pave the way for a greener future."
+    }
+  ],
+  "goodPhrases": [],
+  "gaps": [
+    "no distinct essay left for this round",
+    "The Environment folder has only 2 essays in the new format (Perlis, Negeri Sembilan) plus the older-format Article 03 (Environmental Science Club); all three are used in weeks 2, 13 and 24. Four older .docx drafts remain unused (SPM Essay_ Going Green, Littering, Hot Weather and Extreme Heat in Malaysia, Deforestation).",
+    "Examples: 'contaminate' comes from Universal answer E1; the other nine are the pack's trial-paper keyword sentences (section 4); 'disrupt the ecosystem', 'pose a threat to public health' and 'make a lasting difference' have inflected or shortened forms of the phrase."
+  ]
+}

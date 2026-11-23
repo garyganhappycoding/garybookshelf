@@ -1,0 +1,85 @@
+{
+  "n": 3,
+  "lang": "bm",
+  "theme": "Kebersihan dan Kesihatan",
+  "level": null,
+  "essayTitle": "Kepentingan menjaga kebersihan",
+  "source": null,
+  "essayUrl": "https://docs.google.com/document/d/1hrg1b12ag_mzvTp8uV843LAIvWYIdnBBFhrp0oLV23o/edit",
+  "paragraphs": [
+    "Berdasarkan Rasullah S.A.W, kebersihan adalah sebahagian daripada imam. Hal ini telah menunjukkan bahawa kebersihan merupakan perkara asas dalam kehidupan manusia. Pada hakikatnya, seseorang yang mementingkan kebersihan akan dipandang mulia oleh masyarakat sehingga menjadi suri teladan kepada orang lain, bak kata peribahasa “baik dijadikan teladan, buruk dijadikan sempadan”. Sebaliknya, seorang individu yang tidak mementingkan kebersihan diri akan dilabelkan sebagai insan yang tinggal pada era Paleologi dan akan menconteng arang ke muka sendiri dan dicaci oleh masyarakat. Oleh itu, kita haruslah menyemai tabiat kebersihan ke dalam hati setiap strata masyarakat. Persoalannya, apakah kepentingan untuk menjaga kebersihan?",
+    "Kebersihan seorang individu penting sebagai kayu pengukur kepada orang lain untuk menilai keperibadian kita. Hal ini dikatakan demikian kerana Imam Al Ghazali pernah menegaskan bahawa cerminan peribadi datang daripada apa-apa yang lahir daripada jasmani. Dalam konteks lain, kita dapat menimbang peribadi seseorang mengikut kebersihannya. Sebagai contohnya, anda perlu menemu duga calon pekerja, apakah kriteria yang akan menarik anda terlebih dahulu? Seorang calon yang berkusut-masai dan berpakaian compang-camping ataupun seorang yang mempunyai perwatakan yang menarik serta pakaian yang rapi dan imej yang kemas? Tidak mustahillah jawapan tersebut ialah calon yang kedua. Sebagai implikasinya, peluang untuk mendapat jawatan yang diingini akan ditingkatkan dan menunjukkan imej yang berketerampilan tinggi. Bulan kian terang, bayang kian jelas bahawa, penjagaan kebersihan penting sebagai penilaian peribadi seseorang.",
+    "Selain itu, penjagaan kebersihan penting agar kesihatan kita terjamin. Hal ini dikatakan demikian kerana persekitaran yang bersih akan mengurangkan pembiakan vektor dan serangga yang meloyakan dan menjijikan. Tamsilnya, remaja yang mementingkan kebersihan diri akan sentiasa membersihkan biliknya. Secara tidak langsung, biliknya tidak akan menjadi tempat pembiakan serangga dan vektor seperti lipas, ulat, dan lain-lain. Ditokok tambah lagi, remaja tersebut dapat mengurangkan risiko dijangkiti penyakit yang serius. Sebagai kesannya, penyakit kronik seperti leptospirosis dan kolera tidak akan dijangkiti. Tegasnya, penjagaan kebersihan penting untuk mengelakkan kita daripada dibelenggu oleh penyakit berjangkiti.",
+    "Seterusnya, kebersihan seseorang penting agar kita dihormati oleh masyarakat. Hal ini berlaku seorang yang bersih akan menonjolkan imej yang baik dan bersih. Biar kita ambil contoh, seseorang yang berkemeja putih lengan panjang, seluar slack panjang dan blazer hitam untuk bekerja berbanding dengan seorang yang memakai baju tidak formal seperti baju T dan seluar pendek. Adakah anda menghormati orang pertama atau orang kedua? Sudah semestinya jawapan tersebut ialah orang pertama. Sebagai implikasinya, seorang yang menjaga kebersihan akan memberikan impresi yang baik kepada masyarakat. Justifikasinya, penjagaan kebersihan sendiri penting agar tidak dipandang hina oleh masyarakat.",
+    "Sebagai konklusinya, kebersihan ialah salah satu ciri kehidupan insan yang bertamadun. Oleh itu, setiap strata masyarakat haruslah berganding bahu bagai aur dengan tebing untuk menjaga kebersihan diri. Peribahasa melayu ada menyebut “hendak seribu daya, tak hendak seribu dalih”. Marilah kita menjaga kebersihan bermula pada hari ini. Ingatlah slogan “Jaga Kebersihan, Lestarikan Kehidupan”"
+  ],
+  "points": [],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "Kebersihan merupakan perkara asas dalam kehidupan manusia",
+      "zh": "干净是一个人的基本要素",
+      "example": "Hal ini telah menunjukkan bahawa kebersihan merupakan perkara asas dalam kehidupan manusia."
+    },
+    {
+      "word": "Dicaci akan masyarakat",
+      "zh": "被社会厌恶",
+      "example": "Sebaliknya, seorang individu yang tidak mementingkan kebersihan diri akan dilabelkan sebagai insan yang tinggal pada era Paleologi dan akan menconteng arang ke muka sendiri dan dicaci oleh masyarakat."
+    },
+    {
+      "word": "Kita dapat menimbang peribadi seorang mengikut kebersihannya",
+      "zh": "我们可以衡量一个人的行为根据他们的自身干净",
+      "example": "Dalam konteks lain, kita dapat menimbang peribadi seseorang mengikut kebersihannya."
+    },
+    {
+      "word": "Menemuduga calon pekerja",
+      "zh": "采访面试者",
+      "example": "Sebagai contohnya, anda perlu menemu duga calon pekerja, apakah kriteria yang akan menarik anda terlebih dahulu?"
+    },
+    {
+      "word": "Seorang yang berkusut-masai dan berpakaian compang-camping",
+      "zh": "一个头发凌乱和衣衫褴褛",
+      "example": "Seorang calon yang berkusut-masai dan berpakaian compang-camping ataupun seorang yang mempunyai perwatakan yang menarik serta pakaian yang rapi dan imej yang kemas?"
+    },
+    {
+      "word": "Pakaian yang rapi",
+      "zh": "穿着整齐",
+      "example": "Seorang calon yang berkusut-masai dan berpakaian compang-camping ataupun seorang yang mempunyai perwatakan yang menarik serta pakaian yang rapi dan imej yang kemas?"
+    },
+    {
+      "word": "Tidak mustahillah",
+      "zh": "不是不可能",
+      "example": "Tidak mustahillah jawapan tersebut ialah calon yang kedua."
+    },
+    {
+      "word": "Menunjukkan imej yang berketerampilan tinggi",
+      "zh": "留下很好的印象",
+      "example": "Sebagai implikasinya, peluang untuk mendapat jawatan yang diingini akan ditingkatkan dan menunjukkan imej yang berketerampilan tinggi."
+    },
+    {
+      "word": "Mengurangkan pembiakan vektor",
+      "zh": "减少带菌者的繁殖",
+      "example": "Hal ini dikatakan demikian kerana persekitaran yang bersih akan mengurangkan pembiakan vektor dan serangga yang meloyakan dan menjijikan."
+    },
+    {
+      "word": "Meloyakan dan menjijikan",
+      "zh": "令人感到恶心",
+      "example": "Hal ini dikatakan demikian kerana persekitaran yang bersih akan mengurangkan pembiakan vektor dan serangga yang meloyakan dan menjijikan."
+    }
+  ],
+  "goodPhrases": [],
+  "gaps": [
+    "This essay has no Table 1 / Table 2 with an ayat column; it has one table 'Ungkapan menarik / maksud'. All 10 examples are sentences from the essay text (spec fallback 3). Because that table has no Table 2, goodPhrases is empty",
+    "Near-match examples (essay wording differs slightly from the word): 'Dicaci akan masyarakat' (essay: dicaci oleh masyarakat); 'Kita dapat menimbang peribadi seorang' (essay: seseorang); 'Menemuduga' (essay: menemu duga); 'Seorang yang berkusut-masai' (essay: Seorang calon yang berkusut-masai)",
+    "keyPoint.prompt is null (no Question Analysis table); level and source are null"
+  ]
+}

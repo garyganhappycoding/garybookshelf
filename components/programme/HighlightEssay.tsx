@@ -3,7 +3,7 @@ import { useState } from "react";
 
 // The student picks a colour, then taps the words to highlight. Tapping a highlighted word again with the same colour clears it.
 // Blue = a word from this week's list. Red = a word or phrase the student thinks is good.
-export default function HighlightEssay({ paragraphs, lang }: { paragraphs: string[]; lang: "en" | "zh" }) {
+export default function HighlightEssay({ paragraphs, lang, name }: { paragraphs: string[]; lang: "en" | "zh"; name?: string }) {
   const [colour, setColour] = useState<1 | 2>(1);
   const [marks, setMarks] = useState<Record<string, 1 | 2>>({});
   const tap = (k: string) => setMarks((m) => {
@@ -14,6 +14,10 @@ export default function HighlightEssay({ paragraphs, lang }: { paragraphs: strin
   const cls = { 1: "bg-blue-200", 2: "bg-red-200" } as const;
   return (
     <div>
+      {name && <input type="hidden" name={name} value={JSON.stringify(Object.entries(marks).map(([k, c]) => {
+        const [p, j] = k.split("-").map(Number);
+        return { w: paragraphs[p]?.split(" ")[j] ?? "", c };
+      }))} />}
       <div className="flex flex-wrap gap-2 mb-3">
         <button type="button" onClick={() => setColour(1)} className={`rounded-full px-3 py-1 text-xs border ${colour === 1 ? "bg-blue-200 border-blue-500 font-medium" : "border-ink/20"}`}>
           {lang === "en" ? "Blue: words from this week's list" : "蓝色：本周词表里的词"}

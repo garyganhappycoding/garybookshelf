@@ -1,9 +1,10 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import { requireProgramme } from "@/lib/programme/gate";
-import { classKey, getProfile } from "@/lib/programme/profile";
+import { classKey, getProfile, saveProfile } from "@/lib/programme/profile";
+import { build, resolveDay } from "@/lib/programme/dayflow";
 import { buildCalendar } from "@/lib/programme/calendar";
-import { opened, taskFor, type Lang } from "@/lib/programme/content";
+import { opened, type Lang } from "@/lib/programme/content";
 import { postComment, report, submitAnswer } from "@/lib/programme/daily";
 
 export type Result = { error?: string; ok?: boolean; status?: string };
@@ -19,16 +20,28 @@ async function who() {
 const lang = (v: unknown): Lang | null => (v === "BM" || v === "BI" ? v : null);
 
 export async function answerAction(_: Result, form: FormData): Promise<Result> {
-  const u = await who();
+  const a = await requireProgramme();
+  const p = await getProfile(a.userId);
   const day = String(form.get("day")), l = lang(form.get("lang"));
   if (!DAY.test(day) || !l) return { error: "资料不对。" };
-  if (!opened(day, u.today)) return { error: "这一天还没开放。" };
-  const t = taskFor(buildCalendar(u.state), day, l);
-  if (!t) return { error: "这一天没有任务。" };
-  const r = await submitAnswer(u.id, day, l, String(form.get("answer") ?? ""), t.instructions, day < u.today);
+  if (!a.isAdmin && !opened(day, a.today)) return { error: "这一天还没开放。" };
+  const found = resolveDay(buildCalendar(p.state), day, l);
+  if (!found) return { error: "这一天没有任务。" };
+  const built = build(found.week, found.day, form, p.instructionLang);
+  if ("error" in built) return { error: built.error };
+  const r = await submitAnswer(a.userId, day, l, built.answer, built.aiTask, day < a.today,
+    { details: built.details, quizCorrect: built.quizCorrect, quizTotal: built.quizTotal, directFeedback: built.directFeedback, appendFeedback: built.appendFeedback });
   if (r.error) return { error: r.error };
   revalidatePath("/programme/today");
   return { ok: true, status: r.status };
+}
+
+/** The student picks whether the instructions are shown in English or Chinese. */
+export async function setInstructionLangAction(value: "en" | "zh"): Promise<Result> {
+  const a = await requireProgramme();
+  const r = await saveProfile(a.userId, { instructionLang: value });
+  revalidatePath("/programme/today");
+  return r.error ? { error: r.error } : { ok: true };
 }
 
 export async function commentAction(_: Result, form: FormData): Promise<Result> {

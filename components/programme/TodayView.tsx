@@ -1,13 +1,13 @@
 "use client";
 import Link from "next/link";
 import { useActionState, useState } from "react";
-import { buildCalendar, cn, levelOf, parse, themeOf, WEEKDAY_ZH } from "@/lib/programme/calendar";
-import { taskFor } from "@/lib/programme/content";
-import { answerAction, commentAction, reportAction, type Result } from "@/app/programme/today/actions";
+import { addDays, buildCalendar, cn, key, parse, WEEKDAY_ZH } from "@/lib/programme/calendar";
+import { commentAction, reportAction, type Result } from "@/app/programme/today/actions";
+import DayCard, { type CardData } from "./DayCard";
 
 export type TodayData = {
   day: string; lang: "BM" | "BI"; state: string; submitted: boolean; submissionId: string | null;
-  demo: boolean; feedback: string | null; aiStatus: string | null;
+  demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; card: CardData | null; answerText: string | null;
   comments: { id: string; nickname: string; body: string; mine: boolean; waiting: boolean }[];
 };
 const init: Result = {};
@@ -31,59 +31,35 @@ export default function TodayView({ data }: { data: TodayData }) {
   const state = data.state;
   const cal = buildCalendar(state);
   const d = parse(data.day), wk = cal.weekOf(d);
-  const task = taskFor(cal, data.day, data.lang);
-  const [ans, answerForm, answering] = useActionState(answerAction, init);
   const [com, commentForm, commenting] = useActionState(commentAction, init);
   const [text, setText] = useState("");
-  const submitted = data.submitted || ans.ok;
+  const submitted = data.submitted;
 
   return (
     <div>
       <p className="text-sm text-ink/60">{cn(d)} 星期{WEEKDAY_ZH[d.getDay()]}{data.demo ? "（示范日期）" : ""}</p>
+      {data.demo && (
+        <p className="text-xs mb-1">
+          <Link className="underline" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, -1))}`}>← 前一天</Link>{" · "}
+          <Link className="underline" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, 1))}`}>后一天 →</Link>
+        </p>
+      )}
       <h1 className="text-2xl font-medium mb-1">今天</h1>
-      {wk > 0 && <p className="text-sm text-ink/60 mb-4">第 {wk} 周 · {themeOf(wk)} · {levelOf(wk)}</p>}
 
       <div role="tablist" className="flex gap-2 mb-4">
         {(["BM", "BI"] as const).map((l) => (
-          <Link key={l} role="tab" aria-selected={data.lang === l} href={`/programme/today?lang=${l}`}
+          <Link key={l} role="tab" aria-selected={data.lang === l} href={`/programme/today?lang=${l}${data.demo ? `&date=${data.day}` : ""}`}
             className={data.lang === l ? "btn-primary text-sm" : "btn-secondary text-sm"}>{l}</Link>
         ))}
       </div>
 
-      {!task ? (
-        <div className="card">学校放假，这一天不安排新任务。</div>
+      {!data.card ? (
+        <div className="card">{wk > 0 ? "这一周这个语言的内容还在准备，今天先休息。" : "学校放假，这一天不安排新任务。"}</div>
       ) : (
         <>
-          <div className="card mb-4">
-            <p className="text-xs text-ink/60 mb-1">{data.lang} · 预计 {task.minutes} 分钟</p>
-            <p>{task.title}：{task.instructions}</p>
-            <p className="text-sm text-ink/60 mt-2">（问题、答案和解释的内容还在和 Gary 一起写，这里先用占位。）</p>
-          </div>
-
-          <div className="card mb-4">
-            <p className="font-medium mb-2">我的答案</p>
-            {submitted ? (
-              <div className="space-y-3">
-                {data.feedback ? (
-                  <div className="rounded-lg bg-sage-400/20 p-3 text-sm"><p className="font-medium mb-1">AI 反馈</p><p>{data.feedback}</p></div>
-                ) : data.aiStatus === "waiting_gary" || ans.status === "waiting_gary" ? (
-                  <p className="rounded-lg bg-yellow-100 p-3 text-sm">AI 对这份答案没有把握，Gary 会亲自来看，请稍等。</p>
-                ) : data.aiStatus === "failed" || ans.status === "failed" ? (
-                  <p className="rounded-lg bg-ink/5 p-3 text-sm">AI 现在忙，没能给反馈。你的答案已经保存，也算完成了今天。</p>
-                ) : (
-                  <p className="text-sm text-ink/60">答案已交。重新整理页面就能看到反馈。</p>
-                )}
-                {data.submissionId && <ReportBox kind="ai_feedback" target={data.submissionId} label="觉得 AI 的反馈不好？告诉 Gary" />}
-              </div>
-            ) : (
-              <form action={answerForm} className="space-y-3">
-                <input type="hidden" name="day" value={data.day} /><input type="hidden" name="lang" value={data.lang} />
-                <textarea name="answer" rows={5} required aria-label="我的答案" placeholder="写在这里，交上去之后才看得到同学的"
-                  className="w-full rounded-lg border border-ink/20 bg-white p-3 text-sm" />
-                <button disabled={answering} className="btn-primary text-sm disabled:opacity-50">{answering ? "交上去中，AI 在看…" : "交上去，然后看同学的"}</button>
-                {ans.error && <p role="alert" className="text-sm text-red-700">{ans.error}</p>}
-              </form>
-            )}
+          <div className="mb-4">
+            <DayCard day={data.day} lang={data.lang} ilang={data.ilang} card={data.card} submitted={data.submitted}
+              submissionId={data.submissionId} feedback={data.feedback} aiStatus={data.aiStatus} answerText={data.answerText} />
           </div>
 
           <div className="card">

@@ -1,0 +1,57 @@
+{
+  "n": 31, "lang": "bi",
+  "theme": "Review",
+  "level": "C1",
+  "essayTitle": "Senawang Grand Mall: A Shopper's Paradise",
+  "source": "SPM 2026 Trial · Negeri Sembilan · English Paper 2 · Part 3 Q4 · Review, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1kC7T4wSkSqMmWMC-Fbg_XSbTvBxHF3AFctRhj1u5cAI/edit",
+  "paragraphs": [
+    "Are you looking for the perfect place to spend your weekend? Last Saturday, I visited a shopping mall that exceeded all my expectations, and here is my honest review.",
+    "The name of the shopping mall is Senawang Grand Mall. It is located just off the main highway in Senawang, Negeri Sembilan, which makes it easily accessible by car and bus. Ample parking spaces are available for visitors.",
+    "The mall offers a wide range of facilities for shoppers of all ages. Apart from more than 200 retail outlets, there is a cinema, a bowling alley and a spacious food court serving local and international cuisine. Young children will love the indoor playground. Furthermore, the services provided are excellent. The friendly customer service counter offers free wheelchairs and baby strollers, and the toilets are spotlessly clean.",
+    "I would definitely recommend this shopping mall to others. Firstly, it is a one-stop centre where families can shop, dine and be entertained under one roof. Secondly, it frequently holds attractive promotions during festive seasons. Shoppers can enjoy great bargains without breaking the bank.",
+    "In a nutshell, Senawang Grand Mall is a shopper's paradise that caters to every need. If you have not visited it yet, it is high time you did!"
+  ],
+  "points": [
+    {"code": "C1", "text": "State the name of the shopping mall"},
+    {"code": "C2", "text": "State the location of the shopping mall"},
+    {"code": "C3", "text": "Tell us about the facilities"},
+    {"code": "C4", "text": "Tell us about the services"},
+    {"code": "C5", "text": "Would you recommend it to others? Why? – reason 1"},
+    {"code": "C6", "text": "Why? – reason 2"}
+  ],
+  "openingIdx": [0],
+  "keyPoint": {"idx": 2, "prompt": "Tell us about the facilities"},
+  "closingIdx": [4],
+  "words": [
+    {"word": "make up for", "zh": "弥补", "example": "For example, the friendly staff and delicious food more than make up for the crowds."},
+    {"word": "friendly and attentive", "zh": "友善且周到", "example": "The staff were friendly and attentive."},
+    {"word": "a local speciality", "zh": "当地特产", "example": null},
+    {"word": "mouth-watering", "zh": "令人垂涎的", "example": "The smell of grilled satay was mouth-watering."},
+    {"word": "authentic flavour", "zh": "正宗的味道", "example": "The dish has an authentic flavour that reminds me of home."},
+    {"word": "a blend of spices", "zh": "香料的融合", "example": null},
+    {"word": "tantalise the taste buds", "zh": "刺激味蕾", "example": "The sweet and spicy sauce tantalises the taste buds."},
+    {"word": "pique my curiosity", "zh": "引起我的好奇", "example": "The long queue piqued my curiosity."},
+    {"word": "make a special trip", "zh": "特地前往", "example": null},
+    {"word": "well worth a visit", "zh": "非常值得一游", "example": "The stall is well worth a visit."}
+  ],
+  "goodPhrases": [
+    {"phrase": "exceeded all my expectations", "zh": "超出了我所有的期望"},
+    {"phrase": "accessible", "zh": "交通便利的"},
+    {"phrase": "ample", "zh": "充足的"},
+    {"phrase": "spotlessly clean", "zh": "一尘不染"},
+    {"phrase": "caters to every need", "zh": "满足各种需求"},
+    {"phrase": "it is high time", "zh": "是时候……了"},
+    {"phrase": "retail outlets", "zh": "零售商店"},
+    {"phrase": "cuisine", "zh": "菜肴；料理"},
+    {"phrase": "one-stop centre", "zh": "一站式中心"},
+    {"phrase": "under one roof", "zh": "在同一屋檐下；一处就能"},
+    {"phrase": "without breaking the bank", "zh": "不花大钱"}
+  ],
+  "gaps": [
+    "This week's 10 words are food words but the essay is a shopping mall review (the folder has only one new-format food review, used in week 20); none of the words appear in the essay or its vocabulary table.",
+    "No example sentence found for: 'a local speciality', 'a blend of spices', 'make a special trip' (in the Review pack these sentences were scrambled, so they were not copied).",
+    "All examples come from the Review pack, not from the essay: 'make up for' (RV9 answer), 'friendly and attentive' (Q5 Relaxing Getaway table), 'mouth-watering', 'authentic flavour', 'tantalise the taste buds', 'pique my curiosity', 'well worth a visit' (Q1 Popular Food table).",
+    "goodPhrases: the row 'stationed' is marked (Extended) and was left out."
+  ]
+}

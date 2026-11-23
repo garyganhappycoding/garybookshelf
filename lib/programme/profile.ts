@@ -2,7 +2,7 @@
 import { createAdminClient } from "@/lib/supabase/admin";
 import { DEFAULT_EXAMS, STATES, type Exam } from "./calendar";
 
-export type Profile = { state: string; form: 4 | 5; exams: Exam[]; setupDone: boolean };
+export type Profile = { state: string; form: 4 | 5; exams: Exam[]; setupDone: boolean; instructionLang: "zh" | "en" };
 
 // Gary's rule: classes are by state first, then by school year. No size limit.
 export const classKey = (p: { state: string; form: number }) => `${p.state}-F${p.form}`;
@@ -14,6 +14,7 @@ export async function getProfile(userId: string): Promise<Profile> {
     form: data?.form === 5 ? 5 : 4,
     exams: Array.isArray(data?.exams) ? (data!.exams as Exam[]) : DEFAULT_EXAMS,
     setupDone: !!data?.setup_done,
+    instructionLang: data?.instruction_lang === "en" ? "en" : "zh",
   };
 }
 
@@ -29,13 +30,13 @@ export function cleanExams(input: unknown): Exam[] | null {
   return out;
 }
 
-export async function saveProfile(userId: string, patch: { state?: string; form?: number; exams?: unknown; setupDone?: boolean }) {
+export async function saveProfile(userId: string, patch: { state?: string; form?: number; exams?: unknown; setupDone?: boolean; instructionLang?: string }) {
   const cur = await getProfile(userId);
   const state = patch.state && STATES.some((s) => s.id === patch.state) ? patch.state : cur.state;
   const form = patch.form === 5 ? 5 : patch.form === 4 ? 4 : cur.form;
   const exams = patch.exams !== undefined ? cleanExams(patch.exams) ?? cur.exams : cur.exams;
   const { error } = await createAdminClient().from("programme_profiles").upsert(
-    { user_id: userId, state, form, exams, setup_done: patch.setupDone ?? cur.setupDone, updated_at: new Date().toISOString() },
+    { user_id: userId, state, form, exams, setup_done: patch.setupDone ?? cur.setupDone, instruction_lang: patch.instructionLang === "en" ? "en" : patch.instructionLang === "zh" ? "zh" : cur.instructionLang, updated_at: new Date().toISOString() },
     { onConflict: "user_id" },
   );
   return error ? { error: "保存失败，请再试一次。" } : {};
