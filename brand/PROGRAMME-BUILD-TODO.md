@@ -49,6 +49,7 @@ Format: `lib/programme/content/bi/w01.ts` ... `w44.ts` and `bm/w01.ts` ... (type
 - Many BI words have no example sentence (pack PDFs scrambled by watermark): see each raw file's `gaps`. The Monday table shows a blank example for those.
 - BI essays chosen by agents for Review/Report/Story and Travel/Teenagers: Gary should check the choices (listed in each raw file's gaps).
 - BM key paragraph (keyPoint.idx) is a guess for most weeks (first body paragraph); BM week 14 may need idx 4.
+- BI weeks 35, 25, 36 (Environment round 4, Health rounds 3 and 4) have no essay: those themes have too few new-format essays in the Drive folder (old-format .docx drafts were left unused; Gary can say if they should fill the gaps). Weeks 24 and 14 use old-format essays (no question table). Technology essays used: SBP, Kedah, Terengganu, Johor; WPKL unused.
 - Admin-only: Today page accepts ?date=YYYY-MM-DD for the admin to walk through days (students always get the real date).
 
 ## Progress log (newest first, one line per run)
