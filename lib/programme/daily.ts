@@ -7,13 +7,24 @@ import type { Lang } from "./content";
 // Rules from Gary: no links, phone numbers, emails or @handles in comments.
 export const looksUnsafe = (t: string) => /https?:\/\/|www\.|\.(com|my|net|org)\b|@\w|\b\d{8,}\b|\d{3}[- ]?\d{7,}/i.test(t);
 
-export async function submitAnswer(userId: string, day: string, lang: Lang, answer: string, task: string, madeUp: boolean) {
+/** Extra parts of a day's response besides the main text: quiz answers and score, highlighted words, the 10 sentences, and so on. */
+export type Extra = { details?: Record<string, unknown>; quizCorrect?: number; quizTotal?: number };
+
+export async function submitAnswer(userId: string, day: string, lang: Lang, answer: string, task: string, madeUp: boolean, extra: Extra = {}) {
   const text = clean(answer, 3000);
   if (text.length < 2) return { error: "请先写下你的答案。" };
   const admin = createAdminClient();
+  const { data: prev } = await admin.from("programme_submissions").select("attempts").eq("user_id", userId).eq("day", day).eq("lang", lang).maybeSingle();
+  const details = extra.details ?? {};
   const { data: row, error } = await admin.from("programme_submissions")
-    .upsert({ user_id: userId, day, lang, answer: text, made_up: madeUp }, { onConflict: "user_id,day,lang" }).select("id").single();
+    .upsert({
+      user_id: userId, day, lang, answer: text, made_up: madeUp, details,
+      quiz_correct: extra.quizCorrect ?? null, quiz_total: extra.quizTotal ?? null,
+      attempts: (prev?.attempts ?? 0) + 1, updated_at: new Date().toISOString(),
+    }, { onConflict: "user_id,day,lang" }).select("id").single();
   if (error || !row) return { error: "保存失败，请再试一次。" };
+  // Every save is also kept in a log, so an earlier version is never lost when a student edits and resubmits.
+  await admin.from("programme_answer_log").insert({ submission_id: row.id, user_id: userId, answer: text, details });
 
   const fb = await feedbackOn(task, lang, text);
   if (!fb) {
