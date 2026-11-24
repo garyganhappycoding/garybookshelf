@@ -25,54 +25,34 @@
   ],
   "words": [
     {
-      "word": "bak kata peribahasa sambil menyelam minum air",
-      "zh": "一举两得",
-      "example": "Secara tidak langsung, pengaliran wang asing akan disekat dalam negara kita dan memomentumkan iktisad negara bak kata peribahasa sambil menyelam minum air."
-    },
-    {
-      "word": "seperti kacang lupakan kulit sehingga melupakan akar umbi",
-      "zh": "忘恩负本，数典忘祖",
-      "example": "Tuntasnya, generasi muda janganlah bersikap seperti kacang lupakan kulit sehingga melupakan akar umbi mereka."
-    },
-    {
-      "word": "bekerjasama bagai aur dengan tebing",
-      "zh": "唇齿相依，紧密合作",
-      "example": "Kita sepatutnya bekerjasama bagai aur dengan tebing untuk memelihara bangunan sejarah yang mempunyai nilai estetika kerana para ilmu pernah menukilkan bahawa sejarah ialah guru yang paling benar dan sejarah tidak pernah berdusta."
-    },
-    {
-      "word": "sejarah ialah guru yang paling benar dan sejarah tidak pernah berdusta",
-      "zh": "历史是最真实的老师，历史从不说谎",
-      "example": "Kita sepatutnya bekerjasama bagai aur dengan tebing untuk memelihara bangunan sejarah yang mempunyai nilai estetika kerana para ilmu pernah menukilkan bahawa sejarah ialah guru yang paling benar dan sejarah tidak pernah berdusta."
-    },
-    {
-      "word": "bak kata peribahasa tak lapuk dek hujan, tak lekang dek panas",
-      "zh": "历久不衰，屹立不倒",
-      "example": "Jadi, bangunan-bangunan bersejarah yang dikekalkan bak kata peribahasa tak lapuk dek hujan, tak lekang dek panas dapat sentiasa mengingatkan kita bahawa keharmonian yang diselubungi datang daripada jasa-jasa tokoh."
-    },
-    {
       "word": "tersergam indah",
       "zh": "巍然壮丽",
-      "example": "Jadi, istana yang tersergam indah bukan sahaja merupakan mercu tandan malahan melambangkan keagungan dan kedaulatan kaum diraja pada zaman dahulu."
+      "example": "Jadi, istana yang tersergam indah bukan sahaja merupakan mercu tandan malahan melambangkan keagungan dan kedaulatan kaum diraja pada zaman dahulu.",
+      "level": "ordinary"
     },
     {
       "word": "melambangkan keagungan dan kedaulatan",
       "zh": "象征威严与主权",
-      "example": "Jadi, istana yang tersergam indah bukan sahaja merupakan mercu tandan malahan melambangkan keagungan dan kedaulatan kaum diraja pada zaman dahulu."
+      "example": "Jadi, istana yang tersergam indah bukan sahaja merupakan mercu tandan malahan melambangkan keagungan dan kedaulatan kaum diraja pada zaman dahulu.",
+      "level": "ordinary"
     },
     {
       "word": "keindahan seni bina silam",
       "zh": "昔日建筑之美",
-      "example": "Dengan ini, keindahan seni bina silam hasil kreativiti arkitek Barat dan Timur terus terabadi pada bangunan-bangunan bersejarah."
+      "example": "Dengan ini, keindahan seni bina silam hasil kreativiti arkitek Barat dan Timur terus terabadi pada bangunan-bangunan bersejarah.",
+      "level": "ordinary"
     },
     {
       "word": "terus terabadi",
       "zh": "得以永存",
-      "example": "Dengan ini, keindahan seni bina silam hasil kreativiti arkitek Barat dan Timur terus terabadi pada bangunan-bangunan bersejarah."
+      "example": "Dengan ini, keindahan seni bina silam hasil kreativiti arkitek Barat dan Timur terus terabadi pada bangunan-bangunan bersejarah.",
+      "level": "ordinary"
     },
     {
       "word": "mempunyai nilai estetika",
       "zh": "具有美学价值",
-      "example": "Kita sepatutnya bekerjasama bagai aur dengan tebing untuk memelihara bangunan sejarah yang mempunyai nilai estetika kerana para ilmu pernah menukilkan bahawa sejarah ialah guru yang paling benar dan sejarah tidak pernah berdusta."
+      "example": "Kita sepatutnya bekerjasama bagai aur dengan tebing untuk memelihara bangunan sejarah yang mempunyai nilai estetika kerana para ilmu pernah menukilkan bahawa sejarah ialah guru yang paling benar dan sejarah tidak pernah berdusta.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -98,6 +78,9 @@
     }
   ],
   "gaps": [
-    "Only one essay exists for this topic in the BM vocab file, so the same essay as the topic's earlier week is used again."
+    "Only one essay exists for this topic in the BM vocab file, so the same essay as the topic's earlier week is used again.",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (0 of 7): filled with 0 ordinary words",
+    "Form 5: only 5 words available for this topic"
   ]
 }

@@ -51,54 +51,94 @@
   ],
   "words": [
     {
-      "word": "experience first-hand",
-      "zh": "亲身体验",
-      "example": "This is because we experienced first-hand how small actions make a difference."
+      "word": "r a promote unity",
+      "zh": "促进团结",
+      "example": "Such programmes promote unity among young people.",
+      "level": "B2"
     },
     {
-      "word": "broaden our horizons",
-      "zh": "开阔我们的眼界",
-      "example": "The visit broadened our horizons."
+      "word": "took place on",
+      "zh": "在……举行",
+      "example": "The clean-up activity took place on Saturday, 14 March.",
+      "level": "B2"
     },
     {
-      "word": "ensure lasting change",
-      "zh": "确保持久改变",
-      "example": "This is because regular action ensures lasting change."
+      "word": "the nearby drain and field",
+      "zh": "附近的排水沟和 田野",
+      "example": "h We then moved to the nearby drain and field.",
+      "level": "B2"
     },
     {
-      "word": "take pride in",
-      "zh": "以……为荣",
-      "example": "Students will take pride in their surroundings."
+      "word": "foster a sense of responsibility",
+      "zh": "b 培养责任感",
+      "example": "The visit fostered a sense of responsibility.",
+      "level": "B2 to C1"
     },
     {
-      "word": "achieve its objectives",
-      "zh": "达成目标",
-      "example": "In conclusion, the programme achieved its objectives."
+      "word": "under the supervision of",
+      "zh": "在……的监督下",
+      "example": "We worked under the supervision of the shelter staff.",
+      "level": "B2 to C1"
     },
     {
-      "word": "strongly recommended",
-      "zh": "强烈建议",
-      "example": "It is strongly recommended that similar events be organised in future."
+      "word": "a hands-on experience",
+      "zh": "亲身实践的经验",
+      "example": "It was a hands-on experience that we will never forget.",
+      "level": "B2 to C1"
     },
     {
-      "word": "be taken into consideration",
-      "zh": "被纳入考虑",
-      "example": "I hope these suggestions will be taken into consideration."
+      "word": "bond with the animals",
+      "zh": "b 与动物建立感情",
+      "example": "Members bonded with the animals.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "ease the shelter's burden",
+      "zh": "减轻收容所的负 担",
+      "example": "These efforts will ease the shelter's burden.",
+      "level": "C1"
     },
     {
       "word": "give animals a second chance",
-      "zh": "给动物第二次机会",
-      "example": "They give animals a second chance at life."
+      "zh": "b 给动物第二次机 会",
+      "example": "They give animals a second chance at life.",
+      "level": "C1"
     },
     {
-      "word": "cooperate enthusiastically",
-      "zh": "热情合作",
-      "example": "This is because everyone cooperated enthusiastically."
+      "word": "nurture logical thinking",
+      "zh": "培养逻辑思维",
+      "example": "Coding nurtures logical thinking.",
+      "level": "C1"
     },
     {
-      "word": "the majority of respondents",
-      "zh": "大多数受访者",
-      "example": null
+      "word": "equip students with future skills",
+      "zh": "让学生具备未来 技能",
+      "example": "l The event equipped students with future skills.",
+      "level": "C1"
+    },
+    {
+      "word": "debug the code",
+      "zh": "调试代码",
+      "example": "Students learned to debug the code together.",
+      "level": "C1"
+    },
+    {
+      "word": "stayed engaged throughout",
+      "zh": "全程投入",
+      "example": "s Students stayed engaged throughout the programme.",
+      "level": "C1"
+    },
+    {
+      "word": "achieved its objective",
+      "zh": "达成目标",
+      "example": "The event achieved its objective.",
+      "level": "C1"
+    },
+    {
+      "word": "a valuable eye-opener",
+      "zh": "增广见闻的经历",
+      "example": "The event was a valuable eye- opener for many students.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -149,6 +189,11 @@
     "paragraphs: the To/From/Date/Subject block, the sub-headings and the 'Prepared by' lines were left out; only the 5 body paragraphs are given.",
     "goodPhrases: rows marked (Extended) (the highlight of the day, stray population) were left out.",
     "Example for 'ensure lasting change' filled later from the Report theme pack (cleaned text); form differs: 'ensures'.",
-    "Example for 'cooperate enthusiastically' filled later from the Report theme pack (cleaned text); form differs: 'cooperated'."
+    "Example for 'cooperate enthusiastically' filled later from the Report theme pack (cleaned text); form differs: 'cooperated'.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (foster a sense of responsibility)",
+    "Form 5: mid tier short: used a top word (under the supervision of)",
+    "Form 5: mid tier short: used a top word (a hands-on experience)",
+    "Form 5: mid tier short: used a top word (bond with the animals)"
   ]
 }

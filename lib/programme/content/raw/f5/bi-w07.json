@@ -43,54 +43,94 @@
   "closingIdx": [],
   "words": [
     {
-      "word": "travelling broadens the mind",
-      "zh": "旅行开阔心胸",
-      "example": "They say travelling broadens the mind, and my trip to Sarawak proved it."
+      "word": "dream of visiting",
+      "zh": "梦想去参观",
+      "example": "I dream of visiting Japan one day.",
+      "level": "B2"
     },
     {
-      "word": "get away from the hustle and bustle",
-      "zh": "远离喧嚣",
-      "example": "Cameron Highlands lets us get away from the hustle and bustle of city life."
+      "word": "on my bucket list",
+      "zh": "在我的心愿清单 上",
+      "example": "Mount Kinabalu is on my bucket list.",
+      "level": "B2"
     },
     {
-      "word": "off the beaten track",
-      "zh": "远离热门路线、偏僻之处",
-      "example": "This waterfall is off the beaten track, so it is never crowded."
+      "word": "cherry blossoms in spring",
+      "zh": "春天的樱花",
+      "example": "e I long to see the cherry blossoms in spring.",
+      "level": "B2"
     },
     {
-      "word": "a feast for the eyes",
-      "zh": "赏心悦目的景象",
-      "example": "The lantern festival was a feast for the eyes."
+      "word": "nestled in",
+      "zh": "坐落于",
+      "example": "The resort is nestled in the hills of Cameron Highlands.",
+      "level": "B2 to C1"
     },
     {
-      "word": "soak in the view",
-      "zh": "尽情欣赏风景",
-      "example": "We sat on the hill and soaked in the breathtaking view."
+      "word": "breathtaking views",
+      "zh": "b 令人惊叹的景色",
+      "example": "The balcony offered breathtaking views of the sunrise.",
+      "level": "B2 to C1"
     },
     {
-      "word": "immerse ourselves in the local culture",
-      "zh": "沉浸在当地文化中",
-      "example": "First and foremost, I chose Kyoto because I want to immerse myself in Japanese culture."
+      "word": "unwind",
+      "zh": "放松",
+      "example": "I managed to unwind completely.",
+      "level": "B2 to C1"
     },
     {
-      "word": "recharge our batteries",
-      "zh": "恢复精力",
-      "example": "A short holiday helps us recharge our batteries."
+      "word": "revolves around",
+      "zh": "围绕着",
+      "example": "The plot revolves around a boy who dreams of being a footballer.",
+      "level": "B2 to C1"
     },
     {
-      "word": "a home away from home",
-      "zh": "像家一样的地方",
-      "example": "The homestay felt like a home away from home."
+      "word": "vivid illustrations",
+      "zh": "生动的插图",
+      "example": "The vivid illustrations bring the story to life.",
+      "level": "B2 to C1"
     },
     {
-      "word": "create memories that will last a lifetime",
-      "zh": "创造一生难忘的回忆",
-      "example": "Family trips create memories that will last a lifetime."
+      "word": "a breathtaking destination",
+      "zh": "令人惊叹的目的 地",
+      "example": "Langkawi is a breathtaking destination.",
+      "level": "C1"
     },
     {
-      "word": "pack your bags and …",
-      "zh": "收拾行李，去……吧",
-      "example": "So pack your bags and discover Malaysia!"
+      "word": "take my breath away",
+      "zh": "令我惊叹",
+      "example": "The view would take my breath away.",
+      "level": "C1"
+    },
+    {
+      "word": "rich in culture and history",
+      "zh": "文化和历史丰富",
+      "example": "Japan is rich in culture and history.",
+      "level": "C1"
+    },
+    {
+      "word": "experience a different way of life",
+      "zh": "体验不同的生活 方式",
+      "example": "h s I want to experience a different way of life.",
+      "level": "C1"
+    },
+    {
+      "word": "broaden my horizons",
+      "zh": "开阔我的眼界",
+      "example": "The trip would broaden my horizons.",
+      "level": "C1"
+    },
+    {
+      "word": "promote domestic tourism",
+      "zh": "推广国内旅游",
+      "example": "The government should promote domestic tourism.",
+      "level": "C1"
+    },
+    {
+      "word": "provide tax relief for local trips",
+      "zh": "为国内旅游提供 税务减免",
+      "example": "Tax relief for local trips encourages families to travel.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -146,6 +186,7 @@
     "example for 'get away from the hustle and bustle' taken from the theme pack (watermark layer removed)",
     "example for 'off the beaten track' taken from the theme pack (watermark layer removed)",
     "example for 'a feast for the eyes' taken from the theme pack (watermark layer removed)",
-    "Example for 'soak in the view' filled later from the Travel / Leisure / Home theme pack (cleaned text); form differs: 'soaked in the breathtaking view'."
+    "Example for 'soak in the view' filled later from the Travel / Leisure / Home theme pack (cleaned text); form differs: 'soaked in the breathtaking view'.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

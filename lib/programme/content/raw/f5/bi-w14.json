@@ -37,54 +37,94 @@
   ],
   "words": [
     {
-      "word": "relieve stress",
-      "zh": "缓解压力",
-      "example": "Exercise is a natural way to relieve stress."
+      "word": "support local heroes",
+      "zh": "支持本土英雄",
+      "example": "h Fans support local heroes proudly.",
+      "level": "B2"
     },
     {
-      "word": "cope with pressure",
-      "zh": "应对压力",
-      "example": "As a result, students sharpen their concentration and cope with exam pressure better."
+      "word": "generate excitement",
+      "zh": "b 带来兴奋感",
+      "example": "A big match generates excitement across the nation.",
+      "level": "B2"
     },
     {
-      "word": "lack of exercise",
-      "zh": "缺乏运动",
-      "example": null
-    },
-    {
-      "word": "glued to their phones",
-      "zh": "盯着手机不放",
-      "example": "This is because many spend hours glued to their phones instead of playing outdoors."
-    },
-    {
-      "word": "improve their fitness",
-      "zh": "改善体能",
-      "example": "They improve their fitness over time."
-    },
-    {
-      "word": "release endorphins",
-      "zh": "释放内啡肽",
-      "example": "This is because physical activity releases endorphins, which uplift our mood."
-    },
-    {
-      "word": "uplift our mood",
-      "zh": "提振我们的情绪",
-      "example": "This is because physical activity releases endorphins, which uplift our mood."
-    },
-    {
-      "word": "sharpen concentration",
-      "zh": "提高专注力",
-      "example": "As a result, students sharpen their concentration and cope with exam pressure better."
-    },
-    {
-      "word": "boost blood circulation",
-      "zh": "促进血液循环",
-      "example": "This is because physical activity boosts blood circulation and strengthens the heart."
+      "word": "motivate people to exercise",
+      "zh": "激励人们锻炼",
+      "example": "Watching sports motivates people to exercise.",
+      "level": "B2"
     },
     {
       "word": "build stamina",
       "zh": "增强耐力",
-      "example": "For example, jogging three times a week builds stamina."
+      "example": "For example, jogging three times a week builds stamina.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "build resilience",
+      "zh": "培养抗挫力",
+      "example": "As a result, students develop leadership skills and build resilience.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "avoid burnout",
+      "zh": "避免过度疲劳",
+      "example": "As a result, we avoid burnout, think more clearly and maintain a healthy routine.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "greatest asset",
+      "zh": "最大的财富",
+      "example": "I firmly believe that health is our greatest asset.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "serve as role models",
+      "zh": "成为榜样",
+      "example": "Athletes serve as role models for young people.",
+      "level": "C1"
+    },
+    {
+      "word": "spark an interest in",
+      "zh": "激发对……的兴 趣",
+      "example": "A great match can spark an interest in the sport.",
+      "level": "C1"
+    },
+    {
+      "word": "lead a more active lifestyle",
+      "zh": "过更积极的生活",
+      "example": "Fans may lead a more active lifestyle as a result.",
+      "level": "C1"
+    },
+    {
+      "word": "judge by appearance",
+      "zh": "以貌取人",
+      "example": "Unfortunately, many people judge others by appearance.",
+      "level": "C1"
+    },
+    {
+      "word": "be socially accepted",
+      "zh": "被社会接纳",
+      "example": "l Some teenagers feel they must look a certain way to be socially accepted.",
+      "level": "C1"
+    },
+    {
+      "word": "unrealistic beauty standards",
+      "zh": "b 不切实际的美貌 标准",
+      "example": "Many people feel pressured by unrealistic beauty standards.",
+      "level": "C1"
+    },
+    {
+      "word": "be preoccupied with looks",
+      "zh": "过分在意外表",
+      "example": "Some people are too preoccupied with their looks.",
+      "level": "C1"
+    },
+    {
+      "word": "develop low self-esteem",
+      "zh": "产生自卑",
+      "example": "Some develop low self-esteem and withdraw from others.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -161,7 +201,7 @@
     "This essay is an older-format study bundle (Health 01): no question text, no Question Analysis table, no Exam/Extended versions, so points is empty and keyPoint.prompt is null. The essay's own (C1) to (C5) tags were removed from the text; the doc's bold vocabulary marks were removed too. goodPhrases are the rows of its 'Thematic Vocabulary & Phrases Table' (the doc has no 'Table 1').",
     "The essay has only 3 paragraphs: the middle one holds all five content points, so keyPoint.idx is 1.",
     "'lack of exercise': no sentence with the phrase in the pack or the essay, so example is null.",
-    "None of the 10 words is in the essay; the examples come from the Health & Sports pack's Universal answers (H1, H3, H4). 'cope with pressure' (answer has 'cope with exam pressure'), 'release endorphins' (answer has 'releases endorphins') and 'sharpen concentration' (answer has 'sharpen their concentration') are inflected or extended forms. 'improve their fitness' is the pack's trial-paper keyword sentence (section 4). 'release endorphins' and 'uplift our mood' share one sentence, and 'cope with pressure' and 'sharpen concentration' share one sentence.",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

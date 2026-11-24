@@ -39,54 +39,94 @@
   ],
   "words": [
     {
+      "word": "grow into a caring person",
+      "zh": "成长为有爱心的 人",
+      "example": "I have grown into a more caring person.",
+      "level": "B2"
+    },
+    {
+      "word": "inspire others to help",
+      "zh": "b 激励他人帮忙",
+      "example": "My actions inspired my friends to help too.",
+      "level": "B2"
+    },
+    {
+      "word": "a traditional dance performance",
+      "zh": "传统舞蹈表演",
+      "example": "It was a traditional dance performance by a cultural troupe.",
+      "level": "B2"
+    },
+    {
+      "word": "improve the animals' quality of life",
+      "zh": "改善动物的生活 质量",
+      "example": "These changes will improve the animals' quality of life.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "a deep sense of fulfilment",
+      "zh": "深深的满足感",
+      "example": "Furthermore, I help others because it gives me a deep sense of fulfilment.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "safeguard our identity",
+      "zh": "守护我们的身份认同",
+      "example": "Preserving our culture safeguards our identity.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "pass down values",
+      "zh": "传承价值观",
+      "example": "This is because traditions pass down values from one generation to the next.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "keep our heritage alive",
+      "zh": "保持传统文化的生命力",
+      "example": "For example, learning traditional dances at school keeps our heritage alive.",
+      "level": "C1"
+    },
+    {
+      "word": "our greatest strength",
+      "zh": "我们最大的优势",
+      "example": "Malaysia's diversity is our greatest strength.",
+      "level": "C1"
+    },
+    {
+      "word": "embrace our differences",
+      "zh": "接纳彼此的差异",
+      "example": "As a result, we embrace our differences and live in peace.",
+      "level": "C1"
+    },
+    {
+      "word": "lose touch with traditions",
+      "zh": "与传统脱节",
+      "example": "Many young people are losing touch with their traditions.",
+      "level": "C1"
+    },
+    {
+      "word": "depend on human kindness",
+      "zh": "依赖人类的善意",
+      "example": "This is because stray animals depend on human kindness to survive.",
+      "level": "C1"
+    },
+    {
+      "word": "respect all living things",
+      "zh": "尊重所有生命",
+      "example": "As a result, students develop a sense of responsibility and learn to respect all living things.",
+      "level": "C1"
+    },
+    {
       "word": "bind us together",
       "zh": "把我们联系在一起",
-      "example": "I firmly believe that kindness and culture bind us together."
+      "example": "I firmly believe that kindness and culture bind us together.",
+      "level": "C1"
     },
     {
       "word": "brighten someone's day",
       "zh": "让某人开心一天",
-      "example": "For example, a simple act like donating clothes can brighten someone's day."
-    },
-    {
-      "word": "give back to the community",
-      "zh": "回馈社区",
-      "example": "Volunteering is my way of giving back to the community."
-    },
-    {
-      "word": "out of compassion",
-      "zh": "出于同情",
-      "example": "I help others out of compassion."
-    },
-    {
-      "word": "brought up to care for others",
-      "zh": "从小被教导关心他人",
-      "example": "I was brought up to care for others."
-    },
-    {
-      "word": "feel a sense of duty",
-      "zh": "感到有责任",
-      "example": "I feel a sense of duty to help those in need."
-    },
-    {
-      "word": "pay it forward",
-      "zh": "把善意传递下去",
-      "example": "I want to pay it forward."
-    },
-    {
-      "word": "become more compassionate",
-      "zh": "变得更有同情心",
-      "example": "As a result, they become more compassionate and appreciate what they have."
-    },
-    {
-      "word": "captivating",
-      "zh": "迷人的",
-      "example": "The performance was truly captivating."
-    },
-    {
-      "word": "an enriching experience",
-      "zh": "丰富的体验",
-      "example": "It is an enriching experience for everyone."
+      "example": "For example, a simple act like donating clothes can brighten someone's day.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -173,9 +213,13 @@
   ],
   "gaps": [
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The question (three bullet points) is above the essay in the doc; the doc gives the title as 'Celebrating Cultural Diversity in Malaysia' and the article heading 'Malaysia: Our Tapestry of Treasures'.",
-    "None of the 10 words appears in this essay's vocabulary table; all 10 examples come from the People & Culture theme pack (Universal answers P1, P11 and trial-paper sentences from the Being Charitable and Live Performance questions).",
     "The sentences for 'give back to the community', 'feel a sense of duty' and 'become more compassionate' were rebuilt from the scrambled watermarked pack PDF. Please check them.",
     "Unused People & Culture essay: 'The Importance of Respecting Elders' (also older format).",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (improve the animals' quality of life)",
+    "Form 5: mid tier short: used a top word (a deep sense of fulfilment)",
+    "Form 5: mid tier short: used a top word (safeguard our identity)",
+    "Form 5: mid tier short: used a top word (pass down values)"
   ]
 }

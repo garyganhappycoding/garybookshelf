@@ -45,54 +45,94 @@
   ],
   "words": [
     {
-      "word": "health is wealth",
-      "zh": "健康就是财富",
-      "example": "As the saying goes, health is wealth."
+      "word": "fast-paced",
+      "zh": "节奏很快的",
+      "example": "Badminton is a fast-paced sport that is thrilling to watch.",
+      "level": "B2"
     },
     {
-      "word": "in today's hectic world, …",
-      "zh": "在当今忙碌的世界里，……",
-      "example": "In today's hectic world, many students skip meals."
+      "word": "a passionate fan",
+      "zh": "热情的球迷",
+      "example": "I am a passionate fan of the national football team.",
+      "level": "B2"
     },
     {
-      "word": "lead a sedentary lifestyle",
-      "zh": "过久坐不动的生活",
-      "example": "Teenagers who lead a sedentary lifestyle gain weight easily."
+      "word": "bring the family together",
+      "zh": "b 让家人聚在一起",
+      "example": "Watching matches brings the family together.",
+      "level": "B2"
     },
     {
-      "word": "stay fit",
-      "zh": "保持健康体态",
-      "example": "Because a healthy lifestyle affects how we study and feel, it is important to understand how to stay fit."
+      "word": "radiate confidence",
+      "zh": "b 散发自信",
+      "example": "A healthy person radiates confdi ence.",
+      "level": "B2 to C1"
     },
     {
-      "word": "unwind after school",
-      "zh": "放学后放松",
-      "example": "Playing badminton helps me unwind after school."
+      "word": "mouth- watering",
+      "zh": "令人垂涎的",
+      "example": "The smell of grilled satay was mouth-watering.",
+      "level": "B2 to C1"
     },
     {
-      "word": "boost our immune system",
-      "zh": "增强我们的免疫系统",
-      "example": "Fruit and enough sleep boost our immune system."
+      "word": "authentic flavour",
+      "zh": "正宗的味道",
+      "example": "The dish has an authentic fal vour that reminds me of home.",
+      "level": "B2 to C1"
     },
     {
-      "word": "play a vital role in …",
-      "zh": "在……中起重要作用",
-      "example": "Sports play a vital role in building character."
+      "word": "release endorphins",
+      "zh": "释放内啡肽",
+      "example": "This is because physical activity releases endorphins, which uplift our mood.",
+      "level": "B2 to C1"
     },
     {
-      "word": "bring a myriad of benefits",
-      "zh": "带来无数好处",
-      "example": "A balanced diet brings a myriad of benefits."
+      "word": "sharpen concentration",
+      "zh": "提高专注力",
+      "example": "As a result, students sharpen their concentration and cope with exam pressure better.",
+      "level": "B2 to C1"
     },
     {
-      "word": "strike a balance between work and play",
-      "zh": "在学习与玩乐之间取得平衡",
-      "example": "Students should strike a balance between work and play."
+      "word": "a nail-biting match",
+      "zh": "扣人心弦的比赛",
+      "example": "The fni al was a nail-biting match that kept everyone on the edge of their seats.",
+      "level": "C1"
     },
     {
-      "word": "prevention is better than cure",
-      "zh": "预防胜于治疗",
-      "example": "After all, prevention is better than cure."
+      "word": "the atmosphere in the stadium",
+      "zh": "球场的气氛",
+      "example": "h s The atmosphere in the stadium is electrifying.",
+      "level": "C1"
+    },
+    {
+      "word": "on the edge of my seat",
+      "zh": "紧张得坐立不安",
+      "example": "I was on the edge of my seat until the final whistle.",
+      "level": "C1"
+    },
+    {
+      "word": "accessible to everyone",
+      "zh": "人人都能接触",
+      "example": "Football is accessible to everyone because it needs only a ball.",
+      "level": "C1"
+    },
+    {
+      "word": "a sense of national pride",
+      "zh": "民族自豪感",
+      "example": "Sports create a sense of national pride.",
+      "level": "C1"
+    },
+    {
+      "word": "wide media coverage",
+      "zh": "广泛的媒体报道",
+      "example": "s Wide media coverage keeps the sport in the spotlight.",
+      "level": "C1"
+    },
+    {
+      "word": "unite people from all walks of life",
+      "zh": "团结各阶层的人",
+      "example": "Sports unite people from all walks of life.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -138,8 +178,8 @@
     }
   ],
   "gaps": [
-    "None of the 10 words appears in the SBP essay's vocabulary table; 9 examples are the Health & Sports pack's 'Universal phrases' sentences.",
     "'stay fit': the Universal phrase sentence only has 'keep fit and stay healthy', so the example is the pack's Universal opening (Opening A) sentence that contains 'stay fit'.",
-    "This is a Part 2 essay (3 paragraphs): it has no separate conclusion, so closingIdx points to the last paragraph (C4 and C5); the first paragraph is both the opening and C1."
+    "This is a Part 2 essay (3 paragraphs): it has no separate conclusion, so closingIdx points to the last paragraph (C4 and C5); the first paragraph is both the opening and C1.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

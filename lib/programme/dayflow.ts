@@ -51,7 +51,7 @@ export function aiTask(week: Week, day: Day) {
   const en = (l: { en: string }) => l.en;
   const vocab = week.days.flatMap((d) => d.blocks).find((b) => b.type === "vocab");
   const words = vocab && vocab.type === "vocab" ? vocab.rows.map((r) => r.word.replace(/…/g, "").trim()).join("; ") : "";
-  return `This week's 10 words are: ${words}. ${day.label.en} of the week on "${week.essay}". Task: ${steps && steps.type === "steps" ? steps.items.map(en).join(" ") : ""} ` +
+  return `This week's words are: ${words}. ${day.label.en} of the week on "${week.essay}". Task: ${steps && steps.type === "steps" ? steps.items.map(en).join(" ") : ""} ` +
     `The AI should check: ${checks && checks.type === "checks" ? checks.items.map(en).join(" ") : "that the answer fits the task"} Do not check or mention word counts.`;
 }
 
@@ -67,7 +67,7 @@ export function build(week: Week, day: Day, form: FormData, ilang: Ilang): Built
 
   if (r.kind === "sentences") {
     const sentences = r.words.map((_, i) => clean(String(form.get(`s${i}`) ?? ""), 400));
-    if (sentences.some((s) => s.length < 2)) return { error: T(ilang, "请把 10 个句子都写完。", "Please write all 10 sentences.") };
+    if (sentences.some((s) => s.length < 2)) return { error: T(ilang, `请把 ${r.words.length} 个句子都写完。`, `Please write all ${r.words.length} sentences.`) };
     const quiz = day.blocks.find((b) => b.type === "quiz");
     const rows = quiz && quiz.type === "quiz" ? quiz.rows : [];
     // flash cards: the student marks each card "remembered" (1) or "not yet" (0)

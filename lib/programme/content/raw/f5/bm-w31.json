@@ -26,54 +26,94 @@
   ],
   "words": [
     {
-      "word": "mata pena lebih tajam daripada mata pedang",
-      "zh": "笔锋比剑锋更锐利",
-      "example": "Peribahasa Melayu ada menyebut mata pena lebih tajam daripada mata pedang."
+      "word": "besar pasak daripada tiang",
+      "zh": "入不敷出",
+      "example": "Sudah tentulah bahawa jangan bersikap besar pasak daripada tiang untuk mengelakkan masalah hutang selepas kita melancong.",
+      "level": "advanced"
     },
     {
-      "word": "yang berat sama dipikul, yang ringan sama dijinjing",
-      "zh": "有难同当，有福同享",
-      "example": "Setiap strata masyarakat haruslah tersemat peribahasa “yang berat sama dipikul, yang ringan sama dijinjing” agar kita dapat bekerjasama untuk menjadikan Malaysia sebagai alternatif utama pelancong."
+      "word": "indah khabar daripada rupa",
+      "zh": "传闻比事实美好，名不副实",
+      "example": "Peribahasa melayu \"indah khabar daripada rupa\" amat bersinonim dengan keadaan tersebut.",
+      "level": "advanced"
     },
     {
-      "word": "senjata yang paling ampuh",
-      "zh": "最强大的武器",
-      "example": ")Tegasnya, sosial media merupakan senjata yang paling ampuh untuk memajukan sektor pelancongan."
+      "word": "bagai melukut di tepi gantang",
+      "zh": "如糠秕般被轻视",
+      "example": "Tegasnya, persediaan tentang maklumat tempat percutian tidak boleh dipandang enteng bagai melukut di tepi gantang.",
+      "level": "advanced"
     },
     {
-      "word": "bahasa melambangkan bangsa",
-      "zh": "语言代表民族",
-      "example": "Sebaliknya, mereka haruslah berbudi bahasa kerana “bahasa melambangkan bangsa”."
+      "word": "gemuruh tak berbunyi, malang tak berbau",
+      "zh": "祸不可测，防不胜防",
+      "example": "Hal ini dikatakan demikian kerana mungkin terdapat lokasi pelancongan yang menarik tetapi berisiko kemalangan bak kata peribahasa \"gemuruh tak berbunyi, malang tak berbau\".",
+      "level": "advanced"
     },
     {
-      "word": "jauh berjalan luas pemandangan",
-      "zh": "行万里路，见多识广",
-      "example": "Peribahasa \"jauh berjalan luas pemandangan\" jelas memanifestasikan bahawa ilmu dan pengalaman seseorang akan dimartabatkan dengan banyak makan angin atau melancong ke tempat lain."
+      "word": "serampang dua mata",
+      "zh": "一箭双雕",
+      "example": "Situasi ini bersinonim dengan peribahasa “serampang dua mata”.",
+      "level": "advanced"
+    },
+    {
+      "word": "tak tumbuh tak melata",
+      "zh": "确实如此，理所当然",
+      "example": "Tak tumbuh tak melata, memang tidak dapat dinafikan bahawa, sektor pelancongan berperanan penting untuk menarik pelabur asing ke negara kita.",
+      "level": "advanced"
+    },
+    {
+      "word": "bagai belut diketil ekor",
+      "zh": "如鳝鱼被捏尾般迅速",
+      "example": "Secara tidak langsung, dengan wang yang dilaburkan, percayalah roda pembangunan negara akan bergerak pesat bagai belut diketil ekor selaras dengan perkembangan teknologi.",
+      "level": "advanced"
+    },
+    {
+      "word": "kosnya tinggi melangit",
+      "zh": "费用高得离谱",
+      "example": "Kesannya, sebagai pelancong kita tidak perlu berjalan kaki ke destinasi pelancongan atau menaiki Grab atau menyewa kereta yang kosnya tinggi melangit sekiranya kita melancong di Singapura.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mengurangkan kos perbelanjaan pelancong",
+      "zh": "减少游客的开销",
+      "example": "Sudah tentulah bahawa sistem pengangkutan dan perhubungan sesebuah negara akan meningkatkan darjah ketersampaian dan mengurangkan kos perbelanjaan pelancong.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mengukir secebis senyuman yang manis",
+      "zh": "露出一抹甜美的笑容",
+      "example": "Rakyat haruslah mengukir secebis senyuman yang manis apabila terdapat pelancong asing berkunjung ke negara kita.",
+      "level": "ordinary"
     },
     {
       "word": "meninggalkan imej yang baik",
       "zh": "留下良好的形象",
-      "example": "Hospitaliti yang ditunjukkan kepada para tetamu dapat meninggalkan imej yang baik dalam hati mereka."
+      "example": "Hospitaliti yang ditunjukkan kepada para tetamu dapat meninggalkan imej yang baik dalam hati mereka.",
+      "level": "ordinary"
     },
     {
       "word": "mengambil kesempatan",
       "zh": "趁机占便宜",
-      "example": "Sebagai contohnya, pemandu teksi yang dianggap “duta pelancongan negara” haruslah bersikap ramah mesra dan menjauhi amalan yang ingin mengambil kesempatan atas kehadiran pelancongan asing bagi mengaut keuntungan mudah."
+      "example": "Sebagai contohnya, pemandu teksi yang dianggap “duta pelancongan negara” haruslah bersikap ramah mesra dan menjauhi amalan yang ingin mengambil kesempatan atas kehadiran pelancongan asing bagi mengaut keuntungan mudah.",
+      "level": "ordinary"
     },
     {
       "word": "mengaut keuntungan mudah",
       "zh": "轻易捞取利润",
-      "example": "Sebagai contohnya, pemandu teksi yang dianggap “duta pelancongan negara” haruslah bersikap ramah mesra dan menjauhi amalan yang ingin mengambil kesempatan atas kehadiran pelancongan asing bagi mengaut keuntungan mudah."
+      "example": "Sebagai contohnya, pemandu teksi yang dianggap “duta pelancongan negara” haruslah bersikap ramah mesra dan menjauhi amalan yang ingin mengambil kesempatan atas kehadiran pelancongan asing bagi mengaut keuntungan mudah.",
+      "level": "ordinary"
     },
     {
       "word": "berbudi bahasa",
       "zh": "谈吐有礼",
-      "example": "Sebaliknya, mereka haruslah berbudi bahasa kerana “bahasa melambangkan bangsa”."
+      "example": "Sebaliknya, mereka haruslah berbudi bahasa kerana “bahasa melambangkan bangsa”.",
+      "level": "ordinary"
     },
     {
       "word": "meninggalkan memorabilia sepanjang hidup",
       "zh": "留下终身难忘的回忆",
-      "example": "Dengan ini, pengalaman melawat ke Malaysia tentu akan meninggalkan memorabilia sepanjang hidup mereka."
+      "example": "Dengan ini, pengalaman melawat ke Malaysia tentu akan meninggalkan memorabilia sepanjang hidup mereka.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -111,6 +151,7 @@
     }
   ],
   "gaps": [
-    "Essay used is the 2nd Pelancongan essay (Ciri-ciri Pelancong yang Bijak); words 1-4 and 6-10 come from the 1st Pelancongan essay's tables (Cara-Cara Memajukan Sektor Pelancongan), so their example sentences are copied from that essay's Table 1/2 ayat column. The example of 'senjata yang paling ampuh' starts with a stray ')' exactly as in Gary's table."
+    "Essay used is the 2nd Pelancongan essay (Ciri-ciri Pelancong yang Bijak); words 1-4 and 6-10 come from the 1st Pelancongan essay's tables (Cara-Cara Memajukan Sektor Pelancongan), so their example sentences are copied from that essay's Table 1/2 ayat column. The example of 'senjata yang paling ampuh' starts with a stray ')' exactly as in Gary's table.",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays"
   ]
 }

@@ -26,54 +26,52 @@
   ],
   "words": [
     {
-      "word": "Tak tumbuh tak melata, tak sungguh orang tak kata",
-      "zh": "无风不起浪",
-      "example": "Tak tumbuh tak melata, tak sungguh orang tak kata."
-    },
-    {
-      "word": "malu bertanya sesat jalan, malu mengayuh perahu hanyut",
-      "zh": "不耻下问才不会迷失方向",
-      "example": "Keadaan ini bersesuaian dengan peribahasa “malu bertanya sesat jalan, malu mengayuh perahu hanyut”."
-    },
-    {
-      "word": "Bulan kian terang, bayang kian jelas",
-      "zh": "真相愈发明朗清晰",
-      "example": "Bulan kian terang, bayang kian jelas bahawa guru-guru berperanan sebagai fasilitator dan pemudah cara untuk menerajui murid ke arah kecemerlangan agar dapat menzahirkan golongan murid yang berkompeten dan mampu bersaing di pentas antarabangsa."
-    },
-    {
-      "word": "berkolaboratif bagai aur dengan tebing",
-      "zh": "唇齿相依，紧密合作",
-      "example": "Oleh itu, setiap strata masyarakat haruslah berkolaboratif bagai aur dengan tebing untuk memajukan pendidikan maya agar dapat menzahirkan golongan murid yang berminda kelas pertama dan berani menyuarakan pandangan diri dalam proses pembelajaran."
-    },
-    {
-      "word": "tanah tumpah darah kita",
-      "zh": "我们的故土",
-      "example": "Kementerian Pendidikan Malaysia juga harus menunjukkan iltizam dan inisiatif dengan merangka perencanaan yang terperinci untuk memperkenalkan pendidikan maya di empat pojok tanah tumpah darah kita."
-    },
-    {
       "word": "memahami kekuatan dan kelemahan murid",
       "zh": "了解学生的强项与弱点",
-      "example": "Natijahnya, guru-guru dapat memahami kekuatan dan kelemahan murid dalam pembelajaran serta berikhtiar mencari pedagogi yang lebih berkesan untuk menarik minat pelajar dalam pembelajaran."
+      "example": "Natijahnya, guru-guru dapat memahami kekuatan dan kelemahan murid dalam pembelajaran serta berikhtiar mencari pedagogi yang lebih berkesan untuk menarik minat pelajar dalam pembelajaran.",
+      "level": "ordinary"
     },
     {
       "word": "mengubah kaedah pengajaran konvensional",
       "zh": "改变传统教学方法",
-      "example": "Dari perspektif lain pula, pendidikan maya telah mengubah kaedah pengajaran konvensional kepada pendidikan berpusatkan murid."
+      "example": "Dari perspektif lain pula, pendidikan maya telah mengubah kaedah pengajaran konvensional kepada pendidikan berpusatkan murid.",
+      "level": "ordinary"
     },
     {
       "word": "pendidikan berpusatkan murid",
       "zh": "以学生为中心的教育",
-      "example": "Dari perspektif lain pula, pendidikan maya telah mengubah kaedah pengajaran konvensional kepada pendidikan berpusatkan murid."
+      "example": "Dari perspektif lain pula, pendidikan maya telah mengubah kaedah pengajaran konvensional kepada pendidikan berpusatkan murid.",
+      "level": "ordinary"
     },
     {
       "word": "pembelajaran secara interaktif",
       "zh": "互动式学习",
-      "example": "Impaknya, pembelajaran secara interaktif tentu akan diwujudkan dan melahirkan persaingan yang sihat antara murid-murid."
+      "example": "Impaknya, pembelajaran secara interaktif tentu akan diwujudkan dan melahirkan persaingan yang sihat antara murid-murid.",
+      "level": "ordinary"
     },
     {
       "word": "melahirkan persaingan yang sihat",
       "zh": "产生良性竞争",
-      "example": "Impaknya, pembelajaran secara interaktif tentu akan diwujudkan dan melahirkan persaingan yang sihat antara murid-murid."
+      "example": "Impaknya, pembelajaran secara interaktif tentu akan diwujudkan dan melahirkan persaingan yang sihat antara murid-murid.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mempunyai prospek yang cerah",
+      "zh": "拥有光明的前景",
+      "example": "Secara penutup bicara, pendidikan maya mempunyai prospek yang cerah untuk dimajukan.",
+      "level": "ordinary"
+    },
+    {
+      "word": "menunjukkan iltizam dan inisiatif",
+      "zh": "展现决心与主动性",
+      "example": "Kementerian Pendidikan Malaysia juga harus menunjukkan iltizam dan inisiatif dengan merangka perencanaan yang terperinci untuk memperkenalkan pendidikan maya di empat pojok tanah tumpah darah kita.",
+      "level": "ordinary"
+    },
+    {
+      "word": "menjalankan pengajaran dan pembelajaran (PDP) secara dalam talian",
+      "zh": "进行线上教学",
+      "example": "Oleh itu, golongan murid dan golongan guru mula menjalankan pengajaran dan pembelajaran (PDP) secara dalam talian.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -100,6 +98,9 @@
   ],
   "gaps": [
     "same essay as week 5 (no other essay of this topic in the week list for this round)",
-    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null"
+    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (0 of 7): filled with 0 ordinary words",
+    "Form 5: only 8 words available for this topic"
   ]
 }

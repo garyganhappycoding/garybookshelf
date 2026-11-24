@@ -47,12 +47,12 @@ export function makeWeek(d: WeekData): Week {
   const mon: Day = {
     key: "mon", label: T("第 1 天", "Day 1"), minutes: 10, blocks: [
       { id: "steps", type: "steps", title: TODAY, items: [
-        T("看下面 10 个词，每个词的中文和例句都读一遍。", "Read the 10 words below, with the Chinese meaning and the example sentence for each."),
-        T("每个词写一句自己的句子。一共 10 句。", "Write one sentence of your own for each word. 10 sentences in total."),
+        T(`看下面 ${d.words.length} 个词，每个词的中文和例句都读一遍。`, `Read the ${d.words.length} words below, with the Chinese meaning and the example sentence for each.`),
+        T(`每个词写一句自己的句子。一共 ${d.words.length} 句。`, `Write one sentence of your own for each word. ${d.words.length} sentences in total.`),
         T("做小测验：看中文，想出英文。", "Do the quick quiz: read the Chinese and recall the word."),
         T("交出去，AI 会给你反馈。", "Submit. The AI gives you feedback."),
       ] },
-      { id: "vocab", type: "vocab", title: T("本周 10 个词", "This week's 10 words"), rows: d.words.map((w) => ({ word: w.word, zh: w.zh, example: w.example ?? "" })) },
+      { id: "vocab", type: "vocab", title: T(`本周 ${d.words.length} 个词`, `This week's ${d.words.length} words`), rows: d.words.map((w) => ({ word: w.word, zh: w.zh, example: w.example ?? "" })) },
       { id: "quiz", type: "quiz", title: T("小测验：看中文，想出词", "Quick quiz: read the Chinese, recall the word"), rows: d.words.map((w) => ({ zh: w.zh, answer: w.word })) },
       { id: "checks", type: "checks", title: CHECKS, items: [
         T("每个词有没有用对。", "Whether each word is used correctly."),
@@ -65,13 +65,13 @@ export function makeWeek(d: WeekData): Week {
   const tue: Day = { key: "tue", label: T("第 2 天", "Day 2"), minutes: 10, blocks: !hasEssay ? [notReady] : [
     { id: "steps", type: "steps", title: TODAY, items: [
       T("读下面的范文。", "Read the model essay below."),
-      T("用蓝色标出本周 10 个词里，出现在范文里的词。", "Highlight in blue the words from this week's list that appear in the essay."),
+      T("用蓝色标出本周词表里，出现在范文里的词。", "Highlight in blue the words from this week's list that appear in the essay."),
       T("用红色标出你觉得好的词和短语。", "Highlight in red the words and phrases that you think are good."),
       T("交出去，对照答案。", "Submit, then compare with the answer."),
     ] },
     { id: "essay", type: "text", interactive: true, title: T("范文（先选颜色，再点你要标的词）", "Model essay (pick a colour, then tap the words to highlight)"), paragraphs: essayParas },
     { id: "answer", type: "text", reveal: true, title: T("答案（交了之后才显示）", "Answer (shown after submitting)"), paragraphs: essayParas, highlight: marks,
-      note: T(`蓝色是本周的词，范文里有 ${blue.length} 个。红色是范文里的好词好句，来自你的范文词汇表。`, `Blue = this week's words (${blue.length} of the 10 are in this essay). Red = the good words and phrases from the essay's own vocabulary table.`) },
+      note: T(`蓝色是本周的词，范文里有 ${blue.length} 个。红色是范文里的好词好句，来自你的范文词汇表。`, `Blue = this week's words (${blue.length} of the ${d.words.length} are in this essay). Red = the good words and phrases from the essay's own vocabulary table.`) },
   ] };
 
   const qBlock: Block | null = d.points.length

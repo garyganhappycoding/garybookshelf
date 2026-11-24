@@ -30,54 +30,94 @@
   ],
   "words": [
     {
-      "word": "sebelum nasi menjadi bubur",
-      "zh": "防患于未然（字面：饭变粥之前）",
-      "example": "Oleh itu, amat penting untuk kita mengenal pasti faktor yang menyumbangkan kepada masalah ponteng sekolah ini sebelum nasi menjadi bubur(sebelum masalah ini menjadi serius)"
+      "word": "pro dan kontra",
+      "zh": "正反意见/利弊",
+      "example": "Perang media menerusi akhbar dan media sosial telah pun meletus bagi membincangkan pro dan kontra isu ini.",
+      "level": "ordinary"
     },
     {
-      "word": "terlajak perahu boleh diundur, terlajak langkah buruk padahnya",
-      "zh": "一失足成千古恨",
-      "example": "Selain itu, murid yang masih berfikiran naif sering tersilap memilih jalan seperti peribahasa \"terlajak perahu boleh diundur, terlajak langkah buruk padahnya\"."
+      "word": "penyelesaian yang konkrit",
+      "zh": "具体的解决方案",
+      "example": "Sekiranya isu ini dibiarkan tanpa penyelesaian yang konkrit, bukan sahaja kita kecundang(失败) dalam misi melahirkan generasi yang berkompeten, malah kadar celik(识字率） huruf negara nescaya terjejas dan gejala sosial juga pasti berleluasa.",
+      "level": "ordinary"
     },
     {
-      "word": "harapkan sokong, sokong membawa rebah",
-      "zh": "所依靠的人反而带来祸害",
-      "example": "Hal ini bersinonim dengan \"harapkan sokong, sokong membawa rebah.\""
-    },
-    {
-      "word": "yang dikejar tak dapat, yang dikendong berciciran",
-      "zh": "两头落空，顾此失彼",
-      "example": "Jadi, murid bukan sahaja ketinggalan dalam akademik malah juga membazirkan potensi yang ada, ibarat yang dikejar tak dapat, yang dikendong berciciran."
-    },
-    {
-      "word": "ibarat kain basah kering di pinggang",
-      "zh": "生活贫困，勉强度日",
-      "example": "Punca lain yang menyebabkan murid ponteng sekolah ialah masalah kemiskinan yang ditimpa oleh sesetengah keluarga ibarat kain basah kering di pinggang."
+      "word": "kecundang",
+      "zh": "失败",
+      "example": "Sekiranya isu ini dibiarkan tanpa penyelesaian yang konkrit, bukan sahaja kita kecundang(失败) dalam misi melahirkan generasi yang berkompeten, malah kadar celik(识字率） huruf negara nescaya terjejas dan gejala sosial juga pasti berleluasa.",
+      "level": "ordinary"
     },
     {
       "word": "gejala sosial",
       "zh": "社会问题/现象",
-      "example": "Sekiranya isu ini dibiarkan tanpa penyelesaian yang konkrit, bukan sahaja kita kecundang(失败) dalam misi melahirkan generasi yang berkompeten, malah kadar celik(识字率） huruf negara nescaya terjejas dan gejala sosial juga pasti berleluasa."
+      "example": "Sekiranya isu ini dibiarkan tanpa penyelesaian yang konkrit, bukan sahaja kita kecundang(失败) dalam misi melahirkan generasi yang berkompeten, malah kadar celik(识字率） huruf negara nescaya terjejas dan gejala sosial juga pasti berleluasa.",
+      "level": "ordinary"
     },
     {
       "word": "berleluasa",
       "zh": "蔓延",
-      "example": "Sekiranya isu ini dibiarkan tanpa penyelesaian yang konkrit, bukan sahaja kita kecundang(失败) dalam misi melahirkan generasi yang berkompeten, malah kadar celik(识字率） huruf negara nescaya terjejas dan gejala sosial juga pasti berleluasa."
+      "example": "Sekiranya isu ini dibiarkan tanpa penyelesaian yang konkrit, bukan sahaja kita kecundang(失败) dalam misi melahirkan generasi yang berkompeten, malah kadar celik(识字率） huruf negara nescaya terjejas dan gejala sosial juga pasti berleluasa.",
+      "level": "ordinary"
     },
     {
       "word": "mengenal pasti",
       "zh": "鉴定/查明",
-      "example": "Oleh itu, amat penting untuk kita mengenal pasti faktor yang menyumbangkan kepada masalah ponteng sekolah ini sebelum nasi menjadi bubur(sebelum masalah ini menjadi serius)"
+      "example": "Oleh itu, amat penting untuk kita mengenal pasti faktor yang menyumbangkan kepada masalah ponteng sekolah ini sebelum nasi menjadi bubur(sebelum masalah ini menjadi serius) Antara punca utama murid ponteng sekolah ialah mereka tidak berminat untuk belajar Kebiasaannya, murid-murid yang keciciran dalam pelajaran dan berada di kelas corot mempunyai pencapaian akademik yang rendah.",
+      "level": "ordinary"
     },
     {
       "word": "punca utama",
       "zh": "主要原因",
-      "example": "Antara punca utama murid ponteng sekolah ialah mereka tidak berminat untuk belajar"
+      "example": "Oleh itu, amat penting untuk kita mengenal pasti faktor yang menyumbangkan kepada masalah ponteng sekolah ini sebelum nasi menjadi bubur(sebelum masalah ini menjadi serius) Antara punca utama murid ponteng sekolah ialah mereka tidak berminat untuk belajar Kebiasaannya, murid-murid yang keciciran dalam pelajaran dan berada di kelas corot mempunyai pencapaian akademik yang rendah.",
+      "level": "ordinary"
     },
     {
       "word": "keciciran dalam pelajaran",
       "zh": "学业落后",
-      "example": "Kebiasaannya, murid-murid yang keciciran dalam pelajaran dan berada di kelas corot mempunyai pencapaian akademik yang rendah."
+      "example": "Oleh itu, amat penting untuk kita mengenal pasti faktor yang menyumbangkan kepada masalah ponteng sekolah ini sebelum nasi menjadi bubur(sebelum masalah ini menjadi serius) Antara punca utama murid ponteng sekolah ialah mereka tidak berminat untuk belajar Kebiasaannya, murid-murid yang keciciran dalam pelajaran dan berada di kelas corot mempunyai pencapaian akademik yang rendah.",
+      "level": "ordinary"
+    },
+    {
+      "word": "kelas corot",
+      "zh": "末端班（成绩差的班级）",
+      "example": "Oleh itu, amat penting untuk kita mengenal pasti faktor yang menyumbangkan kepada masalah ponteng sekolah ini sebelum nasi menjadi bubur(sebelum masalah ini menjadi serius) Antara punca utama murid ponteng sekolah ialah mereka tidak berminat untuk belajar Kebiasaannya, murid-murid yang keciciran dalam pelajaran dan berada di kelas corot mempunyai pencapaian akademik yang rendah.",
+      "level": "ordinary"
+    },
+    {
+      "word": "pencapaian akademik yang rendah",
+      "zh": "学业成绩低落",
+      "example": "Oleh itu, amat penting untuk kita mengenal pasti faktor yang menyumbangkan kepada masalah ponteng sekolah ini sebelum nasi menjadi bubur(sebelum masalah ini menjadi serius) Antara punca utama murid ponteng sekolah ialah mereka tidak berminat untuk belajar Kebiasaannya, murid-murid yang keciciran dalam pelajaran dan berada di kelas corot mempunyai pencapaian akademik yang rendah.",
+      "level": "ordinary"
+    },
+    {
+      "word": "kehilangan minat",
+      "zh": "失去兴趣",
+      "example": "Mereka kurang menguasai tentang subjek tersebut sehingga menyebabkan mereka kehilangan minat dalam pelajaran.",
+      "level": "ordinary"
+    },
+    {
+      "word": "membazir masa",
+      "zh": "浪费时间",
+      "example": "Oleh itu, mereka beranggapan bahawa kehadiran di sekolah merupakan satu bebanan kerana terpaksa membazir masa untuk belajar dari pagi hingga tengah hari di samping terpaksa membuat pelbagai latihan dan kerja rumah yang diberikan oleh guru.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mengikut kaki joli",
+      "zh": "跟着游荡的朋友",
+      "example": "Malangnya destinasi pagi mereka bukan ke sekolah sebaliknya mereka berkumpul di tempat untuk mengikut kaki joli.",
+      "level": "ordinary"
+    },
+    {
+      "word": "pusat beli-belah",
+      "zh": "购物中心",
+      "example": "Tempat tumpuan utama murid biasanya di pusat beli-belah atau pusat penularan maksiat.",
+      "level": "ordinary"
+    },
+    {
+      "word": "pusat penularan maksiat",
+      "zh": "不良风气滋生的场所",
+      "example": "Tempat tumpuan utama murid biasanya di pusat beli-belah atau pusat penularan maksiat.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -116,6 +156,8 @@
   ],
   "gaps": [
     "Only one essay exists for this topic in the BM vocab file, so the same essay as week 14 is used again.",
-    "The essay text contains Gary's own inline Chinese notes (e.g. 失败, 识字率) and a sentence fragment 'kudis死皮 ... tokak 侬'; copied exactly as in the doc."
+    "The essay text contains Gary's own inline Chinese notes (e.g. 失败, 识字率) and a sentence fragment 'kudis死皮 ... tokak 侬'; copied exactly as in the doc.",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (0 of 7): filled with 7 ordinary words"
   ]
 }

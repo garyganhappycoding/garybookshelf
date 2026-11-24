@@ -51,54 +51,94 @@
   ],
   "words": [
     {
-      "word": "if you are looking for …, look no further",
-      "zh": "如果你在找……，不用再找了",
-      "example": "If you are looking for a relaxing weekend, look no further."
+      "word": "went viral",
+      "zh": "爆红",
+      "example": "This dish went viral on social media.",
+      "level": "B2"
     },
     {
-      "word": "… is a hidden gem",
-      "zh": "……是个隐藏的宝藏",
-      "example": "This little café is a hidden gem in the heart of Ipoh."
+      "word": "word of mouth",
+      "zh": "口耳相传",
+      "example": "I heard about it through word of mouth.",
+      "level": "B2"
     },
     {
-      "word": "what sets it apart is …",
-      "zh": "让它与众不同的是……",
-      "example": "What sets it apart is its rich, creamy broth."
+      "word": "a long queue outside the stall",
+      "zh": "摊位外排长队",
+      "example": "s A long queue outside the stall made me curious.",
+      "level": "B2"
     },
     {
-      "word": "worth every penny",
-      "zh": "物超所值",
-      "example": "At RM15, the meal is worth every penny."
+      "word": "mouth- watering",
+      "zh": "令人垂涎的",
+      "example": "The smell of grilled satay was mouth-watering.",
+      "level": "B2 to C1"
     },
     {
-      "word": "the highlight … is …",
-      "zh": "最大的亮点是……",
-      "example": "The highlight of the show was the final duet."
+      "word": "authentic flavour",
+      "zh": "正宗的味道",
+      "example": "The dish has an authentic fal vour that reminds me of home.",
+      "level": "B2 to C1"
     },
     {
-      "word": "exceeded my expectations",
-      "zh": "超出了我的期望",
-      "example": "This is because everything exceeded my expectations."
+      "word": "captivating",
+      "zh": "迷人的",
+      "example": "The performance was truly captivating.",
+      "level": "B2 to C1"
     },
     {
-      "word": "left a lasting impression on me",
-      "zh": "给我留下深刻印象",
-      "example": "The ending left a lasting impression on me."
+      "word": "heart-warming",
+      "zh": "暖心的",
+      "example": "h It was heart-warming to see rescued animals recover.",
+      "level": "B2 to C1"
     },
     {
-      "word": "the only drawback is that …, but …",
-      "zh": "唯一的缺点是……，不过……",
-      "example": "The only drawback is the long queue, but it moves fast."
+      "word": "heartbreaking",
+      "zh": "令人心碎的",
+      "example": "s It was heartbreaking to hear how some were abandoned.",
+      "level": "B2 to C1"
     },
     {
-      "word": "I would highly recommend … to anyone who …",
-      "zh": "我强烈推荐……给任何想……的人",
-      "example": "I would highly recommend this book to anyone who loves mysteries."
+      "word": "a local speciality",
+      "zh": "当地特产",
+      "example": "Nasi kerabu is a local speciality of Kelantan.",
+      "level": "C1"
     },
     {
-      "word": "a must-try / a must-visit",
-      "zh": "必尝／必去之地",
-      "example": "Taman Negara is a must-visit for nature lovers."
+      "word": "pique my curiosity",
+      "zh": "引起我的好奇",
+      "example": "The long queue piqued my curiosity.",
+      "level": "C1"
+    },
+    {
+      "word": "make a special trip",
+      "zh": "b 特地前往",
+      "example": "I made a special trip to taste it.",
+      "level": "C1"
+    },
+    {
+      "word": "a blend of spices",
+      "zh": "香料的融合",
+      "example": "e It has a perfect blend of spices.",
+      "level": "C1"
+    },
+    {
+      "word": "leave a lasting impression",
+      "zh": "留下深刻印象",
+      "example": "The taste left a lasting impression on me.",
+      "level": "C1"
+    },
+    {
+      "word": "tantalise the taste buds",
+      "zh": "刺激味蕾",
+      "example": "The sweet and spicy sauce tantalises the taste buds.",
+      "level": "C1"
+    },
+    {
+      "word": "well worth a visit",
+      "zh": "非常值得一游",
+      "example": "The stall is well worth a visit.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -159,6 +199,7 @@
     "example for 'what sets it apart is …' taken from the theme pack (watermark layer removed)",
     "example for 'worth every penny' taken from the theme pack (watermark layer removed)",
     "example for 'left a lasting impression on me' taken from the theme pack (watermark layer removed)",
-    "Example for 'the highlight … is …' filled later from the Review theme pack (cleaned text); form differs: 'was' instead of 'is'."
+    "Example for 'the highlight … is …' filled later from the Review theme pack (cleaned text); form differs: 'was' instead of 'is'.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

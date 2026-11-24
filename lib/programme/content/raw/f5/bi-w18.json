@@ -39,54 +39,94 @@
   ],
   "words": [
     {
-      "word": "stunning scenery",
-      "zh": "迷人的风景",
-      "example": "It offers stunning scenery."
-    },
-    {
-      "word": "on my bucket list",
-      "zh": "在我的心愿清单上",
-      "example": "Mount Kinabalu is on my bucket list."
+      "word": "snow-capped mountains",
+      "zh": "白雪覆盖的山峰",
+      "example": "s I want to see the snow-capped mountains.",
+      "level": "B2"
     },
     {
       "word": "an unforgettable adventure",
-      "zh": "难忘的冒险",
-      "example": "It would be an unforgettable adventure."
+      "zh": "b 难忘的冒险",
+      "example": "It would be an unforgettable adventure.",
+      "level": "B2"
     },
     {
-      "word": "boost the local economy",
-      "zh": "促进当地经济",
-      "example": "This will boost the local economy."
-    },
-    {
-      "word": "surrounded by greenery",
-      "zh": "被绿意环绕",
-      "example": "It is surrounded by greenery."
-    },
-    {
-      "word": "cost a fortune",
-      "zh": "花费巨大",
-      "example": "This is because transport, hotels and food cost a fortune."
+      "word": "stunning scenery",
+      "zh": "迷人的风景",
+      "example": "It offers stunning scenery.",
+      "level": "B2"
     },
     {
       "word": "airfares soar",
       "zh": "机票价格飙升",
-      "example": "For example, airfares soar during the school holidays."
-    },
-    {
-      "word": "promote domestic tourism",
-      "zh": "推广国内旅游",
-      "example": "The government should promote domestic tourism."
+      "example": "For example, airfares soar during the school holidays.",
+      "level": "B2 to C1"
     },
     {
       "word": "hidden gems",
       "zh": "隐藏的瑰宝",
-      "example": "This is because Malaysia has many hidden gems that are still unknown."
+      "example": "This is because Malaysia has many hidden gems that are still unknown.",
+      "level": "B2 to C1"
     },
     {
-      "word": "unwind",
-      "zh": "放松",
-      "example": "I managed to unwind completely."
+      "word": "lasting memories",
+      "zh": "持久的回忆",
+      "example": "We would create lasting memories.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "spark creativity",
+      "zh": "激发创意",
+      "example": "This is because they help us unwind and spark our creativity.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "a take pride in our homeland",
+      "zh": "以我们的家园为 荣",
+      "example": "We will take pride in our homeland.",
+      "level": "C1"
+    },
+    {
+      "word": "a tranquil retreat",
+      "zh": "宁静的度假胜地",
+      "example": "It is a tranquil retreat from city life.",
+      "level": "C1"
+    },
+    {
+      "word": "savour the local food",
+      "zh": "细细品尝当地美 食",
+      "example": "We savoured the local food at the restaurant.",
+      "level": "C1"
+    },
+    {
+      "word": "recharge your batteries",
+      "zh": "恢复精力",
+      "example": "It is the perfect place to recharge your batteries.",
+      "level": "C1"
+    },
+    {
+      "word": "exceed your expectations",
+      "zh": "超出你的期望",
+      "example": "The resort will exceed your expectations.",
+      "level": "C1"
+    },
+    {
+      "word": "leave feeling rejuvenated",
+      "zh": "b 精神焕发地离开",
+      "example": "You will leave feeling rejuvenated.",
+      "level": "C1"
+    },
+    {
+      "word": "a heart- warming scene",
+      "zh": "暖心的场景",
+      "example": "The heart-warming scene of the family reunion stayed with me.",
+      "level": "C1"
+    },
+    {
+      "word": "a gripping moment",
+      "zh": "扣人心弦的时刻",
+      "example": "The fni al fgi ht was a gripping moment.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -174,10 +214,10 @@
   "gaps": [
     "No example sentence for 'on my bucket list' (the pack's sentence was scrambled in the PDF text).",
     "This essay doc has no Question Analysis table and no Exam/Extended split (one essay only), so points is []. keyPoint.prompt is null; keyPoint = paragraph 2 (what made the trip special / what I did).",
-    "None of the week's 10 words appear in this essay's vocabulary table; all examples come from the Travel pack (Universal answers V5, V7, V9 and the trial-question vocab tables, clean sentences only).",
     "The question's three parts (describe the place, what you did, benefits for teenagers) are not labelled as C-points in a table; the in-text tags (C1)-(C5) were removed from the essay text.",
     "Prompt said week 18 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 18 as Travel, Leisure & Home, so Travel words and a Travel essay were used.",
     "points written by Claude from the essay (unchecked)",
-    "Example for 'on my bucket list' filled later from the Travel / Leisure / Home theme pack (cleaned text)."
+    "Example for 'on my bucket list' filled later from the Travel / Leisure / Home theme pack (cleaned text).",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

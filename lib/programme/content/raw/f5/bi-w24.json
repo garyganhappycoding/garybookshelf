@@ -39,54 +39,94 @@
   ],
   "words": [
     {
-      "word": "deter illegal dumping",
-      "zh": "阻止非法倾倒",
-      "example": "For example, heavy fines can deter illegal dumping and open burning."
+      "word": "for future generations",
+      "zh": "为了后代",
+      "example": "We must protect the Earth for future generations.",
+      "level": "B2"
     },
     {
-      "word": "take ownership",
-      "zh": "负起责任",
-      "example": "This is because everyone can take ownership of their neighbourhood."
+      "word": "rising temperatures",
+      "zh": "气温上升",
+      "example": "e Rising temperatures show that the planet is in trouble.",
+      "level": "B2"
     },
     {
-      "word": "foster a sense of responsibility",
-      "zh": "培养责任感",
-      "example": null
+      "word": "lead to a cleaner environment",
+      "zh": "带来更干净的环 境",
+      "example": "Eco-friendly habits lead to a cleaner and healthier environment.",
+      "level": "B2"
     },
     {
-      "word": "shared responsibility",
-      "zh": "共同的责任",
-      "example": "I firmly believe that protecting the environment is a shared responsibility."
+      "word": "insufficient enforcement",
+      "zh": "执法不足",
+      "example": "Insufficient enforcement allows littering to continue.",
+      "level": "B2 to C1"
     },
     {
-      "word": "make a real difference",
-      "zh": "带来真正的改变",
-      "example": "For example, one person's small action may seem insignificant, but millions of people together make a real difference."
+      "word": "illegal dumping",
+      "zh": "非法倾倒",
+      "example": "h Illegal dumping pollutes our rivers.",
+      "level": "B2 to C1"
     },
     {
-      "word": "insignificant",
-      "zh": "微不足道的",
-      "example": "For example, one person's small action may seem insignificant, but millions of people together make a real difference."
+      "word": "eco-conscious",
+      "zh": "有环保意识的",
+      "example": "Eco-conscious consumers prefer natural packaging.",
+      "level": "B2 to C1"
     },
     {
-      "word": "make a conscious effort",
-      "zh": "努力有意识地做",
-      "example": "I make a conscious effort to avoid single-use plastic."
+      "word": "compostable",
+      "zh": "可堆肥的",
+      "example": "s Compostable bags decompose in a few months.",
+      "level": "B2 to C1"
     },
     {
-      "word": "reduce my carbon footprint",
-      "zh": "减少我的碳足迹",
-      "example": "This practice helps me reduce my carbon footprint."
+      "word": "incentive",
+      "zh": "奖励；激励",
+      "example": "An incentive makes people recycle more.",
+      "level": "B2 to C1"
     },
     {
-      "word": "safeguard the planet",
-      "zh": "保护地球",
-      "example": "An eco-friendly lifestyle helps us safeguard the planet."
+      "word": "become second nature",
+      "zh": "b 成为第二天性",
+      "example": "Cleaning up will soon become second nature.",
+      "level": "C1"
     },
     {
-      "word": "deplete natural resources",
-      "zh": "耗尽自然资源",
-      "example": "Wasteful habits deplete natural resources quickly."
+      "word": "a pressing issue",
+      "zh": "迫切的问题",
+      "example": "Plastic pollution is a pressing issue in Malaysia.",
+      "level": "C1"
+    },
+    {
+      "word": "an escalating problem",
+      "zh": "不断恶化的问题",
+      "example": "Plastic waste is an escalating problem worldwide.",
+      "level": "C1"
+    },
+    {
+      "word": "a consumer- driven lifestyle",
+      "zh": "消费驱动的生活 方式",
+      "example": "A consumer-driven lifestyle creates endless waste.",
+      "level": "C1"
+    },
+    {
+      "word": "pile up in landfills",
+      "zh": "b 在垃圾填埋场堆 积",
+      "example": "Rubbish piles up in landfills.",
+      "level": "C1"
+    },
+    {
+      "word": "minimise our carbon footprint",
+      "zh": "b 减少我们的碳足 迹",
+      "example": "They help us minimise our carbon footprint.",
+      "level": "C1"
+    },
+    {
+      "word": "streamline waste collection",
+      "zh": "简化垃圾回收",
+      "example": "Technology streamlines waste collection.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -176,6 +216,7 @@
     "The essay text is the single 'Original Essay (Revised)' version; its bold vocabulary marks were removed. goodPhrases are the rows of its 'Thematic Vocabulary & Phrases Table' (the doc has no 'Table 1').",
     "'foster a sense of responsibility': no sentence with the phrase in the pack or the essay (the essay has 'nurtures a sense of collective responsibility'), so example is null.",
     "None of the other words is in the essay; their examples come from the Environment pack (Universal answers E7, E9, E11; trial-paper keyword sentences for 'make a conscious effort', 'reduce my carbon footprint', 'safeguard the planet', 'deplete natural resources').",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

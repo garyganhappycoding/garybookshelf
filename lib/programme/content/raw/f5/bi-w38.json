@@ -39,54 +39,94 @@
   ],
   "words": [
     {
-      "word": "spend impulsively",
-      "zh": "冲动消费",
-      "example": "Many pupils spend impulsively on trendy items."
+      "word": "regular sales and promotions",
+      "zh": "定期的促销",
+      "example": "l e There are regular sales and promotions.",
+      "level": "B2"
     },
     {
-      "word": "barely save money",
-      "zh": "几乎没有存钱",
-      "example": "Nearly half barely save any money."
+      "word": "a great place to spend time with family",
+      "zh": "与家人共度时光 的好地方",
+      "example": "h s It is a great place to spend time with family.",
+      "level": "B2"
     },
     {
-      "word": "fall short of their goals",
-      "zh": "达不到目标",
-      "example": "Pupils fall short of their saving goals."
+      "word": "leave satisfied",
+      "zh": "b 满意而归",
+      "example": "Visitors will leave satisfei d.",
+      "level": "B2"
     },
     {
-      "word": "raise awareness through talks",
-      "zh": "通过讲座提高意识",
-      "example": "The school can raise awareness through talks."
+      "word": "conduct a survey",
+      "zh": "进行调查",
+      "example": "The Consumer Club conducted a survey among pupils.",
+      "level": "B2 to C1"
     },
     {
-      "word": "become wise consumers",
-      "zh": "成为精明的消费者",
-      "example": "As a result, students become wise consumers who manage their money well."
+      "word": "identify problems",
+      "zh": "找出问题",
+      "example": "The survey helped us identify problems in pupils' spending.",
+      "level": "B2 to C1"
     },
     {
-      "word": "secure a better financial future",
-      "zh": "确保更好的财务未来",
-      "example": "This helps them secure a better financial future."
+      "word": "the majority of pupils",
+      "zh": "大多数学生",
+      "example": "The majority of pupils spend most of their allowance on snacks.",
+      "level": "B2 to C1"
     },
     {
-      "word": "develop responsible money habits",
-      "zh": "养成负责任的理财习惯",
-      "example": "They will develop responsible money habits."
+      "word": "online games and top-ups",
+      "zh": "网络游戏和充值",
+      "example": "h Others spend on online games and top-ups.",
+      "level": "B2 to C1"
     },
     {
-      "word": "control spending",
-      "zh": "控制开销",
-      "example": null
+      "word": "only 15% have a savings account",
+      "zh": "只有15%有储蓄 户口",
+      "example": "s Only 15% of pupils have a savings account.",
+      "level": "C1"
     },
     {
-      "word": "spend beyond one's means",
-      "zh": "入不敷出",
-      "example": "Many teenagers spend beyond their means whenever they see something attractive."
+      "word": "run out of money before the month ends",
+      "zh": "月底前钱花光",
+      "example": "Many run out of money before the month ends.",
+      "level": "C1"
     },
     {
-      "word": "a vital life skill",
-      "zh": "重要的生活技能",
-      "example": "Financial literacy is a vital life skill."
+      "word": "encourage a saving habit",
+      "zh": "鼓励储蓄习惯",
+      "example": "We should encourage a saving habit from young.",
+      "level": "C1"
+    },
+    {
+      "word": "teach budgeting skills",
+      "zh": "教授预算技巧",
+      "example": "l The school should teach budgeting skills.",
+      "level": "C1"
+    },
+    {
+      "word": "a school savings scheme",
+      "zh": "学校储蓄计划",
+      "example": "h A school savings scheme can encourage regular saving.",
+      "level": "C1"
+    },
+    {
+      "word": "a budgeting workshop",
+      "zh": "预算工作坊",
+      "example": "s The Consumer Club can hold a budgeting workshop.",
+      "level": "C1"
+    },
+    {
+      "word": "a bank ofcfier as a guest speaker",
+      "zh": "银行职员当嘉宾",
+      "example": "Inviting a bank officer as a guest speaker will help.",
+      "level": "C1"
+    },
+    {
+      "word": "money does not grow on trees",
+      "zh": "钱不是大风刮来的",
+      "example": "Money does not grow on trees, yet many teenagers spend carelessly.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -174,7 +214,19 @@
   "gaps": [
     "'control spending' has no example sentence: in the Finance & Consumerism theme pack it appears only as a key word (answer F2) and the scrambled model paragraph could not be copied safely.",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The essay is about online shopping scams and awareness, not general spending habits.",
-    "None of the 10 words appears in this essay's vocabulary table; examples come from the Finance & Consumerism theme pack (Universal answers F3, F9 and trial-paper sentences from the Kedah spending-habits report). The sentences for 'barely save money', 'secure a better financial future' and 'spend beyond one's means' were rebuilt from the scrambled pack text; 'fall short of their goals' uses 'their saving goals' and 'spend beyond one's means' uses 'their means'. Please check them.",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a b2 word (conduct a survey)",
+    "Form 5: mid tier short: used a b2 word (identify problems)",
+    "Form 5: mid tier short: used a b2 word (the majority of pupils)",
+    "Form 5: mid tier short: used a b2 word (online games and top-ups)",
+    "Form 5: top tier short: used a b2 word (only 15% have a savings account)",
+    "Form 5: top tier short: used a b2 word (run out of money before the month ends)",
+    "Form 5: top tier short: used a b2 word (encourage a saving habit)",
+    "Form 5: top tier short: used a b2 word (teach budgeting skills)",
+    "Form 5: top tier short: used a b2 word (a school savings scheme)",
+    "Form 5: top tier short: used a b2 word (a budgeting workshop)",
+    "Form 5: top tier short: used a b2 word (a bank ofcfier as a guest speaker)",
+    "Form 5: top tier short: used a b2 word (money does not grow on trees)"
   ]
 }

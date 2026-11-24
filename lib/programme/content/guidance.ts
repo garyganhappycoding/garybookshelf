@@ -73,10 +73,10 @@ function words(w: Week): { word: string; zh: string }[] {
 function wordsFor(w: Week, key: string): { title: L; rows: string[][] } | null {
   const ws = words(w);
   if (ws.length < 10) return null;
-  const roundOne = w.lang === "BI" && w.n <= 11;
+  const roundOne = w.lang === "BI" && w.n <= 11 && ws.length === 10; // the opening/closing split only fits the 10-word Form 4 lists
   const pick = roundOne ? (key === "wed" ? ws.slice(0, 2) : key === "thu" ? ws.slice(2, 8) : ws.slice(8)) : ws;
   return {
-    title: roundOne ? T("今天可以用的词（来自星期一的 10 个词）", "Words you can use today (from Monday's 10)") : T("本周的 10 个词，写的时候可以用", "This week's 10 words: use them as you write"),
+    title: roundOne ? T("今天可以用的词（来自星期一的 10 个词）", "Words you can use today (from Monday's 10)") : T("本周的词，写的时候可以用", "This week's words: use them as you write"),
     rows: pick.map((x) => [x.word, x.zh]),
   };
 }

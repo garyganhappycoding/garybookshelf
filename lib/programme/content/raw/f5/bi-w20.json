@@ -51,54 +51,94 @@
   ],
   "words": [
     {
-      "word": "conveniently located",
-      "zh": "位置便利",
-      "example": "The café is conveniently located near the LRT station."
-    },
-    {
-      "word": "well-equipped",
-      "zh": "设备齐全",
-      "example": "It is well-equipped with clean restrooms and a prayer room."
-    },
-    {
-      "word": "word of mouth",
-      "zh": "口耳相传",
-      "example": "I heard about it through word of mouth."
+      "word": "be eager to try",
+      "zh": "o 渴望尝试",
+      "example": "I was eager to try it myself.",
+      "level": "B2"
     },
     {
       "word": "freshly prepared",
       "zh": "新鲜现做的",
-      "example": "Everything is freshly prepared in front of you."
+      "example": "Everything is freshly prepared in front of you.",
+      "level": "B2"
     },
     {
-      "word": "generous portions",
-      "zh": "分量十足",
-      "example": "The stall serves generous portions at a low price."
+      "word": "tender and juicy",
+      "zh": "软嫩多汁",
+      "example": "h The chicken was tender and juicy.",
+      "level": "B2"
+    },
+    {
+      "word": "nestled in",
+      "zh": "坐落于",
+      "example": "The resort is nestled in the hills of Cameron Highlands.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "breathtaking views",
+      "zh": "b 令人惊叹的景色",
+      "example": "The balcony offered breathtaking views of the sunrise.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "unwind",
+      "zh": "放松",
+      "example": "I managed to unwind completely.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "revolves around",
+      "zh": "围绕着",
+      "example": "The plot revolves around a boy who dreams of being a footballer.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "go during off- peak hours",
+      "zh": "在非高峰时段前 往",
+      "example": "s I suggest going during off-peak hours to avoid the queue.",
+      "level": "C1"
+    },
+    {
+      "word": "satisfy your cravings",
+      "zh": "满足你的渴望",
+      "example": "This dish will satisfy your cravings.",
+      "level": "C1"
+    },
+    {
+      "word": "a popular shopping destination",
+      "zh": "热门购物目的地",
+      "example": "It is a popular shopping destination in Seremban.",
+      "level": "C1"
+    },
+    {
+      "word": "situated in the heart of",
+      "zh": "位于……的中心",
+      "example": "The mall is situated in the heart of the town.",
+      "level": "C1"
     },
     {
       "word": "cater to all age groups",
       "zh": "迎合所有年龄层",
-      "example": "The facilities cater to all age groups."
+      "example": "The facilities cater to all age groups.",
+      "level": "C1"
     },
     {
-      "word": "get overcrowded",
-      "zh": "变得过于拥挤",
-      "example": null
+      "word": "avoid the weekend crowd",
+      "zh": "避开周末人潮",
+      "example": "I suggest going on weekdays to avoid the weekend crowd.",
+      "level": "C1"
     },
     {
-      "word": "room for improvement",
-      "zh": "有改进的空间",
-      "example": null
+      "word": "exceed my expectations",
+      "zh": "超出我的期望",
+      "example": "The mall exceeded my expectations.",
+      "level": "C1"
     },
     {
-      "word": "live up to the hype",
-      "zh": "不负盛名",
-      "example": "The movie lives up to the hype."
-    },
-    {
-      "word": "the pros outweigh the cons",
-      "zh": "利大于弊",
-      "example": "This is because the pros clearly outweigh the cons."
+      "word": "a renowned artist",
+      "zh": "b 知名艺术家",
+      "example": "A renowned artist headlined the event.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -147,6 +187,7 @@
     "No example sentence found for: 'well-equipped' (the pack's sentence was scrambled), 'get overcrowded', 'room for improvement' (not in the essay or in clean pack sentences).",
     "Examples come from the Review pack, not from the essay or the Universal phrases section: 'conveniently located' (RV1 answer), 'word of mouth', 'freshly prepared', 'generous portions' (Q1 Popular Food table), 'cater to all age groups' (Q2 Shopping Mall table; full stop added), 'live up to the hype' (Q6 table, the sentence uses 'lives up'), 'the pros outweigh the cons' (RV9 answer).",
     "goodPhrases: rows marked (Extended) (takes it to the next level, taste buds) were left out because they belong to the Extended Version only.",
-    "example for 'well-equipped' taken from the theme pack (watermark layer removed)"
+    "example for 'well-equipped' taken from the theme pack (watermark layer removed)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

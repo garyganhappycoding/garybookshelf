@@ -45,54 +45,94 @@
   ],
   "words": [
     {
-      "word": "derogatory remarks",
-      "zh": "贬损的言论",
-      "example": "One example of cyberbullying on social media is leaving derogatory remarks under a classmate's photo to humiliate him or her."
+      "word": "cost more in the long run",
+      "zh": "长远来看花费更 多",
+      "example": "A cheap gadget may cost more in the long run.",
+      "level": "B2"
     },
     {
-      "word": "suffer psychological distress",
-      "zh": "承受心理痛苦",
-      "example": "As a result, victims lose self-confidence and may suffer psychological distress."
+      "word": "value for money",
+      "zh": "物有所值",
+      "example": "A good laptop is real value for money.",
+      "level": "B2"
     },
     {
-      "word": "cultivate self-discipline",
-      "zh": "培养自律",
-      "example": "This is because boundaries help us curb excessive screen use and cultivate self-discipline."
+      "word": "at my own pace",
+      "zh": "按自己的节奏",
+      "example": "I can revise at my own pace.",
+      "level": "B2"
     },
     {
-      "word": "impose restrictions",
-      "zh": "施加限制",
-      "example": "Parents can impose restrictions on late-night use."
+      "word": "phubbing",
+      "zh": "低头看手机冷落 他人",
+      "example": "Phubbing makes the other person feel unimportant.",
+      "level": "B2 to C1"
     },
     {
-      "word": "curb harmful behaviour",
-      "zh": "遏制有害行为",
-      "example": "This is because reporting helps curb harmful behaviour, while kindness reduces loneliness."
+      "word": "social isolation",
+      "zh": "社交孤立",
+      "example": "In the long run, it can lead to social isolation.",
+      "level": "B2 to C1"
     },
     {
-      "word": "lend a listening ear",
-      "zh": "倾听",
-      "example": "For example, they can use the report button and lend a listening ear to a friend."
+      "word": "instil discipline",
+      "zh": "灌输自律",
+      "example": "Clear rules instil discipline in young users.",
+      "level": "B2 to C1"
     },
     {
-      "word": "digital footprint",
-      "zh": "数字足迹",
-      "example": "This is because everything stays online and leaves a lasting digital footprint."
+      "word": "ubiquitous",
+      "zh": "无处不在的",
+      "example": "Smartphones are ubiquitous among teenagers.",
+      "level": "B2 to C1"
     },
     {
-      "word": "safeguard our privacy",
-      "zh": "保护我们的隐私",
-      "example": "As a result, safeguarding our privacy also protects our reputation."
+      "word": "nurture lifelong friendships",
+      "zh": "培养终身友谊",
+      "example": "Online chats help us nurture lifelong friendships.",
+      "level": "C1"
+    },
+    {
+      "word": "glued to their screens",
+      "zh": "盯着屏幕不放",
+      "example": "Many people are glued to their screens even at family dinners.",
+      "level": "C1"
+    },
+    {
+      "word": "prioritise virtual interaction",
+      "zh": "优先选择线上互 动",
+      "example": "Some teenagers prioritise virtual interaction over real meetings.",
+      "level": "C1"
+    },
+    {
+      "word": "erode genuine relationships",
+      "zh": "侵蚀真诚的关系",
+      "example": "Constant screen use can erode genuine relationships.",
+      "level": "C1"
+    },
+    {
+      "word": "foster responsible digital citizens",
+      "zh": "培养负责任的数 字公民",
+      "example": "Parents can foster responsible digital citizens by setting limits.",
+      "level": "C1"
     },
     {
       "word": "an inseparable part of",
-      "zh": "……不可分割的一部分",
-      "example": "In this digital era, social media has become an inseparable part of teenagers' lives, but it has also given rise to cyberbullying, an alarming issue that many students face in silence."
+      "zh": "……不可分割的 一部分",
+      "example": "The smartphone is an inseparable part of modern life.",
+      "level": "C1"
     },
     {
-      "word": "indispensable",
-      "zh": "不可或缺的",
-      "example": "It is indispensable for learning and communication, but if we rely too much on it, we may become addicted and isolated."
+      "word": "reshape daily routines",
+      "zh": "重塑日常生活",
+      "example": "Smartphones have reshaped our daily routines.",
+      "level": "C1"
+    },
+    {
+      "word": "access information efofrtlessly",
+      "zh": "毫不费力地获取 信息",
+      "example": "Students can access information effortlessly.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -185,6 +225,7 @@
     "Words found in the Johor essay's vocabulary table: 'derogatory remarks' and 'an inseparable part of' (the table sentence is cut with '…', so the full sentence from the Extended Version is used). The other 8 examples come from the Technology theme pack's Universal answers (U6 to U9, U11).",
     "'impose restrictions': no Universal answer sentence contains the exact phrase, so the example is the pack's keyword sentence from the Technology notes.",
     "'safeguard our privacy': the Universal answer (U9) only has 'safeguarding our privacy', so the example has the -ing form.",
-    "'indispensable': the Universal answer (U11) sentence starts with 'It is indispensable ...'; the same word also appears in the Cyber Security essay and the Terengganu essay, not in this one's table."
+    "'indispensable': the Universal answer (U11) sentence starts with 'It is indispensable ...'; the same word also appears in the Cyber Security essay and the Terengganu essay, not in this one's table.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

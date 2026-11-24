@@ -25,54 +25,94 @@
   ],
   "words": [
     {
+      "word": "bak kata peribahasa sambil menyelam minum air",
+      "zh": "一举两得",
+      "example": "Secara tidak langsung, pengaliran wang asing akan disekat dalam negara kita dan memomentumkan iktisad negara bak kata peribahasa sambil menyelam minum air.",
+      "level": "advanced"
+    },
+    {
+      "word": "seperti kacang lupakan kulit sehingga melupakan akar umbi",
+      "zh": "忘恩负本，数典忘祖",
+      "example": "Tuntasnya, generasi muda janganlah bersikap seperti kacang lupakan kulit sehingga melupakan akar umbi mereka.",
+      "level": "advanced"
+    },
+    {
+      "word": "bekerjasama bagai aur dengan tebing",
+      "zh": "唇齿相依，紧密合作",
+      "example": "Kita sepatutnya bekerjasama bagai aur dengan tebing untuk memelihara bangunan sejarah yang mempunyai nilai estetika kerana para ilmu pernah menukilkan bahawa sejarah ialah guru yang paling benar dan sejarah tidak pernah berdusta.",
+      "level": "advanced"
+    },
+    {
+      "word": "sejarah ialah guru yang paling benar dan sejarah tidak pernah berdusta",
+      "zh": "历史是最真实的老师，历史从不说谎",
+      "example": "Kita sepatutnya bekerjasama bagai aur dengan tebing untuk memelihara bangunan sejarah yang mempunyai nilai estetika kerana para ilmu pernah menukilkan bahawa sejarah ialah guru yang paling benar dan sejarah tidak pernah berdusta.",
+      "level": "advanced"
+    },
+    {
+      "word": "bak kata peribahasa tak lapuk dek hujan, tak lekang dek panas",
+      "zh": "历久不衰，屹立不倒",
+      "example": "Jadi, bangunan-bangunan bersejarah yang dikekalkan bak kata peribahasa tak lapuk dek hujan, tak lekang dek panas dapat sentiasa mengingatkan kita bahawa keharmonian yang diselubungi datang daripada jasa-jasa tokoh.",
+      "level": "advanced"
+    },
+    {
       "word": "khazanah yang tidak ternilai",
       "zh": "无价的瑰宝",
-      "example": "Bangunan sejarah yang ditinggalkan daripada nenek moyang merupakan khazanah yang tidak ternilai."
+      "example": "Bangunan sejarah yang ditinggalkan daripada nenek moyang merupakan khazanah yang tidak ternilai.",
+      "level": "ordinary"
     },
     {
       "word": "mengharungi era penjajahan",
       "zh": "经历殖民时代",
-      "example": "Waima begitu, generasi muda yang tidak pernah mengharungi era penjajahan oleh British, Portugis, Jepun tidak menghayati pengorbanan dan jasa tokoh-tokoh pejuang negara."
+      "example": "Waima begitu, generasi muda yang tidak pernah mengharungi era penjajahan oleh British, Portugis, Jepun tidak menghayati pengorbanan dan jasa tokoh-tokoh pejuang negara.",
+      "level": "ordinary"
     },
     {
       "word": "menghayati pengorbanan dan jasa",
       "zh": "体会牺牲与贡献",
-      "example": "Waima begitu, generasi muda yang tidak pernah mengharungi era penjajahan oleh British, Portugis, Jepun tidak menghayati pengorbanan dan jasa tokoh-tokoh pejuang negara."
+      "example": "Waima begitu, generasi muda yang tidak pernah mengharungi era penjajahan oleh British, Portugis, Jepun tidak menghayati pengorbanan dan jasa tokoh-tokoh pejuang negara.",
+      "level": "ordinary"
     },
     {
       "word": "memulihara bangunan bersejarah",
       "zh": "保护历史建筑",
-      "example": "Jadi, kita perlu memulihara bangunan bersejarah untuk tatapan dan ilmu generasi muda."
+      "example": "Jadi, kita perlu memulihara bangunan bersejarah untuk tatapan dan ilmu generasi muda.",
+      "level": "ordinary"
     },
     {
       "word": "nilai komersial",
       "zh": "商业价值",
-      "example": "Bangunan bersejarah mempunyai nilai komersial yang berpotensi untuk menarik kedatangan pelancong asing."
+      "example": "Bangunan bersejarah mempunyai nilai komersial yang berpotensi untuk menarik kedatangan pelancong asing.",
+      "level": "ordinary"
     },
     {
       "word": "menarik kedatangan pelancong asing",
       "zh": "吸引外国游客到来",
-      "example": "Bangunan bersejarah mempunyai nilai komersial yang berpotensi untuk menarik kedatangan pelancong asing."
+      "example": "Bangunan bersejarah mempunyai nilai komersial yang berpotensi untuk menarik kedatangan pelancong asing.",
+      "level": "ordinary"
     },
     {
       "word": "pengaliran wang asing",
       "zh": "外汇流入",
-      "example": "Secara tidak langsung, pengaliran wang asing akan disekat dalam negara kita dan memomentumkan iktisad negara bak kata peribahasa sambil menyelam minum air."
+      "example": "Secara tidak langsung, pengaliran wang asing akan disekat dalam negara kita dan memomentumkan iktisad negara bak kata peribahasa sambil menyelam minum air.",
+      "level": "ordinary"
     },
     {
       "word": "memomentumkan iktisad negara",
       "zh": "推动国家经济",
-      "example": "Secara tidak langsung, pengaliran wang asing akan disekat dalam negara kita dan memomentumkan iktisad negara bak kata peribahasa sambil menyelam minum air."
+      "example": "Secara tidak langsung, pengaliran wang asing akan disekat dalam negara kita dan memomentumkan iktisad negara bak kata peribahasa sambil menyelam minum air.",
+      "level": "ordinary"
     },
     {
       "word": "mempamerkan reka bentuk seni bina",
       "zh": "展示建筑设计",
-      "example": "Selain itu, bangunan bersejarah mempamerkan reka bentuk seni bina masyarakat Melayu."
+      "example": "Selain itu, bangunan bersejarah mempamerkan reka bentuk seni bina masyarakat Melayu.",
+      "level": "ordinary"
     },
     {
       "word": "menunjukkan keunikan dan kemahiran tinggi",
       "zh": "展现独特与高超技艺",
-      "example": "Sebenarnya, sejak Kesultanan Melayu Melaka, negara kita meninggalkan banyak istana yang menunjukkan keunikan dan kemahiran tinggi."
+      "example": "Sebenarnya, sejak Kesultanan Melayu Melaka, negara kita meninggalkan banyak istana yang menunjukkan keunikan dan kemahiran tinggi.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -98,6 +138,8 @@
     }
   ],
   "gaps": [
-    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null"
+    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (5 of 8): filled with 3 ordinary words"
   ]
 }

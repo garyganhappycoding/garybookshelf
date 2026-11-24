@@ -47,54 +47,94 @@
   ],
   "words": [
     {
-      "word": "Little did I know that …",
-      "zh": "我万万没想到……",
-      "example": "Little did I know that this trip would change my life."
+      "word": "a hidden treasure",
+      "zh": "隐藏的宝藏",
+      "example": "The message led to a hidden treasure.",
+      "level": "B2"
     },
     {
-      "word": "Without wasting a second, …",
-      "zh": "一秒也没浪费，……",
-      "example": "Without wasting a second, I dialled 999."
+      "word": "tucked inside the book",
+      "zh": "夹在书里",
+      "example": "e The note was tucked inside the pages.",
+      "level": "B2"
     },
     {
-      "word": "My heart pounded against my chest as …",
-      "zh": "当……时，我的心怦怦直跳",
-      "example": "My heart pounded in my chest."
+      "word": "faded handwriting",
+      "zh": "褪色的笔迹",
+      "example": "h The faded handwriting was barely readable.",
+      "level": "B2"
     },
     {
-      "word": "A chill ran down my spine when …",
-      "zh": "当……时，我背脊发凉",
-      "example": "This is because I felt a chill run down my spine as the footsteps came closer."
+      "word": "drift apart",
+      "zh": "渐渐疏远",
+      "example": "He began to drift apart from his family.",
+      "level": "B2 to C1"
     },
     {
-      "word": "I heaved a sigh of relief when …",
-      "zh": "当……时，我松了一口气",
-      "example": "I heaved a sigh of relief when the doctor smiled."
+      "word": "stand speechless",
+      "zh": "目瞪口呆地站着",
+      "example": "Asyraf stood speechless.",
+      "level": "B2 to C1"
     },
     {
-      "word": "To my horror, …",
-      "zh": "令我惊恐的是，……",
-      "example": "To my horror, the bridge had collapsed."
+      "word": "an intruder",
+      "zh": "入侵者",
+      "example": "An intruder had climbed in through the window.",
+      "level": "B2 to C1"
     },
     {
-      "word": "In the nick of time, …",
-      "zh": "就在千钧一发之际，……",
-      "example": "He was swept away by the strong current, gasping for air, until Daniel grabbed his hand in the nick of time."
+      "word": "restore order",
+      "zh": "恢复秩序",
+      "example": "The police restored order.",
+      "level": "B2 to C1"
     },
     {
-      "word": "Tears welled up in my eyes as …",
-      "zh": "当……时，我热泪盈眶",
-      "example": "Tears welled up in my eyes as Mum hugged me."
+      "word": "duck behind",
+      "zh": "躲在……后面",
+      "example": "We dashed down the stairs and ducked behind a wall.",
+      "level": "B2 to C1"
     },
     {
-      "word": "That incident taught me a valuable lesson: …",
-      "zh": "那件事教会我一个宝贵的教训：……",
-      "example": "That incident taught me a valuable lesson: always keep your promises."
+      "word": "a cryptic message",
+      "zh": "神秘难懂的信息",
+      "example": "Ammar found a cryptic message hidden in an old book.",
+      "level": "C1"
     },
     {
-      "word": "From that day on, …",
-      "zh": "从那天起，……",
-      "example": "From that day on, I never judged anyone by their looks."
+      "word": "decode the clue",
+      "zh": "破解线索",
+      "example": "He had to decode the clue to fni d the next place.",
+      "level": "C1"
+    },
+    {
+      "word": "his curiosity was aroused",
+      "zh": "他的好奇心被激 起",
+      "example": "His curiosity was aroused at once.",
+      "level": "C1"
+    },
+    {
+      "word": "embark on an adventure",
+      "zh": "b 展开冒险",
+      "example": "He decided to embark on an adventure with his friends.",
+      "level": "C1"
+    },
+    {
+      "word": "put himself in danger",
+      "zh": "使自己身陷危险",
+      "example": "He put himself in danger to reach the next clue.",
+      "level": "C1"
+    },
+    {
+      "word": "face numerous obstacles",
+      "zh": "面对重重障碍",
+      "example": "The friends faced numerous obstacles.",
+      "level": "C1"
+    },
+    {
+      "word": "push through his fear",
+      "zh": "克服恐惧",
+      "example": "Ammar pushed through his fear and kept going.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -146,6 +186,7 @@
     "The question's required first line is used as the opening paragraph (in the essay it starts with the given words); the Question Analysis row for it has no C code, so it is not in points.",
     "goodPhrases: rows marked (Extended) (anticipation, at the crack of dawn, in the nick of time, gasping for air, swept away by the strong current) were left out.",
     "example for 'I heaved a sigh of relief when …' taken from the theme pack (watermark layer removed)",
-    "Example for 'To my horror, …' filled later from the Story theme pack (cleaned text)."
+    "Example for 'To my horror, …' filled later from the Story theme pack (cleaned text).",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

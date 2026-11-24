@@ -26,54 +26,94 @@
   ],
   "words": [
     {
-      "word": "tersemat dalam hati",
-      "zh": "铭记在心",
-      "example": "Jadi, slogan \"Anda Mampu Mengubahnya\" perlu tersemat dalam hati setiap pengguna jalan raya tetapi bukan retorik semata-mata."
+      "word": "menconteng arang ke muka negara",
+      "zh": "让国家蒙羞",
+      "example": "Dengan ini, tragedi jalan raya akan dikurangkan dan jalan raya negara kita tidak akan terkenal sebagai Pembunuh Nombor Satu sehingga menconteng arang ke muka negara.",
+      "level": "advanced"
     },
     {
-      "word": "bukan retorik semata-mata",
-      "zh": "并非空谈",
-      "example": "Jadi, slogan \"Anda Mampu Mengubahnya\" perlu tersemat dalam hati setiap pengguna jalan raya tetapi bukan retorik semata-mata."
+      "word": "mengancam nyawa yang tidak berdosa",
+      "zh": "威胁无辜的生命",
+      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa.",
+      "level": "ordinary"
     },
     {
-      "word": "nyawa tidak dapat dijual beli",
-      "zh": "生命无价",
-      "example": "Tuntasnya, nyawa tidak dapat dijual beli."
+      "word": "tanpa kompromi",
+      "zh": "毫不妥协",
+      "example": "Sesiapa yang gagal mendapat markah seratus dalam ujian ini tidak layak mendapat lesen tanpa kompromi kerana nyawa tidak berdosa akan terkorban gara-gara kesalahan kecil yang dilakukan.",
+      "level": "ordinary"
     },
     {
-      "word": "pencegahan lebih baik daripada mengubati",
-      "zh": "预防胜于治疗",
-      "example": "Oleh sebab pencegahan lebih baik daripada mengubati, janganlah kita menyesal selepas tragedi berlaku bak kata peribahasa \"bagai melepaskan batuk di tangga\"."
+      "word": "mengubah sikap",
+      "zh": "改变态度",
+      "example": "Akhirnya, pengguna jalan raya perlu mengubah sikap dan perlu menghargai nyawa pengguna jalan raya.",
+      "level": "ordinary"
     },
     {
-      "word": "bagai melepaskan batuk di tangga",
-      "zh": "敷衍了事，做事不彻底",
-      "example": "Oleh sebab pencegahan lebih baik daripada mengubati, janganlah kita menyesal selepas tragedi berlaku bak kata peribahasa \"bagai melepaskan batuk di tangga\"."
+      "word": "menghargai nyawa",
+      "zh": "珍惜生命",
+      "example": "Akhirnya, pengguna jalan raya perlu mengubah sikap dan perlu menghargai nyawa pengguna jalan raya.",
+      "level": "ordinary"
     },
     {
-      "word": "biar lambat, asalkan selamat",
-      "zh": "宁迟勿失，宁可慢也要安全",
-      "example": "Oleh itu, kita perlu sama-sama berpegang teguh pada prinsip \"biar lambat, asalkan selamat\" dalam hati."
+      "word": "mengambil sikap acuh tak acuh",
+      "zh": "采取漠不关心的态度",
+      "example": "Hal ini dikatakan demikian kerana terdapat pemandu yang mengambil sikap acuh tak acuh dan tidak bertanggungjawab akan menyebabkan nahas berlaku.",
+      "level": "ordinary"
     },
     {
-      "word": "anak menjadi yatim piatu, isteri menjadi janda dan suami menjadi duda",
-      "zh": "孩子成孤儿，妻子成寡妇，丈夫成鳏夫",
-      "example": "Tiada sesiapa ingin melihat anak menjadi yatim piatu, isteri menjadi janda dan suami menjadi duda."
+      "word": "menumpukan segala fokus",
+      "zh": "全神贯注",
+      "example": "Kesannya, pemandu tidak dapat menumpukan segala fokus dalam perjalanan dan mudah berlaku tragedi.",
+      "level": "ordinary"
     },
     {
-      "word": "bagai duri dalam daging",
-      "zh": "如芒刺在背，心头大患",
-      "example": "Keadaan ini bagai duri dalam daging dan amat membimbangkan masyarakat."
+      "word": "menanggung padah",
+      "zh": "承担后果",
+      "example": "Bukan sahaja kecederaan atau kematian akan berlaku terhadap pemandu yang bersikap individualistik itu malah pemandu lain yang tidak berdosa dan mengikut peraturan terpaksa menanggung padah.",
+      "level": "ordinary"
     },
     {
-      "word": "sehingga pokok pangkal",
-      "zh": "彻底根治，追根究底",
-      "example": "Jadi, apakah punca-punca dan langkah-langkah harus diimplementasikan untuk mengatasi masalah ini sehingga pokok pangkal?"
+      "word": "menggembleng kudrat",
+      "zh": "齐心协力",
+      "example": "Jadi, pelbagai pihak tidak kira pihak kerajaan, rakyat perlulah menggembleng kudrat untuk membendung masalah ini.",
+      "level": "ordinary"
     },
     {
-      "word": "terkenal sebagai Pembunuh Nombor Satu",
-      "zh": "被称为头号杀手",
-      "example": "Dengan ini, tragedi jalan raya akan dikurangkan dan jalan raya negara kita tidak akan terkenal sebagai Pembunuh Nombor Satu sehingga menconteng arang ke muka negara."
+      "word": "membendung masalah",
+      "zh": "遏制问题",
+      "example": "Jadi, pelbagai pihak tidak kira pihak kerajaan, rakyat perlulah menggembleng kudrat untuk membendung masalah ini.",
+      "level": "ordinary"
+    },
+    {
+      "word": "berpegang teguh pada prinsip",
+      "zh": "坚守原则",
+      "example": "Oleh itu, kita perlu sama-sama berpegang teguh pada prinsip \"biar lambat, asalkan selamat\" dalam hati.",
+      "level": "ordinary"
+    },
+    {
+      "word": "meningkat sebanyak",
+      "zh": "增加了（百分比）",
+      "example": "Kes kemalangan di jalan raya di negara kita meningkat sebanyak 2.5% dari tahun 2018 ke 2019.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mencatat jumlah kematian tertinggi",
+      "zh": "记录最高死亡人数",
+      "example": "tambahan pula, negeri yang mencatat jumlah kematian tertinggi akibat kemalangan jalan raya ialah negeri selangor.",
+      "level": "ordinary"
+    },
+    {
+      "word": "membimbangkan masyarakat",
+      "zh": "令社会担忧",
+      "example": "Keadaan ini bagai duri dalam daging dan amat membimbangkan masyarakat.",
+      "level": "ordinary"
+    },
+    {
+      "word": "diimplementasikan",
+      "zh": "被落实，被实施",
+      "example": "Jadi, apakah langkah-langkah perlu diimplementasikan untuk menangani masalah ini?",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -127,6 +167,8 @@
     }
   ],
   "gaps": [
-    "Only two Keselamatan Jalan Raya essays exist; this is the 3rd appearance of the topic so the 1st essay (Peranan Menangani...) is used again (the 2nd was used in week 36). Words 8-10 come from the 2nd essay's tables, so their example sentences are copied from that essay's Table 2 ayat column."
+    "Only two Keselamatan Jalan Raya essays exist; this is the 3rd appearance of the topic so the 1st essay (Peranan Menangani...) is used again (the 2nd was used in week 36). Words 8-10 come from the 2nd essay's tables, so their example sentences are copied from that essay's Table 2 ayat column.",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (1 of 8): filled with 7 ordinary words"
   ]
 }

@@ -39,54 +39,94 @@
   ],
   "words": [
     {
-      "word": "tutor younger students",
-      "zh": "辅导低年级学生",
-      "example": "For example, they can volunteer at charity events, tutor younger students or organise clean-up campaigns."
+      "word": "organise a recycling campaign",
+      "zh": "组织回收活动",
+      "example": "s We can organise a recycling campaign in our neighbourhood.",
+      "level": "B2"
     },
     {
-      "word": "become more responsible",
-      "zh": "变得更有责任感",
-      "example": "They become more responsible citizens."
+      "word": "benefit the community",
+      "zh": "b 造福社区",
+      "example": "They benefti the whole community.",
+      "level": "B2"
     },
     {
-      "word": "build trust",
-      "zh": "建立信任",
-      "example": "For example, parents who listen without judging build trust."
+      "word": "gain valuable experience",
+      "zh": "获得宝贵经验",
+      "example": "Teenagers gain valuable experience for their future.",
+      "level": "B2"
     },
     {
-      "word": "look up to",
-      "zh": "仰慕",
-      "example": "This is because young people tend to look up to successful figures."
+      "word": "ridicule",
+      "zh": "嘲笑",
+      "example": "They ridicule her appearance in the comments.",
+      "level": "B2 to C1"
     },
     {
-      "word": "stay on the right path",
-      "zh": "走在正道上",
-      "example": "As a result, teenagers set higher goals and stay on the right path."
+      "word": "remain anonymous",
+      "zh": "保持匿名",
+      "example": "Bullies remain anonymous, so they feel safe.",
+      "level": "B2 to C1"
     },
     {
-      "word": "play an active role",
-      "zh": "发挥积极作用",
-      "example": "Teenagers can play an active role in society in many ways."
+      "word": "evade accountability",
+      "zh": "逃避责任",
+      "example": "Anonymity lets bullies evade accountability.",
+      "level": "B2 to C1"
     },
     {
-      "word": "fresh ideas",
-      "zh": "新颖的想法",
-      "example": "This is because they have energy and fresh ideas."
+      "word": "feel emboldened",
+      "zh": "b 变得有恃无恐",
+      "example": "Anonymity makes them feel emboldened.",
+      "level": "B2 to C1"
     },
     {
-      "word": "benefit from their efforts",
-      "zh": "受益于他们的努力",
-      "example": "As a result, communities benefit from their efforts and teenagers grow in maturity."
+      "word": "detached from reality",
+      "zh": "与现实脱节",
+      "example": "s Online, they feel detached from reality.",
+      "level": "C1"
     },
     {
-      "word": "build character",
-      "zh": "塑造品格",
-      "example": "Community service builds character."
+      "word": "cause deep emotional pain",
+      "zh": "b 造成深深的情感 痛苦",
+      "example": "Their words cause deep emotional pain.",
+      "level": "C1"
     },
     {
-      "word": "gain a sense of purpose",
-      "zh": "获得使命感",
-      "example": "As a result, teenagers become more responsible and gain a sense of purpose."
+      "word": "curb harmful behaviour",
+      "zh": "遏制有害行为",
+      "example": "Reporting helps curb harmful behaviour online.",
+      "level": "C1"
+    },
+    {
+      "word": "flag inappropriate content",
+      "zh": "标记不当内容",
+      "example": "s Students should fal g inappropriate content at once.",
+      "level": "C1"
+    },
+    {
+      "word": "validate their feelings",
+      "zh": "认可他们的感受",
+      "example": "We should validate their feelings and listen.",
+      "level": "C1"
+    },
+    {
+      "word": "lend a listening ear",
+      "zh": "倾听",
+      "example": "e I lent a listening ear to my friend.",
+      "level": "C1"
+    },
+    {
+      "word": "restore their self-worth",
+      "zh": "b 恢复他们的自我 价值",
+      "example": "Kind support helps restore their self- worth.",
+      "level": "C1"
+    },
+    {
+      "word": "an inseparable part of",
+      "zh": "b ……不可分割的 一部分",
+      "example": "The smartphone is an inseparable part of modern life.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -186,6 +226,7 @@
     "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 19 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used.",
     "example for 'build trust' taken from the theme pack (watermark layer removed)",
     "points written by Claude from the essay (unchecked)",
-    "Example for 'gain a sense of purpose' filled later from the Teenagers & Society theme pack (cleaned text)."
+    "Example for 'gain a sense of purpose' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

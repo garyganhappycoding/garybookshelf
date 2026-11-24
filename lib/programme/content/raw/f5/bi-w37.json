@@ -43,54 +43,94 @@
   ],
   "words": [
     {
-      "word": "make the most of time",
-      "zh": "充分利用时间",
-      "example": "As a result, I meet deadlines, avoid last-minute stress and make the most of my time."
+      "word": "r a promote unity",
+      "zh": "促进团结",
+      "example": "Such programmes promote unity among young people.",
+      "level": "B2"
     },
     {
-      "word": "exercise self-discipline",
-      "zh": "运用自律",
-      "example": "I exercise self-discipline during study time."
+      "word": "easily distracted by",
+      "zh": "容易被……分心",
+      "example": "I am easily distracted by notifciations on my phone.",
+      "level": "B2"
     },
     {
-      "word": "eliminate distractions",
-      "zh": "消除干扰",
-      "example": null
-    },
-    {
-      "word": "support and guidance",
-      "zh": "支持与指导",
-      "example": "Students need support and guidance from adults."
-    },
-    {
-      "word": "shape our character",
-      "zh": "塑造我们的品格",
-      "example": "This is because it shapes our character as well as our minds."
-    },
-    {
-      "word": "a major distraction",
-      "zh": "主要的干扰",
-      "example": "Social media is a major distraction for me."
-    },
-    {
-      "word": "a valuable supplement to schoolwork",
-      "zh": "学校功课的宝贵补充",
-      "example": "YouTube is a valuable supplement to schoolwork."
+      "word": "tempting",
+      "zh": "诱人的",
+      "example": "Online games are very tempting after school.",
+      "level": "B2"
     },
     {
       "word": "reinforce learning",
       "zh": "巩固学习",
-      "example": "The quiz reinforced learning of key topics."
+      "example": "The quiz reinforced learning of key topics.",
+      "level": "B2 to C1"
     },
     {
-      "word": "derive greater benefit",
-      "zh": "获得更大益处",
-      "example": "Students would derive greater benefit from a longer event."
+      "word": "an unreliable network",
+      "zh": "不可靠的网络",
+      "example": "An unreliable network affected participation.",
+      "level": "B2 to C1"
     },
     {
-      "word": "unleash their creativity",
-      "zh": "释放创造力",
-      "example": "The workshop unleashed their creativity."
+      "word": "caused frustrating delays",
+      "zh": "造成令人沮丧的 延误",
+      "example": "s The weak signal caused frustrating delays.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "insufficient time to cover everything",
+      "zh": "时间不足以涵盖 全部",
+      "example": "There was insufficient time to cover everything.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "a valuable supplement to schoolwork",
+      "zh": "学校功课的宝贵 补充",
+      "example": "YouTube is a valuable supplement to schoolwork.",
+      "level": "C1"
+    },
+    {
+      "word": "simplify complex concepts",
+      "zh": "简化复杂的概念",
+      "example": "Animations simplify complex concepts.",
+      "level": "C1"
+    },
+    {
+      "word": "illustrate the process",
+      "zh": "图解过程",
+      "example": "s Diagrams illustrate the process clearly.",
+      "level": "C1"
+    },
+    {
+      "word": "grasp abstract concepts",
+      "zh": "掌握抽象概念",
+      "example": "I can grasp abstract concepts more easily.",
+      "level": "C1"
+    },
+    {
+      "word": "tailored to individual needs",
+      "zh": "按个人需求量身 定制",
+      "example": "Lessons can be tailored to individual needs.",
+      "level": "C1"
+    },
+    {
+      "word": "revisit challenging sections",
+      "zh": "重温难点部分",
+      "example": "s I revisit challenging sections before the test.",
+      "level": "C1"
+    },
+    {
+      "word": "curb excessive screen use",
+      "zh": "遏制过度使用屏 幕",
+      "example": "Limits help students curb excessive screen use.",
+      "level": "C1"
+    },
+    {
+      "word": "achieve a healthier balance",
+      "zh": "b 达到更健康的平 衡",
+      "example": "I achieve a healthier balance between study and leisure.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -178,8 +218,11 @@
   "gaps": [
     "'eliminate distractions' has no example sentence: it appears in the School & Education theme pack only as a key word of answer S8, whose model paragraph is scrambled in the watermarked PDF.",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
-    "None of the 10 words appears in this essay's vocabulary table; examples come from the School & Education theme pack (Universal answers S7, S9, S11 and trial-paper example sentences). 'reinforce learning' uses the pack's sentence with 'reinforced'; 'shape our character' uses 'shapes'.",
     "The essay's 'Part 3' Beautiful Sentences table is cut off in the Drive text (last row ends mid-sentence); it is not used here.",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (an unreliable network)",
+    "Form 5: mid tier short: used a top word (caused frustrating delays)",
+    "Form 5: mid tier short: used a top word (insufficient time to cover everything)"
   ]
 }

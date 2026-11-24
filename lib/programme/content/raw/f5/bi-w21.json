@@ -46,54 +46,94 @@
   ],
   "words": [
     {
-      "word": "be divided into groups",
-      "zh": "被分成小组",
-      "example": "We were divided into groups to cover more areas."
+      "word": "warmly welcomed",
+      "zh": "受到热烈欢迎",
+      "example": "The guests were warmly welcomed by the principal.",
+      "level": "B2"
     },
     {
-      "word": "a regular schedule",
-      "zh": "固定的日程",
-      "example": "We should hold a clean-up on a regular schedule."
+      "word": "a guided tour of the school",
+      "zh": "校园导览",
+      "example": "The visitors enjoyed a guided tour of the school.",
+      "level": "B2"
     },
     {
-      "word": "a rewards system",
-      "zh": "奖励制度",
-      "example": "A rewards system motivates students to keep the school clean."
+      "word": "a cultural performance",
+      "zh": "文化表演",
+      "example": "We put on a cultural performance for the guests.",
+      "level": "B2"
     },
     {
-      "word": "finish on time",
-      "zh": "按时完成",
-      "example": "As a result, we had to adjust our plan and work extra hard to finish on time."
+      "word": "squeeze in",
+      "zh": "勉强塞进",
+      "example": "We had to squeeze in three activities in one afternoon.",
+      "level": "B2 to C1"
     },
     {
-      "word": "the whole class participated",
-      "zh": "全班参加",
-      "example": "The whole class participated with great enthusiasm."
+      "word": "encounter challenges",
+      "zh": "遇到挑战",
+      "example": "We encountered a few challenges during the programme.",
+      "level": "B2 to C1"
     },
     {
-      "word": "provide an account of",
-      "zh": "汇报……",
-      "example": "The purpose of this report is to provide an account of the visit held last Saturday."
+      "word": "experience first-hand",
+      "zh": "亲身体验",
+      "example": "This is because we experienced first-hand how small actions make a difference.",
+      "level": "B2 to C1"
     },
     {
-      "word": "outline the aims",
-      "zh": "概述目的",
-      "example": "It outlines the aims, describes the activities and puts forward suggestions."
+      "word": "strongly recommended",
+      "zh": "强烈建议",
+      "example": "It is strongly recommended that similar events be organised in future.",
+      "level": "B2 to C1"
     },
     {
-      "word": "put forward suggestions",
-      "zh": "提出建议",
-      "example": "It outlines the aims, describes the activities and puts forward suggestions."
+      "word": "overcome language barriers",
+      "zh": "克服语言障碍",
+      "example": "l We learnt to overcome language barriers.",
+      "level": "C1"
     },
     {
-      "word": "evaluate the programme",
-      "zh": "评估活动",
-      "example": "As a result, the school can evaluate the programme and plan future events."
+      "word": "in the vicinity of",
+      "zh": "在……附近",
+      "example": "The programme was held in the vicinity of our school.",
+      "level": "C1"
     },
     {
-      "word": "attract wide participation",
-      "zh": "吸引广泛参与",
-      "example": "As a result, the programme ran smoothly and attracted wide participation."
+      "word": "held to promote",
+      "zh": "为推广而举办",
+      "example": "The programme was held to promote a greener environment.",
+      "level": "C1"
+    },
+    {
+      "word": "equipped with gloves and bags",
+      "zh": "配备手套和垃圾 袋",
+      "example": "Each group was equipped with gloves and rubbish bags.",
+      "level": "C1"
+    },
+    {
+      "word": "worked hand in hand",
+      "zh": "携手合作",
+      "example": "Teachers and students worked hand in hand.",
+      "level": "C1"
+    },
+    {
+      "word": "clear the clogged drain",
+      "zh": "清理堵塞的排水 沟",
+      "example": "s We cleared the clogged drain behind the canteen.",
+      "level": "C1"
+    },
+    {
+      "word": "transformed the area",
+      "zh": "b 改变了这个地方",
+      "example": "The area was transformed into a clean and pleasant place.",
+      "level": "C1"
+    },
+    {
+      "word": "instil a sense of responsibility",
+      "zh": "灌输责任感",
+      "example": "Regular clean-ups instil a sense of responsibility.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -143,6 +183,7 @@
     "None of this week's words are in the essay or its vocabulary table; all examples come from the Report pack: 'be divided into groups', 'a regular schedule', 'a rewards system', 'the whole class participated' (Q2 Clean-up table), 'finish on time' (RP5 answer, last sentence), 'provide an account of', 'outline the aims', 'put forward suggestions', 'evaluate the programme' (RP1 answer; the same sentence serves both 'outline the aims' and 'put forward suggestions').",
     "paragraphs: the report has no To/From block; the sub-headings (Introduction, Activities Carried Out, Suggestions, Conclusion) and the 'Prepared by' lines were left out, so there are 4 body paragraphs. The doc says the date and details are invented for the model answer.",
     "goodPhrases: rows marked (Extended) (eye-opening, a one-off event) were left out.",
-    "Example for 'attract wide participation' filled later from the Report theme pack (cleaned text); form differs: 'attracted'."
+    "Example for 'attract wide participation' filled later from the Report theme pack (cleaned text); form differs: 'attracted'.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

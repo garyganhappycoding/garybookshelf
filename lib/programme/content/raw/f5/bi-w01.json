@@ -47,54 +47,94 @@
   ],
   "words": [
     {
-      "word": "in this digital age",
-      "zh": "在这个数字时代",
-      "example": "In this digital age, almost every teenager owns a smartphone."
+      "word": "meet my needs",
+      "zh": "满足我的需求",
+      "example": "I choose gadgets that meet my needs, especially for schoolwork.",
+      "level": "B2"
     },
     {
-      "word": "technology has revolutionised the way we …",
-      "zh": "科技彻底改变了我们……的方式",
-      "example": "Technology has revolutionised the way we communicate."
+      "word": "attend virtual classes",
+      "zh": "参加线上课堂",
+      "example": "I need a tablet with a clear screen to attend virtual classes.",
+      "level": "B2"
     },
     {
-      "word": "at the touch of a button",
-      "zh": "一键之间",
-      "example": "We can order food at the touch of a button."
+      "word": "multitask",
+      "zh": "同时处理多项任 务",
+      "example": "A laptop allows me to multitask during online lessons.",
+      "level": "B2"
     },
     {
-      "word": "… is just a click away",
-      "zh": "只需轻轻一点",
-      "example": "Information on any topic is just a click away."
+      "word": "indispensable",
+      "zh": "不可或缺的",
+      "example": "A reliable laptop is indispensable for completing my assignments.",
+      "level": "B2 to C1"
     },
     {
-      "word": "stay connected with …",
-      "zh": "与……保持联系",
-      "example": "Video calls help us stay connected with relatives overseas."
+      "word": "cater to",
+      "zh": "迎合；满足…… 的需要",
+      "example": "I prefer a gadget that caters to my academic needs.",
+      "level": "B2 to C1"
     },
     {
-      "word": "be glued to their screens",
-      "zh": "盯着屏幕不放",
-      "example": "Many teenagers are glued to their screens until midnight."
+      "word": "credibility",
+      "zh": "可信度",
+      "example": "I trust reviews with credibility, such as those from verified buyers.",
+      "level": "B2 to C1"
     },
     {
-      "word": "fall victim to …",
-      "zh": "成为……的受害者",
-      "example": "Careless users often fall victim to online scams."
+      "word": "firsthand experience",
+      "zh": "亲身体验",
+      "example": "My friend's firsthand experience tells me more than an advertisement.",
+      "level": "B2 to C1"
     },
     {
-      "word": "think twice before …",
-      "zh": "三思而后……",
-      "example": "Moreover, they should think twice before sharing anything online."
+      "word": "scrutinise reviews",
+      "zh": "仔细审查评论",
+      "example": "I scrutinise reviews to spot fake praise.",
+      "level": "B2 to C1"
     },
     {
-      "word": "strike a balance between … and …",
-      "zh": "在……与……之间取得平衡",
-      "example": "Students must strike a balance between screen time and real life."
+      "word": "annotate lecture notes",
+      "zh": "为笔记做批注",
+      "example": "A stylus lets me annotate lecture notes directly on my tablet.",
+      "level": "C1"
     },
     {
-      "word": "a double-edged sword",
-      "zh": "双刃剑",
-      "example": "In a nutshell, the smartphone is a double-edged sword."
+      "word": "enhance my productivity",
+      "zh": "提升我的效率",
+      "example": "The right device enhances my productivity during the exam season.",
+      "level": "C1"
+    },
+    {
+      "word": "streamline my revision",
+      "zh": "使我的温习更高 效",
+      "example": "A laptop streamlines my revision because everything is in one folder.",
+      "level": "C1"
+    },
+    {
+      "word": "make an informed decision",
+      "zh": "做出明智的决定",
+      "example": "Reading reviews helps me make an informed decision.",
+      "level": "C1"
+    },
+    {
+      "word": "steer clear of",
+      "zh": "避开",
+      "example": "I steer clear of gadgets with many complaints.",
+      "level": "C1"
+    },
+    {
+      "word": "avoid buyer's regret",
+      "zh": "避免买后悔",
+      "example": "Comparing opinions helps me avoid buyer's regret.",
+      "level": "C1"
+    },
+    {
+      "word": "a false economy",
+      "zh": "省小钱花大钱",
+      "example": "Buying the cheapest gadget is often a false economy.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -143,5 +183,7 @@
       "zh": "屏幕使用时间"
     }
   ],
-  "gaps": []
+  "gaps": [
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
+  ]
 }

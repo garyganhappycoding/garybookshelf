@@ -26,54 +26,94 @@
   ],
   "words": [
     {
+      "word": "Tak tumbuh tak melata, tak sungguh orang tak kata",
+      "zh": "无风不起浪",
+      "example": "Tak tumbuh tak melata, tak sungguh orang tak kata.",
+      "level": "advanced"
+    },
+    {
+      "word": "malu bertanya sesat jalan, malu mengayuh perahu hanyut",
+      "zh": "不耻下问才不会迷失方向",
+      "example": "Keadaan ini bersesuaian dengan peribahasa “malu bertanya sesat jalan, malu mengayuh perahu hanyut”.",
+      "level": "advanced"
+    },
+    {
+      "word": "Bulan kian terang, bayang kian jelas",
+      "zh": "真相愈发明朗清晰",
+      "example": "Bulan kian terang, bayang kian jelas bahawa guru-guru berperanan sebagai fasilitator dan pemudah cara untuk menerajui murid ke arah kecemerlangan agar dapat menzahirkan golongan murid yang berkompeten dan mampu bersaing di pentas antarabangsa.",
+      "level": "advanced"
+    },
+    {
+      "word": "berkolaboratif bagai aur dengan tebing",
+      "zh": "唇齿相依，紧密合作",
+      "example": "Oleh itu, setiap strata masyarakat haruslah berkolaboratif bagai aur dengan tebing untuk memajukan pendidikan maya agar dapat menzahirkan golongan murid yang berminda kelas pertama dan berani menyuarakan pandangan diri dalam proses pembelajaran.",
+      "level": "advanced"
+    },
+    {
+      "word": "tanah tumpah darah kita",
+      "zh": "我们的故土",
+      "example": "Kementerian Pendidikan Malaysia juga harus menunjukkan iltizam dan inisiatif dengan merangka perencanaan yang terperinci untuk memperkenalkan pendidikan maya di empat pojok tanah tumpah darah kita.",
+      "level": "advanced"
+    },
+    {
       "word": "mengalami transformasi yang amat ketara",
       "zh": "经历显著的转变",
-      "example": "Sistem pendidikan watan kita telah mengalami transformasi yang amat ketara dan berteraskan penggunaan teknologi memandangkan era ini merupakan era ledakan Teknologi, Maklumat dan Komunikasi (TMK)."
+      "example": "Sistem pendidikan watan kita telah mengalami transformasi yang amat ketara dan berteraskan penggunaan teknologi memandangkan era ini merupakan era ledakan Teknologi, Maklumat dan Komunikasi (TMK).",
+      "level": "ordinary"
     },
     {
       "word": "mengurangkan risiko dijangkiti",
       "zh": "降低感染风险",
-      "example": "Semasa pandemik COVID-19 menular secara global, Perintah Kawalan Pergerakan (PKP) telah dilaksanakan dan sekolah telah diarahkan ditutup untuk mengurangkan risiko dijangkiti virus korona."
+      "example": "Semasa pandemik COVID-19 menular secara global, Perintah Kawalan Pergerakan (PKP) telah dilaksanakan dan sekolah telah diarahkan ditutup untuk mengurangkan risiko dijangkiti virus korona.",
+      "level": "ordinary"
     },
     {
       "word": "menjimatkan wang dalam pembelian buku",
       "zh": "节省购书的费用",
-      "example": "Memang tidak dapat dinafikan bahawa pendidikan maya dapat menjimatkan wang dalam pembelian buku."
+      "example": "Memang tidak dapat dinafikan bahawa pendidikan maya dapat menjimatkan wang dalam pembelian buku.",
+      "level": "ordinary"
     },
     {
       "word": "berjinak-jinak dengan buku",
       "zh": "依赖书本",
-      "example": "Sebagai contohnya, murid sebelum PKP perlu sentiasa berjinak-jinak dengan buku untuk mendapatkan maklumat yang ingin diketahui."
+      "example": "Sebagai contohnya, murid sebelum PKP perlu sentiasa berjinak-jinak dengan buku untuk mendapatkan maklumat yang ingin diketahui.",
+      "level": "ordinary"
     },
     {
       "word": "mengurangkan beban ibu bapa",
       "zh": "减轻父母的负担",
-      "example": "Implikasinya, golongan pelajar dapat mengurangkan beban ibu bapa malah tetap dapat keluar dari zon jumud ke zon intelek memandangkan sumber ilmu tiada batasannya walaupun tanpa membeli buku."
+      "example": "Implikasinya, golongan pelajar dapat mengurangkan beban ibu bapa malah tetap dapat keluar dari zon jumud ke zon intelek memandangkan sumber ilmu tiada batasannya walaupun tanpa membeli buku.",
+      "level": "ordinary"
     },
     {
       "word": "keluar dari zon jumud ke zon intelek",
       "zh": "从愚昧走向智慧",
-      "example": "Implikasinya, golongan pelajar dapat mengurangkan beban ibu bapa malah tetap dapat keluar dari zon jumud ke zon intelek memandangkan sumber ilmu tiada batasannya walaupun tanpa membeli buku."
+      "example": "Implikasinya, golongan pelajar dapat mengurangkan beban ibu bapa malah tetap dapat keluar dari zon jumud ke zon intelek memandangkan sumber ilmu tiada batasannya walaupun tanpa membeli buku.",
+      "level": "ordinary"
     },
     {
       "word": "dieratkan melalui pendidikan maya",
       "zh": "通过线上教育增进",
-      "example": "Selain itu, hubungan antara guru dengan murid juga dapat dieratkan melalui pendidikan maya."
+      "example": "Selain itu, hubungan antara guru dengan murid juga dapat dieratkan melalui pendidikan maya.",
+      "level": "ordinary"
     },
     {
       "word": "membuka ruang dan peluang",
       "zh": "开辟空间与机会",
-      "example": "Pendidikan maya telah membuka ruang dan peluang kepada golongan murid untuk melemparkan kemusykilan yang dihadapinya dalam pelajaran kepada guru."
+      "example": "Pendidikan maya telah membuka ruang dan peluang kepada golongan murid untuk melemparkan kemusykilan yang dihadapinya dalam pelajaran kepada guru.",
+      "level": "ordinary"
     },
     {
       "word": "melemparkan kemusykilan",
       "zh": "提出疑问",
-      "example": "Pendidikan maya telah membuka ruang dan peluang kepada golongan murid untuk melemparkan kemusykilan yang dihadapinya dalam pelajaran kepada guru."
+      "example": "Pendidikan maya telah membuka ruang dan peluang kepada golongan murid untuk melemparkan kemusykilan yang dihadapinya dalam pelajaran kepada guru.",
+      "level": "ordinary"
     },
     {
       "word": "bersoal jawab dengan guru",
       "zh": "与老师问答交流",
-      "example": "Misalnya, pelajar-pelajar dapat bersoal jawab dengan guru tanpa bersemuka melalui “Chat room” apabila menggunakan aplikasi Zoom dan Google Meet."
+      "example": "Misalnya, pelajar-pelajar dapat bersoal jawab dengan guru tanpa bersemuka melalui “Chat room” apabila menggunakan aplikasi Zoom dan Google Meet.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -99,6 +139,8 @@
     }
   ],
   "gaps": [
-    "keyPoint.prompt is null (no Question Analysis table); level and source are null"
+    "keyPoint.prompt is null (no Question Analysis table); level and source are null",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (5 of 8): filled with 3 ordinary words"
   ]
 }

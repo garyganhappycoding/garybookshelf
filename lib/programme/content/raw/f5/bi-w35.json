@@ -39,54 +39,94 @@
   ],
   "words": [
     {
-      "word": "contaminate",
-      "zh": "污染",
-      "example": "For example, bottles and food wrappers clog our drains and contaminate rivers."
+      "word": "took place on",
+      "zh": "在……举行",
+      "example": "The clean-up activity took place on Saturday, 14 March.",
+      "level": "B2"
     },
     {
-      "word": "disrupt the ecosystem",
-      "zh": "破坏生态系统",
-      "example": "Pollution disrupts the ecosystem."
+      "word": "the nearby drain and field",
+      "zh": "附近的排水沟和 田野",
+      "example": "h We then moved to the nearby drain and field.",
+      "level": "B2"
     },
     {
-      "word": "pose a threat to public health",
-      "zh": "对公共健康构成威胁",
-      "example": "Poor waste management poses a threat to public health."
+      "word": "the whole class participated",
+      "zh": "全班参加",
+      "example": "s The whole class participated with great enthusiasm.",
+      "level": "B2"
     },
     {
-      "word": "a holistic approach",
-      "zh": "整体性的方法",
-      "example": "A holistic approach is needed to protect nature."
+      "word": "minimise waste",
+      "zh": "尽量减少废物",
+      "example": "This is because it minimises the amount of waste sent to landfills.",
+      "level": "B2 to C1"
     },
     {
-      "word": "a lasting solution",
-      "zh": "长久的解决办法",
-      "example": "Only together can they provide a lasting solution."
+      "word": "take ownership",
+      "zh": "负起责任",
+      "example": "This is because everyone can take ownership of their neighbourhood.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "shared responsibility",
+      "zh": "共同的责任",
+      "example": "I firmly believe that protecting the environment is a shared responsibility.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "insignificant",
+      "zh": "微不足道的",
+      "example": "For example, one person's small action may seem insignificant, but millions of people together make a real difference.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "reverse vending machine",
+      "zh": "逆向自动贩卖机",
+      "example": "A reverse vending machine gives cash for empty bottles.",
+      "level": "C1"
+    },
+    {
+      "word": "r a cultivate eco- friendly habits",
+      "zh": "培养环保习惯",
+      "example": "Rewards cultivate eco-friendly habits.",
+      "level": "C1"
     },
     {
       "word": "no quick fix",
       "zh": "没有速成的方法",
-      "example": "There is no quick fix to pollution."
+      "example": "There is no quick fxi to pollution.",
+      "level": "C1"
     },
     {
       "word": "a change in mindset",
       "zh": "观念的转变",
-      "example": "We need a change in mindset."
+      "example": "We need a change in mindset.",
+      "level": "C1"
     },
     {
-      "word": "make a lasting difference",
-      "zh": "带来长远的改变",
-      "example": "Together, we can make a lasting difference."
+      "word": "a holistic approach",
+      "zh": "整体性的方法",
+      "example": "A holistic approach is needed to protect nature.",
+      "level": "C1"
     },
     {
-      "word": "live in harmony with nature",
-      "zh": "与自然和谐共处",
-      "example": "We should learn to live in harmony with nature."
+      "word": "dispose of waste responsibly",
+      "zh": "负责任地处置垃 圾",
+      "example": "s We must dispose of waste responsibly.",
+      "level": "C1"
     },
     {
-      "word": "pave the way for a greener future",
-      "zh": "为更环保的未来铺路",
-      "example": "Small actions pave the way for a greener future."
+      "word": "a lasting solution",
+      "zh": "长久的解决办法",
+      "example": "Only together can they provide a lasting solution.",
+      "level": "C1"
+    },
+    {
+      "word": "pressing environmental problem",
+      "zh": "紧迫的环境问题",
+      "example": "Plastic pollution is a pressing environmental problem.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -174,6 +214,7 @@
   "gaps": [
     "Examples: 'contaminate' comes from Universal answer E1; the other nine are the pack's trial-paper keyword sentences (section 4); 'disrupt the ecosystem', 'pose a threat to public health' and 'make a lasting difference' have inflected or shortened forms of the phrase.",
     "Essay chosen for week 35: 'SPM Essay on Littering' (older format, unused). Its text has 'harm to wildlife and ecosystems', 'poses health risks' and 'pollutes' (related to 'disrupt the ecosystem', 'pose a threat to public health', 'contaminate'); none of the 10 week phrases appears exactly. Essay text copied verbatim.",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

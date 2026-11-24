@@ -27,54 +27,64 @@
   ],
   "words": [
     {
-      "word": "seumpama harimau menunjukkan belang",
-      "zh": "如老虎显露本性，凶险毕露",
-      "example": "Ketika negara sedang melangkah ke arus globalisasi dengan ciptaan sains dan teknologi yang moden, bencana alam juga sering melanda dan seumpama harimau menunjukkan belang."
-    },
-    {
-      "word": "ditelan mati emak, diluahkan mati bapa",
-      "zh": "进退两难，左右为难",
-      "example": "Jadi, semasa pembangunan negara, kita perlu merancang kota dengan sistematik kerana kita tersepit antara keinginan menjadi sebuah negara maju dengan alam sekitar yang perlu dipelihara, bak kata peribahasa \"ditelan mati emak, diluahkan mati bapa\"."
-    },
-    {
-      "word": "bagai enau dalam belukar melepaskan pucuk masing-masing",
-      "zh": "各自为政，只顾自身利益",
-      "example": "Sebagai kesimpulannya, bumi kita terpaksa menanggung padah akibat perbuatan manusia yang individualistik bak kata peribahasa \"bagai enau dalam belukar melepaskan pucuk masing-masing\"."
-    },
-    {
-      "word": "tepuklah dada, tanyalah selera",
-      "zh": "三思而后行，扪心自问",
-      "example": "Jadi, tepuklah dada, tanyalah selera sebelum bertindak."
-    },
-    {
-      "word": "bercanggah daripada hukum alam sekitar",
-      "zh": "违反环境法则",
-      "example": "Aktiviti penerokaan hutan adalah bercanggah daripada hukum alam sekitar."
-    },
-    {
       "word": "menebang pokok secara sesuka hati",
       "zh": "随意砍伐树木",
-      "example": "Manusia menebang pokok secara sesuka hati untuk membina rumah syurga dan keuntungan."
+      "example": "Manusia menebang pokok secara sesuka hati untuk membina rumah syurga dan keuntungan.",
+      "level": "ordinary"
     },
     {
       "word": "kehilangan peparu",
       "zh": "失去肺部",
-      "example": "Implikasinya, bumi akan kehilangan peparu yang berfungsi untuk menapiskan udara yang tercemar."
+      "example": "Implikasinya, bumi akan kehilangan peparu yang berfungsi untuk menapiskan udara yang tercemar.",
+      "level": "ordinary"
     },
     {
       "word": "menapiskan udara yang tercemar",
       "zh": "过滤受污染的空气",
-      "example": "Implikasinya, bumi akan kehilangan peparu yang berfungsi untuk menapiskan udara yang tercemar."
+      "example": "Implikasinya, bumi akan kehilangan peparu yang berfungsi untuk menapiskan udara yang tercemar.",
+      "level": "ordinary"
     },
     {
       "word": "membuang sampah ke dalam sungai",
       "zh": "把垃圾丢入河流",
-      "example": "Terdapat sebahagian masyarakat yang tidak bertanggungjawab membuang sampah ke dalam sungai."
+      "example": "Terdapat sebahagian masyarakat yang tidak bertanggungjawab membuang sampah ke dalam sungai.",
+      "level": "ordinary"
     },
     {
       "word": "mencemarkan sungai",
       "zh": "污染河流",
-      "example": "Waima begitu, manusia tidak sedar bahawa perbuatan yang tidak bertanggungjawab telah mencemarkan sungai."
+      "example": "Waima begitu, manusia tidak sedar bahawa perbuatan yang tidak bertanggungjawab telah mencemarkan sungai.",
+      "level": "ordinary"
+    },
+    {
+      "word": "pembuangan sisa kimia",
+      "zh": "化学废料的排放",
+      "example": "Sebagai contohnya, pembuangan sisa kimia ke dalam Sungai Kim Kim, Pasir Gudang telah dilakukan oleh pengusaha kilang yang mementingkan diri.",
+      "level": "ordinary"
+    },
+    {
+      "word": "melepaskan gas beracun",
+      "zh": "释放有毒气体",
+      "example": "Insiden ini telah melepaskan gas beracun sehingga menyebabkan banyak sekolah terpaksa ditutup.",
+      "level": "ordinary"
+    },
+    {
+      "word": "menjejaskan kesihatan penduduk",
+      "zh": "损害居民的健康",
+      "example": "Sikap individualistik ini telah menjejaskan kesihatan penduduk yang tinggal sehingga meninggalkan penyakit yang tidak dapat dirawat.",
+      "level": "ordinary"
+    },
+    {
+      "word": "sistem peparitan dan pengaliran yang tidak sistematik",
+      "zh": "不系统的排水与排洪系统",
+      "example": "Tahukah anda kebanjiran berlaku kerana sistem peparitan dan pengaliran yang tidak sistematik sehingga air tidak dapat disalurkan.",
+      "level": "ordinary"
+    },
+    {
+      "word": "dilanda oleh kebanjiran",
+      "zh": "遭受水患侵袭",
+      "example": "Contohnya sistem perparitan yang tidak sempurna di kawasan Meru, Klang telah menyebabkan kawasan sana banyak dilanda oleh kebanjiran.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -97,6 +107,9 @@
   ],
   "gaps": [
     "same essay as week 2 (no other essay of this topic in the week list for this round)",
-    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null"
+    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (0 of 7): filled with 2 ordinary words",
+    "Form 5: only 10 words available for this topic"
   ]
 }

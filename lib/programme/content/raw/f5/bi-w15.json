@@ -38,54 +38,94 @@
   ],
   "words": [
     {
-      "word": "lose track of time",
-      "zh": "忘记时间",
-      "example": "For example, I often lose track of time while scrolling through videos."
+      "word": "warmly welcomed",
+      "zh": "受到热烈欢迎",
+      "example": "The guests were warmly welcomed by the principal.",
+      "level": "B2"
     },
     {
-      "word": "tempting",
-      "zh": "诱人的",
-      "example": "This is because notifications break our concentration and games are far more tempting than homework."
+      "word": "a guided tour of the school",
+      "zh": "校园导览",
+      "example": "The visitors enjoyed a guided tour of the school.",
+      "level": "B2"
     },
     {
-      "word": "flexible",
-      "zh": "灵活的",
-      "example": "Online videos are flexible."
+      "word": "a cultural performance",
+      "zh": "文化表演",
+      "example": "We put on a cultural performance for the guests.",
+      "level": "B2"
     },
     {
-      "word": "build confidence",
-      "zh": "建立信心",
-      "example": "This builds my confidence before tests."
+      "word": "curated playlist",
+      "zh": "精选播放列表",
+      "example": "s A curated playlist helps me revise one topic at a time.",
+      "level": "B2 to C1"
     },
     {
-      "word": "protect our eyesight",
-      "zh": "保护视力",
-      "example": "It protects our eyesight."
+      "word": "vivid animations",
+      "zh": "生动的动画",
+      "example": "e Vivid animations show how a cell divides.",
+      "level": "B2 to C1"
     },
     {
-      "word": "open doors to a brighter future",
-      "zh": "开启光明的未来",
-      "example": "Education opens doors to a brighter future."
+      "word": "impose restrictions",
+      "zh": "施加限制",
+      "example": "h Parents can impose restrictions on late-night use.",
+      "level": "B2 to C1"
     },
     {
-      "word": "pursue higher education",
-      "zh": "继续升学",
-      "example": "For example, a student who studies hard can pursue higher education and a rewarding career."
+      "word": "impair concentration",
+      "zh": "损害专注力",
+      "example": "Constant alerts impair concentration.",
+      "level": "B2 to C1"
     },
     {
-      "word": "achieve financial independence",
-      "zh": "实现经济独立",
-      "example": "As a result, they achieve financial independence and contribute to society."
+      "word": "overcome language barriers",
+      "zh": "克服语言障碍",
+      "example": "l We learnt to overcome language barriers.",
+      "level": "C1"
     },
     {
-      "word": "think critically",
-      "zh": "批判性思考",
-      "example": "For example, a student who joins debates gains confidence and learns to think critically."
+      "word": "a major distraction",
+      "zh": "主要的干扰",
+      "example": "Social media is a major distraction for me.",
+      "level": "C1"
     },
     {
-      "word": "well-rounded individuals",
-      "zh": "全面发展的人",
-      "example": "Therefore, schools should nurture well-rounded individuals, not just exam machines."
+      "word": "fall behind in my homework",
+      "zh": "功课落后",
+      "example": "As a result, I fall behind in my homework.",
+      "level": "C1"
+    },
+    {
+      "word": "impair my concentration",
+      "zh": "b 损害我的专注力",
+      "example": "It impairs my concentration during revision.",
+      "level": "C1"
+    },
+    {
+      "word": "exercise self- discipline",
+      "zh": "运用自律",
+      "example": "I exercise self-discipline during study time.",
+      "level": "C1"
+    },
+    {
+      "word": "prioritise important tasks",
+      "zh": "优先处理重要任 务",
+      "example": "Students should prioritise important tasks.",
+      "level": "C1"
+    },
+    {
+      "word": "demand immediate attention",
+      "zh": "需要立即关注",
+      "example": "Urgent homework demands immediate attention.",
+      "level": "C1"
+    },
+    {
+      "word": "make the most of one's time",
+      "zh": "充分利用时间",
+      "example": "l This helps students make the most of their time.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -165,9 +205,9 @@
   "gaps": [
     "'think critically' has no example sentence: the only sentence containing it in the School & Education theme pack (answer S2) is scrambled in the watermarked PDF and could not be copied safely.",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
-    "None of the 10 words appears in this essay's vocabulary table; examples are from the School & Education theme pack (Universal answers S1, S5, S11 and trial-paper example sentences for 'flexible', 'build confidence', 'protect our eyesight').",
     "Only one School & Education essay in the new format exists (used in week 4), so weeks 15, 26 and 37 use the older-format essays in the '7. school' folder (Co-academic Activities, Examination Mode, Bullying).",
     "example for 'think critically' taken from the theme pack (watermark layer removed)",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

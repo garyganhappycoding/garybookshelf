@@ -26,54 +26,40 @@
   ],
   "words": [
     {
-      "word": "menjilat jari kerana tak kenal maka tak cinta",
-      "zh": "赞不绝口，且因了解而喜爱",
-      "example": "Dengan ini, rakyat dari negara asal berpeluang untuk mencuba makanan tradisional di Malaysia yang sedap sehingga menjilat jari kerana tak kenal maka tak cinta."
-    },
-    {
-      "word": "yang lama dikelek, yang baru didukung",
-      "zh": "不忘旧，也迎新",
-      "example": "Jadi, rakyat dapat menjamu selera makanan ala Barat sambil menikmati makanan sajian tradisional bak kata peribahasa \"yang lama dikelek, yang baru didukung\"."
-    },
-    {
-      "word": "Bulan kian terang, bayang kian suluh",
-      "zh": "真相愈发明朗清晰",
-      "example": "Bulan kian terang, bayang kian suluh bahawa pihak pengusaha dapat menjalinkan kerjasama dengan pempengaruh untuk mempromosikan makanan tradisional agar masyarakat terutamanya golongan muda dapat mengenali warisan budaya mereka"
-    },
-    {
-      "word": "genggam bara api, biar sampai jadi arang",
-      "zh": "一不做二不休，坚持到底",
-      "example": "Biarlah kita genggam bara api, biar sampai jadi arang agar makanan tradisional tidak lenyap ditelan oleh zaman."
-    },
-    {
-      "word": "mengenali warisan budaya",
-      "zh": "认识文化遗产",
-      "example": "Bulan kian terang, bayang kian suluh bahawa pihak pengusaha dapat menjalinkan kerjasama dengan pempengaruh untuk mempromosikan makanan tradisional agar masyarakat terutamanya golongan muda dapat mengenali warisan budaya mereka"
-    },
-    {
       "word": "penggunaan alat-alat teknologi",
       "zh": "使用科技工具",
-      "example": "Akhirnya, penggunaan alat-alat teknologi juga perlu diimplementasikan untuk meningkatkan kualiti makanan tradisional."
+      "example": "Bulan kian terang, bayang kian suluh bahawa pihak pengusaha dapat menjalinkan kerjasama dengan pempengaruh untuk mempromosikan makanan tradisional agar masyarakat terutamanya golongan muda dapat mengenali warisan budaya mereka Akhirnya, penggunaan alat-alat teknologi juga perlu diimplementasikan untuk meningkatkan kualiti makanan tradisional.",
+      "level": "ordinary"
     },
     {
       "word": "menjalankan anjakan paradigma",
       "zh": "进行观念转变",
-      "example": "Pengusaha makanan tradisional perlu menjalankan anjakan paradigma dengan mengaplikasikan penggunaan mesin berteknologi tinggi untuk membuat kuih dodol."
+      "example": "Pengusaha makanan tradisional perlu menjalankan anjakan paradigma dengan mengaplikasikan penggunaan mesin berteknologi tinggi untuk membuat kuih dodol.",
+      "level": "ordinary"
     },
     {
       "word": "mengaplikasikan penggunaan mesin berteknologi tinggi",
       "zh": "运用高科技机器",
-      "example": "Pengusaha makanan tradisional perlu menjalankan anjakan paradigma dengan mengaplikasikan penggunaan mesin berteknologi tinggi untuk membuat kuih dodol."
+      "example": "Pengusaha makanan tradisional perlu menjalankan anjakan paradigma dengan mengaplikasikan penggunaan mesin berteknologi tinggi untuk membuat kuih dodol.",
+      "level": "ordinary"
     },
     {
       "word": "menembusi pasaran global",
       "zh": "打入全球市场",
-      "example": "Produktiviti yang meningkat juga dapat memenuhi permintaan pasaran tempatan sehingga menembusi pasaran global."
+      "example": "Produktiviti yang meningkat juga dapat memenuhi permintaan pasaran tempatan sehingga menembusi pasaran global.",
+      "level": "ordinary"
     },
     {
       "word": "melangkaui pasaran global",
       "zh": "超越全球市场",
-      "example": "Jadi, makanan tradisional akan menjadi popular dan melangkaui pasaran global dengan penggunaan alat-alat teknologi yang moden."
+      "example": "Jadi, makanan tradisional akan menjadi popular dan melangkaui pasaran global dengan penggunaan alat-alat teknologi yang moden.",
+      "level": "ordinary"
+    },
+    {
+      "word": "aset yang tidak ternilai",
+      "zh": "无价的资产",
+      "example": "Ingatlah bahawa beraneka makanan tradisional merupakan aset yang tidak ternilai untuk menarik pelancong dan memajukan bidang pelancongan.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -95,6 +81,9 @@
     }
   ],
   "gaps": [
-    "Only one essay exists for this topic in the BM vocab file, so the same essay as the topic's earlier week is used again."
+    "Only one essay exists for this topic in the BM vocab file, so the same essay as the topic's earlier week is used again.",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (0 of 7): filled with 0 ordinary words",
+    "Form 5: only 6 words available for this topic"
   ]
 }

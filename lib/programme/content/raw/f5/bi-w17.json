@@ -45,54 +45,94 @@
   ],
   "words": [
     {
-      "word": "community service",
-      "zh": "社区服务",
-      "example": "Schools should encourage community service."
+      "word": "see the smile on their faces",
+      "zh": "看见他们脸上的 笑容",
+      "example": "Seeing the smile on their faces makes it worthwhile.",
+      "level": "B2"
     },
     {
-      "word": "lend a helping hand",
-      "zh": "伸出援手",
-      "example": "Helping others is one of the most rewarding things a person can do, yet many of us are too busy to lend a helping hand."
+      "word": "a rewarding experience",
+      "zh": "b 有意义的经历",
+      "example": "It is a rewarding experience for me.",
+      "level": "B2"
     },
     {
-      "word": "keep traditions alive",
-      "zh": "让传统延续",
-      "example": "It is our duty to keep these traditions alive."
+      "word": "my parents set an example",
+      "zh": "父母树立了榜样",
+      "example": "e h My parents set an example by donating regularly.",
+      "level": "B2"
     },
     {
-      "word": "do our part",
-      "zh": "尽一份力",
-      "example": "Therefore, we should do our part to keep our traditions alive."
+      "word": "fade away",
+      "zh": "逐渐消失",
+      "example": "As a result, our culture fades away and our heritage is at risk.",
+      "level": "B2 to C1"
     },
     {
-      "word": "caring citizens",
-      "zh": "有爱心的公民",
-      "example": "As a result, they become caring citizens and appreciate their culture."
+      "word": "vulnerable people",
+      "zh": "弱势群体",
+      "example": "As a result, vulnerable people go unnoticed and the community loses its warmth.",
+      "level": "B2 to C1"
     },
     {
-      "word": "a deep sense of fulfilment",
-      "zh": "深深的满足感",
-      "example": "Furthermore, I help others because it gives me a deep sense of fulfilment."
+      "word": "small contributions",
+      "zh": "微小的贡献",
+      "example": "This is because even small contributions can change lives.",
+      "level": "B2 to C1"
     },
     {
-      "word": "safeguard our identity",
-      "zh": "守护我们的身份认同",
-      "example": "Preserving our culture safeguards our identity."
+      "word": "teach compassion",
+      "zh": "教导同情心",
+      "example": "Caring for animals teaches us compassion.",
+      "level": "B2 to C1"
     },
     {
-      "word": "pass down values",
-      "zh": "传承价值观",
-      "example": "This is because traditions pass down values from one generation to the next."
+      "word": "broaden my perspective",
+      "zh": "拓宽我的视野",
+      "example": "It broadened my perspective on life.",
+      "level": "C1"
     },
     {
-      "word": "keep our heritage alive",
-      "zh": "保持传统文化的生命力",
-      "example": "For example, learning traditional dances at school keeps our heritage alive."
+      "word": "take life less for granted",
+      "zh": "不再把生活视为 理所当然",
+      "example": "s I no longer take life for granted.",
+      "level": "C1"
     },
     {
-      "word": "our greatest strength",
-      "zh": "我们最大的优势",
-      "example": "Malaysia's diversity is our greatest strength."
+      "word": "a renowned artist",
+      "zh": "b 知名艺术家",
+      "example": "A renowned artist headlined the event.",
+      "level": "C1"
+    },
+    {
+      "word": "an electrifying atmosphere",
+      "zh": "令人兴奋的气氛",
+      "example": "The hall had an electrifying atmosphere.",
+      "level": "C1"
+    },
+    {
+      "word": "leave a lasting impression",
+      "zh": "留下深刻印象",
+      "example": "The show left a lasting impression on me.",
+      "level": "C1"
+    },
+    {
+      "word": "receive a standing ovation",
+      "zh": "b 获得全场起立鼓 掌",
+      "example": "The performers received a standing ovation.",
+      "level": "C1"
+    },
+    {
+      "word": "appeal to all ages",
+      "zh": "适合所有年龄",
+      "example": "The show appeals to all ages.",
+      "level": "C1"
+    },
+    {
+      "word": "an enriching experience",
+      "zh": "b 丰富的体验",
+      "example": "It is an enriching experience for everyone.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -149,6 +189,7 @@
     "This essay is filed in the '11. Teenagers' sub-folder, but the People & Culture theme pack uses it as its Q1 (Being Charitable), so it is used for People & Culture.",
     "Only 'a deep sense of fulfilment' (and 'lend a helping hand', from the Extended Version sentence) comes from the essay itself; the other 8 examples come from the People & Culture theme pack (Universal answers P3, P10, P11 and Universal phrase 10). The 'lend a helping hand' sentence is the first sentence of the Extended Version, which is not the Exam Version text.",
     "The sentence for 'our greatest strength' was rebuilt from the scrambled watermarked pack PDF (heading of answer P4). Please check it.",
-    "Several week words (safeguard our identity, pass down values, keep our heritage alive, keep traditions alive) are about heritage, while this essay is about charity, so their examples are general pack sentences."
+    "Several week words (safeguard our identity, pass down values, keep our heritage alive, keep traditions alive) are about heritage, while this essay is about charity, so their examples are general pack sentences.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

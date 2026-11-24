@@ -30,54 +30,94 @@
   ],
   "words": [
     {
-      "word": "setahun jagung berdarah setampuk pinang",
-      "zh": "少不更事/年少无知",
-      "example": "Golongan yang masih berumur setahun jagung berdarah setampuk pinang ini berasa bebas kerana tiada kongkongan, pengawalan dan tekanan belajar daripada ibu bapa."
+      "word": "tiada kongkongan",
+      "zh": "没有约束",
+      "example": "Golongan yang masih berumur setahun jagung berdarah setampuk pinang ini berasa bebas kerana tiada kongkongan, pengawalan dan tekanan belajar daripada ibu bapa.",
+      "level": "ordinary"
     },
     {
-      "word": "sebusuk-busuk daging, dibasuh dikincah dimakan juga",
-      "zh": "再坏也有可取之处",
-      "example": "Waima begitu, seburuk-buruk tingkah laku pelajar, mereka diibaratkan \"sebusuk-busuk daging, dibasuh dikincah dimakan juga\"."
+      "word": "tekanan belajar",
+      "zh": "学习压力",
+      "example": "Golongan yang masih berumur setahun jagung berdarah setampuk pinang ini berasa bebas kerana tiada kongkongan, pengawalan dan tekanan belajar daripada ibu bapa.",
+      "level": "ordinary"
     },
     {
-      "word": "kudis akan menjadi tokak jika tidak diubati",
-      "zh": "小问题不解决会变成大问题",
-      "example": "Jika tidak gejala ponteng sekolah akan mencetuskan pelbagai masalah lain yang lebih buruk kesannya kerana kudis死皮 akan menjadi tokak 侬 jika tidak diubati ."
+      "word": "berfikiran naif",
+      "zh": "思想单纯/天真",
+      "example": "Selain itu, murid yang masih berfikiran naif sering tersilap memilih jalan seperti peribahasa \"terlajak perahu boleh diundur, terlajak langkah buruk padahnya\".",
+      "level": "ordinary"
     },
     {
-      "word": "kelas corot",
-      "zh": "末端班（成绩差的班级）",
-      "example": "Kebiasaannya, murid-murid yang keciciran dalam pelajaran dan berada di kelas corot mempunyai pencapaian akademik yang rendah."
+      "word": "rakan sebaya yang negatif",
+      "zh": "负面的同侪",
+      "example": "Mereka mudah dipengaruhi oleh rakan sebaya yang negatif.",
+      "level": "ordinary"
     },
     {
-      "word": "pencapaian akademik yang rendah",
-      "zh": "学业成绩低落",
-      "example": "Kebiasaannya, murid-murid yang keciciran dalam pelajaran dan berada di kelas corot mempunyai pencapaian akademik yang rendah."
+      "word": "mengabaikan akademik",
+      "zh": "忽略学业",
+      "example": "Murid-murid sanggup mengabaikan akademik dan mengikut kawan untuk diterima oleh golongan kawan.",
+      "level": "ordinary"
     },
     {
-      "word": "kehilangan minat",
-      "zh": "失去兴趣",
-      "example": "Mereka kurang menguasai tentang subjek tersebut sehingga menyebabkan mereka kehilangan minat dalam pelajaran."
+      "word": "berpelesiran/berfoya-foya tanpa tujuan/menjadi kutu rayau",
+      "zh": "无目的地游荡玩乐/成为游荡者",
+      "example": "Sebagai contohnya, mereka mungkin menghabiskan masa berpelesiran/berfoya-foya tanpa tujuan/menjadi kutu rayau di pusat hiburan bersama dengan kawan.",
+      "level": "ordinary"
     },
     {
-      "word": "membazir masa",
-      "zh": "浪费时间",
-      "example": "Oleh itu, mereka beranggapan bahawa kehadiran di sekolah merupakan satu bebanan kerana terpaksa membazir masa untuk belajar dari pagi hingga tengah hari di samping terpaksa membuat pelbagai latihan dan kerja rumah yang diberikan oleh guru."
+      "word": "menggelapkan masa depan sendiri",
+      "zh": "毁掉自己的前途",
+      "example": "Keadaan ini menjadi lebih parah bagi murid apabila mereka tidak sedar bahawa tindakan tersebut sedang menggelapkan masa depan sendiri.",
+      "level": "ordinary"
     },
     {
-      "word": "mengikut kaki joli",
-      "zh": "跟着游荡的朋友",
-      "example": "Malangnya destinasi pagi mereka bukan ke sekolah sebaliknya mereka berkumpul di tempat untuk mengikut kaki joli."
+      "word": "ketinggalan dalam akademik",
+      "zh": "学业落后",
+      "example": "Jadi, murid bukan sahaja ketinggalan dalam akademik malah juga membazirkan potensi yang ada, ibarat yang dikejar tak dapat, yang dikendong berciciran.",
+      "level": "ordinary"
     },
     {
-      "word": "pusat beli-belah",
-      "zh": "购物中心",
-      "example": "Tempat tumpuan utama murid biasanya di pusat beli-belah atau pusat penularan maksiat."
+      "word": "membazirkan potensi yang ada",
+      "zh": "浪费现有的潜能",
+      "example": "Jadi, murid bukan sahaja ketinggalan dalam akademik malah juga membazirkan potensi yang ada, ibarat yang dikejar tak dapat, yang dikendong berciciran.",
+      "level": "ordinary"
     },
     {
-      "word": "pusat penularan maksiat",
-      "zh": "不良风气滋生的场所",
-      "example": "Tempat tumpuan utama murid biasanya di pusat beli-belah atau pusat penularan maksiat."
+      "word": "masalah kemiskinan",
+      "zh": "贫穷问题",
+      "example": "Punca lain yang menyebabkan murid ponteng sekolah ialah masalah kemiskinan yang ditimpa oleh sesetengah keluarga ibarat kain basah kering di pinggang.",
+      "level": "ordinary"
+    },
+    {
+      "word": "kelompok B40",
+      "zh": "B40群体（低收入群体）",
+      "example": "Bagi keluarga yang berada dalam kelompok B40, anak-anak mungkin terpaksa membantu keluarga untuk mencari rezeki halal sehingga pendidikan mereka terabai.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mencari rezeki halal",
+      "zh": "寻求正当的生计",
+      "example": "Bagi keluarga yang berada dalam kelompok B40, anak-anak mungkin terpaksa membantu keluarga untuk mencari rezeki halal sehingga pendidikan mereka terabai.",
+      "level": "ordinary"
+    },
+    {
+      "word": "terabai",
+      "zh": "被忽略",
+      "example": "Bagi keluarga yang berada dalam kelompok B40, anak-anak mungkin terpaksa membantu keluarga untuk mencari rezeki halal sehingga pendidikan mereka terabai.",
+      "level": "ordinary"
+    },
+    {
+      "word": "bekerja sambilan",
+      "zh": "兼职工作",
+      "example": "Terdapat murid berkorban masa belajar untuk bekerja sambilan di restoran atau pasar malam untuk meringankan beban kewangan ibu bapa.",
+      "level": "ordinary"
+    },
+    {
+      "word": "meringankan beban kewangan",
+      "zh": "减轻经济负担",
+      "example": "Terdapat murid berkorban masa belajar untuk bekerja sambilan di restoran atau pasar malam untuk meringankan beban kewangan ibu bapa.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -116,6 +156,8 @@
   ],
   "gaps": [
     "Only one essay exists for this topic in the BM vocab file, so the same essay as weeks 14 and 32 is used again.",
-    "The essay text contains Gary's own inline Chinese notes (e.g. 失败, 识字率) and a sentence fragment 'kudis死皮 ... tokak 侬'; copied exactly as in the doc."
+    "The essay text contains Gary's own inline Chinese notes (e.g. 失败, 识字率) and a sentence fragment 'kudis死皮 ... tokak 侬'; copied exactly as in the doc.",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (0 of 8): filled with 8 ordinary words"
   ]
 }

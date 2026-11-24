@@ -28,54 +28,94 @@
   ],
   "words": [
     {
+      "word": "seumpama harimau menunjukkan belang",
+      "zh": "如老虎显露本性，凶险毕露",
+      "example": "Ketika negara sedang melangkah ke arus globalisasi dengan ciptaan sains dan teknologi yang moden, bencana alam juga sering melanda dan seumpama harimau menunjukkan belang.",
+      "level": "advanced"
+    },
+    {
+      "word": "ditelan mati emak, diluahkan mati bapa",
+      "zh": "进退两难，左右为难",
+      "example": "Jadi, semasa pembangunan negara, kita perlu merancang kota dengan sistematik kerana kita tersepit antara keinginan menjadi sebuah negara maju dengan alam sekitar yang perlu dipelihara, bak kata peribahasa \"ditelan mati emak, diluahkan mati bapa\".",
+      "level": "advanced"
+    },
+    {
+      "word": "bagai enau dalam belukar melepaskan pucuk masing-masing",
+      "zh": "各自为政，只顾自身利益",
+      "example": "Sebagai kesimpulannya, bumi kita terpaksa menanggung padah akibat perbuatan manusia yang individualistik bak kata peribahasa \"bagai enau dalam belukar melepaskan pucuk masing-masing\".",
+      "level": "advanced"
+    },
+    {
+      "word": "tepuklah dada, tanyalah selera",
+      "zh": "三思而后行，扪心自问",
+      "example": "Jadi, tepuklah dada, tanyalah selera sebelum bertindak.",
+      "level": "advanced"
+    },
+    {
       "word": "berperanan sebagai khalifah di muka bumi",
       "zh": "扮演大地代理人的角色",
-      "example": "Alam sekitar adalah antara amanah kepada umat manusia yang berperanan sebagai khalifah di muka bumi ini."
+      "example": "Alam sekitar adalah antara amanah kepada umat manusia yang berperanan sebagai khalifah di muka bumi ini.",
+      "level": "ordinary"
     },
     {
       "word": "saling bergantungan",
       "zh": "相互依存",
-      "example": "Oelh itu, alam sekitar seharusnya dijaga dengan baiknya kerana alam dan manusia saling bergantungan."
+      "example": "Oleh itu, alam sekitar seharusnya dijaga dengan baiknya kerana alam dan manusia saling bergantungan.",
+      "level": "ordinary"
     },
     {
       "word": "pembangunan pesat",
       "zh": "快速发展",
-      "example": "Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagianya."
+      "example": "Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagainya.",
+      "level": "ordinary"
     },
     {
       "word": "mengundang padah kepada alam sekitar",
       "zh": "为环境招致祸患",
-      "example": "Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagianya."
+      "example": "Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagainya.",
+      "level": "ordinary"
     },
     {
       "word": "mementingkan diri",
       "zh": "自私自利",
-      "example": "Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita."
+      "example": "Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita.",
+      "level": "ordinary"
     },
     {
       "word": "mengabaikan alam sekitar",
       "zh": "忽视环境",
-      "example": "Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita."
+      "example": "Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita.",
+      "level": "ordinary"
     },
     {
       "word": "meragut 4 orang nyawa",
       "zh": "夺走4条人命",
-      "example": "Sebagai contohnya, kes tanah runtuh di Batu 54, Cameron Highland pada tahun 2024 telah meragut 4 orang nyawa."
+      "example": "Sebagai contohnya, kes tanah runtuh di Batu 54, Cameron Highland pada tahun 2024 telah meragut 4 orang nyawa.",
+      "level": "ordinary"
     },
     {
       "word": "mengenyangkan kocek perutnya",
       "zh": "填饱自己的口袋",
-      "example": "Pada hakikatnya, bencana alam berlaku terdapat perkaitan rapat dengan perbuatan manusia yang tamak haloba untuk mengenyangkan kocek perutnya."
+      "example": "Pada hakikatnya, bencana alam berlaku terdapat perkaitan rapat dengan perbuatan manusia yang tamak haloba untuk mengenyangkan kocek perutnya.",
+      "level": "ordinary"
     },
     {
       "word": "menanggung padah",
       "zh": "承受恶果",
-      "example": "Kesannya, bumi terpaksa menanggung padah gara-gara perbuatan manusia yang tidak bertanggungjawab terhadap alam sekitar."
+      "example": "Kesannya, bumi terpaksa menanggung padah gara-gara perbuatan manusia yang tidak bertanggungjawab terhadap alam sekitar.",
+      "level": "ordinary"
     },
     {
       "word": "mengondolkan hutan secara besar-besaran",
       "zh": "大规模开垦森林",
-      "example": "Yang pertamanya, manusia yang telah dipengaruhi oleh tamak haloba telah mengondolkan hutan secara besar-besaran tanpa berfikir masa depan manusia."
+      "example": "Yang pertamanya, manusia yang telah dipengaruhi oleh tamak haloba telah mengondolkan hutan secara besar-besaran tanpa berfikir masa depan manusia.",
+      "level": "ordinary"
+    },
+    {
+      "word": "bercanggah daripada hukum alam sekitar",
+      "zh": "违反环境法则",
+      "example": "Aktiviti penerokaan hutan adalah bercanggah daripada hukum alam sekitar.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -98,6 +138,8 @@
   ],
   "gaps": [
     "Example sentences are copied from the essay's Table 1 ayat column including its own typos (Oelh, sebagianya)",
-    "openingIdx [0,1]: paragraph 1 is a lead-in to the thesis before the first main point; keyPoint.prompt is null (no Question Analysis table); level and source are null"
+    "openingIdx [0,1]: paragraph 1 is a lead-in to the thesis before the first main point; keyPoint.prompt is null (no Question Analysis table); level and source are null",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (4 of 8): filled with 4 ordinary words"
   ]
 }
