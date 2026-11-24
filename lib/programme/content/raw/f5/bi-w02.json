@@ -51,54 +51,94 @@
   ],
   "words": [
     {
-      "word": "… has become a growing concern in recent years",
-      "zh": "……近年来已成为日益严重的问题",
-      "example": "Littering has become a growing concern in recent years."
+      "word": "cut down on waste",
+      "zh": "减少浪费",
+      "example": "This habit helps me cut down on waste.",
+      "level": "B2"
     },
     {
-      "word": "the primary cause of … is …",
-      "zh": "……的主要原因是……",
-      "example": "The primary cause of extreme heat is climate change."
+      "word": "refuse plastic straws",
+      "zh": "拒绝塑料吸管",
+      "example": "e I refuse plastic straws whenever I buy a drink.",
+      "level": "B2"
     },
     {
-      "word": "… has devastating consequences",
-      "zh": "……带来毁灭性的后果",
-      "example": "Deforestation has devastating consequences for wildlife."
+      "word": "bring my own container",
+      "zh": "自带容器",
+      "example": "h I bring my own container when I buy lunch.",
+      "level": "B2"
     },
     {
-      "word": "on the brink of extinction",
-      "zh": "濒临灭绝",
-      "example": "Many orangutans are on the brink of extinction."
+      "word": "separate recyclables",
+      "zh": "分类可回收物",
+      "example": "s My family separates recyclables every weekend.",
+      "level": "B2 to C1"
     },
     {
-      "word": "reduce, reuse and recycle",
-      "zh": "减少、重复使用、回收",
-      "example": "Every family can reduce, reuse and recycle."
+      "word": "conserve resources",
+      "zh": "b 保护资源",
+      "example": "Reusing things conserves valuable natural resources.",
+      "level": "B2 to C1"
     },
     {
-      "word": "raise awareness about …",
-      "zh": "提高对……的意识",
-      "example": "Schools should run campaigns to raise awareness about recycling."
+      "word": "take responsibility",
+      "zh": "b 负起责任",
+      "example": "I decided to take responsibility for my own rubbish.",
+      "level": "B2 to C1"
     },
     {
-      "word": "enforce stricter penalties",
-      "zh": "执行更严厉的惩罚",
-      "example": "The authorities must enforce stricter penalties on illegal loggers."
+      "word": "overflowing landfills",
+      "zh": "爆满的垃圾填埋 场",
+      "example": "h Overfol wing landfills pollute the soil and water.",
+      "level": "B2 to C1"
     },
     {
-      "word": "adopt an eco-friendly lifestyle",
-      "zh": "采取环保的生活方式",
-      "example": "We can adopt an eco-friendly lifestyle by bringing reusable bags."
+      "word": "non- biodegradable",
+      "zh": "不可生物降解的",
+      "example": "Plastic is non-biodegradable and stays in nature for hundreds of years.",
+      "level": "B2 to C1"
     },
     {
-      "word": "every little bit counts",
-      "zh": "点滴皆重要",
-      "example": "Switching off one light seems small, but every little bit counts."
+      "word": "make a conscious efofrt",
+      "zh": "努力有意识地做",
+      "example": "I make a conscious effort to avoid single-use plastic.",
+      "level": "C1"
     },
     {
-      "word": "for the sake of future generations",
-      "zh": "为了子孙后代",
-      "example": "We must act now for the sake of future generations."
+      "word": "reduce my carbon footprint",
+      "zh": "减少我的碳足迹",
+      "example": "This practice helps me reduce my carbon footprint.",
+      "level": "C1"
+    },
+    {
+      "word": "opened my eyes to",
+      "zh": "让我大开眼界",
+      "example": "The documentary opened my eyes to the damage caused by plastic.",
+      "level": "C1"
+    },
+    {
+      "word": "a wake-up call",
+      "zh": "警钟",
+      "example": "The polluted river was a wake-up call for me.",
+      "level": "C1"
+    },
+    {
+      "word": "safeguard the planet",
+      "zh": "保护地球",
+      "example": "An eco-friendly lifestyle helps us safeguard the planet.",
+      "level": "C1"
+    },
+    {
+      "word": "deplete natural resources",
+      "zh": "耗尽自然资源",
+      "example": "Wasteful habits deplete natural resources quickly.",
+      "level": "C1"
+    },
+    {
+      "word": "make a lasting difference",
+      "zh": "b 带来长远的改变",
+      "example": "Together, we can make a lasting difference.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -152,7 +192,7 @@
     }
   ],
   "gaps": [
-    "None of the 10 words appears in the Perlis essay's vocabulary table; all 10 example sentences are the Environment pack's 'Universal phrases' sentences (the PDF text layer was scrambled, so they were read from the rendered page).",
-    "The question analysis has a sixth row (Stand), kept as a point with code 'Stand'."
+    "The question analysis has a sixth row (Stand), kept as a point with code 'Stand'.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

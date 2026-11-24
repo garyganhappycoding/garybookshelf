@@ -26,54 +26,94 @@
   ],
   "words": [
     {
-      "word": "bulan kian terang, bayang kian jelas",
-      "zh": "事实愈发明朗清晰",
-      "example": "Bulan kian terang, bayang kian jelas bahawa transformasi e-buku ini tentu akan melipatgandakan amalan membaca dalam kalangan masyarakat memandangkan masyarakat kini telah mula berganjak ke arah digital mengikut perkembangan zaman."
+      "word": "diboikot oleh kawan-kawan",
+      "zh": "被朋友排斥",
+      "example": "Sekiranya anda takut diboikot oleh kawan-kawan sehingga gagal membezakan antara intan dengan kaca dan sudi menjadi pak turut rakan tersebut.",
+      "level": "ordinary"
     },
     {
-      "word": "yang baik dijadikan teladan, yang buruk dijadikan sempadan",
-      "zh": "择善而从，以恶为戒",
-      "example": "Bulan kian terang, bayang kian jelas bahawa rakan merupakan salah satu faktor kepada masyarakat hilang minat dalam amalan membaca, ingatlah peribahasa yang baik dijadikan teladan, yang buruk dijadikan sempadan."
+      "word": "berjinak-jinak dengan buku",
+      "zh": "与书为伴",
+      "example": "Tamsilannya, sekiranya anda selalu bergaul dengan kawan yang berjinak-jinak dengan buku, maka anda akan membawa sebuah buku apabila dia pergi ke mana-mana.",
+      "level": "ordinary"
     },
     {
-      "word": "bekerjasama bagai aur dengan tebing",
-      "zh": "同心协力，同舟共济",
-      "example": "Jadi, kita haruslah bekerjasama bagai aur dengan tebing untuk mengatasi masalah tersebut sehingga akar umbi."
+      "word": "hilang minat dalam amalan membaca",
+      "zh": "对阅读习惯失去兴趣",
+      "example": "Bulan kian terang, bayang kian jelas bahawa rakan merupakan salah satu faktor kepada masyarakat hilang minat dalam amalan membaca, ingatlah peribahasa yang baik dijadikan teladan, yang buruk dijadikan sempadan.",
+      "level": "ordinary"
     },
     {
-      "word": "menghasilkan buah yang manis",
-      "zh": "结出甜美的果实",
-      "example": "Kegigihannya menghasilkan buah yang manis iaitu kejayaan yang dimakbulkan oleh beliau pada hari ini."
+      "word": "golongan inteligensia",
+      "zh": "知识分子阶层",
+      "example": null,
+      "level": "ordinary"
     },
     {
-      "word": "hendak seribu daya, tak hendak seribu dalih",
-      "zh": "心之所愿，无所不能；不愿则藉口多",
-      "example": "Oleh itu, pelbagai uslub yang efektif dan pragmatik harus dilaksanakan untuk menyemarakkan amalan membaca dalam kalangan masyarakat kerana peribahasa Melayu ada menyebut bahawa \"hendak seribu daya, tak hendak seribu dalih\"."
+      "word": "mengemudi tampuk kepimpinan negara",
+      "zh": "掌舵国家领导层",
+      "example": null,
+      "level": "ordinary"
     },
     {
-      "word": "perjalanan yang berbatu-batu jauhnya dimulai dengan selangkah",
-      "zh": "千里之行，始于足下",
-      "example": "Khalid Gibran pernah mengatakan bahawa \"Perjalanan yang berbatu-batu jauhnya dimulai dengan selangkah\"."
+      "word": "menenggelami dalam alam maya",
+      "zh": "沉浸于虚拟世界",
+      "example": null,
+      "level": "ordinary"
     },
     {
-      "word": "bapa borek, anak rintik",
-      "zh": "有其父必有其子",
-      "example": "Hal ini dikatakan kerana pendidikan bermula daripada rumah dan sikap ibu bapa yang suka meneroka dan mencari pengetahuan terbaharu tentu akan dicontohi oleh anak, persis kata peribahasa \"bapa borek, anak rintik\"."
+      "word": "taasub mengejar pangkat, wang dan kemewahan",
+      "zh": "痴迷追求地位、金钱与奢华",
+      "example": null,
+      "level": "ordinary"
     },
     {
-      "word": "alah bisa tegal biasa",
-      "zh": "熟能生巧",
-      "example": "Kesannya, anak-anak akan mendarahdagingkan membaca sebagai hobi kerana alah bisa tegal biasa."
+      "word": "meningkatkan daya kompetennya",
+      "zh": "提升其竞争力",
+      "example": null,
+      "level": "ordinary"
     },
     {
-      "word": "berganding bahu bagai aur dengan tebing",
-      "zh": "同心协力，同舟共济",
-      "example": "Oleh itu, setiap strata masyarakat haruslah berganding bahu bagai aur dengan tebing untuk mencambahkan bibit-bibit membaca dalam kalangan masyarakat."
+      "word": "aset yang paling dominan",
+      "zh": "最主要的资产",
+      "example": null,
+      "level": "ordinary"
     },
     {
-      "word": "Allah tidak akan mengubah nasib seseorang sekiranya seseorang itu sendiri tidak mahu mengubahnya",
-      "zh": "真主不会改变一个人的命运，除非他自己愿意改变",
-      "example": "Pernahkah anda mendengar bahawa \"Allah tidak akan mengubah nasib seseorang sekiranya seseorang itu sendiri tidak mahu mengubahnya."
+      "word": "melemparkan idea yang bernas",
+      "zh": "提出精辟的见解",
+      "example": null,
+      "level": "ordinary"
+    },
+    {
+      "word": "berkelulusan tinggi",
+      "zh": "学历高",
+      "example": null,
+      "level": "ordinary"
+    },
+    {
+      "word": "direbut-rebut oleh pihak majikan",
+      "zh": "被雇主争相聘用",
+      "example": null,
+      "level": "ordinary"
+    },
+    {
+      "word": "meningkatkan kebolehpasaran diri",
+      "zh": "提升自身的市场竞争力",
+      "example": null,
+      "level": "ordinary"
+    },
+    {
+      "word": "mendapat kerjaya impian",
+      "zh": "获得理想的职业",
+      "example": null,
+      "level": "ordinary"
+    },
+    {
+      "word": "mengubah nasib seseorang",
+      "zh": "改变一个人的命运",
+      "example": null,
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -103,6 +143,8 @@
     }
   ],
   "gaps": [
-    "Essay used is the 3rd Amalan Membaca essay (Cara-cara Memupuk Amalan Membaca). Words 1-4 and 10 come from the 1st and 2nd essays' tables (Punca-punca... and Faedah-faedah...), so their example sentences are copied from those essays' Table 2 ayat column. The example for the last word starts with an opening quote mark that is never closed, exactly as in Gary's table."
+    "Essay used is the 3rd Amalan Membaca essay (Cara-cara Memupuk Amalan Membaca). Words 1-4 and 10 come from the 1st and 2nd essays' tables (Punca-punca... and Faedah-faedah...), so their example sentences are copied from those essays' Table 2 ayat column. The example for the last word starts with an opening quote mark that is never closed, exactly as in Gary's table.",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (0 of 8): filled with 8 ordinary words"
   ]
 }

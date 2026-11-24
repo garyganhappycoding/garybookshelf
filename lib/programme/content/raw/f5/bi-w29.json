@@ -39,54 +39,94 @@
   ],
   "words": [
     {
-      "word": "refresh the mind",
-      "zh": "让头脑焕然一新",
-      "example": "A relaxing getaway refreshes the mind."
+      "word": "mouth- watering food",
+      "zh": "令人垂涎的美食",
+      "example": "I would love to try the mouth- watering food.",
+      "level": "B2"
     },
     {
-      "word": "make life richer",
-      "zh": "让生活更丰富",
-      "example": "I firmly believe that travel and leisure make life richer."
+      "word": "learn about their traditions",
+      "zh": "了解他们的传统",
+      "example": "e I would learn about their traditions.",
+      "level": "B2"
     },
     {
-      "word": "give us balance",
-      "zh": "带给我们平衡",
-      "example": "This is because they give us balance and create lasting memories."
+      "word": "create lasting memories",
+      "zh": "b 创造持久的回忆",
+      "example": "We would create lasting memories.",
+      "level": "B2"
     },
     {
-      "word": "lasting memories",
-      "zh": "持久的回忆",
-      "example": "We would create lasting memories."
+      "word": "etched in my memory",
+      "zh": "铭刻在我的记忆 中",
+      "example": "That scene is etched in my memory.",
+      "level": "B2 to C1"
     },
     {
-      "word": "a breathtaking destination",
-      "zh": "令人惊叹的目的地",
-      "example": "Langkawi is a breathtaking destination."
+      "word": "on the edge of my seat",
+      "zh": "b 紧张得坐立不安",
+      "example": "I was on the edge of my seat.",
+      "level": "B2 to C1"
     },
     {
-      "word": "a once-in-a-lifetime opportunity",
-      "zh": "千载难逢的机会",
-      "example": "It would be a once-in-a-lifetime opportunity."
+      "word": "relate to the character",
+      "zh": "对角色产生共鸣",
+      "example": "I could relate to the character's struggle.",
+      "level": "B2 to C1"
     },
     {
-      "word": "take my breath away",
-      "zh": "令我惊叹",
-      "example": "The view would take my breath away."
+      "word": "strike a chord with me",
+      "zh": "触动我的心弦",
+      "example": "The scene struck a chord with me.",
+      "level": "B2 to C1"
     },
     {
-      "word": "rich in culture and history",
-      "zh": "文化和历史丰富",
-      "example": "Japan is rich in culture and history."
+      "word": "realise the value of",
+      "zh": "b 意识到……的价 值",
+      "example": "I realised the value of loyalty.",
+      "level": "B2 to C1"
     },
     {
-      "word": "broaden my horizons",
-      "zh": "开阔我的眼界",
-      "example": "The trip would broaden my horizons."
+      "word": "convey a powerful message",
+      "zh": "传达有力的信息",
+      "example": "Good movies convey a powerful message.",
+      "level": "C1"
     },
     {
-      "word": "deepen my appreciation of",
-      "zh": "加深我对……的欣赏",
-      "example": "It would deepen my appreciation of other cultures."
+      "word": "learn valuable life lessons",
+      "zh": "学到宝贵的人生 教训",
+      "example": "We can learn valuable life lessons from movies.",
+      "level": "C1"
+    },
+    {
+      "word": "a heart- warming drama",
+      "zh": "暖心的剧情片",
+      "example": "It is a heart-warming drama about a family.",
+      "level": "C1"
+    },
+    {
+      "word": "an action- packed thriller",
+      "zh": "动作紧凑的惊悚 片",
+      "example": "e It is an action-packed thriller.",
+      "level": "C1"
+    },
+    {
+      "word": "a gripping storyline",
+      "zh": "b 引人入胜的故事 情节",
+      "example": "It has a gripping storyline.",
+      "level": "C1"
+    },
+    {
+      "word": "teach us the value of",
+      "zh": "教导我们……的 价值",
+      "example": "The movie teaches us the value of hard work.",
+      "level": "C1"
+    },
+    {
+      "word": "convey a strong message about",
+      "zh": "传达关于……的 有力信息",
+      "example": "It conveys a strong message about family love.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -140,6 +180,12 @@
     "The docx text shows a curly apostrophe/quotes; copied as shown.",
     "Prompt said week 29 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 29 as Travel, Leisure & Home, so Travel words and a Travel essay were used.",
     "example for 'a breathtaking destination' taken from the theme pack (watermark layer removed)",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (etched in my memory)",
+    "Form 5: mid tier short: used a top word (on the edge of my seat)",
+    "Form 5: mid tier short: used a top word (relate to the character)",
+    "Form 5: mid tier short: used a top word (strike a chord with me)",
+    "Form 5: mid tier short: used a top word (realise the value of)"
   ]
 }

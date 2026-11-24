@@ -45,54 +45,94 @@
   ],
   "words": [
     {
-      "word": "the future leaders of the nation",
-      "zh": "国家未来的领袖",
-      "example": "Teenagers are the future leaders of the nation, so their values matter."
-    },
-    {
-      "word": "give in to peer pressure",
-      "zh": "屈服于同侪压力",
-      "example": "Some teenagers give in to peer pressure and start vaping."
-    },
-    {
-      "word": "fall into bad company",
-      "zh": "结交坏朋友",
-      "example": "Lonely teenagers may fall into bad company."
-    },
-    {
-      "word": "a friend in need is a friend indeed",
-      "zh": "患难见真情",
-      "example": "Su Lin stayed with me at the hospital; a friend in need is a friend indeed."
-    },
-    {
-      "word": "through thick and thin",
-      "zh": "同甘共苦",
-      "example": "True friends stand by you through thick and thin."
-    },
-    {
       "word": "lend a helping hand",
       "zh": "伸出援手",
-      "example": "As a result, more students would be motivated to lend a helping hand."
+      "example": "They can lend a helping hand to the elderly.",
+      "level": "B2"
     },
     {
-      "word": "make a positive difference in society",
-      "zh": "为社会带来正面改变",
-      "example": "Small acts of kindness make a positive difference in society."
+      "word": "volunteer at a food bank",
+      "zh": "在食物银行做义 工",
+      "example": "e Students can volunteer at a food bank.",
+      "level": "B2"
     },
     {
-      "word": "bridge the generation gap",
-      "zh": "弥合代沟",
-      "example": "Family dinners help bridge the generation gap."
+      "word": "tutor younger children",
+      "zh": "辅导年幼的孩子",
+      "example": "h Good students can tutor younger children for free.",
+      "level": "B2"
     },
     {
-      "word": "set a good example for …",
-      "zh": "为……树立好榜样",
-      "example": "Prefects should set a good example for juniors."
+      "word": "build character",
+      "zh": "塑造品格",
+      "example": "Community service builds character.",
+      "level": "B2 to C1"
     },
     {
-      "word": "it takes a village to raise a child",
-      "zh": "养育一个孩子需要整个社区的力量",
-      "example": "It takes a village to raise a child, so parents, schools and society must work together."
+      "word": "offer incentives",
+      "zh": "提供奖励",
+      "example": "They can offer incentives such as certificates.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "derogatory remarks",
+      "zh": "贬损的言论",
+      "example": "Bullies leave derogatory remarks under a classmate's photo.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "malicious comments",
+      "zh": "恶意评论",
+      "example": "Malicious comments can be seen by hundreds of people.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "humiliate",
+      "zh": "羞辱",
+      "example": "h s Such comments humiliate the victim in front of everyone.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "play an active role",
+      "zh": "发挥积极作用",
+      "example": "Teenagers can play an active role in their community.",
+      "level": "C1"
+    },
+    {
+      "word": "give back to society",
+      "zh": "回馈社会",
+      "example": "Teenagers can give back to society in many ways.",
+      "level": "C1"
+    },
+    {
+      "word": "make a positive impact",
+      "zh": "产生积极影响",
+      "example": "These actions make a positive impact.",
+      "level": "C1"
+    },
+    {
+      "word": "develop a sense of belonging",
+      "zh": "培养归属感",
+      "example": "It develops a sense of belonging.",
+      "level": "C1"
+    },
+    {
+      "word": "meet like- minded people",
+      "zh": "结识志同道合的 人",
+      "example": "They meet like-minded people.",
+      "level": "C1"
+    },
+    {
+      "word": "inspire more students to join",
+      "zh": "激励更多学生加 入",
+      "example": "More students will be inspired to join.",
+      "level": "C1"
+    },
+    {
+      "word": "under the cloak of anonymity",
+      "zh": "在匿名的掩护下",
+      "example": "s Under the cloak of anonymity, they say cruel things.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -144,6 +184,7 @@
     "example for 'fall into bad company' taken from the theme pack (watermark layer removed)",
     "example for 'a friend in need is a friend indeed' taken from the theme pack (watermark layer removed)",
     "example for 'through thick and thin' taken from the theme pack (watermark layer removed)",
-    "Example for 'make a positive difference in society' filled later from the Teenagers & Society theme pack (cleaned text)."
+    "Example for 'make a positive difference in society' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

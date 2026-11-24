@@ -39,54 +39,94 @@
   ],
   "words": [
     {
-      "word": "enrich school life",
-      "zh": "丰富校园生活",
-      "example": "Co-curricular activities enrich school life."
+      "word": "sample local food",
+      "zh": "品尝本地美食",
+      "example": "h They sampled local food during recess.",
+      "level": "B2"
     },
     {
-      "word": "foster teamwork",
-      "zh": "培养团队合作",
-      "example": "For example, a school camp fosters teamwork and builds leadership."
+      "word": "respect cultural differences",
+      "zh": "尊重文化差异",
+      "example": "s We learnt to respect cultural differences.",
+      "level": "B2"
     },
     {
-      "word": "suffer from anxiety",
-      "zh": "承受焦虑",
-      "example": "As a result, they suffer from anxiety, lose motivation and even burn out."
+      "word": "become more open-minded",
+      "zh": "b 变得更开明",
+      "example": "The programme made us more open-minded.",
+      "level": "B2"
+    },
+    {
+      "word": "think critically",
+      "zh": "批判性思考",
+      "example": "For example, a student who joins debates gains confidence and learns to think critically.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "well-rounded individuals",
+      "zh": "全面发展的人",
+      "example": "Therefore, schools should nurture well-rounded individuals, not just exam machines.",
+      "level": "B2 to C1"
     },
     {
       "word": "burn out",
       "zh": "身心俱疲",
-      "example": "As a result, they suffer from anxiety, lose motivation and even burn out."
+      "example": "As a result, they suffer from anxiety, lose motivation and even burn out.",
+      "level": "B2 to C1"
     },
     {
-      "word": "hinder our studies",
-      "zh": "妨碍我们的学业",
-      "example": "Distractions hinder our studies."
+      "word": "exercise self-discipline",
+      "zh": "运用自律",
+      "example": "I exercise self-discipline during study time.",
+      "level": "B2 to C1"
     },
     {
-      "word": "break our concentration",
-      "zh": "打断我们的专注",
-      "example": "This is because notifications break our concentration and games are far more tempting than homework."
+      "word": "eliminate distractions",
+      "zh": "消除干扰",
+      "example": null,
+      "level": "B2 to C1"
     },
     {
-      "word": "fall behind in my work",
-      "zh": "功课落后",
-      "example": "As a result, I fall behind in my work and submit assignments late."
+      "word": "tackle difficult subjects frist",
+      "zh": "先处理难的科目",
+      "example": "s I tackle difficult subjects first while my mind is fresh.",
+      "level": "C1"
     },
     {
-      "word": "cram for exams",
-      "zh": "临时抱佛脚",
-      "example": "For example, a student cramming the night before an exam usually forgets what they learnt."
+      "word": "nurture logical thinking",
+      "zh": "培养逻辑思维",
+      "example": "Coding nurtures logical thinking.",
+      "level": "C1"
     },
     {
-      "word": "prioritise important tasks",
-      "zh": "优先处理重要任务",
-      "example": "Students should prioritise important tasks."
+      "word": "equip students with future skills",
+      "zh": "让学生具备未来 技能",
+      "example": "l The event equipped students with future skills.",
+      "level": "C1"
     },
     {
-      "word": "demand immediate attention",
-      "zh": "需要立即关注",
-      "example": "This is because urgent assignments demand immediate attention."
+      "word": "debug the code",
+      "zh": "调试代码",
+      "example": "Students learned to debug the code together.",
+      "level": "C1"
+    },
+    {
+      "word": "stayed engaged throughout",
+      "zh": "全程投入",
+      "example": "s Students stayed engaged throughout the programme.",
+      "level": "C1"
+    },
+    {
+      "word": "achieved its objective",
+      "zh": "达成目标",
+      "example": "The event achieved its objective.",
+      "level": "C1"
+    },
+    {
+      "word": "a valuable eye-opener",
+      "zh": "增广见闻的经历",
+      "example": "The event was a valuable eye- opener for many students.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -173,8 +213,8 @@
   ],
   "gaps": [
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
-    "None of the 10 words appears in this essay's vocabulary table; all examples come from the School & Education theme pack (Universal answers S3, S4, S5, S6, S7). The sentences for 'suffer from anxiety'/'burn out' (shared) and 'cram for exams' were rebuilt from the scrambled watermarked PDF; 'cram for exams' is only found as 'cramming' in the pack sentence. Please check them.",
     "No question-style essay with a Question Analysis table is left for this theme, so weeks 26 and 37 use the older-format essays in the '7. school' folder.",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

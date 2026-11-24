@@ -25,54 +25,94 @@
   ],
   "words": [
     {
-      "word": "bagai melukut di tepi gantang",
-      "zh": "微不足道/无足轻重（被忽视）",
-      "example": "Yang pertamanya, pihak kerajaan tidak boleh mengabaikan masalah ini bagai melukut di tepi gantang."
+      "word": "pencegahan lebih baik daripada mengubati",
+      "zh": "预防胜于治疗",
+      "example": "Oleh sebab pencegahan lebih baik daripada mengubati, janganlah kita menyesal selepas tragedi berlaku bak kata peribahasa \"bagai melepaskan batuk di tangga\".",
+      "level": "advanced"
     },
     {
-      "word": "sesal dahulu pendapatan, sesal kemudian tidak berguna lagi",
-      "zh": "早知今日何必当初",
-      "example": "Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa \"sesal dahulu pendapatan, sesal kemudian tidak berguna lagi\" sebagai azimat untuk mengelakkan kemalangan."
+      "word": "bagai melepaskan batuk di tangga",
+      "zh": "敷衍了事，做事不彻底",
+      "example": "Oleh sebab pencegahan lebih baik daripada mengubati, janganlah kita menyesal selepas tragedi berlaku bak kata peribahasa \"bagai melepaskan batuk di tangga\".",
+      "level": "advanced"
     },
     {
-      "word": "berani bermaharajalela di jalan raya",
-      "zh": "在马路上横行霸道",
-      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
+      "word": "biar lambat, asalkan selamat",
+      "zh": "宁迟勿失，宁可慢也要安全",
+      "example": "Oleh itu, kita perlu sama-sama berpegang teguh pada prinsip \"biar lambat, asalkan selamat\" dalam hati.",
+      "level": "advanced"
     },
     {
-      "word": "menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara",
-      "zh": "把马路当赛车场最终变成坟场",
-      "example": "Justifikasinya, JPJ berperanan penting untuk mengelakkan remaja menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara."
+      "word": "anak menjadi yatim piatu, isteri menjadi janda dan suami menjadi duda",
+      "zh": "孩子成孤儿，妻子成寡妇，丈夫成鳏夫",
+      "example": "Tiada sesiapa ingin melihat anak menjadi yatim piatu, isteri menjadi janda dan suami menjadi duda.",
+      "level": "advanced"
     },
     {
-      "word": "bagai enau dalam belukar melepaskan pucuk masing-masing",
-      "zh": "各顾各的，自私自利",
-      "example": "Sebagai contohnya, terdapat pemandu yang bersikap individualistik bagai enau dalam belukar melepaskan pucuk masing-masing menggunakan telefon bimbit semasa memandu kereta."
+      "word": "bagai duri dalam daging",
+      "zh": "如芒刺在背，心头大患",
+      "example": "Keadaan ini bagai duri dalam daging dan amat membimbangkan masyarakat.",
+      "level": "advanced"
+    },
+    {
+      "word": "sehingga pokok pangkal",
+      "zh": "彻底根治，追根究底",
+      "example": "Jadi, apakah punca-punca dan langkah-langkah harus diimplementasikan untuk mengatasi masalah ini sehingga pokok pangkal?",
+      "level": "advanced"
+    },
+    {
+      "word": "terkenal sebagai Pembunuh Nombor Satu",
+      "zh": "被称为头号杀手",
+      "example": "Dengan ini, tragedi jalan raya akan dikurangkan dan jalan raya negara kita tidak akan terkenal sebagai Pembunuh Nombor Satu sehingga menconteng arang ke muka negara.",
+      "level": "advanced"
+    },
+    {
+      "word": "tidak bertanggungjawab",
+      "zh": "不负责任",
+      "example": "Pihak kerajaan perlu menguatkuasakan undang-undang untuk menakutkan pengguna jalan yang bersikap individualistik dan tidak bertanggungjawab.",
+      "level": "ordinary"
+    },
+    {
+      "word": "memandu melebihi had laju",
+      "zh": "超速驾驶",
+      "example": "Sebagai contohnya, sesiapa yang tidak mengikut peraturan seperti memandu melebihi had laju, bermain telefon bimbit semasa memandu akan dikenakan hukuman yang berat.",
+      "level": "ordinary"
+    },
+    {
+      "word": "dikenakan hukuman",
+      "zh": "被处罚",
+      "example": "Sebagai contohnya, sesiapa yang tidak mengikut peraturan seperti memandu melebihi had laju, bermain telefon bimbit semasa memandu akan dikenakan hukuman yang berat.",
+      "level": "ordinary"
     },
     {
       "word": "mengelakkan kemalangan",
       "zh": "避免意外",
-      "example": "Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa \"sesal dahulu pendapatan, sesal kemudian tidak berguna lagi\" sebagai azimat untuk mengelakkan kemalangan."
+      "example": "Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa \"sesal dahulu pendapatan, sesal kemudian tidak berguna lagi\" sebagai azimat untuk mengelakkan kemalangan.",
+      "level": "ordinary"
     },
     {
       "word": "mengetatkan syarat",
       "zh": "收紧条件",
-      "example": "Selain itu, Jabatan Pengangkutan Jalan perlulah mengetatkan syarat memberikan lesen."
+      "example": "Selain itu, Jabatan Pengangkutan Jalan perlulah mengetatkan syarat memberikan lesen.",
+      "level": "ordinary"
     },
     {
       "word": "berjiwa panas",
       "zh": "血气方刚",
-      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
+      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa.",
+      "level": "ordinary"
     },
     {
       "word": "mengawal tindakan diri",
       "zh": "控制自己的行为",
-      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
+      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa.",
+      "level": "ordinary"
     },
     {
       "word": "membahayakan nyawa",
       "zh": "危及生命",
-      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
+      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -94,6 +134,6 @@
     }
   ],
   "gaps": [
-    "Essay used is the 2nd Keselamatan Jalan Raya essay (Punca-Punca Kemalangan...); all 10 words come from the 1st essay's tables (Peranan Menangani...), so their example sentences are copied from that essay's Table 1/2 ayat column."
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays"
   ]
 }

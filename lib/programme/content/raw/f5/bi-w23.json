@@ -47,54 +47,94 @@
   ],
   "words": [
     {
-      "word": "alleviate loneliness",
-      "zh": "缓解孤独",
-      "example": "As a result, families maintain close ties, strengthen family bonds and alleviate loneliness."
+      "word": "unboxing video",
+      "zh": "开箱视频",
+      "example": "An unboxing video shows the gadget's real size and quality.",
+      "level": "B2"
     },
     {
-      "word": "enhance our productivity",
-      "zh": "提升我们的效率",
-      "example": "Technology saves time and enhances our productivity."
+      "word": "lag / hang",
+      "zh": "卡顿",
+      "example": "My cheap phone started to lag during an online quiz.",
+      "level": "B2"
+    },
+    {
+      "word": "battery drains quickly",
+      "zh": "电池耗电快",
+      "example": "A weak battery drains quickly and I must keep charging it.",
+      "level": "B2"
+    },
+    {
+      "word": "instantaneous",
+      "zh": "即时的",
+      "example": "Messaging has made communication instantaneous.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "eliminate delays",
+      "zh": "消除延误",
+      "example": "Messaging apps eliminate delays in communication.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "streamline coordination",
+      "zh": "简化协调",
+      "example": "Group chats streamline coordination for school projects.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "reunite virtually",
+      "zh": "线上团聚",
+      "example": "Our family reunites virtually every festive season.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "alleviate loneliness",
+      "zh": "缓解孤独",
+      "example": "Staying in touch alleviates loneliness among hostel students.",
+      "level": "B2 to C1"
     },
     {
       "word": "meet deadlines consistently",
       "zh": "始终如期完成",
-      "example": "For example, a calendar app sets reminders so that I meet deadlines consistently."
+      "example": "As a result, I meet deadlines consistently.",
+      "level": "C1"
     },
     {
-      "word": "alleviate stress",
-      "zh": "缓解压力",
-      "example": "As a result, we alleviate stress and have more time for what really matters."
+      "word": "in a split second",
+      "zh": "一瞬间",
+      "example": "A message reaches my friend in a split second.",
+      "level": "C1"
     },
     {
-      "word": "impair concentration",
-      "zh": "损害专注力",
-      "example": "Constant alerts impair concentration."
+      "word": "expedite decision- making",
+      "zh": "加快决策",
+      "example": "Instant messages expedite decision- making.",
+      "level": "C1"
     },
     {
-      "word": "sleep deprivation",
-      "zh": "睡眠不足",
-      "example": "As a result, they suffer from sleep deprivation and neglect their studies."
+      "word": "overcome geographical barriers",
+      "zh": "克服地理障碍",
+      "example": "Video calls help us overcome geographical barriers.",
+      "level": "C1"
     },
     {
-      "word": "prioritise virtual interaction",
-      "zh": "优先选择线上互动",
-      "example": "This is because many teenagers prioritise virtual interaction over real conversations."
+      "word": "bridge the gap",
+      "zh": "缩小差距",
+      "example": "Technology bridges the gap between distant relatives.",
+      "level": "C1"
     },
     {
-      "word": "erode genuine relationships",
-      "zh": "侵蚀真诚的关系",
-      "example": "Constant screen use can erode genuine relationships."
+      "word": "maintain close ties",
+      "zh": "保持紧密联系",
+      "example": "Regular video calls help families maintain close ties.",
+      "level": "C1"
     },
     {
-      "word": "social isolation",
-      "zh": "社交孤立",
-      "example": "As a result, genuine relationships erode and social isolation becomes more common."
-    },
-    {
-      "word": "remain anonymous",
-      "zh": "保持匿名",
-      "example": "This is because bullies remain anonymous behind fake accounts and cannot see their victims' pain."
+      "word": "foster a sense of belonging",
+      "zh": "培养归属感",
+      "example": "Group chats foster a sense of belonging.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -144,8 +184,8 @@
     }
   ],
   "gaps": [
-    "None of the 10 words appears in the Terengganu essay's vocabulary table or in the pack's 'Universal phrases' section. Eight examples come from the pack's Universal answers (U2 to U6).",
     "'impair concentration' and 'erode genuine relationships': the Universal answers only contain inflected forms ('impairs their concentration', 'relationships erode'), so the example is the pack's keyword sentence from the Technology notes (not from the essay or a Universal answer).",
-    "'alleviate loneliness' shares its sentence with U2 only; 'social isolation' and 'prioritise virtual interaction' both come from U5."
+    "'alleviate loneliness' shares its sentence with U2 only; 'social isolation' and 'prioritise virtual interaction' both come from U5.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

@@ -51,54 +51,94 @@
   ],
   "words": [
     {
-      "word": "accompanied by",
-      "zh": "由……陪同",
-      "example": "They were accompanied by three teachers from their home schools."
+      "word": "sample local food",
+      "zh": "品尝本地美食",
+      "example": "h They sampled local food during recess.",
+      "level": "B2"
     },
     {
-      "word": "in the vicinity of",
-      "zh": "在……附近",
-      "example": "The programme was held in the vicinity of our school."
+      "word": "respect cultural differences",
+      "zh": "尊重文化差异",
+      "example": "s We learnt to respect cultural differences.",
+      "level": "B2"
     },
     {
-      "word": "run smoothly",
-      "zh": "顺利进行",
-      "example": "The event would run more smoothly."
+      "word": "become more open-minded",
+      "zh": "b 变得更开明",
+      "example": "The programme made us more open-minded.",
+      "level": "B2"
     },
     {
-      "word": "be assigned different tasks",
-      "zh": "被分配不同任务",
-      "example": "Participants were divided into groups and assigned different tasks."
+      "word": "cooperate enthusiastically",
+      "zh": "热情合作",
+      "example": "This is because everyone cooperated enthusiastically.",
+      "level": "B2 to C1"
     },
     {
-      "word": "encounter challenges",
-      "zh": "遇到挑战",
-      "example": "We encountered a few challenges during the programme."
+      "word": "cultivate good habits",
+      "zh": "培养好习惯",
+      "example": "Such practices cultivate good habits from a young age.",
+      "level": "B2 to C1"
     },
     {
-      "word": "adjust our plan",
-      "zh": "调整计划",
-      "example": "As a result, we had to adjust our plan and work extra hard to finish on time."
+      "word": "become second nature",
+      "zh": "b 成为第二天性",
+      "example": "Cleaning up will soon become second nature.",
+      "level": "B2 to C1"
     },
     {
-      "word": "worked hand in hand",
-      "zh": "携手合作",
-      "example": "Teachers and students worked hand in hand."
+      "word": "with the aim of",
+      "zh": "目的是",
+      "example": "The survey was done with the aim of understanding their spending habits.",
+      "level": "B2 to C1"
     },
     {
-      "word": "transformed the area",
-      "zh": "改变了这个地方",
-      "example": "The area was transformed into a clean and pleasant place."
+      "word": "gain insight into",
+      "zh": "深入了解",
+      "example": "We wanted to gain insight into how pupils use their money.",
+      "level": "B2 to C1"
     },
     {
-      "word": "equipped with gloves and bags",
-      "zh": "配备手套和垃圾袋",
-      "example": "Each group was equipped with gloves and rubbish bags."
+      "word": "raise fni ancial awareness",
+      "zh": "提高理财意识",
+      "example": "The results will help us raise financial awareness.",
+      "level": "C1"
     },
     {
-      "word": "teach valuable lessons",
-      "zh": "教导宝贵的教训",
-      "example": "The programme taught us valuable lessons."
+      "word": "barely save any money",
+      "zh": "几乎没有存钱",
+      "example": "Nearly half of them barely save any money.",
+      "level": "C1"
+    },
+    {
+      "word": "fall short of their goals",
+      "zh": "b 达不到目标",
+      "example": "Pupils fall short of their saving goals.",
+      "level": "C1"
+    },
+    {
+      "word": "raise awareness through talks",
+      "zh": "通过讲座提高意 识",
+      "example": "The school can raise awareness through talks.",
+      "level": "C1"
+    },
+    {
+      "word": "become wise consumers",
+      "zh": "b 成为精明的消费 者",
+      "example": "Pupils will become wise consumers.",
+      "level": "C1"
+    },
+    {
+      "word": "raise awareness about",
+      "zh": "提高对……的意 识",
+      "example": "The aim was to raise awareness about animal welfare.",
+      "level": "C1"
+    },
+    {
+      "word": "gain first-hand experience",
+      "zh": "获得亲身体验",
+      "example": "l Members gained frist-hand experience of how a shelter works.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -144,6 +184,11 @@
     "Only 'accompanied by' is in the essay's vocabulary table. The other examples come from the Report pack: 'be assigned different tasks' (RP3 answer), 'encounter challenges' and 'adjust our plan' (RP5 answer), 'teach valuable lessons' (RP7 answer, inflected 'taught'), 'worked hand in hand', 'transformed the area', 'equipped with gloves and bags' (Q2 Clean-up table), 'run smoothly' (Q5 table, sentence reads 'would run more smoothly').",
     "paragraphs: the To/Prepared by lines and the sub-headings were left out; only the 5 body paragraphs are given.",
     "goodPhrases: the row 'thunderous applause' is marked (Extended) and was left out.",
-    "example for 'in the vicinity of' taken from the theme pack (watermark layer removed)"
+    "example for 'in the vicinity of' taken from the theme pack (watermark layer removed)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (cultivate good habits)",
+    "Form 5: mid tier short: used a top word (become second nature)",
+    "Form 5: mid tier short: used a top word (with the aim of)",
+    "Form 5: mid tier short: used a top word (gain insight into)"
   ]
 }

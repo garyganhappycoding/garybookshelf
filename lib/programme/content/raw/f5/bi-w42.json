@@ -1,5 +1,6 @@
 {
-  "n": 42, "lang": "bi",
+  "n": 42,
+  "lang": "bi",
   "theme": "Review",
   "level": "C1",
   "essayTitle": "A Night of Music to Remember",
@@ -13,40 +14,171 @@
     "In a nutshell, it was an unforgettable evening that I would recommend to anyone. Even if you are not a fan of classical music, this experience may change your mind."
   ],
   "points": [
-    {"code": "C1", "text": "Who was the performer?"},
-    {"code": "C2", "text": "What kind of performance was it?"},
-    {"code": "C3", "text": "Did you enjoy the performance? Why? – reason 1"},
-    {"code": "C4", "text": "Why? – reason 2"},
-    {"code": "C5", "text": "Why? – reason 3"}
+    {
+      "code": "C1",
+      "text": "Who was the performer?"
+    },
+    {
+      "code": "C2",
+      "text": "What kind of performance was it?"
+    },
+    {
+      "code": "C3",
+      "text": "Did you enjoy the performance? Why? – reason 1"
+    },
+    {
+      "code": "C4",
+      "text": "Why? – reason 2"
+    },
+    {
+      "code": "C5",
+      "text": "Why? – reason 3"
+    }
   ],
-  "openingIdx": [0],
-  "keyPoint": {"idx": 2, "prompt": "Did you enjoy the performance? Why? – reason 1"},
-  "closingIdx": [4],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 2,
+    "prompt": "Did you enjoy the performance? Why? – reason 1"
+  },
+  "closingIdx": [
+    4
+  ],
   "words": [
-    {"word": "satisfy your cravings", "zh": "满足你的渴望", "example": "This dish will satisfy your cravings."},
-    {"word": "captivating", "zh": "迷人的", "example": "The performance was truly captivating."},
-    {"word": "an electrifying atmosphere", "zh": "令人兴奋的气氛", "example": "The hall had an electrifying atmosphere."},
-    {"word": "a renowned artist", "zh": "知名艺术家", "example": "A renowned artist headlined the event."},
-    {"word": "showcase their talent", "zh": "展示他们的才华", "example": "The students showcased their talent."},
-    {"word": "appeal to all ages", "zh": "适合所有年龄", "example": "The show appeals to all ages."},
-    {"word": "a hassle-free visit", "zh": "无麻烦的游览", "example": "The visit was hassle-free because everything is in one place."},
-    {"word": "a gripping storyline", "zh": "引人入胜的故事情节", "example": "It has a gripping storyline."},
-    {"word": "a thought-provoking plot", "zh": "发人深省的情节", "example": "The thought-provoking plot stays in your mind."},
-    {"word": "vivid illustrations", "zh": "生动的插图", "example": "The vivid illustrations bring the story to life."}
+    {
+      "word": "value for money",
+      "zh": "物有所值",
+      "example": "It is excellent value for money.",
+      "level": "B2"
+    },
+    {
+      "word": "will not be disappointed",
+      "zh": "不会失望",
+      "example": "You will not be disappointed.",
+      "level": "B2"
+    },
+    {
+      "word": "a must-try",
+      "zh": "b 必尝之物",
+      "example": "It is a must-try when you visit the town.",
+      "level": "B2"
+    },
+    {
+      "word": "improve the animals' quality of life",
+      "zh": "改善动物的生活 质量",
+      "example": "These changes will improve the animals' quality of life.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "a tranquil retreat",
+      "zh": "宁静的度假胜地",
+      "example": "It is a tranquil retreat from city life.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "savour the local food",
+      "zh": "细细品尝当地美 食",
+      "example": "We savoured the local food at the restaurant.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "recharge your batteries",
+      "zh": "恢复精力",
+      "example": "It is the perfect place to recharge your batteries.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "exceed your expectations",
+      "zh": "超出你的期望",
+      "example": "The resort will exceed your expectations.",
+      "level": "C1"
+    },
+    {
+      "word": "leave feeling rejuvenated",
+      "zh": "b 精神焕发地离开",
+      "example": "You will leave feeling rejuvenated.",
+      "level": "C1"
+    },
+    {
+      "word": "a heart- warming drama",
+      "zh": "暖心的剧情片",
+      "example": "It is a heart-warming drama about a family.",
+      "level": "C1"
+    },
+    {
+      "word": "an action- packed thriller",
+      "zh": "动作紧凑的惊悚 片",
+      "example": "e It is an action-packed thriller.",
+      "level": "C1"
+    },
+    {
+      "word": "a gripping storyline",
+      "zh": "b 引人入胜的故事 情节",
+      "example": "It has a gripping storyline.",
+      "level": "C1"
+    },
+    {
+      "word": "teach us the value of",
+      "zh": "教导我们……的 价值",
+      "example": "The movie teaches us the value of hard work.",
+      "level": "C1"
+    },
+    {
+      "word": "convey a strong message about",
+      "zh": "传达关于……的 有力信息",
+      "example": "It conveys a strong message about family love.",
+      "level": "C1"
+    },
+    {
+      "word": "stay true to ourselves",
+      "zh": "忠于自己",
+      "example": "We should stay true to ourselves.",
+      "level": "C1"
+    }
   ],
   "goodPhrases": [
-    {"phrase": "gave you goosebumps", "zh": "让你起鸡皮疙瘩"},
-    {"phrase": "masterpieces", "zh": "杰作"},
-    {"phrase": "remarkable precision and passion", "zh": "非凡的精准与热情"},
-    {"phrase": "pin-drop silence", "zh": "鸦雀无声"},
-    {"phrase": "standing ovation", "zh": "起立鼓掌"},
-    {"phrase": "blended seamlessly", "zh": "完美融合"},
-    {"phrase": "medley", "zh": "混合曲；组曲"},
-    {"phrase": "acoustics", "zh": "音响效果"}
+    {
+      "phrase": "gave you goosebumps",
+      "zh": "让你起鸡皮疙瘩"
+    },
+    {
+      "phrase": "masterpieces",
+      "zh": "杰作"
+    },
+    {
+      "phrase": "remarkable precision and passion",
+      "zh": "非凡的精准与热情"
+    },
+    {
+      "phrase": "pin-drop silence",
+      "zh": "鸦雀无声"
+    },
+    {
+      "phrase": "standing ovation",
+      "zh": "起立鼓掌"
+    },
+    {
+      "phrase": "blended seamlessly",
+      "zh": "完美融合"
+    },
+    {
+      "phrase": "medley",
+      "zh": "混合曲；组曲"
+    },
+    {
+      "phrase": "acoustics",
+      "zh": "音响效果"
+    }
   ],
   "gaps": [
     "No word of this week appears in the essay or its vocabulary table; 'captivating' is in the other (Johor movie) essay only.",
     "All examples come from the Review pack tables (Q1 Popular Food, Q2 Shopping Mall, Q3 Live Performance, Q6 Local Movie, Q7 Comic Book), not from the Universal phrases section; the Q2 sentence for 'a hassle-free visit' reads 'The visit was hassle-free because …'.",
-    "goodPhrases: rows marked (Extended) (spellbound, wholeheartedly, a blend of East and West, heritage) were left out."
+    "goodPhrases: rows marked (Extended) (spellbound, wholeheartedly, a blend of East and West, heritage) were left out.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (improve the animals' quality of life)",
+    "Form 5: mid tier short: used a top word (a tranquil retreat)",
+    "Form 5: mid tier short: used a top word (savour the local food)",
+    "Form 5: mid tier short: used a top word (recharge your batteries)"
   ]
 }

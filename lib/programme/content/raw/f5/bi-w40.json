@@ -38,54 +38,94 @@
   ],
   "words": [
     {
-      "word": "take pride in our homeland",
-      "zh": "以我们的家园为荣",
-      "example": "We will take pride in our homeland."
+      "word": "offer attractive packages",
+      "zh": "提供有吸引力的 套餐",
+      "example": "Travel agencies can offer attractive packages.",
+      "level": "B2"
     },
     {
-      "word": "nestled in",
-      "zh": "坐落于",
-      "example": "The resort is nestled in the hills of Cameron Highlands."
+      "word": "improve public transport",
+      "zh": "改善公共交通",
+      "example": "l Better public transport makes travel easier.",
+      "level": "B2"
     },
     {
-      "word": "a tranquil retreat",
-      "zh": "宁静的度假胜地",
-      "example": "It is a tranquil retreat from city life."
+      "word": "run a 'Cuti- Cuti Malaysia' campaign",
+      "zh": "举办“Cuti-Cuti Malaysia”宣传",
+      "example": "h s A campaign on social media can inspire people.",
+      "level": "B2"
     },
     {
-      "word": "breathtaking views",
-      "zh": "令人惊叹的景色",
-      "example": "The balcony offered breathtaking views of the sunrise."
+      "word": "stay true to ourselves",
+      "zh": "忠于自己",
+      "example": "We should stay true to ourselves.",
+      "level": "B2 to C1"
     },
     {
-      "word": "savour the local food",
-      "zh": "细细品尝当地美食",
-      "example": "We savoured the local food at the restaurant."
+      "word": "live up to the hype",
+      "zh": "不负盛名",
+      "example": "The movie lives up to the hype.",
+      "level": "B2 to C1"
     },
     {
-      "word": "spark creativity",
-      "zh": "激发创意",
-      "example": "This is because they help us unwind and spark our creativity."
+      "word": "a thought- provoking plot",
+      "zh": "发人深省的情节",
+      "example": "h The thought-provoking plot stays in your mind.",
+      "level": "B2 to C1"
     },
     {
-      "word": "stimulate the imagination",
-      "zh": "激发想象力",
-      "example": "For example, reading comics stimulates the imagination while keeping us entertained."
+      "word": "leave the cinema feeling inspired",
+      "zh": "b 受到鼓舞地离开 电影院",
+      "example": "You will leave the cinema feeling inspired.",
+      "level": "B2 to C1"
     },
     {
-      "word": "exceed your expectations",
-      "zh": "超出你的期望",
-      "example": "The resort will exceed your expectations."
+      "word": "written and illustrated by",
+      "zh": "由……编写并绘 制",
+      "example": "It was written and illustrated by Eiichiro Oda.",
+      "level": "C1"
     },
     {
-      "word": "an enriching experience",
-      "zh": "丰富的体验",
-      "example": null
+      "word": "follows the adventures of",
+      "zh": "讲述……的冒险",
+      "example": "e The story follows the adventures of a young pirate.",
+      "level": "C1"
     },
     {
-      "word": "appeal to all ages",
-      "zh": "适合所有年龄",
-      "example": null
+      "word": "a captivating plot",
+      "zh": "引人入胜的情节",
+      "example": "The plot is captivating from the first page.",
+      "level": "C1"
+    },
+    {
+      "word": "well- developed characters",
+      "zh": "刻画细腻的角色",
+      "example": "The characters are well-developed and unique.",
+      "level": "C1"
+    },
+    {
+      "word": "a perfect blend of humour and action",
+      "zh": "幽默与动作的完 美结合",
+      "example": "e h It has a perfect blend of humour and action.",
+      "level": "C1"
+    },
+    {
+      "word": "keep readers hooked",
+      "zh": "让读者欲罢不能",
+      "example": "It keeps readers hooked until the last page.",
+      "level": "C1"
+    },
+    {
+      "word": "spark my imagination",
+      "zh": "b 激发我的想象力",
+      "example": "The story sparks my imagination.",
+      "level": "C1"
+    },
+    {
+      "word": "develop a love for reading",
+      "zh": "培养阅读的热爱",
+      "example": "It can help develop a love for reading.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -159,6 +199,11 @@
     "example for 'a tranquil retreat' taken from the theme pack (watermark layer removed)",
     "points written by Claude from the essay (unchecked)",
     "Example for 'take pride in our homeland' filled later from the Travel / Leisure / Home theme pack (cleaned text).",
-    "Example for 'savour the local food' filled later from the Travel / Leisure / Home theme pack (cleaned text); form differs: 'savoured'."
+    "Example for 'savour the local food' filled later from the Travel / Leisure / Home theme pack (cleaned text); form differs: 'savoured'.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (stay true to ourselves)",
+    "Form 5: mid tier short: used a top word (live up to the hype)",
+    "Form 5: mid tier short: used a top word (a thought- provoking plot)",
+    "Form 5: mid tier short: used a top word (leave the cinema feeling inspired)"
   ]
 }

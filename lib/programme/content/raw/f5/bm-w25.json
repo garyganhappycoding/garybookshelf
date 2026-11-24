@@ -29,54 +29,94 @@
   ],
   "words": [
     {
-      "word": "berbilang dari esa, mengaji dari alif",
-      "zh": "循序渐进，从头开始",
-      "example": "Begitulah tinggi seorang guru yang bertanggungjawab untuk membentuk karakter keperibadian seseorang bak kata peribahasa \" berbilang dari esa, mengaji dari alif\"."
+      "word": "Gantunglah cita-citamu di bintang yang tinggi sekalipun kakimu mencecah pelimbahan",
+      "zh": "即使身陷泥沼也要仰望星空立下宏愿",
+      "example": "Berpandukan kata-kata mantan Presiden Sukarno, \"Gantunglah cita-citamu di bintang yang tinggi sekalipun kakimu mencecah pelimbahan\", kita haruslah meletakkan impian yang tinggi seandainya mahu mencapai kejayaan.",
+      "level": "advanced"
     },
     {
-      "word": "guru kencing berdiri, murid kencing berlari",
-      "zh": "上梁不正下梁歪",
-      "example": "Peribahasa \"guru kencing berdiri, murid kencing berlari\" amat bersinonim dengan konteks tersebut."
+      "word": "biarlah melentur buluh biarlah daripada rebungnya",
+      "zh": "从小培养",
+      "example": "Maka, cita-cita haruslah disemai sejak kecil lagi agar dapat bertunas dan bercambah pada masa depan, bak kata peribahasa \"biarlah melentur buluh biarlah daripada rebungnya\".",
+      "level": "advanced"
     },
     {
-      "word": "yang lama dikelek, yang baharu didukung",
-      "zh": "不忘旧，也迎新",
-      "example": "Dengan ini, murid-murid bukan sahaja akan cemerlang dalam akademik malah tidak ketinggalan zaman bak kata peribahasa \"yang lama dikelek, yang baharu didukung.\" Guru-guru akan memastikan rakyat tidak terus berselindung dalam kepompong jumud sebaliknya membudayakan konsep kaizen pada setiap masa untuk melahirkan nusa dan bangsa yang berkemampuan duduk sama rendah, berdiri sama tinggi dengan negara lain."
+      "word": "bersatu teguh bercerai roboh",
+      "zh": "团结就是力量，分裂必败",
+      "example": "Hal ini dikatakan kerana bersatu teguh bercerai roboh.",
+      "level": "advanced"
     },
     {
-      "word": "berkemampuan duduk sama rendah, berdiri sama tinggi dengan negara lain",
-      "zh": "与他国平起平坐",
-      "example": "Dengan ini, murid-murid bukan sahaja akan cemerlang dalam akademik malah tidak ketinggalan zaman bak kata peribahasa \"yang lama dikelek, yang baharu didukung.\" Guru-guru akan memastikan rakyat tidak terus berselindung dalam kepompong jumud sebaliknya membudayakan konsep kaizen pada setiap masa untuk melahirkan nusa dan bangsa yang berkemampuan duduk sama rendah, berdiri sama tinggi dengan negara lain."
+      "word": "rambut sama hitam, hati lain-lain",
+      "zh": "人心各不同",
+      "example": "Contohnya, setiap ahli pasukan dapat bertukar pendapat dengan melontarkan idea masing-masing yang bernas dan konstruktif memandangkan rambut sama hitam, hati lain-lain.",
+      "level": "advanced"
     },
     {
-      "word": "berat mata memandang, berat lagi bahu memikul",
-      "zh": "责任重大，任重道远",
-      "example": "Sesungguhnya, tanggungjawab seorang guru amat berat lagi bak kata peribahasa berat mata memandang, berat lagi bahu memikul."
+      "word": "sambil menyelam minum air",
+      "zh": "一举两得",
+      "example": "Keadaan ini bersesuaian dengan peribahasa \"sambil menyelam minum air\".",
+      "level": "advanced"
+    },
+    {
+      "word": "bagai katak di bawah tempurung",
+      "zh": "井底之蛙",
+      "example": "Hal ini afdal untuk mengelakkan diri daripada keciciran dalam arus modenisasi dan diperli bagai katak di bawah tempurung.",
+      "level": "advanced"
+    },
+    {
+      "word": "Bulan kian terang, bayang kian jelas",
+      "zh": "真相愈发明朗清晰",
+      "example": "Bulan kian terang, bayang kian jelas bahawa remaja seyogianya memperlengkap diri dengan kemahiran menggunakan teknologi terbaharu sekiranya ingin bersaing dengan pekerja lain.",
+      "level": "advanced"
+    },
+    {
+      "word": "menghasilkan modul pembelajaran yang berkomprehensif",
+      "zh": "制作全面的学习教材",
+      "example": "Sebagai contohnya, guru-guru sentias mengaplikasikan beraneka ilmu pedagogi, menghasilkan modul pembelajaran yang berkomprehensif, mendiagnosis masalah pembelajaran murid, merancang aktiviti pengayaan dan merencanakan program pengukuhan.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mendiagnosis masalah pembelajaran murid",
+      "zh": "诊断学生的学习问题",
+      "example": "Sebagai contohnya, guru-guru sentias mengaplikasikan beraneka ilmu pedagogi, menghasilkan modul pembelajaran yang berkomprehensif, mendiagnosis masalah pembelajaran murid, merancang aktiviti pengayaan dan merencanakan program pengukuhan.",
+      "level": "ordinary"
+    },
+    {
+      "word": "merancang aktiviti pengayaan",
+      "zh": "策划充实活动",
+      "example": "Sebagai contohnya, guru-guru sentias mengaplikasikan beraneka ilmu pedagogi, menghasilkan modul pembelajaran yang berkomprehensif, mendiagnosis masalah pembelajaran murid, merancang aktiviti pengayaan dan merencanakan program pengukuhan.",
+      "level": "ordinary"
     },
     {
       "word": "mencurahkan ilmu demi pembangunan masyarakat",
       "zh": "为社会发展倾注知识",
-      "example": "Tegasnya, guru yang bersungguh-sungguh mencurahkan ilmu demi pembangunan masyarakat dan nusa amat mulia."
+      "example": "Tegasnya, guru yang bersungguh-sungguh mencurahkan ilmu demi pembangunan masyarakat dan nusa amat mulia.",
+      "level": "ordinary"
     },
     {
       "word": "memanusiakan ummah",
       "zh": "使人民具有人性关怀",
-      "example": "Selain itu, profesion keguruan dikatakan mulia kerana guru dipertanggungjawabkan untuk memanusiakan ummah."
+      "example": "Selain itu, profesion keguruan dikatakan mulia kerana guru dipertanggungjawabkan untuk memanusiakan ummah.",
+      "level": "ordinary"
     },
     {
       "word": "menyuntikkan nilai-nilai murni",
       "zh": "灌输良好价值观",
-      "example": "Oleh itu, guru-guru haruslah menyuntikkan nilai-nilai murni kepada hati murid-murid dan menjadi suri teladan agar melahirkan generasi muda yang bersahsiah mulia."
+      "example": "Oleh itu, guru-guru haruslah menyuntikkan nilai-nilai murni kepada hati murid-murid dan menjadi suri teladan agar melahirkan generasi muda yang bersahsiah mulia.",
+      "level": "ordinary"
     },
     {
       "word": "menjadi suri teladan",
       "zh": "成为楷模",
-      "example": "Oleh itu, guru-guru haruslah menyuntikkan nilai-nilai murni kepada hati murid-murid dan menjadi suri teladan agar melahirkan generasi muda yang bersahsiah mulia."
+      "example": "Oleh itu, guru-guru haruslah menyuntikkan nilai-nilai murni kepada hati murid-murid dan menjadi suri teladan agar melahirkan generasi muda yang bersahsiah mulia.",
+      "level": "ordinary"
     },
     {
       "word": "mengurangkan segala angkara sosial",
       "zh": "减少各种社会祸害",
-      "example": "Jadi, anarkis tidak akan ditimbulkan sehingga mengurangkan segala angkara sosial yang membobrokan keamanan masyarakat."
+      "example": "Jadi, anarkis tidak akan ditimbulkan sehingga mengurangkan segala angkara sosial yang membobrokan keamanan masyarakat.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -115,6 +155,7 @@
   ],
   "gaps": [
     "same essay as week 7 (no other essay of this topic in the week list for this round)",
-    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null"
+    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays"
   ]
 }

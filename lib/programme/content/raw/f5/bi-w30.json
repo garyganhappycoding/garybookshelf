@@ -43,54 +43,94 @@
   "closingIdx": [],
   "words": [
     {
-      "word": "the leaders of tomorrow",
-      "zh": "明日的领袖",
-      "example": "Teenagers are the leaders of tomorrow."
+      "word": "improve communication skills",
+      "zh": "提升沟通能力",
+      "example": "e h Volunteers improve their communication skills.",
+      "level": "B2"
     },
     {
-      "word": "contribute to nation-building",
-      "zh": "为国家建设做贡献",
-      "example": "As a result, they develop the confidence to lead and contribute to nation-building."
+      "word": "become more responsible",
+      "zh": "变得更有责任感",
+      "example": "They become more responsible citizens.",
+      "level": "B2"
     },
     {
-      "word": "speak up for others",
-      "zh": "为他人发声",
-      "example": "For example, student councillors learn to speak up for others."
+      "word": "boost self- confidence",
+      "zh": "b 提升自信",
+      "example": "Their self-confidence is boosted.",
+      "level": "B2"
     },
     {
-      "word": "lead astray",
-      "zh": "把……带坏",
-      "example": "Peer pressure can lead teenagers astray."
+      "word": "desensitised",
+      "zh": "变得麻木",
+      "example": "Some teenagers have become desensitised to cruel words.",
+      "level": "B2 to C1"
     },
     {
-      "word": "crave acceptance",
-      "zh": "渴望被接纳",
-      "example": "This is because they crave acceptance from their friends."
+      "word": "show compassion",
+      "zh": "表现同情",
+      "example": "We should show compassion to victims.",
+      "level": "B2 to C1"
     },
     {
-      "word": "fall into bad habits",
-      "zh": "染上坏习惯",
-      "example": "As a result, they fall into bad habits and neglect their studies."
+      "word": "indispensable",
+      "zh": "不可或缺的",
+      "example": "The smartphone is indispensable in a teenager's life.",
+      "level": "B2 to C1"
     },
     {
-      "word": "hide behind fake accounts",
-      "zh": "躲在假账号后面",
-      "example": "This is because bullies hide behind fake accounts and lack empathy."
+      "word": "ubiquitous",
+      "zh": "无处不在的",
+      "example": "l Smartphones are ubiquitous among teenagers.",
+      "level": "B2 to C1"
     },
     {
-      "word": "lack empathy",
-      "zh": "缺乏同理心",
-      "example": "This is because bullies hide behind fake accounts and lack empathy."
+      "word": "double as",
+      "zh": "兼作",
+      "example": "My phone doubles as a camera and a wallet.",
+      "level": "B2 to C1"
     },
     {
-      "word": "become rebellious",
-      "zh": "变得叛逆",
-      "example": "As a result, teenagers become rebellious and keep secrets from their families."
+      "word": "access information efofrtlessly",
+      "zh": "毫不费力地获取 信息",
+      "example": "Students can access information effortlessly.",
+      "level": "C1"
     },
     {
-      "word": "motivate young people",
-      "zh": "激励年轻人",
-      "example": "This is because recognition motivates young people."
+      "word": "at their fingertips",
+      "zh": "唾手可得",
+      "example": "Knowledge is at their fni gertips.",
+      "level": "C1"
+    },
+    {
+      "word": "foster closer relationships",
+      "zh": "促进更亲密的关 系",
+      "example": "Daily chats foster closer relationships.",
+      "level": "C1"
+    },
+    {
+      "word": "impose a curfew on devices",
+      "zh": "对设备设宵禁",
+      "example": "s Our family imposes a curfew on devices at night.",
+      "level": "C1"
+    },
+    {
+      "word": "leave a lasting digital footprint",
+      "zh": "留下持久的数字 足迹",
+      "example": "Every post leaves a lasting digital footprint.",
+      "level": "C1"
+    },
+    {
+      "word": "benefit from their efforts",
+      "zh": "受益于他们的努力",
+      "example": "As a result, communities benefit from their efforts and teenagers grow in maturity.",
+      "level": "C1"
+    },
+    {
+      "word": "gain a sense of purpose",
+      "zh": "获得使命感",
+      "example": "As a result, teenagers become more responsible and gain a sense of purpose.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -136,6 +176,7 @@
     "Round 3 essay is Negeri Sembilan (charity); skipped off-theme folder items (Terengganu, Kelantan, Food Festival).",
     "The '(C1)' ... mark tags were removed from the essay text.",
     "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 30 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used.",
-    "Example for 'become rebellious' filled later from the Teenagers & Society theme pack (cleaned text)."
+    "Example for 'become rebellious' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

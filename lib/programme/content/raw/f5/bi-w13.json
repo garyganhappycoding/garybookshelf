@@ -47,54 +47,94 @@
   ],
   "words": [
     {
-      "word": "cut down on waste",
-      "zh": "减少浪费",
-      "example": "This habit helps me cut down on waste."
+      "word": "deeply moved by",
+      "zh": "深受感动",
+      "example": "l I was deeply moved by the suffering of marine animals.",
+      "level": "B2"
     },
     {
-      "word": "set a good example",
-      "zh": "树立好榜样",
-      "example": "Furthermore, my mother inspired me by setting a good example at home."
+      "word": "a documentary on plastic pollution",
+      "zh": "塑料污染纪录片",
+      "example": "h We watched a documentary on s plastic pollution last year.",
+      "level": "B2"
     },
     {
-      "word": "rising temperatures",
-      "zh": "气温上升",
-      "example": "Every year, our planet suffers from mountains of waste, rising temperatures and polluted oceans."
+      "word": "a polluted river nearby",
+      "zh": "附近被污染的河 流",
+      "example": "A polluted river near my house made me want to act.",
+      "level": "B2"
     },
     {
-      "word": "disposable",
-      "zh": "一次性的",
-      "example": "Disposable items are used once and thrown away."
+      "word": "choke waterways",
+      "zh": "堵塞水道",
+      "example": "s Floating bottles choke our waterways.",
+      "level": "B2 to C1"
     },
     {
-      "word": "lead to a cleaner environment",
-      "zh": "带来更干净的环境",
-      "example": "Eco-friendly habits lead to a cleaner and healthier environment."
+      "word": "contaminate",
+      "zh": "b 污染",
+      "example": "Plastic can contaminate our soil and water.",
+      "level": "B2 to C1"
     },
     {
-      "word": "pressing environmental problem",
-      "zh": "紧迫的环境问题",
-      "example": "Plastic pollution is a pressing environmental problem."
+      "word": "excessive packaging",
+      "zh": "过度包装",
+      "example": "s Excessive packaging adds to the problem.",
+      "level": "B2 to C1"
     },
     {
-      "word": "greenhouse gas emissions",
-      "zh": "温室气体排放",
-      "example": "This is because greenhouse gas emissions trap heat while deforestation removes the trees that absorb carbon."
+      "word": "inadequate facilities",
+      "zh": "设施不足",
+      "example": "Inadequate facilities make recycling difficult.",
+      "level": "B2 to C1"
     },
     {
-      "word": "minimise waste",
-      "zh": "尽量减少废物",
-      "example": "This is because it minimises the amount of waste sent to landfills."
+      "word": "in the vicinity of",
+      "zh": "在……附近",
+      "example": "The programme was held in the vicinity of our school.",
+      "level": "C1"
     },
     {
-      "word": "conserve natural resources",
-      "zh": "保护自然资源",
-      "example": "We should adapt to this way of life because it helps to conserve our natural resources."
+      "word": "held to promote",
+      "zh": "为推广而举办",
+      "example": "The programme was held to promote a greener environment.",
+      "level": "C1"
     },
     {
-      "word": "enforce stricter laws",
-      "zh": "执行更严厉的法律",
-      "example": "The authorities must enforce stricter laws."
+      "word": "equipped with gloves and bags",
+      "zh": "配备手套和垃圾 袋",
+      "example": "Each group was equipped with gloves and rubbish bags.",
+      "level": "C1"
+    },
+    {
+      "word": "worked hand in hand",
+      "zh": "携手合作",
+      "example": "Teachers and students worked hand in hand.",
+      "level": "C1"
+    },
+    {
+      "word": "clear the clogged drain",
+      "zh": "清理堵塞的排水 沟",
+      "example": "s We cleared the clogged drain behind the canteen.",
+      "level": "C1"
+    },
+    {
+      "word": "transformed the area",
+      "zh": "b 改变了这个地方",
+      "example": "The area was transformed into a clean and pleasant place.",
+      "level": "C1"
+    },
+    {
+      "word": "instil a sense of responsibility",
+      "zh": "灌输责任感",
+      "example": "Regular clean-ups instil a sense of responsibility.",
+      "level": "C1"
+    },
+    {
+      "word": "cultivate good habits",
+      "zh": "培养好习惯",
+      "example": "Such practices cultivate good habits from a young age.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -151,6 +191,7 @@
     "'set a good example' and 'conserve natural resources': the essay table has 'setting a good example' and 'conserve our natural resources', so those table sentences are used.",
     "'rising temperatures' is taken from the essay's first sentence (not in its table).",
     "'cut down on waste', 'disposable' and 'lead to a cleaner environment': no table, Universal phrase or Universal answer sentence has them, so the example is the pack's keyword sentence from the trial-paper section (section 4). 'lead to a cleaner environment' there reads 'lead to a cleaner and healthier environment'.",
-    "'minimise waste': the pack's Universal answer (E5) only has 'minimises the amount of waste', so the example has the inflected form."
+    "'minimise waste': the pack's Universal answer (E5) only has 'minimises the amount of waste', so the example has the inflected form.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

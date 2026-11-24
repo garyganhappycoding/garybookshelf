@@ -28,54 +28,94 @@
   ],
   "words": [
     {
-      "word": "seperti mentimun dengan durian",
-      "zh": "强弱悬殊，实力差距太大",
-      "example": "Walau bagaimanapun, bidang ini tidak mendapat sambutan daripada generasi muda sehingga menyebabkan kekuatan anggota ATM masih tidak setanding dengan tentara negara lain seperti mentimun dengan durian."
+      "word": "bernaung di bawah panji-panji kedaulatan",
+      "zh": "处于主权旗帜的庇护下",
+      "example": "Bidang ketenteraan penting agar rakyat sentiasa bernaung di bawah panji-panji kedaulatan dan keselamatan.",
+      "level": "advanced"
     },
     {
-      "word": "di mana ada kemahuan di situ ada jalan",
-      "zh": "有志者事竟成",
-      "example": "Jadi, pelbagai langkah-langkah perlu dicurahkan bak kata peribahasa di mana ada kemahuan di situ ada jalan untuk mencetuskan minat murid dalam bidang ketenteraan."
+      "word": "Kestabilan dan kesepakatan sesebuah negara terletak pada empat paksi utama",
+      "zh": "国家的稳定取决于四大支柱",
+      "example": "Kestabilan dan kesepakatan sesebuah negara terletak pada empat paksi utama iaitu ilmuwan yang bijaksana, pemimpin yang adil, hartawan yang pemurah dan sokongan serta doa daripada rakyat jelata untuk mengelakkan keselamatan yang dikecapi di negara kita akan diabadikan.",
+      "level": "advanced"
     },
     {
-      "word": "kasih akan watan sebahagian daripada iman",
-      "zh": "爱国是信仰的一部分",
-      "example": "Secara tidak langsung, semangat cinta akan negara akan dipupuk dalam hati nurani bak kata peribahasa \"kasih akan watan sebahagian daripada iman\"."
+      "word": "pelbagai usaha sigai ke langit harus dicurahkan",
+      "zh": "竭尽全力，全力以赴",
+      "example": "Jadi, pelbagai usaha sigai ke langit harus dicurahkan untuk melahirkan tentera yang sanggup berkorban jiwa dan raga di medan peperangan untuk menjaga keselamatan negara.",
+      "level": "advanced"
     },
     {
-      "word": "melentur buluh biarlah dari rebungnya",
-      "zh": "教育须从小做起",
-      "example": "Sudah kian lagi bersuluh bahawa penubuhan sekolah bercirikan ketenteraan di negara ini selaras dengan peribahasa melentur buluh biarlah dari rebungnya."
+      "word": "menjadi benteng hadapan negara",
+      "zh": "成为国家前线堡垒",
+      "example": "Dalam konteks ini, ATM ialah pihak yang bertanggungjawab untuk menjadi benteng hadapan negara.",
+      "level": "advanced"
     },
     {
-      "word": "bagai aur dengan tebing",
-      "zh": "唇齿相依，紧密合作",
-      "example": "Jadi, pelbagai pihak perlu berkolaborasi bagai aur dengan tebing untuk menarik minat generasi muda dalam bidang ketenteraan."
+      "word": "kedaulatan",
+      "zh": "主权",
+      "example": "Bidang ketenteraan penting agar rakyat sentiasa bernaung di bawah panji-panji kedaulatan dan keselamatan.",
+      "level": "ordinary"
+    },
+    {
+      "word": "tidak mendapat sambutan",
+      "zh": "未获响应，不受欢迎",
+      "example": "Walau bagaimanapun, bidang ini tidak mendapat sambutan daripada generasi muda sehingga menyebabkan kekuatan anggota ATM masih tidak setanding dengan tentara negara lain seperti mentimun dengan durian.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mencetuskan minat",
+      "zh": "激发兴趣",
+      "example": "Jadi, pelbagai langkah-langkah perlu dicurahkan bak kata peribahasa di mana ada kemahuan di situ ada jalan untuk mencetuskan minat murid dalam bidang ketenteraan.",
+      "level": "ordinary"
     },
     {
       "word": "aktiviti kokurikulum",
       "zh": "课外活动",
-      "example": "Jadi, pihak sekolah sepatutnya menjadikan bidang ketenteraan dalam aktiviti kokurikulum di sekolah."
+      "example": "Jadi, pihak sekolah sepatutnya menjadikan bidang ketenteraan dalam aktiviti kokurikulum di sekolah.",
+      "level": "ordinary"
     },
     {
       "word": "kesedaran awal",
       "zh": "早期意识",
-      "example": "Hal ini penting agar murid-murid mendapat kesedaran awal dan stigma seperti kebajikan tentera adalah buruk dan latihan tentera amat susah dapat dikikis secara jauh daripada hati murid-murid."
+      "example": "Hal ini penting agar murid-murid mendapat kesedaran awal dan stigma seperti kebajikan tentera adalah buruk dan latihan tentera amat susah dapat dikikis secara jauh daripada hati murid-murid.",
+      "level": "ordinary"
     },
     {
       "word": "dikikis",
       "zh": "被消除，被磨灭",
-      "example": "Hal ini penting agar murid-murid mendapat kesedaran awal dan stigma seperti kebajikan tentera adalah buruk dan latihan tentera amat susah dapat dikikis secara jauh daripada hati murid-murid."
+      "example": "Hal ini penting agar murid-murid mendapat kesedaran awal dan stigma seperti kebajikan tentera adalah buruk dan latihan tentera amat susah dapat dikikis secara jauh daripada hati murid-murid.",
+      "level": "ordinary"
     },
     {
       "word": "mengadakan kerjasama",
       "zh": "建立合作",
-      "example": "Sebagai contohnya, pihak sekolah dapat mengadakan kerjasama dengan Angkatan Tentera Malaysia."
+      "example": "Sebagai contohnya, pihak sekolah dapat mengadakan kerjasama dengan Angkatan Tentera Malaysia.",
+      "level": "ordinary"
     },
     {
       "word": "latihan intensif",
       "zh": "密集训练",
-      "example": "Pegawai daripada Angkatan Tentera Malaysia dapat menunjukkan latihan intensif dan program yang akan diperolehi dalam Program Latihan Khidmat Negara(PKLN)."
+      "example": "Pegawai daripada Angkatan Tentera Malaysia dapat menunjukkan latihan intensif dan program yang akan diperolehi dalam Program Latihan Khidmat Negara(PKLN).",
+      "level": "ordinary"
+    },
+    {
+      "word": "mengadakan pameran",
+      "zh": "举办展览",
+      "example": "Selain itu, Angkatan Tentera Malaysia (ATM) perlu mengadakan pameran tentang kerjaya dalam bidang ketenteraan.",
+      "level": "ordinary"
+    },
+    {
+      "word": "menghayati jasa dan pengorbanan",
+      "zh": "体会贡献与牺牲",
+      "example": "Tambahan pula, generasi muda juga akan menghayati jasa dan pengorbanan tentera demi mengelakkan kemasukan pengaruh luar.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mengelakkan kemasukan pengaruh luar",
+      "zh": "避免外来影响渗入",
+      "example": "Tambahan pula, generasi muda juga akan menghayati jasa dan pengorbanan tentera demi mengelakkan kemasukan pengaruh luar.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -130,6 +170,8 @@
   ],
   "gaps": [
     "Only one essay exists for this topic in the BM vocab file, so the same essay as week 19 is used again.",
-    "The essay doc has two alternative introductions (Pendahuluan 1 and Pendahuluan 2); both are kept (openingIdx 0 and 1)."
+    "The essay doc has two alternative introductions (Pendahuluan 1 and Pendahuluan 2); both are kept (openingIdx 0 and 1).",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (4 of 7): filled with 3 ordinary words"
   ]
 }

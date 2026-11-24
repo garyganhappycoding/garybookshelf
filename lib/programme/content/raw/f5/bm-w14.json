@@ -30,54 +30,94 @@
   ],
   "words": [
     {
+      "word": "sebelum nasi menjadi bubur",
+      "zh": "防患于未然（字面：饭变粥之前）",
+      "example": "Oleh itu, amat penting untuk kita mengenal pasti faktor yang menyumbangkan kepada masalah ponteng sekolah ini sebelum nasi menjadi bubur(sebelum masalah ini menjadi serius) Antara punca utama murid ponteng sekolah ialah mereka tidak berminat untuk belajar Kebiasaannya, murid-murid yang keciciran dalam pelajaran dan berada di kelas corot mempunyai pencapaian akademik yang rendah.",
+      "level": "advanced"
+    },
+    {
+      "word": "terlajak perahu boleh diundur, terlajak langkah buruk padahnya",
+      "zh": "一失足成千古恨",
+      "example": "Selain itu, murid yang masih berfikiran naif sering tersilap memilih jalan seperti peribahasa \"terlajak perahu boleh diundur, terlajak langkah buruk padahnya\".",
+      "level": "advanced"
+    },
+    {
+      "word": "harapkan sokong, sokong membawa rebah",
+      "zh": "所依靠的人反而带来祸害",
+      "example": "Hal ini bersinonim dengan \"harapkan sokong, sokong membawa rebah.\" Mereka terlupa bahawa kawan juga kadangkala boleh makan kawan.",
+      "level": "advanced"
+    },
+    {
+      "word": "yang dikejar tak dapat, yang dikendong berciciran",
+      "zh": "两头落空，顾此失彼",
+      "example": "Jadi, murid bukan sahaja ketinggalan dalam akademik malah juga membazirkan potensi yang ada, ibarat yang dikejar tak dapat, yang dikendong berciciran.",
+      "level": "advanced"
+    },
+    {
+      "word": "ibarat kain basah kering di pinggang",
+      "zh": "生活贫困，勉强度日",
+      "example": "Punca lain yang menyebabkan murid ponteng sekolah ialah masalah kemiskinan yang ditimpa oleh sesetengah keluarga ibarat kain basah kering di pinggang.",
+      "level": "advanced"
+    },
+    {
+      "word": "setahun jagung berdarah setampuk pinang",
+      "zh": "少不更事/年少无知",
+      "example": "Golongan yang masih berumur setahun jagung berdarah setampuk pinang ini berasa bebas kerana tiada kongkongan, pengawalan dan tekanan belajar daripada ibu bapa.",
+      "level": "advanced"
+    },
+    {
+      "word": "sebusuk-busuk daging, dibasuh dikincah dimakan juga",
+      "zh": "再坏也有可取之处",
+      "example": "Waima begitu, seburuk-buruk tingkah laku pelajar, mereka diibaratkan \"sebusuk-busuk daging, dibasuh dikincah dimakan juga\".",
+      "level": "advanced"
+    },
+    {
+      "word": "kudis akan menjadi tokak jika tidak diubati",
+      "zh": "小问题不解决会变成大问题",
+      "example": null,
+      "level": "advanced"
+    },
+    {
       "word": "proses pendidikan formal",
       "zh": "正式教育过程",
-      "example": "Persekolahan merupakan satu proses pendidikan formal untuk membina ilmu, meningkatkan kemahiran mutakhir serta membentuk sahsiah mahmudah."
+      "example": "Persekolahan merupakan satu proses pendidikan formal untuk membina ilmu, meningkatkan kemahiran mutakhir serta membentuk sahsiah mahmudah.",
+      "level": "ordinary"
     },
     {
       "word": "membina ilmu",
       "zh": "建立知识",
-      "example": "Persekolahan merupakan satu proses pendidikan formal untuk membina ilmu, meningkatkan kemahiran mutakhir serta membentuk sahsiah mahmudah."
+      "example": "Persekolahan merupakan satu proses pendidikan formal untuk membina ilmu, meningkatkan kemahiran mutakhir serta membentuk sahsiah mahmudah.",
+      "level": "ordinary"
     },
     {
       "word": "meningkatkan kemahiran mutakhir",
       "zh": "提升最新技能",
-      "example": "Persekolahan merupakan satu proses pendidikan formal untuk membina ilmu, meningkatkan kemahiran mutakhir serta membentuk sahsiah mahmudah."
+      "example": "Persekolahan merupakan satu proses pendidikan formal untuk membina ilmu, meningkatkan kemahiran mutakhir serta membentuk sahsiah mahmudah.",
+      "level": "ordinary"
     },
     {
       "word": "membentuk sahsiah mahmudah",
       "zh": "塑造良好品格",
-      "example": "Persekolahan merupakan satu proses pendidikan formal untuk membina ilmu, meningkatkan kemahiran mutakhir serta membentuk sahsiah mahmudah."
+      "example": "Persekolahan merupakan satu proses pendidikan formal untuk membina ilmu, meningkatkan kemahiran mutakhir serta membentuk sahsiah mahmudah.",
+      "level": "ordinary"
     },
     {
       "word": "kewajipan yang harus digalas",
       "zh": "必须承担的义务",
-      "example": "Kehadiran murid ke sekolah merupakan kewajipan yang harus digalas oleh ibu bapa dan murid."
+      "example": "Kehadiran murid ke sekolah merupakan kewajipan yang harus digalas oleh ibu bapa dan murid.",
+      "level": "ordinary"
     },
     {
       "word": "semakin meruncing",
       "zh": "日益严重",
-      "example": "Pada era pasca-COVID-19, masalah ponteng sekolah semakin meruncing (banyak/menular) dan telah mencetuskan kebimbangan dalam masyarakat."
+      "example": "Pada era pasca-COVID-19, masalah ponteng sekolah semakin meruncing (banyak/menular) dan telah mencetuskan kebimbangan dalam masyarakat.",
+      "level": "ordinary"
     },
     {
       "word": "mencetuskan kebimbangan dalam masyarakat",
       "zh": "引发社会的担忧",
-      "example": "Pada era pasca-COVID-19, masalah ponteng sekolah semakin meruncing (banyak/menular) dan telah mencetuskan kebimbangan dalam masyarakat."
-    },
-    {
-      "word": "pro dan kontra",
-      "zh": "正反意见/利弊",
-      "example": "Perang media menerusi akhbar dan media sosial telah pun meletus bagi membincangkan pro dan kontra isu ini."
-    },
-    {
-      "word": "penyelesaian yang konkrit",
-      "zh": "具体的解决方案",
-      "example": "Sekiranya isu ini dibiarkan tanpa penyelesaian yang konkrit, bukan sahaja kita kecundang(失败) dalam misi melahirkan generasi yang berkompeten, malah kadar celik(识字率） huruf negara nescaya terjejas dan gejala sosial juga pasti berleluasa."
-    },
-    {
-      "word": "kecundang",
-      "zh": "失败",
-      "example": "Sekiranya isu ini dibiarkan tanpa penyelesaian yang konkrit, bukan sahaja kita kecundang(失败) dalam misi melahirkan generasi yang berkompeten, malah kadar celik(识字率） huruf negara nescaya terjejas dan gejala sosial juga pasti berleluasa."
+      "example": "Pada era pasca-COVID-19, masalah ponteng sekolah semakin meruncing (banyak/menular) dan telah mencetuskan kebimbangan dalam masyarakat.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -115,6 +155,7 @@
     }
   ],
   "gaps": [
-    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null"
+    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays"
   ]
 }

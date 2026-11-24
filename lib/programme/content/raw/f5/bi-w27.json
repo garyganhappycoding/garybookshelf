@@ -39,54 +39,94 @@
   ],
   "words": [
     {
-      "word": "splurge on",
-      "zh": "挥霍在……上",
-      "example": null
+      "word": "a spacious food court",
+      "zh": "宽敞的美食广场",
+      "example": "e The spacious food court offers many local dishes.",
+      "level": "B2"
     },
     {
-      "word": "fuel consumerism",
-      "zh": "助长消费主义",
-      "example": "Advertising and peer pressure fuel consumerism."
+      "word": "friendly and helpful staff",
+      "zh": "友善乐于助人的 员工",
+      "example": "The staff are friendly and helpful.",
+      "level": "B2"
     },
     {
-      "word": "flaunt the latest products",
-      "zh": "炫耀最新产品",
-      "example": "This is because attractive ads create the desire to buy and friends flaunt the latest products."
-    },
-    {
-      "word": "make a realistic budget",
-      "zh": "制定切实的预算",
-      "example": "The best solution is to make a realistic budget."
+      "word": "pleasant shopping experience",
+      "zh": "b 愉快的购物体验",
+      "example": "It offers a pleasant shopping experience.",
+      "level": "B2"
     },
     {
       "word": "prioritise our needs",
       "zh": "优先考虑需求",
-      "example": "This is because it helps us prioritise our needs."
+      "example": "This is because it helps us prioritise our needs.",
+      "level": "B2 to C1"
     },
     {
       "word": "raise financial awareness",
       "zh": "提高理财意识",
-      "example": "The results will help us raise financial awareness."
+      "example": "The results will help us raise financial awareness.",
+      "level": "B2 to C1"
     },
     {
       "word": "wise money habits",
       "zh": "明智的理财习惯",
-      "example": "I firmly believe that wise money habits start young."
+      "example": "I firmly believe that wise money habits start young.",
+      "level": "B2 to C1"
     },
     {
       "word": "think before we spend",
       "zh": "花钱前先想一想",
-      "example": "Therefore, we should think before we spend, because a penny saved is a penny earned."
+      "example": "Therefore, we should think before we spend, because a penny saved is a penny earned.",
+      "level": "B2 to C1"
     },
     {
-      "word": "with the aim of",
-      "zh": "目的是",
-      "example": "The survey was done with the aim of understanding their spending habits."
+      "word": "barely save money",
+      "zh": "几乎没有存钱",
+      "example": "Nearly half barely save any money.",
+      "level": "B2 to C1"
     },
     {
-      "word": "gain insight",
-      "zh": "深入了解",
-      "example": "We wanted to gain insight into how pupils use their money."
+      "word": "secure a better financial future",
+      "zh": "确保更好的财务未来",
+      "example": "This helps them secure a better financial future.",
+      "level": "C1"
+    },
+    {
+      "word": "develop responsible money habits",
+      "zh": "养成负责任的理财习惯",
+      "example": "They will develop responsible money habits.",
+      "level": "C1"
+    },
+    {
+      "word": "spend beyond one's means",
+      "zh": "入不敷出",
+      "example": "Many teenagers spend beyond their means whenever they see something attractive.",
+      "level": "C1"
+    },
+    {
+      "word": "a vital life skill",
+      "zh": "重要的生活技能",
+      "example": "Financial literacy is a vital life skill.",
+      "level": "C1"
+    },
+    {
+      "word": "highly recommend",
+      "zh": "强烈推荐",
+      "example": "I highly recommend this mall to everyone.",
+      "level": "C1"
+    },
+    {
+      "word": "worth a visit",
+      "zh": "值得一游",
+      "example": "It is definitely worth a visit.",
+      "level": "C1"
+    },
+    {
+      "word": "value for money",
+      "zh": "物有所值",
+      "example": "The shops offer great value for money.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -170,8 +210,16 @@
   "gaps": [
     "'splurge on' and 'with the aim of' have no usable example sentence: in the Finance & Consumerism theme pack they appear only in scrambled text (answer F4) or as an unfinished sentence ('The survey was done with the aim of ...').",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
-    "None of the 10 words appears in this essay's vocabulary table; examples come from the Finance & Consumerism theme pack (Universal answers F5, F7, F11 and trial-paper sentences). The sentence for 'gain insight' was rebuilt from the scrambled trial-paper text; please check it.",
     "example for 'with the aim of' taken from the theme pack (watermark layer removed)",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (prioritise our needs)",
+    "Form 5: mid tier short: used a top word (raise financial awareness)",
+    "Form 5: mid tier short: used a top word (wise money habits)",
+    "Form 5: mid tier short: used a top word (think before we spend)",
+    "Form 5: mid tier short: used a top word (barely save money)",
+    "Form 5: top tier short: used a b2 word (highly recommend)",
+    "Form 5: top tier short: used a b2 word (worth a visit)",
+    "Form 5: top tier short: used a b2 word (value for money)"
   ]
 }

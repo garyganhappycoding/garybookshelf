@@ -26,54 +26,94 @@
   ],
   "words": [
     {
-      "word": "bagai belut diketil ekor",
-      "zh": "迅速发展蔓延（喻发展迅猛）",
-      "example": "Media sosial telah trend dalam masyarakat memandangkan perkembangan Telekomunikasi Maklumat dan Komunikasi (TMK) berkembang pesat bagai belut diketil ekor."
+      "word": "seumpama dengan dadah",
+      "zh": "犹如毒品",
+      "example": "Media sosial sebenarnya seumpama dengan dadah yang menyebabkan ketagihan dan mendominasi kehidupan seseorang.",
+      "level": "advanced"
     },
     {
-      "word": "katak di bawah tempurung",
-      "zh": "井底之蛙",
-      "example": "Tanpa media sosial, kita seakan-akan terpinggir daripada jaringan maklumat dan diejek sebagai katak di bawah tempurung."
+      "word": "menjadi buah mulut masyarakat",
+      "zh": "成为社会热议话题",
+      "example": null,
+      "level": "advanced"
     },
     {
-      "word": "berdarah setampuk pinang, berumur setahun jagung",
-      "zh": "少不更事，年轻识浅",
-      "example": "Hal ini berlaku apabila fikiran generasi muda yang berdarah setampuk pinang, berumur setahun jagung gagal membezakan antara intan dengan kaca."
+      "word": "bekerjasama bagai aur dengan tebing",
+      "zh": "唇齿相依，紧密合作",
+      "example": null,
+      "level": "advanced"
     },
     {
-      "word": "gagal membezakan antara intan dengan kaca",
-      "zh": "无法分辨真伪珍宝",
-      "example": "Hal ini berlaku apabila fikiran generasi muda yang berdarah setampuk pinang, berumur setahun jagung gagal membezakan antara intan dengan kaca."
+      "word": "hangat-hangat tahi ayam",
+      "zh": "三分钟热度，虎头蛇尾",
+      "example": null,
+      "level": "advanced"
     },
     {
-      "word": "sesal dahulu pendapatan, sesal kemudian tidak berguna",
-      "zh": "早知今日，何必当初",
-      "example": "Sebaliknya, setiap strata masyarakat perlu tersemat peribahasa “sesal dahulu pendapatan, sesal kemudian tidak berguna” dalam hati nurani agar kita tidak bertindak secara tergopoh-gopoh."
+      "word": "genggam bara api, biarlah sampai jadi arang",
+      "zh": "一不做二不休，坚持到底",
+      "example": null,
+      "level": "advanced"
+    },
+    {
+      "word": "janganlah sudah terhantuk baru nak tengadah",
+      "zh": "亡羊补牢（贬义：事后才后悔）",
+      "example": null,
+      "level": "advanced"
+    },
+    {
+      "word": "menghuru-harakan masyarakat",
+      "zh": "使社会陷入混乱",
+      "example": "Kemungkinan besar berita palsu bukan sahaja akan mengelirukan masyarakat malah akan menghuru-harakan masyarakat sehingga keharmonian terjejas.",
+      "level": "ordinary"
+    },
+    {
+      "word": "peningkatan kes buli siber",
+      "zh": "网络霸凌案件增加",
+      "example": "Seterusnya, penyalahgunaan media sosial ialah penyumbang utama terhadap peningkatan kes buli siber.",
+      "level": "ordinary"
+    },
+    {
+      "word": "menggores hati orang lain",
+      "zh": "伤害他人的心",
+      "example": "Hal ini berlaku kerana terdapat banyak penyangak siber dan jaguh siber sengaja menggunakan kata - kata yang menggores hati orang lain.",
+      "level": "ordinary"
     },
     {
       "word": "menggalas obligasi",
       "zh": "承担责任",
-      "example": "Kita sememangnya menggalas obligasi terhadap setiap kata-kata yang dimuat naik dalam talian bak kata peribahasa “mata pena lebih tajam daripada mata pedang”."
+      "example": "Kita sememangnya menggalas obligasi terhadap setiap kata-kata yang dimuat naik dalam talian bak kata peribahasa “mata pena lebih tajam daripada mata pedang”.",
+      "level": "ordinary"
     },
     {
       "word": "mencetuskan fikiran membunuh diri",
       "zh": "引发自杀念头",
-      "example": "Sudah tentulah bahawa, penyalahgunaan media sosial telah memperbanyak kes buli terutamanya kes siber buli yang mencetuskan fikiran membunuh diri."
+      "example": "Sudah tentulah bahawa, penyalahgunaan media sosial telah memperbanyak kes buli terutamanya kes siber buli yang mencetuskan fikiran membunuh diri.",
+      "level": "ordinary"
     },
     {
       "word": "menyebabkan ketagihan",
       "zh": "导致上瘾",
-      "example": "Media sosial sebenarnya seumpama dengan dadah yang menyebabkan ketagihan dan mendominasi kehidupan seseorang."
+      "example": "Media sosial sebenarnya seumpama dengan dadah yang menyebabkan ketagihan dan mendominasi kehidupan seseorang.",
+      "level": "ordinary"
     },
     {
       "word": "mengganggu kesihatan",
       "zh": "影响健康",
-      "example": "Kajian tersebut amat membimbangkan masyarakat kerana keadaan akan mengganggu kesihatan secara tidak langsung."
+      "example": "Kajian tersebut amat membimbangkan masyarakat kerana keadaan akan mengganggu kesihatan secara tidak langsung.",
+      "level": "ordinary"
     },
     {
       "word": "kehilangan kawalan",
       "zh": "失去控制",
-      "example": "Bunga-bunga bangsa sengaja mengadaikan kesihatan untuk merangsang bahagian otak merembeskan dopamin yang merupakan hormon menggembirakan sehingga kehilangan kawalan."
+      "example": "Bunga-bunga bangsa sengaja mengadaikan kesihatan untuk merangsang bahagian otak merembeskan dopamin yang merupakan hormon menggembirakan sehingga kehilangan kawalan.",
+      "level": "ordinary"
+    },
+    {
+      "word": "mengundang musibah",
+      "zh": "招致灾难",
+      "example": "Tuntasnya, penyalahgunaan media sosial akan mengundang musibah terhadap negara kita sehingga menjejaskan kerukunan masyarakat dan kecerahan bunga-bunga bangsa.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -116,6 +156,8 @@
   ],
   "gaps": [
     "same essay as week 1 (no other essay of this topic in the week list for this round)",
-    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null"
+    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+    "Form 5: advanced words short (6 of 7): filled with 1 ordinary words"
   ]
 }

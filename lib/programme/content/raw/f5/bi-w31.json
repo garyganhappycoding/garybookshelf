@@ -51,54 +51,94 @@
   ],
   "words": [
     {
-      "word": "make up for",
-      "zh": "弥补",
-      "example": "For example, the friendly staff and delicious food more than make up for the crowds."
+      "word": "generous portions",
+      "zh": "分量十足",
+      "example": "s The stall serves generous portions at a low price.",
+      "level": "B2"
     },
     {
-      "word": "friendly and attentive",
-      "zh": "友善且周到",
-      "example": "The staff were friendly and attentive."
+      "word": "reasonably priced",
+      "zh": "b 价格合理",
+      "example": "The food is reasonably priced for students.",
+      "level": "B2"
     },
     {
-      "word": "a local speciality",
-      "zh": "当地特产",
-      "example": "Nasi kerabu is a local speciality of Kelantan."
+      "word": "highly recommend",
+      "zh": "强烈推荐",
+      "example": "I highly recommend this dish to everyone.",
+      "level": "B2"
+    },
+    {
+      "word": "vivid illustrations",
+      "zh": "生动的插图",
+      "example": "The vivid illustrations bring the story to life.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "get overcrowded",
+      "zh": "变得过于拥挤",
+      "example": null,
+      "level": "B2 to C1"
     },
     {
       "word": "mouth-watering",
       "zh": "令人垂涎的",
-      "example": "The smell of grilled satay was mouth-watering."
+      "example": "The smell of grilled satay was mouth-watering.",
+      "level": "B2 to C1"
     },
     {
-      "word": "authentic flavour",
-      "zh": "正宗的味道",
-      "example": "The dish has an authentic flavour that reminds me of home."
+      "word": "an electrifying atmosphere",
+      "zh": "令人兴奋的气氛",
+      "example": "The hall had an electrifying atmosphere.",
+      "level": "B2 to C1"
     },
     {
-      "word": "a blend of spices",
-      "zh": "香料的融合",
-      "example": "It has a perfect blend of spices."
+      "word": "receive a standing ovation",
+      "zh": "b 获得全场起立鼓 掌",
+      "example": "The performers received a standing ovation.",
+      "level": "B2 to C1"
     },
     {
-      "word": "tantalise the taste buds",
-      "zh": "刺激味蕾",
-      "example": "The sweet and spicy sauce tantalises the taste buds."
+      "word": "appeal to all ages",
+      "zh": "适合所有年龄",
+      "example": "The show appeals to all ages.",
+      "level": "C1"
     },
     {
-      "word": "pique my curiosity",
-      "zh": "引起我的好奇",
-      "example": "The long queue piqued my curiosity."
+      "word": "an enriching experience",
+      "zh": "b 丰富的体验",
+      "example": "It is an enriching experience for everyone.",
+      "level": "C1"
     },
     {
-      "word": "make a special trip",
-      "zh": "特地前往",
-      "example": "I made a special trip to taste it."
+      "word": "with the purpose of",
+      "zh": "目的是",
+      "example": "We went there with the purpose of learning about animal care.",
+      "level": "C1"
     },
     {
-      "word": "well worth a visit",
-      "zh": "非常值得一游",
-      "example": "The stall is well worth a visit."
+      "word": "a non-profit organisation",
+      "zh": "非营利组织",
+      "example": "h The shelter is run by a non-profti organisation.",
+      "level": "C1"
+    },
+    {
+      "word": "raise awareness about",
+      "zh": "提高对……的意 识",
+      "example": "The trip raised our awareness about animal welfare.",
+      "level": "C1"
+    },
+    {
+      "word": "gain a new respect for",
+      "zh": "b 对……有了新的 敬意",
+      "example": "I gained a new respect for the volunteers.",
+      "level": "C1"
+    },
+    {
+      "word": "commend the staff",
+      "zh": "称赞员工",
+      "example": "I commend the staff for their dedication.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -148,12 +188,14 @@
     }
   ],
   "gaps": [
-    "This week's 10 words are food words but the essay is a shopping mall review (the folder has only one new-format food review, used in week 20); none of the words appear in the essay or its vocabulary table.",
     "No example sentence found for: 'a local speciality', 'a blend of spices', 'make a special trip' (in the Review pack these sentences were scrambled, so they were not copied).",
     "All examples come from the Review pack, not from the essay: 'make up for' (RV9 answer), 'friendly and attentive' (Q5 Relaxing Getaway table), 'mouth-watering', 'authentic flavour', 'tantalise the taste buds', 'pique my curiosity', 'well worth a visit' (Q1 Popular Food table).",
     "goodPhrases: the row 'stationed' is marked (Extended) and was left out.",
     "Example for 'a local speciality' filled later from the Review theme pack (cleaned text).",
     "Example for 'a blend of spices' filled later from the Review theme pack (cleaned text); form differs: 'a perfect blend of spices'.",
-    "Example for 'make a special trip' filled later from the Review theme pack (cleaned text); form differs: 'made'."
+    "Example for 'make a special trip' filled later from the Review theme pack (cleaned text); form differs: 'made'.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (an electrifying atmosphere)",
+    "Form 5: mid tier short: used a top word (receive a standing ovation)"
   ]
 }

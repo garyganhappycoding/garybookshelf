@@ -47,54 +47,94 @@
   ],
   "words": [
     {
-      "word": "cherish every moment",
-      "zh": "珍惜每一刻",
-      "example": "From that day on, I cherished every moment with my loved ones."
+      "word": "stay determined",
+      "zh": "b 保持坚定",
+      "example": "He stayed determined to finish the adventure.",
+      "level": "B2"
     },
     {
-      "word": "an unforgettable lesson",
-      "zh": "难忘的教训",
-      "example": "That day taught me an unforgettable lesson."
+      "word": "grow in courage",
+      "zh": "变得更勇敢",
+      "example": "They grew in courage after the trip.",
+      "level": "B2"
     },
     {
-      "word": "out of the blue",
-      "zh": "突然",
-      "example": "Out of the blue, my phone rang."
+      "word": "rely on one another",
+      "zh": "互相依靠",
+      "example": "s They learnt to rely on one another.",
+      "level": "B2"
     },
     {
-      "word": "catch me off guard",
-      "zh": "让我措手不及",
-      "example": "The news caught me off guard."
+      "word": "speak in a metallic voice",
+      "zh": "用金属般的声音 说话",
+      "example": "h It spoke in a metallic voice.",
+      "level": "B2 to C1"
     },
     {
-      "word": "without a second thought",
-      "zh": "毫不犹豫",
-      "example": "Without a second thought, I rushed to help."
+      "word": "I stared in disbelief",
+      "zh": "我难以置信地盯 着",
+      "example": "I stared in disbelief.",
+      "level": "B2 to C1"
     },
     {
-      "word": "spring into action",
-      "zh": "立刻行动",
-      "example": "I sprang into action and called an ambulance."
+      "word": "think on my feet",
+      "zh": "随机应变",
+      "example": "I had to think on my feet.",
+      "level": "B2 to C1"
     },
     {
-      "word": "it dawned on me",
-      "zh": "我突然意识到",
-      "example": "It dawned on me how precious every minute is."
+      "word": "take a leap of faith",
+      "zh": "勇敢一试",
+      "example": "I took a leap of faith and trusted it.",
+      "level": "B2 to C1"
     },
     {
-      "word": "a matter of life and death",
-      "zh": "生死攸关的事",
-      "example": "I realised it was a matter of life and death."
+      "word": "not judge by appearance",
+      "zh": "不以外表判断",
+      "example": "I learnt not to judge by appearance.",
+      "level": "C1"
     },
     {
-      "word": "rooted to the spot",
-      "zh": "呆立不动",
-      "example": "Isaac stood rooted to the spot."
+      "word": "an eerie silence",
+      "zh": "诡异的寂静",
+      "example": "An eerie silence fliled the building.",
+      "level": "C1"
     },
     {
-      "word": "a mixture of fear and excitement",
-      "zh": "恐惧与兴奋交织",
-      "example": "He felt a mixture of fear and excitement."
+      "word": "send shivers down my spine",
+      "zh": "b 令我毛骨悚然",
+      "example": "The sound sent shivers down my spine.",
+      "level": "C1"
+    },
+    {
+      "word": "we bolted out",
+      "zh": "我们冲了出去",
+      "example": "We bolted out of the building.",
+      "level": "C1"
+    },
+    {
+      "word": "heed the elders' warning",
+      "zh": "听从长辈的警告",
+      "example": "We should have heeded the elders' warning.",
+      "level": "C1"
+    },
+    {
+      "word": "understand the reason behind",
+      "zh": "b 明白背后的原因",
+      "example": "I fni ally understood the reason behind their warning.",
+      "level": "C1"
+    },
+    {
+      "word": "plead for help",
+      "zh": "b 恳求帮助",
+      "example": "The man pleaded for help.",
+      "level": "C1"
+    },
+    {
+      "word": "torn between right and wrong",
+      "zh": "在对错之间挣扎",
+      "example": "He felt torn between right and wrong.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -132,6 +172,11 @@
     "None of this week's words are in the essay or its vocabulary table. All examples come from the Story pack: 'cherish every moment' (ST9 answer, inflected), 'out of the blue', 'catch me off guard', 'without a second thought', 'spring into action', 'it dawned on me', 'a matter of life and death' (Q2 table, the Kedah question), 'rooted to the spot', 'a mixture of fear and excitement' (Q3 Mysterious Gate table, about the character Isaac; the examples use 'Isaac' and 'He').",
     "The question's required last sentence is the last sentence of the final paragraph; the Question Analysis row for it has no C code, so it is not in points.",
     "goodPhrases: rows marked (Extended) (felt like an eternity, a pang of guilt, take someone for granted, the wee hours of the morning, squander) were left out.",
-    "example for 'an unforgettable lesson' taken from the theme pack (watermark layer removed)"
+    "example for 'an unforgettable lesson' taken from the theme pack (watermark layer removed)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (speak in a metallic voice)",
+    "Form 5: mid tier short: used a top word (I stared in disbelief)",
+    "Form 5: mid tier short: used a top word (think on my feet)",
+    "Form 5: mid tier short: used a top word (take a leap of faith)"
   ]
 }

@@ -47,54 +47,94 @@
   ],
   "words": [
     {
-      "word": "had no idea",
-      "zh": "毫不知情",
-      "example": "This is because I had no idea what was waiting for me."
+      "word": "a map drawn in pencil",
+      "zh": "铅笔绘制的地图",
+      "example": "s A map drawn in pencil showed a path to the old well.",
+      "level": "B2"
     },
     {
-      "word": "face my fear",
-      "zh": "面对恐惧",
-      "example": "As a result, I stepped forward bravely and faced my fear."
+      "word": "could not wait to find out",
+      "zh": "迫不及待想知道",
+      "example": "He could not wait to fni d out the secret.",
+      "level": "B2"
     },
     {
-      "word": "without hesitation",
+      "word": "risk getting lost",
+      "zh": "冒着迷路的风险",
+      "example": "They risked getting lost in the dense forest.",
+      "level": "B2"
+    },
+    {
+      "word": "a narrow escape",
+      "zh": "千钧一发的逃脱",
+      "example": "They had a narrow escape from the falling branch.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "learn the value of teamwork",
+      "zh": "学会团队合作的 价值",
+      "example": "They learnt the value of teamwork.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "face challenges head-on",
+      "zh": "正面迎接挑战",
+      "example": "e h They now face challenges head-on.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "become more resilient",
+      "zh": "变得更坚韧",
+      "example": "Ammar became more resilient.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "out of the blue",
+      "zh": "突然",
+      "example": "Out of the blue, my phone rang.",
+      "level": "C1"
+    },
+    {
+      "word": "an unexpected turn of events",
+      "zh": "意外的转折",
+      "example": "The afternoon took an unexpected turn.",
+      "level": "C1"
+    },
+    {
+      "word": "catch me off guard",
+      "zh": "让我措手不及",
+      "example": "The news caught me off guard.",
+      "level": "C1"
+    },
+    {
+      "word": "my heart skipped a beat",
+      "zh": "我心头一震",
+      "example": "My heart skipped a beat.",
+      "level": "C1"
+    },
+    {
+      "word": "panic set in",
+      "zh": "b 恐慌涌上心头",
+      "example": "Panic set in at once.",
+      "level": "C1"
+    },
+    {
+      "word": "without a second thought",
       "zh": "毫不犹豫",
-      "example": "Without hesitation, I seized the chance and took a deep breath."
+      "example": "Without a second thought, I rushed to help.",
+      "level": "C1"
     },
     {
-      "word": "tiptoe forward",
-      "zh": "蹑手蹑脚前进",
-      "example": "I tiptoed downstairs to check."
+      "word": "spring into action",
+      "zh": "立刻行动",
+      "example": "I sprang into action and called an ambulance.",
+      "level": "C1"
     },
     {
-      "word": "trembling with fear",
-      "zh": "吓得发抖",
-      "example": "We stood there, trembling with fear."
-    },
-    {
-      "word": "my curiosity got the better of me",
-      "zh": "好奇心战胜了我",
-      "example": "As the doorbell rang, my curiosity got the better of me."
-    },
-    {
-      "word": "in an instant",
-      "zh": "瞬间",
-      "example": "As a result, I rushed to the door and everything changed in an instant."
-    },
-    {
-      "word": "froze on the spot",
-      "zh": "呆立当场",
-      "example": "As a result, I froze on the spot and could not utter a word."
-    },
-    {
-      "word": "my legs felt like jelly",
-      "zh": "双腿发软",
-      "example": "My palms were sweating and my legs felt like jelly."
-    },
-    {
-      "word": "the tension was unbearable",
-      "zh": "紧张得令人难以忍受",
-      "example": "The tension was unbearable."
+      "word": "make the most of the moment",
+      "zh": "充分利用时间",
+      "example": "l I decided to make the most of every second.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -148,6 +188,11 @@
     "None of this week's words are in the essay or its vocabulary table. All examples come from the Story pack: 'had no idea', 'my curiosity got the better of me', 'in an instant' (ST1 answer), 'froze on the spot', 'my legs felt like jelly' (ST3 answer), 'face my fear' (ST6 answer), 'trembling with fear' (Q5 table), 'tiptoe forward' (Q9 table: 'I tiptoed downstairs to check.', a different form of the phrase).",
     "goodPhrases: the row 'every second counted' is marked (Extended) and was left out.",
     "example for 'without hesitation' taken from the theme pack (watermark layer removed)",
-    "example for 'the tension was unbearable' taken from the theme pack (watermark layer removed)"
+    "example for 'the tension was unbearable' taken from the theme pack (watermark layer removed)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (a narrow escape)",
+    "Form 5: mid tier short: used a top word (learn the value of teamwork)",
+    "Form 5: mid tier short: used a top word (face challenges head-on)",
+    "Form 5: mid tier short: used a top word (become more resilient)"
   ]
 }

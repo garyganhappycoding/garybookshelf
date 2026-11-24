@@ -28,54 +28,94 @@
   ],
   "words": [
     {
+      "word": "angan-angan Mat Jenin",
+      "zh": "痴心妄想",
+      "example": "Sebenarnya, amalan membaca bukan sahaja dapat dihormati oleh masyarakat dan menyuluh jalan masa depan malah ilmu dapat membantu kita memakbulkan aspirasi agar wawasan kita tidak menjadi angan-angan Mat Jenin.",
+      "level": "advanced"
+    },
+    {
+      "word": "setahun jagung darah setampuk pinang",
+      "zh": "年少无知，涉世未深",
+      "example": "Kemunculan peranti elektronik ini menyebabkan remaja berumur setahun jagung darah setampuk pinang mudah ketagihan akan permainan dalam talian.",
+      "level": "advanced"
+    },
+    {
+      "word": "bagai melukut di tepi gantang",
+      "zh": "如糠秕般被轻视",
+      "example": "Biar kita ambil contoh, ibu bapa yang sibuk mengejar kemewahan, kebendaan dan pangkat sehingga memandang enteng amalan membaca bagai melukut di tepi gantang.",
+      "level": "advanced"
+    },
+    {
+      "word": "bagai ketam menyuruh anak berjalan betul",
+      "zh": "教子无方，以身作则却本末倒置",
+      "example": "Janganlah ibu bapa bagai ketam menyuruh anak berjalan betul.",
+      "level": "advanced"
+    },
+    {
+      "word": "gagal membezakan antara intan dengan kaca",
+      "zh": "无法分辨真伪好坏",
+      "example": "Sekiranya anda takut diboikot oleh kawan-kawan sehingga gagal membezakan antara intan dengan kaca dan sudi menjadi pak turut rakan tersebut.",
+      "level": "advanced"
+    },
+    {
+      "word": "bulan kian terang, bayang kian jelas",
+      "zh": "事实愈发明朗清晰",
+      "example": "Bulan kian terang, bayang kian jelas bahawa rakan merupakan salah satu faktor kepada masyarakat hilang minat dalam amalan membaca, ingatlah peribahasa yang baik dijadikan teladan, yang buruk dijadikan sempadan.",
+      "level": "advanced"
+    },
+    {
+      "word": "yang baik dijadikan teladan, yang buruk dijadikan sempadan",
+      "zh": "择善而从，以恶为戒",
+      "example": "Bulan kian terang, bayang kian jelas bahawa rakan merupakan salah satu faktor kepada masyarakat hilang minat dalam amalan membaca, ingatlah peribahasa yang baik dijadikan teladan, yang buruk dijadikan sempadan.",
+      "level": "advanced"
+    },
+    {
+      "word": "bekerjasama bagai aur dengan tebing",
+      "zh": "同心协力，同舟共济",
+      "example": "Jadi, kita haruslah bekerjasama bagai aur dengan tebing untuk mengatasi masalah tersebut sehingga akar umbi.",
+      "level": "advanced"
+    },
+    {
       "word": "sarat ilmu pada dada",
       "zh": "满腹经纶",
-      "example": "Seseorang yang sarat ilmu pada dada akan dipandang tinggi oleh masyarakat pada setiap masa."
+      "example": "Seseorang yang sarat ilmu pada dada akan dipandang tinggi oleh masyarakat pada setiap masa.",
+      "level": "ordinary"
     },
     {
       "word": "memakbulkan aspirasi",
       "zh": "实现抱负",
-      "example": "Sebenarnya, amalan membaca bukan sahaja dapat dihormati oleh masyarakat dan menyuluh jalan masa depan malah ilmu dapat membantu kita memakbulkan aspirasi agar wawasan kita tidak menjadi angan-angan Mat Jenin."
+      "example": "Sebenarnya, amalan membaca bukan sahaja dapat dihormati oleh masyarakat dan menyuluh jalan masa depan malah ilmu dapat membantu kita memakbulkan aspirasi agar wawasan kita tidak menjadi angan-angan Mat Jenin.",
+      "level": "ordinary"
     },
     {
       "word": "mencedok ilmu",
       "zh": "汲取知识",
-      "example": "Oleh itu, kita haruslah memupuk amalan membaca sejak tapak kaki bayi sebenar dua jari untuk mencedok ilmu."
+      "example": "Oleh itu, kita haruslah memupuk amalan membaca sejak tapak kaki bayi sebenar dua jari untuk mencedok ilmu.",
+      "level": "ordinary"
     },
     {
       "word": "dasar langit terbuka dan dunia tanpa sempadan",
       "zh": "开放天空与无国界世界的政策",
-      "example": "Yang pertamanya, dasar langit terbuka dan dunia tanpa sempadan hari ini, telefon bimbit merupakan barang keperluan dalam kehidupan kita."
+      "example": "Yang pertamanya, dasar langit terbuka dan dunia tanpa sempadan hari ini, telefon bimbit merupakan barang keperluan dalam kehidupan kita.",
+      "level": "ordinary"
     },
     {
       "word": "mudah ketagihan akan permainan dalam talian",
       "zh": "容易沉迷于网络游戏",
-      "example": "Kemunculan peranti elektronik ini menyebabkan remaja berumur setahun jagung darah setampuk pinang mudah ketagihan akan permainan dalam talian."
+      "example": "Kemunculan peranti elektronik ini menyebabkan remaja berumur setahun jagung darah setampuk pinang mudah ketagihan akan permainan dalam talian.",
+      "level": "ordinary"
     },
     {
       "word": "daya tarikan yang lebih besar",
       "zh": "更大的吸引力",
-      "example": "Hal ini dikatakan demikian kerana permainan dalam talian mempunyai daya tarikan yang lebih besar berbanding daripada membaca buku ilmiah."
+      "example": "Hal ini dikatakan demikian kerana permainan dalam talian mempunyai daya tarikan yang lebih besar berbanding daripada membaca buku ilmiah.",
+      "level": "ordinary"
     },
     {
       "word": "mengakses permainan dalam talian",
       "zh": "接触网络游戏",
-      "example": "Tegasnya, kemunculan telefon bimbit yang memudahkan remaja untuk mengakses permainan dalam talian merupakan salah satu faktor remaja tidak berminat dalam membaca buku."
-    },
-    {
-      "word": "kaku dan membosankan",
-      "zh": "呆板又乏味",
-      "example": "Bagi remaja, permainan dalam talian dianggap sebagai hidup manakala buku dianggap sebagai sesuatu yang kaku dan membosankan."
-    },
-    {
-      "word": "entiti model kepada anak-anak",
-      "zh": "孩子的榜样",
-      "example": "Selain itu, ibu bapa tidak menjadi entiti model kepada anak-anak untuk membaca buku ilmiah pada masa lapang."
-    },
-    {
-      "word": "mencontohi perlakuan ibu bapa",
-      "zh": "模仿父母的行为",
-      "example": "Hal ini berlaku apabila anak-anak akan mencontohi perlakuan ibu bapa."
+      "example": "Tegasnya, kemunculan telefon bimbit yang memudahkan remaja untuk mengakses permainan dalam talian merupakan salah satu faktor remaja tidak berminat dalam membaca buku.",
+      "level": "ordinary"
     }
   ],
   "goodPhrases": [
@@ -114,6 +154,7 @@
   ],
   "gaps": [
     "Paragraph 0 is the pantun (lines joined with newlines); openingIdx [0,1] = pantun + opening paragraph",
-    "keyPoint.prompt is null (no Question Analysis table); level and source are null"
+    "keyPoint.prompt is null (no Question Analysis table); level and source are null",
+    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays"
   ]
 }

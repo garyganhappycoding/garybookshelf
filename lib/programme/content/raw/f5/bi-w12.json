@@ -45,54 +45,94 @@
   ],
   "words": [
     {
-      "word": "deepen their understanding",
-      "zh": "加深理解",
-      "example": "As a result, students deepen their understanding and improve their academic performance."
+      "word": "cut down on wasted time",
+      "zh": "减少浪费的时间",
+      "example": "It cuts down on wasted time when I look for information.",
+      "level": "B2"
     },
     {
-      "word": "strengthen family bonds",
-      "zh": "加强家庭纽带",
-      "example": "As a result, families maintain close ties, strengthen family bonds and alleviate loneliness."
+      "word": "word of mouth",
+      "zh": "口碑",
+      "example": "Word of mouth is a trusted source of advice for teenagers.",
+      "level": "B2"
     },
     {
-      "word": "neglect their studies",
-      "zh": "荒废学业",
-      "example": "As a result, they suffer from sleep deprivation and neglect their studies."
+      "word": "customer ratings",
+      "zh": "顾客评分",
+      "example": "I always check the customer ratings before buying.",
+      "level": "B2"
     },
     {
-      "word": "face-to-face interaction",
-      "zh": "面对面交流",
-      "example": "Heavy use of technology weakens face-to-face interaction."
+      "word": "functionality",
+      "zh": "功能性",
+      "example": "Functionality matters more than a low price.",
+      "level": "B2 to C1"
     },
     {
-      "word": "use technology responsibly",
-      "zh": "负责任地使用科技",
-      "example": "A good way to use technology responsibly is to set clear limits."
+      "word": "prioritise",
+      "zh": "优先考虑",
+      "example": "I prioritise features that help my studies.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "sluggish performance",
+      "zh": "反应迟缓的表现",
+      "example": "Sluggish performance wastes valuable study time.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "alleviate stress",
+      "zh": "缓解压力",
+      "example": "Being organised alleviates stress during the exam season.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "prove to be a poor investment",
+      "zh": "证明是不划算的 投资",
+      "example": "A cheap phone may prove to be a poor investment.",
+      "level": "C1"
     },
     {
       "word": "access to a wealth of knowledge",
       "zh": "获取丰富的知识",
-      "example": "Technology gives students access to a wealth of knowledge."
+      "example": "Gadgets give me access to a wealth of knowledge.",
+      "level": "C1"
     },
     {
       "word": "bridge learning gaps",
       "zh": "弥补学习差距",
-      "example": "This is because they can learn at their own pace and bridge learning gaps whenever they need."
+      "example": "Online lessons help me bridge learning gaps.",
+      "level": "C1"
     },
     {
-      "word": "improve their academic performance",
-      "zh": "提高学业表现",
-      "example": "As a result, students deepen their understanding and improve their academic performance."
+      "word": "supplement classroom lessons",
+      "zh": "补充课堂教学",
+      "example": "Videos supplement classroom lessons when I need more practice.",
+      "level": "C1"
     },
     {
-      "word": "overcome geographical barriers",
-      "zh": "克服地理障碍",
-      "example": "This is because messaging apps and video calls overcome geographical barriers in real time."
+      "word": "improve my academic performance",
+      "zh": "提高我的学业表 现",
+      "example": "Regular revision with my gadget improved my academic performance.",
+      "level": "C1"
     },
     {
-      "word": "maintain close ties",
-      "zh": "保持紧密联系",
-      "example": "As a result, families maintain close ties, strengthen family bonds and alleviate loneliness."
+      "word": "foster independent learning",
+      "zh": "培养自主学习",
+      "example": "Gadgets foster independent learning among students.",
+      "level": "C1"
+    },
+    {
+      "word": "maintain a structured routine",
+      "zh": "保持有规律的日 程",
+      "example": "Gadgets help me maintain a structured routine.",
+      "level": "C1"
+    },
+    {
+      "word": "sync across devices",
+      "zh": "跨设备同步",
+      "example": "My timetable syncs across devices, so I never lose it.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -154,7 +194,7 @@
     }
   ],
   "gaps": [
-    "None of the 10 words appears in the Kedah essay's vocabulary table; all 10 example sentences come from the Technology theme pack's Universal answers (U1, U2, U4, U5, U7).",
-    "Examples for 'deepen their understanding' and 'improve their academic performance' are the same sentence (U1); 'strengthen family bonds' and 'maintain close ties' share one sentence (U2)."
+    "Examples for 'deepen their understanding' and 'improve their academic performance' are the same sentence (U1); 'strengthen family bonds' and 'maintain close ties' share one sentence (U2).",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

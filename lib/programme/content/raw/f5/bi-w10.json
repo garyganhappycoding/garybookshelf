@@ -47,54 +47,94 @@
   ],
   "words": [
     {
-      "word": "This report is about …, which was held on … at …",
-      "zh": "本报告是关于在……于……举行的……",
-      "example": "This report is about the Science Week, which was held on 5 May at the school hall."
+      "word": "from various countries",
+      "zh": "来自不同国家",
+      "example": "They came from various countries, including Japan and Indonesia.",
+      "level": "B2"
     },
     {
-      "word": "The programme was organised by … with the aim of …",
-      "zh": "活动由……主办，目的是……",
-      "example": "The programme was organised by the Prefects' Board with the aim of raising money for charity."
+      "word": "paired with a local student",
+      "zh": "与本地学生配对",
+      "example": "h Each visitor was paired with a local student.",
+      "level": "B2"
     },
     {
-      "word": "A total of … took part in …",
-      "zh": "共有……人参加了……",
-      "example": "A total of 150 students took part in the run."
+      "word": "a total of",
+      "zh": "总共",
+      "example": "s A total of 35 students took part in the programme.",
+      "level": "B2"
     },
     {
-      "word": "The event kicked off with …",
-      "zh": "活动以……拉开序幕",
-      "example": "The event kicked off with a speech by the principal."
+      "word": "accompanied by",
+      "zh": "由……陪同",
+      "example": "The students were accompanied by three teachers.",
+      "level": "B2 to C1"
     },
     {
-      "word": "This was followed by …",
-      "zh": "接着是……",
-      "example": "This was followed by a quiz competition."
+      "word": "spend impulsively",
+      "zh": "冲动消费",
+      "example": "Many pupils spend impulsively on trendy items.",
+      "level": "B2 to C1"
     },
     {
-      "word": "According to the survey, the majority of …",
-      "zh": "根据调查，大多数……",
-      "example": "According to the survey, the majority of students skip breakfast."
+      "word": "foster teamwork",
+      "zh": "促进团队合作",
+      "example": "The quiz fostered teamwork among classmates.",
+      "level": "B2 to C1"
     },
     {
-      "word": "It was found that …",
-      "zh": "调查发现……",
-      "example": "It was found that two toilets were out of order."
+      "word": "real-time leaderboard",
+      "zh": "实时排行榜",
+      "example": "s A real-time leaderboard kept everyone excited.",
+      "level": "B2 to C1"
     },
     {
-      "word": "The event was a resounding success as …",
-      "zh": "活动非常成功，因为……",
-      "example": "The event was a resounding success as RM3,000 was raised."
+      "word": "overwhelming response",
+      "zh": "热烈的反响",
+      "example": "The event received an overwhelming response.",
+      "level": "B2 to C1"
     },
     {
-      "word": "It is recommended that …",
-      "zh": "建议……",
-      "example": "It is recommended that the school install more water dispensers."
+      "word": "a diverse group",
+      "zh": "b 多元的群体",
+      "example": "It was a diverse group with different customs.",
+      "level": "C1"
     },
     {
-      "word": "It is hoped that … will become an annual event.",
-      "zh": "希望……能成为年度活动。",
-      "example": "It is hoped that the fair will become an annual event."
+      "word": "a hands-on workshop",
+      "zh": "实践工作坊",
+      "example": "They joined a hands-on workshop on batik painting.",
+      "level": "C1"
+    },
+    {
+      "word": "sit in on lessons",
+      "zh": "旁听课程",
+      "example": "e The guests sat in on our English lessons.",
+      "level": "C1"
+    },
+    {
+      "word": "left a deep impression",
+      "zh": "留下深刻印象",
+      "example": "The week left a deep impression on everyone.",
+      "level": "C1"
+    },
+    {
+      "word": "break the ice",
+      "zh": "打破僵局",
+      "example": "The games helped us break the ice.",
+      "level": "C1"
+    },
+    {
+      "word": "broaden our horizons",
+      "zh": "开阔我们的眼界",
+      "example": "The visit broadened our horizons.",
+      "level": "C1"
+    },
+    {
+      "word": "gain a deeper understanding of",
+      "zh": "更深入了解",
+      "example": "We gained a deeper understanding of other cultures.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -153,6 +193,7 @@
     "All examples come from the Report pack's Universal phrases section (the essay vocabulary table has none of these phrases).",
     "paragraphs: the To/From/Date/Subject block, the sub-headings and the 'Prepared by' lines were left out; only the 5 body paragraphs are given.",
     "goodPhrases: rows marked (Extended) (lurking in the digital world, in collaboration with, keep cybercriminals at bay) were left out.",
-    "example for 'This was followed by …' taken from the theme pack (watermark layer removed)"
+    "example for 'This was followed by …' taken from the theme pack (watermark layer removed)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

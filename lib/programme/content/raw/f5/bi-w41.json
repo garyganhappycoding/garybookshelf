@@ -49,54 +49,94 @@
   ],
   "words": [
     {
-      "word": "inspire positively",
-      "zh": "带来正面激励",
-      "example": "Role models can inspire teenagers positively."
+      "word": "raise awareness",
+      "zh": "提高意识",
+      "example": "Schools can raise awareness of upcoming events.",
+      "level": "B2"
     },
     {
-      "word": "derogatory remarks",
-      "zh": "贬损的言论",
-      "example": "Bullies leave derogatory remarks under a classmate's photo."
+      "word": "make it fun and rewarding",
+      "zh": "让活动有趣又有 意义",
+      "example": "l Events should be made fun and rewarding.",
+      "level": "B2"
     },
     {
-      "word": "malicious comments",
-      "zh": "恶意评论",
-      "example": "Malicious comments can be seen by hundreds of people."
+      "word": "promote events on social media",
+      "zh": "在社交媒体推广 活动",
+      "example": "e h Organisers can promote events on social media.",
+      "level": "B2"
     },
     {
-      "word": "humiliate",
-      "zh": "羞辱",
-      "example": "Such comments humiliate the victim in front of everyone."
+      "word": "enhance understanding",
+      "zh": "增进理解",
+      "example": "Visual lessons enhance understanding.",
+      "level": "B2 to C1"
     },
     {
-      "word": "ridicule",
-      "zh": "嘲笑",
-      "example": "They ridicule her appearance in the comments."
+      "word": "bridge distances",
+      "zh": "跨越距离",
+      "example": "Smartphones bridge distances between loved ones.",
+      "level": "B2 to C1"
     },
     {
-      "word": "remain anonymous",
-      "zh": "保持匿名",
-      "example": "Bullies remain anonymous, so they feel safe."
+      "word": "prevent overreliance",
+      "zh": "防止过度依赖",
+      "example": "Limits prevent overreliance on gadgets.",
+      "level": "B2 to C1"
     },
     {
-      "word": "evade accountability",
-      "zh": "逃避责任",
-      "example": "Anonymity lets bullies evade accountability."
+      "word": "oversharing",
+      "zh": "过度分享",
+      "example": "h Oversharing can attract scammers.",
+      "level": "B2 to C1"
+    },
+    {
+      "word": "the leaders of tomorrow",
+      "zh": "明日的领袖",
+      "example": "Teenagers are the leaders of tomorrow.",
+      "level": "C1"
+    },
+    {
+      "word": "contribute to nation-building",
+      "zh": "为国家建设做贡献",
+      "example": "As a result, they develop the confidence to lead and contribute to nation-building.",
+      "level": "C1"
+    },
+    {
+      "word": "speak up for others",
+      "zh": "为他人发声",
+      "example": "For example, student councillors learn to speak up for others.",
+      "level": "C1"
+    },
+    {
+      "word": "fall into bad habits",
+      "zh": "染上坏习惯",
+      "example": "As a result, they fall into bad habits and neglect their studies.",
+      "level": "C1"
+    },
+    {
+      "word": "hide behind fake accounts",
+      "zh": "躲在假账号后面",
+      "example": "This is because bullies hide behind fake accounts and lack empathy.",
+      "level": "C1"
+    },
+    {
+      "word": "motivate young people",
+      "zh": "激励年轻人",
+      "example": "This is because recognition motivates young people.",
+      "level": "C1"
     },
     {
       "word": "suffer psychological distress",
       "zh": "承受心理痛苦",
-      "example": "Victims often suffer psychological distress."
+      "example": "Victims often suffer psychological distress.",
+      "level": "C1"
     },
     {
       "word": "inflict lasting harm",
       "zh": "造成长久伤害",
-      "example": "Cyberbullying can inflict lasting harm on victims."
-    },
-    {
-      "word": "show compassion",
-      "zh": "表现同情",
-      "example": "We should show compassion to victims."
+      "example": "Cyberbullying can inflict lasting harm on victims.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -152,6 +192,7 @@
     "Example for 'malicious comments' filled later from the Teenagers & Society theme pack (cleaned text).",
     "Example for 'humiliate' filled later from the Teenagers & Society theme pack (cleaned text).",
     "Example for 'evade accountability' filled later from the Teenagers & Society theme pack (cleaned text).",
-    "Example for 'show compassion' filled later from the Teenagers & Society theme pack (cleaned text)."
+    "Example for 'show compassion' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
   ]
 }

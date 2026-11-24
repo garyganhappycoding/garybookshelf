@@ -39,54 +39,94 @@
   ],
   "words": [
     {
-      "word": "reduce the risk of chronic diseases",
-      "zh": "降低慢性病风险",
-      "example": "As a result, we reduce the risk of chronic diseases such as diabetes and maintain a healthy weight."
+      "word": "practise on weekends",
+      "zh": "周末练习",
+      "example": "h After the match, we practise on weekends.",
+      "level": "B2"
     },
     {
-      "word": "build resilience",
-      "zh": "培养抗挫力",
-      "example": "As a result, students develop leadership skills and build resilience."
+      "word": "copy a famous player's skills",
+      "zh": "模仿著名球员的 技巧",
+      "example": "s Children copy a famous player's skills at the fei ld.",
+      "level": "B2"
     },
     {
-      "word": "prone to obesity",
-      "zh": "容易肥胖",
-      "example": "As a result, they gain excess weight, become prone to obesity and lack energy."
+      "word": "improve their fitness",
+      "zh": "b 改善体能",
+      "example": "They improve their ftiness over time.",
+      "level": "B2"
     },
     {
-      "word": "gain excess weight",
-      "zh": "体重过重",
-      "example": "As a result, they gain excess weight, become prone to obesity and lack energy."
+      "word": "shy away from social events",
+      "zh": "b 回避社交活动",
+      "example": "They may shy away from social events.",
+      "level": "B2 to C1"
     },
     {
-      "word": "high in sugar and fat",
-      "zh": "高糖高脂",
-      "example": "This is because fast food is cheap and high in sugar and fat."
+      "word": "maintain good personal hygiene",
+      "zh": "保持良好的个人 卫生",
+      "example": "We should maintain good personal hygiene every day.",
+      "level": "B2 to C1"
     },
     {
-      "word": "consume excessive sugar",
-      "zh": "摄入过量糖分",
-      "example": "For example, a student who drinks sweet drinks every day consumes far too much sugar."
+      "word": "look and feel one's best",
+      "zh": "展现最好的状态",
+      "example": "These habits help us look and feel our best.",
+      "level": "B2 to C1"
     },
     {
-      "word": "adopt a balanced diet",
-      "zh": "采取均衡饮食",
-      "example": "We should adopt a balanced diet."
+      "word": "a local speciality",
+      "zh": "当地特产",
+      "example": "Nasi kerabu is a local speciality of Kelantan.",
+      "level": "B2 to C1"
     },
     {
-      "word": "vital for our well-being",
-      "zh": "对我们的健康至关重要",
-      "example": "Good sleep is vital for our well-being."
+      "word": "pique my curiosity",
+      "zh": "引起我的好奇",
+      "example": "The long queue piqued my curiosity.",
+      "level": "B2 to C1"
     },
     {
-      "word": "avoid burnout",
-      "zh": "避免过度疲劳",
-      "example": "As a result, we avoid burnout, think more clearly and maintain a healthy routine."
+      "word": "make a special trip",
+      "zh": "b 特地前往",
+      "example": "I made a special trip to taste it.",
+      "level": "C1"
     },
     {
-      "word": "greatest asset",
-      "zh": "最大的财富",
-      "example": "I firmly believe that health is our greatest asset."
+      "word": "a blend of spices",
+      "zh": "香料的融合",
+      "example": "e It has a perfect blend of spices.",
+      "level": "C1"
+    },
+    {
+      "word": "leave a lasting impression",
+      "zh": "留下深刻印象",
+      "example": "The taste left a lasting impression on me.",
+      "level": "C1"
+    },
+    {
+      "word": "tantalise the taste buds",
+      "zh": "刺激味蕾",
+      "example": "The sweet and spicy sauce tantalises the taste buds.",
+      "level": "C1"
+    },
+    {
+      "word": "well worth a visit",
+      "zh": "非常值得一游",
+      "example": "The stall is well worth a visit.",
+      "level": "C1"
+    },
+    {
+      "word": "go during off- peak hours",
+      "zh": "在非高峰时段前 往",
+      "example": "s I suggest going during off-peak hours to avoid the queue.",
+      "level": "C1"
+    },
+    {
+      "word": "satisfy your cravings",
+      "zh": "满足你的渴望",
+      "example": "This dish will satisfy your cravings.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -154,6 +194,12 @@
   "gaps": [
     "Examples are the Health & Sports pack's Universal answers (H1, H2, H4, H5, H7, H9, H11). 'consume excessive sugar': the answer (H5) says 'consumes far too much sugar', a related sentence rather than the exact phrase.",
     "Essay chosen for week 25: 'The Importance of Keeping Healthy' (older format, unused). Its vocabulary table has 'a balanced diet' and 'holistic well-being' (related to 'adopt a balanced diet' and 'vital for our well-being'); the other week words are not in it. Essay text copied verbatim, including its own wording.",
-    "points written by Claude from the essay (unchecked)"
+    "points written by Claude from the essay (unchecked)",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (shy away from social events)",
+    "Form 5: mid tier short: used a top word (maintain good personal hygiene)",
+    "Form 5: mid tier short: used a top word (look and feel one's best)",
+    "Form 5: mid tier short: used a top word (a local speciality)",
+    "Form 5: mid tier short: used a top word (pique my curiosity)"
   ]
 }

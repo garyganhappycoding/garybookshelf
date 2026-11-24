@@ -43,54 +43,94 @@
   ],
   "words": [
     {
-      "word": "my voice trembling",
-      "zh": "声音颤抖",
-      "example": "\"Who is there?\" I whispered, my voice trembling."
+      "word": "slip on the wet rocks",
+      "zh": "在湿滑的岩石上 滑倒",
+      "example": "e Ammar slipped on the wet rocks and nearly fell.",
+      "level": "B2"
     },
     {
-      "word": "lower my guard",
-      "zh": "放松戒备",
-      "example": "As a result, I let out a sigh of relief and lowered my guard."
+      "word": "darkness fell",
+      "zh": "夜幕降临",
+      "example": "h Darkness fell, and the path became unclear.",
+      "level": "B2"
     },
     {
-      "word": "come to a head",
-      "zh": "到了紧要关头",
-      "example": "At that moment, everything came to a head."
+      "word": "a fierce thunderstorm",
+      "zh": "猛烈的雷雨",
+      "example": "s A fierce thunderstorm trapped them in the forest.",
+      "level": "B2"
     },
     {
-      "word": "seize the chance",
-      "zh": "抓住机会",
-      "example": "Without hesitation, I seized the chance and took a deep breath."
+      "word": "it dawned on me",
+      "zh": "我突然意识到",
+      "example": "It dawned on me how precious every minute is.",
+      "level": "B2 to C1"
     },
     {
-      "word": "a split-second decision",
-      "zh": "瞬间的决定",
-      "example": "This is because I had to make a split-second decision."
+      "word": "a matter of life and death",
+      "zh": "b 生死攸关的事",
+      "example": "I realised it was a matter of life and death.",
+      "level": "B2 to C1"
     },
     {
-      "word": "dash down the stairs",
-      "zh": "冲下楼梯",
-      "example": "We dashed down the stairs and ducked behind a wall."
+      "word": "a breathtaking sight",
+      "zh": "令人惊叹的景象",
+      "example": "A breathtaking sight lay before him.",
+      "level": "B2 to C1"
     },
     {
-      "word": "duck behind",
-      "zh": "躲在……后面",
-      "example": "We dashed down the stairs and ducked behind a wall."
+      "word": "take his breath away",
+      "zh": "令他叹为观止",
+      "example": "The view took his breath away.",
+      "level": "B2 to C1"
     },
     {
-      "word": "gasp for breath",
-      "zh": "喘着气",
-      "example": "Gasping for breath, we clutched each other's hands."
+      "word": "rooted to the spot",
+      "zh": "呆立不动",
+      "example": "Isaac stood rooted to the spot.",
+      "level": "B2 to C1"
     },
     {
-      "word": "change me forever",
-      "zh": "永远改变了我",
-      "example": "The experience changed me forever."
+      "word": "a mixture of fear and excitement",
+      "zh": "b 恐惧与兴奋交织",
+      "example": "He felt a mixture of fear and excitement.",
+      "level": "C1"
     },
     {
-      "word": "open my eyes to",
-      "zh": "让我看清……",
-      "example": "This is because it opened my eyes to the value of family and kindness."
+      "word": "change his life forever",
+      "zh": "永远改变他的生 活",
+      "example": "The discovery changed his life forever.",
+      "level": "C1"
+    },
+    {
+      "word": "face the consequences",
+      "zh": "面对后果",
+      "example": "He had to face the consequences of his choice.",
+      "level": "C1"
+    },
+    {
+      "word": "a turning point in his life",
+      "zh": "他人生的转折点",
+      "example": "It was a turning point in his life.",
+      "level": "C1"
+    },
+    {
+      "word": "learn a hard lesson",
+      "zh": "学到惨痛的教训",
+      "example": "He learnt a hard lesson about curiosity.",
+      "level": "C1"
+    },
+    {
+      "word": "whirr and beep",
+      "zh": "发出嗡嗡和嘀嘀 声",
+      "example": "It began to whirr and beep.",
+      "level": "C1"
+    },
+    {
+      "word": "glow with a strange light",
+      "zh": "发出奇怪的光",
+      "example": "Its eyes glowed with a strange blue light.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -138,6 +178,12 @@
     "goodPhrases: rows marked (Extended) (musty smell, creeping vines, trespassed) were left out.",
     "Example for 'come to a head' filled later from the Story theme pack (cleaned text); form differs: 'came'.",
     "Example for 'seize the chance' filled later from the Story theme pack (cleaned text); form differs: 'seized'.",
-    "Example for 'a split-second decision' filled later from the Story theme pack (cleaned text); the pack text has 'split- second' (stray space from the PDF), written as 'split-second'."
+    "Example for 'a split-second decision' filled later from the Story theme pack (cleaned text); the pack text has 'split- second' (stray space from the PDF), written as 'split-second'.",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (it dawned on me)",
+    "Form 5: mid tier short: used a top word (a matter of life and death)",
+    "Form 5: mid tier short: used a top word (a breathtaking sight)",
+    "Form 5: mid tier short: used a top word (take his breath away)",
+    "Form 5: mid tier short: used a top word (rooted to the spot)"
   ]
 }

@@ -36,54 +36,94 @@
   "closingIdx": [],
   "words": [
     {
-      "word": "foster harmony",
-      "zh": "促进和谐",
-      "example": "For example, 'open house' during festivals fosters harmony among neighbours."
+      "word": "remember how I was helped",
+      "zh": "记得自己曾被帮 助",
+      "example": "s I remember how others helped me before.",
+      "level": "B2"
     },
     {
-      "word": "embrace our differences",
-      "zh": "接纳彼此的差异",
-      "example": "As a result, we embrace our differences and live in peace."
+      "word": "see people struggling",
+      "zh": "看到人们挣扎",
+      "example": "I felt sad to see people struggling after the floods.",
+      "level": "B2"
     },
     {
-      "word": "lose touch with traditions",
-      "zh": "与传统脱节",
-      "example": "Many young people are losing touch with their traditions."
+      "word": "appreciate what I have",
+      "zh": "珍惜所拥有的",
+      "example": "I learnt to appreciate what I have.",
+      "level": "B2"
     },
     {
-      "word": "fade away",
-      "zh": "逐渐消失",
-      "example": "As a result, our culture fades away and our heritage is at risk."
+      "word": "raise awareness about",
+      "zh": "提高对……的意 识",
+      "example": "The aim was to raise awareness about animal welfare.",
+      "level": "B2 to C1"
     },
     {
-      "word": "vulnerable people",
-      "zh": "弱势群体",
-      "example": "As a result, vulnerable people go unnoticed and the community loses its warmth."
+      "word": "gain first-hand experience",
+      "zh": "获得亲身体验",
+      "example": "l Members gained frist-hand experience of how a shelter works.",
+      "level": "B2 to C1"
     },
     {
-      "word": "small contributions",
-      "zh": "微小的贡献",
-      "example": "This is because even small contributions can change lives."
+      "word": "foster a sense of responsibility",
+      "zh": "b 培养责任感",
+      "example": "The visit fostered a sense of responsibility.",
+      "level": "B2 to C1"
     },
     {
-      "word": "develop empathy",
-      "zh": "培养同理心",
-      "example": "As a result, the needy receive timely support and donors develop empathy."
+      "word": "under the supervision of",
+      "zh": "在……的监督下",
+      "example": "We worked under the supervision of the shelter staff.",
+      "level": "B2 to C1"
     },
     {
-      "word": "teach compassion",
-      "zh": "教导同情心",
-      "example": "Caring for animals teaches us compassion."
+      "word": "a hands-on experience",
+      "zh": "亲身实践的经验",
+      "example": "It was a hands-on experience that we will never forget.",
+      "level": "B2 to C1"
     },
     {
-      "word": "depend on human kindness",
-      "zh": "依赖人类的善意",
-      "example": "This is because stray animals depend on human kindness to survive."
+      "word": "bond with the animals",
+      "zh": "b 与动物建立感情",
+      "example": "Members bonded with the animals.",
+      "level": "C1"
     },
     {
-      "word": "respect all living things",
-      "zh": "尊重所有生命",
-      "example": "As a result, students develop a sense of responsibility and learn to respect all living things."
+      "word": "ease the shelter's burden",
+      "zh": "减轻收容所的负 担",
+      "example": "These efforts will ease the shelter's burden.",
+      "level": "C1"
+    },
+    {
+      "word": "give animals a second chance",
+      "zh": "b 给动物第二次机 会",
+      "example": "They give animals a second chance at life.",
+      "level": "C1"
+    },
+    {
+      "word": "with the purpose of",
+      "zh": "目的是",
+      "example": "We went there with the purpose of learning about animal care.",
+      "level": "C1"
+    },
+    {
+      "word": "a non-profit organisation",
+      "zh": "非营利组织",
+      "example": "h The shelter is run by a non-profti organisation.",
+      "level": "C1"
+    },
+    {
+      "word": "gain a new respect for",
+      "zh": "b 对……有了新的 敬意",
+      "example": "I gained a new respect for the volunteers.",
+      "level": "C1"
+    },
+    {
+      "word": "commend the staff",
+      "zh": "称赞员工",
+      "example": "I commend the staff for their dedication.",
+      "level": "C1"
     }
   ],
   "goodPhrases": [
@@ -164,8 +204,13 @@
     "'vulnerable people' has no example sentence: in the People & Culture theme pack it appears only as a key word of answer P6, whose model paragraph is scrambled in the watermarked PDF.",
     "The essay has no conclusion paragraph (it ends with the third bullet of the question), so 'closingIdx' is empty.",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The question (history teacher, three bullet points) is above the essay in the doc.",
-    "None of the 10 words appears in this essay's vocabulary table; all 9 examples come from the People & Culture theme pack (Universal answers P4, P5, P7, P9). 'lose touch with traditions' uses 'losing touch with their traditions'.",
     "points written by Claude from the essay (unchecked)",
-    "Example for 'vulnerable people' filled later from the People & Culture theme pack (cleaned text)."
+    "Example for 'vulnerable people' filled later from the People & Culture theme pack (cleaned text).",
+    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+    "Form 5: mid tier short: used a top word (raise awareness about)",
+    "Form 5: mid tier short: used a top word (gain first-hand experience)",
+    "Form 5: mid tier short: used a top word (foster a sense of responsibility)",
+    "Form 5: mid tier short: used a top word (under the supervision of)",
+    "Form 5: mid tier short: used a top word (a hands-on experience)"
   ]
 }
