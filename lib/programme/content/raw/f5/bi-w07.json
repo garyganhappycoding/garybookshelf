@@ -1,0 +1,151 @@
+{
+  "n": 7,
+  "lang": "bi",
+  "theme": "Travel / Leisure / Home",
+  "level": "B2",
+  "essayTitle": "The Joy of Travelling",
+  "source": "SPM 2026 Trial – Sarawak (Set 1) – English Paper 2 · Part 2 · Question 2 · Essay (125–150 words)",
+  "essayUrl": "https://docs.google.com/document/d/1RtyukobIJm6HdePGC7yRSwDWWpj12UdD4bFhDCKgsLY/edit",
+  "paragraphs": [
+    "Travelling broadens our minds and creates memories that last a lifetime. A place I dream of visiting is Kyoto, Japan. This ancient city is famous for its tranquil temples, traditional wooden houses and breathtaking cherry blossoms.",
+    "First and foremost, I chose Kyoto because I want to immerse myself in Japanese culture. I hope to experience a traditional tea ceremony and stroll through historic streets. Furthermore, I am fascinated by its harmony of old and new. Ancient shrines stand side by side with modern cafés, which makes the city truly unique.",
+    "To encourage people to travel more in their own country, the government can offer attractive travel vouchers. This would make local holidays more affordable for families. Moreover, hidden gems such as Bako National Park should be promoted on social media. Eye-catching videos can spark the public's interest in exploring Malaysia."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "a place you dream of visiting (ONE place)"
+    },
+    {
+      "code": "C2",
+      "text": "the reasons of your choice – reason 1"
+    },
+    {
+      "code": "C3",
+      "text": "reasons – reason 2"
+    },
+    {
+      "code": "C4",
+      "text": "ways to encourage people to travel more in their own country – way 1"
+    },
+    {
+      "code": "C5",
+      "text": "ways – way 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "the reasons of your choice – reason 1"
+  },
+  "closingIdx": [],
+  "words": [
+    {
+      "word": "travelling broadens the mind",
+      "zh": "旅行开阔心胸",
+      "example": "They say travelling broadens the mind, and my trip to Sarawak proved it."
+    },
+    {
+      "word": "get away from the hustle and bustle",
+      "zh": "远离喧嚣",
+      "example": "Cameron Highlands lets us get away from the hustle and bustle of city life."
+    },
+    {
+      "word": "off the beaten track",
+      "zh": "远离热门路线、偏僻之处",
+      "example": "This waterfall is off the beaten track, so it is never crowded."
+    },
+    {
+      "word": "a feast for the eyes",
+      "zh": "赏心悦目的景象",
+      "example": "The lantern festival was a feast for the eyes."
+    },
+    {
+      "word": "soak in the view",
+      "zh": "尽情欣赏风景",
+      "example": "We sat on the hill and soaked in the breathtaking view."
+    },
+    {
+      "word": "immerse ourselves in the local culture",
+      "zh": "沉浸在当地文化中",
+      "example": "First and foremost, I chose Kyoto because I want to immerse myself in Japanese culture."
+    },
+    {
+      "word": "recharge our batteries",
+      "zh": "恢复精力",
+      "example": "A short holiday helps us recharge our batteries."
+    },
+    {
+      "word": "a home away from home",
+      "zh": "像家一样的地方",
+      "example": "The homestay felt like a home away from home."
+    },
+    {
+      "word": "create memories that will last a lifetime",
+      "zh": "创造一生难忘的回忆",
+      "example": "Family trips create memories that will last a lifetime."
+    },
+    {
+      "word": "pack your bags and …",
+      "zh": "收拾行李，去……吧",
+      "example": "So pack your bags and discover Malaysia!"
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "broadens our minds",
+      "zh": "开阔我们的视野"
+    },
+    {
+      "phrase": "breathtaking",
+      "zh": "令人叹为观止的"
+    },
+    {
+      "phrase": "immerse myself in",
+      "zh": "让自己沉浸于"
+    },
+    {
+      "phrase": "affordable",
+      "zh": "负担得起的"
+    },
+    {
+      "phrase": "spark the public's interest",
+      "zh": "激发大众的兴趣"
+    },
+    {
+      "phrase": "eye-catching",
+      "zh": "引人注目的"
+    },
+    {
+      "phrase": "tranquil",
+      "zh": "宁静的"
+    },
+    {
+      "phrase": "stroll through",
+      "zh": "漫步于"
+    },
+    {
+      "phrase": "harmony of old and new",
+      "zh": "新旧和谐交融"
+    },
+    {
+      "phrase": "hidden gems",
+      "zh": "鲜为人知的好地方"
+    }
+  ],
+  "gaps": [
+    "No example sentence for: 'get away from the hustle and bustle', 'off the beaten track', 'a feast for the eyes', 'soak in the view'. The Travel, Leisure & Home pack's Universal phrases section has scrambled example sentences in the PDF text for some phrases, so those were not copied (left null).",
+    "'immerse ourselves in the local culture': the example is the essay's own sentence with 'immerse myself in' (the exact phrase 'immerse ourselves' is not in any document).",
+    "'travelling broadens the mind', 'recharge our batteries', 'a home away from home', 'create memories that will last a lifetime', 'pack your bags and …': examples copied from the pack's clean Universal phrases sentences.",
+    "The essay has 3 paragraphs only (Part 2), with no separate conclusion paragraph, so closingIdx is empty. keyPoint = paragraph 2 (reasons 1 and 2); the question's C1 is only the place.",
+    "goodPhrases: only Table 1 rows used by the Exam Version; the Extended-only rows 'a living museum' and 'right on our doorstep' were left out.",
+    "The '(C1)' ... '(C5)' mark tags were removed from the essay text.",
+    "Prompt said weeks 7/18/29/40 are Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 7 as Travel, Leisure & Home, so the Travel words and a Travel essay were used.",
+    "example for 'get away from the hustle and bustle' taken from the theme pack (watermark layer removed)",
+    "example for 'off the beaten track' taken from the theme pack (watermark layer removed)",
+    "example for 'a feast for the eyes' taken from the theme pack (watermark layer removed)",
+    "Example for 'soak in the view' filled later from the Travel / Leisure / Home theme pack (cleaned text); form differs: 'soaked in the breathtaking view'."
+  ]
+}

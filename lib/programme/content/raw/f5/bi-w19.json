@@ -1,0 +1,191 @@
+{
+  "n": 19,
+  "lang": "bi",
+  "theme": "Teenagers & Society",
+  "level": "B2 to C1",
+  "essayTitle": "Confronting Crime in the Digital Era",
+  "source": "SPM Study Bundle · Crime in the Modern Age (Article 01) · Article, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1UmjoS1P-Hc4gdR-Aw3mX4xSGv7AYOA8xqljoMZ0VxQc/edit",
+  "paragraphs": [
+    "Crime remains a pervasive threat in the modern age, continually evolving alongside technology. Understanding its various forms and underlying causes is the first step toward fostering a safer community. This article explores common crimes, the reasons behind criminal actions, and proactive strategies to safeguard teenagers.",
+    "In contemporary society, crime manifests in several common forms. Traditional street crimes like petty theft and vandalism persist, often due to severe money problems. However, the online world has given rise to sophisticated cybercrimes, which now pose the most significant threat. These include phishing scams, identity theft, and data breaches, where criminals exploit digital vulnerabilities for financial gain. Furthermore, drug and alcohol misuse often drives related wrongdoings, such as drug trafficking and violent behaviour, undermining public safety.",
+    "The factors that lead individuals to commit crimes are complex. Large gaps in wealth and social status are a primary cause; poverty and lack of opportunity can create feelings of being left out, leading some to crime out of simple need. Another critical factor is negative peer influence, particularly among youth who seek validation. Psychological issues, such as acting without thinking or untreated mental health disorders, can also damage good sense and contribute to minor crimes. Ultimately, crime is often a complex symptom of problems deep within the system in family structure, education, and economic stability.",
+    "To prevent teenagers from starting a life of crime, helpful action is crucial. Schools must implement strong mentorship programs that pair students with positive role models, instilling a strong moral compass. Secondly, community organizations should offer positive after-school activities and vocational training, providing alternative pathways to success and minimizing idle time. Thirdly, open family communication is most important; parents must monitor their children's online activities and peer groups without intruding on their privacy, thus creating a home environment defined by trust and accountability. By equipping teenagers with purpose and support, we strengthen them against the temptations of crime.",
+    "In conclusion, combating crime requires more than just punishment; it demands a holistic approach that addresses both digital and traditional threats, deals with the fundamental reasons of poverty and social exclusion, and critically, invests in the positive development of our youth."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "State the common forms of crime"
+    },
+    {
+      "code": "C2",
+      "text": "Explain the factors that lead people to commit crimes"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to prevent teenagers from starting a life of crime"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "tutor younger students",
+      "zh": "辅导低年级学生",
+      "example": "For example, they can volunteer at charity events, tutor younger students or organise clean-up campaigns."
+    },
+    {
+      "word": "become more responsible",
+      "zh": "变得更有责任感",
+      "example": "They become more responsible citizens."
+    },
+    {
+      "word": "build trust",
+      "zh": "建立信任",
+      "example": "For example, parents who listen without judging build trust."
+    },
+    {
+      "word": "look up to",
+      "zh": "仰慕",
+      "example": "This is because young people tend to look up to successful figures."
+    },
+    {
+      "word": "stay on the right path",
+      "zh": "走在正道上",
+      "example": "As a result, teenagers set higher goals and stay on the right path."
+    },
+    {
+      "word": "play an active role",
+      "zh": "发挥积极作用",
+      "example": "Teenagers can play an active role in society in many ways."
+    },
+    {
+      "word": "fresh ideas",
+      "zh": "新颖的想法",
+      "example": "This is because they have energy and fresh ideas."
+    },
+    {
+      "word": "benefit from their efforts",
+      "zh": "受益于他们的努力",
+      "example": "As a result, communities benefit from their efforts and teenagers grow in maturity."
+    },
+    {
+      "word": "build character",
+      "zh": "塑造品格",
+      "example": "Community service builds character."
+    },
+    {
+      "word": "gain a sense of purpose",
+      "zh": "获得使命感",
+      "example": "As a result, teenagers become more responsible and gain a sense of purpose."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "severe money problems",
+      "zh": "严重的金钱问题"
+    },
+    {
+      "phrase": "online world",
+      "zh": "线上世界/网络世界"
+    },
+    {
+      "phrase": "drug and alcohol misuse",
+      "zh": "药物和酒精滥用"
+    },
+    {
+      "phrase": "wrongdoings",
+      "zh": "不法行为，错误行为"
+    },
+    {
+      "phrase": "commit crimes",
+      "zh": "犯罪，作案"
+    },
+    {
+      "phrase": "complex",
+      "zh": "复杂的"
+    },
+    {
+      "phrase": "large gaps in wealth and social status",
+      "zh": "财富和地位的巨大差距"
+    },
+    {
+      "phrase": "feelings of being left out",
+      "zh": "被排斥感"
+    },
+    {
+      "phrase": "simple need",
+      "zh": "简单的需求/出于必要"
+    },
+    {
+      "phrase": "acting without thinking",
+      "zh": "不经思考就行动"
+    },
+    {
+      "phrase": "damage good sense",
+      "zh": "损害判断力"
+    },
+    {
+      "phrase": "minor crimes",
+      "zh": "轻微的罪行"
+    },
+    {
+      "phrase": "problems deep within the system",
+      "zh": "系统深层的问题"
+    },
+    {
+      "phrase": "starting a life of crime",
+      "zh": "开始犯罪生活"
+    },
+    {
+      "phrase": "helpful action",
+      "zh": "有益的行动"
+    },
+    {
+      "phrase": "strong mentorship programs",
+      "zh": "强大的指导计划"
+    },
+    {
+      "phrase": "positive after-school activities",
+      "zh": "积极的课后活动"
+    },
+    {
+      "phrase": "most important",
+      "zh": "最重要的"
+    },
+    {
+      "phrase": "intruding on their privacy",
+      "zh": "侵犯他们的隐私"
+    },
+    {
+      "phrase": "strengthen them",
+      "zh": "增强他们，巩固他们"
+    },
+    {
+      "phrase": "deals with the fundamental reasons",
+      "zh": "处理根本原因"
+    }
+  ],
+  "gaps": [
+    "No example sentence for: 'build trust' and 'gain a sense of purpose' (pack sentences scrambled in the PDF text). The Teenagers & Society pack's Universal phrases section (and some Universal answers) have scrambled example sentences in the PDF text, so those were not copied (left null).",
+    "None of the week's words appear in this essay's vocabulary table; examples come from the Teenagers pack (Universal answers T1, T9 and the trial-question vocab tables, clean sentences only). 'build character' is 'Community service builds character.' (inflected form).",
+    "This essay doc (Article 01) has no Question Analysis table and no Exam/Extended split, so points is [] and keyPoint.prompt is null; keyPoint = paragraph 2 (common types of crime). The question is a three-bullet school-magazine notice (common types of crimes, what makes people commit crimes, how to prevent teenagers getting involved).",
+    "The essay title line in the doc reads 'Article: Confronting Crime in the Digital Era'; essayTitle drops the word 'Article:'. Stray spaces before commas/full stops and double spaces (left by bold formatting in the doc) were tidied.",
+    "The essay has 'By: Gary Gan 5 Cengal' (removed, as the spec says).",
+    "Crime is a Teenagers-folder essay used for round 2. The folder's own order was not clear from the Drive listing; the first two topically fitting essays were taken (WPKL for round 1, Crime for round 2); Terengganu (time management), Kelantan (movie) and Food Festival were skipped as off-theme.",
+    "goodPhrases: all 21 rows of the essay's Part 2 vocabulary table.",
+    "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 19 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used.",
+    "example for 'build trust' taken from the theme pack (watermark layer removed)",
+    "points written by Claude from the essay (unchecked)",
+    "Example for 'gain a sense of purpose' filled later from the Teenagers & Society theme pack (cleaned text)."
+  ]
+}

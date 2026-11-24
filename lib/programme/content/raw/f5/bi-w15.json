@@ -1,0 +1,173 @@
+{
+  "n": 15,
+  "lang": "bi",
+  "theme": "School & Education",
+  "level": "B2 to C1",
+  "essayTitle": "Co-academic Activities in Malaysian Schools",
+  "source": "SPM Essay (older format, no trial paper named) · Essay on co-academic activities",
+  "essayUrl": "https://drive.google.com/file/d/1tw7RdtFaUqddvcUQRGnwFV9UPXmz_J54/view",
+  "paragraphs": [
+    "Co-academic activities in Malaysian schools are designed to complement the formal education system. These activities, which include debate competitions, science fairs, and quiz contests, provide students with opportunities to develop critical thinking, problem-solving, and communication skills beyond the classroom setting. By engaging in these events, students can enhance their learning experiences and foster personal growth.",
+    "One co-academic activity I found particularly interesting was a national-level debate competition held at a local school. The event was intense, with students passionately defending their viewpoints on various social and political issues. What made this activity so attractive was the level of intellectual engagement among the participants. Watching students confidently articulate their arguments, rebutting opposing points, and demonstrating in-depth knowledge of current affairs was inspiring. The competition highlighted the importance of public speaking and the ability to think on one’s feet, which are crucial life skills.",
+    "Co-academic activities like debates can also improve students’ academic performance in several ways. For example, participating in a debate encourages research skills, as students must gather relevant information to support their arguments. It also enhances critical thinking and analytical skills, which are transferable to subjects such as language, history, and even science. Furthermore, these activities foster teamwork and communication, both of which are essential for success in group projects and classroom discussions.",
+    "In conclusion, co-academic activities in Malaysian schools, such as debate competitions, offer valuable learning experiences that go beyond the traditional curriculum. They provide a platform for students to develop essential skills that can enhance their academic performance while also preparing them for real-world challenges."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "State what co-academic activities are and what they offer students"
+    },
+    {
+      "code": "C2",
+      "text": "Describe one co-academic activity and why it is attractive"
+    },
+    {
+      "code": "C3",
+      "text": "Explain how co-academic activities can improve academic performance"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    3
+  ],
+  "words": [
+    {
+      "word": "lose track of time",
+      "zh": "忘记时间",
+      "example": "For example, I often lose track of time while scrolling through videos."
+    },
+    {
+      "word": "tempting",
+      "zh": "诱人的",
+      "example": "This is because notifications break our concentration and games are far more tempting than homework."
+    },
+    {
+      "word": "flexible",
+      "zh": "灵活的",
+      "example": "Online videos are flexible."
+    },
+    {
+      "word": "build confidence",
+      "zh": "建立信心",
+      "example": "This builds my confidence before tests."
+    },
+    {
+      "word": "protect our eyesight",
+      "zh": "保护视力",
+      "example": "It protects our eyesight."
+    },
+    {
+      "word": "open doors to a brighter future",
+      "zh": "开启光明的未来",
+      "example": "Education opens doors to a brighter future."
+    },
+    {
+      "word": "pursue higher education",
+      "zh": "继续升学",
+      "example": "For example, a student who studies hard can pursue higher education and a rewarding career."
+    },
+    {
+      "word": "achieve financial independence",
+      "zh": "实现经济独立",
+      "example": "As a result, they achieve financial independence and contribute to society."
+    },
+    {
+      "word": "think critically",
+      "zh": "批判性思考",
+      "example": "For example, a student who joins debates gains confidence and learns to think critically."
+    },
+    {
+      "word": "well-rounded individuals",
+      "zh": "全面发展的人",
+      "example": "Therefore, schools should nurture well-rounded individuals, not just exam machines."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "complement the formal education system",
+      "zh": "补充正规教育体系"
+    },
+    {
+      "phrase": "provide students with opportunities",
+      "zh": "为学生提供机会"
+    },
+    {
+      "phrase": "develop critical thinking and communication skills",
+      "zh": "培养批判性思维与沟通能力"
+    },
+    {
+      "phrase": "enhance learning experiences",
+      "zh": "提升学习体验"
+    },
+    {
+      "phrase": "foster personal growth",
+      "zh": "促进个人成长"
+    },
+    {
+      "phrase": "national-level debate competition",
+      "zh": "国家级辩论比赛"
+    },
+    {
+      "phrase": "passionately defending viewpoints",
+      "zh": "激情地捍卫观点"
+    },
+    {
+      "phrase": "intellectual engagement",
+      "zh": "智力参与"
+    },
+    {
+      "phrase": "articulate their arguments",
+      "zh": "清晰表达观点"
+    },
+    {
+      "phrase": "rebut opposing points",
+      "zh": "反驳对方观点"
+    },
+    {
+      "phrase": "demonstrate in-depth knowledge",
+      "zh": "展现深厚的知识"
+    },
+    {
+      "phrase": "ability to think on one’s feet",
+      "zh": "临场思考能力"
+    },
+    {
+      "phrase": "improve academic performance",
+      "zh": "提高学业表现"
+    },
+    {
+      "phrase": "encourages research skills",
+      "zh": "鼓励研究技能"
+    },
+    {
+      "phrase": "transferable skills",
+      "zh": "可转移的技能"
+    },
+    {
+      "phrase": "foster teamwork and communication",
+      "zh": "培养团队合作与沟通能力"
+    },
+    {
+      "phrase": "platform for students",
+      "zh": "学生的平台"
+    },
+    {
+      "phrase": "real-world challenges",
+      "zh": "现实世界的挑战"
+    }
+  ],
+  "gaps": [
+    "'think critically' has no example sentence: the only sentence containing it in the School & Education theme pack (answer S2) is scrambled in the watermarked PDF and could not be copied safely.",
+    "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
+    "None of the 10 words appears in this essay's vocabulary table; examples are from the School & Education theme pack (Universal answers S1, S5, S11 and trial-paper example sentences for 'flexible', 'build confidence', 'protect our eyesight').",
+    "Only one School & Education essay in the new format exists (used in week 4), so weeks 15, 26 and 37 use the older-format essays in the '7. school' folder (Co-academic Activities, Examination Mode, Bullying).",
+    "example for 'think critically' taken from the theme pack (watermark layer removed)",
+    "points written by Claude from the essay (unchecked)"
+  ]
+}

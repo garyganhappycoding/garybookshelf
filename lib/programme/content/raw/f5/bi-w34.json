@@ -1,0 +1,190 @@
+{
+  "n": 34,
+  "lang": "bi",
+  "theme": "Technology",
+  "level": "C1",
+  "essayTitle": "Cyberbullying",
+  "source": "Johor (Set 3) 2026 · Paper 2 · Part 2 Q2 · Essay, 125–150 words",
+  "essayUrl": "https://docs.google.com/document/d/150iaFZeR2JGnplSlYlg6ASmEjnsyMLeLJcKAQnPv4JM/edit",
+  "paragraphs": [
+    "In this digital era, cyberbullying has become an alarming issue. One example of cyberbullying on social media is leaving derogatory remarks under a classmate's photo to humiliate him or her. Such comments can be detrimental to the victim's mental well-being.",
+    "First and foremost, online bullying happens because netizens can remain anonymous behind fake accounts. Believing they will never be caught, they type cruel words they would never say face to face. Furthermore, bullies cannot see their victims' reactions. As a result, they fail to realise how deeply their words hurt.",
+    "Students can stop cyberbullying by reporting abusive posts instead of being silent bystanders. This allows harmful content to be removed quickly. Moreover, they can reach out to the victims and offer emotional support. This helps victims regain their confidence. In a nutshell, if every student plays a part, we can foster a safe environment in the digital world."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "one example of cyberbullying on social media (give ONE example only)"
+    },
+    {
+      "code": "C2",
+      "text": "why online bullying happens – reason 1"
+    },
+    {
+      "code": "C3",
+      "text": "why online bullying happens – reason 2"
+    },
+    {
+      "code": "C4",
+      "text": "ways students can stop cyberbullying – \"ways\" is plural, so give at least two"
+    },
+    {
+      "code": "C5",
+      "text": "ways students can stop cyberbullying – way 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "why online bullying happens – reason 1"
+  },
+  "closingIdx": [
+    2
+  ],
+  "words": [
+    {
+      "word": "derogatory remarks",
+      "zh": "贬损的言论",
+      "example": "One example of cyberbullying on social media is leaving derogatory remarks under a classmate's photo to humiliate him or her."
+    },
+    {
+      "word": "suffer psychological distress",
+      "zh": "承受心理痛苦",
+      "example": "As a result, victims lose self-confidence and may suffer psychological distress."
+    },
+    {
+      "word": "cultivate self-discipline",
+      "zh": "培养自律",
+      "example": "This is because boundaries help us curb excessive screen use and cultivate self-discipline."
+    },
+    {
+      "word": "impose restrictions",
+      "zh": "施加限制",
+      "example": "Parents can impose restrictions on late-night use."
+    },
+    {
+      "word": "curb harmful behaviour",
+      "zh": "遏制有害行为",
+      "example": "This is because reporting helps curb harmful behaviour, while kindness reduces loneliness."
+    },
+    {
+      "word": "lend a listening ear",
+      "zh": "倾听",
+      "example": "For example, they can use the report button and lend a listening ear to a friend."
+    },
+    {
+      "word": "digital footprint",
+      "zh": "数字足迹",
+      "example": "This is because everything stays online and leaves a lasting digital footprint."
+    },
+    {
+      "word": "safeguard our privacy",
+      "zh": "保护我们的隐私",
+      "example": "As a result, safeguarding our privacy also protects our reputation."
+    },
+    {
+      "word": "an inseparable part of",
+      "zh": "……不可分割的一部分",
+      "example": "In this digital era, social media has become an inseparable part of teenagers' lives, but it has also given rise to cyberbullying, an alarming issue that many students face in silence."
+    },
+    {
+      "word": "indispensable",
+      "zh": "不可或缺的",
+      "example": "It is indispensable for learning and communication, but if we rely too much on it, we may become addicted and isolated."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "digital era",
+      "zh": "数字时代"
+    },
+    {
+      "phrase": "alarming issue",
+      "zh": "令人担忧的问题"
+    },
+    {
+      "phrase": "netizens",
+      "zh": "网民"
+    },
+    {
+      "phrase": "detrimental to … mental well-being",
+      "zh": "对……心理健康有害"
+    },
+    {
+      "phrase": "harmful content",
+      "zh": "有害内容"
+    },
+    {
+      "phrase": "regain their confidence",
+      "zh": "重拾自信"
+    },
+    {
+      "phrase": "play a part",
+      "zh": "尽一份力"
+    },
+    {
+      "phrase": "foster a safe environment in the digital world",
+      "zh": "营造安全的网络环境"
+    },
+    {
+      "phrase": "an inseparable part of",
+      "zh": "……不可分割的一部分"
+    },
+    {
+      "phrase": "give rise to",
+      "zh": "导致；引发"
+    },
+    {
+      "phrase": "go viral",
+      "zh": "病毒式传播；迅速走红"
+    },
+    {
+      "phrase": "swiftly",
+      "zh": "迅速地"
+    },
+    {
+      "phrase": "derogatory remarks",
+      "zh": "贬损性言论"
+    },
+    {
+      "phrase": "humiliate",
+      "zh": "羞辱"
+    },
+    {
+      "phrase": "remain anonymous",
+      "zh": "保持匿名"
+    },
+    {
+      "phrase": "fake accounts",
+      "zh": "假账号"
+    },
+    {
+      "phrase": "abusive posts",
+      "zh": "恶意帖子"
+    },
+    {
+      "phrase": "silent bystanders",
+      "zh": "沉默的旁观者"
+    },
+    {
+      "phrase": "low self-esteem",
+      "zh": "自卑；自尊心低"
+    },
+    {
+      "phrase": "lose empathy",
+      "zh": "失去同理心"
+    },
+    {
+      "phrase": "dismiss … as \"just a joke\"",
+      "zh": "把……当作\"只是开玩笑\""
+    }
+  ],
+  "gaps": [
+    "Words found in the Johor essay's vocabulary table: 'derogatory remarks' and 'an inseparable part of' (the table sentence is cut with '…', so the full sentence from the Extended Version is used). The other 8 examples come from the Technology theme pack's Universal answers (U6 to U9, U11).",
+    "'impose restrictions': no Universal answer sentence contains the exact phrase, so the example is the pack's keyword sentence from the Technology notes.",
+    "'safeguard our privacy': the Universal answer (U9) only has 'safeguarding our privacy', so the example has the -ing form.",
+    "'indispensable': the Universal answer (U11) sentence starts with 'It is indispensable ...'; the same word also appears in the Cyber Security essay and the Terengganu essay, not in this one's table."
+  ]
+}

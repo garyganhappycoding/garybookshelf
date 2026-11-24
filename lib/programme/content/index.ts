@@ -3,12 +3,22 @@
 import { BI_WEEK1, type Block, type Day, type Week } from "../week-content";
 import { makeWeek, type WeekData } from "./build";
 import { addGuidance } from "./guidance";
-import biData from "./data.bi.json";
-import bmData from "./data.bm.json";
-import questionWeeks from "./questions.json";
+import bi4 from "./data.f4.bi.json";
+import bm4 from "./data.f4.bm.json";
+import bi5 from "./data.f5.bi.json";
+import bm5 from "./data.f5.bm.json";
+import q4 from "./questions.f4.json";
+import q5 from "./questions.f5.json";
 
-const DATA = { BI: biData as unknown as WeekData[], BM: bmData as unknown as WeekData[] };
-const OVERRIDE: Record<string, Week> = { "BI-1": BI_WEEK1 };
+// Form 4 and Form 5 have separate content (Gary, 24 Nov 2026). Form 5 started as a copy of Form 4 and is edited on its own.
+export type FormKey = "f4" | "f5";
+export const formKey = (form: number): FormKey => (form === 5 ? "f5" : "f4");
+const DATA = {
+  f4: { BI: bi4 as unknown as WeekData[], BM: bm4 as unknown as WeekData[] },
+  f5: { BI: bi5 as unknown as WeekData[], BM: bm5 as unknown as WeekData[] },
+};
+const QUESTIONS: Record<FormKey, number[]> = { f4: q4 as number[], f5: q5 as number[] };
+const OVERRIDE: Record<string, Week> = { "f4-BI-1": BI_WEEK1 }; // the hand-reviewed week 1 (Form 4)
 
 const has = (d: Day, id: string) => d.blocks.some((b: Block) => b.id === id);
 
@@ -34,9 +44,9 @@ export function withResponses(w: Week): Week {
 }
 
 /** Puts the picture of the real exam question (cropped from Gary's essay doc) on the opening day. Files: public/programme/q/bi-wNN.jpg, listed in questions.json. */
-function addQuestionImage(w: Week): Week {
-  if (w.lang !== "BI" || !(questionWeeks as number[]).includes(w.n)) return w;
-  const src = `/programme/q/bi-w${String(w.n).padStart(2, "0")}.jpg`;
+function addQuestionImage(w: Week, form: FormKey): Week {
+  if (w.lang !== "BI" || !QUESTIONS[form].includes(w.n)) return w;
+  const src = `/programme/q/${form}/bi-w${String(w.n).padStart(2, "0")}.jpg`;
   return {
     ...w,
     days: w.days.map((d) => !["wed", "thu", "fri"].includes(d.key) || d.blocks[0]?.id !== "steps" ? d : {
@@ -64,14 +74,14 @@ function normaliseThursday(w: Week): Week {
   };
 }
 
-export function getWeek(lang: "BI" | "BM", n: number): Week | null {
-  const o = OVERRIDE[`${lang}-${n}`];
-  if (o) return withResponses(addQuestionImage(addGuidance(normaliseThursday(o))));
-  const d = DATA[lang].find((x) => x.n === n);
-  return d ? withResponses(addQuestionImage(addGuidance(makeWeek(d)))) : null;
+export function getWeek(form: FormKey, lang: "BI" | "BM", n: number): Week | null {
+  const o = OVERRIDE[`${form}-${lang}-${n}`];
+  if (o) return withResponses(addQuestionImage(addGuidance(normaliseThursday(o)), form));
+  const d = DATA[form][lang].find((x) => x.n === n);
+  return d ? withResponses(addQuestionImage(addGuidance(makeWeek(d)), form)) : null;
 }
 
-export const weeksAvailable = (lang: "BI" | "BM") => [...new Set([...(lang === "BI" ? [1] : []), ...DATA[lang].map((x) => x.n)])].sort((a, b) => a - b);
+export const weeksAvailable = (form: FormKey, lang: "BI" | "BM") => [...new Set([...(form === "f4" && lang === "BI" ? [1] : []), ...DATA[form][lang].map((x) => x.n)])].sort((a, b) => a - b);
 
 /** Which day card a calendar date is. Group B studies Mon to Fri, Group A Sun to Thu; the two rest days map to "sat" and "sun". */
 export function dayKeyFor(group: "A" | "B", dow: number): "mon" | "tue" | "wed" | "thu" | "fri" | "sat" | "sun" {

@@ -1,0 +1,141 @@
+{
+  "n": 30,
+  "lang": "bi",
+  "theme": "Teenagers & Society",
+  "level": "C1",
+  "essayTitle": "The Joy of Giving",
+  "source": "SPM 2026 Trial – Negeri Sembilan – English Paper 2 · Part 2 · Question 2 · Essay (125–150 words)",
+  "essayUrl": "https://docs.google.com/document/d/1TVlp6Pwwo2vSzpijalpH7_SsFtm7gIFeqEYulybrCRo/edit",
+  "paragraphs": [
+    "Helping others is one of the most rewarding things a person can do. One activity I do to help people is volunteering at a soup kitchen every Saturday. My friends and I serve hot meals to the homeless in Seremban town.",
+    "First and foremost, I help others because I believe that everyone deserves a second chance in life. Many of the people I meet lost their homes due to circumstances beyond their control. Furthermore, I help others because it gives me a deep sense of fulfilment. Seeing their grateful smiles warms my heart.",
+    "Helping people can change a person by making them more grateful for what they have. I no longer complain about trivial matters such as food I dislike. Moreover, it nurtures empathy and humility. As a result, we learn to treat everyone with kindness and respect, regardless of their background."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "state an activity you do to help people (ONE activity)"
+    },
+    {
+      "code": "C2",
+      "text": "describe why you help others – reason 1"
+    },
+    {
+      "code": "C3",
+      "text": "why you help others – reason 2"
+    },
+    {
+      "code": "C4",
+      "text": "explain how helping people can change a person – change 1"
+    },
+    {
+      "code": "C5",
+      "text": "how helping people can change a person – change 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "describe why you help others – reason 1"
+  },
+  "closingIdx": [],
+  "words": [
+    {
+      "word": "the leaders of tomorrow",
+      "zh": "明日的领袖",
+      "example": "Teenagers are the leaders of tomorrow."
+    },
+    {
+      "word": "contribute to nation-building",
+      "zh": "为国家建设做贡献",
+      "example": "As a result, they develop the confidence to lead and contribute to nation-building."
+    },
+    {
+      "word": "speak up for others",
+      "zh": "为他人发声",
+      "example": "For example, student councillors learn to speak up for others."
+    },
+    {
+      "word": "lead astray",
+      "zh": "把……带坏",
+      "example": "Peer pressure can lead teenagers astray."
+    },
+    {
+      "word": "crave acceptance",
+      "zh": "渴望被接纳",
+      "example": "This is because they crave acceptance from their friends."
+    },
+    {
+      "word": "fall into bad habits",
+      "zh": "染上坏习惯",
+      "example": "As a result, they fall into bad habits and neglect their studies."
+    },
+    {
+      "word": "hide behind fake accounts",
+      "zh": "躲在假账号后面",
+      "example": "This is because bullies hide behind fake accounts and lack empathy."
+    },
+    {
+      "word": "lack empathy",
+      "zh": "缺乏同理心",
+      "example": "This is because bullies hide behind fake accounts and lack empathy."
+    },
+    {
+      "word": "become rebellious",
+      "zh": "变得叛逆",
+      "example": "As a result, teenagers become rebellious and keep secrets from their families."
+    },
+    {
+      "word": "motivate young people",
+      "zh": "激励年轻人",
+      "example": "This is because recognition motivates young people."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "rewarding",
+      "zh": "有意义的；值得的"
+    },
+    {
+      "phrase": "sense of fulfilment",
+      "zh": "成就感；满足感"
+    },
+    {
+      "phrase": "warms my heart",
+      "zh": "温暖我的心"
+    },
+    {
+      "phrase": "trivial matters",
+      "zh": "琐碎小事"
+    },
+    {
+      "phrase": "regardless of their background",
+      "zh": "无论他们的背景如何"
+    },
+    {
+      "phrase": "circumstances beyond their control",
+      "zh": "他们无法控制的情况"
+    },
+    {
+      "phrase": "deserves a second chance",
+      "zh": "值得第二次机会"
+    },
+    {
+      "phrase": "nurtures empathy and humility",
+      "zh": "培养同理心与谦卑"
+    }
+  ],
+  "gaps": [
+    "No example sentence for 'become rebellious' (pack sentence scrambled in the PDF text). The Teenagers & Society pack's Universal phrases section (and some Universal answers) have scrambled example sentences in the PDF text, so those were not copied (left null).",
+    "'lead astray' and 'motivate young people': examples are inflected forms ('lead teenagers astray', 'motivates young people') from pack Universal answers T4 and T7. 'hide behind fake accounts' and 'lack empathy' share the same pack sentence (T5).",
+    "None of the week's words appear in this essay's vocabulary table; all examples come from the Teenagers pack (clean sentences only).",
+    "The essay has 3 paragraphs only (Part 2) with no separate conclusion paragraph, so closingIdx is empty; keyPoint = paragraph 2 (C2, reason 1).",
+    "goodPhrases: only Table 1 rows used by the Exam Version; the Extended-only rows 'lend a helping hand', 'basic necessities', 'retrenchment' and 'the giver and the receiver' were left out.",
+    "Round 3 essay is Negeri Sembilan (charity); skipped off-theme folder items (Terengganu, Kelantan, Food Festival).",
+    "The '(C1)' ... mark tags were removed from the essay text.",
+    "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 30 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used.",
+    "Example for 'become rebellious' filled later from the Teenagers & Society theme pack (cleaned text)."
+  ]
+}

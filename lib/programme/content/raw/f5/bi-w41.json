@@ -1,0 +1,157 @@
+{
+  "n": 41,
+  "lang": "bi",
+  "theme": "Teenagers & Society",
+  "level": "C1",
+  "essayTitle": "Beyond Looks",
+  "source": "SPM 2026 Trial – Perlis – English Paper 2 · Part 2 · Question 2 · Essay (125–150 words)",
+  "essayUrl": "https://docs.google.com/document/d/1pd8e1txRxrxQ6gcSDMpNuw-lnmDQp2jrhbwcgscnJ2I/edit",
+  "paragraphs": [
+    "In today's image-conscious society, physical appearance is important to some people because first impressions matter. Fairly or not, people often judge others by how they look within seconds. Furthermore, social media has created unrealistic beauty standards. Many teenagers constantly compare themselves with flawless influencers online.",
+    "Appearance can affect self-confidence because looking presentable makes a person feel more self-assured. For instance, a student in a neat uniform tends to speak up more confidently in class. However, an obsession with looks can also lead to insecurity. Some people feel anxious whenever they notice a minor flaw.",
+    "Firstly, we can maintain our physical appearance by adopting a healthy lifestyle. Eating nutritious food and getting enough sleep keep our skin and body healthy. Secondly, we should practise good personal hygiene and grooming. In a nutshell, true confidence comes from caring for ourselves, not from chasing perfection."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "discuss why physical appearance is important to some people – reason 1"
+    },
+    {
+      "code": "C2",
+      "text": "why it is important – reason 2"
+    },
+    {
+      "code": "C3",
+      "text": "explain how appearance can affect self-confidence – effect 1"
+    },
+    {
+      "code": "C4",
+      "text": "how appearance can affect self-confidence – effect 2"
+    },
+    {
+      "code": "C5",
+      "text": "suggest ways to maintain physical appearance – way 1"
+    },
+    {
+      "code": "C6",
+      "text": "suggest ways – way 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 0,
+    "prompt": "discuss why physical appearance is important to some people – reason 1"
+  },
+  "closingIdx": [
+    2
+  ],
+  "words": [
+    {
+      "word": "inspire positively",
+      "zh": "带来正面激励",
+      "example": "Role models can inspire teenagers positively."
+    },
+    {
+      "word": "derogatory remarks",
+      "zh": "贬损的言论",
+      "example": "Bullies leave derogatory remarks under a classmate's photo."
+    },
+    {
+      "word": "malicious comments",
+      "zh": "恶意评论",
+      "example": "Malicious comments can be seen by hundreds of people."
+    },
+    {
+      "word": "humiliate",
+      "zh": "羞辱",
+      "example": "Such comments humiliate the victim in front of everyone."
+    },
+    {
+      "word": "ridicule",
+      "zh": "嘲笑",
+      "example": "They ridicule her appearance in the comments."
+    },
+    {
+      "word": "remain anonymous",
+      "zh": "保持匿名",
+      "example": "Bullies remain anonymous, so they feel safe."
+    },
+    {
+      "word": "evade accountability",
+      "zh": "逃避责任",
+      "example": "Anonymity lets bullies evade accountability."
+    },
+    {
+      "word": "suffer psychological distress",
+      "zh": "承受心理痛苦",
+      "example": "Victims often suffer psychological distress."
+    },
+    {
+      "word": "inflict lasting harm",
+      "zh": "造成长久伤害",
+      "example": "Cyberbullying can inflict lasting harm on victims."
+    },
+    {
+      "word": "show compassion",
+      "zh": "表现同情",
+      "example": "We should show compassion to victims."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "image-conscious society",
+      "zh": "注重外表的社会"
+    },
+    {
+      "phrase": "first impressions",
+      "zh": "第一印象"
+    },
+    {
+      "phrase": "self-assured",
+      "zh": "自信的"
+    },
+    {
+      "phrase": "insecurity",
+      "zh": "不安全感；自卑"
+    },
+    {
+      "phrase": "unrealistic beauty standards",
+      "zh": "不切实际的审美标准"
+    },
+    {
+      "phrase": "flawless",
+      "zh": "完美无瑕的"
+    },
+    {
+      "phrase": "presentable",
+      "zh": "体面的；得体的"
+    },
+    {
+      "phrase": "obsession with looks",
+      "zh": "对外表的执迷"
+    },
+    {
+      "phrase": "personal hygiene and grooming",
+      "zh": "个人卫生与仪容"
+    },
+    {
+      "phrase": "chasing perfection",
+      "zh": "追求完美"
+    }
+  ],
+  "gaps": [
+    "No example sentence for: 'malicious comments', 'humiliate', 'evade accountability', 'show compassion' (the Teenagers pack's Cyberbullying (Q2) sentences for these were scrambled in the PDF text). The Teenagers & Society pack's Universal phrases section (and some Universal answers) have scrambled example sentences in the PDF text, so those were not copied (left null).",
+    "'inspire positively': example is 'Role models can inspire teenagers positively.' (pack Universal answer T9; inflected form with 'teenagers' inside). Others come from the pack's Cyberbullying question vocab tables (clean sentences only).",
+    "None of the week's words appear in this essay's vocabulary table. The essay (Perlis, physical appearance) is not about cyberbullying; it is the next Teenagers-folder essay on a teen theme.",
+    "The essay has 3 paragraphs only (Part 2); closingIdx = [2] (ends with 'In a nutshell, ...'); keyPoint = paragraph 1 (C1, reason 1).",
+    "goodPhrases: only Table 1 rows used by the Exam Version; the Extended-only rows 'heavily edited' and 'make a big difference' were left out.",
+    "The '(C1)' ... mark tags were removed from the essay text.",
+    "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 41 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used.",
+    "Example for 'malicious comments' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Example for 'humiliate' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Example for 'evade accountability' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Example for 'show compassion' filled later from the Teenagers & Society theme pack (cleaned text)."
+  ]
+}

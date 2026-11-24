@@ -1,0 +1,160 @@
+{
+  "n": 12,
+  "lang": "bi",
+  "theme": "Technology",
+  "level": "B2 to C1",
+  "essayTitle": "Entertainment Media: Friend or Foe?",
+  "source": "Kedah 2026 · Paper 2 · Part 2 Q2 · Essay, 125–150 words",
+  "essayUrl": "https://docs.google.com/document/d/1uGmTNBxmubUG_lgi2trys0-H4xh-dn5SpY2vGEVdj84/edit",
+  "paragraphs": [
+    "In this digital era, entertainment media has become an inseparable part of students' lives. One type of entertainment media that helps my learning is educational YouTube videos. Channels such as Crash Course explain difficult topics in a lively and engaging way.",
+    "First and foremost, this media helps me in my studies by simplifying complex concepts through vivid animations. As a result, I can grasp abstract topics such as chemical bonding more easily. Furthermore, it allows me to learn at my own pace. I can pause and replay a video whenever I am confused.",
+    "Students can control their screen time by setting a daily limit on their phones. This prevents them from mindlessly scrolling for hours. Moreover, they should keep their phones out of reach while studying. This helps them stay focused. In a nutshell, entertainment media is a double-edged sword, so we must use it wisely."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "state ONE type of entertainment media that helps your learning (one only)"
+    },
+    {
+      "code": "C2",
+      "text": "explain how this media helps you in your studies – point 1"
+    },
+    {
+      "code": "C3",
+      "text": "explain how this media helps you – point 2"
+    },
+    {
+      "code": "C4",
+      "text": "suggest ways students can control their screen time – \"ways\" is plural, so give at least two"
+    },
+    {
+      "code": "C5",
+      "text": "suggest ways – way 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "explain how this media helps you in your studies – point 1"
+  },
+  "closingIdx": [
+    2
+  ],
+  "words": [
+    {
+      "word": "deepen their understanding",
+      "zh": "加深理解",
+      "example": "As a result, students deepen their understanding and improve their academic performance."
+    },
+    {
+      "word": "strengthen family bonds",
+      "zh": "加强家庭纽带",
+      "example": "As a result, families maintain close ties, strengthen family bonds and alleviate loneliness."
+    },
+    {
+      "word": "neglect their studies",
+      "zh": "荒废学业",
+      "example": "As a result, they suffer from sleep deprivation and neglect their studies."
+    },
+    {
+      "word": "face-to-face interaction",
+      "zh": "面对面交流",
+      "example": "Heavy use of technology weakens face-to-face interaction."
+    },
+    {
+      "word": "use technology responsibly",
+      "zh": "负责任地使用科技",
+      "example": "A good way to use technology responsibly is to set clear limits."
+    },
+    {
+      "word": "access to a wealth of knowledge",
+      "zh": "获取丰富的知识",
+      "example": "Technology gives students access to a wealth of knowledge."
+    },
+    {
+      "word": "bridge learning gaps",
+      "zh": "弥补学习差距",
+      "example": "This is because they can learn at their own pace and bridge learning gaps whenever they need."
+    },
+    {
+      "word": "improve their academic performance",
+      "zh": "提高学业表现",
+      "example": "As a result, students deepen their understanding and improve their academic performance."
+    },
+    {
+      "word": "overcome geographical barriers",
+      "zh": "克服地理障碍",
+      "example": "This is because messaging apps and video calls overcome geographical barriers in real time."
+    },
+    {
+      "word": "maintain close ties",
+      "zh": "保持紧密联系",
+      "example": "As a result, families maintain close ties, strengthen family bonds and alleviate loneliness."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "digital era",
+      "zh": "数字时代"
+    },
+    {
+      "phrase": "an inseparable part of",
+      "zh": "……不可分割的一部分"
+    },
+    {
+      "phrase": "a double-edged sword",
+      "zh": "双刃剑"
+    },
+    {
+      "phrase": "mindlessly scrolling",
+      "zh": "无意识地刷屏"
+    },
+    {
+      "phrase": "a mere distraction",
+      "zh": "只是一种干扰"
+    },
+    {
+      "phrase": "resist the temptation",
+      "zh": "抵抗诱惑"
+    },
+    {
+      "phrase": "strike a healthy balance",
+      "zh": "取得健康的平衡"
+    },
+    {
+      "phrase": "lively and engaging",
+      "zh": "生动有趣、引人入胜"
+    },
+    {
+      "phrase": "simplifying complex concepts",
+      "zh": "简化复杂的概念"
+    },
+    {
+      "phrase": "vivid animations",
+      "zh": "生动的动画"
+    },
+    {
+      "phrase": "grasp abstract topics",
+      "zh": "掌握抽象的课题"
+    },
+    {
+      "phrase": "at my own pace",
+      "zh": "按自己的节奏"
+    },
+    {
+      "phrase": "screen time",
+      "zh": "屏幕使用时间"
+    },
+    {
+      "phrase": "fall into the trap of",
+      "zh": "落入……的陷阱"
+    }
+  ],
+  "gaps": [
+    "None of the 10 words appears in the Kedah essay's vocabulary table; all 10 example sentences come from the Technology theme pack's Universal answers (U1, U2, U4, U5, U7).",
+    "Examples for 'deepen their understanding' and 'improve their academic performance' are the same sentence (U1); 'strengthen family bonds' and 'maintain close ties' share one sentence (U2)."
+  ]
+}

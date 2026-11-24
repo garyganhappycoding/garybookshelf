@@ -1,0 +1,159 @@
+{
+  "n": 25,
+  "lang": "bi",
+  "theme": "Health & Sports",
+  "level": "C1",
+  "essayTitle": "The Importance of Keeping Healthy",
+  "source": "Gary's Drive · Health folder · older-format essay (SPM Essay: The Importance of Keeping Healthy)",
+  "essayUrl": "https://drive.google.com/file/d/1o66eF4oDClaRi9tixumRQ6JbJd43Bv5N/view",
+  "paragraphs": [
+    "In today's hectic world, maintaining good health is not that easy. We often forgot to take care of our health, and focus more on our studies and work.",
+    "Keeping healthy can ensure us a happy life without the need to worry about our health. Furthermore, it deters us from any disease and illness. We will have an active and full life. We can also ensure a better quality of life when we are older.",
+    "To stay healthy, we should eat healthy food and eat at an appropriate time. Avoid eating junk food and eating late. Besides, we should exercise regularly. It can enhance our physical fitness and guarantee mental health.",
+    "If we do not keep healthy, we can add stress to our life. Health problems will also start to appear and we will have a difficult time living and be happy.",
+    "On the whole, keeping healthy is important to everyone as we can get a lot of benefits."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Explain the benefits of keeping healthy"
+    },
+    {
+      "code": "C2",
+      "text": "Suggest ways to stay healthy (food and exercise)"
+    },
+    {
+      "code": "C3",
+      "text": "State what happens if we do not keep healthy"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "reduce the risk of chronic diseases",
+      "zh": "降低慢性病风险",
+      "example": "As a result, we reduce the risk of chronic diseases such as diabetes and maintain a healthy weight."
+    },
+    {
+      "word": "build resilience",
+      "zh": "培养抗挫力",
+      "example": "As a result, students develop leadership skills and build resilience."
+    },
+    {
+      "word": "prone to obesity",
+      "zh": "容易肥胖",
+      "example": "As a result, they gain excess weight, become prone to obesity and lack energy."
+    },
+    {
+      "word": "gain excess weight",
+      "zh": "体重过重",
+      "example": "As a result, they gain excess weight, become prone to obesity and lack energy."
+    },
+    {
+      "word": "high in sugar and fat",
+      "zh": "高糖高脂",
+      "example": "This is because fast food is cheap and high in sugar and fat."
+    },
+    {
+      "word": "consume excessive sugar",
+      "zh": "摄入过量糖分",
+      "example": "For example, a student who drinks sweet drinks every day consumes far too much sugar."
+    },
+    {
+      "word": "adopt a balanced diet",
+      "zh": "采取均衡饮食",
+      "example": "We should adopt a balanced diet."
+    },
+    {
+      "word": "vital for our well-being",
+      "zh": "对我们的健康至关重要",
+      "example": "Good sleep is vital for our well-being."
+    },
+    {
+      "word": "avoid burnout",
+      "zh": "避免过度疲劳",
+      "example": "As a result, we avoid burnout, think more clearly and maintain a healthy routine."
+    },
+    {
+      "word": "greatest asset",
+      "zh": "最大的财富",
+      "example": "I firmly believe that health is our greatest asset."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "hectic world",
+      "zh": "忙碌的世界"
+    },
+    {
+      "phrase": "maintaining good health",
+      "zh": "保持健康"
+    },
+    {
+      "phrase": "deter us from",
+      "zh": "阻止我们做某事"
+    },
+    {
+      "phrase": "an active and full life",
+      "zh": "活跃而充实的生活"
+    },
+    {
+      "phrase": "a better quality of life",
+      "zh": "更好的生活质量"
+    },
+    {
+      "phrase": "at an appropriate time",
+      "zh": "在适当的时间"
+    },
+    {
+      "phrase": "enhance physical fitness",
+      "zh": "增强体能"
+    },
+    {
+      "phrase": "guarantee mental health",
+      "zh": "保证心理健康"
+    },
+    {
+      "phrase": "add stress to life",
+      "zh": "增加生活压力"
+    },
+    {
+      "phrase": "a myriad of benefits",
+      "zh": "无数的好处"
+    },
+    {
+      "phrase": "a sedentary lifestyle",
+      "zh": "久坐不动的生活方式"
+    },
+    {
+      "phrase": "holistic well-being",
+      "zh": "全面健康"
+    },
+    {
+      "phrase": "a balanced diet",
+      "zh": "均衡饮食"
+    },
+    {
+      "phrase": "physical rejuvenation",
+      "zh": "身体恢复活力"
+    },
+    {
+      "phrase": "a cornerstone of happiness",
+      "zh": "幸福的基石"
+    }
+  ],
+  "gaps": [
+    "Examples are the Health & Sports pack's Universal answers (H1, H2, H4, H5, H7, H9, H11). 'consume excessive sugar': the answer (H5) says 'consumes far too much sugar', a related sentence rather than the exact phrase.",
+    "Essay chosen for week 25: 'The Importance of Keeping Healthy' (older format, unused). Its vocabulary table has 'a balanced diet' and 'holistic well-being' (related to 'adopt a balanced diet' and 'vital for our well-being'); the other week words are not in it. Essay text copied verbatim, including its own wording.",
+    "points written by Claude from the essay (unchecked)"
+  ]
+}
