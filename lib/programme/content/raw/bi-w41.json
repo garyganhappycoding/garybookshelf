@@ -61,12 +61,12 @@
     {
       "word": "malicious comments",
       "zh": "恶意评论",
-      "example": null
+      "example": "Malicious comments can be seen by hundreds of people."
     },
     {
       "word": "humiliate",
       "zh": "羞辱",
-      "example": null
+      "example": "Such comments humiliate the victim in front of everyone."
     },
     {
       "word": "ridicule",
@@ -81,7 +81,7 @@
     {
       "word": "evade accountability",
       "zh": "逃避责任",
-      "example": null
+      "example": "Anonymity lets bullies evade accountability."
     },
     {
       "word": "suffer psychological distress",
@@ -96,7 +96,7 @@
     {
       "word": "show compassion",
       "zh": "表现同情",
-      "example": null
+      "example": "We should show compassion to victims."
     }
   ],
   "goodPhrases": [
@@ -148,6 +148,10 @@
     "The essay has 3 paragraphs only (Part 2); closingIdx = [2] (ends with 'In a nutshell, ...'); keyPoint = paragraph 1 (C1, reason 1).",
     "goodPhrases: only Table 1 rows used by the Exam Version; the Extended-only rows 'heavily edited' and 'make a big difference' were left out.",
     "The '(C1)' ... mark tags were removed from the essay text.",
-    "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 41 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used."
+    "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 41 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used.",
+    "Example for 'malicious comments' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Example for 'humiliate' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Example for 'evade accountability' filled later from the Teenagers & Society theme pack (cleaned text).",
+    "Example for 'show compassion' filled later from the Teenagers & Society theme pack (cleaned text)."
   ]
 }

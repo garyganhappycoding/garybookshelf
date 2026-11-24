@@ -12,7 +12,20 @@
     "The first thing that I would do is visit the national parks such as Bako National Park and Kubah National Park. I want to explore the lush rainforests and experience the nature they offer. Then, I would visit the wildlife sanctuaries. I want to see the orangutans and other rare plant and animal species. Apart from nature, I also want to visit the famous Cat Museum in Kuching, Sarawak. It would be lovely to see all things cat.",
     "On the whole, I would visit Sarawak in a heartbeat as it is a beautiful place to visit for a holiday."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Choose a place you would like to visit and say why"
+    },
+    {
+      "code": "C2",
+      "text": "Say what you can explore there (wildlife, nature, indigenous tribes)"
+    },
+    {
+      "code": "C3",
+      "text": "Describe what you would do there"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -27,7 +40,7 @@
     {
       "word": "take pride in our homeland",
       "zh": "以我们的家园为荣",
-      "example": null
+      "example": "We will take pride in our homeland."
     },
     {
       "word": "nestled in",
@@ -47,7 +60,7 @@
     {
       "word": "savour the local food",
       "zh": "细细品尝当地美食",
-      "example": null
+      "example": "We savoured the local food at the restaurant."
     },
     {
       "word": "spark creativity",
@@ -143,6 +156,9 @@
     "This is an older .docx essay (no Question Analysis table, no Exam/Extended split), so points is [] and keyPoint.prompt is null; keyPoint = paragraph 3 (what I would do in Sarawak).",
     "The essay has no 'By:' line. The Travel folder's 'SPM Essay_ Travel.docx' (Tokyo story) was not used.",
     "Prompt said week 40 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 40 as Travel, Leisure & Home, so Travel words and a Travel essay were used.",
-    "example for 'a tranquil retreat' taken from the theme pack (watermark layer removed)"
+    "example for 'a tranquil retreat' taken from the theme pack (watermark layer removed)",
+    "points written by Claude from the essay (unchecked)",
+    "Example for 'take pride in our homeland' filled later from the Travel / Leisure / Home theme pack (cleaned text).",
+    "Example for 'savour the local food' filled later from the Travel / Leisure / Home theme pack (cleaned text); form differs: 'savoured'."
   ]
 }

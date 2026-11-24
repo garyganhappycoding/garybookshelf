@@ -13,7 +13,20 @@
     "To ensure the club is successful, several promotional methods should be used. Firstly, the ESC must hold an interactive launch event, featuring a fun quiz on green facts and an engaging talk by a local environmentalist. Secondly, use digital platforms effectively: create a dedicated social media account to share photos and short videos of activities, appealing to students' preferred communication channels. Thirdly, establish a peer-to-peer mentoring system where senior members guide new recruits, emphasizing that membership is a commitment to a noble cause, not just another extracurricular activity.",
     "In conclusion, the Environmental Science Club is a pivotal institution for fostering a green culture within the school community. Through structured activities and smart promotion, we can equip students with the knowledge and dedication required to safeguard our planet, ensuring they become the true guardians of tomorrow."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe the environmental activities the club can organise"
+    },
+    {
+      "code": "C2",
+      "text": "Give reasons why the club is needed"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to promote the club"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -162,6 +175,7 @@
     "This essay is an older-format study bundle (Article 03): no Question Analysis table, no Exam/Extended versions, so points is empty and keyPoint.prompt is null. The question is a notice with three bullets: describe environmental activities that can be organised; give reasons why the club is needed; suggest ways to promote this club.",
     "The essay text is the single 'Original Essay (Revised)' version; its bold vocabulary marks were removed. goodPhrases are the rows of its 'Thematic Vocabulary & Phrases Table' (the doc has no 'Table 1').",
     "'foster a sense of responsibility': no sentence with the phrase in the pack or the essay (the essay has 'nurtures a sense of collective responsibility'), so example is null.",
-    "None of the other words is in the essay; their examples come from the Environment pack (Universal answers E7, E9, E11; trial-paper keyword sentences for 'make a conscious effort', 'reduce my carbon footprint', 'safeguard the planet', 'deplete natural resources')."
+    "None of the other words is in the essay; their examples come from the Environment pack (Universal answers E7, E9, E11; trial-paper keyword sentences for 'make a conscious effort', 'reduce my carbon footprint', 'safeguard the planet', 'deplete natural resources').",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

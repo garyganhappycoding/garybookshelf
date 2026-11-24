@@ -12,7 +12,20 @@
     "Co-academic activities like debates can also improve students’ academic performance in several ways. For example, participating in a debate encourages research skills, as students must gather relevant information to support their arguments. It also enhances critical thinking and analytical skills, which are transferable to subjects such as language, history, and even science. Furthermore, these activities foster teamwork and communication, both of which are essential for success in group projects and classroom discussions.",
     "In conclusion, co-academic activities in Malaysian schools, such as debate competitions, offer valuable learning experiences that go beyond the traditional curriculum. They provide a platform for students to develop essential skills that can enhance their academic performance while also preparing them for real-world challenges."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "State what co-academic activities are and what they offer students"
+    },
+    {
+      "code": "C2",
+      "text": "Describe one co-academic activity and why it is attractive"
+    },
+    {
+      "code": "C3",
+      "text": "Explain how co-academic activities can improve academic performance"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -154,6 +167,7 @@
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
     "None of the 10 words appears in this essay's vocabulary table; examples are from the School & Education theme pack (Universal answers S1, S5, S11 and trial-paper example sentences for 'flexible', 'build confidence', 'protect our eyesight').",
     "Only one School & Education essay in the new format exists (used in week 4), so weeks 15, 26 and 37 use the older-format essays in the '7. school' folder (Co-academic Activities, Examination Mode, Bullying).",
-    "example for 'think critically' taken from the theme pack (watermark layer removed)"
+    "example for 'think critically' taken from the theme pack (watermark layer removed)",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

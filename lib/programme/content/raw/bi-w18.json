@@ -13,7 +13,20 @@
     "Secondly, travel acts as a great way to learn about the environment. Seeing the bleached coral or the floating plastic directly in the ocean turns an abstract concept like pollution into a truth we feel deep down. This first-hand exposure promotes a sense of urgency and encourages us to look after the planet better.",
     "In conclusion, Pulau Redang remains my most cherished travel memory due to its natural beauty and the inner peace it provided. Ultimately, travel is the best education, fundamentally broadening our horizons and helping us become more global-minded and conscious individuals."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe the most unforgettable place you have visited and what you did there"
+    },
+    {
+      "code": "C2",
+      "text": "Explain how travelling helps teenagers become self-reliant and adaptable"
+    },
+    {
+      "code": "C3",
+      "text": "Explain how travelling helps teenagers learn about the environment"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -33,7 +46,7 @@
     {
       "word": "on my bucket list",
       "zh": "在我的心愿清单上",
-      "example": null
+      "example": "Mount Kinabalu is on my bucket list."
     },
     {
       "word": "an unforgettable adventure",
@@ -163,6 +176,8 @@
     "This essay doc has no Question Analysis table and no Exam/Extended split (one essay only), so points is []. keyPoint.prompt is null; keyPoint = paragraph 2 (what made the trip special / what I did).",
     "None of the week's 10 words appear in this essay's vocabulary table; all examples come from the Travel pack (Universal answers V5, V7, V9 and the trial-question vocab tables, clean sentences only).",
     "The question's three parts (describe the place, what you did, benefits for teenagers) are not labelled as C-points in a table; the in-text tags (C1)-(C5) were removed from the essay text.",
-    "Prompt said week 18 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 18 as Travel, Leisure & Home, so Travel words and a Travel essay were used."
+    "Prompt said week 18 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 18 as Travel, Leisure & Home, so Travel words and a Travel essay were used.",
+    "points written by Claude from the essay (unchecked)",
+    "Example for 'on my bucket list' filled later from the Travel / Leisure / Home theme pack (cleaned text)."
   ]
 }

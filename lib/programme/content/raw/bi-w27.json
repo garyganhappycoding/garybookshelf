@@ -13,7 +13,20 @@
     "To raise awareness about the importance of saving pocket money, schools and communities can play a vital role. Educational programs can be implemented to teach children and adolescents about personal finance concepts, including budgeting, saving, and investing. Additionally, financial literacy workshops and seminars can be organized for adults to help them improve their money management skills. Encouraging open discussions about finances and providing resources to support saving can also contribute to a more financially literate society.",
     "In conclusion, saving pocket money is a valuable habit that can lead to numerous benefits, including financial security, personal satisfaction, and the development of essential life skills. While challenges may arise, overcoming them through effective strategies and education is crucial. By promoting financial literacy and fostering a culture of responsible money management, individuals can make informed decisions and achieve their financial goals."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Explain the benefits of saving pocket money"
+    },
+    {
+      "code": "C2",
+      "text": "Describe the challenges of saving pocket money"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to raise awareness about saving pocket money"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -158,6 +171,7 @@
     "'splurge on' and 'with the aim of' have no usable example sentence: in the Finance & Consumerism theme pack they appear only in scrambled text (answer F4) or as an unfinished sentence ('The survey was done with the aim of ...').",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
     "None of the 10 words appears in this essay's vocabulary table; examples come from the Finance & Consumerism theme pack (Universal answers F5, F7, F11 and trial-paper sentences). The sentence for 'gain insight' was rebuilt from the scrambled trial-paper text; please check it.",
-    "example for 'with the aim of' taken from the theme pack (watermark layer removed)"
+    "example for 'with the aim of' taken from the theme pack (watermark layer removed)",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

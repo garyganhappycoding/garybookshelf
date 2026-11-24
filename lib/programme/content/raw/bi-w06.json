@@ -13,7 +13,20 @@
     "To encourage young people to participate actively, we must make these events relevant and interactive. Firstly, organisers should incentivise attendance by offering special school-based credit or rewards for participation, perhaps through a cultural passport scheme. Secondly, incorporating technology is key; events could host a contest for the best TikTok video documenting the festival, or offer workshops where traditional crafts are combined with modern design. Finally, giving teenagers leadership roles—like being social media promoters or workshop assistants—will harness their enthusiasm and make them feel that they are the essential future of these traditions.",
     "Attending the local cultural festival was a powerful reminder that our heritage is alive and beautiful. Through engaging activities and the commitment of the community, these events continue to serve as a critical shield against cultural loss. It is up to us, the younger generation, to participate, lead, and ensure that the spirit of our ancestors thrives for many years to come."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe what you saw and did at the festival"
+    },
+    {
+      "code": "C2",
+      "text": "Explain why such festivals are important in preserving cultural identity"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to encourage young people to take part"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -154,6 +167,7 @@
     "The Drive doc has the question (three bullet points) and the essay, but no Question Analysis table and no Exam Version, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
     "The essay's vocabulary table has no Sentence column. 'a feast for the senses', 'a vital link between the past and the present', 'a sense of belonging' and 'passed down through generations' are taken from the essay itself (the last is a variant of 'pass down from generation to generation'); the rest come from the People & Culture theme pack (Universal phrases 1, 2, 3, 6, 8, 9, 10).",
     "The sentences for 'live in harmony' and 'preserve our cultural heritage' were rebuilt from the scrambled watermarked pack PDF (Universal phrases 3 and 6). Please check them.",
-    "Essay order for People & Culture: week 6 Local Cultural Festival, week 17 Negeri Sembilan 'Being Charitable' (Question Analysis format, filed in the Teenagers folder but used by the pack as a People & Culture question), week 28 Preserving Malaysia's Cultural Heritage, week 39 Cultural Diversity in Malaysia (chosen by how many of each week's words they contain)."
+    "Essay order for People & Culture: week 6 Local Cultural Festival, week 17 Negeri Sembilan 'Being Charitable' (Question Analysis format, filed in the Teenagers folder but used by the pack as a People & Culture question), week 28 Preserving Malaysia's Cultural Heritage, week 39 Cultural Diversity in Malaysia (chosen by how many of each week's words they contain).",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

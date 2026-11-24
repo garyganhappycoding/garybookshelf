@@ -13,7 +13,20 @@
     "Moreover, one of the ways to promote understanding and respect among different communities is by organising regular cultural events. These events offer a direct, hands-on experience of other cultures, which is much better and easier to remember than just reading a book. They turn learning into a shared, enjoyable activity. On top of that, our schools must be used to make sure children from all races mix together and understand each other from a very young age. When children study, eat, and play together early, they naturally become friendly and accepting before they can pick up any unfair biases or negative ideas from outside. By encouraging this early interaction in a safe environment, schools act as the main driver for creating a lasting sense of national unity and long-term peace.",
     "In conclusion, the multicultural nature of Malaysia is a precious national identity that must be protected from generation to generation. The benefits we gain are clearly stated, which are forming stronger community bonds and better social skills. To ensure this harmony lasts, we must actively promote understanding through fun cultural events and education through early integration in schools."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Explain one benefit of living in a country with many races (friendship and unity)"
+    },
+    {
+      "code": "C2",
+      "text": "Explain another benefit of living in a country with many cultures (social skills and communication)"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to promote understanding and respect among different communities"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -162,6 +175,7 @@
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The question (three bullet points) is above the essay in the doc; the doc gives the title as 'Celebrating Cultural Diversity in Malaysia' and the article heading 'Malaysia: Our Tapestry of Treasures'.",
     "None of the 10 words appears in this essay's vocabulary table; all 10 examples come from the People & Culture theme pack (Universal answers P1, P11 and trial-paper sentences from the Being Charitable and Live Performance questions).",
     "The sentences for 'give back to the community', 'feel a sense of duty' and 'become more compassionate' were rebuilt from the scrambled watermarked pack PDF. Please check them.",
-    "Unused People & Culture essay: 'The Importance of Respecting Elders' (also older format)."
+    "Unused People & Culture essay: 'The Importance of Respecting Elders' (also older format).",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

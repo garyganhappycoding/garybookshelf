@@ -74,7 +74,7 @@
     {
       "word": "To my horror, …",
       "zh": "令我惊恐的是，……",
-      "example": null
+      "example": "To my horror, the bridge had collapsed."
     },
     {
       "word": "In the nick of time, …",
@@ -145,6 +145,7 @@
     "'In the nick of time, …' example is the essay's Table 1 sentence, which belongs to the Extended Version (marked Extended); the Exam Version does not contain the phrase.",
     "The question's required first line is used as the opening paragraph (in the essay it starts with the given words); the Question Analysis row for it has no C code, so it is not in points.",
     "goodPhrases: rows marked (Extended) (anticipation, at the crack of dawn, in the nick of time, gasping for air, swept away by the strong current) were left out.",
-    "example for 'I heaved a sigh of relief when …' taken from the theme pack (watermark layer removed)"
+    "example for 'I heaved a sigh of relief when …' taken from the theme pack (watermark layer removed)",
+    "Example for 'To my horror, …' filled later from the Story theme pack (cleaned text)."
   ]
 }

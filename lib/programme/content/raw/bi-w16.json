@@ -13,7 +13,20 @@
     "To spread awareness about good spending habits, innovative strategies must be implemented. Firstly, schools should integrate a mandatory financial literacy module into the curriculum, using interactive workshops and real-world budgeting simulations. Secondly, parents should practice open financial dialogue at home, involving teenagers in household budgeting and saving plans, thus turning theoretical concepts into practical lessons. Lastly, leveraging digital platforms is key. Creating short, engaging videos and infographics for platforms like TikTok or Instagram that simplify concepts like compound interest or emergency funds can reach teens in their native digital environment, turning a dry subject into an engaging and accessible discussion.",
     "In conclusion, equipping teenagers with the tools to spend wisely is an investment in their future. By encouraging conscious consumption through education and open communication, we can ensure they navigate the financial frontier with confidence and competence."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "State what teenagers spend their money on"
+    },
+    {
+      "code": "C2",
+      "text": "Explain why it is important for teenagers to spend their money wisely"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to spread awareness about good spending habits"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -38,7 +51,7 @@
     {
       "word": "financial stress",
       "zh": "财务压力",
-      "example": null
+      "example": "As a result, they fall into a debt trap and face financial stress."
     },
     {
       "word": "responsible adult",
@@ -161,6 +174,8 @@
   "gaps": [
     "'financial stress' has no example sentence: the only place it appears in the Finance & Consumerism theme pack (answer F6) is scrambled in the watermarked PDF and could not be copied safely.",
     "The Drive doc (Article 07) has the question and a plan of the answer, but no Question Analysis table and no Exam Version, so 'points' is empty and 'keyPoint.prompt' is null. The (C1)-(C4) markers inside the essay text were removed.",
-    "The doc's own vocabulary table has no Sentence column and none of the 10 words in it (only 'financial literacy' appears inside the phrase 'mandatory financial literacy module'); examples come from the Finance & Consumerism theme pack (Universal answers F1, F2, F3, F11 and the trial-paper sentence for 'run out of money'). The sentence for 'unnecessary expenses' was rebuilt from the scrambled text of answer F2. Please check it."
+    "The doc's own vocabulary table has no Sentence column and none of the 10 words in it (only 'financial literacy' appears inside the phrase 'mandatory financial literacy module'); examples come from the Finance & Consumerism theme pack (Universal answers F1, F2, F3, F11 and the trial-paper sentence for 'run out of money'). The sentence for 'unnecessary expenses' was rebuilt from the scrambled text of answer F2. Please check it.",
+    "points written by Claude from the essay (unchecked)",
+    "Example for 'financial stress' filled later from the Finance & Consumerism theme pack (cleaned text)."
   ]
 }
