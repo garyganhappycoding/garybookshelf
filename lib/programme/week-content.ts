@@ -15,7 +15,7 @@ export type Block =
 export type Response =
   | { kind: "sentences"; words: { word: string; zh: string }[] }        // day 1: one sentence per word, then the quiz
   | { kind: "highlight" }                                                // day 2: tap-to-highlight the essay
-  | { kind: "text"; optional?: boolean }                                 // days 3 to 5 (and the optional full essay on Sunday)
+  | { kind: "text"; optional?: boolean; test?: boolean }                               // days 3 to 5 (and the optional full essay on Sunday)
   | { kind: "none" };                                                    // rest day, or a week whose essay is not ready
 export type Day = { key: string; label: L; minutes: number; blocks: Block[]; response?: Response };
 export type Week = { n: number; lang: "BI" | "BM"; theme: L; essay: string; source: string; days: Day[] };

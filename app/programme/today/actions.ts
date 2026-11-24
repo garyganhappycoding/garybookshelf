@@ -2,7 +2,9 @@
 import { revalidatePath } from "next/cache";
 import { requireProgramme } from "@/lib/programme/gate";
 import { classKey, getProfile, saveProfile } from "@/lib/programme/profile";
-import { build, resolveDay } from "@/lib/programme/dayflow";
+import { build, questionFor, resolveDay } from "@/lib/programme/dayflow";
+import { scoreEssay } from "@/lib/programme/essayscore";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { awardForStreak } from "@/lib/programme/badges";
 import { myHistoryRows } from "@/lib/programme/profile";
 import { addDays, buildCalendar, facts, key, parse, programmeEnd, realHistory } from "@/lib/programme/calendar";
@@ -31,9 +33,18 @@ export async function answerAction(_: Result, form: FormData): Promise<Result> {
   if (!found || "exam" in found || "ended" in found) return { error: "这一天没有任务。" };
   const built = build(found.week, found.day, form, p.instructionLang);
   if ("error" in built) return { error: built.error };
+  // The weekly essay test: marked by the essay marker; the score is kept for the progress chart (the test does not count toward the streak).
+  let scored: Awaited<ReturnType<typeof scoreEssay>> = null;
+  if (built.test) {
+    scored = await scoreEssay(l, questionFor(found.week), built.answer);
+    if (scored) built.directFeedback = `${p.instructionLang === "zh" ? "估计分数" : "Estimated score"}: ${scored.label} (${scored.score}%)\n${scored.summary}\n${p.instructionLang === "zh" ? "要保持" : "Keep doing"}: ${scored.strength}`;
+  }
   const r = await submitAnswer(a.userId, day, l, built.answer, built.aiTask, day < a.today,
     { details: built.details, quizCorrect: built.quizCorrect, quizTotal: built.quizTotal, directFeedback: built.directFeedback, appendFeedback: built.appendFeedback, noFeedback: built.noFeedback });
   if (r.error) return { error: r.error };
+  if (scored) {
+    await createAdminClient().from("programme_essay_tests").upsert({ user_id: a.userId, lang: l, kind: "weekly", period: found.week.n, question: questionFor(found.week), essay: built.answer, score: scored.score, label: scored.label, result: scored.result, model: scored.model, created_at: new Date().toISOString() }, { onConflict: "user_id,lang,kind,period" });
+  }
   // A day handed in on time counts toward the streak; the streak can win a badge (variable timing).
   let badge: Result["badge"];
   if (!a.isAdmin && day === a.today) {
