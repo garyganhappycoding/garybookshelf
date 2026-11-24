@@ -75,7 +75,7 @@ export function makeWeek(d: WeekData): Week {
   ] };
 
   const qBlock: Block | null = d.points.length
-    ? { id: "question", type: "table", title: T("这周的题目", "This week's question"), head: [T("要点", "Point"), T("题目要求", "What the question asks")], rows: d.points.map((p) => [p.code, p.text]) }
+    ? { id: "question", type: "table", title: T("题目", "Question"), head: [T("要点", "Point"), T("题目要求", "What the question asks")], rows: d.points.map((p) => [p.code, p.text]) }
     : null;
 
   const wed: Day = { key: "wed", label: T("第 3 天", "Day 3"), minutes: 10, blocks: !hasEssay ? [notReady] : [

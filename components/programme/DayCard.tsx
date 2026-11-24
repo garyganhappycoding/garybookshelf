@@ -117,9 +117,8 @@ export default function DayCard({ day, lang, ilang, card, submitted: wasSubmitte
         )}
 
         {r.kind === "text" ? (
-          <div className="grid gap-4 lg:grid-cols-5 items-start">
-            <div className="space-y-4 lg:col-span-3">{rest.map((b) => <Panel key={b.id} b={b} ilang={ilang} />)}</div>
-            <div className="space-y-4 lg:col-span-2 lg:sticky lg:top-4">
+          rest.length === 0 ? (
+            <div className="space-y-4">
               {!submitted && (
                 <section className="card">
                   <p className="font-medium mb-2">{r.optional ? T("我的作文（选做）", "My essay (optional)") : T("我的答案", "My answer")}</p>
@@ -128,7 +127,20 @@ export default function DayCard({ day, lang, ilang, card, submitted: wasSubmitte
               )}
               {checks && <Panel b={checks} ilang={ilang} />}
             </div>
-          </div>
+          ) : (
+            <div className="grid gap-4 lg:grid-cols-5 items-start">
+              <div className="space-y-4 lg:col-span-3">{rest.map((b) => <Panel key={b.id} b={b} ilang={ilang} />)}</div>
+              <div className="space-y-4 lg:col-span-2 lg:sticky lg:top-4">
+                {!submitted && (
+                  <section className="card">
+                    <p className="font-medium mb-2">{r.optional ? T("我的作文（选做）", "My essay (optional)") : T("我的答案", "My answer")}</p>
+                    <textarea name="answer" rows={r.optional ? 14 : 9} aria-label="answer" className="w-full rounded-lg border border-ink/20 bg-white p-3 text-sm" />
+                  </section>
+                )}
+                {checks && <Panel b={checks} ilang={ilang} />}
+              </div>
+            </div>
+          )
         ) : (
           <>
             {rest.map((b) => <Panel key={b.id} b={b} ilang={ilang} />)}

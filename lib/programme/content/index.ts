@@ -52,7 +52,7 @@ function addQuestionImage(w: Week, form: FormKey): Week {
     ...w,
     days: w.days.map((d) => !["wed", "thu", "fri"].includes(d.key) || d.blocks[0]?.id !== "steps" ? d : {
       ...d,
-      blocks: [d.blocks[0], { id: "qimage", type: "image", title: { zh: "这周的真题", en: "This week's real question" }, src, alt: "The exam question" }, ...d.blocks.slice(1)],
+      blocks: [d.blocks[0], { id: "qimage", type: "image", title: { zh: "题目", en: "Question" }, src, alt: "The exam question" }, ...d.blocks.slice(1)],
     }),
   };
 }

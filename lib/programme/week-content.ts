@@ -38,7 +38,7 @@ const HIGHLIGHT: { phrase: string; color: 1 | 2 }[] = [
 ];
 
 const QUESTION_TABLE: Block = {
-  id: "question", type: "table", title: { zh: "这周的题目（5 个要点）", en: "This week's question (5 points)" },
+  id: "question", type: "table", title: { zh: "题目（5 个要点）", en: "Question (5 points)" },
   head: [{ zh: "要点", en: "Point" }, { zh: "题目要求", en: "What the question asks" }],
   rows: [
     ["C1", "State a technology commonly used by teenagers (one technology)"],
