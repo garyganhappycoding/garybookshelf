@@ -1,6 +1,7 @@
 // SERVER-ONLY. Before starting, every student gives one of their own essays in BM and one in BI: written on the page or sent as a file.
 // This is the starting point the weekly and monthly essay tests are compared with (Gary, 25 Nov 2026).
 import { createAdminClient } from "@/lib/supabase/admin";
+import { scoreEssay } from "./essayscore";
 
 const MAX_FILE = 10 * 1024 * 1024;
 export type PretestLang = "BI" | "BM";
@@ -14,6 +15,17 @@ export async function myPretests(userId: string) {
 export async function hasPretest(userId: string) {
   const got = new Set((await myPretests(userId)).map((p) => p.lang));
   return got.has("BI") && got.has("BM");
+}
+
+/** Scores the typed starting essays that have no score yet. An uploaded file cannot be marked by the AI: Gary reads those himself. */
+export async function scorePending(userId: string) {
+  const admin = createAdminClient();
+  const { data } = await admin.from("programme_pretest").select("id, lang, body, score").eq("user_id", userId);
+  for (const p of data ?? []) {
+    if (p.score != null || p.body.split(/\s+/).filter(Boolean).length < 30) continue;
+    const s = await scoreEssay(p.lang as PretestLang, "The student's own essay on a topic of their choice (this is the starting-point essay).", p.body);
+    if (s) await admin.from("programme_pretest").update({ score: s.score, label: s.label, result: s.result }).eq("id", p.id);
+  }
 }
 
 const words = (t: string) => t.split(/\s+/).filter(Boolean).length;

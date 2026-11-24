@@ -41,9 +41,16 @@ const tok = (s: string) => s.toLowerCase().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}
 
 export type Built =
   | { error: string }
-  | { answer: string; details: Record<string, unknown>; quizCorrect?: number; quizTotal?: number; directFeedback?: string; appendFeedback?: string; noFeedback?: boolean; aiTask: string };
+  | { answer: string; details: Record<string, unknown>; quizCorrect?: number; quizTotal?: number; directFeedback?: string; appendFeedback?: string; noFeedback?: boolean; test?: boolean; aiTask: string };
 
 const T = (i: Ilang, zh: string, en: string) => (i === "zh" ? zh : en);
+
+/** The question an essay test is marked against: the essay's title plus the question points when the week has them. */
+export function questionFor(week: Week): string {
+  const q = week.days.find((d) => d.key === "wed")?.blocks.find((b) => b.id === "question");
+  const rows = q && q.type === "table" ? q.rows.map((r) => `${r[0]}: ${r[1]}`).join("\n") : "";
+  return `${week.essay}${rows ? `\n${rows}` : ""}`;
+}
 
 export function aiTask(week: Week, day: Day) {
   const steps = day.blocks.find((b) => b.type === "steps");
@@ -62,7 +69,8 @@ export function build(week: Week, day: Day, form: FormData, ilang: Ilang): Built
   if (r.kind === "text") {
     const text = clean(String(form.get("answer") ?? ""), 3000);
     if (text.length < 2) return { error: T(ilang, "请先写下你的答案。", "Please write your answer first.") };
-    return { answer: text, details: {}, aiTask: aiTask(week, day) };
+    if (r.test && text.split(/\s+/).filter(Boolean).length < 30) return { error: T(ilang, "测验的作文太短了，至少写 30 个字。", "The test essay is too short: write at least 30 words.") };
+    return { answer: text, details: r.test ? { test: true } : {}, test: !!r.test, aiTask: aiTask(week, day) };
   }
 
   if (r.kind === "sentences") {

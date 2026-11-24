@@ -37,7 +37,7 @@ export function withResponses(w: Week): Week {
       } else if (d.key === "wed" || d.key === "thu" || d.key === "fri") {
         if (has(d, "model")) response = { kind: "text" };
       } else if (d.key === "sun") {
-        if (has(d, "model")) response = { kind: "text", optional: true };
+        if (has(d, "model")) response = { kind: "text", optional: true, test: true }; // the weekly essay test
       }
       return { ...d, response };
     }),
@@ -50,7 +50,7 @@ function addQuestionImage(w: Week, form: FormKey): Week {
   const src = `/programme/q/${form}/bi-w${String(w.n).padStart(2, "0")}.jpg`;
   return {
     ...w,
-    days: w.days.map((d) => !["wed", "thu", "fri"].includes(d.key) || d.blocks[0]?.id !== "steps" ? d : {
+    days: w.days.map((d) => !["wed", "thu", "fri", "sun"].includes(d.key) || d.blocks[0]?.id !== "steps" ? d : {
       ...d,
       blocks: [d.blocks[0], { id: "qimage", type: "image", title: { zh: "题目", en: "Question" }, src, alt: "The exam question" }, ...d.blocks.slice(1)],
     }),
@@ -75,11 +75,31 @@ function normaliseThursday(w: Week): Week {
   };
 }
 
+/** Sunday is the weekly essay test (Gary, 25 Nov 2026): the full essay on the week's question, marked by the essay marker, to measure progress. */
+function normaliseSunday(w: Week): Week {
+  return {
+    ...w,
+    days: w.days.map((d) => {
+      if (d.key !== "sun" || d.blocks[0]?.id !== "steps" || !d.blocks.some((b) => b.id === "model")) return d;
+      const steps = d.blocks[0];
+      if (steps.type !== "steps") return d;
+      const title = w.essay;
+      const test = { id: "steps", type: "steps" as const, title: steps.title, items: [
+        { zh: `本周测验：不看范文，写完整的「${title}」。系统会给你一个估计分数，用来看你有没有进步。`, en: `Weekly test: without looking at the model, write the full piece "${title}". You get an estimated score to see whether you are improving.` },
+        { zh: "测验不计入连续天数。不想写的话，可以休息。", en: "The test does not count toward your streak. You can rest instead." },
+      ] };
+      const q = w.days.find((x) => x.key === "wed")?.blocks.find((b) => b.id === "question");
+      const rest = d.blocks.slice(1);
+      return { ...d, label: { zh: "本周测验", en: "Weekly test" }, minutes: 25, blocks: [test, ...(q && !rest.some((b) => b.id === "question") ? [q] : []), ...rest] };
+    }),
+  };
+}
+
 export function getWeek(form: FormKey, lang: "BI" | "BM", n: number): Week | null {
   const o = OVERRIDE[`${form}-${lang}-${n}`];
-  if (o) return withResponses(addQuestionImage(addGuidance(normaliseThursday(o)), form));
+  if (o) return withResponses(addQuestionImage(normaliseSunday(addGuidance(normaliseThursday(o))), form));
   const d = DATA[form][lang].find((x) => x.n === n);
-  return d ? withResponses(addQuestionImage(addGuidance(makeWeek(d)), form)) : null;
+  return d ? withResponses(addQuestionImage(normaliseSunday(addGuidance(makeWeek(d))), form)) : null;
 }
 
 export const weeksAvailable = (form: FormKey, lang: "BI" | "BM") => [...new Set([...(form === "f4" && lang === "BI" ? [1] : []), ...DATA[form][lang].map((x) => x.n)])].sort((a, b) => a - b);
