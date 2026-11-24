@@ -1,7 +1,7 @@
 # 陪你读书 · how to extract one week of content
 
 Used by the extraction agents and by overnight runs. One JSON file per week and language, written to
-`lib/programme/content/raw/<lang>-w<NN>.json` (lang = `bi` or `bm`, NN = two digits, e.g. `bi-w07.json`).
+`lib/programme/content/raw/<form>/<lang>-w<NN>.json` (form = `f4` or `f5`, lang = `bi` or `bm`, NN = two digits, e.g. `f4/bi-w07.json`). Form 4 and Form 5 have SEPARATE content (Gary, 24 Nov 2026); Form 5 started as a copy of Form 4. After editing run `node scripts/build-content.mjs`.
 
 ## Hard rules
 - Read-only on Google Drive (Drive MCP: search_files, read_file_content). Never move, rename, edit or trash anything.

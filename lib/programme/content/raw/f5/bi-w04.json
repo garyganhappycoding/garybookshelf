@@ -1,0 +1,149 @@
+{
+  "n": 4,
+  "lang": "bi",
+  "theme": "School & Education",
+  "level": "B2",
+  "essayTitle": "Mastering the Clock",
+  "source": "SPM 2026 Trial · Terengganu (MPP3) · English Paper 2 · Part 2 Q2 · Essay, 125–150 words",
+  "essayUrl": "https://docs.google.com/document/d/1mvj97fxHYhlbKCkf901MzJ6MlJa0eq_FDbuY-mrJ_WA/edit",
+  "paragraphs": [
+    "Time is a precious resource that, once lost, can never be regained. One thing that often distracts me from my studies is my smartphone. Whenever a notification pops up, I find myself mindlessly scrolling through social media for an hour.",
+    "I overcome this distraction by leaving my phone in another room while I study. Out of sight is truly out of mind, so I can concentrate fully on my revision. Furthermore, I use a timer to study in short, focused sessions. After 45 minutes of hard work, I reward myself with a ten-minute break.",
+    "In my opinion, students should do important tasks first because they can complete them with a fresh mind. Our energy is at its peak at the start of the day. Moreover, this habit reduces stress. Students no longer have to scramble to finish assignments at the eleventh hour."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "say ONE thing that often distracts you from your studies (give only one)"
+    },
+    {
+      "code": "C2",
+      "text": "explain how you overcome this distraction – step 1"
+    },
+    {
+      "code": "C3",
+      "text": "how you overcome it – step 2"
+    },
+    {
+      "code": "C4",
+      "text": "discuss why students should do important tasks first – reason 1"
+    },
+    {
+      "code": "C5",
+      "text": "why do important tasks first – reason 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "explain how you overcome this distraction – step 1"
+  },
+  "closingIdx": [
+    2
+  ],
+  "words": [
+    {
+      "word": "education is the key to success",
+      "zh": "教育是成功的关键",
+      "example": "Education is the key to success, but grades are not everything."
+    },
+    {
+      "word": "bend over books",
+      "zh": "埋头苦读",
+      "example": "Many students bend over books under immense pressure to achieve excellent results."
+    },
+    {
+      "word": "broaden their horizons",
+      "zh": "开阔眼界",
+      "example": "School trips broaden their horizons."
+    },
+    {
+      "word": "a safe and supportive learning environment",
+      "zh": "安全且有支持的学习环境",
+      "example": "Teachers must create a safe and supportive learning environment."
+    },
+    {
+      "word": "nurture well-rounded individuals",
+      "zh": "培养全面发展的人",
+      "example": "Schools should nurture well-rounded individuals, not exam machines."
+    },
+    {
+      "word": "academic pressure",
+      "zh": "学业压力",
+      "example": "Academic pressure is a heavy burden for many students."
+    },
+    {
+      "word": "lose motivation",
+      "zh": "失去动力",
+      "example": "As a result, they suffer from anxiety, lose motivation and even burn out."
+    },
+    {
+      "word": "meet deadlines",
+      "zh": "赶上截止日期",
+      "example": "As a result, I meet deadlines, avoid last-minute stress and make the most of my time."
+    },
+    {
+      "word": "at my own pace",
+      "zh": "按自己的节奏",
+      "example": "I learn at my own pace without pressure."
+    },
+    {
+      "word": "active participation",
+      "zh": "积极参与",
+      "example": "Active participation made the event lively."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "a precious resource",
+      "zh": "宝贵的资源"
+    },
+    {
+      "phrase": "concentrate",
+      "zh": "专注"
+    },
+    {
+      "phrase": "out of sight, out of mind",
+      "zh": "眼不见，心不想"
+    },
+    {
+      "phrase": "at its peak",
+      "zh": "处于巅峰"
+    },
+    {
+      "phrase": "scramble",
+      "zh": "手忙脚乱地赶"
+    },
+    {
+      "phrase": "at the eleventh hour",
+      "zh": "在最后一刻"
+    },
+    {
+      "phrase": "the key to success",
+      "zh": "成功的关键"
+    },
+    {
+      "phrase": "mindlessly scrolling",
+      "zh": "无意识地滑手机"
+    },
+    {
+      "phrase": "notification pops up",
+      "zh": "弹出通知"
+    },
+    {
+      "phrase": "focused sessions",
+      "zh": "专注的学习时段"
+    },
+    {
+      "phrase": "reward myself",
+      "zh": "奖励自己"
+    }
+  ],
+  "gaps": [
+    "None of the 10 words appears in the Terengganu essay's vocabulary table; examples come from the School & Education theme pack (Universal phrases section, Universal answers S4/S7, and the trial-paper example sentences for 'at my own pace' and 'active participation').",
+    "The watermarked pack PDF is scrambled: the sentences for 'bend over books', 'academic pressure', 'lose motivation' and 'meet deadlines' were rebuilt from the scrambled text of the pack (Universal phrase 2 and answers S4, S7). Please check them.",
+    "The School folder has only one essay in the Question Analysis / Exam Version format (this one); the next three rounds use older-format essays."
+  ]
+}

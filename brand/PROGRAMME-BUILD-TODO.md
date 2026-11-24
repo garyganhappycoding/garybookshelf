@@ -7,6 +7,7 @@
 - [ ] 10 BI words still have no example sentence (see raw files' gaps).
 
 ## To do (decided 2026-11-24)
+- [x] **Form 4 and Form 5 content is separate** (24 Nov 2026): raw/f4 and raw/f5, data.f4.*/data.f5.*, question pictures in public/programme/q/f4 and f5. Form 5 is a COPY of Form 4 for now, to be replaced with the real Form 5 (SPM revision) vocab and essays when Gary provides them. Edit the right folder.
 - [x] **Form 4: the programme ends when the year-end exam starts** (Gary: 考完年终考后就结束; content weeks that do not fit are simply removed): 33 content weeks for Form 4 (`programmeEnd` in calendar.ts). Form 5 has no end rule yet (36 content weeks fit); design it with the SPM-sprint plan. Lists in brand/lists regenerated.
 - [ ] **Form 5 is more SPM revision (Gary, 24 Nov 2026)**: the Form 5 plan is not designed. For now Form 5 uses the same 44-week content as Form 4 (36 weeks fit). Design the SPM-sprint plan with Gary.
 - [x] A partial exam week (exam on some days only) moves the WHOLE week: no vocabulary at all that week (Gary confirmed).

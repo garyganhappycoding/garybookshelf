@@ -1,0 +1,164 @@
+{
+  "n": 9,
+  "lang": "bi",
+  "theme": "Review",
+  "level": "B2",
+  "essayTitle": "Ola Bola: A Must-Go Local Movie",
+  "source": "SPM 2026 Trial · Johor (Set 3) · English Paper 2 · Part 3 Q3 · Review, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1QP1OeMrs9-zsNfMtRyTbHagyGN4nTA2JebV7V8O9AV4/edit",
+  "paragraphs": [
+    "Have you ever watched a movie that left you with goosebumps long after the credits rolled? Recently, I watched a local film that did exactly that, and I would like to share my experience with all of you.",
+    "The title of the movie is Ola Bola. It is a sports drama that tells the heart-warming story of the Malaysian national football team and its journey to qualify for the 1980 Olympics. Directed by Chiu Keng Guan, the movie is inspired by true events.",
+    "First and foremost, what I learnt from the movie is that unity is our greatest strength. At first, the players are divided by endless quarrels, but they only start winning when they set aside their differences. Furthermore, I learnt that success requires sacrifice and perseverance. Some players give up their personal dreams for the team, which shows that great achievements often come at a price.",
+    "I would definitely recommend this movie to my friends because it is both entertaining and meaningful. The nail-biting match scenes keep the audience on the edge of their seats. Moreover, the movie instils a strong sense of patriotism in young viewers. Watching players of different races fight as one team makes us proud to be Malaysian.",
+    "In a nutshell, Ola Bola is not merely a football movie but a celebration of the Malaysian spirit. Grab your popcorn and do not miss this gem!"
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "What is the title of the movie?"
+    },
+    {
+      "code": "C2",
+      "text": "What is the genre of the movie?"
+    },
+    {
+      "code": "C3",
+      "text": "Explain what you learnt from the movie – lesson 1"
+    },
+    {
+      "code": "C4",
+      "text": "Explain what you learnt from the movie – lesson 2"
+    },
+    {
+      "code": "C5",
+      "text": "Would you recommend the movie to your friends? Why? – reason 1"
+    },
+    {
+      "code": "C6",
+      "text": "Why? – reason 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 2,
+    "prompt": "Explain what you learnt from the movie – lesson 1"
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "if you are looking for …, look no further",
+      "zh": "如果你在找……，不用再找了",
+      "example": "If you are looking for a relaxing weekend, look no further."
+    },
+    {
+      "word": "… is a hidden gem",
+      "zh": "……是个隐藏的宝藏",
+      "example": "This little café is a hidden gem in the heart of Ipoh."
+    },
+    {
+      "word": "what sets it apart is …",
+      "zh": "让它与众不同的是……",
+      "example": "What sets it apart is its rich, creamy broth."
+    },
+    {
+      "word": "worth every penny",
+      "zh": "物超所值",
+      "example": "At RM15, the meal is worth every penny."
+    },
+    {
+      "word": "the highlight … is …",
+      "zh": "最大的亮点是……",
+      "example": "The highlight of the show was the final duet."
+    },
+    {
+      "word": "exceeded my expectations",
+      "zh": "超出了我的期望",
+      "example": "This is because everything exceeded my expectations."
+    },
+    {
+      "word": "left a lasting impression on me",
+      "zh": "给我留下深刻印象",
+      "example": "The ending left a lasting impression on me."
+    },
+    {
+      "word": "the only drawback is that …, but …",
+      "zh": "唯一的缺点是……，不过……",
+      "example": "The only drawback is the long queue, but it moves fast."
+    },
+    {
+      "word": "I would highly recommend … to anyone who …",
+      "zh": "我强烈推荐……给任何想……的人",
+      "example": "I would highly recommend this book to anyone who loves mysteries."
+    },
+    {
+      "word": "a must-try / a must-visit",
+      "zh": "必尝／必去之地",
+      "example": "Taman Negara is a must-visit for nature lovers."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "left you with goosebumps",
+      "zh": "让你起鸡皮疙瘩（深受感动）"
+    },
+    {
+      "phrase": "long after the credits rolled",
+      "zh": "片尾字幕结束后很久"
+    },
+    {
+      "phrase": "heart-warming",
+      "zh": "温馨感人的"
+    },
+    {
+      "phrase": "inspired by true events",
+      "zh": "改编自真实事件"
+    },
+    {
+      "phrase": "nail-biting",
+      "zh": "扣人心弦的"
+    },
+    {
+      "phrase": "on the edge of their seats",
+      "zh": "紧张得坐立不安"
+    },
+    {
+      "phrase": "set aside their differences",
+      "zh": "搁置分歧"
+    },
+    {
+      "phrase": "unity is our greatest strength",
+      "zh": "团结是我们最大的力量"
+    },
+    {
+      "phrase": "sacrifice and perseverance",
+      "zh": "牺牲与坚持"
+    },
+    {
+      "phrase": "come at a price",
+      "zh": "需要付出代价"
+    },
+    {
+      "phrase": "instils a strong sense of patriotism",
+      "zh": "灌输强烈的爱国精神"
+    },
+    {
+      "phrase": "celebration of the Malaysian spirit",
+      "zh": "对大马精神的颂扬"
+    }
+  ],
+  "gaps": [
+    "Words with no example sentence (not in the essay or the pack's clean universal sentences): '… is a hidden gem', 'what sets it apart is …', 'worth every penny', 'the highlight … is …', 'left a lasting impression on me'. In the Review pack's Universal phrases section the example sentences for these were scrambled in the PDF text, so they were not copied.",
+    "'exceeded my expectations' example is the Universal answer RV3 sentence 'This is because everything exceeded my expectations.' (not the Universal phrases section).",
+    "goodPhrases: only rows of Table 1 used by the Exam Version are listed; rows marked (Extended) (captivating, cinematography, authentic portrayal, tugs at the heartstrings, personal grudges) were left out because they come only from the Extended Version.",
+    "example for '… is a hidden gem' taken from the theme pack (watermark layer removed)",
+    "example for 'what sets it apart is …' taken from the theme pack (watermark layer removed)",
+    "example for 'worth every penny' taken from the theme pack (watermark layer removed)",
+    "example for 'left a lasting impression on me' taken from the theme pack (watermark layer removed)",
+    "Example for 'the highlight … is …' filled later from the Review theme pack (cleaned text); form differs: 'was' instead of 'is'."
+  ]
+}

@@ -19,7 +19,7 @@ export default async function TodayPage({ searchParams }: { searchParams: Promis
   const sub = await hasSubmitted(a.userId, today, lang);
   // classmates' comments are only loaded once the student has handed in their own answer; the class is state + Form
   const comments = sub ? await listComments(a.userId, classKey(p), today, lang) : [];
-  const found = resolveDay(buildCalendar(p.state), today, lang, p.exams, programmeEnd(p.exams, p.form));
+  const found = resolveDay(buildCalendar(p.state), today, lang, p.exams, programmeEnd(p.exams, p.form), p.form);
   const examWeek = !!found && "exam" in found;
   const ended = !!found && "ended" in found;
   const card = found && !("exam" in found) && !("ended" in found) ? {

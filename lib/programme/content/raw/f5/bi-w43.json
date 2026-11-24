@@ -1,0 +1,154 @@
+{
+  "n": 43,
+  "lang": "bi",
+  "theme": "Report",
+  "level": "C1",
+  "essayTitle": "Report on the Visit to Pawfect Haven Animal Shelter",
+  "source": "SPM 2026 Trial · Perlis · English Paper 2 · Part 3 Q3 · Report, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1lNpsyLgwA-fIrsJABj2mY6xiTdLvjtM1Lsgvj6BptRs/edit",
+  "paragraphs": [
+    "This report is about the visit to Pawfect Haven Animal Shelter in Kangar organised by the Nature Lovers Club on 16 August 2026. A total of 30 members and two teacher advisors took part.",
+    "The first aim of the visit was to raise members' awareness of animal welfare. Members learnt about the plight of abandoned pets and the importance of responsible ownership. The second aim was to cultivate a spirit of volunteerism among members. The club hoped members would contribute their time and energy to a worthy cause.",
+    "First and foremost, members cleaned the kennels and bathed the dogs. Despite the strong odour, everyone rolled up their sleeves and worked tirelessly. Furthermore, members attended a talk by the shelter's veterinarian. She explained how to care for rescued animals and why neutering is essential.",
+    "Firstly, the school could organise a donation drive to collect pet food and supplies for animal shelters. This would ease the shelter's financial burden. Secondly, students could help promote pet adoption on social media. This would help more animals find loving homes.",
+    "In conclusion, the visit was meaningful and eye-opening. It is hoped that similar visits will be held regularly so that more students can lend a helping hand to these voiceless creatures."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "aims of the visit – aim 1 (\"aims\" is plural)"
+    },
+    {
+      "code": "C2",
+      "text": "aims of the visit – aim 2"
+    },
+    {
+      "code": "C3",
+      "text": "TWO activities carried out – activity 1"
+    },
+    {
+      "code": "C4",
+      "text": "TWO activities – activity 2 (exactly two)"
+    },
+    {
+      "code": "C5",
+      "text": "suggestions to help and support animal shelters – suggestion 1"
+    },
+    {
+      "code": "C6",
+      "text": "suggestions – suggestion 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "aims of the visit – aim 1 (\"aims\" is plural)"
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "experience first-hand",
+      "zh": "亲身体验",
+      "example": "This is because we experienced first-hand how small actions make a difference."
+    },
+    {
+      "word": "broaden our horizons",
+      "zh": "开阔我们的眼界",
+      "example": "The visit broadened our horizons."
+    },
+    {
+      "word": "ensure lasting change",
+      "zh": "确保持久改变",
+      "example": "This is because regular action ensures lasting change."
+    },
+    {
+      "word": "take pride in",
+      "zh": "以……为荣",
+      "example": "Students will take pride in their surroundings."
+    },
+    {
+      "word": "achieve its objectives",
+      "zh": "达成目标",
+      "example": "In conclusion, the programme achieved its objectives."
+    },
+    {
+      "word": "strongly recommended",
+      "zh": "强烈建议",
+      "example": "It is strongly recommended that similar events be organised in future."
+    },
+    {
+      "word": "be taken into consideration",
+      "zh": "被纳入考虑",
+      "example": "I hope these suggestions will be taken into consideration."
+    },
+    {
+      "word": "give animals a second chance",
+      "zh": "给动物第二次机会",
+      "example": "They give animals a second chance at life."
+    },
+    {
+      "word": "cooperate enthusiastically",
+      "zh": "热情合作",
+      "example": "This is because everyone cooperated enthusiastically."
+    },
+    {
+      "word": "the majority of respondents",
+      "zh": "大多数受访者",
+      "example": null
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "cultivate a spirit of volunteerism",
+      "zh": "培养志愿服务精神"
+    },
+    {
+      "phrase": "a worthy cause",
+      "zh": "有价值的公益事业"
+    },
+    {
+      "phrase": "rolled up their sleeves",
+      "zh": "卷起袖子（准备大干一场）"
+    },
+    {
+      "phrase": "ease the financial burden",
+      "zh": "减轻经济负担"
+    },
+    {
+      "phrase": "lend a helping hand",
+      "zh": "伸出援手"
+    },
+    {
+      "phrase": "animal welfare",
+      "zh": "动物福利"
+    },
+    {
+      "phrase": "plight",
+      "zh": "困境"
+    },
+    {
+      "phrase": "responsible ownership",
+      "zh": "负责任的饲养"
+    },
+    {
+      "phrase": "neutering",
+      "zh": "绝育"
+    },
+    {
+      "phrase": "voiceless creatures",
+      "zh": "无法发声的生灵"
+    }
+  ],
+  "gaps": [
+    "No example sentence for 'ensure lasting change', 'cooperate enthusiastically', 'the majority of respondents': the pack's sentences for these were scrambled in the PDF text, and none is in the essay.",
+    "None of this week's words are in the essay's vocabulary table. Examples come from the Report pack: 'experience first-hand' (RP7 answer; the PDF text showed 'first- hand', written here as 'first-hand'), 'broaden our horizons' (Q1 table), 'take pride in' (Q2 table), 'achieve its objectives', 'strongly recommended', 'be taken into consideration' (RP9 answer), 'give animals a second chance' (Q4 table).",
+    "paragraphs: the To/From/Date/Subject block, the sub-headings and the 'Prepared by' lines were left out; only the 5 body paragraphs are given.",
+    "goodPhrases: rows marked (Extended) (the highlight of the day, stray population) were left out.",
+    "Example for 'ensure lasting change' filled later from the Report theme pack (cleaned text); form differs: 'ensures'.",
+    "Example for 'cooperate enthusiastically' filled later from the Report theme pack (cleaned text); form differs: 'cooperated'."
+  ]
+}

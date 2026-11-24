@@ -1,0 +1,151 @@
+{
+  "n": 23,
+  "lang": "bi",
+  "theme": "Technology",
+  "level": "C1",
+  "essayTitle": "Smart Choices for Smart Devices",
+  "source": "Terengganu (MPP3) 2026 · Paper 2 · Part 3 Q3 · Article, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1HAEU_eHCkDY3jtXiwrj5VNsBzLM4eNqAnSF6JSN0ALY/edit",
+  "paragraphs": [
+    "From smartphones to wireless earbuds, gadgets have become an indispensable part of teenagers' lives. With so many options on the market, choosing the right one can be a real challenge.",
+    "My choice of gadgets is mainly influenced by my needs. As a Form Five student, I look for a device that can handle online lessons and assignments smoothly. Furthermore, my choice is influenced by online reviews and my friends' recommendations. Honest reviews help me avoid gadgets that look good but perform poorly.",
+    "In my opinion, features are more important than price. A cheap gadget that cannot do the job is a waste of money, no matter how attractive the price tag. A device with a long battery life and enough storage is a worthwhile investment that will last for years. Of course, I still compare prices to find the best value for money.",
+    "Gadgets help me in my daily life by making learning easier. With my tablet, I can watch educational videos and read e-books at the touch of a button. Moreover, gadgets help me stay organised. The calendar and reminder apps on my phone ensure that I never miss a deadline or a club meeting.",
+    "In a nutshell, gadgets are powerful tools when chosen wisely. As long as we use them responsibly, they can make our lives more productive and convenient."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "what influences your choice of gadgets – factor 1"
+    },
+    {
+      "code": "C2",
+      "text": "what influences your choice – factor 2"
+    },
+    {
+      "code": "C3",
+      "text": "which is more important – features or price? (stand + reason)"
+    },
+    {
+      "code": "C4",
+      "text": "tell us how gadgets help you in your daily life – way 1"
+    },
+    {
+      "code": "C5",
+      "text": "how gadgets help in daily life – way 2"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "what influences your choice of gadgets – factor 1"
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "alleviate loneliness",
+      "zh": "缓解孤独",
+      "example": "As a result, families maintain close ties, strengthen family bonds and alleviate loneliness."
+    },
+    {
+      "word": "enhance our productivity",
+      "zh": "提升我们的效率",
+      "example": "Technology saves time and enhances our productivity."
+    },
+    {
+      "word": "meet deadlines consistently",
+      "zh": "始终如期完成",
+      "example": "For example, a calendar app sets reminders so that I meet deadlines consistently."
+    },
+    {
+      "word": "alleviate stress",
+      "zh": "缓解压力",
+      "example": "As a result, we alleviate stress and have more time for what really matters."
+    },
+    {
+      "word": "impair concentration",
+      "zh": "损害专注力",
+      "example": "Constant alerts impair concentration."
+    },
+    {
+      "word": "sleep deprivation",
+      "zh": "睡眠不足",
+      "example": "As a result, they suffer from sleep deprivation and neglect their studies."
+    },
+    {
+      "word": "prioritise virtual interaction",
+      "zh": "优先选择线上互动",
+      "example": "This is because many teenagers prioritise virtual interaction over real conversations."
+    },
+    {
+      "word": "erode genuine relationships",
+      "zh": "侵蚀真诚的关系",
+      "example": "Constant screen use can erode genuine relationships."
+    },
+    {
+      "word": "social isolation",
+      "zh": "社交孤立",
+      "example": "As a result, genuine relationships erode and social isolation becomes more common."
+    },
+    {
+      "word": "remain anonymous",
+      "zh": "保持匿名",
+      "example": "This is because bullies remain anonymous behind fake accounts and cannot see their victims' pain."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "indispensable",
+      "zh": "不可或缺的"
+    },
+    {
+      "phrase": "a worthwhile investment",
+      "zh": "值得的投资"
+    },
+    {
+      "phrase": "at the touch of a button",
+      "zh": "一按即可"
+    },
+    {
+      "phrase": "responsibly",
+      "zh": "负责任地"
+    },
+    {
+      "phrase": "convenient",
+      "zh": "方便的"
+    },
+    {
+      "phrase": "productive",
+      "zh": "有效率的"
+    },
+    {
+      "phrase": "value for money",
+      "zh": "物有所值"
+    },
+    {
+      "phrase": "price tag",
+      "zh": "价格标签；售价"
+    },
+    {
+      "phrase": "battery life",
+      "zh": "电池续航力"
+    },
+    {
+      "phrase": "perform poorly",
+      "zh": "性能差"
+    },
+    {
+      "phrase": "on the market",
+      "zh": "市面上"
+    }
+  ],
+  "gaps": [
+    "None of the 10 words appears in the Terengganu essay's vocabulary table or in the pack's 'Universal phrases' section. Eight examples come from the pack's Universal answers (U2 to U6).",
+    "'impair concentration' and 'erode genuine relationships': the Universal answers only contain inflected forms ('impairs their concentration', 'relationships erode'), so the example is the pack's keyword sentence from the Technology notes (not from the essay or a Universal answer).",
+    "'alleviate loneliness' shares its sentence with U2 only; 'social isolation' and 'prioritise virtual interaction' both come from U5."
+  ]
+}

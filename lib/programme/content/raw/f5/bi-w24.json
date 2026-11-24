@@ -1,0 +1,181 @@
+{
+  "n": 24,
+  "lang": "bi",
+  "theme": "Environment",
+  "level": "C1",
+  "essayTitle": "Environmental Science Club",
+  "source": "Study bundle · Article 03 · Environmental Science Club for School · Article, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1oKBMz7qn5u-a3tOvFU6lbkS26PNklETHuOr4ET7lGe8/edit",
+  "paragraphs": [
+    "In an era of global climate change and resource depletion, educating the next generation about caring for the environment is no longer optional—it is a necessary duty. A dedicated Environmental Science Club (ESC) is essential in our school to put knowledge into practice through meaningful projects. This article outlines suitable activities, the necessity of the club, and effective promotion strategies.",
+    "The ESC can organize several impactful activities. Firstly, a School Recycling Initiative should be launched, where members manage labeled bins for different recyclables (plastic, paper, glass) and monitor collection rates. This teaches practical waste management. Secondly, a Community River Clean-up Project can be held monthly, collaborating with local NGOs to remove trash from nearby water bodies. This activity provides hands-on experience with ecosystem preservation. Thirdly, a Vertical Garden Project can transform unused wall space into a sustainable garden, growing herbs and vegetables. This promotes urban farming techniques and food sustainability.",
+    "The club is needed for several compelling reasons. It provides a dynamic platform for experiential learning, moving beyond textbooks to real-world problem-solving. Furthermore, the ESC nurtures a sense of collective responsibility among students, transforming passive awareness into active environmental citizenship. By engaging in clean-ups and projects, students take charge of making changes rather than mere observers of environmental degradation.",
+    "To ensure the club is successful, several promotional methods should be used. Firstly, the ESC must hold an interactive launch event, featuring a fun quiz on green facts and an engaging talk by a local environmentalist. Secondly, use digital platforms effectively: create a dedicated social media account to share photos and short videos of activities, appealing to students' preferred communication channels. Thirdly, establish a peer-to-peer mentoring system where senior members guide new recruits, emphasizing that membership is a commitment to a noble cause, not just another extracurricular activity.",
+    "In conclusion, the Environmental Science Club is a pivotal institution for fostering a green culture within the school community. Through structured activities and smart promotion, we can equip students with the knowledge and dedication required to safeguard our planet, ensuring they become the true guardians of tomorrow."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe the environmental activities the club can organise"
+    },
+    {
+      "code": "C2",
+      "text": "Give reasons why the club is needed"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to promote the club"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "deter illegal dumping",
+      "zh": "阻止非法倾倒",
+      "example": "For example, heavy fines can deter illegal dumping and open burning."
+    },
+    {
+      "word": "take ownership",
+      "zh": "负起责任",
+      "example": "This is because everyone can take ownership of their neighbourhood."
+    },
+    {
+      "word": "foster a sense of responsibility",
+      "zh": "培养责任感",
+      "example": null
+    },
+    {
+      "word": "shared responsibility",
+      "zh": "共同的责任",
+      "example": "I firmly believe that protecting the environment is a shared responsibility."
+    },
+    {
+      "word": "make a real difference",
+      "zh": "带来真正的改变",
+      "example": "For example, one person's small action may seem insignificant, but millions of people together make a real difference."
+    },
+    {
+      "word": "insignificant",
+      "zh": "微不足道的",
+      "example": "For example, one person's small action may seem insignificant, but millions of people together make a real difference."
+    },
+    {
+      "word": "make a conscious effort",
+      "zh": "努力有意识地做",
+      "example": "I make a conscious effort to avoid single-use plastic."
+    },
+    {
+      "word": "reduce my carbon footprint",
+      "zh": "减少我的碳足迹",
+      "example": "This practice helps me reduce my carbon footprint."
+    },
+    {
+      "word": "safeguard the planet",
+      "zh": "保护地球",
+      "example": "An eco-friendly lifestyle helps us safeguard the planet."
+    },
+    {
+      "word": "deplete natural resources",
+      "zh": "耗尽自然资源",
+      "example": "Wasteful habits deplete natural resources quickly."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "caring for the environment",
+      "zh": "照顾环境，爱护环境"
+    },
+    {
+      "phrase": "necessary duty",
+      "zh": "必要的责任/义务"
+    },
+    {
+      "phrase": "put knowledge into practice",
+      "zh": "将知识付诸实践"
+    },
+    {
+      "phrase": "resource depletion",
+      "zh": "资源耗竭/枯竭"
+    },
+    {
+      "phrase": "practical waste management",
+      "zh": "实际的废物管理"
+    },
+    {
+      "phrase": "ecosystem preservation",
+      "zh": "生态系统保护"
+    },
+    {
+      "phrase": "sustainable garden",
+      "zh": "可持续的花园"
+    },
+    {
+      "phrase": "urban farming techniques",
+      "zh": "城市农业技术"
+    },
+    {
+      "phrase": "dynamic platform",
+      "zh": "动态的平台"
+    },
+    {
+      "phrase": "experiential learning",
+      "zh": "体验式学习"
+    },
+    {
+      "phrase": "real-world problem-solving",
+      "zh": "解决现实世界的问题"
+    },
+    {
+      "phrase": "nurtures a sense of collective responsibility",
+      "zh": "培养集体责任感"
+    },
+    {
+      "phrase": "take charge of making changes",
+      "zh": "主导/负责做出改变"
+    },
+    {
+      "phrase": "club is successful",
+      "zh": "俱乐部是成功的"
+    },
+    {
+      "phrase": "promotional methods should be used",
+      "zh": "推广方法应被使用"
+    },
+    {
+      "phrase": "fun quiz on green facts",
+      "zh": "有趣的环保知识问答"
+    },
+    {
+      "phrase": "active environmental citizenship",
+      "zh": "积极的环境公民意识"
+    },
+    {
+      "phrase": "environmental degradation",
+      "zh": "环境恶化"
+    },
+    {
+      "phrase": "noble cause",
+      "zh": "崇高的事业"
+    },
+    {
+      "phrase": "pivotal institution",
+      "zh": "关键机构"
+    }
+  ],
+  "gaps": [
+    "This essay is an older-format study bundle (Article 03): no Question Analysis table, no Exam/Extended versions, so points is empty and keyPoint.prompt is null. The question is a notice with three bullets: describe environmental activities that can be organised; give reasons why the club is needed; suggest ways to promote this club.",
+    "The essay text is the single 'Original Essay (Revised)' version; its bold vocabulary marks were removed. goodPhrases are the rows of its 'Thematic Vocabulary & Phrases Table' (the doc has no 'Table 1').",
+    "'foster a sense of responsibility': no sentence with the phrase in the pack or the essay (the essay has 'nurtures a sense of collective responsibility'), so example is null.",
+    "None of the other words is in the essay; their examples come from the Environment pack (Universal answers E7, E9, E11; trial-paper keyword sentences for 'make a conscious effort', 'reduce my carbon footprint', 'safeguard the planet', 'deplete natural resources').",
+    "points written by Claude from the essay (unchecked)"
+  ]
+}

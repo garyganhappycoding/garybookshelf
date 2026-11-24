@@ -1,0 +1,179 @@
+{
+  "n": 36,
+  "lang": "bi",
+  "theme": "Health & Sports",
+  "level": "C1",
+  "essayTitle": "SPM Essay on Sports and Participation",
+  "source": "Gary's Drive · Health folder · older-format essay (SPM Essay on Sports and Participation)",
+  "essayUrl": "https://drive.google.com/file/d/1eqohzbf9uek7qXegQgLkLO0bbSQPb3mO/view",
+  "paragraphs": [
+    "Sports play a vital role in our lives, providing entertainment, physical activity, and opportunities for social interaction. From local leagues to international tournaments, sporting events captivate audiences and inspire athletes to strive for excellence. This essay will discuss a recent sports competition that I found particularly interesting, explore the factors that contributed to its appeal, and offer suggestions for promoting greater participation in sports.",
+    "One of the most memorable sports competitions I recently watched was the 2023 FIFA World Cup. As a global sporting event held every four years, the World Cup attracts millions of viewers from around the world. The tournament showcased the highest level of football talent, with teams from various countries competing for the coveted trophy.",
+    "Several factors contributed to the excitement and intrigue of the World Cup. Firstly, the unexpected victories of underdog teams created a sense of unpredictability and kept fans on the edge of their seats. Secondly, the passionate support from fans, both in stadiums and at home, created a vibrant and electrifying atmosphere. Finally, the exceptional skill and athleticism displayed by the players were a testament to the dedication and hard work required to reach such a high level of competition.",
+    "To encourage more people to participate in sports, it is essential to create accessible and inclusive environments. This can be achieved by providing affordable sports facilities, offering a variety of sports options, and promoting sports programs in schools and communities. Additionally, encouraging positive sportsmanship and celebrating the achievements of athletes can inspire others to get involved. By fostering a supportive and inclusive sports culture, we can help to increase participation and reap the numerous benefits that sports offer.",
+    "The 2023 FIFA World Cup was a thrilling and unforgettable sporting event that showcased the passion, talent, and dedication of athletes from around the globe. The unpredictable nature of the tournament, combined with the enthusiastic support of fans, created a captivating experience for viewers. To promote greater participation in sports, it is crucial to create accessible and inclusive environments, encourage positive sportsmanship, and celebrate the achievements of athletes. By doing so, we can help to foster a more active and engaged society."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe a recent sports competition you found interesting"
+    },
+    {
+      "code": "C2",
+      "text": "Explain the factors that made the competition exciting"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to encourage more people to participate in sports"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "make health a priority",
+      "zh": "把健康放在首位",
+      "example": "Therefore, we should make our health a priority, because prevention is better than cure."
+    },
+    {
+      "word": "maintain good personal hygiene",
+      "zh": "保持良好的个人卫生",
+      "example": "We should maintain good personal hygiene every day."
+    },
+    {
+      "word": "serve as role models",
+      "zh": "成为榜样",
+      "example": "This is because athletes serve as role models who show what hard work can achieve."
+    },
+    {
+      "word": "accessible to everyone",
+      "zh": "人人都能接触",
+      "example": "Football is accessible to everyone because it needs only a ball."
+    },
+    {
+      "word": "unite people from all walks of life",
+      "zh": "团结各阶层的人",
+      "example": "Sports have the power to unite people from all walks of life."
+    },
+    {
+      "word": "spark an interest in",
+      "zh": "激发对……的兴趣",
+      "example": "A great match can spark an interest in the sport."
+    },
+    {
+      "word": "lead a more active lifestyle",
+      "zh": "过更积极的生活",
+      "example": "Fans may lead a more active lifestyle as a result."
+    },
+    {
+      "word": "judge by appearance",
+      "zh": "以貌取人",
+      "example": "Unfortunately, many people judge others by appearance."
+    },
+    {
+      "word": "develop low self-esteem",
+      "zh": "产生自卑",
+      "example": "As a result, some develop low self-esteem, while others boost their confidence by dressing neatly and staying fit."
+    },
+    {
+      "word": "true beauty comes from within",
+      "zh": "真正的美来自内在",
+      "example": "True beauty comes from within, not from looks alone."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "play a vital role",
+      "zh": "扮演至关重要的角色"
+    },
+    {
+      "phrase": "opportunities for social interaction",
+      "zh": "社交互动的机会"
+    },
+    {
+      "phrase": "strive for excellence",
+      "zh": "追求卓越"
+    },
+    {
+      "phrase": "global sporting event",
+      "zh": "全球体育盛事"
+    },
+    {
+      "phrase": "highest level of talent",
+      "zh": "最高水平的才能"
+    },
+    {
+      "phrase": "coveted trophy",
+      "zh": "梦寐以求的奖杯"
+    },
+    {
+      "phrase": "unexpected victories",
+      "zh": "意想不到的胜利"
+    },
+    {
+      "phrase": "sense of unpredictability",
+      "zh": "不可预测的感觉"
+    },
+    {
+      "phrase": "passionate support",
+      "zh": "热情的支持"
+    },
+    {
+      "phrase": "electrifying atmosphere",
+      "zh": "令人兴奋的气氛"
+    },
+    {
+      "phrase": "exceptional skill and athleticism",
+      "zh": "出色的技能和运动能力"
+    },
+    {
+      "phrase": "dedication and hard work",
+      "zh": "奉献和努力"
+    },
+    {
+      "phrase": "accessible and inclusive environments",
+      "zh": "可及且包容的环境"
+    },
+    {
+      "phrase": "affordable sports facilities",
+      "zh": "价格合理的体育设施"
+    },
+    {
+      "phrase": "a variety of sports options",
+      "zh": "多种运动选择"
+    },
+    {
+      "phrase": "promoting sports programs",
+      "zh": "推广体育项目"
+    },
+    {
+      "phrase": "positive sportsmanship",
+      "zh": "积极的体育精神"
+    },
+    {
+      "phrase": "celebrate the achievements of athletes",
+      "zh": "庆祝运动员的成就"
+    },
+    {
+      "phrase": "foster a supportive sports culture",
+      "zh": "营造支持性的体育文化"
+    },
+    {
+      "phrase": "a more active and engaged society",
+      "zh": "更加积极参与的社会"
+    }
+  ],
+  "gaps": [
+    "Examples: 'make health a priority' and 'develop low self-esteem' are Universal answers (H11, H10), 'serve as role models' is H6 (the 'our health' / 'some develop' forms are slightly different), the rest are the pack's trial-paper keyword sentences (section 4). 'unite people from all walks of life' is copied from Gary's SBP Popularity of Sports essay (week 3's essay), because no pack sentence has it. 'judge by appearance' is 'judge others by appearance' in the source.",
+    "Essay chosen for week 36: 'SPM Essay on Sports and Participation' (older format, unused). Its table has 'accessible and inclusive environments' (related to 'accessible to everyone'); the essay is about participation in sports. Other week words are not in it. Essay text copied verbatim; title is the doc's own heading.",
+    "points written by Claude from the essay (unchecked)"
+  ]
+}

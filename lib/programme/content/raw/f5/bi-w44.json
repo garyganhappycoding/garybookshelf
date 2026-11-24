@@ -1,0 +1,137 @@
+{
+  "n": 44,
+  "lang": "bi",
+  "theme": "Story",
+  "level": "C1",
+  "essayTitle": "Precious Time",
+  "source": "SPM 2026 Trial · Kedah · English Paper 2 · Part 3 Q3 · Story, 200–250 words",
+  "essayUrl": "https://docs.google.com/document/d/1hK4ruS22vUvTmnLGU3dDOnd_gIJAgskK4_hlOxAZavw/edit",
+  "paragraphs": [
+    "It was the first Saturday of the school holidays, and I had big plans. I intended to spend the whole day glued to my computer, playing online games with my friends until late at night.",
+    "However, an unexpected event happened during my free time. At noon, I heard a loud thud from the garden and rushed out to find my grandfather collapsed beside his flower pots. My blood ran cold as I dialled for an ambulance with shaking fingers.",
+    "At the hospital, the doctor told us that Grandpa had a weak heart. I decided to cancel my gaming plans and stay by his bedside instead. For the next two weeks, I read him the newspaper every morning. Furthermore, I decided to record his life stories on my phone. I wanted to treasure every precious memory he had.",
+    "As a result, Grandpa and I grew closer than ever before. He told me about his childhood in the paddy fields and how he had worked tirelessly to raise his family. Every story opened my eyes to a world I had never bothered to ask about.",
+    "Today, Grandpa is back home, tending to his beloved flowers once again. Looking back at those hours I used to waste on games, I realised that time is more valuable than I thought."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "an unexpected event that happened during your free time"
+    },
+    {
+      "code": "C2",
+      "text": "the unexpected event – detail / your reaction"
+    },
+    {
+      "code": "C3",
+      "text": "what you decided to do – decision 1"
+    },
+    {
+      "code": "C4",
+      "text": "what you decided to do – decision 2"
+    },
+    {
+      "code": "C5",
+      "text": "result of the decision (links the story to the ending)"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "an unexpected event that happened during your free time"
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "cherish every moment",
+      "zh": "珍惜每一刻",
+      "example": "From that day on, I cherished every moment with my loved ones."
+    },
+    {
+      "word": "an unforgettable lesson",
+      "zh": "难忘的教训",
+      "example": "That day taught me an unforgettable lesson."
+    },
+    {
+      "word": "out of the blue",
+      "zh": "突然",
+      "example": "Out of the blue, my phone rang."
+    },
+    {
+      "word": "catch me off guard",
+      "zh": "让我措手不及",
+      "example": "The news caught me off guard."
+    },
+    {
+      "word": "without a second thought",
+      "zh": "毫不犹豫",
+      "example": "Without a second thought, I rushed to help."
+    },
+    {
+      "word": "spring into action",
+      "zh": "立刻行动",
+      "example": "I sprang into action and called an ambulance."
+    },
+    {
+      "word": "it dawned on me",
+      "zh": "我突然意识到",
+      "example": "It dawned on me how precious every minute is."
+    },
+    {
+      "word": "a matter of life and death",
+      "zh": "生死攸关的事",
+      "example": "I realised it was a matter of life and death."
+    },
+    {
+      "word": "rooted to the spot",
+      "zh": "呆立不动",
+      "example": "Isaac stood rooted to the spot."
+    },
+    {
+      "word": "a mixture of fear and excitement",
+      "zh": "恐惧与兴奋交织",
+      "example": "He felt a mixture of fear and excitement."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "my blood ran cold",
+      "zh": "我吓得浑身发冷"
+    },
+    {
+      "phrase": "opened my eyes to",
+      "zh": "让我大开眼界；使我认识到"
+    },
+    {
+      "phrase": "tirelessly",
+      "zh": "不知疲倦地"
+    },
+    {
+      "phrase": "glued to my computer",
+      "zh": "黏在电脑前"
+    },
+    {
+      "phrase": "stay by his bedside",
+      "zh": "守在他的床边"
+    },
+    {
+      "phrase": "treasure every precious memory",
+      "zh": "珍惜每一段珍贵的回忆"
+    },
+    {
+      "phrase": "tending to",
+      "zh": "照料"
+    }
+  ],
+  "gaps": [
+    "No example sentence for 'an unforgettable lesson': the pack's ST10 sentence was scrambled in the PDF text, and the phrase is not in the essay.",
+    "None of this week's words are in the essay or its vocabulary table. All examples come from the Story pack: 'cherish every moment' (ST9 answer, inflected), 'out of the blue', 'catch me off guard', 'without a second thought', 'spring into action', 'it dawned on me', 'a matter of life and death' (Q2 table, the Kedah question), 'rooted to the spot', 'a mixture of fear and excitement' (Q3 Mysterious Gate table, about the character Isaac; the examples use 'Isaac' and 'He').",
+    "The question's required last sentence is the last sentence of the final paragraph; the Question Analysis row for it has no C code, so it is not in points.",
+    "goodPhrases: rows marked (Extended) (felt like an eternity, a pang of guilt, take someone for granted, the wee hours of the morning, squander) were left out.",
+    "example for 'an unforgettable lesson' taken from the theme pack (watermark layer removed)"
+  ]
+}

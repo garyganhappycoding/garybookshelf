@@ -1,0 +1,180 @@
+{
+  "n": 38,
+  "lang": "bi",
+  "theme": "Finance & Consumerism",
+  "level": "C1",
+  "essayTitle": "Beware When Spending",
+  "source": "SPM Essay (older format, no trial paper named) · Essay on spending and online safety",
+  "essayUrl": "https://drive.google.com/file/d/1QP328THhkBH3MWMIGYEolnEp98o_SN2B/view",
+  "paragraphs": [
+    "Online shopping has become a convenient way for people to buy things, but it also comes with risks. Many people fall victim to online scams, where they are tricked into giving away their personal information or money. It is important to be aware of these dangers and take steps to protect ourselves when spending money online.",
+    "One common way people get tricked online is through fake websites or advertisements. Scammers create websites that look like real online stores, but they steal money or personal details instead of delivering products. Phishing emails are another trick, where scammers pretend to be trusted companies and ask for sensitive information. Some people also fall for deals that seem too good to be true, only to realize later that they have been scammed.",
+    "To protect yourself when shopping online, it’s essential to use trusted websites and always check the URL for security features, such as “https” and a padlock symbol. Avoid clicking on links from unknown emails or messages, and never share personal or financial information on unverified sites. It is also helpful to read customer reviews and research sellers before making any purchase. Using secure payment methods, like credit cards or PayPal, can also provide extra protection in case something goes wrong.",
+    "To spread awareness about online safety among teenagers, schools and parents can teach them about the risks of online shopping and scams. Organizing workshops on digital literacy and creating educational content about safe online practices can help. Teenagers should also be encouraged to ask for advice from trusted adults before making online purchases.",
+    "In conclusion, while online shopping offers convenience, it is important to be cautious to avoid falling into scams. By staying informed and taking protective measures, we can shop safely and help others become more aware of online risks."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Explain how people get tricked when spending money online"
+    },
+    {
+      "code": "C2",
+      "text": "Suggest ways to protect yourself when shopping online"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to spread awareness about online safety among teenagers"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "spend impulsively",
+      "zh": "冲动消费",
+      "example": "Many pupils spend impulsively on trendy items."
+    },
+    {
+      "word": "barely save money",
+      "zh": "几乎没有存钱",
+      "example": "Nearly half barely save any money."
+    },
+    {
+      "word": "fall short of their goals",
+      "zh": "达不到目标",
+      "example": "Pupils fall short of their saving goals."
+    },
+    {
+      "word": "raise awareness through talks",
+      "zh": "通过讲座提高意识",
+      "example": "The school can raise awareness through talks."
+    },
+    {
+      "word": "become wise consumers",
+      "zh": "成为精明的消费者",
+      "example": "As a result, students become wise consumers who manage their money well."
+    },
+    {
+      "word": "secure a better financial future",
+      "zh": "确保更好的财务未来",
+      "example": "This helps them secure a better financial future."
+    },
+    {
+      "word": "develop responsible money habits",
+      "zh": "养成负责任的理财习惯",
+      "example": "They will develop responsible money habits."
+    },
+    {
+      "word": "control spending",
+      "zh": "控制开销",
+      "example": null
+    },
+    {
+      "word": "spend beyond one's means",
+      "zh": "入不敷出",
+      "example": "Many teenagers spend beyond their means whenever they see something attractive."
+    },
+    {
+      "word": "a vital life skill",
+      "zh": "重要的生活技能",
+      "example": "Financial literacy is a vital life skill."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "fall victim to online scams",
+      "zh": "成为网络诈骗的受害者"
+    },
+    {
+      "phrase": "giving away personal information",
+      "zh": "泄露个人信息"
+    },
+    {
+      "phrase": "be aware of these dangers",
+      "zh": "意识到这些危险"
+    },
+    {
+      "phrase": "take steps to protect ourselves",
+      "zh": "采取措施保护自己"
+    },
+    {
+      "phrase": "fake websites or advertisements",
+      "zh": "虚假的网站或广告"
+    },
+    {
+      "phrase": "phishing emails",
+      "zh": "钓鱼邮件"
+    },
+    {
+      "phrase": "sensitive information",
+      "zh": "敏感信息"
+    },
+    {
+      "phrase": "deals that seem too good to be true",
+      "zh": "看似过于美好的交易"
+    },
+    {
+      "phrase": "trusted websites",
+      "zh": "值得信赖的网站"
+    },
+    {
+      "phrase": "check the URL for security features",
+      "zh": "检查网址的安全功能"
+    },
+    {
+      "phrase": "never share personal or financial information",
+      "zh": "切勿分享个人或财务信息"
+    },
+    {
+      "phrase": "read customer reviews",
+      "zh": "阅读客户评价"
+    },
+    {
+      "phrase": "secure payment methods",
+      "zh": "安全的付款方式"
+    },
+    {
+      "phrase": "spread awareness",
+      "zh": "提高意识"
+    },
+    {
+      "phrase": "online safety",
+      "zh": "网络安全"
+    },
+    {
+      "phrase": "digital literacy",
+      "zh": "数字素养"
+    },
+    {
+      "phrase": "safe online practices",
+      "zh": "安全的上网习惯"
+    },
+    {
+      "phrase": "stay informed",
+      "zh": "保持信息透明"
+    },
+    {
+      "phrase": "take protective measures",
+      "zh": "采取保护措施"
+    },
+    {
+      "phrase": "avoid falling into scams",
+      "zh": "避免上当受骗"
+    }
+  ],
+  "gaps": [
+    "'control spending' has no example sentence: in the Finance & Consumerism theme pack it appears only as a key word (answer F2) and the scrambled model paragraph could not be copied safely.",
+    "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The essay is about online shopping scams and awareness, not general spending habits.",
+    "None of the 10 words appears in this essay's vocabulary table; examples come from the Finance & Consumerism theme pack (Universal answers F3, F9 and trial-paper sentences from the Kedah spending-habits report). The sentences for 'barely save money', 'secure a better financial future' and 'spend beyond one's means' were rebuilt from the scrambled pack text; 'fall short of their goals' uses 'their saving goals' and 'spend beyond one's means' uses 'their means'. Please check them.",
+    "points written by Claude from the essay (unchecked)"
+  ]
+}

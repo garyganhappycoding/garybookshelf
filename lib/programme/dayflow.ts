@@ -1,6 +1,6 @@
 // SERVER-ONLY. Finds today's day card for a student, hides what must stay hidden until they hand in, and grades what they hand in.
 import { contentWeekOf, parse, type Calendar } from "./calendar";
-import { dayKeyFor, forStudent, getWeek } from "./content/index";
+import { dayKeyFor, forStudent, formKey, getWeek } from "./content/index";
 import type { Block, Day, Week } from "./week-content";
 import { clean } from "@/lib/community";
 
@@ -8,13 +8,13 @@ export type Ilang = "en" | "zh";
 
 export type Resolved = { week: Week; day: Day } | { exam: true } | { ended: true } | null;
 
-export function resolveDay(cal: Calendar, day: string, lang: "BI" | "BM", exams: { start: string; end: string }[] = [], end: string | null = null): Resolved {
+export function resolveDay(cal: Calendar, day: string, lang: "BI" | "BM", exams: { start: string; end: string }[] = [], end: string | null = null, form = 4): Resolved {
   const d = parse(day);
   const cw = contentWeekOf(cal, exams, d, end);
   if (!cw) return null;
   if ("exam" in cw) return { exam: true };
   if ("ended" in cw) return { ended: true };
-  const week = getWeek(lang, cw.n);
+  const week = getWeek(formKey(form), lang, cw.n);
   if (!week) return null;
   const k = dayKeyFor(cal.group, d.getDay());
   const card = week.days.find((x) => x.key === k);

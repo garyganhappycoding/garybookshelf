@@ -1,0 +1,145 @@
+{
+  "n": 29,
+  "lang": "bi",
+  "theme": "Travel / Leisure / Home",
+  "level": "C1",
+  "essayTitle": "Travelling Local",
+  "source": "SPM Essay on Travelling Local (Travel folder, .docx)",
+  "essayUrl": "https://drive.google.com/file/d/1uubL4PswMpolPxEbXQjX9iB9J9rYY7ZA/view",
+  "paragraphs": [
+    "Travelling locally has become a popular option for many people, especially in recent years. Exploring one’s own country offers unique experiences and opportunities to discover hidden gems close to home. Personally, I enjoy travelling locally because it allows me to appreciate the beauty and diversity of my country without the stress of long-distance travel.",
+    "One local destination in Malaysia that should not be missed is Langkawi. Known as the “Jewel of Kedah,” Langkawi is a stunning island with beautiful beaches, clear waters, and lush greenery. Besides relaxing by the sea, visitors can explore the Langkawi Sky Bridge, visit the famous Langkawi Cable Car, and enjoy duty-free shopping. It’s a perfect destination for nature lovers and adventure seekers alike.",
+    "Travelling locally has several advantages compared to going abroad. First, it is often more affordable as you save on expensive flight tickets and avoid currency exchange rates. Second, it’s easier to plan a trip locally since there are fewer visa or language barriers to worry about. Finally, travelling within your own country supports the local economy and helps small businesses thrive.",
+    "To fully enjoy a local trip, plan your itinerary carefully to explore places off the beaten path. Try local food and engage with the culture to make the experience richer. Travelling during off-peak seasons can also help you avoid crowds and get better deals on accommodation. Packing lightly and being open to new experiences will make your journey more enjoyable.",
+    "In conclusion, travelling locally offers a wonderful opportunity to discover new destinations, save money, and support your community. Whether it’s a short weekend getaway or a longer trip, exploring your own country can be just as exciting as going abroad, if not more rewarding."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe a local destination that should not be missed"
+    },
+    {
+      "code": "C2",
+      "text": "State the advantages of travelling locally compared with going abroad"
+    },
+    {
+      "code": "C3",
+      "text": "Give tips for enjoying a local trip"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "refresh the mind",
+      "zh": "让头脑焕然一新",
+      "example": "A relaxing getaway refreshes the mind."
+    },
+    {
+      "word": "make life richer",
+      "zh": "让生活更丰富",
+      "example": "I firmly believe that travel and leisure make life richer."
+    },
+    {
+      "word": "give us balance",
+      "zh": "带给我们平衡",
+      "example": "This is because they give us balance and create lasting memories."
+    },
+    {
+      "word": "lasting memories",
+      "zh": "持久的回忆",
+      "example": "We would create lasting memories."
+    },
+    {
+      "word": "a breathtaking destination",
+      "zh": "令人惊叹的目的地",
+      "example": "Langkawi is a breathtaking destination."
+    },
+    {
+      "word": "a once-in-a-lifetime opportunity",
+      "zh": "千载难逢的机会",
+      "example": "It would be a once-in-a-lifetime opportunity."
+    },
+    {
+      "word": "take my breath away",
+      "zh": "令我惊叹",
+      "example": "The view would take my breath away."
+    },
+    {
+      "word": "rich in culture and history",
+      "zh": "文化和历史丰富",
+      "example": "Japan is rich in culture and history."
+    },
+    {
+      "word": "broaden my horizons",
+      "zh": "开阔我的眼界",
+      "example": "The trip would broaden my horizons."
+    },
+    {
+      "word": "deepen my appreciation of",
+      "zh": "加深我对……的欣赏",
+      "example": "It would deepen my appreciation of other cultures."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "Hidden gems",
+      "zh": "隐藏的宝地/宝藏地点"
+    },
+    {
+      "phrase": "Off the beaten path",
+      "zh": "不常被探访的地方"
+    },
+    {
+      "phrase": "Nature lovers",
+      "zh": "喜欢大自然的人"
+    },
+    {
+      "phrase": "Adventure seekers",
+      "zh": "寻求冒险的人"
+    },
+    {
+      "phrase": "Short weekend getaway",
+      "zh": "周末短途旅行"
+    },
+    {
+      "phrase": "Support the local economy",
+      "zh": "支持本地经济"
+    },
+    {
+      "phrase": "Cultural engagement",
+      "zh": "文化交流"
+    },
+    {
+      "phrase": "Planning an itinerary",
+      "zh": "安排行程"
+    },
+    {
+      "phrase": "Travelling during off-peak seasons",
+      "zh": "在淡季旅游"
+    },
+    {
+      "phrase": "A rewarding experience",
+      "zh": "值得的经历"
+    }
+  ],
+  "gaps": [
+    "No example sentence for 'a breathtaking destination' (the pack's sentence was scrambled in the PDF text).",
+    "'refresh the mind': example is 'A relaxing getaway refreshes the mind.' (inflected form, pack Universal answer V3).",
+    "This is an older .docx essay with no Question Analysis table and no Exam/Extended split, so points is [] and keyPoint.prompt is null; keyPoint = paragraph 2 (Langkawi, the local destination).",
+    "None of the week's words appear in this essay's vocabulary table; examples come from the Travel pack (Universal answers V11, V3 and the trial-question vocab tables, clean sentences only).",
+    "The Travel folder also holds 'SPM Essay_ Travel.docx' (a Tokyo holiday story). It was not used because it is a story, not a travel-theme essay.",
+    "The docx text shows a curly apostrophe/quotes; copied as shown.",
+    "Prompt said week 29 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 29 as Travel, Leisure & Home, so Travel words and a Travel essay were used.",
+    "example for 'a breathtaking destination' taken from the theme pack (watermark layer removed)",
+    "points written by Claude from the essay (unchecked)"
+  ]
+}

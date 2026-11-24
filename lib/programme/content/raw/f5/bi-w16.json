@@ -1,0 +1,181 @@
+{
+  "n": 16,
+  "lang": "bi",
+  "theme": "Finance & Consumerism",
+  "level": "B2 to C1",
+  "essayTitle": "Teenagers and Money",
+  "source": "SPM Essay · Article, Teenagers and Money (Article 07)",
+  "essayUrl": "https://docs.google.com/document/d/11Tg3Cu0sudBwvJhdIj7_u_AYnha_1ratTEZnuV4nbgY/edit",
+  "paragraphs": [
+    "Money management is an indispensable life skill that teenagers must master before entering adulthood. In today's consumer-driven environment, young people are often faced with an onslaught of temptations. Understanding common spending habits and promoting financial literacy is crucial for their future economic stability.",
+    "Teenagers typically allocate their funds to several key areas. The largest chunk often goes towards discretionary purchases driven by peer culture, such as the latest fashion trends or branded electronic accessories. Social spending is another major category, covering cinema tickets, cafe visits, or sharing meals with friends, which are driven by the need for social inclusion and belonging. Finally, convenience spending on delivery apps, impulse snacks, and subscription services (gaming or streaming) accounts for much of the rest. These spending patterns are frequently influenced by social media advertisements and a desire for instant gratification.",
+    "It is profoundly important for teenagers to spend their money wisely for several reasons. Firstly, prudent spending builds the foundation for long-term financial health, teaching them to differentiate between needs and wants. This practice mitigates the risk of future debt reliance and financial distress. Secondly, conscious allocation of money teaches responsibility and accountability. By managing their allowance or earnings, teens learn the value of hard work and the finite nature of resources, skills that are paramount for independent living and career success. Ultimately, wise spending today ensures greater financial freedom tomorrow.",
+    "To spread awareness about good spending habits, innovative strategies must be implemented. Firstly, schools should integrate a mandatory financial literacy module into the curriculum, using interactive workshops and real-world budgeting simulations. Secondly, parents should practice open financial dialogue at home, involving teenagers in household budgeting and saving plans, thus turning theoretical concepts into practical lessons. Lastly, leveraging digital platforms is key. Creating short, engaging videos and infographics for platforms like TikTok or Instagram that simplify concepts like compound interest or emergency funds can reach teens in their native digital environment, turning a dry subject into an engaging and accessible discussion.",
+    "In conclusion, equipping teenagers with the tools to spend wisely is an investment in their future. By encouraging conscious consumption through education and open communication, we can ensure they navigate the financial frontier with confidence and competence."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "State what teenagers spend their money on"
+    },
+    {
+      "code": "C2",
+      "text": "Explain why it is important for teenagers to spend their money wisely"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to spread awareness about good spending habits"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
+  "words": [
+    {
+      "word": "spend wisely",
+      "zh": "明智消费",
+      "example": "As a result, we spend wisely, avoid wasting money and live within our means."
+    },
+    {
+      "word": "run out of money",
+      "zh": "把钱花光",
+      "example": "Many run out of money before the month ends."
+    },
+    {
+      "word": "financial stress",
+      "zh": "财务压力",
+      "example": "As a result, they fall into a debt trap and face financial stress."
+    },
+    {
+      "word": "responsible adult",
+      "zh": "负责任的成年人",
+      "example": "For example, a teenager who learns to save grows into a responsible adult."
+    },
+    {
+      "word": "financial independence",
+      "zh": "经济独立",
+      "example": "As a result, we gain financial independence and avoid debt later in life."
+    },
+    {
+      "word": "financial security",
+      "zh": "经济保障",
+      "example": "Saving money gives us financial security."
+    },
+    {
+      "word": "act as a safety net",
+      "zh": "起到保障作用",
+      "example": "This is because savings act as a safety net in emergencies."
+    },
+    {
+      "word": "afford unexpected expenses",
+      "zh": "负担意外开销",
+      "example": "For example, a student who saves part of their allowance can afford unexpected expenses without borrowing."
+    },
+    {
+      "word": "unnecessary expenses",
+      "zh": "不必要的开销",
+      "example": "This is because writing down every purchase shows exactly where our money goes and reveals unnecessary expenses."
+    },
+    {
+      "word": "financial literacy",
+      "zh": "金融素养",
+      "example": "Financial literacy is a vital life skill."
+    }
+  ],
+  "goodPhrases": [
+    {
+      "phrase": "indispensable life skill",
+      "zh": "不可或缺的生活技能"
+    },
+    {
+      "phrase": "onslaught of temptations",
+      "zh": "诱惑的猛攻/冲击"
+    },
+    {
+      "phrase": "economic stability",
+      "zh": "经济稳定"
+    },
+    {
+      "phrase": "allocate their funds",
+      "zh": "分配他们的资金"
+    },
+    {
+      "phrase": "discretionary purchases",
+      "zh": "可自由支配的购买"
+    },
+    {
+      "phrase": "social inclusion",
+      "zh": "社会包容性"
+    },
+    {
+      "phrase": "instant gratification",
+      "zh": "即时满足"
+    },
+    {
+      "phrase": "prudent spending",
+      "zh": "谨慎的消费"
+    },
+    {
+      "phrase": "long-term financial health",
+      "zh": "长期财务健康"
+    },
+    {
+      "phrase": "differentiate between needs and wants",
+      "zh": "区分需求和欲望"
+    },
+    {
+      "phrase": "mitigates the risk",
+      "zh": "减轻风险"
+    },
+    {
+      "phrase": "conscious allocation of money",
+      "zh": "有意识的资金分配"
+    },
+    {
+      "phrase": "finite nature of resources",
+      "zh": "资源的有限性"
+    },
+    {
+      "phrase": "paramount",
+      "zh": "至关重要的"
+    },
+    {
+      "phrase": "mandatory financial literacy module",
+      "zh": "强制性的金融知识模块"
+    },
+    {
+      "phrase": "real-world budgeting simulations",
+      "zh": "现实预算模拟"
+    },
+    {
+      "phrase": "open financial dialogue",
+      "zh": "开放的财务对话"
+    },
+    {
+      "phrase": "practical lessons",
+      "zh": "实际的教训"
+    },
+    {
+      "phrase": "compound interest",
+      "zh": "复利"
+    },
+    {
+      "phrase": "conscious consumption",
+      "zh": "有意识的消费"
+    }
+  ],
+  "gaps": [
+    "'financial stress' has no example sentence: the only place it appears in the Finance & Consumerism theme pack (answer F6) is scrambled in the watermarked PDF and could not be copied safely.",
+    "The Drive doc (Article 07) has the question and a plan of the answer, but no Question Analysis table and no Exam Version, so 'points' is empty and 'keyPoint.prompt' is null. The (C1)-(C4) markers inside the essay text were removed.",
+    "The doc's own vocabulary table has no Sentence column and none of the 10 words in it (only 'financial literacy' appears inside the phrase 'mandatory financial literacy module'); examples come from the Finance & Consumerism theme pack (Universal answers F1, F2, F3, F11 and the trial-paper sentence for 'run out of money'). The sentence for 'unnecessary expenses' was rebuilt from the scrambled text of answer F2. Please check it.",
+    "points written by Claude from the essay (unchecked)",
+    "Example for 'financial stress' filled later from the Finance & Consumerism theme pack (cleaned text)."
+  ]
+}
