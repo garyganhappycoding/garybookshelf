@@ -25,12 +25,12 @@ export async function answerAction(_: Result, form: FormData): Promise<Result> {
   const day = String(form.get("day")), l = lang(form.get("lang"));
   if (!DAY.test(day) || !l) return { error: "资料不对。" };
   if (!a.isAdmin && !opened(day, a.today)) return { error: "这一天还没开放。" };
-  const found = resolveDay(buildCalendar(p.state), day, l);
-  if (!found) return { error: "这一天没有任务。" };
+  const found = resolveDay(buildCalendar(p.state), day, l, p.exams);
+  if (!found || "exam" in found) return { error: "这一天没有任务。" };
   const built = build(found.week, found.day, form, p.instructionLang);
   if ("error" in built) return { error: built.error };
   const r = await submitAnswer(a.userId, day, l, built.answer, built.aiTask, day < a.today,
-    { details: built.details, quizCorrect: built.quizCorrect, quizTotal: built.quizTotal, directFeedback: built.directFeedback, appendFeedback: built.appendFeedback });
+    { details: built.details, quizCorrect: built.quizCorrect, quizTotal: built.quizTotal, directFeedback: built.directFeedback, appendFeedback: built.appendFeedback, noFeedback: built.noFeedback });
   if (r.error) return { error: r.error };
   revalidatePath("/programme/today");
   return { ok: true, status: r.status };

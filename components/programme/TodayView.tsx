@@ -7,7 +7,7 @@ import DayCard, { type CardData } from "./DayCard";
 
 export type TodayData = {
   day: string; lang: "BM" | "BI"; state: string; submitted: boolean; submissionId: string | null;
-  demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; card: CardData | null; answerText: string | null;
+  demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; card: CardData | null; examWeek: boolean; answerText: string | null; marks: { k: string; w: string; c: 1 | 2 }[] | null;
   comments: { id: string; nickname: string; body: string; mine: boolean; waiting: boolean }[];
 };
 const init: Result = {};
@@ -40,8 +40,8 @@ export default function TodayView({ data }: { data: TodayData }) {
       <p className="text-sm text-ink/60">{cn(d)} 星期{WEEKDAY_ZH[d.getDay()]}{data.demo ? "（示范日期）" : ""}</p>
       {data.demo && (
         <p className="text-xs mb-1">
-          <Link className="underline" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, -1))}`}>← 前一天</Link>{" · "}
-          <Link className="underline" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, 1))}`}>后一天 →</Link>
+          <Link aria-label="前一天" className="btn-secondary px-3 py-1 text-base" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, -1))}`}>←</Link>{" "}
+          <Link aria-label="后一天" className="btn-secondary px-3 py-1 text-base" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, 1))}`}>→</Link>
         </p>
       )}
       <h1 className="text-2xl font-medium mb-1">今天</h1>
@@ -54,12 +54,12 @@ export default function TodayView({ data }: { data: TodayData }) {
       </div>
 
       {!data.card ? (
-        <div className="card">{wk > 0 ? "这一周这个语言的内容还在准备，今天先休息。" : "学校放假，这一天不安排新任务。"}</div>
+        <div className="card">{data.examWeek ? "这一周是考试周，不安排新内容，好好考试。" : wk > 0 ? "这一周这个语言的内容还在准备，今天先休息。" : "学校放假，这一天不安排新任务。"}</div>
       ) : (
         <>
           <div className="mb-4">
             <DayCard day={data.day} lang={data.lang} ilang={data.ilang} card={data.card} submitted={data.submitted}
-              submissionId={data.submissionId} feedback={data.feedback} aiStatus={data.aiStatus} answerText={data.answerText} />
+              submissionId={data.submissionId} feedback={data.feedback} aiStatus={data.aiStatus} answerText={data.answerText} marks={data.marks} />
           </div>
 
           <div className="card">

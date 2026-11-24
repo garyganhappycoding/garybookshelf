@@ -74,9 +74,9 @@ export function makeWeek(d: WeekData): Week {
       note: T(`蓝色是本周的词，范文里有 ${blue.length} 个。红色是范文里的好词好句，来自你的范文词汇表。`, `Blue = this week's words (${blue.length} of the 10 are in this essay). Red = the good words and phrases from the essay's own vocabulary table.`) },
   ] };
 
-  const qBlock: Block = d.points.length
+  const qBlock: Block | null = d.points.length
     ? { id: "question", type: "table", title: T("这周的题目", "This week's question"), head: [T("要点", "Point"), T("题目要求", "What the question asks")], rows: d.points.map((p) => [p.code, p.text]) }
-    : { id: "question", type: "prompt", title: T("这周的题目", "This week's question"), text: T(title, title) };
+    : null;
 
   const wed: Day = { key: "wed", label: T("第 3 天", "Day 3"), minutes: 10, blocks: !hasEssay ? [notReady] : [
     { id: "steps", type: "steps", title: TODAY, items: [
@@ -85,7 +85,7 @@ export function makeWeek(d: WeekData): Week {
       T("至少用本周的 2 个词。", "Use at least 2 words from this week's list."),
       T("交出去，看范文。", "Submit, then read the model."),
     ] },
-    qBlock,
+    ...(qBlock ? [qBlock] : []),
     { id: "model", type: "text", reveal: true, title: T("范文开头（交了之后才显示）", "Model opening (shown after submitting)"), paragraphs: opening },
     { id: "checks", type: "checks", title: CHECKS, items: [T("有没有用到本周的 2 个词。", "Whether you used 2 words from this week's list."), T("有没有点出主题。", "Whether the main idea is stated.")] },
   ] };
@@ -93,11 +93,13 @@ export function makeWeek(d: WeekData): Week {
   const thuOk = hasEssay && kp;
   const thu: Day = { key: "thu", label: T("第 4 天", "Day 4"), minutes: 10, blocks: !thuOk ? [notReady] : [
     { id: "steps", type: "steps", title: TODAY, items: [
-      T("今天只写一个要点，见下面。", "Today you write one point only, shown below."),
-      T("写成一段，按 4 步：观点、原因、例子、结果。例子要用你自己的。", "Write one paragraph in 4 steps: point, reason, example, result. Use your own example."),
+      d.lang === "bi"
+        ? T("从题目的要点里选一个来写。选一个有复数的要点（例如 reasons、ways），才有更多可以讲。", "Pick ONE point from the question to write about. Choose a point with a plural (for example reasons or ways), so you have more to say.")
+        : T(`为「${title}」选一个 isi（主要观点）来写。选一个可以讲出多个例子或后果的观点。`, `Pick ONE main point (isi) for "${title}". Choose one you can say a lot about.`),
+      T("写成一段，把这个要点讲开，写法见下面。例子要用你自己的。", "Write one paragraph that elaborates the point, as shown below. Use your own example."),
       T("交出去，看参考。", "Submit, then read the reference."),
     ] },
-    { id: "point", type: "prompt", title: T("今天的要点", "Today's point"), text: kp!.prompt ? T(kp!.prompt, kp!.prompt) : T(d.paragraphs[kp!.idx].split(/(?<=[.!?])\s+/)[0], d.paragraphs[kp!.idx].split(/(?<=[.!?])\s+/)[0]) },
+    ...(qBlock ? [qBlock] : []),
     { id: "model", type: "text", reveal: true, title: T("范文里这个要点的段落（你的范文）", "The paragraph for this point in the model essay (your essay)"), paragraphs: [d.paragraphs[kp!.idx]] },
     ...(() => {
       const para = d.paragraphs[kp!.idx].toLowerCase();

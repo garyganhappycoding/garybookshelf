@@ -1,19 +1,41 @@
 // SERVER-ONLY. Finds today's day card for a student, hides what must stay hidden until they hand in, and grades what they hand in.
-import { parse, type Calendar } from "./calendar";
+import { addDays, key, parse, type Calendar } from "./calendar";
 import { dayKeyFor, forStudent, getWeek } from "./content/index";
 import type { Block, Day, Week } from "./week-content";
 import { clean } from "@/lib/community";
 
 export type Ilang = "en" | "zh";
 
-export function resolveDay(cal: Calendar, day: string, lang: "BI" | "BM"): { week: Week; day: Day } | null {
+/**
+ * Which content week a date is. Exam weeks carry NO content (Gary, 24 Nov 2026): the weekly content counts only the school weeks
+ * that are not exam weeks, in order, using the student's own exam dates.
+ */
+export function contentWeekOf(cal: Calendar, exams: { start: string; end: string }[], d: Date): { n: number } | { exam: true } | null {
+  const total = cal.weekOf(d);
+  if (!total) return null;
+  const mondays = Object.entries(cal.weekNo).sort((a, b) => a[1] - b[1]).map(([m]) => m);
+  let n = 0;
+  for (let w = 1; w <= total; w++) {
+    const m = parse(mondays[w - 1]);
+    const from = key(addDays(m, -1)), to = key(addDays(m, 6)); // a Group A week starts on the Sunday before its Monday
+    const isExam = exams.some((e) => e.start && e.end && e.start <= to && e.end >= from);
+    if (w === total) return isExam ? { exam: true } : { n: n + 1 };
+    if (!isExam) n += 1;
+  }
+  return null;
+}
+
+export type Resolved = { week: Week; day: Day } | { exam: true } | null;
+
+export function resolveDay(cal: Calendar, day: string, lang: "BI" | "BM", exams: { start: string; end: string }[] = []): Resolved {
   const d = parse(day);
-  const n = cal.weekOf(d);
-  if (!n) return null;
-  const week = getWeek(lang, n);
+  const cw = contentWeekOf(cal, exams, d);
+  if (!cw) return null;
+  if ("exam" in cw) return { exam: true };
+  const week = getWeek(lang, cw.n);
   if (!week) return null;
-  const key = dayKeyFor(cal.group, d.getDay());
-  const card = week.days.find((x) => x.key === key);
+  const k = dayKeyFor(cal.group, d.getDay());
+  const card = week.days.find((x) => x.key === k);
   return card ? { week, day: card } : null;
 }
 
@@ -24,11 +46,10 @@ function scrub<T>(v: T): T {
   return v;
 }
 
-/** The blocks a student may see. Before they hand in: no reveal blocks and no quiz answers (the answer key never leaves the server). */
+/** The blocks a student may see. Before they hand in: no reveal blocks (the model answers never leave the server). The flash-card words are not secret. */
 export function studentBlocks(day: Day, submitted: boolean): Block[] {
   return day.blocks
     .filter((b) => submitted || !b.reveal)
-    .map((b) => (b.type === "quiz" && !submitted ? { ...b, rows: b.rows.map((r) => ({ zh: r.zh, answer: "" })) } : b))
     .map(scrub);
 }
 
@@ -38,7 +59,7 @@ const tok = (s: string) => s.toLowerCase().replace(/^[^\p{L}\p{N}]+|[^\p{L}\p{N}
 
 export type Built =
   | { error: string }
-  | { answer: string; details: Record<string, unknown>; quizCorrect?: number; quizTotal?: number; directFeedback?: string; appendFeedback?: string; aiTask: string };
+  | { answer: string; details: Record<string, unknown>; quizCorrect?: number; quizTotal?: number; directFeedback?: string; appendFeedback?: string; noFeedback?: boolean; aiTask: string };
 
 const T = (i: Ilang, zh: string, en: string) => (i === "zh" ? zh : en);
 
@@ -67,12 +88,11 @@ export function build(week: Week, day: Day, form: FormData, ilang: Ilang): Built
     if (sentences.some((s) => s.length < 2)) return { error: T(ilang, "请把 10 个句子都写完。", "Please write all 10 sentences.") };
     const quiz = day.blocks.find((b) => b.type === "quiz");
     const rows = quiz && quiz.type === "quiz" ? quiz.rows : [];
-    const items = rows.map((row, i) => {
-      const given = clean(String(form.get(`q${i}`) ?? ""), 200);
-      return { zh: row.zh, given, answer: row.answer, ok: !!given && norm(given) === norm(row.answer) };
-    });
-    const correct = items.filter((x) => x.ok).length;
-    const line = rows.length ? T(ilang, `词汇测验：${correct}/${rows.length}`, `Vocabulary quiz: ${correct}/${rows.length}`) : "";
+    // flash cards: the student marks each card "remembered" (1) or "not yet" (0)
+    const flags = String(form.get("qk") ?? "");
+    const items = rows.map((row, i) => ({ zh: row.zh, answer: row.answer, known: flags[i] === "1" }));
+    const correct = items.filter((x) => x.known).length;
+    const line = rows.length ? T(ilang, `词汇小测验：记得 ${correct}/${rows.length}`, `Vocabulary cards: remembered ${correct}/${rows.length}`) : "";
     return {
       answer: sentences.map((s, i) => `${i + 1}. ${r.words[i].word} — ${s}`).join("\n"),
       details: { sentences, quiz: items }, quizCorrect: rows.length ? correct : undefined, quizTotal: rows.length || undefined,
@@ -85,17 +105,11 @@ export function build(week: Week, day: Day, form: FormData, ilang: Ilang): Built
   try { marks = JSON.parse(String(form.get("hl") ?? "[]")); } catch { /* ignore */ }
   marks = marks.filter((m) => m && typeof m.w === "string" && (m.c === 1 || m.c === 2)).slice(0, 400);
   if (!marks.length) return { error: T(ilang, "请先标出一些词。", "Please highlight some words first.") };
-  const blueSet = new Set(marks.filter((m) => m.c === 1).map((m) => tok(m.w)));
+  const blue = marks.filter((m) => m.c === 1).map((m) => tok(m.w));
   const red = marks.filter((m) => m.c === 2).map((m) => tok(m.w));
-  const key = day.blocks.find((b) => b.id === "answer");
-  const keyBlue = key && key.type === "text" ? (key.highlight ?? []).filter((h) => h.color === 1).map((h) => h.phrase) : [];
-  const found = keyBlue.filter((p) => p.split(/\s+/).map(tok).every((t) => blueSet.has(t)));
-  const feedback = keyBlue.length
-    ? T(ilang, `你用蓝色标出了本周词表里的 ${found.length}/${keyBlue.length} 个词，另外用红色选了 ${red.length} 个你觉得好的词。对照下面的答案看看。`,
-        `You found ${found.length} of the ${keyBlue.length} words from this week's list (blue) and picked ${red.length} words you like (red). Compare with the answer below.`)
-    : T(ilang, `这篇范文里没有本周词表的词。你用红色选了 ${red.length} 个你觉得好的词。`, `None of this week's words are in this essay. You picked ${red.length} words you like (red).`);
   return {
-    answer: `Blue: ${[...blueSet].join(", ")}\nRed: ${red.join(", ")}`,
-    details: { marks, found, keyBlue }, directFeedback: feedback, aiTask: "",
+    answer: `Blue: ${[...new Set(blue)].join(", ")}
+Red: ${[...new Set(red)].join(", ")}`,
+    details: { marks }, noFeedback: true, aiTask: "",
   };
 }
