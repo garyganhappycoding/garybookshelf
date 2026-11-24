@@ -1,29 +1,10 @@
 // SERVER-ONLY. Finds today's day card for a student, hides what must stay hidden until they hand in, and grades what they hand in.
-import { addDays, key, parse, type Calendar } from "./calendar";
+import { contentWeekOf, parse, type Calendar } from "./calendar";
 import { dayKeyFor, forStudent, getWeek } from "./content/index";
 import type { Block, Day, Week } from "./week-content";
 import { clean } from "@/lib/community";
 
 export type Ilang = "en" | "zh";
-
-/**
- * Which content week a date is. Exam weeks carry NO content (Gary, 24 Nov 2026): the weekly content counts only the school weeks
- * that are not exam weeks, in order, using the student's own exam dates.
- */
-export function contentWeekOf(cal: Calendar, exams: { start: string; end: string }[], d: Date): { n: number } | { exam: true } | null {
-  const total = cal.weekOf(d);
-  if (!total) return null;
-  const mondays = Object.entries(cal.weekNo).sort((a, b) => a[1] - b[1]).map(([m]) => m);
-  let n = 0;
-  for (let w = 1; w <= total; w++) {
-    const m = parse(mondays[w - 1]);
-    const from = key(addDays(m, -1)), to = key(addDays(m, 6)); // a Group A week starts on the Sunday before its Monday
-    const isExam = exams.some((e) => e.start && e.end && e.start <= to && e.end >= from);
-    if (w === total) return isExam ? { exam: true } : { n: n + 1 };
-    if (!isExam) n += 1;
-  }
-  return null;
-}
 
 export type Resolved = { week: Week; day: Day } | { exam: true } | null;
 

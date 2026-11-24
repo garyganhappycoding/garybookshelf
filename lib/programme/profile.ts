@@ -1,6 +1,6 @@
 // SERVER-ONLY. Each student's own choices: state, Form 4 or 5, and their exam dates. Stored per account.
 import { createAdminClient } from "@/lib/supabase/admin";
-import { DEFAULT_EXAMS, STATES, type Exam } from "./calendar";
+import { defaultExams, STATES, type Exam } from "./calendar";
 
 export type Profile = { state: string; form: 4 | 5; exams: Exam[]; setupDone: boolean; instructionLang: "zh" | "en" };
 
@@ -12,7 +12,7 @@ export async function getProfile(userId: string): Promise<Profile> {
   return {
     state: data?.state ?? "KL",
     form: data?.form === 5 ? 5 : 4,
-    exams: Array.isArray(data?.exams) ? (data!.exams as Exam[]) : DEFAULT_EXAMS,
+    exams: Array.isArray(data?.exams) ? (data!.exams as Exam[]) : defaultExams(data?.form === 5 ? 5 : 4),
     setupDone: !!data?.setup_done,
     instructionLang: data?.instruction_lang === "en" ? "en" : "zh",
   };
@@ -34,11 +34,11 @@ export async function saveProfile(userId: string, patch: { state?: string; form?
   const cur = await getProfile(userId);
   const state = patch.state && STATES.some((s) => s.id === patch.state) ? patch.state : cur.state;
   const form = patch.form === 5 ? 5 : patch.form === 4 ? 4 : cur.form;
-  const exams = patch.exams !== undefined ? cleanExams(patch.exams) ?? cur.exams : cur.exams;
-  const { error } = await createAdminClient().from("programme_profiles").upsert(
-    { user_id: userId, state, form, exams, setup_done: patch.setupDone ?? cur.setupDone, instruction_lang: patch.instructionLang === "en" ? "en" : patch.instructionLang === "zh" ? "zh" : cur.instructionLang, updated_at: new Date().toISOString() },
-    { onConflict: "user_id" },
-  );
+  // Exams are stored only once the student edits them; until then they follow the Form (4 or 5) defaults.
+  const editedExams = patch.exams !== undefined ? cleanExams(patch.exams) : null;
+  const row: Record<string, unknown> = { user_id: userId, state, form, setup_done: patch.setupDone ?? cur.setupDone, instruction_lang: patch.instructionLang === "en" ? "en" : patch.instructionLang === "zh" ? "zh" : cur.instructionLang, updated_at: new Date().toISOString() };
+  if (editedExams) row.exams = editedExams;
+  const { error } = await createAdminClient().from("programme_profiles").upsert(row, { onConflict: "user_id" });
   return error ? { error: "保存失败，请再试一次。" } : {};
 }
 

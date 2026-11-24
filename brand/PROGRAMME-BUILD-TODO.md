@@ -11,7 +11,7 @@
 - [ ] **Phone UI**: design laptop and iPad first (done in this pass); design the phone UI later.
 - [ ] **BM real question pictures**: the BM essay docs have no question picture; BM days 3 and 4 show no question. Ask Gary for the BM questions (or pictures).
 - [ ] **Exam weeks carry no content** (done in code, `contentWeekOf` in lib/programme/dayflow.ts): the content counts only non-exam school weeks, using the student's own exam dates. With the default estimated exams a Form 4 student has about 6 exam weeks, so only about 38 of the 44 content weeks fit in 2027 (fewer for Form 5). Gary must decide what to drop or reorder.
-- [ ] Default exam list in calendar.ts mixes Form 4 and Form 5 exams for everyone: should depend on the student's Form.
+- [x] Default exams now depend on the Form (calendar.ts `defaultExams`): Form 4 = mid-year + year-end (6 exam weeks, 38 content weeks fit); Form 5 = mid-year + mock + SPM TBD (8 exam weeks, 36 fit). Exams are stored only after the student edits them. The calendar page shows 考试周 and the shifted content week. Gary still has to decide which of the 44 weeks to drop (the last 6 for Form 4, the last 8 for Form 5).
 
 # 陪你读书 · overnight build list
 

@@ -11,7 +11,7 @@ export default async function ExamsPage() {
   const p = await getProfile(a.userId);
   return (
     <Shell active="settings" admin={a.isAdmin}>
-      <ExamsView initial={p.exams} />
+      <ExamsView initial={p.exams} form={p.form} />
     </Shell>
   );
 }

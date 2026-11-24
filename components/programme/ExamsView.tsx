@@ -1,10 +1,10 @@
 "use client";
 import Link from "next/link";
 import { useState, useTransition } from "react";
-import { DEFAULT_EXAMS, type Exam } from "@/lib/programme/calendar";
+import { defaultExams, type Exam } from "@/lib/programme/calendar";
 import { saveExamsAction } from "@/app/programme/settings/actions";
 
-export default function ExamsView({ initial }: { initial: Exam[] }) {
+export default function ExamsView({ initial, form }: { initial: Exam[]; form: number }) {
   const [exams, setExams] = useState<Exam[]>(initial);
   const [msg, setMsg] = useState("");
   const [pending, start] = useTransition();
@@ -32,7 +32,7 @@ export default function ExamsView({ initial }: { initial: Exam[] }) {
       </div>
       <div className="flex gap-2 mt-4">
         <button type="button" onClick={save} disabled={pending} className="btn-primary text-sm disabled:opacity-50">保存</button>
-        <button type="button" onClick={() => { setExams(DEFAULT_EXAMS); setMsg(""); }} className="btn-secondary text-sm">恢复成估计日期</button>
+        <button type="button" onClick={() => { setExams(defaultExams(form)); setMsg(""); }} className="btn-secondary text-sm">恢复成估计日期</button>
       </div>
       {msg && <p className="text-sm text-ink/70 mt-2">{msg}</p>}
     </div>
