@@ -2,11 +2,11 @@
 
 Dates are for a Group B state such as KL (Mon to Fri school week); Group A states (Kedah, Kelantan, Terengganu) have the same weeks starting one day earlier. Exam dates are ESTIMATES: each student can change them, and then the weeks move.
 
-Exam weeks carry no vocabulary and no tasks: the week's tasks move to the first week after the exams.
+Exam weeks carry no vocabulary and no tasks: the whole week's tasks move to the first week after the exams.
 
-**Form 5 note:** Form 5 will be more about SPM revision (Gary, 24 Nov 2026). The SPM plan is not designed yet, so for now this list is the same content as Form 4, in the same order. **GAP: Form 5 SPM-sprint plan still to be designed.**
+**Form 5 note:** Form 5 will be more about SPM revision. The SPM plan is not designed yet, so for now this is the same content as Form 4, in the same order. **GAP: Form 5 SPM-sprint plan and end date still to be designed.**
 
-Weeks of content that fit: **36** of 44 (the last 8 content weeks do not fit before the end of the year).
+Weeks of content: **36**.
 
 ---
 
@@ -673,15 +673,3 @@ No vocabulary, no tasks.
 | 9 | mengawal tindakan diri | 控制自己的行为 | Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa. |
 | 10 | membahayakan nyawa | 危及生命 | Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa. |
 
----
-
-## Weeks that do not fit this year
-
-- Week 37: Ketenteraan · Usaha-Usaha untuk Menarik Minat Menceburkan Diri dalam Bidang Ketenteraan
-- Week 38: Amalan Membaca · Cara-cara Memupuk Amalan Membaca
-- Week 39: Kerjaya · Kemahiran-Kemahiran yang Perlu Dikuasai sebagai Persediaan untuk Menghadapi Cabaran Kerjaya pada Era Globalisasi
-- Week 40: Pertanian · Kepentingan Bidang Pertanian di Negara Kita
-- Week 41: Perpaduan · Kepentingan Perpaduan Kaum kepada Masyarakat dan Negara
-- Week 42: Pelancongan · Kepentingan Sektor Pelancongan Terhadap Negara
-- Week 43: Masalah Sosial dan Nilai Murni · Faktor-Faktor Murid Ponteng Sekolah
-- Week 44: Keselamatan Jalan Raya · Peranan Menangani Kemalangan Jalan Raya

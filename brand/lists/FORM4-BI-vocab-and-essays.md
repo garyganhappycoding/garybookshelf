@@ -2,9 +2,11 @@
 
 Dates are for a Group B state such as KL (Mon to Fri school week); Group A states (Kedah, Kelantan, Terengganu) have the same weeks starting one day earlier. Exam dates are ESTIMATES: each student can change them, and then the weeks move.
 
-Exam weeks carry no vocabulary and no tasks: the week's tasks move to the first week after the exams.
+Exam weeks carry no vocabulary and no tasks: the whole week's tasks move to the first week after the exams.
 
-Weeks of content that fit: **38** of 44 (the last 6 content weeks do not fit before the end of the year).
+**The programme ends when the year-end exam starts** (Gary, 24 Nov 2026). Content weeks that do not fit before that are removed.
+
+Weeks of content: **33**.
 
 ---
 
@@ -614,114 +616,5 @@ No vocabulary, no tasks.
 | 9 | change me forever | 永远改变了我 | The experience changed me forever. |
 | 10 | open my eyes to | 让我看清…… | This is because it opened my eyes to the value of family and kindness. |
 
-### School week 37, starts Mon 11 Oct 2027  ·  **EXAM WEEK** (Form 4 年终考（估计）)
-No vocabulary, no tasks.
+### PROGRAMME ENDS: the year-end exam starts on Mon 11 Oct 2027. Nothing after this.
 
-### School week 38, starts Mon 18 Oct 2027  ·  **EXAM WEEK** (Form 4 年终考（估计）)
-No vocabulary, no tasks.
-
-### School week 39, starts Mon 25 Oct 2027  ·  **EXAM WEEK** (Form 4 年终考（估计）)
-No vocabulary, no tasks.
-
-### Week 34  ·  school week 40, starts Mon 1 Nov 2027
-**Theme:** Technology  ·  **Level:** C1
-**Essay:** Cyberbullying  ([open](https://docs.google.com/document/d/150iaFZeR2JGnplSlYlg6ASmEjnsyMLeLJcKAQnPv4JM/edit))  ·  Johor (Set 3) 2026 · Paper 2 · Part 2 Q2 · Essay, 125–150 words
-**Question points:** C1 one example of cyberbullying on social media (give ONE example only); C2 why online bullying happens – reason 1; C3 why online bullying happens – reason 2; C4 ways students can stop cyberbullying – "ways" is plural, so give at least two; C5 ways students can stop cyberbullying – way 2
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | derogatory remarks | 贬损的言论 | One example of cyberbullying on social media is leaving derogatory remarks under a classmate's photo to humiliate him or her. |
-| 2 | suffer psychological distress | 承受心理痛苦 | As a result, victims lose self-confidence and may suffer psychological distress. |
-| 3 | cultivate self-discipline | 培养自律 | This is because boundaries help us curb excessive screen use and cultivate self-discipline. |
-| 4 | impose restrictions | 施加限制 | Parents can impose restrictions on late-night use. |
-| 5 | curb harmful behaviour | 遏制有害行为 | This is because reporting helps curb harmful behaviour, while kindness reduces loneliness. |
-| 6 | lend a listening ear | 倾听 | For example, they can use the report button and lend a listening ear to a friend. |
-| 7 | digital footprint | 数字足迹 | This is because everything stays online and leaves a lasting digital footprint. |
-| 8 | safeguard our privacy | 保护我们的隐私 | As a result, safeguarding our privacy also protects our reputation. |
-| 9 | an inseparable part of | ……不可分割的一部分 | In this digital era, social media has become an inseparable part of teenagers' lives, but it has also given rise to cyberbullying, an alarming issue that many students face in silence. |
-| 10 | indispensable | 不可或缺的 | It is indispensable for learning and communication, but if we rely too much on it, we may become addicted and isolated. |
-
-### Week 35  ·  school week 41, starts Mon 8 Nov 2027
-**Theme:** Environment  ·  **Level:** C1
-**Essay:** SPM Essay on Littering  ([open](https://drive.google.com/file/d/1dU3J2XUJkPusParBhkSbSxjFAs5c6_6U/view))  ·  Gary's Drive · Environment folder · older-format essay (SPM Essay on Littering)
-**Question picture:** GAP: none in the doc
-**Question points:** C1 Explain why people litter; C2 Describe the effects of littering on the environment and health; C3 Suggest ways to prevent littering  *(points written by Claude, unchecked)*
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | contaminate | 污染 | For example, bottles and food wrappers clog our drains and contaminate rivers. |
-| 2 | disrupt the ecosystem | 破坏生态系统 | Pollution disrupts the ecosystem. |
-| 3 | pose a threat to public health | 对公共健康构成威胁 | Poor waste management poses a threat to public health. |
-| 4 | a holistic approach | 整体性的方法 | A holistic approach is needed to protect nature. |
-| 5 | a lasting solution | 长久的解决办法 | Only together can they provide a lasting solution. |
-| 6 | no quick fix | 没有速成的方法 | There is no quick fix to pollution. |
-| 7 | a change in mindset | 观念的转变 | We need a change in mindset. |
-| 8 | make a lasting difference | 带来长远的改变 | Together, we can make a lasting difference. |
-| 9 | live in harmony with nature | 与自然和谐共处 | We should learn to live in harmony with nature. |
-| 10 | pave the way for a greener future | 为更环保的未来铺路 | Small actions pave the way for a greener future. |
-
-### Week 36  ·  school week 42, starts Mon 15 Nov 2027
-**Theme:** Health & Sports  ·  **Level:** C1
-**Essay:** SPM Essay on Sports and Participation  ([open](https://drive.google.com/file/d/1eqohzbf9uek7qXegQgLkLO0bbSQPb3mO/view))  ·  Gary's Drive · Health folder · older-format essay (SPM Essay on Sports and Participation)
-**Question picture:** GAP: none in the doc
-**Question points:** C1 Describe a recent sports competition you found interesting; C2 Explain the factors that made the competition exciting; C3 Suggest ways to encourage more people to participate in sports  *(points written by Claude, unchecked)*
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | make health a priority | 把健康放在首位 | Therefore, we should make our health a priority, because prevention is better than cure. |
-| 2 | maintain good personal hygiene | 保持良好的个人卫生 | We should maintain good personal hygiene every day. |
-| 3 | serve as role models | 成为榜样 | This is because athletes serve as role models who show what hard work can achieve. |
-| 4 | accessible to everyone | 人人都能接触 | Football is accessible to everyone because it needs only a ball. |
-| 5 | unite people from all walks of life | 团结各阶层的人 | Sports have the power to unite people from all walks of life. |
-| 6 | spark an interest in | 激发对……的兴趣 | A great match can spark an interest in the sport. |
-| 7 | lead a more active lifestyle | 过更积极的生活 | Fans may lead a more active lifestyle as a result. |
-| 8 | judge by appearance | 以貌取人 | Unfortunately, many people judge others by appearance. |
-| 9 | develop low self-esteem | 产生自卑 | As a result, some develop low self-esteem, while others boost their confidence by dressing neatly and staying fit. |
-| 10 | true beauty comes from within | 真正的美来自内在 | True beauty comes from within, not from looks alone. |
-
-### Week 37  ·  school week 43, starts Mon 22 Nov 2027
-**Theme:** School & Education  ·  **Level:** C1
-**Essay:** The Problem of Bullying in Schools  ([open](https://drive.google.com/file/d/1EaRkoMtrDx0h_FX8_4btvKB1aDZVX5-D/view))  ·  SPM Essay (older format, no trial paper named) · Essay on bullying in schools
-**Question points:** C1 Describe the problem of bullying and its effects on students; C2 Suggest how schools can prevent bullying (policies and trained staff); C3 Suggest promoting empathy and kindness through educational programmes; C4 Suggest involving parents in tackling bullying  *(points written by Claude, unchecked)*
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | make the most of time | 充分利用时间 | As a result, I meet deadlines, avoid last-minute stress and make the most of my time. |
-| 2 | exercise self-discipline | 运用自律 | I exercise self-discipline during study time. |
-| 3 | eliminate distractions | 消除干扰 | **GAP: no example** |
-| 4 | support and guidance | 支持与指导 | Students need support and guidance from adults. |
-| 5 | shape our character | 塑造我们的品格 | This is because it shapes our character as well as our minds. |
-| 6 | a major distraction | 主要的干扰 | Social media is a major distraction for me. |
-| 7 | a valuable supplement to schoolwork | 学校功课的宝贵补充 | YouTube is a valuable supplement to schoolwork. |
-| 8 | reinforce learning | 巩固学习 | The quiz reinforced learning of key topics. |
-| 9 | derive greater benefit | 获得更大益处 | Students would derive greater benefit from a longer event. |
-| 10 | unleash their creativity | 释放创造力 | The workshop unleashed their creativity. |
-
-### Week 38  ·  school week 44, starts Mon 29 Nov 2027
-**Theme:** Finance & Consumerism  ·  **Level:** C1
-**Essay:** Beware When Spending  ([open](https://drive.google.com/file/d/1QP328THhkBH3MWMIGYEolnEp98o_SN2B/view))  ·  SPM Essay (older format, no trial paper named) · Essay on spending and online safety
-**Question points:** C1 Explain how people get tricked when spending money online; C2 Suggest ways to protect yourself when shopping online; C3 Suggest ways to spread awareness about online safety among teenagers  *(points written by Claude, unchecked)*
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | spend impulsively | 冲动消费 | Many pupils spend impulsively on trendy items. |
-| 2 | barely save money | 几乎没有存钱 | Nearly half barely save any money. |
-| 3 | fall short of their goals | 达不到目标 | Pupils fall short of their saving goals. |
-| 4 | raise awareness through talks | 通过讲座提高意识 | The school can raise awareness through talks. |
-| 5 | become wise consumers | 成为精明的消费者 | As a result, students become wise consumers who manage their money well. |
-| 6 | secure a better financial future | 确保更好的财务未来 | This helps them secure a better financial future. |
-| 7 | develop responsible money habits | 养成负责任的理财习惯 | They will develop responsible money habits. |
-| 8 | control spending | 控制开销 | **GAP: no example** |
-| 9 | spend beyond one's means | 入不敷出 | Many teenagers spend beyond their means whenever they see something attractive. |
-| 10 | a vital life skill | 重要的生活技能 | Financial literacy is a vital life skill. |
-
----
-
-## Weeks that do not fit this year
-
-- Week 39: People & Culture · Malaysia: Our Tapestry of Treasures
-- Week 40: Travel / Leisure / Home · A Holiday in Sarawak
-- Week 41: Teenagers & Society · Beyond Looks
-- Week 42: Review · A Night of Music to Remember
-- Week 43: Report · Report on the Visit to Pawfect Haven Animal Shelter
-- Week 44: Story · Precious Time

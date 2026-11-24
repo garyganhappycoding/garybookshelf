@@ -2,11 +2,11 @@
 
 Dates are for a Group B state such as KL (Mon to Fri school week); Group A states (Kedah, Kelantan, Terengganu) have the same weeks starting one day earlier. Exam dates are ESTIMATES: each student can change them, and then the weeks move.
 
-Exam weeks carry no vocabulary and no tasks: the week's tasks move to the first week after the exams.
+Exam weeks carry no vocabulary and no tasks: the whole week's tasks move to the first week after the exams.
 
-**Form 5 note:** Form 5 will be more about SPM revision (Gary, 24 Nov 2026). The SPM plan is not designed yet, so for now this list is the same content as Form 4, in the same order. **GAP: Form 5 SPM-sprint plan still to be designed.**
+**Form 5 note:** Form 5 will be more about SPM revision. The SPM plan is not designed yet, so for now this is the same content as Form 4, in the same order. **GAP: Form 5 SPM-sprint plan and end date still to be designed.**
 
-Weeks of content that fit: **36** of 44 (the last 8 content weeks do not fit before the end of the year).
+Weeks of content: **36**.
 
 ---
 
@@ -687,15 +687,3 @@ No vocabulary, no tasks.
 | 9 | develop low self-esteem | 产生自卑 | As a result, some develop low self-esteem, while others boost their confidence by dressing neatly and staying fit. |
 | 10 | true beauty comes from within | 真正的美来自内在 | True beauty comes from within, not from looks alone. |
 
----
-
-## Weeks that do not fit this year
-
-- Week 37: School & Education · The Problem of Bullying in Schools
-- Week 38: Finance & Consumerism · Beware When Spending
-- Week 39: People & Culture · Malaysia: Our Tapestry of Treasures
-- Week 40: Travel / Leisure / Home · A Holiday in Sarawak
-- Week 41: Teenagers & Society · Beyond Looks
-- Week 42: Review · A Night of Music to Remember
-- Week 43: Report · Report on the Visit to Pawfect Haven Animal Shelter
-- Week 44: Story · Precious Time

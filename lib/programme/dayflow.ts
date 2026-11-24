@@ -6,13 +6,14 @@ import { clean } from "@/lib/community";
 
 export type Ilang = "en" | "zh";
 
-export type Resolved = { week: Week; day: Day } | { exam: true } | null;
+export type Resolved = { week: Week; day: Day } | { exam: true } | { ended: true } | null;
 
-export function resolveDay(cal: Calendar, day: string, lang: "BI" | "BM", exams: { start: string; end: string }[] = []): Resolved {
+export function resolveDay(cal: Calendar, day: string, lang: "BI" | "BM", exams: { start: string; end: string }[] = [], end: string | null = null): Resolved {
   const d = parse(day);
-  const cw = contentWeekOf(cal, exams, d);
+  const cw = contentWeekOf(cal, exams, d, end);
   if (!cw) return null;
   if ("exam" in cw) return { exam: true };
+  if ("ended" in cw) return { ended: true };
   const week = getWeek(lang, cw.n);
   if (!week) return null;
   const k = dayKeyFor(cal.group, d.getDay());

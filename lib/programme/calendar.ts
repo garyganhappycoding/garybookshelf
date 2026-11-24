@@ -167,9 +167,13 @@ export const DEMO_TODAY = "2027-02-17";
  * Which content week a date is. Exam weeks carry NO content (Gary, 24 Nov 2026): the weekly content counts only the school weeks that are
  * not exam weeks, in order, using the student's own exam dates, so a week of tasks is moved to the first week after the exams.
  */
-export function contentWeekOf(cal: Calendar, exams: { start: string; end: string }[], d: Date): { n: number } | { exam: true } | null {
+/** The programme ends when the year-end exam starts (Gary, 24 Nov 2026: "考完年终考后就结束"). Form 4 only for now; the Form 5 plan is still to be designed. */
+export const programmeEnd = (exams: Exam[], form: number): string | null => (form === 4 ? exams.find((e) => e.id === "e3")?.start || null : null);
+
+export function contentWeekOf(cal: Calendar, exams: { start: string; end: string }[], d: Date, end: string | null = null): { n: number } | { exam: true } | { ended: true } | null {
   const total = cal.weekOf(d);
   if (!total) return null;
+  if (end && key(d) >= end) return { ended: true };
   const mondays = Object.entries(cal.weekNo).sort((a, b) => a[1] - b[1]).map(([m]) => m);
   let n = 0;
   for (let w = 1; w <= total; w++) {
