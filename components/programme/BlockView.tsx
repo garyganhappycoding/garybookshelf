@@ -47,6 +47,10 @@ export default function BlockView({ b, lang }: { b: Block; lang: Lang }) {
       <div className="overflow-x-auto"><table className="w-full text-sm"><thead><tr className="text-left text-ink/60">{b.head.map((h, i) => <th key={i} className="py-1 pr-3">{t(h)}</th>)}</tr></thead>
         <tbody>{b.rows.map((r, i) => <tr key={i} className="border-t border-ink/10 align-top">{r.map((c, j) => <td key={j} className="py-1.5 pr-3">{c}</td>)}</tr>)}</tbody></table></div>
     );
+    case "image": return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={b.src} alt={b.alt} loading="lazy" className="w-full rounded-lg border border-ink/10" />
+    );
     case "quiz": return (
       <ol className="list-decimal pl-5 space-y-1 text-sm">{b.rows.map((r, i) => <li key={i}>{r.zh}{r.answer ? <> → <span className="font-medium">{r.answer}</span></> : null}</li>)}</ol>
     );

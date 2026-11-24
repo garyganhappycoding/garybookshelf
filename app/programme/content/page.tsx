@@ -64,6 +64,10 @@ function Body({ b, t, lang }: { b: Block; t: (l: L) => string; lang: "en" | "zh"
           {b.note && <p className="text-sm text-ink/70">{t(b.note)}</p>}
         </div>
       );
+    case "image": return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={b.src} alt={b.alt} className="w-full rounded-lg border border-ink/10" />
+    );
     case "quiz": return (
       <div>
         <ol className="space-y-2">

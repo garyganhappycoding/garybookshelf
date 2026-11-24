@@ -8,6 +8,7 @@ export type Block =
   | { id: string; type: "vocab"; title: L; rows: { word: string; zh: string; example: string }[]; reveal?: boolean }
   | { id: string; type: "text"; title: L; paragraphs: string[]; highlight?: { phrase: string; color: 1 | 2 }[]; interactive?: boolean; note?: L; reveal?: boolean }
   | { id: string; type: "quiz"; title: L; rows: { zh: string; answer: string }[]; reveal?: boolean }
+  | { id: string; type: "image"; title: L; src: string; alt: string; reveal?: boolean }
   | { id: string; type: "table"; title: L; head: L[]; rows: string[][]; reveal?: boolean }
   | { id: string; type: "checks"; title: L; items: L[]; reveal?: boolean };
 /** What the student has to hand in on a day. Filled in for every week by withResponses() in content/index.ts. */
