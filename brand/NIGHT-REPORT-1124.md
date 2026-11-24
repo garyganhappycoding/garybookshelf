@@ -29,4 +29,4 @@ None new. The only gaps are the ones already tracked in `brand/PROGRAMME-BUILD-T
 - Did not check all 44 BI/BM weeks, only one week per theme/topic (11 BI themes, 19 BM topics) as the list asked — the content audit script (N1) is what covers all 176 weeks for data-level gaps.
 - Phone UI, BM marking, and AI feedback wording were left untouched, as instructed.
 
-Scheduled task `programme-overnight-2` is now disabled.
+Scheduled task `programme-overnight-2` could **not** be disabled from this run: `update_scheduled_task` needs a person's approval that an unattended night run can't give. Please disable it by hand — everything else on the list is done.
