@@ -73,7 +73,7 @@
     {
       "word": "the highlight … is …",
       "zh": "最大的亮点是……",
-      "example": null
+      "example": "The highlight of the show was the final duet."
     },
     {
       "word": "exceeded my expectations",
@@ -158,6 +158,7 @@
     "example for '… is a hidden gem' taken from the theme pack (watermark layer removed)",
     "example for 'what sets it apart is …' taken from the theme pack (watermark layer removed)",
     "example for 'worth every penny' taken from the theme pack (watermark layer removed)",
-    "example for 'left a lasting impression on me' taken from the theme pack (watermark layer removed)"
+    "example for 'left a lasting impression on me' taken from the theme pack (watermark layer removed)",
+    "Example for 'the highlight … is …' filled later from the Review theme pack (cleaned text); form differs: 'was' instead of 'is'."
   ]
 }

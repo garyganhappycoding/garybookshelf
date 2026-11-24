@@ -11,7 +11,20 @@
     "There are generally two types of stress that affect students: Acute Stress and Chronic Stress. Acute stress is short-lived, triggered by immediate demands like an approaching due date or a sports competition, while Chronic stress is persistent and long-term, stemming from sustained difficult conditions. The main causes of stress among teenagers include intense academic pressure, specifically important final exams and overwhelming homework loads, which can lead to anxiety and burnout. Another major factor is social and familial friction, such as pressure to achieve unrealistic goals set by parents or navigating complex peer relationships and social media expectations. To manage this, students should adopt mindfulness and relaxation techniques, such as deep-breathing exercises or short meditation sessions, which can immediately calm the nervous system. Furthermore, setting healthy boundaries and priorities is essential, including dedicating time for physical activity and ensuring sufficient sleep to strengthen their mental resilience.",
     "In conclusion, stress is a multi-faceted challenge that requires attention and proactive strategies. By recognizing the different types of stress, understanding the root causes in their lives, and actively implementing simple coping mechanisms, teenagers can transform their experience from one of overwhelming anxiety to one of measured self-control, ensuring they can thrive both academically and personally."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Explain the types of stress that affect students"
+    },
+    {
+      "code": "C2",
+      "text": "State the main causes of stress among teenagers"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to manage stress"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -148,6 +161,7 @@
     "This essay is an older-format study bundle (Health 01): no question text, no Question Analysis table, no Exam/Extended versions, so points is empty and keyPoint.prompt is null. The essay's own (C1) to (C5) tags were removed from the text; the doc's bold vocabulary marks were removed too. goodPhrases are the rows of its 'Thematic Vocabulary & Phrases Table' (the doc has no 'Table 1').",
     "The essay has only 3 paragraphs: the middle one holds all five content points, so keyPoint.idx is 1.",
     "'lack of exercise': no sentence with the phrase in the pack or the essay, so example is null.",
-    "None of the 10 words is in the essay; the examples come from the Health & Sports pack's Universal answers (H1, H3, H4). 'cope with pressure' (answer has 'cope with exam pressure'), 'release endorphins' (answer has 'releases endorphins') and 'sharpen concentration' (answer has 'sharpen their concentration') are inflected or extended forms. 'improve their fitness' is the pack's trial-paper keyword sentence (section 4). 'release endorphins' and 'uplift our mood' share one sentence, and 'cope with pressure' and 'sharpen concentration' share one sentence."
+    "None of the 10 words is in the essay; the examples come from the Health & Sports pack's Universal answers (H1, H3, H4). 'cope with pressure' (answer has 'cope with exam pressure'), 'release endorphins' (answer has 'releases endorphins') and 'sharpen concentration' (answer has 'sharpen their concentration') are inflected or extended forms. 'improve their fitness' is the pack's trial-paper keyword sentence (section 4). 'release endorphins' and 'uplift our mood' share one sentence, and 'cope with pressure' and 'sharpen concentration' share one sentence.",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

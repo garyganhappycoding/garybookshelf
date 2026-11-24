@@ -3,14 +3,40 @@
   "lang": "bi",
   "theme": "Environment",
   "level": "C1",
-  "essayTitle": null,
-  "source": null,
-  "essayUrl": null,
-  "paragraphs": [],
-  "points": [],
-  "openingIdx": [],
-  "keyPoint": null,
-  "closingIdx": [],
+  "essayTitle": "SPM Essay on Littering",
+  "source": "Gary's Drive · Environment folder · older-format essay (SPM Essay on Littering)",
+  "essayUrl": "https://drive.google.com/file/d/1dU3J2XUJkPusParBhkSbSxjFAs5c6_6U/view",
+  "paragraphs": [
+    "Littering has become a major environmental issue in many parts of the world, with people carelessly throwing rubbish in public places. This not only harms the environment but also affects the overall quality of life in our communities. It is important to understand why people litter and what can be done to address this growing concern.",
+    "One of the main reasons people litter is convenience. Some individuals find it easier to throw rubbish on the ground than to search for a bin. In addition, a lack of environmental awareness contributes to littering. Many people do not fully understand the consequences of their actions and how littering negatively impacts the environment. In some cases, insufficient waste disposal facilities make it difficult for people to properly dispose of their trash.",
+    "When rubbish is thrown everywhere, it leads to severe environmental consequences. Litter pollutes the land, water, and air, causing harm to wildlife and ecosystems. Animals can ingest or become trapped in litter, leading to injury or death. Additionally, litter clogs drainage systems, which can result in flooding, and it degrades the beauty of natural spaces, making public areas less enjoyable for everyone. It also poses health risks by attracting pests and spreading diseases.",
+    "To prevent littering and keep the environment clean, public education is essential. Schools, community groups, and governments should run awareness campaigns to teach people about the importance of proper waste disposal and recycling. More bins should be installed in public places, making it easier for people to dispose of their trash responsibly. Additionally, enforcing stricter penalties for littering could deter people from engaging in this harmful behavior.",
+    "In conclusion, littering has devastating effects on the environment and our communities. By promoting environmental awareness and providing more resources for waste disposal, we can work together to keep our environment clean and sustainable for future generations."
+  ],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Explain why people litter"
+    },
+    {
+      "code": "C2",
+      "text": "Describe the effects of littering on the environment and health"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to prevent littering"
+    }
+  ],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": null
+  },
+  "closingIdx": [
+    4
+  ],
   "words": [
     {
       "word": "contaminate",
@@ -63,10 +89,91 @@
       "example": "Small actions pave the way for a greener future."
     }
   ],
-  "goodPhrases": [],
+  "goodPhrases": [
+    {
+      "phrase": "a major environmental issue",
+      "zh": "重大的环境问题"
+    },
+    {
+      "phrase": "carelessly throwing rubbish",
+      "zh": "随意乱扔垃圾"
+    },
+    {
+      "phrase": "affects the overall quality of life",
+      "zh": "影响整体生活质量"
+    },
+    {
+      "phrase": "growing concern",
+      "zh": "日益严重的问题"
+    },
+    {
+      "phrase": "lack of environmental awareness",
+      "zh": "缺乏环保意识"
+    },
+    {
+      "phrase": "negatively impacts the environment",
+      "zh": "对环境产生负面影响"
+    },
+    {
+      "phrase": "insufficient waste disposal facilities",
+      "zh": "废物处理设施不足"
+    },
+    {
+      "phrase": "severe environmental consequences",
+      "zh": "严重的环境后果"
+    },
+    {
+      "phrase": "pollutes the land, water, and air",
+      "zh": "污染土地、水和空气"
+    },
+    {
+      "phrase": "harm to wildlife and ecosystems",
+      "zh": "危害野生动物和生态系统"
+    },
+    {
+      "phrase": "clogs drainage systems",
+      "zh": "堵塞排水系统"
+    },
+    {
+      "phrase": "health risks",
+      "zh": "健康风险"
+    },
+    {
+      "phrase": "spreading diseases",
+      "zh": "传播疾病"
+    },
+    {
+      "phrase": "public education is essential",
+      "zh": "公共教育至关重要"
+    },
+    {
+      "phrase": "awareness campaigns",
+      "zh": "宣传活动"
+    },
+    {
+      "phrase": "proper waste disposal",
+      "zh": "妥善处理垃圾"
+    },
+    {
+      "phrase": "stricter penalties",
+      "zh": "更严厉的惩罚"
+    },
+    {
+      "phrase": "devastating effects",
+      "zh": "破坏性的影响"
+    },
+    {
+      "phrase": "environmental awareness",
+      "zh": "环保意识"
+    },
+    {
+      "phrase": "clean and sustainable",
+      "zh": "清洁和可持续的"
+    }
+  ],
   "gaps": [
-    "no distinct essay left for this round",
-    "The Environment folder has only 2 essays in the new format (Perlis, Negeri Sembilan) plus the older-format Article 03 (Environmental Science Club); all three are used in weeks 2, 13 and 24. Four older .docx drafts remain unused (SPM Essay_ Going Green, Littering, Hot Weather and Extreme Heat in Malaysia, Deforestation).",
-    "Examples: 'contaminate' comes from Universal answer E1; the other nine are the pack's trial-paper keyword sentences (section 4); 'disrupt the ecosystem', 'pose a threat to public health' and 'make a lasting difference' have inflected or shortened forms of the phrase."
+    "Examples: 'contaminate' comes from Universal answer E1; the other nine are the pack's trial-paper keyword sentences (section 4); 'disrupt the ecosystem', 'pose a threat to public health' and 'make a lasting difference' have inflected or shortened forms of the phrase.",
+    "Essay chosen for week 35: 'SPM Essay on Littering' (older format, unused). Its text has 'harm to wildlife and ecosystems', 'poses health risks' and 'pollutes' (related to 'disrupt the ecosystem', 'pose a threat to public health', 'contaminate'); none of the 10 week phrases appears exactly. Essay text copied verbatim.",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

@@ -13,7 +13,20 @@
     "As for whether examinations should be abolished, I believe they should not be entirely removed but reformed. While exams serve a purpose in education, alternative assessment methods such as project-based learning or continuous assessment could be incorporated to provide a more balanced evaluation of students’ skills and knowledge.",
     "In conclusion, examinations in Malaysia play an important role in education, but they also come with challenges. By improving the examination system and combining it with other forms of assessment, we can ensure a fairer and more holistic approach to evaluating students."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Give your opinion on whether examinations are useful and fair"
+    },
+    {
+      "code": "C2",
+      "text": "State the advantages and disadvantages of having examinations"
+    },
+    {
+      "code": "C3",
+      "text": "Say whether examinations should be abolished"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -161,6 +174,7 @@
   "gaps": [
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
     "None of the 10 words appears in this essay's vocabulary table; all examples come from the School & Education theme pack (Universal answers S3, S4, S5, S6, S7). The sentences for 'suffer from anxiety'/'burn out' (shared) and 'cram for exams' were rebuilt from the scrambled watermarked PDF; 'cram for exams' is only found as 'cramming' in the pack sentence. Please check them.",
-    "No question-style essay with a Question Analysis table is left for this theme, so weeks 26 and 37 use the older-format essays in the '7. school' folder."
+    "No question-style essay with a Question Analysis table is left for this theme, so weeks 26 and 37 use the older-format essays in the '7. school' folder.",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

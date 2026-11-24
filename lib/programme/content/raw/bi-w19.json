@@ -13,7 +13,20 @@
     "To prevent teenagers from starting a life of crime, helpful action is crucial. Schools must implement strong mentorship programs that pair students with positive role models, instilling a strong moral compass. Secondly, community organizations should offer positive after-school activities and vocational training, providing alternative pathways to success and minimizing idle time. Thirdly, open family communication is most important; parents must monitor their children's online activities and peer groups without intruding on their privacy, thus creating a home environment defined by trust and accountability. By equipping teenagers with purpose and support, we strengthen them against the temptations of crime.",
     "In conclusion, combating crime requires more than just punishment; it demands a holistic approach that addresses both digital and traditional threats, deals with the fundamental reasons of poverty and social exclusion, and critically, invests in the positive development of our youth."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "State the common forms of crime"
+    },
+    {
+      "code": "C2",
+      "text": "Explain the factors that lead people to commit crimes"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to prevent teenagers from starting a life of crime"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -73,7 +86,7 @@
     {
       "word": "gain a sense of purpose",
       "zh": "获得使命感",
-      "example": null
+      "example": "As a result, teenagers become more responsible and gain a sense of purpose."
     }
   ],
   "goodPhrases": [
@@ -171,6 +184,8 @@
     "Crime is a Teenagers-folder essay used for round 2. The folder's own order was not clear from the Drive listing; the first two topically fitting essays were taken (WPKL for round 1, Crime for round 2); Terengganu (time management), Kelantan (movie) and Food Festival were skipped as off-theme.",
     "goodPhrases: all 21 rows of the essay's Part 2 vocabulary table.",
     "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 19 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used.",
-    "example for 'build trust' taken from the theme pack (watermark layer removed)"
+    "example for 'build trust' taken from the theme pack (watermark layer removed)",
+    "points written by Claude from the essay (unchecked)",
+    "Example for 'gain a sense of purpose' filled later from the Teenagers & Society theme pack (cleaned text)."
   ]
 }

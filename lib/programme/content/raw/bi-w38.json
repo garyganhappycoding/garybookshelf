@@ -13,7 +13,20 @@
     "To spread awareness about online safety among teenagers, schools and parents can teach them about the risks of online shopping and scams. Organizing workshops on digital literacy and creating educational content about safe online practices can help. Teenagers should also be encouraged to ask for advice from trusted adults before making online purchases.",
     "In conclusion, while online shopping offers convenience, it is important to be cautious to avoid falling into scams. By staying informed and taking protective measures, we can shop safely and help others become more aware of online risks."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Explain how people get tricked when spending money online"
+    },
+    {
+      "code": "C2",
+      "text": "Suggest ways to protect yourself when shopping online"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to spread awareness about online safety among teenagers"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -161,6 +174,7 @@
   "gaps": [
     "'control spending' has no example sentence: in the Finance & Consumerism theme pack it appears only as a key word (answer F2) and the scrambled model paragraph could not be copied safely.",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The essay is about online shopping scams and awareness, not general spending habits.",
-    "None of the 10 words appears in this essay's vocabulary table; examples come from the Finance & Consumerism theme pack (Universal answers F3, F9 and trial-paper sentences from the Kedah spending-habits report). The sentences for 'barely save money', 'secure a better financial future' and 'spend beyond one's means' were rebuilt from the scrambled pack text; 'fall short of their goals' uses 'their saving goals' and 'spend beyond one's means' uses 'their means'. Please check them."
+    "None of the 10 words appears in this essay's vocabulary table; examples come from the Finance & Consumerism theme pack (Universal answers F3, F9 and trial-paper sentences from the Kedah spending-habits report). The sentences for 'barely save money', 'secure a better financial future' and 'spend beyond one's means' were rebuilt from the scrambled pack text; 'fall short of their goals' uses 'their saving goals' and 'spend beyond one's means' uses 'their means'. Please check them.",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

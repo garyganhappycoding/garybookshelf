@@ -12,7 +12,20 @@
     "Saving our culture is vitally important for maintaining a strong and stable nation. Firstly, it gives every citizen a clear sense of identity and belonging, connecting them to their ancestors. Secondly, sharing traditions creates social cohesion among our diverse ethnic groups, helping everyone live together peacefully. Furthermore, our unique heritage attracts tourists, which provides significant socio-economic benefits for the entire country.",
     "To encourage teenagers, we must make learning about culture fun and accessible. Schools should incentivise participation by offering engaging workshops and making these arts part of hands-on projects. We must also harness the power of social media platforms like TikTok and Instagram. Short, creative videos demonstrating traditional cooking or cultural facts can make heritage seem modern and cool, encouraging more students to get involved."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe the traditions that are at risk of disappearing"
+    },
+    {
+      "code": "C2",
+      "text": "Explain why saving our culture is important"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to encourage teenagers to take part in preserving culture"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -45,7 +58,7 @@
     {
       "word": "vulnerable people",
       "zh": "弱势群体",
-      "example": null
+      "example": "As a result, vulnerable people go unnoticed and the community loses its warmth."
     },
     {
       "word": "small contributions",
@@ -151,6 +164,8 @@
     "'vulnerable people' has no example sentence: in the People & Culture theme pack it appears only as a key word of answer P6, whose model paragraph is scrambled in the watermarked PDF.",
     "The essay has no conclusion paragraph (it ends with the third bullet of the question), so 'closingIdx' is empty.",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The question (history teacher, three bullet points) is above the essay in the doc.",
-    "None of the 10 words appears in this essay's vocabulary table; all 9 examples come from the People & Culture theme pack (Universal answers P4, P5, P7, P9). 'lose touch with traditions' uses 'losing touch with their traditions'."
+    "None of the 10 words appears in this essay's vocabulary table; all 9 examples come from the People & Culture theme pack (Universal answers P4, P5, P7, P9). 'lose touch with traditions' uses 'losing touch with their traditions'.",
+    "points written by Claude from the essay (unchecked)",
+    "Example for 'vulnerable people' filled later from the People & Culture theme pack (cleaned text)."
   ]
 }

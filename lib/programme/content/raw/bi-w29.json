@@ -13,7 +13,20 @@
     "To fully enjoy a local trip, plan your itinerary carefully to explore places off the beaten path. Try local food and engage with the culture to make the experience richer. Travelling during off-peak seasons can also help you avoid crowds and get better deals on accommodation. Packing lightly and being open to new experiences will make your journey more enjoyable.",
     "In conclusion, travelling locally offers a wonderful opportunity to discover new destinations, save money, and support your community. Whether it’s a short weekend getaway or a longer trip, exploring your own country can be just as exciting as going abroad, if not more rewarding."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe a local destination that should not be missed"
+    },
+    {
+      "code": "C2",
+      "text": "State the advantages of travelling locally compared with going abroad"
+    },
+    {
+      "code": "C3",
+      "text": "Give tips for enjoying a local trip"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -126,6 +139,7 @@
     "The Travel folder also holds 'SPM Essay_ Travel.docx' (a Tokyo holiday story). It was not used because it is a story, not a travel-theme essay.",
     "The docx text shows a curly apostrophe/quotes; copied as shown.",
     "Prompt said week 29 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 29 as Travel, Leisure & Home, so Travel words and a Travel essay were used.",
-    "example for 'a breathtaking destination' taken from the theme pack (watermark layer removed)"
+    "example for 'a breathtaking destination' taken from the theme pack (watermark layer removed)",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

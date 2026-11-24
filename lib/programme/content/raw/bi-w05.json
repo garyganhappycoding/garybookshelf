@@ -13,7 +13,20 @@
     "To be a smart consumer, we must adopt careful habits. The first step is to differentiate between needs and wants by using a \"cooling-off\" period before making large purchases. Secondly, always research alternatives and seek value over status. Finally, teenagers should prioritize saving and investing, recognizing that financial stability is far more valuable than temporary social approval.",
     "In conclusion, the temptation of buying stylish brands is powerful, but the long-term cost is too high. We must choose saving money instead of following fashion, teaching ourselves to prioritize financial security and self-worth over brand labels. By making smart, careful choices today, we secure a brighter, more stable future."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe your experience of buying a branded item"
+    },
+    {
+      "code": "C2",
+      "text": "Explain the disadvantages of buying unnecessary items"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest ways to become a smart consumer"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -162,6 +175,7 @@
     "The Drive doc (Finance 01) has no exam question, no Question Analysis table and no Exam Version, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
     "The Finance & Consumerism folder has no essay in the Question Analysis format; weeks 5, 16, 27 and 38 use its four essays in the order Finance 01, Teenagers and Money (Article 07), Managing Pocket Money, Beware When Spending.",
     "Only 'differentiate between needs and wants' (a similar phrase to the week word 'distinguish between needs and wants') appears in the essay's own table; all 10 examples come from the Finance & Consumerism theme pack (Universal phrases, Universal answer F2 and the Universal opening).",
-    "The watermarked pack PDF is scrambled: the sentences for 'go on a shopping spree', 'keep track of spending' and 'distinguish between needs and wants' were rebuilt from the scrambled text of Universal phrases 3 to 6. Please check them."
+    "The watermarked pack PDF is scrambled: the sentences for 'go on a shopping spree', 'keep track of spending' and 'distinguish between needs and wants' were rebuilt from the scrambled text of Universal phrases 3 to 6. Please check them.",
+    "points written by Claude from the essay (unchecked)"
   ]
 }

@@ -1,5 +1,6 @@
 {
-  "n": 33, "lang": "bi",
+  "n": 33,
+  "lang": "bi",
   "theme": "Story",
   "level": "C1",
   "essayTitle": "The House at the Edge of the Village",
@@ -13,41 +14,130 @@
     "We pulled Faiz out and fled without looking back. As we stood at the edge of the village, in that chilling silence, I finally understood why the elders warned us not to go there."
   ],
   "points": [
-    {"code": "C1", "text": "describe what happened that scared you and the group – event 1"},
-    {"code": "C2", "text": "what happened that scared you – event 2"},
-    {"code": "C3", "text": "share what you learned about respecting local culture and traditions – lesson 1"},
-    {"code": "C4", "text": "what you learned – lesson 2"}
+    {
+      "code": "C1",
+      "text": "describe what happened that scared you and the group – event 1"
+    },
+    {
+      "code": "C2",
+      "text": "what happened that scared you – event 2"
+    },
+    {
+      "code": "C3",
+      "text": "share what you learned about respecting local culture and traditions – lesson 1"
+    },
+    {
+      "code": "C4",
+      "text": "what you learned – lesson 2"
+    }
   ],
-  "openingIdx": [0],
-  "keyPoint": {"idx": 1, "prompt": "describe what happened that scared you and the group – event 1"},
-  "closingIdx": [4],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "describe what happened that scared you and the group – event 1"
+  },
+  "closingIdx": [
+    4
+  ],
   "words": [
-    {"word": "my voice trembling", "zh": "声音颤抖", "example": "\"Who is there?\" I whispered, my voice trembling."},
-    {"word": "lower my guard", "zh": "放松戒备", "example": "As a result, I let out a sigh of relief and lowered my guard."},
-    {"word": "come to a head", "zh": "到了紧要关头", "example": null},
-    {"word": "seize the chance", "zh": "抓住机会", "example": null},
-    {"word": "a split-second decision", "zh": "瞬间的决定", "example": null},
-    {"word": "dash down the stairs", "zh": "冲下楼梯", "example": "We dashed down the stairs and ducked behind a wall."},
-    {"word": "duck behind", "zh": "躲在……后面", "example": "We dashed down the stairs and ducked behind a wall."},
-    {"word": "gasp for breath", "zh": "喘着气", "example": "Gasping for breath, we clutched each other's hands."},
-    {"word": "change me forever", "zh": "永远改变了我", "example": "The experience changed me forever."},
-    {"word": "open my eyes to", "zh": "让我看清……", "example": "This is because it opened my eyes to the value of family and kindness."}
+    {
+      "word": "my voice trembling",
+      "zh": "声音颤抖",
+      "example": "\"Who is there?\" I whispered, my voice trembling."
+    },
+    {
+      "word": "lower my guard",
+      "zh": "放松戒备",
+      "example": "As a result, I let out a sigh of relief and lowered my guard."
+    },
+    {
+      "word": "come to a head",
+      "zh": "到了紧要关头",
+      "example": "At that moment, everything came to a head."
+    },
+    {
+      "word": "seize the chance",
+      "zh": "抓住机会",
+      "example": "Without hesitation, I seized the chance and took a deep breath."
+    },
+    {
+      "word": "a split-second decision",
+      "zh": "瞬间的决定",
+      "example": "This is because I had to make a split-second decision."
+    },
+    {
+      "word": "dash down the stairs",
+      "zh": "冲下楼梯",
+      "example": "We dashed down the stairs and ducked behind a wall."
+    },
+    {
+      "word": "duck behind",
+      "zh": "躲在……后面",
+      "example": "We dashed down the stairs and ducked behind a wall."
+    },
+    {
+      "word": "gasp for breath",
+      "zh": "喘着气",
+      "example": "Gasping for breath, we clutched each other's hands."
+    },
+    {
+      "word": "change me forever",
+      "zh": "永远改变了我",
+      "example": "The experience changed me forever."
+    },
+    {
+      "word": "open my eyes to",
+      "zh": "让我看清……",
+      "example": "This is because it opened my eyes to the value of family and kindness."
+    }
   ],
   "goodPhrases": [
-    {"phrase": "curiosity got the better of", "zh": "好奇心占了上风"},
-    {"phrase": "eerily", "zh": "怪异地；阴森地"},
-    {"phrase": "pitch darkness", "zh": "漆黑一片"},
-    {"phrase": "gave way", "zh": "塌陷；断裂"},
-    {"phrase": "rooted in wisdom and experience", "zh": "源于智慧和经验"},
-    {"phrase": "sacred", "zh": "神圣的"},
-    {"phrase": "honoured their ancestors", "zh": "缅怀祖先"},
-    {"phrase": "superstition", "zh": "迷信"},
-    {"phrase": "decaying", "zh": "腐朽的"}
+    {
+      "phrase": "curiosity got the better of",
+      "zh": "好奇心占了上风"
+    },
+    {
+      "phrase": "eerily",
+      "zh": "怪异地；阴森地"
+    },
+    {
+      "phrase": "pitch darkness",
+      "zh": "漆黑一片"
+    },
+    {
+      "phrase": "gave way",
+      "zh": "塌陷；断裂"
+    },
+    {
+      "phrase": "rooted in wisdom and experience",
+      "zh": "源于智慧和经验"
+    },
+    {
+      "phrase": "sacred",
+      "zh": "神圣的"
+    },
+    {
+      "phrase": "honoured their ancestors",
+      "zh": "缅怀祖先"
+    },
+    {
+      "phrase": "superstition",
+      "zh": "迷信"
+    },
+    {
+      "phrase": "decaying",
+      "zh": "腐朽的"
+    }
   ],
   "gaps": [
     "No example sentence for 'come to a head', 'seize the chance', 'a split-second decision': the pack's ST6 sentences were scrambled in the PDF text, and none of these is in the essay.",
     "None of this week's words are in the essay or its vocabulary table. All examples come from the Story pack answers: ST5 ('my voice trembling', 'lower my guard'), ST7 ('dash down the stairs' and 'duck behind' share one sentence; 'gasp for breath' appears as 'Gasping for breath'), ST9 ('change me forever' appears as 'changed me forever', 'open my eyes to' as 'opened my eyes to').",
     "The question's required last line is the last sentence of the final paragraph; the Question Analysis row for it has no C code, so it is not in points.",
-    "goodPhrases: rows marked (Extended) (musty smell, creeping vines, trespassed) were left out."
+    "goodPhrases: rows marked (Extended) (musty smell, creeping vines, trespassed) were left out.",
+    "Example for 'come to a head' filled later from the Story theme pack (cleaned text); form differs: 'came'.",
+    "Example for 'seize the chance' filled later from the Story theme pack (cleaned text); form differs: 'seized'.",
+    "Example for 'a split-second decision' filled later from the Story theme pack (cleaned text); the pack text has 'split- second' (stray space from the PDF), written as 'split-second'."
   ]
 }

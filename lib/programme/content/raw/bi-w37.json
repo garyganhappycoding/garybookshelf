@@ -13,7 +13,24 @@
     "Moreover, involving parents in the conversation about bullying is crucial. Schools can organize seminars or distribute materials that educate parents on how to recognize signs of bullying and support their children. Building a strong partnership between parents, teachers, and students can help create a united front against bullying.",
     "In conclusion, bullying in schools is a serious problem that requires immediate attention and action. By implementing effective policies, promoting empathy, and involving parents, we can work together to create a safe and inclusive environment for all students."
   ],
-  "points": [],
+  "points": [
+    {
+      "code": "C1",
+      "text": "Describe the problem of bullying and its effects on students"
+    },
+    {
+      "code": "C2",
+      "text": "Suggest how schools can prevent bullying (policies and trained staff)"
+    },
+    {
+      "code": "C3",
+      "text": "Suggest promoting empathy and kindness through educational programmes"
+    },
+    {
+      "code": "C4",
+      "text": "Suggest involving parents in tackling bullying"
+    }
+  ],
   "openingIdx": [
     0
   ],
@@ -162,6 +179,7 @@
     "'eliminate distractions' has no example sentence: it appears in the School & Education theme pack only as a key word of answer S8, whose model paragraph is scrambled in the watermarked PDF.",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
     "None of the 10 words appears in this essay's vocabulary table; examples come from the School & Education theme pack (Universal answers S7, S9, S11 and trial-paper example sentences). 'reinforce learning' uses the pack's sentence with 'reinforced'; 'shape our character' uses 'shapes'.",
-    "The essay's 'Part 3' Beautiful Sentences table is cut off in the Drive text (last row ends mid-sentence); it is not used here."
+    "The essay's 'Part 3' Beautiful Sentences table is cut off in the Drive text (last row ends mid-sentence); it is not used here.",
+    "points written by Claude from the essay (unchecked)"
   ]
 }
