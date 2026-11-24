@@ -18,6 +18,7 @@ Usage rule (Gary): if the 5-hour limit resets within about 1 hour, use all you h
 - (none yet)
 
 ## Progress log (newest first)
+- 2026-11-24 11:21 run started (programme-overnight-2).
 - 2026-11-24 night list created.
 
-RUNNING: no
+RUNNING: 2026-11-24 11:21
