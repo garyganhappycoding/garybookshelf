@@ -27,7 +27,7 @@ Format: `lib/programme/content/bi/w01.ts` ... `w44.ts` and `bm/w01.ts` ... (type
 - [ ] A3 Gaps list: write every week that could not be filled (missing essay, no table) to the "Gaps" section below instead of inventing content.
 
 ### B. Student UI (the real thing, not the review prototype)
-- [~] B1 (done: column + switch on the Today page; TODO: switch also in settings page) Profile column `instruction_lang` (en | zh) + switch in the settings page and on the Today page. Default zh.
+- [x] B1 Profile column `instruction_lang` (en | zh) + switch in the settings page and on the Today page. Default zh.
 - [x] B2 Today page renders the day card from the week content (calendar week n -> content week n, both languages the same day, 10 min each).
 - [x] B3 Day 1: 10 sentence boxes + quiz (scored on the server against the answer key; saves quiz_correct/quiz_total and `details`).
 - [x] B4 Day 2: tap-to-highlight, saved in `details`; answer key shown after submit.
@@ -53,6 +53,7 @@ Format: `lib/programme/content/bi/w01.ts` ... `w44.ts` and `bm/w01.ts` ... (type
 - Admin-only: Today page accepts ?date=YYYY-MM-DD for the admin to walk through days (students always get the real date).
 
 ## Progress log (newest first, one line per run)
+- 2026-11-24 09:24 B1 done: added the 中文/English instruction-language switch to the settings page (same action/pattern as the Today page toggle). tsc clean. Note: PR 35 (guidance/word-list formatting + 23 filled example sentences) landed on main from a separate session while this run was paused — see its own commit. Next: C1-C4 (test, cleanup, morning report).
 - 2026-11-24 03:30 PR 32 (all weeks) and PR 33 (calendar theme order fixed: calendar.ts THEMES now Travel=7, Teenagers=8) merged. DONE: A0-A2, B2-B8, calendar theme names. REMAINING: B1 settings-page language switch, C1 test Thu/Fri/Sun + mobile width + clicking the 中文/English toggle (create a throw-away admin user ui-test-*, set profiles.role=admin, log in at localhost, use ?date=), C2, C3 cleanup, C4 morning report (brand/PROGRAMME-MORNING-REPORT.md), then disable this scheduled task.
 - 2026-11-24 03:00 all 7 extraction agents finished: BI 44 weeks, BM 44 weeks in lib/programme/content/raw (data.*.json rebuilt). BI essays for weeks 4-6,15-17,26-28,37-39 (School, Finance, People & Culture) are mostly OLD-format docs without a question table; Finance has no new-format essay. Remaining: test Thu/Fri/Sun + mobile + toggle, settings switch, calendar theme names, morning report.
 - 2026-11-24 02:10 tested as admin test user: BI wk1 Mon (10 sentences + quiz 9/10 + AI), Tue (highlight, saved), BI wk7 Wed (generated week, AI), BM wk1 Wed (generated). Test user and rows deleted. AI task now includes the week's 10 words. Still to test: Thu/Fri/Sun, mobile width, Chinese/English toggle click, calendar theme names.

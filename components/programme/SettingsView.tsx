@@ -2,17 +2,28 @@
 import Link from "next/link";
 import { useState, useTransition } from "react";
 import { STATES } from "@/lib/programme/calendar";
-import { saveSettingsAction } from "@/app/programme/settings/actions";
+import { saveInstructionLangAction, saveSettingsAction } from "@/app/programme/settings/actions";
 
-export default function SettingsView({ state, form }: { state: string; form: number }) {
+export default function SettingsView({ state, form, instructionLang }: { state: string; form: number; instructionLang: "en" | "zh" }) {
   const [st, setSt] = useState(state);
   const [fm, setFm] = useState(form);
   const [msg, setMsg] = useState("");
   const [pending, start] = useTransition();
+  const [ilang, setIlang] = useState(instructionLang);
+  const [switching, startSwitch] = useTransition();
   const save = () => start(async () => { const r = await saveSettingsAction(st, fm); setMsg(r.error ?? "已保存。"); });
   return (
     <div>
       <h1 className="text-2xl font-medium mb-4">设置</h1>
+      <div className="card mb-4 space-y-3">
+        <p className="font-medium">说明的语言 · Instructions in</p>
+        <div className="flex gap-2">
+          {(["zh", "en"] as const).map((l) => (
+            <button key={l} type="button" disabled={switching} onClick={() => startSwitch(async () => { await saveInstructionLangAction(l); setIlang(l); })}
+              className={ilang === l ? "btn-primary text-sm" : "btn-secondary text-sm"}>{l === "zh" ? "中文" : "English"}</button>
+          ))}
+        </div>
+      </div>
       <div className="card mb-4 space-y-3">
         <label htmlFor="st" className="font-medium block">我的州属</label>
         <select id="st" value={st} onChange={(e) => setSt(e.target.value)} className="rounded-lg border border-ink/20 bg-white px-3 py-2 text-sm">
