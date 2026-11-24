@@ -27,7 +27,7 @@ export default async function TodayPage({ searchParams }: { searchParams: Promis
     week: { n: found.week.n, theme: found.week.theme, essay: found.week.essay },
   } : null;
   const data: TodayData = {
-    day: today, lang, state: p.state, demo: a.isAdmin, ilang: p.instructionLang, card, examWeek, ended,
+    day: today, lang, state: p.state, demo: a.isAdmin, ilang: p.instructionLang, form: p.form, card, examWeek, ended,
     submitted: !!sub, submissionId: sub?.id ?? null, feedback: sub?.ai_feedback ?? null, aiStatus: sub?.ai_status ?? null, answerText: sub?.answer ?? null, marks: Array.isArray((sub?.details as { marks?: unknown } | null)?.marks) ? ((sub!.details as { marks: { k: string; w: string; c: 1 | 2 }[] }).marks) : null, comments,
   };
   return (

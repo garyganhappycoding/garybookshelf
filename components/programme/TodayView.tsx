@@ -7,7 +7,7 @@ import DayCard, { type CardData } from "./DayCard";
 
 export type TodayData = {
   day: string; lang: "BM" | "BI"; state: string; submitted: boolean; submissionId: string | null;
-  demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; card: CardData | null; examWeek: boolean; ended: boolean; answerText: string | null; marks: { k: string; w: string; c: 1 | 2 }[] | null;
+  demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; form: number; card: CardData | null; examWeek: boolean; ended: boolean; answerText: string | null; marks: { k: string; w: string; c: 1 | 2 }[] | null;
   comments: { id: string; nickname: string; body: string; mine: boolean; waiting: boolean }[];
 };
 const init: Result = {};
@@ -34,6 +34,10 @@ export default function TodayView({ data }: { data: TodayData }) {
   const [com, commentForm, commenting] = useActionState(commentAction, init);
   const [text, setText] = useState("");
   const submitted = data.submitted;
+  const T = (zh: string, en: string) => (data.ilang === "zh" ? zh : en);
+  const endedMessage = data.form === 5
+    ? T("SPM 开始了，这一年的陪你读书到这里结束。加油！", "SPM has started, so this year's 陪你读书 ends here. Good luck!")
+    : T("年终考开始了，这一年的陪你读书到这里结束。加油！", "The year-end exam has started, so this year's 陪你读书 ends here. Good luck!");
 
   return (
     <div>
@@ -54,7 +58,7 @@ export default function TodayView({ data }: { data: TodayData }) {
       </div>
 
       {!data.card ? (
-        <div className="card">{data.ended ? "年终考开始了，这一年的陪你读书到这里结束。加油！" : data.examWeek ? "这一周是考试周，不安排新内容，好好考试。" : wk > 0 ? "这一周这个语言的内容还在准备，今天先休息。" : "学校放假，这一天不安排新任务。"}</div>
+        <div className="card">{data.ended ? endedMessage : data.examWeek ? T("这一周是考试周，不安排新内容，好好考试。", "This is an exam week, so there is no new content. Focus on the exam.") : wk > 0 ? T("这一周这个语言的内容还在准备，今天先休息。", "This week's content in this language is not ready yet, so rest today.") : T("学校放假，这一天不安排新任务。", "School is on holiday, so there is no task today.")}</div>
       ) : (
         <>
           <div className="mb-4">
