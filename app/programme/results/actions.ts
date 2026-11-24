@@ -1,0 +1,25 @@
+"use server";
+import { revalidatePath } from "next/cache";
+import { requireProgramme } from "@/lib/programme/gate";
+import { getProfile } from "@/lib/programme/profile";
+import { saveResults } from "@/lib/programme/results";
+
+export type ResultsState = { error?: string; ok?: boolean };
+
+/** Saves the baseline (before the plan) or the results of one exam period. */
+export async function saveResultsAction(_: ResultsState, form: FormData): Promise<ResultsState> {
+  const a = await requireProgramme({ allowNoBaseline: true });
+  const kind = form.get("kind") === "exam" ? "exam" : "baseline";
+  let examId: string | null = null, label = "开始之前的成绩";
+  if (kind === "exam") {
+    const p = await getProfile(a.userId);
+    const exam = p.exams.find((e) => e.id === String(form.get("exam")));
+    if (!exam) return { error: "找不到这次考试。" };
+    examId = exam.id; label = exam.name.replace(/（.*?）/g, "");
+  }
+  const r = await saveResults(a.userId, kind, examId, label, form);
+  if (r.error) return r;
+  revalidatePath("/programme");
+  revalidatePath("/programme/results");
+  return { ok: true };
+}

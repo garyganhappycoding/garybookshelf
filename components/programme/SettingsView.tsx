@@ -37,6 +37,10 @@ export default function SettingsView({ state, form, instructionLang }: { state: 
         <button type="button" onClick={save} disabled={pending} className="btn-primary text-sm disabled:opacity-50">保存</button>
         {msg && <p className="text-sm text-ink/70">{msg}</p>}
       </div>
+      <Link href="/programme/results" className="card mb-4 block hover:shadow-md transition">
+        <p className="font-medium">我的成绩</p>
+        <p className="text-sm text-ink/60">开始之前和每次考完试的成绩，看自己有没有进步。</p>
+      </Link>
       <Link href="/programme/settings/exams" className="card block hover:shadow-md transition">
         <p className="font-medium">我的考试日期</p>
         <p className="text-sm text-ink/60">改成你学校真正的考试日期，日历上会出现颜色。</p>

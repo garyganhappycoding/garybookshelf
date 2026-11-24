@@ -5,6 +5,7 @@ import { hasSubmitted, listComments } from "@/lib/programme/daily";
 import { classKey, getProfile, myHistoryRows } from "@/lib/programme/profile";
 import { addDays, buildCalendar, demoHistory, facts, key, mondayOf, parse, programmeEnd, realHistory } from "@/lib/programme/calendar";
 import { resolveDay, studentBlocks } from "@/lib/programme/dayflow";
+import { pendingExam } from "@/lib/programme/results";
 import { dayKeyFor } from "@/lib/programme/content/index";
 
 export const dynamic = "force-dynamic";
@@ -38,7 +39,9 @@ export default async function TodayPage({ searchParams }: { searchParams: Promis
     const dd = addDays(first, i), k = key(dd);
     return { k, label: LABEL[dayKeyFor(cal.group, dd.getDay())], state: history[k] ?? null, future: !a.isAdmin && k > a.today };
   });
+  const resultPrompt = await pendingExam(a.userId, p.exams, a.today);
   const data: TodayData = {
+    resultPrompt: resultPrompt ? { id: resultPrompt.id, name: resultPrompt.name } : null,
     todayReal: a.today, stats: { week: f.week, weeks: f.weeks, left: f.left, total: f.total, earned: f.earned, streak: f.streak }, weekDays,
     day: today, lang, state: p.state, demo: a.isAdmin, ilang: p.instructionLang, form: p.form, card, examWeek, ended,
     submitted: !!sub, submissionId: sub?.id ?? null, feedback: sub?.ai_feedback ?? null, aiStatus: sub?.ai_status ?? null, answerText: sub?.answer ?? null, marks: Array.isArray((sub?.details as { marks?: unknown } | null)?.marks) ? ((sub!.details as { marks: { k: string; w: string; c: 1 | 2 }[] }).marks) : null, comments,

@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export const metadata = { title: "开始 · 陪你读书", robots: { index: false, follow: false } };
 
 export default async function StartPage() {
-  const a = await requireProgramme();
+  const a = await requireProgramme({ allowNoBaseline: true });
   const p = await getProfile(a.userId);
   if (p.setupDone) redirect("/programme");
   return (
