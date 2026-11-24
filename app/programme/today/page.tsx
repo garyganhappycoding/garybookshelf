@@ -5,7 +5,9 @@ import { hasSubmitted, listComments } from "@/lib/programme/daily";
 import { classKey, getProfile, myHistoryRows } from "@/lib/programme/profile";
 import { addDays, buildCalendar, demoHistory, facts, key, mondayOf, parse, programmeEnd, realHistory } from "@/lib/programme/calendar";
 import { resolveDay, studentBlocks } from "@/lib/programme/dayflow";
+import { redirect } from "next/navigation";
 import { pendingExam } from "@/lib/programme/results";
+import { pendingMonthly } from "@/lib/programme/monthly";
 import { dayKeyFor } from "@/lib/programme/content/index";
 
 export const dynamic = "force-dynamic";
@@ -14,6 +16,8 @@ export const metadata = { title: "今天 · 陪你读书", robots: { index: fals
 export default async function TodayPage({ searchParams }: { searchParams: Promise<{ lang?: string; date?: string }> }) {
   const a = await requireProgramme();
   const sp = await searchParams;
+  // the monthly essay test is mandatory: until it is handed in, Today sends the student to it (the admin preview is not blocked)
+  if (!a.isAdmin && (await pendingMonthly(a.userId, a.today)).length) redirect("/programme/monthly");
   const lang = sp.lang === "BI" ? "BI" : "BM";
   // ?date=YYYY-MM-DD opens another day: the admin may open any day, a student only days that have already started (to catch up).
   const dateOk = /^\d{4}-\d{2}-\d{2}$/.test(sp.date ?? "");
