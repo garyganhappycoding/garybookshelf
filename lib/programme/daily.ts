@@ -8,7 +8,7 @@ import type { Lang } from "./content";
 export const looksUnsafe = (t: string) => /https?:\/\/|www\.|\.(com|my|net|org)\b|@\w|\b\d{8,}\b|\d{3}[- ]?\d{7,}/i.test(t);
 
 /** Extra parts of a day's response besides the main text: quiz answers and score, highlighted words, the 10 sentences, and so on. */
-export type Extra = { details?: Record<string, unknown>; quizCorrect?: number; quizTotal?: number; directFeedback?: string; appendFeedback?: string };
+export type Extra = { details?: Record<string, unknown>; quizCorrect?: number; quizTotal?: number; directFeedback?: string; appendFeedback?: string; noFeedback?: boolean };
 
 export async function submitAnswer(userId: string, day: string, lang: Lang, answer: string, task: string, madeUp: boolean, extra: Extra = {}) {
   const text = clean(answer, 3000);
@@ -26,6 +26,11 @@ export async function submitAnswer(userId: string, day: string, lang: Lang, answ
   // Every save is also kept in a log, so an earlier version is never lost when a student edits and resubmits.
   await admin.from("programme_answer_log").insert({ submission_id: row.id, user_id: userId, answer: text, details });
 
+  // Highlighting is not graded: the answer is kept and the model answer is shown, nothing else.
+  if (extra.noFeedback) {
+    await admin.from("programme_submissions").update({ ai_status: "done", ai_feedback: null }).eq("id", row.id);
+    return { id: row.id, feedback: null as string | null, status: "done" as const };
+  }
   // A day that is graded by rule (highlighting) needs no AI: save the rule-based feedback and finish.
   if (extra.directFeedback) {
     await admin.from("programme_submissions").update({ ai_status: "done", ai_feedback: extra.directFeedback }).eq("id", row.id);
@@ -48,7 +53,7 @@ ${extra.appendFeedback}` : fb.feedback;
 }
 
 export async function hasSubmitted(userId: string, day: string, lang: Lang) {
-  const { data } = await createAdminClient().from("programme_submissions").select("id, answer, ai_feedback, ai_status").eq("user_id", userId).eq("day", day).eq("lang", lang).maybeSingle();
+  const { data } = await createAdminClient().from("programme_submissions").select("id, answer, details, ai_feedback, ai_status").eq("user_id", userId).eq("day", day).eq("lang", lang).maybeSingle();
   return data;
 }
 

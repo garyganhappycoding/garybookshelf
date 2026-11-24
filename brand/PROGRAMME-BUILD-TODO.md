@@ -1,3 +1,18 @@
+# 陪你读书 · PENDING LIST (updated 2026-11-24, read this first)
+
+## Waiting for Gary (do not start until he says)
+- [ ] **BM essay marking (karangan)**: Gary wants to change things first and says "don't publish yet". It is merged but PRIVATE (admin and beta testers only, `/writing/bm`, 404/403 for everyone else; nothing links to it). Do not open it to students, do not announce it. Rules: brand/BM-MARKING-RULES.md. Needs his good and weak essays to calibrate (it marked his model essay Baik 50/70, too harsh).
+- [ ] BM Sukan and Kebersihan: he will check later.
+- [ ] He is reading all 44 weeks of BI and BM vocab and content now; apply his corrections as he sends them.
+- [ ] 10 BI words still have no example sentence (see raw files' gaps).
+
+## To do (decided 2026-11-24)
+- [ ] **Feedback is not specific enough** (AI feedback after days 1, 3, 4, 5): Gary will figure out how to improve it. Do not change until he says how.
+- [ ] **Phone UI**: design laptop and iPad first (done in this pass); design the phone UI later.
+- [ ] **BM real question pictures**: the BM essay docs have no question picture; BM days 3 and 4 show no question. Ask Gary for the BM questions (or pictures).
+- [ ] **Exam weeks carry no content** (done in code, `contentWeekOf` in lib/programme/dayflow.ts): the content counts only non-exam school weeks, using the student's own exam dates. With the default estimated exams a Form 4 student has about 6 exam weeks, so only about 38 of the 44 content weeks fit in 2027 (fewer for Form 5). Gary must decide what to drop or reorder.
+- [ ] Default exam list in calendar.ts mixes Form 4 and Form 5 exams for everyone: should depend on the student's Form.
+
 # 陪你读书 · overnight build list
 
 Started 2026-11-23 night. Gary wants to wake up and test a complete student UI with working functionality.

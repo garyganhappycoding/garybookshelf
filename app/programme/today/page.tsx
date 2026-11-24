@@ -19,17 +19,18 @@ export default async function TodayPage({ searchParams }: { searchParams: Promis
   const sub = await hasSubmitted(a.userId, today, lang);
   // classmates' comments are only loaded once the student has handed in their own answer; the class is state + Form
   const comments = sub ? await listComments(a.userId, classKey(p), today, lang) : [];
-  const found = resolveDay(buildCalendar(p.state), today, lang);
-  const card = found ? {
+  const found = resolveDay(buildCalendar(p.state), today, lang, p.exams);
+  const examWeek = !!found && "exam" in found;
+  const card = found && !("exam" in found) ? {
     label: found.day.label, minutes: found.day.minutes, blocks: studentBlocks(found.day, !!sub), response: found.day.response ?? { kind: "none" as const },
     week: { n: found.week.n, theme: found.week.theme, essay: found.week.essay },
   } : null;
   const data: TodayData = {
-    day: today, lang, state: p.state, demo: a.isAdmin, ilang: p.instructionLang, card,
-    submitted: !!sub, submissionId: sub?.id ?? null, feedback: sub?.ai_feedback ?? null, aiStatus: sub?.ai_status ?? null, answerText: sub?.answer ?? null, comments,
+    day: today, lang, state: p.state, demo: a.isAdmin, ilang: p.instructionLang, card, examWeek,
+    submitted: !!sub, submissionId: sub?.id ?? null, feedback: sub?.ai_feedback ?? null, aiStatus: sub?.ai_status ?? null, answerText: sub?.answer ?? null, marks: Array.isArray((sub?.details as { marks?: unknown } | null)?.marks) ? ((sub!.details as { marks: { k: string; w: string; c: 1 | 2 }[] }).marks) : null, comments,
   };
   return (
-    <Shell active="today" admin={a.isAdmin}>
+    <Shell active="today" admin={a.isAdmin} wide>
       <TodayView data={data} />
     </Shell>
   );

@@ -50,13 +50,14 @@ const BM_CLOSING: Block = {
   ],
 };
 const BM_ELABORATE: Block = {
-  id: "guide", type: "table", title: T("怎样把一个要点讲开（来自你的范文）", "How to elaborate one point (from your model essays)"),
-  head: [T("步骤", "Step"), T("写法", "Start with"), T("做什么", "What it does")],
+  id: "guide", type: "table", title: T("怎样把一个要点讲开（5 句，来自你的范文）", "How to elaborate one point (5 sentences, from your model essays)"),
+  head: [T("第几句", "Sentence"), T("写法", "Start with"), T("做什么", "What it does")],
   rows: [
-    ["1 · 观点 Isi", "Yang pertamanya, … / Seterusnya, …", "Say the point in one clear sentence."],
-    ["2 · 原因", "Hal ini berlaku kerana …", "Explain why it is true."],
-    ["3 · 例子", "Sebagai contohnya, menurut …", "Give a real case. Use your own."],
-    ["4 · 小结", "Tegasnya, …", "Wrap the point up."],
+    ["1 · Isi utama", "Yang pertamanya, … / Seterusnya, …", "Say the main point in one clear sentence."],
+    ["2 · Huraian", "Hal ini berlaku kerana …", "Explain why it is true."],
+    ["3 · Contoh", "Sebagai contohnya, menurut …", "Give a real case. Use your own."],
+    ["4 · Kesan", "Sebagai kesannya, …", "Say what this leads to."],
+    ["5 · Tegasnya", "Tegasnya, …", "Wrap the point up."],
   ],
 };
 
@@ -90,7 +91,9 @@ export function addGuidance(w: Week): Week {
       const wf = wordsFor(w, d.key);
       const extra: Block[] = [g];
       if (wf) extra.push({ id: "refwords", type: "table", title: wf.title, head: [T("词", "Word"), T("中文", "Chinese")], rows: wf.rows });
-      return { ...d, blocks: [d.blocks[0], ...extra, ...d.blocks.slice(1)] };
+      // after the question table when the day has one, otherwise right after the instructions
+      const at = Math.max(0, d.blocks.findIndex((b) => b.id === "question")) + 1;
+      return { ...d, blocks: [...d.blocks.slice(0, at), ...extra, ...d.blocks.slice(at)] };
     }),
   };
 }

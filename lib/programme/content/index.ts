@@ -39,16 +39,34 @@ function addQuestionImage(w: Week): Week {
   const src = `/programme/q/bi-w${String(w.n).padStart(2, "0")}.jpg`;
   return {
     ...w,
-    days: w.days.map((d) => d.key !== "wed" || d.blocks[0]?.id !== "steps" ? d : {
+    days: w.days.map((d) => !["wed", "thu", "fri"].includes(d.key) || d.blocks[0]?.id !== "steps" ? d : {
       ...d,
       blocks: [d.blocks[0], { id: "qimage", type: "image", title: { zh: "这周的真题", en: "This week's real question" }, src, alt: "The exam question" }, ...d.blocks.slice(1)],
     }),
   };
 }
 
+/** Thursday: the student picks the point (a plural one) instead of being given one. Cleans the hand-written week 1 to match the generated weeks. */
+function normaliseThursday(w: Week): Week {
+  return {
+    ...w,
+    days: w.days.map((d) => {
+      if (d.key !== "thu" || d.blocks[0]?.id !== "steps") return d;
+      const steps = d.blocks[0];
+      if (steps.type !== "steps") return d;
+      const pick = w.lang === "BI"
+        ? { zh: "从题目的要点里选一个来写。选一个有复数的要点（例如 reasons、ways），才有更多可以讲。", en: "Pick ONE point from the question to write about. Choose a point with a plural (for example reasons or ways), so you have more to say." }
+        : { zh: "选一个 isi（主要观点）来写。选一个可以讲出多个例子或后果的观点。", en: "Pick ONE main point (isi). Choose one you can say a lot about." };
+      const rest = d.blocks.slice(1).filter((b) => b.id !== "point" && b.id !== "format");
+      const q = w.days.find((x) => x.key === "wed")?.blocks.find((b) => b.id === "question");
+      return { ...d, blocks: [{ ...steps, items: [pick, ...steps.items.slice(1)] }, ...(q && !rest.some((b) => b.id === "question") ? [q] : []), ...rest] };
+    }),
+  };
+}
+
 export function getWeek(lang: "BI" | "BM", n: number): Week | null {
   const o = OVERRIDE[`${lang}-${n}`];
-  if (o) return withResponses(addQuestionImage(addGuidance(o)));
+  if (o) return withResponses(addQuestionImage(addGuidance(normaliseThursday(o))));
   const d = DATA[lang].find((x) => x.n === n);
   return d ? withResponses(addQuestionImage(addGuidance(makeWeek(d)))) : null;
 }
