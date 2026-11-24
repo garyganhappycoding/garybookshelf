@@ -7,6 +7,7 @@
 - [ ] 10 BI words still have no example sentence (see raw files' gaps).
 
 ## To do (decided 2026-11-24)
+- [x] **Phone UI built on the real site (first pass, 24 Nov 2026)** from brand/ui-design/PHONE-UI-DESIGN.md and the prototype: bottom tab bar with icons and safe area; stats strip and a week strip on Today; Day 1 in three steps with a sticky bottom action bar; reading blocks folded into accordions; vocabulary as cards; result tabs (my answer / feedback / model); calendar one month at a time with a month/year switch and a bottom sheet; students can open any past day (`?date=`, not future days). Laptop/iPad layout unchanged. Not yet done from the design: auto-saved drafts, confirm-before-hand-in, collapsible keyboard behaviour, the phone settings page check. Test on a real phone.
 - [x] Form 5 ends when SPM starts (`programmeEnd`, exam id e4; no end until the SPM date is filled in). Gary's checklist: brand/GARY-CHECKLIST.md.
 - [x] `npx tsx scripts/audit-content.mts` checks every week of both forms and languages (176 weeks): only real gaps remain (BM week 4 empty, a few short BM weeks in Form 5).
 - [x] **Form 5 plan = the same weekly plan as Form 4, with 15 words a week** (Gary, 24 Nov 2026). Essays are the Form 4 ones; the themes that lack or repeat essays are listed in brand/lists/FORM5-ESSAY-GAPS.md for Gary to check. Form 5 end date still open (no end rule until the SPM date is known).

@@ -28,8 +28,20 @@ export default function BlockView({ b, lang }: { b: Block; lang: Lang }) {
       </div>
     );
     case "vocab": return (
-      <div className="overflow-x-auto"><table className="w-full text-sm"><thead><tr className="text-left text-ink/60"><th className="py-1 pr-4">#</th><th className="pr-4 min-w-[12rem]">Word</th><th className="pr-4 min-w-[10rem]">中文</th><th className="min-w-[16rem]">Example</th></tr></thead>
-        <tbody>{b.rows.map((r, i) => <tr key={i} className="border-t border-ink/10 align-top"><td className="py-2 pr-4">{i + 1}</td><td className="pr-4 font-medium">{r.word}</td><td className="pr-4 min-w-[10rem]">{r.zh}</td><td>{r.example}</td></tr>)}</tbody></table></div>
+      <>
+        <div className="space-y-2 md:hidden">
+          {b.rows.map((r, i) => (
+            <div key={i} className="rounded-xl border border-ink/10 p-3">
+              <p className="text-xs text-ink/50">{i + 1}{"level" in r && (r as { level?: string }).level ? ` · ${(r as { level?: string }).level}` : ""}</p>
+              <p className="font-medium">{r.word}</p>
+              <p className="text-clay-600">{r.zh}</p>
+              {r.example && <p className="mt-1 text-sm text-ink/60">{r.example}</p>}
+            </div>
+          ))}
+        </div>
+        <div className="hidden overflow-x-auto md:block"><table className="w-full text-sm"><thead><tr className="text-left text-ink/60"><th className="py-1 pr-4">#</th><th className="pr-4 min-w-[12rem]">Word</th><th className="pr-4 min-w-[10rem]">中文</th><th className="min-w-[16rem]">Example</th></tr></thead>
+          <tbody>{b.rows.map((r, i) => <tr key={i} className="border-t border-ink/10 align-top"><td className="py-2 pr-4">{i + 1}</td><td className="pr-4 font-medium">{r.word}</td><td className="pr-4 min-w-[10rem]">{r.zh}</td><td>{r.example}</td></tr>)}</tbody></table></div>
+      </>
     );
     case "table":
       // Wide tables (3 or more columns) become one card per row, so they read well on a phone.
