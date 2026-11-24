@@ -18,11 +18,11 @@ export default function HighlightEssay({ paragraphs, lang, name, initial, readOn
         const [p, j] = k.split("-").map(Number);
         return { k, w: paragraphs[p]?.split(" ")[j] ?? "", c };
       }))} />}
-      {!readOnly && <div className="flex flex-wrap gap-2 mb-3">
-        <button type="button" onClick={() => setColour(1)} className={`rounded-full px-3 py-1 text-xs border ${colour === 1 ? "bg-blue-200 border-blue-500 font-medium" : "border-ink/20"}`}>
+      {!readOnly && <div className="sticky top-0 z-10 -mx-1 mb-3 flex flex-wrap gap-2 bg-white/95 px-1 py-2 backdrop-blur">
+        <button type="button" onClick={() => setColour(1)} className={`rounded-full px-4 py-2 text-sm min-h-11 border ${colour === 1 ? "bg-blue-200 border-blue-500 font-medium" : "border-ink/20"}`}>
           {lang === "en" ? "Blue: words from this week's list" : "蓝色：本周词表里的词"}
         </button>
-        <button type="button" onClick={() => setColour(2)} className={`rounded-full px-3 py-1 text-xs border ${colour === 2 ? "bg-red-200 border-red-500 font-medium" : "border-ink/20"}`}>
+        <button type="button" onClick={() => setColour(2)} className={`rounded-full px-4 py-2 text-sm min-h-11 border ${colour === 2 ? "bg-red-200 border-red-500 font-medium" : "border-ink/20"}`}>
           {lang === "en" ? "Red: words you think are good" : "红色：你觉得好的词"}
         </button>
         <button type="button" onClick={() => setMarks({})} className="text-xs text-ink/50 underline">{lang === "en" ? "Clear all" : "全部清除"}</button>

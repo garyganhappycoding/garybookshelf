@@ -5,7 +5,10 @@ import { addDays, buildCalendar, cn, key, parse, WEEKDAY_ZH } from "@/lib/progra
 import { commentAction, reportAction, type Result } from "@/app/programme/today/actions";
 import DayCard, { type CardData } from "./DayCard";
 
+export type TodayStats = { week: number; weeks: number; left: number; total: number; earned: number; streak: number };
+export type WeekDay = { k: string; label: string; state: "done" | "missed" | "makeup" | null; future: boolean };
 export type TodayData = {
+  stats: TodayStats; weekDays: WeekDay[]; todayReal: string;
   day: string; lang: "BM" | "BI"; state: string; submitted: boolean; submissionId: string | null;
   demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; form: number; card: CardData | null; examWeek: boolean; ended: boolean; answerText: string | null; marks: { k: string; w: string; c: 1 | 2 }[] | null;
   comments: { id: string; nickname: string; body: string; mine: boolean; waiting: boolean }[];
@@ -41,18 +44,36 @@ export default function TodayView({ data }: { data: TodayData }) {
 
   return (
     <div>
-      <p className="text-sm text-ink/60">{cn(d)} 星期{WEEKDAY_ZH[d.getDay()]}{data.demo ? "（示范日期）" : ""}</p>
-      {data.demo && (
-        <div className="flex items-center gap-2 my-2">
-          <Link aria-label="前一天" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-white text-base hover:bg-ink/5" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, -1))}`}>←</Link>
-          <Link aria-label="后一天" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-white text-base hover:bg-ink/5" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, 1))}`}>→</Link>
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-sm text-ink/60">{cn(d)} 星期{WEEKDAY_ZH[d.getDay()]}{data.demo ? "（示范日期）" : ""}</p>
+        <div className="flex items-center gap-2">
+          <Link aria-label="前一天" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 bg-white text-lg hover:bg-ink/5" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, -1))}`}>←</Link>
+          {data.demo || key(addDays(d, 1)) <= data.todayReal ? (
+            <Link aria-label="后一天" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 bg-white text-lg hover:bg-ink/5" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, 1))}`}>→</Link>
+          ) : <span aria-hidden className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink/10 text-lg text-ink/25">→</span>}
         </div>
-      )}
-      <h1 className="text-2xl font-medium mb-1">今天</h1>
+      </div>
+      <h1 className="text-2xl font-medium mb-2">今天</h1>
+
+      <div className="-mx-5 mb-3 flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-5 pb-1 text-xs md:mx-0 md:px-0" aria-label="进度">
+        <span className="shrink-0 rounded-xl border border-ink/10 bg-white px-3 py-1.5 text-ink/70"><b className="mr-1 text-sm text-ink">{data.stats.week ? `第 ${data.stats.week}/${data.stats.weeks} 周` : "学校假期"}</b></span>
+        <span className="shrink-0 rounded-xl border border-ink/10 bg-white px-3 py-1.5 text-ink/70"><b className="mr-1 text-sm text-ink">{data.stats.left}/{data.stats.total}</b>天上课</span>
+        <span className="shrink-0 rounded-xl border border-ink/10 bg-white px-3 py-1.5 text-ink/70"><span className={data.stats.streak > 0 ? "" : "grayscale opacity-60"} aria-hidden>🔥</span> <b className="mr-1 text-sm text-ink">{data.stats.streak}</b>天连续</span>
+        <span className="shrink-0 rounded-xl border border-ink/10 bg-white px-3 py-1.5 text-clay-700"><b className="mr-1 text-sm">RM{data.stats.earned}/200</b>已赚回</span>
+      </div>
+
+      <div className="mb-4 grid grid-cols-7 gap-1.5" role="navigation" aria-label="这一周">
+        {data.weekDays.map((w) => {
+          const cls = `flex h-11 items-center justify-center rounded-xl border text-sm ${w.k === data.day ? "border-clay-600 bg-clay-600 text-white" : w.state === "done" ? "border-sage-400/50 bg-sage-400/25 text-sage-600" : w.state === "missed" ? "border-red-200 bg-red-100 text-red-800" : w.state === "makeup" ? "border-yellow-200 bg-yellow-100 text-yellow-900" : "border-ink/10 bg-white text-ink/60"}`;
+          return w.future
+            ? <span key={w.k} className={`${cls} opacity-40`} aria-disabled>{w.label}</span>
+            : <Link key={w.k} href={`/programme/today?lang=${data.lang}&date=${w.k}`} className={cls} aria-label={w.k}>{w.label}</Link>;
+        })}
+      </div>
 
       <div role="tablist" className="flex gap-2 mb-4">
         {(["BM", "BI"] as const).map((l) => (
-          <Link key={l} role="tab" aria-selected={data.lang === l} href={`/programme/today?lang=${l}${data.demo ? `&date=${data.day}` : ""}`}
+          <Link key={l} role="tab" aria-selected={data.lang === l} href={`/programme/today?lang=${l}&date=${data.day}`}
             className={data.lang === l ? "btn-primary text-sm" : "btn-secondary text-sm"}>{l}</Link>
         ))}
       </div>

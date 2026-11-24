@@ -28,6 +28,10 @@ export type CalendarProps = {
 
 export default function CalendarView({ state: stateId, form, exams, today: TODAY, subs, demo }: CalendarProps) {
   const [selected, setSelected] = useState(TODAY);
+  // Phone: one month at a time (with a switch to the whole year) and the day details in a sheet. Laptop and iPad show every month.
+  const [view, setView] = useState<"month" | "year">("month");
+  const [month, setMonth] = useState(() => (TODAY.startsWith("2027") ? parse(TODAY).getMonth() : 0));
+  const [sheet, setSheet] = useState(false);
   const cal = useMemo(() => buildCalendar(stateId), [stateId]);
   const [broken, setBroken] = useState(false);
   const history = useMemo(() => (demo ? demoHistory(cal, TODAY, broken) : realHistory(cal, TODAY, subs)), [cal, demo, broken, subs, TODAY]);
@@ -44,11 +48,11 @@ export default function CalendarView({ state: stateId, form, exams, today: TODAY
       </p>
 
       <div className="card mb-5 !py-4">
-        <div className="flex items-center justify-between gap-2 whitespace-nowrap text-[13px] sm:text-xl font-semibold tabular-nums">
-          <span>{f.week ? `第 ${f.week}/${f.weeks} 周` : "学校假期"}</span>
-          <span>{f.left}/{f.total} 天上课</span>
-          <span className="text-clay-600">赚回 RM{f.earned}/200</span>
-          <span className={f.streak > 0 ? "" : "grayscale opacity-60"}><span aria-hidden>🔥</span> {f.streak}</span>
+        <div className="flex items-center gap-5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden whitespace-nowrap text-sm font-semibold tabular-nums md:justify-between md:gap-2 md:text-xl">
+          <span className="shrink-0">{f.week ? `第 ${f.week}/${f.weeks} 周` : "学校假期"}</span>
+          <span className="shrink-0">{f.left}/{f.total} 天上课</span>
+          <span className="shrink-0 text-clay-600">赚回 RM{f.earned}/200</span>
+          <span className={`shrink-0 ${f.streak > 0 ? "" : "grayscale opacity-60"}`}><span aria-hidden>🔥</span> {f.streak}</span>
         </div>
         {demo && (
           <button type="button" onClick={() => setBroken(!broken)} className="mt-2 text-xs text-ink/50 underline">
@@ -77,8 +81,8 @@ export default function CalendarView({ state: stateId, form, exams, today: TODAY
         <span><i className="inline-block w-3 h-3 rounded ring-2 ring-clay-600 align-middle mr-1" />今天</span>
       </div>
 
-      <div className="card mb-5" aria-live="polite">
-        <p className="font-medium mb-2">{cn(d)} 星期{WEEKDAY_ZH[wd]}</p>
+      <div className={`card mb-5 ${sheet ? "fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom,0px))] z-30 mb-0 rounded-b-none shadow-2xl" : "hidden"} md:static md:mb-5 md:block md:rounded-2xl md:shadow-none`} aria-live="polite">
+        <div className="flex items-start justify-between"><p className="font-medium mb-2">{cn(d)} 星期{WEEKDAY_ZH[wd]}</p><button type="button" onClick={() => setSheet(false)} aria-label="关闭" className="-mr-2 -mt-2 h-11 w-11 text-xl text-ink/50 md:hidden">×</button></div>
         <div className="flex flex-wrap gap-2 mb-3 text-xs">
           {hol && <span className="rounded-full bg-clay-400/25 text-clay-700 px-2 py-1">公共假期：{holidayName(hol)}</span>}
           {cal.breakOf(selected) && <span className="rounded-full bg-ink/10 px-2 py-1">{cal.breakOf(selected)}</span>}
@@ -94,19 +98,34 @@ export default function CalendarView({ state: stateId, form, exams, today: TODAY
           <>
             {(() => { const cw = contentWeekOf(cal, exams, d, programmeEnd(exams, form)); return <p className="text-xs text-ink/60">{cw && "ended" in cw ? "年终考开始，这一年的内容到这里结束" : cw && "exam" in cw ? "考试周 · 这一周不安排新内容，任务顺延到考完后的那一周" : cw ? `第 ${cw.n} 周 · ${themeOf(cw.n)} · ${levelOf(cw.n)}` : `第 ${wk} 周`}</p>; })()}
             <p className="mt-1">{task[0]}：{task[1]}</p>
-            <Link href="/programme/today" className="btn-primary inline-block mt-3 text-sm">打开这一天</Link>
+            <Link href={`/programme/today?date=${selected}`} className="btn-primary mt-3 block min-h-12 text-center text-sm md:inline-block md:min-h-0">{selected < TODAY ? (history[selected] === "missed" ? "去补做这一天" : "打开这一天") : "打开这一天"}</Link>
           </>
         )}
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className="mb-3 md:hidden">
+        <div className="mb-3 grid grid-cols-2 rounded-full border border-ink/10 bg-white p-1 text-sm" role="tablist">
+          {([["month", "月"], ["year", "全年"]] as const).map(([k, l]) => (
+            <button key={k} type="button" role="tab" aria-selected={view === k} onClick={() => setView(k)} className={`min-h-11 rounded-full ${view === k ? "bg-clay-600 font-semibold text-white" : "text-ink/60"}`}>{l}</button>
+          ))}
+        </div>
+        {view === "month" && (
+          <div className="flex items-center justify-between">
+            <button type="button" aria-label="上个月" onClick={() => setMonth(Math.max(0, month - 1))} className="h-11 w-11 rounded-full border border-ink/15 bg-white text-xl">‹</button>
+            <b>2027 年 {month + 1} 月</b>
+            <button type="button" aria-label="下个月" onClick={() => setMonth(Math.min(11, month + 1))} className="h-11 w-11 rounded-full border border-ink/15 bg-white text-xl">›</button>
+          </div>
+        )}
+      </div>
+
+      <div className={`grid gap-4 md:grid-cols-2 ${view === "year" ? "grid-cols-2 gap-2" : "grid-cols-1"}`}>
         {Array.from({ length: 12 }, (_, m) => {
           const first = new Date(2027, m, 1), last = new Date(2027, m + 1, 0);
           const weeks: Date[] = [];
           for (let mon = mondayOf(first); mon <= last; mon = addDays(mon, 7)) weeks.push(mon);
           const heads = ["一", "二", "三", "四", "五", "六", "日"];
           return (
-            <div key={m} className="card">
+            <div key={m} className={`card ${view === "year" || m === month ? "" : "hidden"} md:block ${view === "year" ? "!p-2 md:!p-4" : ""}`}>
               <p className="font-medium mb-2">{m + 1} 月</p>
               <div className="grid grid-cols-[1.6rem_repeat(7,1fr)] gap-1 text-center text-xs">
                 <span />
@@ -120,8 +139,8 @@ export default function CalendarView({ state: stateId, form, exams, today: TODAY
                       if (day.getMonth() !== m) return <span key={k} />;
                       const ex = examsOn(exams, k), lock = k > TODAY;
                       return (
-                        <button key={k} type="button" onClick={() => setSelected(k)} aria-label={cn(day) + (lock ? "，还没开放" : "")}
-                          className={`relative rounded py-1.5 ${cellTone(cal, day, ex.length ? ex[0].i : -1, history)} ${lock ? "border border-dashed border-ink/30" : ""} ${k === TODAY ? "ring-2 ring-clay-600" : ""} ${k === selected ? "outline outline-2 outline-ink" : ""}`}>
+                        <button key={k} type="button" onClick={() => { setSelected(k); setSheet(true); if (view === "year") { setMonth(day.getMonth()); } }} aria-label={cn(day) + (lock ? "，还没开放" : "")}
+                          className={`relative rounded ${view === "year" ? "py-1" : "py-3"} md:py-1.5 ${cellTone(cal, day, ex.length ? ex[0].i : -1, history)} ${lock ? "border border-dashed border-ink/30" : ""} ${k === TODAY ? "ring-2 ring-clay-600" : ""} ${k === selected ? "outline outline-2 outline-ink" : ""}`}>
                           {day.getDate()}
                         </button>
                       );
