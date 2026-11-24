@@ -6,6 +6,11 @@
 - [ ] He is reading all 44 weeks of BI and BM vocab and content now; apply his corrections as he sends them.
 - [ ] 10 BI words still have no example sentence (see raw files' gaps).
 
+## New from Gary (25 Nov 2026)
+- [x] **Results before and after each exam period**: `/programme/results`. Students (not admin) cannot use the programme until they have shared their baseline results (a mark per subject, optional photo of the result slip, optional photos of the whole paper: "Gary may help analyse your weaknesses"). After every exam period (exam end date passed) a banner on Today and Calendar asks for that exam's results; the page shows the change since the baseline. Tables programme_result_sets / programme_results, files in the private `receipts` bucket under programme-results/<user>/<set>/. Admin sees marks and signed links in the student detail page.
+- [ ] **Streak rewards and batches** (days 3 / 7 / 9 / 13 / 16 ... variable timing, shareable to Instagram): DISCUSS the design with Gary first; nothing built.
+- [ ] **Quizzes**: pre-test before the plan, a weekly quiz and a monthly quiz built from the week's vocabulary and example sentences, a progress tracker of how much they improve. Not built yet; waiting for Gary's answers on where the weekly quiz sits and how the pre-test is scored.
+
 ## To do (decided 2026-11-24)
 - [x] **Phone UI built on the real site (first pass, 24 Nov 2026)** from brand/ui-design/PHONE-UI-DESIGN.md and the prototype: bottom tab bar with icons and safe area; stats strip and a week strip on Today; Day 1 in three steps with a sticky bottom action bar; reading blocks folded into accordions; vocabulary as cards; result tabs (my answer / feedback / model); calendar one month at a time with a month/year switch and a bottom sheet; students can open any past day (`?date=`, not future days). Laptop/iPad layout unchanged. Not yet done from the design: auto-saved drafts, confirm-before-hand-in, collapsible keyboard behaviour, the phone settings page check. Test on a real phone.
 - [x] Form 5 ends when SPM starts (`programmeEnd`, exam id e4; no end until the SPM date is filled in). Gary's checklist: brand/GARY-CHECKLIST.md.

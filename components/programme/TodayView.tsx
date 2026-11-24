@@ -8,7 +8,7 @@ import DayCard, { type CardData } from "./DayCard";
 export type TodayStats = { week: number; weeks: number; left: number; total: number; earned: number; streak: number };
 export type WeekDay = { k: string; label: string; state: "done" | "missed" | "makeup" | null; future: boolean };
 export type TodayData = {
-  stats: TodayStats; weekDays: WeekDay[]; todayReal: string;
+  stats: TodayStats; weekDays: WeekDay[]; todayReal: string; resultPrompt: { id: string; name: string } | null;
   day: string; lang: "BM" | "BI"; state: string; submitted: boolean; submissionId: string | null;
   demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; form: number; card: CardData | null; examWeek: boolean; ended: boolean; answerText: string | null; marks: { k: string; w: string; c: 1 | 2 }[] | null;
   comments: { id: string; nickname: string; body: string; mine: boolean; waiting: boolean }[];
@@ -44,6 +44,11 @@ export default function TodayView({ data }: { data: TodayData }) {
 
   return (
     <div>
+      {data.resultPrompt && (
+        <a href={`/programme/results?exam=${data.resultPrompt.id}`} className="mb-4 block rounded-2xl border border-clay-400 bg-clay-400/15 p-4 text-sm">
+          <b>{data.resultPrompt.name.replace(/（.*?）/g, "")}考完了。</b> 把成绩单交上来，看看你进步了多少 →
+        </a>
+      )}
       <div className="flex items-center justify-between gap-2">
         <p className="text-sm text-ink/60">{cn(d)} 星期{WEEKDAY_ZH[d.getDay()]}{data.demo ? "（示范日期）" : ""}</p>
         <div className="flex items-center gap-2">

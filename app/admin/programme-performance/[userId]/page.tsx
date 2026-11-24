@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { studentDetail } from "@/lib/programme/performance";
+import { signedUrls } from "@/lib/programme/results";
 
 export const dynamic = "force-dynamic";
 
@@ -20,8 +21,10 @@ export default async function StudentPerformance({ params }: { params: Promise<{
   await assertAdmin();
   const { userId } = await params;
   if (!/^[0-9a-f-]{36}$/i.test(userId)) notFound();
-  const { row, subs, log, comments } = await studentDetail(userId);
+  const { row, subs, log, comments, results } = await studentDetail(userId);
   if (!row) notFound();
+  const links = await Promise.all(results.map(async (s) => ({ id: s.id, slip: await signedUrls(s.slipPath ? [s.slipPath] : []), papers: await signedUrls(s.paperPaths) })));
+  const subjects = [...new Set(results.flatMap((s) => Object.keys(s.marks)))];
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-14 space-y-6">
@@ -39,6 +42,19 @@ export default async function StudentPerformance({ params }: { params: Promise<{
           ["词汇测验平均", row.quizAvg === null ? "—" : `${row.quizAvg}%`],
         ].map(([k, v]) => <div key={String(k)} className="card"><p className="text-xs text-ink/60">{k}</p><p className="text-xl font-semibold tabular-nums">{v}</p></div>)}
       </div>
+
+      <section>
+        <h2 className="font-medium mb-2">成绩</h2>
+        {results.length ? (
+          <div className="card text-sm overflow-x-auto">
+            <table className="w-full"><thead><tr className="text-left text-ink/60"><th className="py-1 pr-3">科目</th>{results.map((s) => <th key={s.id} className="pr-3 whitespace-nowrap">{s.label}</th>)}</tr></thead>
+              <tbody>{subjects.map((sub) => <tr key={sub} className="border-t border-ink/10"><td className="py-1.5 pr-3">{sub}</td>{results.map((s) => <td key={s.id} className="pr-3 tabular-nums">{s.marks[sub] ?? "—"}</td>)}</tr>)}</tbody></table>
+            {links.map((l, i) => (l.slip.length || l.papers.length) ? (
+              <p key={l.id} className="mt-2">{results[i].label}：{l.slip.map((u, j) => <a key={j} href={u} target="_blank" rel="noreferrer" className="underline mr-3">成绩单</a>)}{l.papers.map((u, j) => <a key={j} href={u} target="_blank" rel="noreferrer" className="underline mr-3">试卷 {j + 1}</a>)}</p>
+            ) : null)}
+          </div>
+        ) : <p className="text-sm text-ink/60">还没交过成绩。</p>}
+      </section>
 
       <section>
         <h2 className="font-medium mb-2">所有答案（{subs.length}）</h2>
