@@ -61,6 +61,7 @@ export default async function AdminPage() {
       badge: results,
     },
     { href: "/admin/programme-inbox", title: "陪你读书 inbox", text: "Comments to approve, reports, answers the AI was unsure about" },
+    { href: "/admin/programme-badges", title: "陪你读书 badges", text: "Write the word on the back of each badge, rename badges, see how the wall looks" },
     { href: "/admin/programme-performance", title: "陪你读书 performance", text: "How each student is doing: completion, streak, answers, quiz scores, who has gone quiet" },
     { href: "/admin/programme-groups", title: "陪你读书 groups", text: "Friend-group receipts: confirm a whole group at once" },
     { href: "/programme/content", title: "陪你读书 content review", text: "Week 1 daily tasks and sample answers. Mark each block right or wrong. Admin only" },

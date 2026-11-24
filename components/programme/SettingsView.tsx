@@ -2,9 +2,11 @@
 import Link from "next/link";
 import { useState, useTransition } from "react";
 import { STATES } from "@/lib/programme/calendar";
-import { saveInstructionLangAction, saveSettingsAction } from "@/app/programme/settings/actions";
+import { saveInstructionLangAction, saveNicknameAction, saveSettingsAction } from "@/app/programme/settings/actions";
 
-export default function SettingsView({ state, form, instructionLang }: { state: string; form: number; instructionLang: "en" | "zh" }) {
+export default function SettingsView({ state, form, instructionLang, nickname }: { state: string; form: number; instructionLang: "en" | "zh"; nickname: string }) {
+  const [nick, setNick] = useState(nickname);
+  const [nickMsg, setNickMsg] = useState("");
   const [st, setSt] = useState(state);
   const [fm, setFm] = useState(form);
   const [msg, setMsg] = useState("");
@@ -23,6 +25,14 @@ export default function SettingsView({ state, form, instructionLang }: { state: 
               className={ilang === l ? "btn-primary text-sm" : "btn-secondary text-sm"}>{l === "zh" ? "中文" : "English"}</button>
           ))}
         </div>
+      </div>
+      <div className="card mb-4 space-y-3">
+        <label htmlFor="nick" className="font-medium block">我的昵称（印在你的徽章上）</label>
+        <div className="flex gap-2">
+          <input id="nick" value={nick} onChange={(e) => { setNick(e.target.value); setNickMsg(""); }} maxLength={20} placeholder="自己取一个" className="min-w-0 flex-1 rounded-lg border border-ink/20 bg-white px-3 py-2 text-base" />
+          <button type="button" className="btn-primary text-sm" onClick={() => start(async () => { const r = await saveNicknameAction(nick); setNickMsg(r.error ?? "已保存。"); })}>保存</button>
+        </div>
+        {nickMsg && <p className="text-sm text-ink/70">{nickMsg}</p>}
       </div>
       <div className="card mb-4 space-y-3">
         <label htmlFor="st" className="font-medium block">我的州属</label>

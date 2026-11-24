@@ -3,10 +3,11 @@ import Link from "next/link";
 const TABS = [
   { href: "/programme", label: "日历", id: "calendar" },
   { href: "/programme/today", label: "今天", id: "today" },
+  { href: "/programme/badges", label: "徽章", id: "badges" },
   { href: "/programme/settings", label: "设置", id: "settings" },
 ] as const;
 
-export default function Shell({ active, admin = false, wide = false, children }: { active?: "calendar" | "today" | "settings" | "join"; admin?: boolean; wide?: boolean; children: React.ReactNode }) {
+export default function Shell({ active, admin = false, wide = false, children }: { active?: "calendar" | "today" | "badges" | "settings" | "join"; admin?: boolean; wide?: boolean; children: React.ReactNode }) {
   return (
     <div className={`${wide ? "max-w-6xl" : "max-w-3xl"} mx-auto px-5 py-6 pb-44 md:py-8 md:pb-28`}>
       {admin && (
@@ -24,6 +25,7 @@ export default function Shell({ active, admin = false, wide = false, children }:
                 <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
                   {t.id === "today" && <><circle cx="12" cy="12" r="8" /><path d="M12 8v4l3 2" /></>}
                   {t.id === "calendar" && <><rect x="4" y="5" width="16" height="15" rx="3" /><path d="M4 10h16M9 3v4M15 3v4" /></>}
+                  {t.id === "badges" && <><path d="M6 4h9a3 3 0 0 1 3 3v13H9a3 3 0 0 1-3-3V4z" /><path d="M9 4v13a3 3 0 0 0 3 3" /></>}
                   {t.id === "settings" && <><circle cx="12" cy="12" r="3" /><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" /></>}
                 </svg>
                 {t.label}

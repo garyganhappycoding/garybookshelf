@@ -105,6 +105,13 @@ export default function DayCard({ day, lang, ilang, card, submitted: wasSubmitte
         </span>
       </div>
 
+      {res.badge && (
+        <a href="/programme/badges" className="block rounded-2xl border border-clay-400 bg-clay-400/15 p-4 text-center">
+          <p className="text-2xl" aria-hidden>📖</p>
+          <p className="font-medium">{T("你拿到一枚徽章：", "You won a badge: ")}{res.badge.title}</p>
+          <p className="text-sm text-ink/70">{T("点这里看它背面 Gary 写给你的话", "Tap to read the note Gary wrote on its back")}</p>
+        </a>
+      )}
       {submitted && (
         <div className="md:hidden grid grid-cols-3 rounded-full border border-ink/10 bg-white p-1 text-sm" role="tablist">
           {([["mine", T("我的答案", "My answer")], ["fb", T("反馈", "Feedback")], ["model", T("范文", "Model")]] as const).map(([k, l]) => (

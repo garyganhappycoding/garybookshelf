@@ -14,6 +14,14 @@ export async function startAction(_: SaveResult, form: FormData): Promise<SaveRe
   return { ok: true };
 }
 
+/** The name on the student's badges (their own choice). */
+export async function saveNicknameAction(nickname: string): Promise<SaveResult> {
+  const a = await requireProgramme();
+  const r = await saveProfile(a.userId, { nickname });
+  revalidatePath("/programme/badges");
+  return r.error ? r : { ok: true };
+}
+
 export async function saveSettingsAction(state: string, formYear: number): Promise<SaveResult> {
   const a = await requireProgramme();
   const r = await saveProfile(a.userId, { state, form: formYear });

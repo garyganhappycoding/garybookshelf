@@ -2,7 +2,7 @@
 import { createAdminClient } from "@/lib/supabase/admin";
 import { defaultExams, STATES, type Exam } from "./calendar";
 
-export type Profile = { state: string; form: 4 | 5; exams: Exam[]; setupDone: boolean; instructionLang: "zh" | "en" };
+export type Profile = { state: string; form: 4 | 5; exams: Exam[]; setupDone: boolean; instructionLang: "zh" | "en"; nickname: string };
 
 // Gary's rule: classes are by state first, then by school year. No size limit.
 export const classKey = (p: { state: string; form: number }) => `${p.state}-F${p.form}`;
@@ -15,6 +15,7 @@ export async function getProfile(userId: string): Promise<Profile> {
     exams: Array.isArray(data?.exams) ? (data!.exams as Exam[]) : defaultExams(data?.form === 5 ? 5 : 4),
     setupDone: !!data?.setup_done,
     instructionLang: data?.instruction_lang === "en" ? "en" : "zh",
+    nickname: typeof data?.nickname === "string" ? data.nickname : "",
   };
 }
 
@@ -30,7 +31,7 @@ export function cleanExams(input: unknown): Exam[] | null {
   return out;
 }
 
-export async function saveProfile(userId: string, patch: { state?: string; form?: number; exams?: unknown; setupDone?: boolean; instructionLang?: string }) {
+export async function saveProfile(userId: string, patch: { state?: string; form?: number; exams?: unknown; setupDone?: boolean; instructionLang?: string; nickname?: string }) {
   const cur = await getProfile(userId);
   const state = patch.state && STATES.some((s) => s.id === patch.state) ? patch.state : cur.state;
   const form = patch.form === 5 ? 5 : patch.form === 4 ? 4 : cur.form;
@@ -38,6 +39,7 @@ export async function saveProfile(userId: string, patch: { state?: string; form?
   const editedExams = patch.exams !== undefined ? cleanExams(patch.exams) : null;
   const row: Record<string, unknown> = { user_id: userId, state, form, setup_done: patch.setupDone ?? cur.setupDone, instruction_lang: patch.instructionLang === "en" ? "en" : patch.instructionLang === "zh" ? "zh" : cur.instructionLang, updated_at: new Date().toISOString() };
   if (editedExams) row.exams = editedExams;
+  if (patch.nickname !== undefined) row.nickname = patch.nickname.replace(/[\u0000-\u001f<>]/g, "").trim().slice(0, 20);
   const { error } = await createAdminClient().from("programme_profiles").upsert(row, { onConflict: "user_id" });
   return error ? { error: "保存失败，请再试一次。" } : {};
 }

@@ -2,7 +2,7 @@ import Shell from "@/components/programme/Shell";
 import ResultsForm from "@/components/programme/ResultsForm";
 import { requireProgramme } from "@/lib/programme/gate";
 import { getProfile } from "@/lib/programme/profile";
-import { SUBJECTS, mySets } from "@/lib/programme/results";
+import { PARTS, SUBJECTS, mySets } from "@/lib/programme/results";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "成绩 · 陪你读书", robots: { index: false, follow: false } };
@@ -26,7 +26,7 @@ export default async function ResultsPage({ searchParams }: { searchParams: Prom
 
       {kind && (
         <ResultsForm kind={kind} examId={exam?.id ?? ""} title={kind === "exam" ? `${exam!.name.replace(/（.*?）/g, "")}的成绩` : "开始之前的成绩"}
-          subjects={[...SUBJECTS]} existing={current?.marks ?? {}} />
+          subjects={[...SUBJECTS]} parts={PARTS} existing={current?.marks ?? {}} />
       )}
 
       {sets.length > 0 && (
