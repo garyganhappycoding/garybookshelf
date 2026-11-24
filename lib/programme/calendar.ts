@@ -167,8 +167,11 @@ export const DEMO_TODAY = "2027-02-17";
  * Which content week a date is. Exam weeks carry NO content (Gary, 24 Nov 2026): the weekly content counts only the school weeks that are
  * not exam weeks, in order, using the student's own exam dates, so a week of tasks is moved to the first week after the exams.
  */
-/** The programme ends when the year-end exam starts (Gary, 24 Nov 2026: "考完年终考后就结束"). Form 4 only for now; the Form 5 plan is still to be designed. */
-export const programmeEnd = (exams: Exam[], form: number): string | null => (form === 4 ? exams.find((e) => e.id === "e3")?.start || null : null);
+/**
+ * The programme ends when the last big exam starts (Gary, 24 Nov 2026): Form 4 when the year-end exam starts ("考完年终考后就结束"),
+ * Form 5 when SPM starts ("form 5 end once they started SPM"). Form 5 has no end until the SPM date is filled in.
+ */
+export const programmeEnd = (exams: Exam[], form: number): string | null => exams.find((e) => e.id === (form === 5 ? "e4" : "e3"))?.start || null;
 
 export function contentWeekOf(cal: Calendar, exams: { start: string; end: string }[], d: Date, end: string | null = null): { n: number } | { exam: true } | { ended: true } | null {
   const total = cal.weekOf(d);

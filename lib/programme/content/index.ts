@@ -27,7 +27,8 @@ export function withResponses(w: Week): Week {
   return {
     ...w,
     days: w.days.map((d) => {
-      let response: Day["response"] = { kind: "none" };
+      let response: Day["response"] = d.response ?? { kind: "none" };
+      if (d.response) return { ...d, response };
       if (d.key === "mon") {
         const v = d.blocks.find((b) => b.type === "vocab");
         if (v && v.type === "vocab") response = { kind: "sentences", words: v.rows.map((r) => ({ word: r.word, zh: r.zh })) };
