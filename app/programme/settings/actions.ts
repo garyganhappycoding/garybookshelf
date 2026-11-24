@@ -27,3 +27,11 @@ export async function saveExamsAction(exams: unknown): Promise<SaveResult> {
   revalidatePath("/programme");
   return r.error ? r : { ok: true };
 }
+
+/** The student picks whether instructions are shown in English or Chinese; also used on the Today page. */
+export async function saveInstructionLangAction(value: "en" | "zh"): Promise<SaveResult> {
+  const a = await requireProgramme();
+  const r = await saveProfile(a.userId, { instructionLang: value });
+  revalidatePath("/programme");
+  return r.error ? r : { ok: true };
+}

@@ -5,6 +5,7 @@ import { makeWeek, type WeekData } from "./build";
 import { addGuidance } from "./guidance";
 import biData from "./data.bi.json";
 import bmData from "./data.bm.json";
+import questionWeeks from "./questions.json";
 
 const DATA = { BI: biData as unknown as WeekData[], BM: bmData as unknown as WeekData[] };
 const OVERRIDE: Record<string, Week> = { "BI-1": BI_WEEK1 };
@@ -32,11 +33,24 @@ export function withResponses(w: Week): Week {
   };
 }
 
+/** Puts the picture of the real exam question (cropped from Gary's essay doc) on the opening day. Files: public/programme/q/bi-wNN.jpg, listed in questions.json. */
+function addQuestionImage(w: Week): Week {
+  if (w.lang !== "BI" || !(questionWeeks as number[]).includes(w.n)) return w;
+  const src = `/programme/q/bi-w${String(w.n).padStart(2, "0")}.jpg`;
+  return {
+    ...w,
+    days: w.days.map((d) => d.key !== "wed" || d.blocks[0]?.id !== "steps" ? d : {
+      ...d,
+      blocks: [d.blocks[0], { id: "qimage", type: "image", title: { zh: "这周的真题", en: "This week's real question" }, src, alt: "The exam question" }, ...d.blocks.slice(1)],
+    }),
+  };
+}
+
 export function getWeek(lang: "BI" | "BM", n: number): Week | null {
   const o = OVERRIDE[`${lang}-${n}`];
-  if (o) return withResponses(addGuidance(o));
+  if (o) return withResponses(addQuestionImage(addGuidance(o)));
   const d = DATA[lang].find((x) => x.n === n);
-  return d ? withResponses(addGuidance(makeWeek(d))) : null;
+  return d ? withResponses(addQuestionImage(addGuidance(makeWeek(d)))) : null;
 }
 
 export const weeksAvailable = (lang: "BI" | "BM") => [...new Set([...(lang === "BI" ? [1] : []), ...DATA[lang].map((x) => x.n)])].sort((a, b) => a - b);
