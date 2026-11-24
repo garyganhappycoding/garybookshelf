@@ -37,7 +37,7 @@
     {
       "word": "a tranquil retreat",
       "zh": "宁静的度假胜地",
-      "example": null
+      "example": "It is a tranquil retreat from city life."
     },
     {
       "word": "breathtaking views",
@@ -142,6 +142,7 @@
     "'spark creativity' and 'stimulate the imagination': examples are inflected forms ('spark our creativity', 'stimulates the imagination') from pack Universal answer V9.",
     "This is an older .docx essay (no Question Analysis table, no Exam/Extended split), so points is [] and keyPoint.prompt is null; keyPoint = paragraph 3 (what I would do in Sarawak).",
     "The essay has no 'By:' line. The Travel folder's 'SPM Essay_ Travel.docx' (Tokyo story) was not used.",
-    "Prompt said week 40 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 40 as Travel, Leisure & Home, so Travel words and a Travel essay were used."
+    "Prompt said week 40 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 40 as Travel, Leisure & Home, so Travel words and a Travel essay were used.",
+    "example for 'a tranquil retreat' taken from the theme pack (watermark layer removed)"
   ]
 }

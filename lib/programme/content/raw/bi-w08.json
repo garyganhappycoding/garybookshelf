@@ -52,22 +52,22 @@
     {
       "word": "give in to peer pressure",
       "zh": "屈服于同侪压力",
-      "example": null
+      "example": "Some teenagers give in to peer pressure and start vaping."
     },
     {
       "word": "fall into bad company",
       "zh": "结交坏朋友",
-      "example": null
+      "example": "Lonely teenagers may fall into bad company."
     },
     {
       "word": "a friend in need is a friend indeed",
       "zh": "患难见真情",
-      "example": null
+      "example": "Su Lin stayed with me at the hospital; a friend in need is a friend indeed."
     },
     {
       "word": "through thick and thin",
       "zh": "同甘共苦",
-      "example": null
+      "example": "True friends stand by you through thick and thin."
     },
     {
       "word": "lend a helping hand",
@@ -139,6 +139,10 @@
     "The essay has 3 paragraphs only (Part 2) and no separate conclusion paragraph; closingIdx = [2] (paragraph 3 ends with 'In a nutshell, ...'). keyPoint = paragraph 1 (C1, ways to help).",
     "goodPhrases: only Table 1 rows used by the Exam Version; the Extended-only rows 'take … for granted' and 'fosters a sense of belonging' were left out.",
     "The '(C1)' ... mark tags were removed from the essay text.",
-    "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 8 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used."
+    "Prompt said this week is Travel, Leisure & Home, but brand/PROGRAMME-BI-VOCAB.md lists Week 8 as Teenagers & Society, so the Teenagers words and a Teenagers essay were used.",
+    "example for 'give in to peer pressure' taken from the theme pack (watermark layer removed)",
+    "example for 'fall into bad company' taken from the theme pack (watermark layer removed)",
+    "example for 'a friend in need is a friend indeed' taken from the theme pack (watermark layer removed)",
+    "example for 'through thick and thin' taken from the theme pack (watermark layer removed)"
   ]
 }

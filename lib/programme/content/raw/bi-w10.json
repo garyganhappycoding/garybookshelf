@@ -1,5 +1,6 @@
 {
-  "n": 10, "lang": "bi",
+  "n": 10,
+  "lang": "bi",
   "theme": "Report",
   "level": "B2",
   "essayTitle": "Report on the Cyber Safety Awareness Programme",
@@ -13,46 +14,145 @@
     "All in all, the programme was a resounding success and an eye-opening experience for all participants. It is recommended that a similar programme be organised annually so that more students can navigate the digital world safely."
   ],
   "points": [
-    {"code": "C1", "text": "where the programme was held"},
-    {"code": "C2", "text": "whether the place was suitable (give a reason)"},
-    {"code": "C3", "text": "a common cyber safety issue highlighted in the programme (only ONE issue)"},
-    {"code": "C4", "text": "ways to improve your online safety – \"ways\" is plural, so give at least two"},
-    {"code": "C5", "text": "ways to improve your online safety – way 2"}
+    {
+      "code": "C1",
+      "text": "where the programme was held"
+    },
+    {
+      "code": "C2",
+      "text": "whether the place was suitable (give a reason)"
+    },
+    {
+      "code": "C3",
+      "text": "a common cyber safety issue highlighted in the programme (only ONE issue)"
+    },
+    {
+      "code": "C4",
+      "text": "ways to improve your online safety – \"ways\" is plural, so give at least two"
+    },
+    {
+      "code": "C5",
+      "text": "ways to improve your online safety – way 2"
+    }
   ],
-  "openingIdx": [0],
-  "keyPoint": {"idx": 2, "prompt": "a common cyber safety issue highlighted in the programme (only ONE issue)"},
-  "closingIdx": [4],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 2,
+    "prompt": "a common cyber safety issue highlighted in the programme (only ONE issue)"
+  },
+  "closingIdx": [
+    4
+  ],
   "words": [
-    {"word": "This report is about …, which was held on … at …", "zh": "本报告是关于在……于……举行的……", "example": "This report is about the Science Week, which was held on 5 May at the school hall."},
-    {"word": "The programme was organised by … with the aim of …", "zh": "活动由……主办，目的是……", "example": "The programme was organised by the Prefects' Board with the aim of raising money for charity."},
-    {"word": "A total of … took part in …", "zh": "共有……人参加了……", "example": "A total of 150 students took part in the run."},
-    {"word": "The event kicked off with …", "zh": "活动以……拉开序幕", "example": "The event kicked off with a speech by the principal."},
-    {"word": "This was followed by …", "zh": "接着是……", "example": null},
-    {"word": "According to the survey, the majority of …", "zh": "根据调查，大多数……", "example": "According to the survey, the majority of students skip breakfast."},
-    {"word": "It was found that …", "zh": "调查发现……", "example": "It was found that two toilets were out of order."},
-    {"word": "The event was a resounding success as …", "zh": "活动非常成功，因为……", "example": "The event was a resounding success as RM3,000 was raised."},
-    {"word": "It is recommended that …", "zh": "建议……", "example": "It is recommended that the school install more water dispensers."},
-    {"word": "It is hoped that … will become an annual event.", "zh": "希望……能成为年度活动。", "example": "It is hoped that the fair will become an annual event."}
+    {
+      "word": "This report is about …, which was held on … at …",
+      "zh": "本报告是关于在……于……举行的……",
+      "example": "This report is about the Science Week, which was held on 5 May at the school hall."
+    },
+    {
+      "word": "The programme was organised by … with the aim of …",
+      "zh": "活动由……主办，目的是……",
+      "example": "The programme was organised by the Prefects' Board with the aim of raising money for charity."
+    },
+    {
+      "word": "A total of … took part in …",
+      "zh": "共有……人参加了……",
+      "example": "A total of 150 students took part in the run."
+    },
+    {
+      "word": "The event kicked off with …",
+      "zh": "活动以……拉开序幕",
+      "example": "The event kicked off with a speech by the principal."
+    },
+    {
+      "word": "This was followed by …",
+      "zh": "接着是……",
+      "example": "This was followed by a quiz competition."
+    },
+    {
+      "word": "According to the survey, the majority of …",
+      "zh": "根据调查，大多数……",
+      "example": "According to the survey, the majority of students skip breakfast."
+    },
+    {
+      "word": "It was found that …",
+      "zh": "调查发现……",
+      "example": "It was found that two toilets were out of order."
+    },
+    {
+      "word": "The event was a resounding success as …",
+      "zh": "活动非常成功，因为……",
+      "example": "The event was a resounding success as RM3,000 was raised."
+    },
+    {
+      "word": "It is recommended that …",
+      "zh": "建议……",
+      "example": "It is recommended that the school install more water dispensers."
+    },
+    {
+      "word": "It is hoped that … will become an annual event.",
+      "zh": "希望……能成为年度活动。",
+      "example": "It is hoped that the fair will become an annual event."
+    }
   ],
   "goodPhrases": [
-    {"phrase": "give an account of", "zh": "叙述；报告"},
-    {"phrase": "accommodate", "zh": "容纳"},
-    {"phrase": "resounding success", "zh": "巨大的成功"},
-    {"phrase": "eye-opening experience", "zh": "大开眼界的经历"},
-    {"phrase": "navigate the digital world", "zh": "在数字世界中游走"},
-    {"phrase": "phishing scams", "zh": "网络钓鱼诈骗"},
-    {"phrase": "fall prey to", "zh": "成为……的受害者"},
-    {"phrase": "two-factor authentication", "zh": "双重身份验证"},
-    {"phrase": "an extra layer of protection", "zh": "额外一层保护"},
-    {"phrase": "compromised", "zh": "（密码等）被泄露的"},
-    {"phrase": "disclose sensitive information", "zh": "泄露敏感信息"},
-    {"phrase": "identity theft", "zh": "身份盗用"}
+    {
+      "phrase": "give an account of",
+      "zh": "叙述；报告"
+    },
+    {
+      "phrase": "accommodate",
+      "zh": "容纳"
+    },
+    {
+      "phrase": "resounding success",
+      "zh": "巨大的成功"
+    },
+    {
+      "phrase": "eye-opening experience",
+      "zh": "大开眼界的经历"
+    },
+    {
+      "phrase": "navigate the digital world",
+      "zh": "在数字世界中游走"
+    },
+    {
+      "phrase": "phishing scams",
+      "zh": "网络钓鱼诈骗"
+    },
+    {
+      "phrase": "fall prey to",
+      "zh": "成为……的受害者"
+    },
+    {
+      "phrase": "two-factor authentication",
+      "zh": "双重身份验证"
+    },
+    {
+      "phrase": "an extra layer of protection",
+      "zh": "额外一层保护"
+    },
+    {
+      "phrase": "compromised",
+      "zh": "（密码等）被泄露的"
+    },
+    {
+      "phrase": "disclose sensitive information",
+      "zh": "泄露敏感信息"
+    },
+    {
+      "phrase": "identity theft",
+      "zh": "身份盗用"
+    }
   ],
   "gaps": [
     "No example sentence for 'This was followed by …': the pack's example for it was scrambled in the PDF text, so it was not copied.",
     "Example for 'The programme was organised by … with the aim of …' was rebuilt from scrambled pack text (Prefects' Board, raising money for charity); please check it against the pack.",
     "All examples come from the Report pack's Universal phrases section (the essay vocabulary table has none of these phrases).",
     "paragraphs: the To/From/Date/Subject block, the sub-headings and the 'Prepared by' lines were left out; only the 5 body paragraphs are given.",
-    "goodPhrases: rows marked (Extended) (lurking in the digital world, in collaboration with, keep cybercriminals at bay) were left out."
+    "goodPhrases: rows marked (Extended) (lurking in the digital world, in collaboration with, keep cybercriminals at bay) were left out.",
+    "example for 'This was followed by …' taken from the theme pack (watermark layer removed)"
   ]
 }

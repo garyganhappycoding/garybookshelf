@@ -68,7 +68,7 @@
     {
       "word": "with the aim of",
       "zh": "目的是",
-      "example": null
+      "example": "The survey was done with the aim of understanding their spending habits."
     },
     {
       "word": "gain insight",
@@ -157,6 +157,7 @@
   "gaps": [
     "'splurge on' and 'with the aim of' have no usable example sentence: in the Finance & Consumerism theme pack they appear only in scrambled text (answer F4) or as an unfinished sentence ('The survey was done with the aim of ...').",
     "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
-    "None of the 10 words appears in this essay's vocabulary table; examples come from the Finance & Consumerism theme pack (Universal answers F5, F7, F11 and trial-paper sentences). The sentence for 'gain insight' was rebuilt from the scrambled trial-paper text; please check it."
+    "None of the 10 words appears in this essay's vocabulary table; examples come from the Finance & Consumerism theme pack (Universal answers F5, F7, F11 and trial-paper sentences). The sentence for 'gain insight' was rebuilt from the scrambled trial-paper text; please check it.",
+    "example for 'with the aim of' taken from the theme pack (watermark layer removed)"
   ]
 }

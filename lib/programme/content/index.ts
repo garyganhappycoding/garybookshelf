@@ -2,6 +2,7 @@
 // Week 1 BI is the hand-reviewed model Gary approved; every other week is generated from its data by makeWeek().
 import { BI_WEEK1, type Block, type Day, type Week } from "../week-content";
 import { makeWeek, type WeekData } from "./build";
+import { addGuidance } from "./guidance";
 import biData from "./data.bi.json";
 import bmData from "./data.bm.json";
 
@@ -33,9 +34,9 @@ export function withResponses(w: Week): Week {
 
 export function getWeek(lang: "BI" | "BM", n: number): Week | null {
   const o = OVERRIDE[`${lang}-${n}`];
-  if (o) return withResponses(o);
+  if (o) return withResponses(addGuidance(o));
   const d = DATA[lang].find((x) => x.n === n);
-  return d ? withResponses(makeWeek(d)) : null;
+  return d ? withResponses(addGuidance(makeWeek(d))) : null;
 }
 
 export const weeksAvailable = (lang: "BI" | "BM") => [...new Set([...(lang === "BI" ? [1] : []), ...DATA[lang].map((x) => x.n)])].sort((a, b) => a - b);

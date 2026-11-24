@@ -1,5 +1,6 @@
 {
-  "n": 11, "lang": "bi",
+  "n": 11,
+  "lang": "bi",
   "theme": "Story",
   "level": "B2",
   "essayTitle": "The Banyan Tree",
@@ -13,44 +14,137 @@
     "From that day onwards, whenever life threw obstacles their way, the trio would remember the banyan tree and never give up."
   ],
   "points": [
-    {"code": "C1", "text": "write what the hidden message was"},
-    {"code": "C2", "text": "explain how it risked Ammar throughout the adventure – risk 1"},
-    {"code": "C3", "text": "how it risked Ammar – risk 2 (\"throughout\" = more than one moment)"},
-    {"code": "C4", "text": "how the experience influenced him and his friends to face challenges in life – influence 1"},
-    {"code": "C5", "text": "influence 2 (remember: him AND his friends)"}
+    {
+      "code": "C1",
+      "text": "write what the hidden message was"
+    },
+    {
+      "code": "C2",
+      "text": "explain how it risked Ammar throughout the adventure – risk 1"
+    },
+    {
+      "code": "C3",
+      "text": "how it risked Ammar – risk 2 (\"throughout\" = more than one moment)"
+    },
+    {
+      "code": "C4",
+      "text": "how the experience influenced him and his friends to face challenges in life – influence 1"
+    },
+    {
+      "code": "C5",
+      "text": "influence 2 (remember: him AND his friends)"
+    }
   ],
-  "openingIdx": [0],
-  "keyPoint": {"idx": 2, "prompt": "explain how it risked Ammar throughout the adventure – risk 1"},
-  "closingIdx": [4],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 2,
+    "prompt": "explain how it risked Ammar throughout the adventure – risk 1"
+  },
+  "closingIdx": [
+    4
+  ],
   "words": [
-    {"word": "Little did I know that …", "zh": "我万万没想到……", "example": "Little did I know that this trip would change my life."},
-    {"word": "Without wasting a second, …", "zh": "一秒也没浪费，……", "example": "Without wasting a second, I dialled 999."},
-    {"word": "My heart pounded against my chest as …", "zh": "当……时，我的心怦怦直跳", "example": "My heart pounded in my chest."},
-    {"word": "A chill ran down my spine when …", "zh": "当……时，我背脊发凉", "example": "This is because I felt a chill run down my spine as the footsteps came closer."},
-    {"word": "I heaved a sigh of relief when …", "zh": "当……时，我松了一口气", "example": null},
-    {"word": "To my horror, …", "zh": "令我惊恐的是，……", "example": null},
-    {"word": "In the nick of time, …", "zh": "就在千钧一发之际，……", "example": "He was swept away by the strong current, gasping for air, until Daniel grabbed his hand in the nick of time."},
-    {"word": "Tears welled up in my eyes as …", "zh": "当……时，我热泪盈眶", "example": "Tears welled up in my eyes as Mum hugged me."},
-    {"word": "That incident taught me a valuable lesson: …", "zh": "那件事教会我一个宝贵的教训：……", "example": "That incident taught me a valuable lesson: always keep your promises."},
-    {"word": "From that day on, …", "zh": "从那天起，……", "example": "From that day on, I never judged anyone by their looks."}
+    {
+      "word": "Little did I know that …",
+      "zh": "我万万没想到……",
+      "example": "Little did I know that this trip would change my life."
+    },
+    {
+      "word": "Without wasting a second, …",
+      "zh": "一秒也没浪费，……",
+      "example": "Without wasting a second, I dialled 999."
+    },
+    {
+      "word": "My heart pounded against my chest as …",
+      "zh": "当……时，我的心怦怦直跳",
+      "example": "My heart pounded in my chest."
+    },
+    {
+      "word": "A chill ran down my spine when …",
+      "zh": "当……时，我背脊发凉",
+      "example": "This is because I felt a chill run down my spine as the footsteps came closer."
+    },
+    {
+      "word": "I heaved a sigh of relief when …",
+      "zh": "当……时，我松了一口气",
+      "example": "I heaved a sigh of relief when the doctor smiled."
+    },
+    {
+      "word": "To my horror, …",
+      "zh": "令我惊恐的是，……",
+      "example": null
+    },
+    {
+      "word": "In the nick of time, …",
+      "zh": "就在千钧一发之际，……",
+      "example": "He was swept away by the strong current, gasping for air, until Daniel grabbed his hand in the nick of time."
+    },
+    {
+      "word": "Tears welled up in my eyes as …",
+      "zh": "当……时，我热泪盈眶",
+      "example": "Tears welled up in my eyes as Mum hugged me."
+    },
+    {
+      "word": "That incident taught me a valuable lesson: …",
+      "zh": "那件事教会我一个宝贵的教训：……",
+      "example": "That incident taught me a valuable lesson: always keep your promises."
+    },
+    {
+      "word": "From that day on, …",
+      "zh": "从那天起，……",
+      "example": "From that day on, I never judged anyone by their looks."
+    }
   ],
   "goodPhrases": [
-    {"phrase": "with trembling hands", "zh": "双手颤抖着"},
-    {"phrase": "bursting with curiosity", "zh": "充满好奇心"},
-    {"phrase": "grave danger", "zh": "严重的危险"},
-    {"phrase": "his heart pounded like a drum", "zh": "心跳如擂鼓"},
-    {"phrase": "eerie", "zh": "怪异的；阴森的"},
-    {"phrase": "life threw obstacles their way", "zh": "生活给他们设下障碍"},
-    {"phrase": "rickety", "zh": "摇摇欲坠的"},
-    {"phrase": "plunged into the raging river", "zh": "跌入汹涌的河流"},
-    {"phrase": "dense jungle", "zh": "茂密的丛林"},
-    {"phrase": "yellowed note", "zh": "泛黄的纸条"}
+    {
+      "phrase": "with trembling hands",
+      "zh": "双手颤抖着"
+    },
+    {
+      "phrase": "bursting with curiosity",
+      "zh": "充满好奇心"
+    },
+    {
+      "phrase": "grave danger",
+      "zh": "严重的危险"
+    },
+    {
+      "phrase": "his heart pounded like a drum",
+      "zh": "心跳如擂鼓"
+    },
+    {
+      "phrase": "eerie",
+      "zh": "怪异的；阴森的"
+    },
+    {
+      "phrase": "life threw obstacles their way",
+      "zh": "生活给他们设下障碍"
+    },
+    {
+      "phrase": "rickety",
+      "zh": "摇摇欲坠的"
+    },
+    {
+      "phrase": "plunged into the raging river",
+      "zh": "跌入汹涌的河流"
+    },
+    {
+      "phrase": "dense jungle",
+      "zh": "茂密的丛林"
+    },
+    {
+      "phrase": "yellowed note",
+      "zh": "泛黄的纸条"
+    }
   ],
   "gaps": [
     "No example sentence for 'I heaved a sigh of relief when …' and 'To my horror, …': the pack's Universal phrases examples for these were scrambled in the PDF text.",
     "'My heart pounded against my chest as …' and 'A chill ran down my spine when …' have only approximate examples: the ST3 universal answer sentences ('My heart pounded in my chest.' and '… I felt a chill run down my spine as the footsteps came closer.'), not the Universal phrases section.",
     "'In the nick of time, …' example is the essay's Table 1 sentence, which belongs to the Extended Version (marked Extended); the Exam Version does not contain the phrase.",
     "The question's required first line is used as the opening paragraph (in the essay it starts with the given words); the Question Analysis row for it has no C code, so it is not in points.",
-    "goodPhrases: rows marked (Extended) (anticipation, at the crack of dawn, in the nick of time, gasping for air, swept away by the strong current) were left out."
+    "goodPhrases: rows marked (Extended) (anticipation, at the crack of dawn, in the nick of time, gasping for air, swept away by the strong current) were left out.",
+    "example for 'I heaved a sigh of relief when …' taken from the theme pack (watermark layer removed)"
   ]
 }
