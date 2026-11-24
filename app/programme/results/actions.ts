@@ -2,7 +2,8 @@
 import { revalidatePath } from "next/cache";
 import { requireProgramme } from "@/lib/programme/gate";
 import { getProfile } from "@/lib/programme/profile";
-import { saveResults } from "@/lib/programme/results";
+import { mySets, saveResults } from "@/lib/programme/results";
+import { awardForImprovement } from "@/lib/programme/badges";
 
 export type ResultsState = { error?: string; ok?: boolean };
 
@@ -19,7 +20,13 @@ export async function saveResultsAction(_: ResultsState, form: FormData): Promis
   }
   const r = await saveResults(a.userId, kind, examId, label, form);
   if (r.error) return r;
+  if (kind === "exam" && !a.isAdmin) {
+    const sets = await mySets(a.userId);
+    const base = sets.find((s) => s.kind === "baseline"), latest = sets.find((s) => s.examId === examId);
+    if (base && latest) await awardForImprovement(a.userId, base.marks, latest.marks);
+  }
   revalidatePath("/programme");
   revalidatePath("/programme/results");
+  revalidatePath("/programme/badges");
   return { ok: true };
 }

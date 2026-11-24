@@ -11,7 +11,7 @@ export default async function SettingsPage() {
   const p = await getProfile(a.userId);
   return (
     <Shell active="settings" admin={a.isAdmin}>
-      <SettingsView state={p.state} form={p.form} instructionLang={p.instructionLang} />
+      <SettingsView state={p.state} form={p.form} instructionLang={p.instructionLang} nickname={p.nickname} />
     </Shell>
   );
 }

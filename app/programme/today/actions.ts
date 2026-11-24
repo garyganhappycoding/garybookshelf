@@ -3,11 +3,13 @@ import { revalidatePath } from "next/cache";
 import { requireProgramme } from "@/lib/programme/gate";
 import { classKey, getProfile, saveProfile } from "@/lib/programme/profile";
 import { build, resolveDay } from "@/lib/programme/dayflow";
-import { buildCalendar, programmeEnd } from "@/lib/programme/calendar";
+import { awardForStreak } from "@/lib/programme/badges";
+import { myHistoryRows } from "@/lib/programme/profile";
+import { addDays, buildCalendar, facts, key, parse, programmeEnd, realHistory } from "@/lib/programme/calendar";
 import { opened, type Lang } from "@/lib/programme/content";
 import { postComment, report, submitAnswer } from "@/lib/programme/daily";
 
-export type Result = { error?: string; ok?: boolean; status?: string };
+export type Result = { error?: string; ok?: boolean; status?: string; badge?: { id: string; title: string } };
 
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -15,7 +17,7 @@ const DAY = /^\d{4}-\d{2}-\d{2}$/;
 async function who() {
   const a = await requireProgramme();
   const p = await getProfile(a.userId);
-  return { id: a.userId, today: a.today, state: p.state, cls: classKey(p), nickname: "同学" + a.userId.replace(/\D/g, "").slice(0, 4).padEnd(4, "0") };
+  return { id: a.userId, today: a.today, state: p.state, cls: classKey(p), nickname: p.nickname || "同学" + a.userId.replace(/\D/g, "").slice(0, 4).padEnd(4, "0") };
 }
 const lang = (v: unknown): Lang | null => (v === "BM" || v === "BI" ? v : null);
 
@@ -32,8 +34,16 @@ export async function answerAction(_: Result, form: FormData): Promise<Result> {
   const r = await submitAnswer(a.userId, day, l, built.answer, built.aiTask, day < a.today,
     { details: built.details, quizCorrect: built.quizCorrect, quizTotal: built.quizTotal, directFeedback: built.directFeedback, appendFeedback: built.appendFeedback, noFeedback: built.noFeedback });
   if (r.error) return { error: r.error };
+  // A day handed in on time counts toward the streak; the streak can win a badge (variable timing).
+  let badge: Result["badge"];
+  if (!a.isAdmin && day === a.today) {
+    const cal = buildCalendar(p.state), tomorrow = key(addDays(parse(a.today), 1));
+    const streak = facts(cal, tomorrow, realHistory(cal, tomorrow, await myHistoryRows(a.userId))).streak;
+    const won = await awardForStreak(a.userId, streak);
+    if (won) badge = { id: won.id, title: won.title };
+  }
   revalidatePath("/programme/today");
-  return { ok: true, status: r.status };
+  return { ok: true, status: r.status, badge };
 }
 
 /** The student picks whether the instructions are shown in English or Chinese. */
