@@ -1,5 +1,6 @@
 {
-  "n": 22, "lang": "bi",
+  "n": 22,
+  "lang": "bi",
   "theme": "Story",
   "level": "B2 to C1",
   "essayTitle": "Night of the Broken Window",
@@ -13,43 +14,140 @@
     "The next morning, Mak Cik Siti came over with a plate of kuih and tears of gratitude in her eyes. That night taught me that a united community is the best protection of all."
   ],
   "points": [
-    {"code": "C1", "text": "describe what happened"},
-    {"code": "C2", "text": "describe the characters involved"},
-    {"code": "C3", "text": "show how the situation was resolved – step 1"},
-    {"code": "C4", "text": "how it was resolved – step 2"},
-    {"code": "C5", "text": "how it was resolved – result"}
+    {
+      "code": "C1",
+      "text": "describe what happened"
+    },
+    {
+      "code": "C2",
+      "text": "describe the characters involved"
+    },
+    {
+      "code": "C3",
+      "text": "show how the situation was resolved – step 1"
+    },
+    {
+      "code": "C4",
+      "text": "how it was resolved – step 2"
+    },
+    {
+      "code": "C5",
+      "text": "how it was resolved – result"
+    }
   ],
-  "openingIdx": [0],
-  "keyPoint": {"idx": 1, "prompt": "describe what happened"},
-  "closingIdx": [4],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 1,
+    "prompt": "describe what happened"
+  },
+  "closingIdx": [
+    4
+  ],
   "words": [
-    {"word": "had no idea", "zh": "毫不知情", "example": "This is because I had no idea what was waiting for me."},
-    {"word": "face my fear", "zh": "面对恐惧", "example": "As a result, I stepped forward bravely and faced my fear."},
-    {"word": "without hesitation", "zh": "毫不犹豫", "example": null},
-    {"word": "tiptoe forward", "zh": "蹑手蹑脚前进", "example": "I tiptoed downstairs to check."},
-    {"word": "trembling with fear", "zh": "吓得发抖", "example": "We stood there, trembling with fear."},
-    {"word": "my curiosity got the better of me", "zh": "好奇心战胜了我", "example": "As the doorbell rang, my curiosity got the better of me."},
-    {"word": "in an instant", "zh": "瞬间", "example": "As a result, I rushed to the door and everything changed in an instant."},
-    {"word": "froze on the spot", "zh": "呆立当场", "example": "As a result, I froze on the spot and could not utter a word."},
-    {"word": "my legs felt like jelly", "zh": "双腿发软", "example": "My palms were sweating and my legs felt like jelly."},
-    {"word": "the tension was unbearable", "zh": "紧张得令人难以忍受", "example": null}
+    {
+      "word": "had no idea",
+      "zh": "毫不知情",
+      "example": "This is because I had no idea what was waiting for me."
+    },
+    {
+      "word": "face my fear",
+      "zh": "面对恐惧",
+      "example": "As a result, I stepped forward bravely and faced my fear."
+    },
+    {
+      "word": "without hesitation",
+      "zh": "毫不犹豫",
+      "example": "Without hesitation, I seized the chance and took a deep breath."
+    },
+    {
+      "word": "tiptoe forward",
+      "zh": "蹑手蹑脚前进",
+      "example": "I tiptoed downstairs to check."
+    },
+    {
+      "word": "trembling with fear",
+      "zh": "吓得发抖",
+      "example": "We stood there, trembling with fear."
+    },
+    {
+      "word": "my curiosity got the better of me",
+      "zh": "好奇心战胜了我",
+      "example": "As the doorbell rang, my curiosity got the better of me."
+    },
+    {
+      "word": "in an instant",
+      "zh": "瞬间",
+      "example": "As a result, I rushed to the door and everything changed in an instant."
+    },
+    {
+      "word": "froze on the spot",
+      "zh": "呆立当场",
+      "example": "As a result, I froze on the spot and could not utter a word."
+    },
+    {
+      "word": "my legs felt like jelly",
+      "zh": "双腿发软",
+      "example": "My palms were sweating and my legs felt like jelly."
+    },
+    {
+      "word": "the tension was unbearable",
+      "zh": "紧张得令人难以忍受",
+      "example": "The tension was unbearable."
+    }
   ],
   "goodPhrases": [
-    {"phrase": "my heart pounding against my chest", "zh": "心怦怦直跳"},
-    {"phrase": "frail", "zh": "虚弱的；年老体衰的"},
-    {"phrase": "kept a cool head", "zh": "保持冷静"},
-    {"phrase": "in grave danger", "zh": "处于极大的危险中"},
-    {"phrase": "without wasting a second", "zh": "刻不容缓"},
-    {"phrase": "shaken but unharmed", "zh": "受惊但无受伤"},
-    {"phrase": "tears of gratitude", "zh": "感激的泪水"},
-    {"phrase": "cornered", "zh": "被逼入绝境的"},
-    {"phrase": "the wail of sirens", "zh": "警笛的鸣声"},
-    {"phrase": "blocking every escape route", "zh": "封锁所有逃跑路线"},
-    {"phrase": "neighbourhood patrol", "zh": "邻里巡逻队"}
+    {
+      "phrase": "my heart pounding against my chest",
+      "zh": "心怦怦直跳"
+    },
+    {
+      "phrase": "frail",
+      "zh": "虚弱的；年老体衰的"
+    },
+    {
+      "phrase": "kept a cool head",
+      "zh": "保持冷静"
+    },
+    {
+      "phrase": "in grave danger",
+      "zh": "处于极大的危险中"
+    },
+    {
+      "phrase": "without wasting a second",
+      "zh": "刻不容缓"
+    },
+    {
+      "phrase": "shaken but unharmed",
+      "zh": "受惊但无受伤"
+    },
+    {
+      "phrase": "tears of gratitude",
+      "zh": "感激的泪水"
+    },
+    {
+      "phrase": "cornered",
+      "zh": "被逼入绝境的"
+    },
+    {
+      "phrase": "the wail of sirens",
+      "zh": "警笛的鸣声"
+    },
+    {
+      "phrase": "blocking every escape route",
+      "zh": "封锁所有逃跑路线"
+    },
+    {
+      "phrase": "neighbourhood patrol",
+      "zh": "邻里巡逻队"
+    }
   ],
   "gaps": [
     "No example sentence for 'without hesitation' and 'the tension was unbearable': the pack's sentences for these were scrambled in the PDF text, and neither is in the essay.",
     "None of this week's words are in the essay or its vocabulary table. All examples come from the Story pack: 'had no idea', 'my curiosity got the better of me', 'in an instant' (ST1 answer), 'froze on the spot', 'my legs felt like jelly' (ST3 answer), 'face my fear' (ST6 answer), 'trembling with fear' (Q5 table), 'tiptoe forward' (Q9 table: 'I tiptoed downstairs to check.', a different form of the phrase).",
-    "goodPhrases: the row 'every second counted' is marked (Extended) and was left out."
+    "goodPhrases: the row 'every second counted' is marked (Extended) and was left out.",
+    "example for 'without hesitation' taken from the theme pack (watermark layer removed)",
+    "example for 'the tension was unbearable' taken from the theme pack (watermark layer removed)"
   ]
 }

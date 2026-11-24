@@ -50,17 +50,17 @@
     {
       "word": "get away from the hustle and bustle",
       "zh": "远离喧嚣",
-      "example": null
+      "example": "Cameron Highlands lets us get away from the hustle and bustle of city life."
     },
     {
       "word": "off the beaten track",
       "zh": "远离热门路线、偏僻之处",
-      "example": null
+      "example": "This waterfall is off the beaten track, so it is never crowded."
     },
     {
       "word": "a feast for the eyes",
       "zh": "赏心悦目的景象",
-      "example": null
+      "example": "The lantern festival was a feast for the eyes."
     },
     {
       "word": "soak in the view",
@@ -142,6 +142,9 @@
     "The essay has 3 paragraphs only (Part 2), with no separate conclusion paragraph, so closingIdx is empty. keyPoint = paragraph 2 (reasons 1 and 2); the question's C1 is only the place.",
     "goodPhrases: only Table 1 rows used by the Exam Version; the Extended-only rows 'a living museum' and 'right on our doorstep' were left out.",
     "The '(C1)' ... '(C5)' mark tags were removed from the essay text.",
-    "Prompt said weeks 7/18/29/40 are Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 7 as Travel, Leisure & Home, so the Travel words and a Travel essay were used."
+    "Prompt said weeks 7/18/29/40 are Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 7 as Travel, Leisure & Home, so the Travel words and a Travel essay were used.",
+    "example for 'get away from the hustle and bustle' taken from the theme pack (watermark layer removed)",
+    "example for 'off the beaten track' taken from the theme pack (watermark layer removed)",
+    "example for 'a feast for the eyes' taken from the theme pack (watermark layer removed)"
   ]
 }

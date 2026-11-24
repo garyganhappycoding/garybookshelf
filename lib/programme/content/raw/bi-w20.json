@@ -1,5 +1,6 @@
 {
-  "n": 20, "lang": "bi",
+  "n": 20,
+  "lang": "bi",
   "theme": "Review",
   "level": "B2 to C1",
   "essayTitle": "Sarawak Laksa: Breakfast of the Gods",
@@ -13,43 +14,139 @@
     "In a nutshell, Sarawak laksa is a must-try dish for every food lover. Once you take your first sip, you will understand why it is so popular!"
   ],
   "points": [
-    {"code": "C1", "text": "What is the name of the food?"},
-    {"code": "C2", "text": "How did you find out about it?"},
-    {"code": "C3", "text": "What makes the food special? – point 1"},
-    {"code": "C4", "text": "What makes it special? – point 2"},
-    {"code": "C5", "text": "Would you recommend it to others and why? – reason 1"},
-    {"code": "C6", "text": "Why? – reason 2"}
+    {
+      "code": "C1",
+      "text": "What is the name of the food?"
+    },
+    {
+      "code": "C2",
+      "text": "How did you find out about it?"
+    },
+    {
+      "code": "C3",
+      "text": "What makes the food special? – point 1"
+    },
+    {
+      "code": "C4",
+      "text": "What makes it special? – point 2"
+    },
+    {
+      "code": "C5",
+      "text": "Would you recommend it to others and why? – reason 1"
+    },
+    {
+      "code": "C6",
+      "text": "Why? – reason 2"
+    }
   ],
-  "openingIdx": [0],
-  "keyPoint": {"idx": 2, "prompt": "What makes the food special? – point 1"},
-  "closingIdx": [4],
+  "openingIdx": [
+    0
+  ],
+  "keyPoint": {
+    "idx": 2,
+    "prompt": "What makes the food special? – point 1"
+  },
+  "closingIdx": [
+    4
+  ],
   "words": [
-    {"word": "conveniently located", "zh": "位置便利", "example": "The café is conveniently located near the LRT station."},
-    {"word": "well-equipped", "zh": "设备齐全", "example": null},
-    {"word": "word of mouth", "zh": "口耳相传", "example": "I heard about it through word of mouth."},
-    {"word": "freshly prepared", "zh": "新鲜现做的", "example": "Everything is freshly prepared in front of you."},
-    {"word": "generous portions", "zh": "分量十足", "example": "The stall serves generous portions at a low price."},
-    {"word": "cater to all age groups", "zh": "迎合所有年龄层", "example": "The facilities cater to all age groups."},
-    {"word": "get overcrowded", "zh": "变得过于拥挤", "example": null},
-    {"word": "room for improvement", "zh": "有改进的空间", "example": null},
-    {"word": "live up to the hype", "zh": "不负盛名", "example": "The movie lives up to the hype."},
-    {"word": "the pros outweigh the cons", "zh": "利大于弊", "example": "This is because the pros clearly outweigh the cons."}
+    {
+      "word": "conveniently located",
+      "zh": "位置便利",
+      "example": "The café is conveniently located near the LRT station."
+    },
+    {
+      "word": "well-equipped",
+      "zh": "设备齐全",
+      "example": "It is well-equipped with clean restrooms and a prayer room."
+    },
+    {
+      "word": "word of mouth",
+      "zh": "口耳相传",
+      "example": "I heard about it through word of mouth."
+    },
+    {
+      "word": "freshly prepared",
+      "zh": "新鲜现做的",
+      "example": "Everything is freshly prepared in front of you."
+    },
+    {
+      "word": "generous portions",
+      "zh": "分量十足",
+      "example": "The stall serves generous portions at a low price."
+    },
+    {
+      "word": "cater to all age groups",
+      "zh": "迎合所有年龄层",
+      "example": "The facilities cater to all age groups."
+    },
+    {
+      "word": "get overcrowded",
+      "zh": "变得过于拥挤",
+      "example": null
+    },
+    {
+      "word": "room for improvement",
+      "zh": "有改进的空间",
+      "example": null
+    },
+    {
+      "word": "live up to the hype",
+      "zh": "不负盛名",
+      "example": "The movie lives up to the hype."
+    },
+    {
+      "word": "the pros outweigh the cons",
+      "zh": "利大于弊",
+      "example": "This is because the pros clearly outweigh the cons."
+    }
   ],
   "goodPhrases": [
-    {"phrase": "won the hearts of", "zh": "赢得……的喜爱"},
-    {"phrase": "viral", "zh": "爆红的"},
-    {"phrase": "could not resist", "zh": "忍不住"},
-    {"phrase": "heritage", "zh": "传统；遗产"},
-    {"phrase": "affordable", "zh": "价格实惠的"},
-    {"phrase": "must-try", "zh": "必试的"},
-    {"phrase": "fragrant", "zh": "芳香的"},
-    {"phrase": "tangy", "zh": "酸爽的"},
-    {"phrase": "generously topped with", "zh": "铺满了……"},
-    {"phrase": "a burst of flavour", "zh": "味道在口中爆发"}
+    {
+      "phrase": "won the hearts of",
+      "zh": "赢得……的喜爱"
+    },
+    {
+      "phrase": "viral",
+      "zh": "爆红的"
+    },
+    {
+      "phrase": "could not resist",
+      "zh": "忍不住"
+    },
+    {
+      "phrase": "heritage",
+      "zh": "传统；遗产"
+    },
+    {
+      "phrase": "affordable",
+      "zh": "价格实惠的"
+    },
+    {
+      "phrase": "must-try",
+      "zh": "必试的"
+    },
+    {
+      "phrase": "fragrant",
+      "zh": "芳香的"
+    },
+    {
+      "phrase": "tangy",
+      "zh": "酸爽的"
+    },
+    {
+      "phrase": "generously topped with",
+      "zh": "铺满了……"
+    },
+    {
+      "phrase": "a burst of flavour",
+      "zh": "味道在口中爆发"
+    }
   ],
   "gaps": [
     "No example sentence found for: 'well-equipped' (the pack's sentence was scrambled), 'get overcrowded', 'room for improvement' (not in the essay or in clean pack sentences).",
     "Examples come from the Review pack, not from the essay or the Universal phrases section: 'conveniently located' (RV1 answer), 'word of mouth', 'freshly prepared', 'generous portions' (Q1 Popular Food table), 'cater to all age groups' (Q2 Shopping Mall table; full stop added), 'live up to the hype' (Q6 table, the sentence uses 'lives up'), 'the pros outweigh the cons' (RV9 answer).",
-    "goodPhrases: rows marked (Extended) (takes it to the next level, taste buds) were left out because they belong to the Extended Version only."
+    "goodPhrases: rows marked (Extended) (takes it to the next level, taste buds) were left out because they belong to the Extended Version only.",
+    "example for 'well-equipped' taken from the theme pack (watermark layer removed)"
   ]
 }

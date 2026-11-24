@@ -31,7 +31,19 @@ export default function BlockView({ b, lang }: { b: Block; lang: Lang }) {
       <div className="overflow-x-auto"><table className="w-full text-sm"><thead><tr className="text-left text-ink/60"><th className="py-1 pr-3">#</th><th className="pr-3">Word</th><th className="pr-3">中文</th><th>Example</th></tr></thead>
         <tbody>{b.rows.map((r, i) => <tr key={i} className="border-t border-ink/10 align-top"><td className="py-1.5 pr-3">{i + 1}</td><td className="pr-3 font-medium">{r.word}</td><td className="pr-3">{r.zh}</td><td>{r.example}</td></tr>)}</tbody></table></div>
     );
-    case "table": return (
+    case "table":
+      // Wide tables (3 or more columns) become one card per row, so they read well on a phone.
+      if (b.head.length >= 3) return (
+        <div className="space-y-3">
+          {b.rows.map((r, i) => (
+            <div key={i} className="rounded-lg border border-ink/10 p-3 text-sm">
+              <p className="font-medium mb-1">{r[0]}</p>
+              {r.slice(1).map((c, j) => <p key={j} className="mt-1"><span className="text-xs text-ink/50">{t(b.head[j + 1])}: </span>{c}</p>)}
+            </div>
+          ))}
+        </div>
+      );
+      return (
       <div className="overflow-x-auto"><table className="w-full text-sm"><thead><tr className="text-left text-ink/60">{b.head.map((h, i) => <th key={i} className="py-1 pr-3">{t(h)}</th>)}</tr></thead>
         <tbody>{b.rows.map((r, i) => <tr key={i} className="border-t border-ink/10 align-top">{r.map((c, j) => <td key={j} className="py-1.5 pr-3">{c}</td>)}</tr>)}</tbody></table></div>
     );

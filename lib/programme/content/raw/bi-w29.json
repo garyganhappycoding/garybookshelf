@@ -48,7 +48,7 @@
     {
       "word": "a breathtaking destination",
       "zh": "令人惊叹的目的地",
-      "example": null
+      "example": "Langkawi is a breathtaking destination."
     },
     {
       "word": "a once-in-a-lifetime opportunity",
@@ -125,6 +125,7 @@
     "None of the week's words appear in this essay's vocabulary table; examples come from the Travel pack (Universal answers V11, V3 and the trial-question vocab tables, clean sentences only).",
     "The Travel folder also holds 'SPM Essay_ Travel.docx' (a Tokyo holiday story). It was not used because it is a story, not a travel-theme essay.",
     "The docx text shows a curly apostrophe/quotes; copied as shown.",
-    "Prompt said week 29 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 29 as Travel, Leisure & Home, so Travel words and a Travel essay were used."
+    "Prompt said week 29 is Teenagers & Society, but brand/PROGRAMME-BI-VOCAB.md lists Week 29 as Travel, Leisure & Home, so Travel words and a Travel essay were used.",
+    "example for 'a breathtaking destination' taken from the theme pack (watermark layer removed)"
   ]
 }
