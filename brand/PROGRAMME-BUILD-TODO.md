@@ -60,4 +60,4 @@ Format: `lib/programme/content/bi/w01.ts` ... `w44.ts` and `bm/w01.ts` ... (type
 - 2026-11-23 23:45 spec written (brand/PROGRAMME-CONTENT-SPEC.md); 7 extraction agents launched, writing lib/programme/content/raw/*.json (bi-wNN.json, bm-wNN.json). Next: A0 generator + B student UI while they run.
 - 2026-11-23 23:25 list created. Nothing built yet.
 
-RUNNING: no
+RUNNING: 2026-11-24 09:24
