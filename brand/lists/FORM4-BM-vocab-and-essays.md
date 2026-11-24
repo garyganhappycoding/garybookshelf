@@ -2,9 +2,11 @@
 
 Dates are for a Group B state such as KL (Mon to Fri school week); Group A states (Kedah, Kelantan, Terengganu) have the same weeks starting one day earlier. Exam dates are ESTIMATES: each student can change them, and then the weeks move.
 
-Exam weeks carry no vocabulary and no tasks: the week's tasks move to the first week after the exams.
+Exam weeks carry no vocabulary and no tasks: the whole week's tasks move to the first week after the exams.
 
-Weeks of content that fit: **38** of 44 (the last 6 content weeks do not fit before the end of the year).
+**The programme ends when the year-end exam starts** (Gary, 24 Nov 2026). Content weeks that do not fit before that are removed.
+
+Weeks of content: **33**.
 
 ---
 
@@ -602,112 +604,5 @@ No vocabulary, no tasks.
 | 9 | mengemudi bahtera kepimpinan negara | 掌舵国家领导之舟 | Ibu bapa perlu mendorong anak-anak, guru-guru haruslah membimbing murid-murid agar remaja yang mengemudi bahtera kepimpinan negara dapat berjaya dan terbilang dalam kerjaya. |
 | 10 | mengemudi tampuk kepemimpinan negara | 掌舵国家领导层 | Sebenarnya, remaja merupakan bunga-bunga bangsa yang akan mengemudi tampuk kepemimpinan negara sehingga ke pentas antarabangsa. |
 
-### School week 37, starts Mon 11 Oct 2027  ·  **EXAM WEEK** (Form 4 年终考（估计）)
-No vocabulary, no tasks.
+### PROGRAMME ENDS: the year-end exam starts on Mon 11 Oct 2027. Nothing after this.
 
-### School week 38, starts Mon 18 Oct 2027  ·  **EXAM WEEK** (Form 4 年终考（估计）)
-No vocabulary, no tasks.
-
-### School week 39, starts Mon 25 Oct 2027  ·  **EXAM WEEK** (Form 4 年终考（估计）)
-No vocabulary, no tasks.
-
-### Week 34  ·  school week 40, starts Mon 1 Nov 2027
-**Topic:** Kemanusiaan
-**Essay:** Kebaikan Aktiviti Kesukarelawanan  ([open](https://docs.google.com/document/d/1QGbS__9Qv6CxZlbzoC7K7fbUja4V1UJaGoiBgimMNLk/edit))
-**Question picture:** GAP: BM docs have no question (title only)
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | bagai langit runtuh bumi cair | 如天崩地裂般 | Sebaliknya, apabila bencana alam berlaku, bukan sahaja organisasi kerajaan malah pertubuhan bukan kerajaan (NGO) amat memerlukan sukarela untuk menyelamatkan mangsa yang ditimpa pelbagai malapetaka bagai langit runtuh bumi cair. |
-| 2 | orang yang condong disorongkan bantal | 顺水推舟，助人一臂之力 | Situasi ini amat bersinonim dengan peribahasa Melayu, orang yang condong disorongkan bantal". |
-| 3 | masa ibarat pedang, jika kita tidak memotong ia, ia akan memotong kita | 光阴似剑，不用则被所伤 | Pepatah Arab ada menyebut bahawa masa ibarat pedang, jika kita tidak memotong ia, ia akan memotong kita. |
-| 4 | bersinergi bagai aur dengan tebing | 同心协力，同舟共济 | Kita haruslah bersinergi bagai aur dengan tebing agar mangsa dapat diselamatkan daripada lembah malapetaka. |
-| 5 | mekar semerbak di empat pelosok tanah tumpah darah | 馨香绽放于祖国四方 | Dengan kerjasama daripada pelbagai pihak, semoga bunga-bunga keharmonian dan kesejahteraan dapat mekar semerbak di empat pelosok tanah tumpah darah kita. |
-| 6 | membersihkan rumah kediaman mereka | 清理他们的住家 | Tamsilannya, apabila terdapat tempat yang dilanda banjir, kita dapat bergiat aktif menjadi sukarelawan untuk membantu mangsa membersihkan rumah kediaman mereka dan menghantar bekalan makanan. |
-| 7 | berasa gembira dan terharu | 感到高兴与感动 | Implikasinya, percayala saya mangsa akan berasa gembira dan terharu apabila mendapat bantuan daripada orang lain. |
-| 8 | memupuk perpaduan | 培养团结 | Akhirnya, aktiviti kesukarelawanan dapat memupuk perpaduan dalam hati nurani masyarakat. |
-| 9 | tanpa mengira kaum, ras, warna kulit | 不分种族、族群、肤色 | Kita bekerjasama menghulurkan bantuan kepada mangsa tanpa mengira kaum, ras, warna kulit, latar belakang mereka. |
-| 10 | parti politik berbilang kaum | 多元种族政党 | Sebagai contohnya, MUDA merupakan parti politik berbilang kaum yang ditubuhkan oelh Syed Saddiq Syed abdul Rahman yang berperanan mencari sukarelawan untuk membantu pembersihan pasca banjir serta penghantaran bantuan makanan dan wang tunai kepada mangsa. |
-
-### Week 35  ·  school week 41, starts Mon 8 Nov 2027
-**Topic:** Penderaan Kanak-Kanak
-**Essay:** Punca-Punca dan Langkah-Langkah Menangani Kes Penderaan Kanak-Kanak  ([open](https://docs.google.com/document/d/1JI_nrngMyQ8iPPw8PJ2X-VWw7fSA2UdJqAYI5eoFi78/edit))
-**Question picture:** GAP: BM docs have no question (title only)
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | bagai menatang minyak yang penuh | 呵护备至，如捧满油般小心 | Sebenarnya, ibu bapa perlulah mencurahkan kasih sayang kepada anak-anak bagai menatang minyak yang penuh. |
-| 2 | sehingga akar umbi | 彻底地，连根拔起 | Jadi, kita perlu mengenal pasti pokok pangkal masalah ini agar kita dapat merencanakan dan mengimplementasikan langkah-langkah yang dapat menangani masalah sehingga akar umbi. |
-| 3 | menjadikan kanak-kanak sebagai beg peninju | 把孩子当出气筒 | Ibu bapa yang gagal mengawal emosi dan tekanan dalam kerjaya akan menjadikan kanak-kanak sebagai beg peninju. |
-| 4 | bagai duri dalam daging | 如芒刺在背，心头大患 | Untuk membanteras masalah penderaan kanak-kanak bagai duri dalam daging di negara kita ini, pihak kerajaan perlu menguatkuasakan undang-undang yang tegas. |
-| 5 | bak kata peribahasa "pisang tidak berbuah dua kali" | 机不可失，失不再来 | Hukuman berat dan setimpal dengan kesalahan akan meninggalkan pengajaran yang mendalam sehingga dapat menakutkan orang lain agar tidak berbuat salah lagi bak kata peribahasa "pisang tidak berbuah dua kali". |
-| 6 | melepaskan kemarahan | 发泄怒气 | Sebagai contohnya, terdapat ibu bapa yang sibuk mengejar profesion sanggup melepaskan kemarahan kepada kanak-kanak. |
-| 7 | hilang penaakulan | 失去理智 | Ibu bapa yang hilang penaakulan akan membelasah kanak-kanak tanpa berperikemanusiaan. |
-| 8 | hilang kewarasan | 失去理智，失去清醒 | Jadi, ibu bapa yang sentiasa dalam keadaan tegang dan hilang kewarasan akan melepaskan kemarahan kepada kanak-kanak. |
-| 9 | menjamin kesejahteraan masyarakat | 保障社会福祉 | sesungguhnya,sistem perundangan adalah untuk menjamin kesejahteraan masyarakat. |
-| 10 | hukuman maksimum | 最高刑罚 | Hukuman maksimum yang dijatuhkan kepada penjenayah penderaan kanak-kanak ialah denda RM50,000 atau penjara 20 tahun atau kedua-duanya. |
-
-### Week 36  ·  school week 42, starts Mon 15 Nov 2027
-**Topic:** Keselamatan Jalan Raya
-**Essay:** Punca-Punca Kemalangan Jalan Raya dan Langkah Mengatasinya  ([open](https://docs.google.com/document/d/1jYBcQmUdAGcS4jy3rUWv7JMeZwD3zoWGjkqNXMggrHE/edit))
-**Question picture:** GAP: BM docs have no question (title only)
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | bagai melukut di tepi gantang | 微不足道/无足轻重（被忽视） | Yang pertamanya, pihak kerajaan tidak boleh mengabaikan masalah ini bagai melukut di tepi gantang. |
-| 2 | sesal dahulu pendapatan, sesal kemudian tidak berguna lagi | 早知今日何必当初 | Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa "sesal dahulu pendapatan, sesal kemudian tidak berguna lagi" sebagai azimat untuk mengelakkan kemalangan. |
-| 3 | berani bermaharajalela di jalan raya | 在马路上横行霸道 | Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa. |
-| 4 | menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara | 把马路当赛车场最终变成坟场 | Justifikasinya, JPJ berperanan penting untuk mengelakkan remaja menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara. |
-| 5 | bagai enau dalam belukar melepaskan pucuk masing-masing | 各顾各的，自私自利 | Sebagai contohnya, terdapat pemandu yang bersikap individualistik bagai enau dalam belukar melepaskan pucuk masing-masing menggunakan telefon bimbit semasa memandu kereta. |
-| 6 | mengelakkan kemalangan | 避免意外 | Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa "sesal dahulu pendapatan, sesal kemudian tidak berguna lagi" sebagai azimat untuk mengelakkan kemalangan. |
-| 7 | mengetatkan syarat | 收紧条件 | Selain itu, Jabatan Pengangkutan Jalan perlulah mengetatkan syarat memberikan lesen. |
-| 8 | berjiwa panas | 血气方刚 | Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa. |
-| 9 | mengawal tindakan diri | 控制自己的行为 | Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa. |
-| 10 | membahayakan nyawa | 危及生命 | Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa. |
-
-### Week 37  ·  school week 43, starts Mon 22 Nov 2027
-**Topic:** Ketenteraan
-**Essay:** Usaha-Usaha untuk Menarik Minat Menceburkan Diri dalam Bidang Ketenteraan  ([open](https://docs.google.com/document/d/1goVluqgVlG4oNxMVUy69x0tYqUkffW79H-U4iRbFTPw/edit))
-**Question picture:** GAP: BM docs have no question (title only)
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | seperti mentimun dengan durian | 强弱悬殊，实力差距太大 | Walau bagaimanapun, bidang ini tidak mendapat sambutan daripada generasi muda sehingga menyebabkan kekuatan anggota ATM masih tidak setanding dengan tentara negara lain seperti mentimun dengan durian. |
-| 2 | di mana ada kemahuan di situ ada jalan | 有志者事竟成 | Jadi, pelbagai langkah-langkah perlu dicurahkan bak kata peribahasa di mana ada kemahuan di situ ada jalan untuk mencetuskan minat murid dalam bidang ketenteraan. |
-| 3 | kasih akan watan sebahagian daripada iman | 爱国是信仰的一部分 | Secara tidak langsung, semangat cinta akan negara akan dipupuk dalam hati nurani bak kata peribahasa "kasih akan watan sebahagian daripada iman". |
-| 4 | melentur buluh biarlah dari rebungnya | 教育须从小做起 | Sudah kian lagi bersuluh bahawa penubuhan sekolah bercirikan ketenteraan di negara ini selaras dengan peribahasa melentur buluh biarlah dari rebungnya. |
-| 5 | bagai aur dengan tebing | 唇齿相依，紧密合作 | Jadi, pelbagai pihak perlu berkolaborasi bagai aur dengan tebing untuk menarik minat generasi muda dalam bidang ketenteraan. |
-| 6 | aktiviti kokurikulum | 课外活动 | Jadi, pihak sekolah sepatutnya menjadikan bidang ketenteraan dalam aktiviti kokurikulum di sekolah. |
-| 7 | kesedaran awal | 早期意识 | Hal ini penting agar murid-murid mendapat kesedaran awal dan stigma seperti kebajikan tentera adalah buruk dan latihan tentera amat susah dapat dikikis secara jauh daripada hati murid-murid. |
-| 8 | dikikis | 被消除，被磨灭 | Hal ini penting agar murid-murid mendapat kesedaran awal dan stigma seperti kebajikan tentera adalah buruk dan latihan tentera amat susah dapat dikikis secara jauh daripada hati murid-murid. |
-| 9 | mengadakan kerjasama | 建立合作 | Sebagai contohnya, pihak sekolah dapat mengadakan kerjasama dengan Angkatan Tentera Malaysia. |
-| 10 | latihan intensif | 密集训练 | Pegawai daripada Angkatan Tentera Malaysia dapat menunjukkan latihan intensif dan program yang akan diperolehi dalam Program Latihan Khidmat Negara(PKLN). |
-
-### Week 38  ·  school week 44, starts Mon 29 Nov 2027
-**Topic:** Amalan Membaca
-**Essay:** Cara-cara Memupuk Amalan Membaca  ([open](https://docs.google.com/document/d/1SCfkgRO9zBe6QkHtYF3JoSRWxB-hqoG5K_tOpeQkxtQ/edit))
-**Question picture:** GAP: BM docs have no question (title only)
-
-| # | Word | 中文 | Example sentence |
-|---|---|---|---|
-| 1 | bulan kian terang, bayang kian jelas | 事实愈发明朗清晰 | Bulan kian terang, bayang kian jelas bahawa transformasi e-buku ini tentu akan melipatgandakan amalan membaca dalam kalangan masyarakat memandangkan masyarakat kini telah mula berganjak ke arah digital mengikut perkembangan zaman. |
-| 2 | yang baik dijadikan teladan, yang buruk dijadikan sempadan | 择善而从，以恶为戒 | Bulan kian terang, bayang kian jelas bahawa rakan merupakan salah satu faktor kepada masyarakat hilang minat dalam amalan membaca, ingatlah peribahasa yang baik dijadikan teladan, yang buruk dijadikan sempadan. |
-| 3 | bekerjasama bagai aur dengan tebing | 同心协力，同舟共济 | Jadi, kita haruslah bekerjasama bagai aur dengan tebing untuk mengatasi masalah tersebut sehingga akar umbi. |
-| 4 | menghasilkan buah yang manis | 结出甜美的果实 | Kegigihannya menghasilkan buah yang manis iaitu kejayaan yang dimakbulkan oleh beliau pada hari ini. |
-| 5 | hendak seribu daya, tak hendak seribu dalih | 心之所愿，无所不能；不愿则藉口多 | Oleh itu, pelbagai uslub yang efektif dan pragmatik harus dilaksanakan untuk menyemarakkan amalan membaca dalam kalangan masyarakat kerana peribahasa Melayu ada menyebut bahawa "hendak seribu daya, tak hendak seribu dalih". |
-| 6 | perjalanan yang berbatu-batu jauhnya dimulai dengan selangkah | 千里之行，始于足下 | Khalid Gibran pernah mengatakan bahawa "Perjalanan yang berbatu-batu jauhnya dimulai dengan selangkah". |
-| 7 | bapa borek, anak rintik | 有其父必有其子 | Hal ini dikatakan kerana pendidikan bermula daripada rumah dan sikap ibu bapa yang suka meneroka dan mencari pengetahuan terbaharu tentu akan dicontohi oleh anak, persis kata peribahasa "bapa borek, anak rintik". |
-| 8 | alah bisa tegal biasa | 熟能生巧 | Kesannya, anak-anak akan mendarahdagingkan membaca sebagai hobi kerana alah bisa tegal biasa. |
-| 9 | berganding bahu bagai aur dengan tebing | 同心协力，同舟共济 | Oleh itu, setiap strata masyarakat haruslah berganding bahu bagai aur dengan tebing untuk mencambahkan bibit-bibit membaca dalam kalangan masyarakat. |
-| 10 | Allah tidak akan mengubah nasib seseorang sekiranya seseorang itu sendiri tidak mahu mengubahnya | 真主不会改变一个人的命运，除非他自己愿意改变 | Pernahkah anda mendengar bahawa "Allah tidak akan mengubah nasib seseorang sekiranya seseorang itu sendiri tidak mahu mengubahnya. |
-
----
-
-## Weeks that do not fit this year
-
-- Week 39: Kerjaya · Kemahiran-Kemahiran yang Perlu Dikuasai sebagai Persediaan untuk Menghadapi Cabaran Kerjaya pada Era Globalisasi
-- Week 40: Pertanian · Kepentingan Bidang Pertanian di Negara Kita
-- Week 41: Perpaduan · Kepentingan Perpaduan Kaum kepada Masyarakat dan Negara
-- Week 42: Pelancongan · Kepentingan Sektor Pelancongan Terhadap Negara
-- Week 43: Masalah Sosial dan Nilai Murni · Faktor-Faktor Murid Ponteng Sekolah
-- Week 44: Keselamatan Jalan Raya · Peranan Menangani Kemalangan Jalan Raya

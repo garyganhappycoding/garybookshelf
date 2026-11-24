@@ -3,7 +3,7 @@ import { revalidatePath } from "next/cache";
 import { requireProgramme } from "@/lib/programme/gate";
 import { classKey, getProfile, saveProfile } from "@/lib/programme/profile";
 import { build, resolveDay } from "@/lib/programme/dayflow";
-import { buildCalendar } from "@/lib/programme/calendar";
+import { buildCalendar, programmeEnd } from "@/lib/programme/calendar";
 import { opened, type Lang } from "@/lib/programme/content";
 import { postComment, report, submitAnswer } from "@/lib/programme/daily";
 
@@ -25,8 +25,8 @@ export async function answerAction(_: Result, form: FormData): Promise<Result> {
   const day = String(form.get("day")), l = lang(form.get("lang"));
   if (!DAY.test(day) || !l) return { error: "资料不对。" };
   if (!a.isAdmin && !opened(day, a.today)) return { error: "这一天还没开放。" };
-  const found = resolveDay(buildCalendar(p.state), day, l, p.exams);
-  if (!found || "exam" in found) return { error: "这一天没有任务。" };
+  const found = resolveDay(buildCalendar(p.state), day, l, p.exams, programmeEnd(p.exams, p.form));
+  if (!found || "exam" in found || "ended" in found) return { error: "这一天没有任务。" };
   const built = build(found.week, found.day, form, p.instructionLang);
   if ("error" in built) return { error: built.error };
   const r = await submitAnswer(a.userId, day, l, built.answer, built.aiTask, day < a.today,

@@ -2,7 +2,7 @@
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import {
-  WEEKDAY_ZH, addDays, buildCalendar, cn, demoHistory, examsOn, facts, holidayName, contentWeekOf, key, levelOf, mondayOf, parse, realHistory, themeOf, type Calendar, type Exam, type History,
+  WEEKDAY_ZH, addDays, buildCalendar, cn, demoHistory, examsOn, facts, holidayName, contentWeekOf, programmeEnd, key, levelOf, mondayOf, parse, realHistory, themeOf, type Calendar, type Exam, type History,
 } from "@/lib/programme/calendar";
 
 const EXAM_COLORS = ["bg-purple-300 text-purple-900", "bg-sky-300 text-sky-900", "bg-pink-300 text-pink-900", "bg-teal-300 text-teal-900"];
@@ -92,7 +92,7 @@ export default function CalendarView({ state: stateId, form, exams, today: TODAY
           <p className="text-sm text-ink/70">学校放假，这周不安排新任务。想复习的话，回头看之前的主题。</p>
         ) : (
           <>
-            {(() => { const cw = contentWeekOf(cal, exams, d); return <p className="text-xs text-ink/60">{cw && "exam" in cw ? "考试周 · 这一周不安排新内容，任务顺延到考完后的那一周" : cw ? `第 ${cw.n} 周 · ${themeOf(cw.n)} · ${levelOf(cw.n)}` : `第 ${wk} 周`}</p>; })()}
+            {(() => { const cw = contentWeekOf(cal, exams, d, programmeEnd(exams, form)); return <p className="text-xs text-ink/60">{cw && "ended" in cw ? "年终考开始，这一年的内容到这里结束" : cw && "exam" in cw ? "考试周 · 这一周不安排新内容，任务顺延到考完后的那一周" : cw ? `第 ${cw.n} 周 · ${themeOf(cw.n)} · ${levelOf(cw.n)}` : `第 ${wk} 周`}</p>; })()}
             <p className="mt-1">{task[0]}：{task[1]}</p>
             <Link href="/programme/today" className="btn-primary inline-block mt-3 text-sm">打开这一天</Link>
           </>

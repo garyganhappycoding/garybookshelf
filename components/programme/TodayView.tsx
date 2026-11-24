@@ -7,7 +7,7 @@ import DayCard, { type CardData } from "./DayCard";
 
 export type TodayData = {
   day: string; lang: "BM" | "BI"; state: string; submitted: boolean; submissionId: string | null;
-  demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; card: CardData | null; examWeek: boolean; answerText: string | null; marks: { k: string; w: string; c: 1 | 2 }[] | null;
+  demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; card: CardData | null; examWeek: boolean; ended: boolean; answerText: string | null; marks: { k: string; w: string; c: 1 | 2 }[] | null;
   comments: { id: string; nickname: string; body: string; mine: boolean; waiting: boolean }[];
 };
 const init: Result = {};
@@ -54,7 +54,7 @@ export default function TodayView({ data }: { data: TodayData }) {
       </div>
 
       {!data.card ? (
-        <div className="card">{data.examWeek ? "这一周是考试周，不安排新内容，好好考试。" : wk > 0 ? "这一周这个语言的内容还在准备，今天先休息。" : "学校放假，这一天不安排新任务。"}</div>
+        <div className="card">{data.ended ? "年终考开始了，这一年的陪你读书到这里结束。加油！" : data.examWeek ? "这一周是考试周，不安排新内容，好好考试。" : wk > 0 ? "这一周这个语言的内容还在准备，今天先休息。" : "学校放假，这一天不安排新任务。"}</div>
       ) : (
         <>
           <div className="mb-4">
