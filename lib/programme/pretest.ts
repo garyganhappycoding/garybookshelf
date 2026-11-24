@@ -4,6 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { scoreEssay } from "./essayscore";
 
 const MAX_FILE = 10 * 1024 * 1024;
+const words = (t: string) => t.split(/\s+/).filter(Boolean).length;
 export type PretestLang = "BI" | "BM";
 
 export async function myPretests(userId: string) {
@@ -13,7 +14,7 @@ export async function myPretests(userId: string) {
 
 /** True once both a BI and a BM essay are in. */
 export async function hasPretest(userId: string) {
-  const got = new Set((await myPretests(userId)).map((p) => p.lang));
+  const got = new Set((await myPretests(userId)).filter((p) => words(p.body) >= 30).map((p) => p.lang));
   return got.has("BI") && got.has("BM");
 }
 
@@ -28,8 +29,6 @@ export async function scorePending(userId: string) {
   }
 }
 
-const words = (t: string) => t.split(/\s+/).filter(Boolean).length;
-
 export async function savePretest(userId: string, form: FormData): Promise<{ error?: string }> {
   const admin = createAdminClient();
   for (const lang of ["BI", "BM"] as const) {
@@ -37,8 +36,9 @@ export async function savePretest(userId: string, form: FormData): Promise<{ err
     const f = form.get(`file-${lang}`);
     const file = f instanceof File && f.size > 0 ? f : null;
     const { data: old } = await admin.from("programme_pretest").select("body, file_path").eq("user_id", userId).eq("lang", lang).maybeSingle();
-    if (!body && !file && !old) return { error: lang === "BI" ? "请交一篇英文作文（写下来或上传都可以）。" : "请交一篇马来文作文（写下来或上传都可以）。" };
-    if (body && words(body) < 30 && !file && !old?.file_path) return { error: lang === "BI" ? "英文作文太短了，至少写 30 个字，或者上传一份你写过的作文。" : "马来文作文太短了，至少写 30 个字，或者上传一份你写过的作文。" };
+    // typing is required (the AI marks typed text only); a file is an optional extra for Gary
+    const have = body || old?.body || "";
+    if (words(have) < 30) return { error: lang === "BI" ? "请把英文作文打字写下来或贴上来，至少 30 个字（系统要读到文字才能批改）。" : "请把马来文作文打字写下来或贴上来，至少 30 个字（系统要读到文字才能批改）。" };
     let path = old?.file_path ?? null;
     if (file) {
       if (!(file.type.startsWith("image/") || file.type === "application/pdf")) return { error: "作文文件请上传 PDF（最好）或图片。" };

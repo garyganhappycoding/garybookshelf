@@ -1,3 +1,9 @@
+## Done 25 Nov 2026 (essay tests)
+- BI essay tests now use the real English marking pipeline (lib/writing/markcore.ts, a copy of /api/writing/mark's steps; the live route is untouched). An 85-word weak essay now gets 7/20 instead of 20/20.
+- Starting essays must be TYPED (30+ words) for BI and BM; a PDF/photo is an optional extra for Gary.
+- Monthly essay test is mandatory: last Sunday card of each month, first content week's question, BI and BM, /programme/monthly; Today redirects there until done (admin preview not blocked). Not counted in the streak.
+- Still to do: calibrate BI and BM markers with Gary's good/weak essays (BI top score looks a little generous).
+
 # 陪你读书 · PENDING LIST (updated 2026-11-24, read this first)
 
 ## Waiting for Gary (do not start until he says)

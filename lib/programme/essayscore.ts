@@ -1,7 +1,8 @@
 // SERVER-ONLY. Marks a student's essay for the programme's tests: the BI essay with the English writing marker (4 criteria x 5 = /20) and the BM
 // essay with the Malay marker (Kertas 1 Bahagian B, /70). The score is turned into a percent so BI and BM can sit on one progress chart.
 // Marks are ESTIMATES for practice (Gary is still calibrating both markers). The BM marker is still private; the programme is closed to students.
-import { BAND_MAX, CRITERIA, buildMessages, buildResultSchema, countWords, type WritingResult } from "@/lib/writing/mark";
+import { BAND_MAX, CRITERIA, countWords, type Genre, type WritingPart } from "@/lib/writing/mark";
+import { markEnglishEssay } from "@/lib/writing/markcore";
 import { BM_SCHEMA, buildBmMessages, finish } from "@/lib/writing/mark-bm";
 
 const URL = "https://api.groq.com/openai/v1/chat/completions";
@@ -31,14 +32,12 @@ async function ask(messages: unknown, schema: object, name: string, valid: (r: a
   return null;
 }
 
-export async function scoreEssay(lang: "BI" | "BM", question: string, essay: string): Promise<Scored | null> {
+export async function scoreEssay(lang: "BI" | "BM", question: string, essay: string, opts: { part?: WritingPart; genre?: Genre } = {}): Promise<Scored | null> {
   if (lang === "BI") {
-    const got = await ask(buildMessages({ part: 3, genre: "article", question: question.slice(0, 1500), essay: essay.slice(0, 9000), paid: false }), buildResultSchema(false, true), "bi_score",
-      (r) => r?.criteria && CRITERIA.every((c) => typeof r.criteria[c]?.band === "number" && String(r.criteria[c]?.why ?? "").length > 10) && String(r.summary ?? "").length > 10);
-    if (!got) return null;
-    const res = got.r as WritingResult;
-    const total = CRITERIA.reduce((n, c) => n + Math.max(0, Math.min(BAND_MAX, Math.round(res.criteria[c].band))), 0);
-    return { score: Math.round((total / (BAND_MAX * CRITERIA.length)) * 1000) / 10, label: `${total}/${BAND_MAX * CRITERIA.length}`, summary: res.summary, strength: res.strength, model: got.model, result: res };
+    // the real Essay marking pipeline (requirement check, marking, Content cap)
+    const m = await markEnglishEssay({ question: question.slice(0, 1500), essay: essay.slice(0, 9000), part: opts.part, genre: opts.genre });
+    if (!m) return null;
+    return { score: Math.round((m.total / (BAND_MAX * CRITERIA.length)) * 1000) / 10, label: `${m.total}/${BAND_MAX * CRITERIA.length}`, summary: m.result.summary, strength: m.result.strength, model: m.model, result: m.result };
   }
   const got = await ask(buildBmMessages("B", question.slice(0, 1500), essay.slice(0, 9000)), BM_SCHEMA, "bm_score",
     (r) => Array.isArray(r?.areas) && r.areas.length >= 4 && String(r.summary ?? "").length > 10 && typeof r.mark === "number");
