@@ -39,10 +39,10 @@ export default function TodayView({ data }: { data: TodayData }) {
     <div>
       <p className="text-sm text-ink/60">{cn(d)} 星期{WEEKDAY_ZH[d.getDay()]}{data.demo ? "（示范日期）" : ""}</p>
       {data.demo && (
-        <p className="text-xs mb-1">
-          <Link aria-label="前一天" className="btn-secondary px-3 py-1 text-base" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, -1))}`}>←</Link>{" "}
-          <Link aria-label="后一天" className="btn-secondary px-3 py-1 text-base" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, 1))}`}>→</Link>
-        </p>
+        <div className="flex items-center gap-2 my-2">
+          <Link aria-label="前一天" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-white text-base hover:bg-ink/5" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, -1))}`}>←</Link>
+          <Link aria-label="后一天" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 bg-white text-base hover:bg-ink/5" href={`/programme/today?lang=${data.lang}&date=${key(addDays(d, 1))}`}>→</Link>
+        </div>
       )}
       <h1 className="text-2xl font-medium mb-1">今天</h1>
 
