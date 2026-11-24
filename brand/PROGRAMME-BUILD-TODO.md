@@ -7,6 +7,8 @@
 - [ ] 10 BI words still have no example sentence (see raw files' gaps).
 
 ## To do (decided 2026-11-24)
+- [x] Form 5 ends when SPM starts (`programmeEnd`, exam id e4; no end until the SPM date is filled in). Gary's checklist: brand/GARY-CHECKLIST.md.
+- [x] `npx tsx scripts/audit-content.mts` checks every week of both forms and languages (176 weeks): only real gaps remain (BM week 4 empty, a few short BM weeks in Form 5).
 - [x] **Form 5 plan = the same weekly plan as Form 4, with 15 words a week** (Gary, 24 Nov 2026). Essays are the Form 4 ones; the themes that lack or repeat essays are listed in brand/lists/FORM5-ESSAY-GAPS.md for Gary to check. Form 5 end date still open (no end rule until the SPM date is known).
 - [x] **Form 5 vocab (Gary, 24 Nov 2026) built**: 15 words per week. BI: about 2:3:5 = 3 B2 + 4 or 5 middle (C1-tagged phrases of 1 to 2 words) + 7 or 8 top C1 (3+ words), from the theme packs' tables and the Form 4 lists; a short tier is filled from another tier and flagged. BM: 7 or 8 advanced + the rest ordinary; short advanced lists are filled with ordinary words and flagged. Script: scratchpad f5vocab.py (not in repo); data in raw/f5. Form 5 essays are still copies of Form 4; the SPM-sprint plan is still to design.
 - [x] **Form 4 and Form 5 content is separate** (24 Nov 2026): raw/f4 and raw/f5, data.f4.*/data.f5.*, question pictures in public/programme/q/f4 and f5. Form 5 is a COPY of Form 4 for now, to be replaced with the real Form 5 (SPM revision) vocab and essays when Gary provides them. Edit the right folder.

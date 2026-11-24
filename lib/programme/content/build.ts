@@ -109,13 +109,14 @@ export function makeWeek(d: WeekData): Week {
     { id: "checks", type: "checks", title: CHECKS, items: [T("4 步齐不齐。", "Whether all 4 steps are there."), T("例子是不是你自己的。", "Whether the example is your own."), T("有没有用上本周的词。", "Whether you used some of this week's words.")] },
   ] };
 
-  const fri: Day = { key: "fri", label: T("第 5 天", "Day 5"), minutes: 10, blocks: !hasEssay ? [notReady] : [
+  // Some essays have no closing paragraph: the student still writes a conclusion, there is just no model to show afterwards.
+  const fri: Day = { key: "fri", label: T("第 5 天", "Day 5"), minutes: 10, response: hasEssay ? { kind: "text" } : undefined, blocks: !hasEssay ? [notReady] : [
     { id: "steps", type: "steps", title: TODAY, items: [
       T(`为「${title}」写结尾。`, `Write the conclusion for "${title}".`),
       T("可以用本周的词。", "You may use words from this week's list."),
       T("交出去，看范文。", "Submit, then read the model."),
     ] },
-    { id: "model", type: "text", reveal: true, title: T("范文结尾（交了之后才显示）", "Model conclusion (shown after submitting)"), paragraphs: closing },
+    ...(closing.length ? [{ id: "model", type: "text" as const, reveal: true, title: T("范文结尾（交了之后才显示）", "Model conclusion (shown after submitting)"), paragraphs: closing }] : []),
     { id: "checks", type: "checks", title: CHECKS, items: [T("有没有总结全文的看法。", "Whether the view of the whole article is summed up."), T("有没有一句话收尾。", "Whether it ends with a closing sentence.")] },
   ] };
 
