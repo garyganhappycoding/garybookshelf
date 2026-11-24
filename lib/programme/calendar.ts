@@ -34,12 +34,12 @@ export const THEMES = ["Technology", "Environment", "Health & Sports", "School &
 export const LEVELS = ["B1 基础", "B2 进阶", "B2 到 C1 提高", "C1 挑战"];
 
 export type Exam = { id: string; name: string; start: string; end: string };
-export const DEFAULT_EXAMS: Exam[] = [
-  { id: "e1", name: "年中考（估计）", start: "2027-04-26", end: "2027-05-14" },
-  { id: "e2", name: "Form 5 模拟考（估计）", start: "2027-07-19", end: "2027-08-20" },
-  { id: "e3", name: "Form 4 年终考（估计）", start: "2027-10-11", end: "2027-10-29" },
-  { id: "e4", name: "SPM 2027（等 KPM 公布日期）", start: "", end: "" },
-];
+// Estimated exam dates, different for Form 4 and Form 5. The student edits them to their school's real dates.
+const MID: Exam = { id: "e1", name: "年中考（估计）", start: "2027-04-26", end: "2027-05-14" };
+export const defaultExams = (form: number): Exam[] => form === 5
+  ? [MID, { id: "e2", name: "Form 5 模拟考（估计）", start: "2027-07-19", end: "2027-08-20" }, { id: "e4", name: "SPM 2027（等 KPM 公布日期）", start: "", end: "" }]
+  : [MID, { id: "e3", name: "Form 4 年终考（估计）", start: "2027-10-11", end: "2027-10-29" }];
+export const DEFAULT_EXAMS: Exam[] = defaultExams(4);
 
 const TASKS_B: Record<number, [string, string]> = {
   1: ["星期一", "学这周的 10 个 BM 词和 10 个 BI 词，每个词造一个句子。"],
@@ -162,3 +162,22 @@ export const GROUP_PRICE: Record<1 | 2 | 3, number> = { 1: 200, 2: 190, 3: 180 }
 
 // The prototype used a fixed "today" so the pages always show something meaningful before launch.
 export const DEMO_TODAY = "2027-02-17";
+
+/**
+ * Which content week a date is. Exam weeks carry NO content (Gary, 24 Nov 2026): the weekly content counts only the school weeks that are
+ * not exam weeks, in order, using the student's own exam dates, so a week of tasks is moved to the first week after the exams.
+ */
+export function contentWeekOf(cal: Calendar, exams: { start: string; end: string }[], d: Date): { n: number } | { exam: true } | null {
+  const total = cal.weekOf(d);
+  if (!total) return null;
+  const mondays = Object.entries(cal.weekNo).sort((a, b) => a[1] - b[1]).map(([m]) => m);
+  let n = 0;
+  for (let w = 1; w <= total; w++) {
+    const m = parse(mondays[w - 1]);
+    const from = key(addDays(m, -1)), to = key(addDays(m, 6)); // a Group A week starts on the Sunday before its Monday
+    const isExam = exams.some((e) => e.start && e.end && e.start <= to && e.end >= from);
+    if (w === total) return isExam ? { exam: true } : { n: n + 1 };
+    if (!isExam) n += 1;
+  }
+  return null;
+}
