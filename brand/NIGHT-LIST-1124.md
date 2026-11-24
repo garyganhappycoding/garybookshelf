@@ -12,13 +12,14 @@ Usage rule (Gary): if the 5-hour limit resets within about 1 hour, use all you h
 - [x] N5 Instruction language switch, both ways, on a few pages; the calendar page (`/programme`) shows the right week/theme and exam weeks; the settings and exam pages still work.
 - [x] N6 `/admin/programme-performance` shows the test user's answers correctly (create a few answers first), then delete the data.
 - [x] N7 Fix everything found (small, safe fixes only; anything that is a content or design decision goes to the list below instead), merge each fix.
-- [x] N8 Write the findings in brand/NIGHT-REPORT-1124.md: what was checked, what was fixed, what needs Gary (copy any content problems he must decide). Then disable the scheduled task `programme-overnight-2`.
+- [~] N8 Write the findings in brand/NIGHT-REPORT-1124.md: what was checked, what was fixed, what needs Gary (copy any content problems he must decide). Then disable the scheduled task `programme-overnight-2`. (report written; disabling the task needs a person, see below)
 
 ## Found problems that need Gary (add here)
-- (none — see brand/NIGHT-REPORT-1124.md)
+- Could not disable the scheduled task `programme-overnight-2` myself: `update_scheduled_task` needs a person's approval that an unattended run can't give. Please disable it by hand (or just say "disable it" next time you're here) — everything else in N8 is done.
 
 ## Progress log (newest first)
-- 2026-11-24 13:50 all items done. Fixed and merged: arrow overlap + empty-column layout + duplicate question label (relayed from Gary via another session, PR #51), no-content messages not following instruction language + wrong "year-end exam" wording for Form 5's SPM end rule (found this run, PR #52). N2-N6 checked via a throw-away admin test user and a throw-away confirmed-student test user, both fully deleted and verified clean (0 rows left). Full report: brand/NIGHT-REPORT-1124.md. Scheduled task programme-overnight-2 disabled.
+- 2026-11-24 13:55 N1-N7 done, N8 report written; could not disable the scheduled task myself (needs a person's approval) — see "Found problems that need Gary" above.
+- 2026-11-24 13:50 all items done. Fixed and merged: arrow overlap + empty-column layout + duplicate question label (relayed from Gary via another session, PR #51), no-content messages not following instruction language + wrong "year-end exam" wording for Form 5's SPM end rule (found this run, PR #52). N2-N6 checked via a throw-away admin test user and a throw-away confirmed-student test user, both fully deleted and verified clean (0 rows left). Full report: brand/NIGHT-REPORT-1124.md.
 - 2026-11-24 11:21 run started (programme-overnight-2).
 - 2026-11-24 night list created.
 
