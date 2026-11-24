@@ -7,6 +7,7 @@
 - [ ] 10 BI words still have no example sentence (see raw files' gaps).
 
 ## To do (decided 2026-11-24)
+- [ ] **Form 5 vocab spec (Gary, 24 Nov 2026)**: Form 5 BI and BM weeks have **15 words** each (Form 4 has 10), with the level ratio **B2 : B2 to C1 : C1 = 2 : 3 : 5** (about 3 : 4-5 : 7-8 words). Not built yet: waiting for Gary's answer on how to define the middle tier (the packs only tag words B2 or C1) and what the equivalent is for BM (ordinary vs advanced words). Form 5 content is a copy of Form 4 until then (raw/f5).
 - [x] **Form 4 and Form 5 content is separate** (24 Nov 2026): raw/f4 and raw/f5, data.f4.*/data.f5.*, question pictures in public/programme/q/f4 and f5. Form 5 is a COPY of Form 4 for now, to be replaced with the real Form 5 (SPM revision) vocab and essays when Gary provides them. Edit the right folder.
 - [x] **Form 4: the programme ends when the year-end exam starts** (Gary: 考完年终考后就结束; content weeks that do not fit are simply removed): 33 content weeks for Form 4 (`programmeEnd` in calendar.ts). Form 5 has no end rule yet (36 content weeks fit); design it with the SPM-sprint plan. Lists in brand/lists regenerated.
 - [ ] **Form 5 is more SPM revision (Gary, 24 Nov 2026)**: the Form 5 plan is not designed. For now Form 5 uses the same 44-week content as Form 4 (36 weeks fit). Design the SPM-sprint plan with Gary.
