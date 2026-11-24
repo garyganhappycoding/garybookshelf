@@ -16,8 +16,8 @@ export default function ResultsForm({ kind, examId, title, subjects, parts, exis
     return (
       <div className="card text-center">
         <p className="text-xl font-medium mb-2">已经收到了，谢谢！</p>
-        <p className="text-sm text-ink/70 mb-4">{kind === "baseline" ? "接下来就可以开始了。每次考完试再交一次成绩，就能看到自己有没有进步。" : "进步的话，会有惊喜。"}</p>
-        <Link href="/programme" className="btn-primary inline-block text-sm">继续</Link>
+        <p className="text-sm text-ink/70 mb-4">{kind === "baseline" ? "下一步：交一篇英文作文和一篇马来文作文，作为你的起点。" : "进步的话，会有惊喜。"}</p>
+        <Link href={kind === "baseline" ? "/programme/pretest" : "/programme"} className="btn-primary inline-block text-sm">继续</Link>
       </div>
     );
   }

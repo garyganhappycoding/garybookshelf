@@ -4,6 +4,7 @@ import { buildCalendar, facts, parse, realHistory, type History } from "./calend
 import { classKey } from "./profile";
 import { todayMY } from "./content";
 import { mySets } from "./results";
+import { myPretests } from "./pretest";
 
 export const QUIET_DAYS = 3; // flagged as quiet after this many days with no answer
 
@@ -77,5 +78,5 @@ export async function studentDetail(userId: string, today = todayMY()) {
     admin.from("programme_answer_log").select("submission_id, answer, details, created_at").eq("user_id", userId).order("created_at"),
     admin.from("programme_comments").select("day, lang, body, status, created_at").eq("user_id", userId).order("created_at", { ascending: false }),
   ]);
-  return { row, subs: subs ?? [], log: log ?? [], comments: comments ?? [], results: await mySets(userId) };
+  return { row, subs: subs ?? [], log: log ?? [], comments: comments ?? [], results: await mySets(userId), pretests: await myPretests(userId) };
 }

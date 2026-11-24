@@ -2,6 +2,7 @@ import { notFound, redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { hasPlace } from "./groups";
 import { hasBaseline } from "./results";
+import { hasPretest } from "./pretest";
 import { DEMO_TODAY } from "./calendar";
 import { todayMY } from "./content";
 
@@ -35,11 +36,13 @@ export async function requireProgrammeSignedIn(): Promise<Access> {
 }
 
 /** For every page that shows the programme itself: needs a paid, confirmed place (the admin always has one). */
-export async function requireProgramme(opts: { allowNoBaseline?: boolean } = {}): Promise<Access> {
+export async function requireProgramme(opts: { allowNoBaseline?: boolean; allowNoPretest?: boolean } = {}): Promise<Access> {
   const a = await requireProgrammeSignedIn();
   if (!a.isAdmin && !(await hasPlace(a.userId))) redirect("/programme/join");
   // Before starting the plan every student shares the results they have now (Gary, 25 Nov 2026).
   if (!a.isAdmin && !opts.allowNoBaseline && !(await hasBaseline(a.userId))) redirect("/programme/results?kind=baseline");
+  // ... and one essay in BI and one in BM, the starting point for the essay tests
+  if (!a.isAdmin && !opts.allowNoBaseline && !opts.allowNoPretest && !(await hasPretest(a.userId))) redirect("/programme/pretest");
   return a;
 }
 

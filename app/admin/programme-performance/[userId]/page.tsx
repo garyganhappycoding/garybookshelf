@@ -21,10 +21,11 @@ export default async function StudentPerformance({ params }: { params: Promise<{
   await assertAdmin();
   const { userId } = await params;
   if (!/^[0-9a-f-]{36}$/i.test(userId)) notFound();
-  const { row, subs, log, comments, results } = await studentDetail(userId);
+  const { row, subs, log, comments, results, pretests } = await studentDetail(userId);
   if (!row) notFound();
   const links = await Promise.all(results.map(async (s) => ({ id: s.id, slip: await signedUrls(s.slipPath ? [s.slipPath] : []), papers: await signedUrls(s.paperPaths) })));
   const subjects = [...new Set(results.flatMap((s) => Object.keys(s.marks)))];
+  const pretestFiles = await Promise.all(pretests.map(async (p) => ({ lang: p.lang, body: p.body, url: (await signedUrls(p.file_path ? [p.file_path] : []))[0] ?? null })));
 
   return (
     <div className="max-w-3xl mx-auto px-5 py-14 space-y-6">
@@ -42,6 +43,13 @@ export default async function StudentPerformance({ params }: { params: Promise<{
           ["词汇测验平均", row.quizAvg === null ? "—" : `${row.quizAvg}%`],
         ].map(([k, v]) => <div key={String(k)} className="card"><p className="text-xs text-ink/60">{k}</p><p className="text-xl font-semibold tabular-nums">{v}</p></div>)}
       </div>
+
+      <section>
+        <h2 className="font-medium mb-2">起点作文</h2>
+        {pretestFiles.length ? pretestFiles.map((p) => (
+          <div key={p.lang} className="card mb-2 text-sm"><p className="font-medium">{p.lang}{p.url && <a href={p.url} target="_blank" rel="noreferrer" className="ml-3 underline font-normal">上传的文件</a>}</p>{p.body && <p className="mt-1 whitespace-pre-wrap text-ink/80">{p.body}</p>}</div>
+        )) : <p className="text-sm text-ink/60">还没交起点作文。</p>}
+      </section>
 
       <section>
         <h2 className="font-medium mb-2">成绩</h2>
