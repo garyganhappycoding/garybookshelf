@@ -7,6 +7,9 @@
 - [ ] 10 BI words still have no example sentence (see raw files' gaps).
 
 ## To do (decided 2026-11-24)
+- [ ] **Form 5 is more SPM revision (Gary, 24 Nov 2026)**: the Form 5 plan is not designed. For now Form 5 uses the same 44-week content as Form 4 (36 weeks fit). Design the SPM-sprint plan with Gary.
+- [x] A partial exam week (exam on some days only) moves the WHOLE week: no vocabulary at all that week (Gary confirmed).
+- [x] Four lists sent to Gary: brand/lists/FORM4-BI, FORM4-BM, FORM5-BI, FORM5-BM (weekly vocab + essay, gaps marked GAP).
 - [ ] **Feedback is not specific enough** (AI feedback after days 1, 3, 4, 5): Gary will figure out how to improve it. Do not change until he says how.
 - [ ] **Phone UI**: design laptop and iPad first (done in this pass); design the phone UI later.
 - [ ] **BM real question pictures**: the BM essay docs have no question picture; BM days 3 and 4 show no question. Ask Gary for the BM questions (or pictures).
