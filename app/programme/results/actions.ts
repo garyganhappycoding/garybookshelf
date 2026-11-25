@@ -22,8 +22,9 @@ export async function saveResultsAction(_: ResultsState, form: FormData): Promis
   if (r.error) return r;
   if (kind === "exam" && !a.isAdmin) {
     const sets = await mySets(a.userId);
-    const base = sets.find((s) => s.kind === "baseline"), latest = sets.find((s) => s.examId === examId);
-    if (base && latest) await awardForImprovement(a.userId, base.marks, latest.marks);
+    // "improved about 20% from the last score": compare with the result set before this one (sets are oldest first)
+    const i = sets.findIndex((s) => s.examId === examId);
+    if (i > 0) await awardForImprovement(a.userId, sets[i - 1].marks, sets[i].marks);
   }
   revalidatePath("/programme");
   revalidatePath("/programme/results");

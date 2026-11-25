@@ -107,8 +107,8 @@ export default function DayCard({ day, lang, ilang, card, submitted: wasSubmitte
 
       {res.badge && (
         <a href="/programme/badges" className="block rounded-2xl border border-clay-400 bg-clay-400/15 p-4 text-center">
-          <p className="text-2xl" aria-hidden>📖</p>
-          <p className="font-medium">{T("你拿到一枚徽章：", "You won a badge: ")}{res.badge.title}</p>
+          <p className="text-2xl" aria-hidden>🏅</p>
+          <p className="font-medium">{T("你拿到徽章：", "You won: ")}{(res.badges ?? [res.badge]).map((b) => (b.n ? `${b.title.replace("n", String(b.n))}` : b.title)).join("、")}</p>
           <p className="text-sm text-ink/70">{T("点这里看它背面 Gary 写给你的话", "Tap to read the note Gary wrote on its back")}</p>
         </a>
       )}

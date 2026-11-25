@@ -5,13 +5,13 @@ import { classKey, getProfile, saveProfile } from "@/lib/programme/profile";
 import { build, questionFor, resolveDay } from "@/lib/programme/dayflow";
 import { scoreEssay } from "@/lib/programme/essayscore";
 import { createAdminClient } from "@/lib/supabase/admin";
-import { awardForStreak } from "@/lib/programme/badges";
+import { awardAfterSubmit, type Won } from "@/lib/programme/badges";
 import { myHistoryRows } from "@/lib/programme/profile";
 import { addDays, buildCalendar, facts, key, parse, programmeEnd, realHistory } from "@/lib/programme/calendar";
 import { opened, type Lang } from "@/lib/programme/content";
 import { postComment, report, submitAnswer } from "@/lib/programme/daily";
 
-export type Result = { error?: string; ok?: boolean; status?: string; badge?: { id: string; title: string } };
+export type Result = { error?: string; ok?: boolean; status?: string; badge?: Won; badges?: Won[] };
 
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -46,15 +46,16 @@ export async function answerAction(_: Result, form: FormData): Promise<Result> {
     await createAdminClient().from("programme_essay_tests").upsert({ user_id: a.userId, lang: l, kind: "weekly", period: found.week.n, question: questionFor(found.week), essay: built.answer, score: scored.score, label: scored.label, result: scored.result, model: scored.model, created_at: new Date().toISOString() }, { onConflict: "user_id,lang,kind,period" });
   }
   // A day handed in on time counts toward the streak; the streak can win a badge (variable timing).
-  let badge: Result["badge"];
+  let badges: Result["badges"];
   if (!a.isAdmin && day === a.today) {
     const cal = buildCalendar(p.state), tomorrow = key(addDays(parse(a.today), 1));
     const streak = facts(cal, tomorrow, realHistory(cal, tomorrow, await myHistoryRows(a.userId))).streak;
-    const won = await awardForStreak(a.userId, streak);
-    if (won) badge = { id: won.id, title: won.title };
+    const won = await awardAfterSubmit(a.userId, { cal, exams: p.exams, end: programmeEnd(p.exams, p.form), form: p.form, streak, weekN: found.week.n });
+    if (won.length) badges = won;
   }
   revalidatePath("/programme/today");
-  return { ok: true, status: r.status, badge };
+  revalidatePath("/programme/badges");
+  return { ok: true, status: r.status, badges, badge: badges?.[0] };
 }
 
 /** The student picks whether the instructions are shown in English or Chinese. */

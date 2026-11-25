@@ -37,7 +37,7 @@ export default async function BadgesAdmin() {
   return (
     <div className="max-w-3xl mx-auto px-5 py-14 space-y-4">
       <h1 className="text-2xl font-medium">陪你读书 · 徽章</h1>
-      <p className="text-sm text-ink/60">每枚徽章的背面是你写给学生的一句话，拿到的学生才看得到，也可以贴进自己的书。名字和获得方式是我的提议，可以改。「自学」是最后一枚，集齐其他所有徽章才会拿到，原因你之后告诉我。</p>
+      <p className="text-sm text-ink/60">每枚徽章的背面有学生自己取的名字和你写的话（背面圆里只放前两行，全部的话在徽章页面里看得到）。「努力 n 天」所有金属级别共用同一句话。「自学」限量 200 枚、编号，做完全部的周才拿得到。徽章的图案和规则已经定好，这里只改你的话；改名字和获得方式只改文字，不改规则。</p>
       {(badges ?? []).map((b) => (
         <form key={b.id} action={saveBadge} className="card space-y-2 text-sm">
           <input type="hidden" name="id" value={b.id} />
