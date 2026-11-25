@@ -10,9 +10,9 @@ function Block({ lang, title, hint, done }: { lang: "BI" | "BM"; title: string; 
     <section className="card space-y-3">
       <p className="font-medium">{title}{done && <span className="ml-2 text-xs text-sage-600">已经交过了，可以更换</span>}</p>
       <p className="text-sm text-ink/70">{hint}</p>
-      <textarea name={`text-${lang}`} rows={9} aria-label={`${lang} essay`} placeholder="在这里打字写，或者把你写过的作文打字贴上来（必填，至少 30 个字）" className="min-h-[11rem] w-full rounded-lg border border-ink/20 bg-white p-3 text-base" />
+      <textarea name={`text-${lang}`} rows={9} aria-label={`${lang} essay`} placeholder="在这里打字写，或把手写作文拍照后的文字打进来（必填，至少 30 个字）" className="min-h-[11rem] w-full rounded-lg border border-ink/20 bg-white p-3 text-base" />
       <label className="block text-sm">
-        <span className="text-ink/70">另外可以上传手写作文的 PDF 或图片，给 Gary 看（选填）</span>
+        <span className="text-ink/70">手写的作文？拍张照，然后把照片里的字打进上面的格子里（必填）。也可以另外上传 PDF 或照片给 Gary 看（选填）</span>
         <input type="file" name={`file-${lang}`} accept="application/pdf,image/*" className="mt-1 block w-full text-sm" />
       </label>
     </section>
