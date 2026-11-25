@@ -18,6 +18,7 @@ export type Earned = { n: number | null; tier: Tier | null; serial: number; edit
 export type WallBadge = Badge & { earned: Earned[] };
 export type Won = { id: string; title: string; n?: number };
 
+export const ZIXUE_MISS = 0.1; // 自学 allows up to 10% of the task days to be missed (Gary: "loosen it", 25 Nov 2026; the 10% is my default, change here)
 export const ZIXUE_LIMIT = 200; // numbered limited edition: only this many 自学 badges are ever given
 export const GAP = { min: 7, max: 14 }; // days between two 努力 n 天 badges, random
 export const TARGET = { vocab: 22, sentence: 36, opening: 4, closing: 2, point: 6, active: 3, recoverTo: 5, steady: 100, fulla: 200, improve: 0.2 };
@@ -117,12 +118,12 @@ export async function awardAfterSubmit(userId: string, c: AwardContext): Promise
   if (c.streak >= TARGET.fulla) await grant("fulla", `streak ${c.streak}`);
   await admin.from("programme_reward_state").upsert({ user_id: userId, next_at: nextAt, last_streak: c.streak, broken, updated_at: new Date().toISOString() }, { onConflict: "user_id" });
 
-  // 自学: every school day of every content week handed in (a late hand-in counts; exam weeks and public holidays carry no task)
+  // 自学: almost every school day of every content week handed in (at most ZIXUE_MISS of them missed; a late hand-in counts; exam weeks and public holidays carry no task)
   const need = requiredDays(c);
   if (need.length) {
     const have = new Set((subs ?? []).map((s) => String(s.day)));
     const left = need.filter((k) => !have.has(k)).length;
-    if (!left) await grant("zixue", `${need.length} days`);
+    if (left <= Math.floor(need.length * ZIXUE_MISS)) await grant("zixue", `${need.length - left}/${need.length} days`);
   }
   return won;
 }
