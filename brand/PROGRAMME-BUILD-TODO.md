@@ -1,3 +1,6 @@
+## Waiting for Gary: essay-test marking standard
+Gary will write a new standard (opening, closing, elaboration only; no judging of wording) based on the original English marker, then we discuss and replace markcore/BM scoring for the tests.
+
 ## Done 25 Nov 2026 (essay tests)
 - BI essay tests now use the real English marking pipeline (lib/writing/markcore.ts, a copy of /api/writing/mark's steps; the live route is untouched). An 85-word weak essay now gets 7/20 instead of 20/20.
 - Starting essays must be TYPED (30+ words) for BI and BM; a PDF/photo is an optional extra for Gary.
