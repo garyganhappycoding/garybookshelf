@@ -3,6 +3,12 @@
 > Everything Gary learns from others that can help grow the brand. Claude reads this before every task.
 > Newest entries at the top. Keep entries short and actionable.
 
+## 2027 programme essay-test marking standard (Gary, 25 Nov 2026)
+- The programme's essay tests must NOT judge the student's wording or language level. The tests only check the parts the programme teaches: opening, closing and elaboration.
+- Gary will write this marking standard himself and discuss it with Claude. Everything in it still comes from the original English marking essay AI (/api/writing/mark), adapted, not a new invention.
+- Until then the BI test uses the original marker as is (lib/writing/markcore.ts); BM uses the private BM marker. Both are temporary.
+- Starting essay: type it, or take a photo of the handwritten essay and type the text into the field (typing is required).
+
 ## How to add an entry
 Copy this template under "Entries":
 
