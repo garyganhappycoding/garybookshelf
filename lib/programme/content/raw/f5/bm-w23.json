@@ -31,87 +31,79 @@
  ],
  "words": [
   {
+   "word": "Tak tumbuh tak melata, tak sungguh orang tak kata",
+   "zh": "无风不起浪",
+   "example": "Tak tumbuh tak melata, tak sungguh orang tak kata."
+  },
+  {
+   "word": "malu bertanya sesat jalan, malu mengayuh perahu hanyut",
+   "zh": "不耻下问才不会迷失方向",
+   "example": "Keadaan ini bersesuaian dengan peribahasa “malu bertanya sesat jalan, malu mengayuh perahu hanyut”."
+  },
+  {
+   "word": "Bulan kian terang, bayang kian jelas",
+   "zh": "真相愈发明朗清晰",
+   "example": "Bulan kian terang, bayang kian jelas bahawa guru-guru berperanan sebagai fasilitator dan pemudah cara untuk menerajui murid ke arah kecemerlangan agar dapat menzahirkan golongan murid yang berkompeten dan mampu bersaing di pentas antarabangsa."
+  },
+  {
+   "word": "berkolaboratif bagai aur dengan tebing",
+   "zh": "唇齿相依，紧密合作",
+   "example": "Oleh itu, setiap strata masyarakat haruslah berkolaboratif bagai aur dengan tebing untuk memajukan pendidikan maya agar dapat menzahirkan golongan murid yang berminda kelas pertama dan berani menyuarakan pandangan diri dalam proses pembelajaran."
+  },
+  {
+   "word": "tanah tumpah darah kita",
+   "zh": "我们的故土",
+   "example": "Kementerian Pendidikan Malaysia juga harus menunjukkan iltizam dan inisiatif dengan merangka perencanaan yang terperinci untuk memperkenalkan pendidikan maya di empat pojok tanah tumpah darah kita."
+  },
+  {
    "word": "memahami kekuatan dan kelemahan murid",
    "zh": "了解学生的强项与弱点",
-   "example": "Natijahnya, guru-guru dapat memahami kekuatan dan kelemahan murid dalam pembelajaran serta berikhtiar mencari pedagogi yang lebih berkesan untuk menarik minat pelajar dalam pembelajaran.",
-   "level": "ordinary"
+   "example": "Natijahnya, guru-guru dapat memahami kekuatan dan kelemahan murid dalam pembelajaran serta berikhtiar mencari pedagogi yang lebih berkesan untuk menarik minat pelajar dalam pembelajaran."
   },
   {
    "word": "mengubah kaedah pengajaran konvensional",
    "zh": "改变传统教学方法",
-   "example": "Dari perspektif lain pula, pendidikan maya telah mengubah kaedah pengajaran konvensional kepada pendidikan berpusatkan murid.",
-   "level": "ordinary"
+   "example": "Dari perspektif lain pula, pendidikan maya telah mengubah kaedah pengajaran konvensional kepada pendidikan berpusatkan murid."
   },
   {
    "word": "pendidikan berpusatkan murid",
    "zh": "以学生为中心的教育",
-   "example": "Dari perspektif lain pula, pendidikan maya telah mengubah kaedah pengajaran konvensional kepada pendidikan berpusatkan murid.",
-   "level": "ordinary"
+   "example": "Dari perspektif lain pula, pendidikan maya telah mengubah kaedah pengajaran konvensional kepada pendidikan berpusatkan murid."
   },
   {
    "word": "pembelajaran secara interaktif",
    "zh": "互动式学习",
-   "example": "Impaknya, pembelajaran secara interaktif tentu akan diwujudkan dan melahirkan persaingan yang sihat antara murid-murid.",
-   "level": "ordinary"
+   "example": "Impaknya, pembelajaran secara interaktif tentu akan diwujudkan dan melahirkan persaingan yang sihat antara murid-murid."
   },
   {
    "word": "melahirkan persaingan yang sihat",
    "zh": "产生良性竞争",
-   "example": "Impaknya, pembelajaran secara interaktif tentu akan diwujudkan dan melahirkan persaingan yang sihat antara murid-murid.",
-   "level": "ordinary"
+   "example": "Impaknya, pembelajaran secara interaktif tentu akan diwujudkan dan melahirkan persaingan yang sihat antara murid-murid."
+  },
+  {
+   "word": "mengalami transformasi yang amat ketara",
+   "zh": "经历显著的转变",
+   "example": "Sistem pendidikan watan kita telah mengalami transformasi yang amat ketara dan berteraskan penggunaan teknologi memandangkan era ini merupakan era ledakan Teknologi, Maklumat dan Komunikasi (TMK)."
+  },
+  {
+   "word": "mengurangkan risiko dijangkiti",
+   "zh": "降低感染风险",
+   "example": "Semasa pandemik COVID-19 menular secara global, Perintah Kawalan Pergerakan (PKP) telah dilaksanakan dan sekolah telah diarahkan ditutup untuk mengurangkan risiko dijangkiti virus korona."
+  },
+  {
+   "word": "menjimatkan wang dalam pembelian buku",
+   "zh": "节省购书的费用",
+   "example": "Memang tidak dapat dinafikan bahawa pendidikan maya dapat menjimatkan wang dalam pembelian buku."
+  },
+  {
+   "word": "mengurangkan beban ibu bapa",
+   "zh": "减轻父母的负担",
+   "example": "Implikasinya, golongan pelajar dapat mengurangkan beban ibu bapa malah tetap dapat keluar dari zon jumud ke zon intelek memandangkan sumber ilmu tiada batasannya walaupun tanpa membeli buku."
   },
   {
    "word": "mempunyai prospek yang cerah",
    "zh": "拥有光明的前景",
-   "example": "Secara penutup bicara, pendidikan maya mempunyai prospek yang cerah untuk dimajukan.",
-   "level": "ordinary"
-  },
-  {
-   "word": "menunjukkan iltizam dan inisiatif",
-   "zh": "展现决心与主动性",
-   "example": "Kementerian Pendidikan Malaysia juga harus menunjukkan iltizam dan inisiatif dengan merangka perencanaan yang terperinci untuk memperkenalkan pendidikan maya di empat pojok tanah tumpah darah kita.",
-   "level": "ordinary"
-  },
-  {
-   "word": "menjalankan pengajaran dan pembelajaran (PDP) secara dalam talian",
-   "zh": "进行线上教学",
-   "example": "Oleh itu, golongan murid dan golongan guru mula menjalankan pengajaran dan pembelajaran (PDP) secara dalam talian.",
-   "level": "ordinary"
-  },
-  {
-   "word": "Seperti melukut di tepi gantang",
-   "zh": "不重要的事情",
-   "example": "Salah satu persepsi yang haruslah disirna secara jauh-jauh ialah kesihatan mental seperti melukut di tepi gantang."
-  },
-  {
-   "word": "Bunga-bunga bangsa yang mengemudi bahtera negara ke arah kemajuan",
-   "zh": "年轻人是带领国家向往成功的人",
-   "example": "Keadaan ini amat merimaskan dan membimbangkan pelbagai pihak kerana remaja merupakan bunga-bunga bangsa yang mengemudi bahtera negara ke arah kemajuan."
-  },
-  {
-   "word": "Pencegahan lebih baik daripada mengubati",
-   "zh": "预防胜于治疗",
-   "example": "Peribahasa “pencegahan lebih baik daripada mengubati”, kita haruslah pandai menangani stres agar dapat menjauhi diri daripada penyakit mental."
-  },
-  {
-   "word": "Pendekatan yang mujarab",
-   "zh": "有效的方法",
-   "example": "Hal ini merupakan salah satu pendekatan yang mujarab kerana dapat melampiaskan tekanan."
-  },
-  {
-   "word": "Melampiaskan tekanan",
-   "zh": "释放压力",
-   "example": "Hal ini merupakan salah satu pendekatan yang mujarab kerana dapat melampiaskan tekanan."
-  },
-  {
-   "word": "Berganding bahu",
-   "zh": "合作",
-   "example": "Tambahan pula, kita juga dapat berganding bahu untuk berikhtiar jalan keluar terhadap masalah yang dihadapi."
-  },
-  {
-   "word": "Meluahkan isi hati",
-   "zh": "讲心事",
-   "example": "Sebagai contohnya, apabila kita menyesal selepas bergaduh dengan kawan, kita dapat meluahkan isi hati kepada kawan yang dipercayai untuk mencari penyelesaiannya."
+   "example": "Secara penutup bicara, pendidikan maya mempunyai prospek yang cerah untuk dimajukan."
   }
  ],
  "goodPhrases": [
