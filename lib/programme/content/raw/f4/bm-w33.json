@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan cabaran Remaja dan Cara Remaja Menangani Cabaran Tersebut."
+   "text": "Bincangkan cabaran remaja dan cara remaja menangani cabaran tersebut. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Cabaran yang dihadapi oleh remaja ialah cabaran sosial"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Dunia remaja dipenuhi unsur-unsur destruktif dan negatif telah membobrokan dan mendominasi minda remaja yang berumur setahun sejagung, berdarah setampuk pinang"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Remaja juga berdepan dengan cabaran mendapatkan peluang pekerjaan"
   }
  ],
  "openingIdx": [
@@ -113,6 +125,7 @@
  ],
  "gaps": [
   "Essay used is the 2nd Cabaran Remaja essay (Cabaran Remaja dan Cara...); words 1-4 and 6-9 come from the 1st essay's tables (Persediaan sebagai Remaja...), so their example sentences are copied from that essay's Table 1/2 ayat column.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

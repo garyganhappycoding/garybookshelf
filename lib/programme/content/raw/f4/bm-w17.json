@@ -17,7 +17,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan punca-Punca dan Langkah-Langkah Menangani Kes Penderaan Kanak-Kanak."
+   "text": "Bincangkan punca-punca dan langkah-langkah menangani kes penderaan kanak-kanak. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Punca yang paling ketara dalam kes penderaan kanak-kanak ialah ibu bapa menghadapi tekanan semasa mengejar kerjaya"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Undang-undang yang tidak cukup menakutkan masyarakat juga merupakan salah satu faktor. sesungguhnya,sistem perundangan adalah untuk menjamin kesejahteraan masyarakat"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Tiada penyakit yang tiada penawarnya"
   }
  ],
  "openingIdx": [
@@ -134,6 +146,7 @@
  ],
  "gaps": [
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

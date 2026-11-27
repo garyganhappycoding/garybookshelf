@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan cara-cara Menangani Stres dengan Berkesan."
+   "text": "Bincangkan cara-cara menangani stres dengan berkesan. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Kita haruslah berkongsi perasaan dengan orang yang kita percayai"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Kita dapat menjalankan aktiviti yang disukai"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Menurut statistik bertafakur merupakan cara paling efektif dan efisien untuk mengatasi stres"
   }
  ],
  "openingIdx": [
@@ -162,6 +174,7 @@
   "Form 5: advanced words short (0 of 7): filled with 0 ordinary words",
   "Form 5: only 8 words available for this topic",
   "Essay replaced on 27 Nov 2026 with an unused essay from Gary's Drive (instead of repeating); the week's words stay as in Gary's week list.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

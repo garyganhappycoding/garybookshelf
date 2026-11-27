@@ -18,7 +18,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan langkah-Langkah Memperkukuh Perpaduan dalam Masyarakat Berbilang Kaum."
+   "text": "Bincangkan langkah-langkah memperkukuh perpaduan dalam masyarakat berbilang kaum. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Ibu bapa berperanan penting untuk memastikan semangat perpaduan terpahat dalam hati nurani anak-anak"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Setiap strata masyarakat berperanan penting untuk memupuk perpaduan"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Pihak sekolah berperanan penting untuk mengindoktrinasikan semangat perpaduan"
   }
  ],
  "openingIdx": [
@@ -137,6 +149,7 @@
  "gaps": [
   "Essay used is the 2nd Perpaduan essay (Langkah-Langkah...); all 10 words come from the 1st Perpaduan essay's tables (Kepentingan...), so their example sentences are copied from that essay's Table 1/2 ayat column.",
   "The essay doc has two alternative introductions (Pendahuluan 1 and Pendahuluan 2); both are kept (openingIdx 0 and 1). Pendahuluan 2 starts with 'Pantun tersebut...' but the pantun itself is not in the document.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

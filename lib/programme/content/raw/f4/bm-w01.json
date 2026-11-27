@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan kesan-Kesan Penyalahgunaan Media Sosial."
+   "text": "Bincangkan kesan-kesan penyalahgunaan media sosial. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Berita palsu akan ditaburkan secara sewenang-wenang apabila media sosial disalahgunakan"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Penyalahgunaan media sosial ialah penyumbang utama terhadap peningkatan kes buli siber"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Media sosial sebenarnya seumpama dengan dadah yang menyebabkan ketagihan dan mendominasi kehidupan seseorang"
   }
  ],
  "openingIdx": [
@@ -122,6 +134,7 @@
  "gaps": [
   "keyPoint.prompt is null because Malay essays have no Question Analysis table; keyPoint.idx is the first isi paragraph (Yang pertamanya)",
   "level and source are null: the BM documents do not state them",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

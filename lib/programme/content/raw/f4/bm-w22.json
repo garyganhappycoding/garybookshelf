@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan kepentingan menjaga kesihatan."
+   "text": "Bincangkan kepentingan menjaga kesihatan. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Ahli falsafah Confucius menyebut bahawa “seseorang yang tidak mempunyai kesihatan akan ditinggalkan dunia.” Hal ini berlaku apabila seorang individu yang tidak "
+  },
+  {
+   "code": "Isi 2",
+   "text": "Kesihatan penting untuk memakbulkan impian kita"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Terdapat suatu pesanan agama yang perlu tersemat dalam hati nurani seandainya kita hendak bahagia sepanjang hayat"
   }
  ],
  "openingIdx": [
@@ -129,6 +141,7 @@
   "example for \"Akan dilabelkan sebagai insan yang tinggal pada era Paleologi dan menconteng arang ke muka\" is the essay sentence it comes from (the phrase is slightly shortened from the essay wording)",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
   "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

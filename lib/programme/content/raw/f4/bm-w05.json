@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan kepentingan Pendidikan Maya kepada Murid-Murid."
+   "text": "Bincangkan kepentingan pendidikan maya kepada murid-murid. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Pendidikan maya dapat menjimatkan wang dalam pembelian buku"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Hubungan antara guru dengan murid juga dapat dieratkan melalui pendidikan maya"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Pendidikan maya telah mengubah kaedah pengajaran konvensional kepada pendidikan berpusatkan murid"
   }
  ],
  "openingIdx": [
@@ -105,6 +117,7 @@
  ],
  "gaps": [
   "keyPoint.prompt is null (no Question Analysis table); level and source are null",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

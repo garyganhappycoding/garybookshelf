@@ -15,7 +15,15 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan punca-Punca Kemalangan Jalan Raya dan Langkah Mengatasinya."
+   "text": "Bincangkan punca-punca kemalangan jalan raya dan langkah mengatasinya. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Kebanyakan kemalangan berlaku disebabkan kecuaian pemandu"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Jadi, langkah yang perlu diimplementasikan ialah menjaga etika di jalan raya"
   }
  ],
  "openingIdx": [
@@ -100,6 +108,7 @@
  ],
  "gaps": [
   "Essay used is the 2nd Keselamatan Jalan Raya essay (Punca-Punca Kemalangan...); all 10 words come from the 1st essay's tables (Peranan Menangani...), so their example sentences are copied from that essay's Table 1/2 ayat column.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

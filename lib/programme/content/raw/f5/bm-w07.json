@@ -19,7 +19,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan profesion Keguruan Kerjaya Mulia (Peranan Guru)."
+   "text": "Bincangkan profesion keguruan kerjaya mulia (peranan guru). Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Guru sebagai penyampai umpama tidak mengenal erti jemu untuk menabur ilmu kepada murid-murid"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Profesion keguruan dikatakan mulia kerana guru dipertanggungjawabkan untuk memanusiakan ummah"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Profesion keguruan dianggap mulia kerana mengajak paradigma masyarakat agar arus pemikiran, pegangan dan amalan hidup sehilir semudik dengan arus pembangunan sedunia"
   }
  ],
  "openingIdx": [
@@ -162,6 +174,7 @@
   "Essay text copied with the original typos (sentias, dibarat, laig, stray quote marks); the long ayat of week-words 7 to 10 is a shared sentence listing four phrases",
   "keyPoint.prompt is null (no Question Analysis table); level and source are null",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

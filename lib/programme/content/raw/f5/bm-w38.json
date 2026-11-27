@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan cara-cara Memupuk Amalan Membaca."
+   "text": "Bincangkan cara-cara memupuk amalan membaca. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Khalid Gibran pernah mengatakan bahawa \"Perjalanan yang berbatu-batu jauhnya dimulai dengan selangkah\""
+  },
+  {
+   "code": "Isi 2",
+   "text": "Minat membaca dapat dipupuk dalam kalangan masyarakat jika bilangan e-buku yang dimuat naik dalam alam maya diperbanyak"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Pihak kerajaan haruslah mengadakan kempen galakan membaca dari semasa ke semasa"
   }
  ],
  "openingIdx": [
@@ -151,6 +163,7 @@
   "Essay used is the 3rd Amalan Membaca essay (Cara-cara Memupuk Amalan Membaca). Words 1-4 and 10 come from the 1st and 2nd essays' tables (Punca-punca... and Faedah-faedah...), so their example sentences are copied from those essays' Table 2 ayat column. The example for the last word starts with an opening quote mark that is never closed, exactly as in Gary's table.",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (0 of 8): filled with 8 ordinary words",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

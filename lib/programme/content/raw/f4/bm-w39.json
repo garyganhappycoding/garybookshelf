@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan kemahiran-Kemahiran yang Perlu Dikuasai sebagai Persediaan untuk Menghadapi Cabaran Kerjaya pada Era Globalisasi."
+   "text": "Bincangkan kemahiran-kemahiran yang perlu dikuasai sebagai persediaan untuk menghadapi cabaran kerjaya pada era globalisasi. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Menurut kajian Syarikat Agensi Pekerjaan Jobstreet.com majoriti pekerja yang mempunyai kemahiran interpersonal menjadi alternatif kepada pihak majikan"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Satu lagi kriteria yang harus dimiliki oleh remaja ialah juvenil dapat sanggup bekerja secara berpasukan"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Memang tidak dinafikan bahawa kemahiran menggunakan teknologi terkini juga menjadi salah keperluan"
   }
  ],
  "openingIdx": [
@@ -121,6 +133,7 @@
  ],
  "gaps": [
   "Essay used is the 2nd Kerjaya essay (Kemahiran-Kemahiran yang Perlu Dikuasai...), which contains words 4-10; words 1-3 come from the 1st Kerjaya essay's Table 2 (Profesion Keguruan...), so their example sentences are copied from that essay's ayat column. Only two Kerjaya essays exist.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

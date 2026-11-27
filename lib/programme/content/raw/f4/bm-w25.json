@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan ciri-Ciri Pekerja Cemerlang."
+   "text": "Bincangkan ciri-ciri pekerja cemerlang. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Seorang pekerja yang cemerlang haruslah mempunyai nilai-nilai murni dan suci dalam hati nuraninya"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Majikan akan lebih cenderung akan pekerja yang hadir pada jawatan sendiri setiap hari"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Seorang pekerja cemerlang haruslah sarat ilmu pada dadanya dan melengkapkan diri dengan kemahiran kontemporari"
   }
  ],
  "openingIdx": [
@@ -107,6 +119,7 @@
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
   "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

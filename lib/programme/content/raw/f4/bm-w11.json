@@ -15,7 +15,15 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan kepentingan Memelihara Bangunan Bersejarah."
+   "text": "Bincangkan kepentingan memelihara bangunan bersejarah. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Bangunan bersejarah mempunyai nilai komersial yang berpotensi untuk menarik kedatangan pelancong asing"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Bangunan bersejarah mempamerkan reka bentuk seni bina masyarakat Melayu"
   }
  ],
  "openingIdx": [
@@ -104,6 +112,7 @@
  ],
  "gaps": [
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

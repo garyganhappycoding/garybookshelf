@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan kebaikan Aktiviti Kesukarelawanan."
+   "text": "Bincangkan kebaikan aktiviti kesukarelawanan. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Aktiviti kesukarelawanan dapat memerlukan bantuan kepada mangsa dalam kesusahan dan keperitaan"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Aktiviti kesukarelawanan dapat mengisi masa lapang"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Aktiviti kesukarelawanan dapat memupuk perpaduan dalam hati nurani masyarakat"
   }
  ],
  "openingIdx": [
@@ -105,6 +117,7 @@
  ],
  "gaps": [
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

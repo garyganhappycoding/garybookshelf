@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan cara-cara Membantu Mangsa Bencana Alam."
+   "text": "Bincangkan cara-cara membantu mangsa bencana alam. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Sumbangan kewangan haruslah diimplementasikan"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Kata-kata motivasi haruslah diberikan kepada mangsa setelah mengalami bencana alam"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Sumbangan tenaga dan kepakaran perlu dihulurkan kepada negara yang menghadapi bencana alam"
   }
  ],
  "openingIdx": [
@@ -149,6 +161,7 @@
   "Form 5: advanced words short (2 of 7): filled with 5 ordinary words",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
   "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }
