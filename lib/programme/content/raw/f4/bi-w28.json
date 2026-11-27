@@ -1,171 +1,171 @@
 {
-  "n": 28,
-  "lang": "bi",
-  "theme": "People & Culture",
-  "level": "C1",
-  "essayTitle": "Preserving Malaysia’s Cultural Heritage",
-  "source": "SPM Essay · Essay on preserving local cultural heritage (older format, no trial paper named)",
-  "essayUrl": "https://docs.google.com/document/d/1ADN7b7EzoNK0-H3pvTKEbM6zxGe3uViTn2MH29ZJEAA/edit",
-  "paragraphs": [
-    "Malaysia is a nation rich in diverse customs and arts, but due to rapid modernisation, many valuable traditions are now under threat. It is an imperative duty for young Malaysians to step forward and actively contribute to preserving these priceless elements of our culture for future generations.",
-    "Several unique traditions are currently facing the risk of disappearing entirely. For instance, the art of Wayang Kulit (shadow puppetry) and the complex technique of making hand-drawn Batik are struggling to survive. These crafts require dedicated skills and time, but they are often overshadowed by modern entertainment and cheaper, factory-made products. If we do not make an effort to learn them, these historical practices and the stories they carry will fall into oblivion.",
-    "Saving our culture is vitally important for maintaining a strong and stable nation. Firstly, it gives every citizen a clear sense of identity and belonging, connecting them to their ancestors. Secondly, sharing traditions creates social cohesion among our diverse ethnic groups, helping everyone live together peacefully. Furthermore, our unique heritage attracts tourists, which provides significant socio-economic benefits for the entire country.",
-    "To encourage teenagers, we must make learning about culture fun and accessible. Schools should incentivise participation by offering engaging workshops and making these arts part of hands-on projects. We must also harness the power of social media platforms like TikTok and Instagram. Short, creative videos demonstrating traditional cooking or cultural facts can make heritage seem modern and cool, encouraging more students to get involved."
-  ],
-  "points": [
-    {
-      "code": "C1",
-      "text": "Describe the traditions that are at risk of disappearing"
-    },
-    {
-      "code": "C2",
-      "text": "Explain why saving our culture is important"
-    },
-    {
-      "code": "C3",
-      "text": "Suggest ways to encourage teenagers to take part in preserving culture"
-    }
-  ],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 28,
+ "lang": "bi",
+ "theme": "People & Culture",
+ "level": "C1",
+ "essayTitle": "Preserving Malaysia’s Cultural Heritage",
+ "source": "SPM Essay · Essay on preserving local cultural heritage (older format, no trial paper named)",
+ "essayUrl": "https://docs.google.com/document/d/1ADN7b7EzoNK0-H3pvTKEbM6zxGe3uViTn2MH29ZJEAA/edit",
+ "paragraphs": [
+  "Malaysia is a nation rich in diverse customs and arts, but due to rapid modernisation, many valuable traditions are now under threat. It is an imperative duty for young Malaysians to step forward and actively contribute to preserving these priceless elements of our culture for future generations.",
+  "Several unique traditions are currently facing the risk of disappearing entirely. For instance, the art of Wayang Kulit (shadow puppetry) and the complex technique of making hand-drawn Batik are struggling to survive. These crafts require dedicated skills and time, but they are often overshadowed by modern entertainment and cheaper, factory-made products. If we do not make an effort to learn them, these historical practices and the stories they carry will fall into oblivion.",
+  "Saving our culture is vitally important for maintaining a strong and stable nation. Firstly, it gives every citizen a clear sense of identity and belonging, connecting them to their ancestors. Secondly, sharing traditions creates social cohesion among our diverse ethnic groups, helping everyone live together peacefully. Furthermore, our unique heritage attracts tourists, which provides significant socio-economic benefits for the entire country.",
+  "To encourage teenagers, we must make learning about culture fun and accessible. Schools should incentivise participation by offering engaging workshops and making these arts part of hands-on projects. We must also harness the power of social media platforms like TikTok and Instagram. Short, creative videos demonstrating traditional cooking or cultural facts can make heritage seem modern and cool, encouraging more students to get involved."
+ ],
+ "points": [
+  {
+   "code": "C1",
+   "text": "What are the local traditions or arts that are currently facing the risk of disappearing"
   },
-  "closingIdx": [],
-  "words": [
-    {
-      "word": "foster harmony",
-      "zh": "促进和谐",
-      "example": "For example, 'open house' during festivals fosters harmony among neighbours."
-    },
-    {
-      "word": "embrace our differences",
-      "zh": "接纳彼此的差异",
-      "example": "As a result, we embrace our differences and live in peace."
-    },
-    {
-      "word": "lose touch with traditions",
-      "zh": "与传统脱节",
-      "example": "Many young people are losing touch with their traditions."
-    },
-    {
-      "word": "fade away",
-      "zh": "逐渐消失",
-      "example": "As a result, our culture fades away and our heritage is at risk."
-    },
-    {
-      "word": "vulnerable people",
-      "zh": "弱势群体",
-      "example": "As a result, vulnerable people go unnoticed and the community loses its warmth."
-    },
-    {
-      "word": "small contributions",
-      "zh": "微小的贡献",
-      "example": "This is because even small contributions can change lives."
-    },
-    {
-      "word": "develop empathy",
-      "zh": "培养同理心",
-      "example": "As a result, the needy receive timely support and donors develop empathy."
-    },
-    {
-      "word": "teach compassion",
-      "zh": "教导同情心",
-      "example": "Caring for animals teaches us compassion."
-    },
-    {
-      "word": "depend on human kindness",
-      "zh": "依赖人类的善意",
-      "example": "This is because stray animals depend on human kindness to survive."
-    },
-    {
-      "word": "respect all living things",
-      "zh": "尊重所有生命",
-      "example": "As a result, students develop a sense of responsibility and learn to respect all living things."
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "imperative duty",
-      "zh": "必须履行的责任"
-    },
-    {
-      "phrase": "priceless elements",
-      "zh": "无价的组成部分"
-    },
-    {
-      "phrase": "rapid modernisation",
-      "zh": "快速现代化"
-    },
-    {
-      "phrase": "facing the risk of disappearing entirely",
-      "zh": "面临完全消失的风险"
-    },
-    {
-      "phrase": "fall into oblivion",
-      "zh": "逐渐被遗忘 / 湮没"
-    },
-    {
-      "phrase": "dedicated skills",
-      "zh": "专业的技能"
-    },
-    {
-      "phrase": "struggling to survive",
-      "zh": "艰难求存"
-    },
-    {
-      "phrase": "overshadowed by",
-      "zh": "被……所遮盖 / 盖过"
-    },
-    {
-      "phrase": "vitally important",
-      "zh": "至关重要的"
-    },
-    {
-      "phrase": "social cohesion",
-      "zh": "社会凝聚力"
-    },
-    {
-      "phrase": "sense of identity and belonging",
-      "zh": "身份认同感和归属感"
-    },
-    {
-      "phrase": "harness the power of",
-      "zh": "利用……的力量"
-    },
-    {
-      "phrase": "incentivise participation",
-      "zh": "激励参与"
-    },
-    {
-      "phrase": "engaging workshops",
-      "zh": "吸引人的研讨会"
-    },
-    {
-      "phrase": "socio-economic benefits",
-      "zh": "社会经济效益"
-    },
-    {
-      "phrase": "accessible",
-      "zh": "容易获得的 / 易懂的"
-    },
-    {
-      "phrase": "ancestors",
-      "zh": "祖先"
-    },
-    {
-      "phrase": "historical practices",
-      "zh": "历史悠久的习俗 / 做法"
-    }
-  ],
-  "gaps": [
-    "'vulnerable people' has no example sentence: in the People & Culture theme pack it appears only as a key word of answer P6, whose model paragraph is scrambled in the watermarked PDF.",
-    "The essay has no conclusion paragraph (it ends with the third bullet of the question), so 'closingIdx' is empty.",
-    "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The question (history teacher, three bullet points) is above the essay in the doc.",
-    "None of the 10 words appears in this essay's vocabulary table; all 9 examples come from the People & Culture theme pack (Universal answers P4, P5, P7, P9). 'lose touch with traditions' uses 'losing touch with their traditions'.",
-    "points written by Claude from the essay (unchecked)",
-    "Example for 'vulnerable people' filled later from the People & Culture theme pack (cleaned text)."
-  ]
+  {
+   "code": "C2",
+   "text": "Why cultural preservation is important"
+  },
+  {
+   "code": "C3",
+   "text": "What are the ways to encourage teenagers to learn about the local traditions or arts"
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [],
+ "words": [
+  {
+   "word": "foster harmony",
+   "zh": "促进和谐",
+   "example": "For example, 'open house' during festivals fosters harmony among neighbours."
+  },
+  {
+   "word": "embrace our differences",
+   "zh": "接纳彼此的差异",
+   "example": "As a result, we embrace our differences and live in peace."
+  },
+  {
+   "word": "lose touch with traditions",
+   "zh": "与传统脱节",
+   "example": "Many young people are losing touch with their traditions."
+  },
+  {
+   "word": "fade away",
+   "zh": "逐渐消失",
+   "example": "As a result, our culture fades away and our heritage is at risk."
+  },
+  {
+   "word": "vulnerable people",
+   "zh": "弱势群体",
+   "example": "As a result, vulnerable people go unnoticed and the community loses its warmth."
+  },
+  {
+   "word": "small contributions",
+   "zh": "微小的贡献",
+   "example": "This is because even small contributions can change lives."
+  },
+  {
+   "word": "develop empathy",
+   "zh": "培养同理心",
+   "example": "As a result, the needy receive timely support and donors develop empathy."
+  },
+  {
+   "word": "teach compassion",
+   "zh": "教导同情心",
+   "example": "Caring for animals teaches us compassion."
+  },
+  {
+   "word": "depend on human kindness",
+   "zh": "依赖人类的善意",
+   "example": "This is because stray animals depend on human kindness to survive."
+  },
+  {
+   "word": "respect all living things",
+   "zh": "尊重所有生命",
+   "example": "As a result, students develop a sense of responsibility and learn to respect all living things."
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "imperative duty",
+   "zh": "必须履行的责任"
+  },
+  {
+   "phrase": "priceless elements",
+   "zh": "无价的组成部分"
+  },
+  {
+   "phrase": "rapid modernisation",
+   "zh": "快速现代化"
+  },
+  {
+   "phrase": "facing the risk of disappearing entirely",
+   "zh": "面临完全消失的风险"
+  },
+  {
+   "phrase": "fall into oblivion",
+   "zh": "逐渐被遗忘 / 湮没"
+  },
+  {
+   "phrase": "dedicated skills",
+   "zh": "专业的技能"
+  },
+  {
+   "phrase": "struggling to survive",
+   "zh": "艰难求存"
+  },
+  {
+   "phrase": "overshadowed by",
+   "zh": "被……所遮盖 / 盖过"
+  },
+  {
+   "phrase": "vitally important",
+   "zh": "至关重要的"
+  },
+  {
+   "phrase": "social cohesion",
+   "zh": "社会凝聚力"
+  },
+  {
+   "phrase": "sense of identity and belonging",
+   "zh": "身份认同感和归属感"
+  },
+  {
+   "phrase": "harness the power of",
+   "zh": "利用……的力量"
+  },
+  {
+   "phrase": "incentivise participation",
+   "zh": "激励参与"
+  },
+  {
+   "phrase": "engaging workshops",
+   "zh": "吸引人的研讨会"
+  },
+  {
+   "phrase": "socio-economic benefits",
+   "zh": "社会经济效益"
+  },
+  {
+   "phrase": "accessible",
+   "zh": "容易获得的 / 易懂的"
+  },
+  {
+   "phrase": "ancestors",
+   "zh": "祖先"
+  },
+  {
+   "phrase": "historical practices",
+   "zh": "历史悠久的习俗 / 做法"
+  }
+ ],
+ "gaps": [
+  "'vulnerable people' has no example sentence: in the People & Culture theme pack it appears only as a key word of answer P6, whose model paragraph is scrambled in the watermarked PDF.",
+  "The essay has no conclusion paragraph (it ends with the third bullet of the question), so 'closingIdx' is empty.",
+  "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The question (history teacher, three bullet points) is above the essay in the doc.",
+  "None of the 10 words appears in this essay's vocabulary table; all 9 examples come from the People & Culture theme pack (Universal answers P4, P5, P7, P9). 'lose touch with traditions' uses 'losing touch with their traditions'.",
+  "Example for 'vulnerable people' filled later from the People & Culture theme pack (cleaned text).",
+  "Question points copied from the question text in Gary's essay document (27 Nov 2026)."
+ ]
 }

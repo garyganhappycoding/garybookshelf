@@ -1,216 +1,216 @@
 {
-  "n": 28,
-  "lang": "bi",
-  "theme": "People & Culture",
-  "level": "C1",
-  "essayTitle": "Preserving Malaysia’s Cultural Heritage",
-  "source": "SPM Essay · Essay on preserving local cultural heritage (older format, no trial paper named)",
-  "essayUrl": "https://docs.google.com/document/d/1ADN7b7EzoNK0-H3pvTKEbM6zxGe3uViTn2MH29ZJEAA/edit",
-  "paragraphs": [
-    "Malaysia is a nation rich in diverse customs and arts, but due to rapid modernisation, many valuable traditions are now under threat. It is an imperative duty for young Malaysians to step forward and actively contribute to preserving these priceless elements of our culture for future generations.",
-    "Several unique traditions are currently facing the risk of disappearing entirely. For instance, the art of Wayang Kulit (shadow puppetry) and the complex technique of making hand-drawn Batik are struggling to survive. These crafts require dedicated skills and time, but they are often overshadowed by modern entertainment and cheaper, factory-made products. If we do not make an effort to learn them, these historical practices and the stories they carry will fall into oblivion.",
-    "Saving our culture is vitally important for maintaining a strong and stable nation. Firstly, it gives every citizen a clear sense of identity and belonging, connecting them to their ancestors. Secondly, sharing traditions creates social cohesion among our diverse ethnic groups, helping everyone live together peacefully. Furthermore, our unique heritage attracts tourists, which provides significant socio-economic benefits for the entire country.",
-    "To encourage teenagers, we must make learning about culture fun and accessible. Schools should incentivise participation by offering engaging workshops and making these arts part of hands-on projects. We must also harness the power of social media platforms like TikTok and Instagram. Short, creative videos demonstrating traditional cooking or cultural facts can make heritage seem modern and cool, encouraging more students to get involved."
-  ],
-  "points": [
-    {
-      "code": "C1",
-      "text": "Describe the traditions that are at risk of disappearing"
-    },
-    {
-      "code": "C2",
-      "text": "Explain why saving our culture is important"
-    },
-    {
-      "code": "C3",
-      "text": "Suggest ways to encourage teenagers to take part in preserving culture"
-    }
-  ],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 28,
+ "lang": "bi",
+ "theme": "People & Culture",
+ "level": "C1",
+ "essayTitle": "Preserving Malaysia’s Cultural Heritage",
+ "source": "SPM Essay · Essay on preserving local cultural heritage (older format, no trial paper named)",
+ "essayUrl": "https://docs.google.com/document/d/1ADN7b7EzoNK0-H3pvTKEbM6zxGe3uViTn2MH29ZJEAA/edit",
+ "paragraphs": [
+  "Malaysia is a nation rich in diverse customs and arts, but due to rapid modernisation, many valuable traditions are now under threat. It is an imperative duty for young Malaysians to step forward and actively contribute to preserving these priceless elements of our culture for future generations.",
+  "Several unique traditions are currently facing the risk of disappearing entirely. For instance, the art of Wayang Kulit (shadow puppetry) and the complex technique of making hand-drawn Batik are struggling to survive. These crafts require dedicated skills and time, but they are often overshadowed by modern entertainment and cheaper, factory-made products. If we do not make an effort to learn them, these historical practices and the stories they carry will fall into oblivion.",
+  "Saving our culture is vitally important for maintaining a strong and stable nation. Firstly, it gives every citizen a clear sense of identity and belonging, connecting them to their ancestors. Secondly, sharing traditions creates social cohesion among our diverse ethnic groups, helping everyone live together peacefully. Furthermore, our unique heritage attracts tourists, which provides significant socio-economic benefits for the entire country.",
+  "To encourage teenagers, we must make learning about culture fun and accessible. Schools should incentivise participation by offering engaging workshops and making these arts part of hands-on projects. We must also harness the power of social media platforms like TikTok and Instagram. Short, creative videos demonstrating traditional cooking or cultural facts can make heritage seem modern and cool, encouraging more students to get involved."
+ ],
+ "points": [
+  {
+   "code": "C1",
+   "text": "What are the local traditions or arts that are currently facing the risk of disappearing"
   },
-  "closingIdx": [],
-  "words": [
-    {
-      "word": "remember how I was helped",
-      "zh": "记得自己曾被帮 助",
-      "example": "s I remember how others helped me before.",
-      "level": "B2"
-    },
-    {
-      "word": "see people struggling",
-      "zh": "看到人们挣扎",
-      "example": "I felt sad to see people struggling after the floods.",
-      "level": "B2"
-    },
-    {
-      "word": "appreciate what I have",
-      "zh": "珍惜所拥有的",
-      "example": "I learnt to appreciate what I have.",
-      "level": "B2"
-    },
-    {
-      "word": "raise awareness about",
-      "zh": "提高对……的意 识",
-      "example": "The aim was to raise awareness about animal welfare.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "gain first-hand experience",
-      "zh": "获得亲身体验",
-      "example": "l Members gained frist-hand experience of how a shelter works.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "foster a sense of responsibility",
-      "zh": "b 培养责任感",
-      "example": "The visit fostered a sense of responsibility.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "under the supervision of",
-      "zh": "在……的监督下",
-      "example": "We worked under the supervision of the shelter staff.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "a hands-on experience",
-      "zh": "亲身实践的经验",
-      "example": "It was a hands-on experience that we will never forget.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "bond with the animals",
-      "zh": "b 与动物建立感情",
-      "example": "Members bonded with the animals.",
-      "level": "C1"
-    },
-    {
-      "word": "ease the shelter's burden",
-      "zh": "减轻收容所的负 担",
-      "example": "These efforts will ease the shelter's burden.",
-      "level": "C1"
-    },
-    {
-      "word": "give animals a second chance",
-      "zh": "b 给动物第二次机 会",
-      "example": "They give animals a second chance at life.",
-      "level": "C1"
-    },
-    {
-      "word": "with the purpose of",
-      "zh": "目的是",
-      "example": "We went there with the purpose of learning about animal care.",
-      "level": "C1"
-    },
-    {
-      "word": "a non-profit organisation",
-      "zh": "非营利组织",
-      "example": "h The shelter is run by a non-profti organisation.",
-      "level": "C1"
-    },
-    {
-      "word": "gain a new respect for",
-      "zh": "b 对……有了新的 敬意",
-      "example": "I gained a new respect for the volunteers.",
-      "level": "C1"
-    },
-    {
-      "word": "commend the staff",
-      "zh": "称赞员工",
-      "example": "I commend the staff for their dedication.",
-      "level": "C1"
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "imperative duty",
-      "zh": "必须履行的责任"
-    },
-    {
-      "phrase": "priceless elements",
-      "zh": "无价的组成部分"
-    },
-    {
-      "phrase": "rapid modernisation",
-      "zh": "快速现代化"
-    },
-    {
-      "phrase": "facing the risk of disappearing entirely",
-      "zh": "面临完全消失的风险"
-    },
-    {
-      "phrase": "fall into oblivion",
-      "zh": "逐渐被遗忘 / 湮没"
-    },
-    {
-      "phrase": "dedicated skills",
-      "zh": "专业的技能"
-    },
-    {
-      "phrase": "struggling to survive",
-      "zh": "艰难求存"
-    },
-    {
-      "phrase": "overshadowed by",
-      "zh": "被……所遮盖 / 盖过"
-    },
-    {
-      "phrase": "vitally important",
-      "zh": "至关重要的"
-    },
-    {
-      "phrase": "social cohesion",
-      "zh": "社会凝聚力"
-    },
-    {
-      "phrase": "sense of identity and belonging",
-      "zh": "身份认同感和归属感"
-    },
-    {
-      "phrase": "harness the power of",
-      "zh": "利用……的力量"
-    },
-    {
-      "phrase": "incentivise participation",
-      "zh": "激励参与"
-    },
-    {
-      "phrase": "engaging workshops",
-      "zh": "吸引人的研讨会"
-    },
-    {
-      "phrase": "socio-economic benefits",
-      "zh": "社会经济效益"
-    },
-    {
-      "phrase": "accessible",
-      "zh": "容易获得的 / 易懂的"
-    },
-    {
-      "phrase": "ancestors",
-      "zh": "祖先"
-    },
-    {
-      "phrase": "historical practices",
-      "zh": "历史悠久的习俗 / 做法"
-    }
-  ],
-  "gaps": [
-    "'vulnerable people' has no example sentence: in the People & Culture theme pack it appears only as a key word of answer P6, whose model paragraph is scrambled in the watermarked PDF.",
-    "The essay has no conclusion paragraph (it ends with the third bullet of the question), so 'closingIdx' is empty.",
-    "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The question (history teacher, three bullet points) is above the essay in the doc.",
-    "points written by Claude from the essay (unchecked)",
-    "Example for 'vulnerable people' filled later from the People & Culture theme pack (cleaned text).",
-    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
-    "Form 5: mid tier short: used a top word (raise awareness about)",
-    "Form 5: mid tier short: used a top word (gain first-hand experience)",
-    "Form 5: mid tier short: used a top word (foster a sense of responsibility)",
-    "Form 5: mid tier short: used a top word (under the supervision of)",
-    "Form 5: mid tier short: used a top word (a hands-on experience)"
-  ]
+  {
+   "code": "C2",
+   "text": "Why cultural preservation is important"
+  },
+  {
+   "code": "C3",
+   "text": "What are the ways to encourage teenagers to learn about the local traditions or arts"
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [],
+ "words": [
+  {
+   "word": "remember how I was helped",
+   "zh": "记得自己曾被帮 助",
+   "example": "s I remember how others helped me before.",
+   "level": "B2"
+  },
+  {
+   "word": "see people struggling",
+   "zh": "看到人们挣扎",
+   "example": "I felt sad to see people struggling after the floods.",
+   "level": "B2"
+  },
+  {
+   "word": "appreciate what I have",
+   "zh": "珍惜所拥有的",
+   "example": "I learnt to appreciate what I have.",
+   "level": "B2"
+  },
+  {
+   "word": "raise awareness about",
+   "zh": "提高对……的意 识",
+   "example": "The aim was to raise awareness about animal welfare.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "gain first-hand experience",
+   "zh": "获得亲身体验",
+   "example": "l Members gained frist-hand experience of how a shelter works.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "foster a sense of responsibility",
+   "zh": "b 培养责任感",
+   "example": "The visit fostered a sense of responsibility.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "under the supervision of",
+   "zh": "在……的监督下",
+   "example": "We worked under the supervision of the shelter staff.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "a hands-on experience",
+   "zh": "亲身实践的经验",
+   "example": "It was a hands-on experience that we will never forget.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "bond with the animals",
+   "zh": "b 与动物建立感情",
+   "example": "Members bonded with the animals.",
+   "level": "C1"
+  },
+  {
+   "word": "ease the shelter's burden",
+   "zh": "减轻收容所的负 担",
+   "example": "These efforts will ease the shelter's burden.",
+   "level": "C1"
+  },
+  {
+   "word": "give animals a second chance",
+   "zh": "b 给动物第二次机 会",
+   "example": "They give animals a second chance at life.",
+   "level": "C1"
+  },
+  {
+   "word": "with the purpose of",
+   "zh": "目的是",
+   "example": "We went there with the purpose of learning about animal care.",
+   "level": "C1"
+  },
+  {
+   "word": "a non-profit organisation",
+   "zh": "非营利组织",
+   "example": "h The shelter is run by a non-profti organisation.",
+   "level": "C1"
+  },
+  {
+   "word": "gain a new respect for",
+   "zh": "b 对……有了新的 敬意",
+   "example": "I gained a new respect for the volunteers.",
+   "level": "C1"
+  },
+  {
+   "word": "commend the staff",
+   "zh": "称赞员工",
+   "example": "I commend the staff for their dedication.",
+   "level": "C1"
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "imperative duty",
+   "zh": "必须履行的责任"
+  },
+  {
+   "phrase": "priceless elements",
+   "zh": "无价的组成部分"
+  },
+  {
+   "phrase": "rapid modernisation",
+   "zh": "快速现代化"
+  },
+  {
+   "phrase": "facing the risk of disappearing entirely",
+   "zh": "面临完全消失的风险"
+  },
+  {
+   "phrase": "fall into oblivion",
+   "zh": "逐渐被遗忘 / 湮没"
+  },
+  {
+   "phrase": "dedicated skills",
+   "zh": "专业的技能"
+  },
+  {
+   "phrase": "struggling to survive",
+   "zh": "艰难求存"
+  },
+  {
+   "phrase": "overshadowed by",
+   "zh": "被……所遮盖 / 盖过"
+  },
+  {
+   "phrase": "vitally important",
+   "zh": "至关重要的"
+  },
+  {
+   "phrase": "social cohesion",
+   "zh": "社会凝聚力"
+  },
+  {
+   "phrase": "sense of identity and belonging",
+   "zh": "身份认同感和归属感"
+  },
+  {
+   "phrase": "harness the power of",
+   "zh": "利用……的力量"
+  },
+  {
+   "phrase": "incentivise participation",
+   "zh": "激励参与"
+  },
+  {
+   "phrase": "engaging workshops",
+   "zh": "吸引人的研讨会"
+  },
+  {
+   "phrase": "socio-economic benefits",
+   "zh": "社会经济效益"
+  },
+  {
+   "phrase": "accessible",
+   "zh": "容易获得的 / 易懂的"
+  },
+  {
+   "phrase": "ancestors",
+   "zh": "祖先"
+  },
+  {
+   "phrase": "historical practices",
+   "zh": "历史悠久的习俗 / 做法"
+  }
+ ],
+ "gaps": [
+  "'vulnerable people' has no example sentence: in the People & Culture theme pack it appears only as a key word of answer P6, whose model paragraph is scrambled in the watermarked PDF.",
+  "The essay has no conclusion paragraph (it ends with the third bullet of the question), so 'closingIdx' is empty.",
+  "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic. The question (history teacher, three bullet points) is above the essay in the doc.",
+  "Example for 'vulnerable people' filled later from the People & Culture theme pack (cleaned text).",
+  "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+  "Form 5: mid tier short: used a top word (raise awareness about)",
+  "Form 5: mid tier short: used a top word (gain first-hand experience)",
+  "Form 5: mid tier short: used a top word (foster a sense of responsibility)",
+  "Form 5: mid tier short: used a top word (under the supervision of)",
+  "Form 5: mid tier short: used a top word (a hands-on experience)",
+  "Question points copied from the question text in Gary's essay document (27 Nov 2026)."
+ ]
 }
