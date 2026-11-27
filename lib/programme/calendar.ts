@@ -37,7 +37,7 @@ export type Exam = { id: string; name: string; start: string; end: string };
 // Estimated exam dates, different for Form 4 and Form 5. The student edits them to their school's real dates.
 const MID: Exam = { id: "e1", name: "年中考（估计）", start: "2027-04-26", end: "2027-05-14" };
 export const defaultExams = (form: number): Exam[] => form === 5
-  ? [MID, { id: "e2", name: "Form 5 模拟考（估计）", start: "2027-07-19", end: "2027-08-20" }, { id: "e4", name: "SPM 2027（等 KPM 公布日期）", start: "", end: "" }]
+  ? [MID, { id: "e2", name: "Form 5 模拟考（估计）", start: "2027-07-19", end: "2027-08-20" }, { id: "e4", name: "SPM 2027（估计，等 KPM 公布日期）", start: "2027-10-25", end: "2027-12-16" }]
   : [MID, { id: "e3", name: "Form 4 年终考（估计）", start: "2027-10-11", end: "2027-10-29" }];
 export const DEFAULT_EXAMS: Exam[] = defaultExams(4);
 

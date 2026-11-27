@@ -1,220 +1,221 @@
 {
-  "n": 26,
-  "lang": "bi",
-  "theme": "School & Education",
-  "level": "C1",
-  "essayTitle": "Examination Mode",
-  "source": "SPM Essay (older format, no trial paper named) · Essay on examinations",
-  "essayUrl": "https://drive.google.com/file/d/1ChE6soT7Z_MWEvxjStsic-QKtNfKAP_v/view",
-  "paragraphs": [
-    "Examinations are a crucial part of the education system in Malaysia. From primary school to university, students are required to sit for various exams that assess their academic knowledge and skills. These exams play a significant role in determining a student’s progress, grades, and future opportunities. However, there is ongoing debate about whether examinations are the best method to evaluate students.",
-    "In my opinion, examinations are useful, but they are not always a fair representation of a student's abilities. Exams put a lot of pressure on students to perform well within a limited time frame, which can lead to stress and anxiety. Some students may excel in exam settings, while others, who may have a deeper understanding of the subject, might not do as well due to nerves or time constraints.",
-    "There are both advantages and disadvantages to having examinations. One of the main advantages is that exams provide a standardized way to measure a student’s knowledge and compare their performance with their peers. They also motivate students to study and prepare thoroughly. On the other hand, exams focus heavily on memorization rather than understanding, which can limit critical thinking and creativity. Additionally, the stress of exams may negatively affect students' mental health.",
-    "As for whether examinations should be abolished, I believe they should not be entirely removed but reformed. While exams serve a purpose in education, alternative assessment methods such as project-based learning or continuous assessment could be incorporated to provide a more balanced evaluation of students’ skills and knowledge.",
-    "In conclusion, examinations in Malaysia play an important role in education, but they also come with challenges. By improving the examination system and combining it with other forms of assessment, we can ensure a fairer and more holistic approach to evaluating students."
-  ],
-  "points": [
-    {
-      "code": "C1",
-      "text": "Give your opinion on whether examinations are useful and fair"
-    },
-    {
-      "code": "C2",
-      "text": "State the advantages and disadvantages of having examinations"
-    },
-    {
-      "code": "C3",
-      "text": "Say whether examinations should be abolished"
-    }
-  ],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 26,
+ "lang": "bi",
+ "theme": "School & Education",
+ "level": "C1",
+ "essayTitle": "Examination Mode",
+ "source": "SPM Essay (older format, no trial paper named) · Essay on examinations",
+ "essayUrl": "https://drive.google.com/file/d/1ChE6soT7Z_MWEvxjStsic-QKtNfKAP_v/view",
+ "paragraphs": [
+  "Examinations are a crucial part of the education system in Malaysia. From primary school to university, students are required to sit for various exams that assess their academic knowledge and skills. These exams play a significant role in determining a student’s progress, grades, and future opportunities. However, there is ongoing debate about whether examinations are the best method to evaluate students.",
+  "In my opinion, examinations are useful, but they are not always a fair representation of a student's abilities. Exams put a lot of pressure on students to perform well within a limited time frame, which can lead to stress and anxiety. Some students may excel in exam settings, while others, who may have a deeper understanding of the subject, might not do as well due to nerves or time constraints.",
+  "There are both advantages and disadvantages to having examinations. One of the main advantages is that exams provide a standardized way to measure a student’s knowledge and compare their performance with their peers. They also motivate students to study and prepare thoroughly. On the other hand, exams focus heavily on memorization rather than understanding, which can limit critical thinking and creativity. Additionally, the stress of exams may negatively affect students' mental health.",
+  "As for whether examinations should be abolished, I believe they should not be entirely removed but reformed. While exams serve a purpose in education, alternative assessment methods such as project-based learning or continuous assessment could be incorporated to provide a more balanced evaluation of students’ skills and knowledge.",
+  "In conclusion, examinations in Malaysia play an important role in education, but they also come with challenges. By improving the examination system and combining it with other forms of assessment, we can ensure a fairer and more holistic approach to evaluating students."
+ ],
+ "points": [
+  {
+   "code": "C1",
+   "text": "Give your opinion on whether examinations are useful and fair"
   },
-  "closingIdx": [
-    4
-  ],
-  "words": [
-    {
-      "word": "sample local food",
-      "zh": "品尝本地美食",
-      "example": "h They sampled local food during recess.",
-      "level": "B2"
-    },
-    {
-      "word": "respect cultural differences",
-      "zh": "尊重文化差异",
-      "example": "s We learnt to respect cultural differences.",
-      "level": "B2"
-    },
-    {
-      "word": "become more open-minded",
-      "zh": "b 变得更开明",
-      "example": "The programme made us more open-minded.",
-      "level": "B2"
-    },
-    {
-      "word": "think critically",
-      "zh": "批判性思考",
-      "example": "For example, a student who joins debates gains confidence and learns to think critically.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "well-rounded individuals",
-      "zh": "全面发展的人",
-      "example": "Therefore, schools should nurture well-rounded individuals, not just exam machines.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "burn out",
-      "zh": "身心俱疲",
-      "example": "As a result, they suffer from anxiety, lose motivation and even burn out.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "exercise self-discipline",
-      "zh": "运用自律",
-      "example": "I exercise self-discipline during study time.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "eliminate distractions",
-      "zh": "消除干扰",
-      "example": null,
-      "level": "B2 to C1"
-    },
-    {
-      "word": "tackle difficult subjects frist",
-      "zh": "先处理难的科目",
-      "example": "s I tackle difficult subjects first while my mind is fresh.",
-      "level": "C1"
-    },
-    {
-      "word": "nurture logical thinking",
-      "zh": "培养逻辑思维",
-      "example": "Coding nurtures logical thinking.",
-      "level": "C1"
-    },
-    {
-      "word": "equip students with future skills",
-      "zh": "让学生具备未来 技能",
-      "example": "l The event equipped students with future skills.",
-      "level": "C1"
-    },
-    {
-      "word": "debug the code",
-      "zh": "调试代码",
-      "example": "Students learned to debug the code together.",
-      "level": "C1"
-    },
-    {
-      "word": "stayed engaged throughout",
-      "zh": "全程投入",
-      "example": "s Students stayed engaged throughout the programme.",
-      "level": "C1"
-    },
-    {
-      "word": "achieved its objective",
-      "zh": "达成目标",
-      "example": "The event achieved its objective.",
-      "level": "C1"
-    },
-    {
-      "word": "a valuable eye-opener",
-      "zh": "增广见闻的经历",
-      "example": "The event was a valuable eye- opener for many students.",
-      "level": "C1"
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "crucial part",
-      "zh": "关键部分"
-    },
-    {
-      "phrase": "assess academic knowledge and skills",
-      "zh": "评估学术知识与技能"
-    },
-    {
-      "phrase": "significant role",
-      "zh": "重要角色"
-    },
-    {
-      "phrase": "ongoing debate",
-      "zh": "持续的争议"
-    },
-    {
-      "phrase": "fair representation",
-      "zh": "公平的表现"
-    },
-    {
-      "phrase": "limited time frame",
-      "zh": "有限时间"
-    },
-    {
-      "phrase": "standardized way to measure",
-      "zh": "标准化的评估方式"
-    },
-    {
-      "phrase": "compare performance with peers",
-      "zh": "与同龄人比较表现"
-    },
-    {
-      "phrase": "motivate students to study",
-      "zh": "激励学生学习"
-    },
-    {
-      "phrase": "focus heavily on memorization",
-      "zh": "过度强调记忆"
-    },
-    {
-      "phrase": "limit critical thinking and creativity",
-      "zh": "限制批判性思维与创造力"
-    },
-    {
-      "phrase": "negatively affect mental health",
-      "zh": "对心理健康造成负面影响"
-    },
-    {
-      "phrase": "alternative assessment methods",
-      "zh": "替代评估方式"
-    },
-    {
-      "phrase": "project-based learning",
-      "zh": "项目式学习"
-    },
-    {
-      "phrase": "continuous assessment",
-      "zh": "持续评估"
-    },
-    {
-      "phrase": "balanced evaluation",
-      "zh": "平衡的评估"
-    },
-    {
-      "phrase": "holistic approach",
-      "zh": "全面方法"
-    },
-    {
-      "phrase": "reform the system",
-      "zh": "改革制度"
-    },
-    {
-      "phrase": "ensure fairness",
-      "zh": "确保公平"
-    },
-    {
-      "phrase": "academic progress and future opportunities",
-      "zh": "学术进步与未来机会"
-    }
-  ],
-  "gaps": [
-    "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
-    "No question-style essay with a Question Analysis table is left for this theme, so weeks 26 and 37 use the older-format essays in the '7. school' folder.",
-    "points written by Claude from the essay (unchecked)",
-    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
-  ]
+  {
+   "code": "C2",
+   "text": "State the advantages and disadvantages of having examinations"
+  },
+  {
+   "code": "C3",
+   "text": "Say whether examinations should be abolished"
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [
+  4
+ ],
+ "words": [
+  {
+   "word": "sample local food",
+   "zh": "品尝本地美食",
+   "example": "h They sampled local food during recess.",
+   "level": "B2"
+  },
+  {
+   "word": "respect cultural differences",
+   "zh": "尊重文化差异",
+   "example": "s We learnt to respect cultural differences.",
+   "level": "B2"
+  },
+  {
+   "word": "become more open-minded",
+   "zh": "b 变得更开明",
+   "example": "The programme made us more open-minded.",
+   "level": "B2"
+  },
+  {
+   "word": "think critically",
+   "zh": "批判性思考",
+   "example": "For example, a student who joins debates gains confidence and learns to think critically.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "well-rounded individuals",
+   "zh": "全面发展的人",
+   "example": "Therefore, schools should nurture well-rounded individuals, not just exam machines.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "burn out",
+   "zh": "身心俱疲",
+   "example": "As a result, they suffer from anxiety, lose motivation and even burn out.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "exercise self-discipline",
+   "zh": "运用自律",
+   "example": "I exercise self-discipline during study time.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "eliminate distractions",
+   "zh": "消除干扰",
+   "example": "Putting your phone in another room helps you eliminate distractions while you study.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "tackle difficult subjects frist",
+   "zh": "先处理难的科目",
+   "example": "s I tackle difficult subjects first while my mind is fresh.",
+   "level": "C1"
+  },
+  {
+   "word": "nurture logical thinking",
+   "zh": "培养逻辑思维",
+   "example": "Coding nurtures logical thinking.",
+   "level": "C1"
+  },
+  {
+   "word": "equip students with future skills",
+   "zh": "让学生具备未来 技能",
+   "example": "l The event equipped students with future skills.",
+   "level": "C1"
+  },
+  {
+   "word": "debug the code",
+   "zh": "调试代码",
+   "example": "Students learned to debug the code together.",
+   "level": "C1"
+  },
+  {
+   "word": "stayed engaged throughout",
+   "zh": "全程投入",
+   "example": "s Students stayed engaged throughout the programme.",
+   "level": "C1"
+  },
+  {
+   "word": "achieved its objective",
+   "zh": "达成目标",
+   "example": "The event achieved its objective.",
+   "level": "C1"
+  },
+  {
+   "word": "a valuable eye-opener",
+   "zh": "增广见闻的经历",
+   "example": "The event was a valuable eye- opener for many students.",
+   "level": "C1"
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "crucial part",
+   "zh": "关键部分"
+  },
+  {
+   "phrase": "assess academic knowledge and skills",
+   "zh": "评估学术知识与技能"
+  },
+  {
+   "phrase": "significant role",
+   "zh": "重要角色"
+  },
+  {
+   "phrase": "ongoing debate",
+   "zh": "持续的争议"
+  },
+  {
+   "phrase": "fair representation",
+   "zh": "公平的表现"
+  },
+  {
+   "phrase": "limited time frame",
+   "zh": "有限时间"
+  },
+  {
+   "phrase": "standardized way to measure",
+   "zh": "标准化的评估方式"
+  },
+  {
+   "phrase": "compare performance with peers",
+   "zh": "与同龄人比较表现"
+  },
+  {
+   "phrase": "motivate students to study",
+   "zh": "激励学生学习"
+  },
+  {
+   "phrase": "focus heavily on memorization",
+   "zh": "过度强调记忆"
+  },
+  {
+   "phrase": "limit critical thinking and creativity",
+   "zh": "限制批判性思维与创造力"
+  },
+  {
+   "phrase": "negatively affect mental health",
+   "zh": "对心理健康造成负面影响"
+  },
+  {
+   "phrase": "alternative assessment methods",
+   "zh": "替代评估方式"
+  },
+  {
+   "phrase": "project-based learning",
+   "zh": "项目式学习"
+  },
+  {
+   "phrase": "continuous assessment",
+   "zh": "持续评估"
+  },
+  {
+   "phrase": "balanced evaluation",
+   "zh": "平衡的评估"
+  },
+  {
+   "phrase": "holistic approach",
+   "zh": "全面方法"
+  },
+  {
+   "phrase": "reform the system",
+   "zh": "改革制度"
+  },
+  {
+   "phrase": "ensure fairness",
+   "zh": "确保公平"
+  },
+  {
+   "phrase": "academic progress and future opportunities",
+   "zh": "学术进步与未来机会"
+  }
+ ],
+ "gaps": [
+  "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
+  "No question-style essay with a Question Analysis table is left for this theme, so weeks 26 and 37 use the older-format essays in the '7. school' folder.",
+  "points written by Claude from the essay (unchecked)",
+  "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+  "Example sentence for a word with no sentence in the documents was written by Claude (27 Nov 2026, Gary's instruction), unchecked."
+ ]
 }

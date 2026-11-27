@@ -1,222 +1,223 @@
 {
-  "n": 16,
-  "lang": "bi",
-  "theme": "Finance & Consumerism",
-  "level": "B2 to C1",
-  "essayTitle": "Teenagers and Money",
-  "source": "SPM Essay · Article, Teenagers and Money (Article 07)",
-  "essayUrl": "https://docs.google.com/document/d/11Tg3Cu0sudBwvJhdIj7_u_AYnha_1ratTEZnuV4nbgY/edit",
-  "paragraphs": [
-    "Money management is an indispensable life skill that teenagers must master before entering adulthood. In today's consumer-driven environment, young people are often faced with an onslaught of temptations. Understanding common spending habits and promoting financial literacy is crucial for their future economic stability.",
-    "Teenagers typically allocate their funds to several key areas. The largest chunk often goes towards discretionary purchases driven by peer culture, such as the latest fashion trends or branded electronic accessories. Social spending is another major category, covering cinema tickets, cafe visits, or sharing meals with friends, which are driven by the need for social inclusion and belonging. Finally, convenience spending on delivery apps, impulse snacks, and subscription services (gaming or streaming) accounts for much of the rest. These spending patterns are frequently influenced by social media advertisements and a desire for instant gratification.",
-    "It is profoundly important for teenagers to spend their money wisely for several reasons. Firstly, prudent spending builds the foundation for long-term financial health, teaching them to differentiate between needs and wants. This practice mitigates the risk of future debt reliance and financial distress. Secondly, conscious allocation of money teaches responsibility and accountability. By managing their allowance or earnings, teens learn the value of hard work and the finite nature of resources, skills that are paramount for independent living and career success. Ultimately, wise spending today ensures greater financial freedom tomorrow.",
-    "To spread awareness about good spending habits, innovative strategies must be implemented. Firstly, schools should integrate a mandatory financial literacy module into the curriculum, using interactive workshops and real-world budgeting simulations. Secondly, parents should practice open financial dialogue at home, involving teenagers in household budgeting and saving plans, thus turning theoretical concepts into practical lessons. Lastly, leveraging digital platforms is key. Creating short, engaging videos and infographics for platforms like TikTok or Instagram that simplify concepts like compound interest or emergency funds can reach teens in their native digital environment, turning a dry subject into an engaging and accessible discussion.",
-    "In conclusion, equipping teenagers with the tools to spend wisely is an investment in their future. By encouraging conscious consumption through education and open communication, we can ensure they navigate the financial frontier with confidence and competence."
-  ],
-  "points": [
-    {
-      "code": "C1",
-      "text": "State what teenagers spend their money on"
-    },
-    {
-      "code": "C2",
-      "text": "Explain why it is important for teenagers to spend their money wisely"
-    },
-    {
-      "code": "C3",
-      "text": "Suggest ways to spread awareness about good spending habits"
-    }
-  ],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 16,
+ "lang": "bi",
+ "theme": "Finance & Consumerism",
+ "level": "B2 to C1",
+ "essayTitle": "Teenagers and Money",
+ "source": "SPM Essay · Article, Teenagers and Money (Article 07)",
+ "essayUrl": "https://docs.google.com/document/d/11Tg3Cu0sudBwvJhdIj7_u_AYnha_1ratTEZnuV4nbgY/edit",
+ "paragraphs": [
+  "Money management is an indispensable life skill that teenagers must master before entering adulthood. In today's consumer-driven environment, young people are often faced with an onslaught of temptations. Understanding common spending habits and promoting financial literacy is crucial for their future economic stability.",
+  "Teenagers typically allocate their funds to several key areas. The largest chunk often goes towards discretionary purchases driven by peer culture, such as the latest fashion trends or branded electronic accessories. Social spending is another major category, covering cinema tickets, cafe visits, or sharing meals with friends, which are driven by the need for social inclusion and belonging. Finally, convenience spending on delivery apps, impulse snacks, and subscription services (gaming or streaming) accounts for much of the rest. These spending patterns are frequently influenced by social media advertisements and a desire for instant gratification.",
+  "It is profoundly important for teenagers to spend their money wisely for several reasons. Firstly, prudent spending builds the foundation for long-term financial health, teaching them to differentiate between needs and wants. This practice mitigates the risk of future debt reliance and financial distress. Secondly, conscious allocation of money teaches responsibility and accountability. By managing their allowance or earnings, teens learn the value of hard work and the finite nature of resources, skills that are paramount for independent living and career success. Ultimately, wise spending today ensures greater financial freedom tomorrow.",
+  "To spread awareness about good spending habits, innovative strategies must be implemented. Firstly, schools should integrate a mandatory financial literacy module into the curriculum, using interactive workshops and real-world budgeting simulations. Secondly, parents should practice open financial dialogue at home, involving teenagers in household budgeting and saving plans, thus turning theoretical concepts into practical lessons. Lastly, leveraging digital platforms is key. Creating short, engaging videos and infographics for platforms like TikTok or Instagram that simplify concepts like compound interest or emergency funds can reach teens in their native digital environment, turning a dry subject into an engaging and accessible discussion.",
+  "In conclusion, equipping teenagers with the tools to spend wisely is an investment in their future. By encouraging conscious consumption through education and open communication, we can ensure they navigate the financial frontier with confidence and competence."
+ ],
+ "points": [
+  {
+   "code": "C1",
+   "text": "State what teenagers spend their money on"
   },
-  "closingIdx": [
-    4
-  ],
-  "words": [
-    {
-      "word": "attract thousands of visitors",
-      "zh": "b 吸引数以千计的 访客",
-      "example": "The mall attracts thousands of visitors every weekend.",
-      "level": "B2"
-    },
-    {
-      "word": "a wide range of shops",
-      "zh": "种类繁多的商店",
-      "example": "The mall has a wide range of shops.",
-      "level": "B2"
-    },
-    {
-      "word": "well-equipped",
-      "zh": "设备齐全",
-      "example": "It is well-equipped with clean restrooms and a prayer room.",
-      "level": "B2"
-    },
-    {
-      "word": "fuel consumerism",
-      "zh": "助长消费主义",
-      "example": "Advertising and peer pressure fuel consumerism.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "gain insight",
-      "zh": "深入了解",
-      "example": "We wanted to gain insight into how pupils use their money.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "control spending",
-      "zh": "控制开销",
-      "example": null,
-      "level": "B2 to C1"
-    },
-    {
-      "word": "raise fni ancial awareness",
-      "zh": "提高理财意识",
-      "example": "The results will help us raise financial awareness.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "barely save any money",
-      "zh": "几乎没有存钱",
-      "example": "Nearly half of them barely save any money.",
-      "level": "C1"
-    },
-    {
-      "word": "fall short of their goals",
-      "zh": "b 达不到目标",
-      "example": "Pupils fall short of their saving goals.",
-      "level": "C1"
-    },
-    {
-      "word": "raise awareness through talks",
-      "zh": "通过讲座提高意 识",
-      "example": "The school can raise awareness through talks.",
-      "level": "C1"
-    },
-    {
-      "word": "become wise consumers",
-      "zh": "b 成为精明的消费 者",
-      "example": "Pupils will become wise consumers.",
-      "level": "C1"
-    },
-    {
-      "word": "act as a safety net",
-      "zh": "起到保障作用",
-      "example": "This is because savings act as a safety net in emergencies.",
-      "level": "C1"
-    },
-    {
-      "word": "afford unexpected expenses",
-      "zh": "负担意外开销",
-      "example": "For example, a student who saves part of their allowance can afford unexpected expenses without borrowing.",
-      "level": "C1"
-    },
-    {
-      "word": "flaunt the latest products",
-      "zh": "炫耀最新产品",
-      "example": "This is because attractive ads create the desire to buy and friends flaunt the latest products.",
-      "level": "C1"
-    },
-    {
-      "word": "make a realistic budget",
-      "zh": "制定切实的预算",
-      "example": "The best solution is to make a realistic budget.",
-      "level": "C1"
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "indispensable life skill",
-      "zh": "不可或缺的生活技能"
-    },
-    {
-      "phrase": "onslaught of temptations",
-      "zh": "诱惑的猛攻/冲击"
-    },
-    {
-      "phrase": "economic stability",
-      "zh": "经济稳定"
-    },
-    {
-      "phrase": "allocate their funds",
-      "zh": "分配他们的资金"
-    },
-    {
-      "phrase": "discretionary purchases",
-      "zh": "可自由支配的购买"
-    },
-    {
-      "phrase": "social inclusion",
-      "zh": "社会包容性"
-    },
-    {
-      "phrase": "instant gratification",
-      "zh": "即时满足"
-    },
-    {
-      "phrase": "prudent spending",
-      "zh": "谨慎的消费"
-    },
-    {
-      "phrase": "long-term financial health",
-      "zh": "长期财务健康"
-    },
-    {
-      "phrase": "differentiate between needs and wants",
-      "zh": "区分需求和欲望"
-    },
-    {
-      "phrase": "mitigates the risk",
-      "zh": "减轻风险"
-    },
-    {
-      "phrase": "conscious allocation of money",
-      "zh": "有意识的资金分配"
-    },
-    {
-      "phrase": "finite nature of resources",
-      "zh": "资源的有限性"
-    },
-    {
-      "phrase": "paramount",
-      "zh": "至关重要的"
-    },
-    {
-      "phrase": "mandatory financial literacy module",
-      "zh": "强制性的金融知识模块"
-    },
-    {
-      "phrase": "real-world budgeting simulations",
-      "zh": "现实预算模拟"
-    },
-    {
-      "phrase": "open financial dialogue",
-      "zh": "开放的财务对话"
-    },
-    {
-      "phrase": "practical lessons",
-      "zh": "实际的教训"
-    },
-    {
-      "phrase": "compound interest",
-      "zh": "复利"
-    },
-    {
-      "phrase": "conscious consumption",
-      "zh": "有意识的消费"
-    }
-  ],
-  "gaps": [
-    "'financial stress' has no example sentence: the only place it appears in the Finance & Consumerism theme pack (answer F6) is scrambled in the watermarked PDF and could not be copied safely.",
-    "The Drive doc (Article 07) has the question and a plan of the answer, but no Question Analysis table and no Exam Version, so 'points' is empty and 'keyPoint.prompt' is null. The (C1)-(C4) markers inside the essay text were removed.",
-    "points written by Claude from the essay (unchecked)",
-    "Example for 'financial stress' filled later from the Finance & Consumerism theme pack (cleaned text).",
-    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
-    "Form 5: mid tier short: used a top word (raise fni ancial awareness)"
-  ]
+  {
+   "code": "C2",
+   "text": "Explain why it is important for teenagers to spend their money wisely"
+  },
+  {
+   "code": "C3",
+   "text": "Suggest ways to spread awareness about good spending habits"
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [
+  4
+ ],
+ "words": [
+  {
+   "word": "attract thousands of visitors",
+   "zh": "b 吸引数以千计的 访客",
+   "example": "The mall attracts thousands of visitors every weekend.",
+   "level": "B2"
+  },
+  {
+   "word": "a wide range of shops",
+   "zh": "种类繁多的商店",
+   "example": "The mall has a wide range of shops.",
+   "level": "B2"
+  },
+  {
+   "word": "well-equipped",
+   "zh": "设备齐全",
+   "example": "It is well-equipped with clean restrooms and a prayer room.",
+   "level": "B2"
+  },
+  {
+   "word": "fuel consumerism",
+   "zh": "助长消费主义",
+   "example": "Advertising and peer pressure fuel consumerism.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "gain insight",
+   "zh": "深入了解",
+   "example": "We wanted to gain insight into how pupils use their money.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "control spending",
+   "zh": "控制开销",
+   "example": "Keeping a simple budget helps teenagers control their spending.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "raise fni ancial awareness",
+   "zh": "提高理财意识",
+   "example": "The results will help us raise financial awareness.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "barely save any money",
+   "zh": "几乎没有存钱",
+   "example": "Nearly half of them barely save any money.",
+   "level": "C1"
+  },
+  {
+   "word": "fall short of their goals",
+   "zh": "b 达不到目标",
+   "example": "Pupils fall short of their saving goals.",
+   "level": "C1"
+  },
+  {
+   "word": "raise awareness through talks",
+   "zh": "通过讲座提高意 识",
+   "example": "The school can raise awareness through talks.",
+   "level": "C1"
+  },
+  {
+   "word": "become wise consumers",
+   "zh": "b 成为精明的消费 者",
+   "example": "Pupils will become wise consumers.",
+   "level": "C1"
+  },
+  {
+   "word": "act as a safety net",
+   "zh": "起到保障作用",
+   "example": "This is because savings act as a safety net in emergencies.",
+   "level": "C1"
+  },
+  {
+   "word": "afford unexpected expenses",
+   "zh": "负担意外开销",
+   "example": "For example, a student who saves part of their allowance can afford unexpected expenses without borrowing.",
+   "level": "C1"
+  },
+  {
+   "word": "flaunt the latest products",
+   "zh": "炫耀最新产品",
+   "example": "This is because attractive ads create the desire to buy and friends flaunt the latest products.",
+   "level": "C1"
+  },
+  {
+   "word": "make a realistic budget",
+   "zh": "制定切实的预算",
+   "example": "The best solution is to make a realistic budget.",
+   "level": "C1"
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "indispensable life skill",
+   "zh": "不可或缺的生活技能"
+  },
+  {
+   "phrase": "onslaught of temptations",
+   "zh": "诱惑的猛攻/冲击"
+  },
+  {
+   "phrase": "economic stability",
+   "zh": "经济稳定"
+  },
+  {
+   "phrase": "allocate their funds",
+   "zh": "分配他们的资金"
+  },
+  {
+   "phrase": "discretionary purchases",
+   "zh": "可自由支配的购买"
+  },
+  {
+   "phrase": "social inclusion",
+   "zh": "社会包容性"
+  },
+  {
+   "phrase": "instant gratification",
+   "zh": "即时满足"
+  },
+  {
+   "phrase": "prudent spending",
+   "zh": "谨慎的消费"
+  },
+  {
+   "phrase": "long-term financial health",
+   "zh": "长期财务健康"
+  },
+  {
+   "phrase": "differentiate between needs and wants",
+   "zh": "区分需求和欲望"
+  },
+  {
+   "phrase": "mitigates the risk",
+   "zh": "减轻风险"
+  },
+  {
+   "phrase": "conscious allocation of money",
+   "zh": "有意识的资金分配"
+  },
+  {
+   "phrase": "finite nature of resources",
+   "zh": "资源的有限性"
+  },
+  {
+   "phrase": "paramount",
+   "zh": "至关重要的"
+  },
+  {
+   "phrase": "mandatory financial literacy module",
+   "zh": "强制性的金融知识模块"
+  },
+  {
+   "phrase": "real-world budgeting simulations",
+   "zh": "现实预算模拟"
+  },
+  {
+   "phrase": "open financial dialogue",
+   "zh": "开放的财务对话"
+  },
+  {
+   "phrase": "practical lessons",
+   "zh": "实际的教训"
+  },
+  {
+   "phrase": "compound interest",
+   "zh": "复利"
+  },
+  {
+   "phrase": "conscious consumption",
+   "zh": "有意识的消费"
+  }
+ ],
+ "gaps": [
+  "'financial stress' has no example sentence: the only place it appears in the Finance & Consumerism theme pack (answer F6) is scrambled in the watermarked PDF and could not be copied safely.",
+  "The Drive doc (Article 07) has the question and a plan of the answer, but no Question Analysis table and no Exam Version, so 'points' is empty and 'keyPoint.prompt' is null. The (C1)-(C4) markers inside the essay text were removed.",
+  "points written by Claude from the essay (unchecked)",
+  "Example for 'financial stress' filled later from the Finance & Consumerism theme pack (cleaned text).",
+  "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+  "Form 5: mid tier short: used a top word (raise fni ancial awareness)",
+  "Example sentence for a word with no sentence in the documents was written by Claude (27 Nov 2026, Gary's instruction), unchecked."
+ ]
 }
