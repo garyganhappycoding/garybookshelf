@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Shell from "@/components/programme/Shell";
 import BadgeWall, { type WallItem } from "@/components/programme/BadgeWall";
 import { requireProgramme } from "@/lib/programme/gate";
@@ -39,6 +40,7 @@ export default async function BadgesPage() {
     <Shell active="badges" admin={a.isAdmin}>
       <h1 className="mb-1 text-2xl font-medium">我的徽章</h1>
       <p className="mb-4 text-sm text-ink/60">坚持下去，会不定时拿到徽章。每一枚背面都有你的名字和 Gary 的话。一直做到最后，你会拿到最高的一枚「自学」。</p>
+      <Link href="/programme/wall" className="card mb-4 block hover:shadow-md transition"><p className="font-medium">我的成就墙</p><p className="text-sm text-ink/60">把徽章放上墙，自己排，自己改大小，加文字和边框。</p></Link>
       <BadgeWall items={items} name={name} preview={a.isAdmin} />
     </Shell>
   );
