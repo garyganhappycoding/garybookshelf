@@ -1,222 +1,223 @@
 {
-  "n": 5,
-  "lang": "bi",
-  "theme": "Finance & Consumerism",
-  "level": "B2",
-  "essayTitle": "Teenagers and the Allure of Luxury",
-  "source": "SPM Essay (Final Clean Version) · no trial paper named",
-  "essayUrl": "https://docs.google.com/document/d/1QtayMuCvnTRSehhqlXrscMKkX6pKbpebOURrlHNAyXg/edit",
-  "paragraphs": [
-    "Teenagers are frequently easily influenced by advertisements that promote a luxurious lifestyle, often equating expensive brands with personal worth. This essay explores my personal experience with branded purchases, the drawbacks of unnecessary spending, and strategies for smart consumption.",
-    "I recently gave in to the pressure and bought a designer backpack. I felt a quick rush of social validation when my friends praised it, but the high price tag caused immediate financial strain. I soon realised that the bag didn't make me any happier or more capable; it was simply a showy extra.",
-    "The disadvantages of buying unnecessary items are significant. Firstly, it quickly depletes savings that could be used for education or genuine needs. Secondly, chasing trends leads to always wanting more, as the next 'must-have' item quickly replaces the old one. This focus on materialism distracts us from building character and essential life skills.",
-    "To be a smart consumer, we must adopt careful habits. The first step is to differentiate between needs and wants by using a \"cooling-off\" period before making large purchases. Secondly, always research alternatives and seek value over status. Finally, teenagers should prioritize saving and investing, recognizing that financial stability is far more valuable than temporary social approval.",
-    "In conclusion, the temptation of buying stylish brands is powerful, but the long-term cost is too high. We must choose saving money instead of following fashion, teaching ourselves to prioritize financial security and self-worth over brand labels. By making smart, careful choices today, we secure a brighter, more stable future."
-  ],
-  "points": [
-    {
-      "code": "C1",
-      "text": "Describe your experience of buying a branded item"
-    },
-    {
-      "code": "C2",
-      "text": "Explain the disadvantages of buying unnecessary items"
-    },
-    {
-      "code": "C3",
-      "text": "Suggest ways to become a smart consumer"
-    }
-  ],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 5,
+ "lang": "bi",
+ "theme": "Finance & Consumerism",
+ "level": "B2",
+ "essayTitle": "Teenagers and the Allure of Luxury",
+ "source": "SPM Essay (Final Clean Version) · no trial paper named",
+ "essayUrl": "https://docs.google.com/document/d/1QtayMuCvnTRSehhqlXrscMKkX6pKbpebOURrlHNAyXg/edit",
+ "paragraphs": [
+  "Teenagers are frequently easily influenced by advertisements that promote a luxurious lifestyle, often equating expensive brands with personal worth. This essay explores my personal experience with branded purchases, the drawbacks of unnecessary spending, and strategies for smart consumption.",
+  "I recently gave in to the pressure and bought a designer backpack. I felt a quick rush of social validation when my friends praised it, but the high price tag caused immediate financial strain. I soon realised that the bag didn't make me any happier or more capable; it was simply a showy extra.",
+  "The disadvantages of buying unnecessary items are significant. Firstly, it quickly depletes savings that could be used for education or genuine needs. Secondly, chasing trends leads to always wanting more, as the next 'must-have' item quickly replaces the old one. This focus on materialism distracts us from building character and essential life skills.",
+  "To be a smart consumer, we must adopt careful habits. The first step is to differentiate between needs and wants by using a \"cooling-off\" period before making large purchases. Secondly, always research alternatives and seek value over status. Finally, teenagers should prioritize saving and investing, recognizing that financial stability is far more valuable than temporary social approval.",
+  "In conclusion, the temptation of buying stylish brands is powerful, but the long-term cost is too high. We must choose saving money instead of following fashion, teaching ourselves to prioritize financial security and self-worth over brand labels. By making smart, careful choices today, we secure a brighter, more stable future."
+ ],
+ "points": [
+  {
+   "code": "C1",
+   "text": "Describe your experience of buying a branded item"
   },
-  "closingIdx": [
-    4
-  ],
-  "words": [
-    {
-      "word": "conveniently located",
-      "zh": "位置便利",
-      "example": "The mall is conveniently located near the LRT station.",
-      "level": "B2"
-    },
-    {
-      "word": "easily accessible by public transport",
-      "zh": "搭公共交通很方 便",
-      "example": "h s It is easily accessible by public transport.",
-      "level": "B2"
-    },
-    {
-      "word": "with ample parking space",
-      "zh": "停车位充足",
-      "example": "It has ample parking space for visitors.",
-      "level": "B2"
-    },
-    {
-      "word": "spend impulsively",
-      "zh": "冲动消费",
-      "example": "Many pupils spend impulsively on trendy items.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "financial security",
-      "zh": "经济保障",
-      "example": "Saving money gives us financial security.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "unnecessary expenses",
-      "zh": "不必要的开销",
-      "example": "This is because writing down every purchase shows exactly where our money goes and reveals unnecessary expenses.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "financial literacy",
-      "zh": "金融素养",
-      "example": "Financial literacy is a vital life skill.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "splurge on",
-      "zh": "挥霍在……上",
-      "example": null,
-      "level": "B2 to C1"
-    },
-    {
-      "word": "a popular shopping destination",
-      "zh": "热门购物目的地",
-      "example": "It is a popular shopping destination in Seremban.",
-      "level": "C1"
-    },
-    {
-      "word": "situated in the heart of",
-      "zh": "位于……的中心",
-      "example": "The mall is situated in the heart of the town.",
-      "level": "C1"
-    },
-    {
-      "word": "cater to all age groups",
-      "zh": "迎合所有年龄层",
-      "example": "The facilities cater to all age groups.",
-      "level": "C1"
-    },
-    {
-      "word": "avoid the weekend crowd",
-      "zh": "避开周末人潮",
-      "example": "I suggest going on weekdays to avoid the weekend crowd.",
-      "level": "C1"
-    },
-    {
-      "word": "exceed my expectations",
-      "zh": "超出我的期望",
-      "example": "The mall exceeded my expectations.",
-      "level": "C1"
-    },
-    {
-      "word": "with the aim of",
-      "zh": "目的是",
-      "example": "The survey was done with the aim of understanding their spending habits.",
-      "level": "C1"
-    },
-    {
-      "word": "gain insight into",
-      "zh": "深入了解",
-      "example": "We wanted to gain insight into how pupils use their money.",
-      "level": "C1"
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "easily influenced",
-      "zh": "容易受影响的"
-    },
-    {
-      "phrase": "quick rush",
-      "zh": "快速的冲动/激增"
-    },
-    {
-      "phrase": "showy extra",
-      "zh": "炫耀的附加品"
-    },
-    {
-      "phrase": "always wanting more",
-      "zh": "总是想要更多"
-    },
-    {
-      "phrase": "careful habits",
-      "zh": "谨慎的习惯"
-    },
-    {
-      "phrase": "saving money instead of following fashion",
-      "zh": "节约而非跟随潮流"
-    },
-    {
-      "phrase": "luxurious lifestyle",
-      "zh": "奢华的生活方式"
-    },
-    {
-      "phrase": "financial strain",
-      "zh": "财务紧张/负担"
-    },
-    {
-      "phrase": "depletes savings",
-      "zh": "耗尽储蓄"
-    },
-    {
-      "phrase": "differentiate between needs and wants",
-      "zh": "区分需求和欲望"
-    },
-    {
-      "phrase": "cooling-off period",
-      "zh": "冷静期"
-    },
-    {
-      "phrase": "value over status",
-      "zh": "价值重于地位"
-    },
-    {
-      "phrase": "financial stability",
-      "zh": "财务稳定"
-    },
-    {
-      "phrase": "social approval",
-      "zh": "社会认可"
-    },
-    {
-      "phrase": "self-worth",
-      "zh": "自我价值"
-    },
-    {
-      "phrase": "materialism",
-      "zh": "物质主义"
-    },
-    {
-      "phrase": "essential life skills",
-      "zh": "基本生活技能"
-    },
-    {
-      "phrase": "chasing trends",
-      "zh": "追逐潮流"
-    },
-    {
-      "phrase": "unnecessary spending",
-      "zh": "不必要的消费"
-    },
-    {
-      "phrase": "smart consumption",
-      "zh": "精明的消费"
-    }
-  ],
-  "gaps": [
-    "The Drive doc (Finance 01) has no exam question, no Question Analysis table and no Exam Version, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
-    "The Finance & Consumerism folder has no essay in the Question Analysis format; weeks 5, 16, 27 and 38 use its four essays in the order Finance 01, Teenagers and Money (Article 07), Managing Pocket Money, Beware When Spending.",
-    "Only 'differentiate between needs and wants' (a similar phrase to the week word 'distinguish between needs and wants') appears in the essay's own table; all 10 examples come from the Finance & Consumerism theme pack (Universal phrases, Universal answer F2 and the Universal opening).",
-    "The watermarked pack PDF is scrambled: the sentences for 'go on a shopping spree', 'keep track of spending' and 'distinguish between needs and wants' were rebuilt from the scrambled text of Universal phrases 3 to 6. Please check them.",
-    "points written by Claude from the essay (unchecked)",
-    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)"
-  ]
+  {
+   "code": "C2",
+   "text": "Explain the disadvantages of buying unnecessary items"
+  },
+  {
+   "code": "C3",
+   "text": "Suggest ways to become a smart consumer"
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [
+  4
+ ],
+ "words": [
+  {
+   "word": "conveniently located",
+   "zh": "位置便利",
+   "example": "The mall is conveniently located near the LRT station.",
+   "level": "B2"
+  },
+  {
+   "word": "easily accessible by public transport",
+   "zh": "搭公共交通很方 便",
+   "example": "h s It is easily accessible by public transport.",
+   "level": "B2"
+  },
+  {
+   "word": "with ample parking space",
+   "zh": "停车位充足",
+   "example": "It has ample parking space for visitors.",
+   "level": "B2"
+  },
+  {
+   "word": "spend impulsively",
+   "zh": "冲动消费",
+   "example": "Many pupils spend impulsively on trendy items.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "financial security",
+   "zh": "经济保障",
+   "example": "Saving money gives us financial security.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "unnecessary expenses",
+   "zh": "不必要的开销",
+   "example": "This is because writing down every purchase shows exactly where our money goes and reveals unnecessary expenses.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "financial literacy",
+   "zh": "金融素养",
+   "example": "Financial literacy is a vital life skill.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "splurge on",
+   "zh": "挥霍在……上",
+   "example": "Instead of splurging on branded shoes, she saved her pocket money for the school trip.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "a popular shopping destination",
+   "zh": "热门购物目的地",
+   "example": "It is a popular shopping destination in Seremban.",
+   "level": "C1"
+  },
+  {
+   "word": "situated in the heart of",
+   "zh": "位于……的中心",
+   "example": "The mall is situated in the heart of the town.",
+   "level": "C1"
+  },
+  {
+   "word": "cater to all age groups",
+   "zh": "迎合所有年龄层",
+   "example": "The facilities cater to all age groups.",
+   "level": "C1"
+  },
+  {
+   "word": "avoid the weekend crowd",
+   "zh": "避开周末人潮",
+   "example": "I suggest going on weekdays to avoid the weekend crowd.",
+   "level": "C1"
+  },
+  {
+   "word": "exceed my expectations",
+   "zh": "超出我的期望",
+   "example": "The mall exceeded my expectations.",
+   "level": "C1"
+  },
+  {
+   "word": "with the aim of",
+   "zh": "目的是",
+   "example": "The survey was done with the aim of understanding their spending habits.",
+   "level": "C1"
+  },
+  {
+   "word": "gain insight into",
+   "zh": "深入了解",
+   "example": "We wanted to gain insight into how pupils use their money.",
+   "level": "C1"
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "easily influenced",
+   "zh": "容易受影响的"
+  },
+  {
+   "phrase": "quick rush",
+   "zh": "快速的冲动/激增"
+  },
+  {
+   "phrase": "showy extra",
+   "zh": "炫耀的附加品"
+  },
+  {
+   "phrase": "always wanting more",
+   "zh": "总是想要更多"
+  },
+  {
+   "phrase": "careful habits",
+   "zh": "谨慎的习惯"
+  },
+  {
+   "phrase": "saving money instead of following fashion",
+   "zh": "节约而非跟随潮流"
+  },
+  {
+   "phrase": "luxurious lifestyle",
+   "zh": "奢华的生活方式"
+  },
+  {
+   "phrase": "financial strain",
+   "zh": "财务紧张/负担"
+  },
+  {
+   "phrase": "depletes savings",
+   "zh": "耗尽储蓄"
+  },
+  {
+   "phrase": "differentiate between needs and wants",
+   "zh": "区分需求和欲望"
+  },
+  {
+   "phrase": "cooling-off period",
+   "zh": "冷静期"
+  },
+  {
+   "phrase": "value over status",
+   "zh": "价值重于地位"
+  },
+  {
+   "phrase": "financial stability",
+   "zh": "财务稳定"
+  },
+  {
+   "phrase": "social approval",
+   "zh": "社会认可"
+  },
+  {
+   "phrase": "self-worth",
+   "zh": "自我价值"
+  },
+  {
+   "phrase": "materialism",
+   "zh": "物质主义"
+  },
+  {
+   "phrase": "essential life skills",
+   "zh": "基本生活技能"
+  },
+  {
+   "phrase": "chasing trends",
+   "zh": "追逐潮流"
+  },
+  {
+   "phrase": "unnecessary spending",
+   "zh": "不必要的消费"
+  },
+  {
+   "phrase": "smart consumption",
+   "zh": "精明的消费"
+  }
+ ],
+ "gaps": [
+  "The Drive doc (Finance 01) has no exam question, no Question Analysis table and no Exam Version, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
+  "The Finance & Consumerism folder has no essay in the Question Analysis format; weeks 5, 16, 27 and 38 use its four essays in the order Finance 01, Teenagers and Money (Article 07), Managing Pocket Money, Beware When Spending.",
+  "Only 'differentiate between needs and wants' (a similar phrase to the week word 'distinguish between needs and wants') appears in the essay's own table; all 10 examples come from the Finance & Consumerism theme pack (Universal phrases, Universal answer F2 and the Universal opening).",
+  "The watermarked pack PDF is scrambled: the sentences for 'go on a shopping spree', 'keep track of spending' and 'distinguish between needs and wants' were rebuilt from the scrambled text of Universal phrases 3 to 6. Please check them.",
+  "points written by Claude from the essay (unchecked)",
+  "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+  "Example sentence for a word with no sentence in the documents was written by Claude (27 Nov 2026, Gary's instruction), unchecked."
+ ]
 }

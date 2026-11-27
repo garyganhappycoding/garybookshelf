@@ -1,201 +1,202 @@
 {
-  "n": 31,
-  "lang": "bi",
-  "theme": "Review",
-  "level": "C1",
-  "essayTitle": "Senawang Grand Mall: A Shopper's Paradise",
-  "source": "SPM 2026 Trial · Negeri Sembilan · English Paper 2 · Part 3 Q4 · Review, 200–250 words",
-  "essayUrl": "https://docs.google.com/document/d/1kC7T4wSkSqMmWMC-Fbg_XSbTvBxHF3AFctRhj1u5cAI/edit",
-  "paragraphs": [
-    "Are you looking for the perfect place to spend your weekend? Last Saturday, I visited a shopping mall that exceeded all my expectations, and here is my honest review.",
-    "The name of the shopping mall is Senawang Grand Mall. It is located just off the main highway in Senawang, Negeri Sembilan, which makes it easily accessible by car and bus. Ample parking spaces are available for visitors.",
-    "The mall offers a wide range of facilities for shoppers of all ages. Apart from more than 200 retail outlets, there is a cinema, a bowling alley and a spacious food court serving local and international cuisine. Young children will love the indoor playground. Furthermore, the services provided are excellent. The friendly customer service counter offers free wheelchairs and baby strollers, and the toilets are spotlessly clean.",
-    "I would definitely recommend this shopping mall to others. Firstly, it is a one-stop centre where families can shop, dine and be entertained under one roof. Secondly, it frequently holds attractive promotions during festive seasons. Shoppers can enjoy great bargains without breaking the bank.",
-    "In a nutshell, Senawang Grand Mall is a shopper's paradise that caters to every need. If you have not visited it yet, it is high time you did!"
-  ],
-  "points": [
-    {
-      "code": "C1",
-      "text": "State the name of the shopping mall"
-    },
-    {
-      "code": "C2",
-      "text": "State the location of the shopping mall"
-    },
-    {
-      "code": "C3",
-      "text": "Tell us about the facilities"
-    },
-    {
-      "code": "C4",
-      "text": "Tell us about the services"
-    },
-    {
-      "code": "C5",
-      "text": "Would you recommend it to others? Why? – reason 1"
-    },
-    {
-      "code": "C6",
-      "text": "Why? – reason 2"
-    }
-  ],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 2,
-    "prompt": "Tell us about the facilities"
+ "n": 31,
+ "lang": "bi",
+ "theme": "Review",
+ "level": "C1",
+ "essayTitle": "Senawang Grand Mall: A Shopper's Paradise",
+ "source": "SPM 2026 Trial · Negeri Sembilan · English Paper 2 · Part 3 Q4 · Review, 200–250 words",
+ "essayUrl": "https://docs.google.com/document/d/1kC7T4wSkSqMmWMC-Fbg_XSbTvBxHF3AFctRhj1u5cAI/edit",
+ "paragraphs": [
+  "Are you looking for the perfect place to spend your weekend? Last Saturday, I visited a shopping mall that exceeded all my expectations, and here is my honest review.",
+  "The name of the shopping mall is Senawang Grand Mall. It is located just off the main highway in Senawang, Negeri Sembilan, which makes it easily accessible by car and bus. Ample parking spaces are available for visitors.",
+  "The mall offers a wide range of facilities for shoppers of all ages. Apart from more than 200 retail outlets, there is a cinema, a bowling alley and a spacious food court serving local and international cuisine. Young children will love the indoor playground. Furthermore, the services provided are excellent. The friendly customer service counter offers free wheelchairs and baby strollers, and the toilets are spotlessly clean.",
+  "I would definitely recommend this shopping mall to others. Firstly, it is a one-stop centre where families can shop, dine and be entertained under one roof. Secondly, it frequently holds attractive promotions during festive seasons. Shoppers can enjoy great bargains without breaking the bank.",
+  "In a nutshell, Senawang Grand Mall is a shopper's paradise that caters to every need. If you have not visited it yet, it is high time you did!"
+ ],
+ "points": [
+  {
+   "code": "C1",
+   "text": "State the name of the shopping mall"
   },
-  "closingIdx": [
-    4
-  ],
-  "words": [
-    {
-      "word": "generous portions",
-      "zh": "分量十足",
-      "example": "s The stall serves generous portions at a low price.",
-      "level": "B2"
-    },
-    {
-      "word": "reasonably priced",
-      "zh": "b 价格合理",
-      "example": "The food is reasonably priced for students.",
-      "level": "B2"
-    },
-    {
-      "word": "highly recommend",
-      "zh": "强烈推荐",
-      "example": "I highly recommend this dish to everyone.",
-      "level": "B2"
-    },
-    {
-      "word": "vivid illustrations",
-      "zh": "生动的插图",
-      "example": "The vivid illustrations bring the story to life.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "get overcrowded",
-      "zh": "变得过于拥挤",
-      "example": null,
-      "level": "B2 to C1"
-    },
-    {
-      "word": "mouth-watering",
-      "zh": "令人垂涎的",
-      "example": "The smell of grilled satay was mouth-watering.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "an electrifying atmosphere",
-      "zh": "令人兴奋的气氛",
-      "example": "The hall had an electrifying atmosphere.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "receive a standing ovation",
-      "zh": "b 获得全场起立鼓 掌",
-      "example": "The performers received a standing ovation.",
-      "level": "B2 to C1"
-    },
-    {
-      "word": "appeal to all ages",
-      "zh": "适合所有年龄",
-      "example": "The show appeals to all ages.",
-      "level": "C1"
-    },
-    {
-      "word": "an enriching experience",
-      "zh": "b 丰富的体验",
-      "example": "It is an enriching experience for everyone.",
-      "level": "C1"
-    },
-    {
-      "word": "with the purpose of",
-      "zh": "目的是",
-      "example": "We went there with the purpose of learning about animal care.",
-      "level": "C1"
-    },
-    {
-      "word": "a non-profit organisation",
-      "zh": "非营利组织",
-      "example": "h The shelter is run by a non-profti organisation.",
-      "level": "C1"
-    },
-    {
-      "word": "raise awareness about",
-      "zh": "提高对……的意 识",
-      "example": "The trip raised our awareness about animal welfare.",
-      "level": "C1"
-    },
-    {
-      "word": "gain a new respect for",
-      "zh": "b 对……有了新的 敬意",
-      "example": "I gained a new respect for the volunteers.",
-      "level": "C1"
-    },
-    {
-      "word": "commend the staff",
-      "zh": "称赞员工",
-      "example": "I commend the staff for their dedication.",
-      "level": "C1"
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "exceeded all my expectations",
-      "zh": "超出了我所有的期望"
-    },
-    {
-      "phrase": "accessible",
-      "zh": "交通便利的"
-    },
-    {
-      "phrase": "ample",
-      "zh": "充足的"
-    },
-    {
-      "phrase": "spotlessly clean",
-      "zh": "一尘不染"
-    },
-    {
-      "phrase": "caters to every need",
-      "zh": "满足各种需求"
-    },
-    {
-      "phrase": "it is high time",
-      "zh": "是时候……了"
-    },
-    {
-      "phrase": "retail outlets",
-      "zh": "零售商店"
-    },
-    {
-      "phrase": "cuisine",
-      "zh": "菜肴；料理"
-    },
-    {
-      "phrase": "one-stop centre",
-      "zh": "一站式中心"
-    },
-    {
-      "phrase": "under one roof",
-      "zh": "在同一屋檐下；一处就能"
-    },
-    {
-      "phrase": "without breaking the bank",
-      "zh": "不花大钱"
-    }
-  ],
-  "gaps": [
-    "No example sentence found for: 'a local speciality', 'a blend of spices', 'make a special trip' (in the Review pack these sentences were scrambled, so they were not copied).",
-    "All examples come from the Review pack, not from the essay: 'make up for' (RV9 answer), 'friendly and attentive' (Q5 Relaxing Getaway table), 'mouth-watering', 'authentic flavour', 'tantalise the taste buds', 'pique my curiosity', 'well worth a visit' (Q1 Popular Food table).",
-    "goodPhrases: the row 'stationed' is marked (Extended) and was left out.",
-    "Example for 'a local speciality' filled later from the Review theme pack (cleaned text).",
-    "Example for 'a blend of spices' filled later from the Review theme pack (cleaned text); form differs: 'a perfect blend of spices'.",
-    "Example for 'make a special trip' filled later from the Review theme pack (cleaned text); form differs: 'made'.",
-    "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
-    "Form 5: mid tier short: used a top word (an electrifying atmosphere)",
-    "Form 5: mid tier short: used a top word (receive a standing ovation)"
-  ]
+  {
+   "code": "C2",
+   "text": "State the location of the shopping mall"
+  },
+  {
+   "code": "C3",
+   "text": "Tell us about the facilities"
+  },
+  {
+   "code": "C4",
+   "text": "Tell us about the services"
+  },
+  {
+   "code": "C5",
+   "text": "Would you recommend it to others? Why? – reason 1"
+  },
+  {
+   "code": "C6",
+   "text": "Why? – reason 2"
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 2,
+  "prompt": "Tell us about the facilities"
+ },
+ "closingIdx": [
+  4
+ ],
+ "words": [
+  {
+   "word": "generous portions",
+   "zh": "分量十足",
+   "example": "s The stall serves generous portions at a low price.",
+   "level": "B2"
+  },
+  {
+   "word": "reasonably priced",
+   "zh": "b 价格合理",
+   "example": "The food is reasonably priced for students.",
+   "level": "B2"
+  },
+  {
+   "word": "highly recommend",
+   "zh": "强烈推荐",
+   "example": "I highly recommend this dish to everyone.",
+   "level": "B2"
+  },
+  {
+   "word": "vivid illustrations",
+   "zh": "生动的插图",
+   "example": "The vivid illustrations bring the story to life.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "get overcrowded",
+   "zh": "变得过于拥挤",
+   "example": "The food court tends to get overcrowded during lunch hour, so we had to wait for a table.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "mouth-watering",
+   "zh": "令人垂涎的",
+   "example": "The smell of grilled satay was mouth-watering.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "an electrifying atmosphere",
+   "zh": "令人兴奋的气氛",
+   "example": "The hall had an electrifying atmosphere.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "receive a standing ovation",
+   "zh": "b 获得全场起立鼓 掌",
+   "example": "The performers received a standing ovation.",
+   "level": "B2 to C1"
+  },
+  {
+   "word": "appeal to all ages",
+   "zh": "适合所有年龄",
+   "example": "The show appeals to all ages.",
+   "level": "C1"
+  },
+  {
+   "word": "an enriching experience",
+   "zh": "b 丰富的体验",
+   "example": "It is an enriching experience for everyone.",
+   "level": "C1"
+  },
+  {
+   "word": "with the purpose of",
+   "zh": "目的是",
+   "example": "We went there with the purpose of learning about animal care.",
+   "level": "C1"
+  },
+  {
+   "word": "a non-profit organisation",
+   "zh": "非营利组织",
+   "example": "h The shelter is run by a non-profti organisation.",
+   "level": "C1"
+  },
+  {
+   "word": "raise awareness about",
+   "zh": "提高对……的意 识",
+   "example": "The trip raised our awareness about animal welfare.",
+   "level": "C1"
+  },
+  {
+   "word": "gain a new respect for",
+   "zh": "b 对……有了新的 敬意",
+   "example": "I gained a new respect for the volunteers.",
+   "level": "C1"
+  },
+  {
+   "word": "commend the staff",
+   "zh": "称赞员工",
+   "example": "I commend the staff for their dedication.",
+   "level": "C1"
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "exceeded all my expectations",
+   "zh": "超出了我所有的期望"
+  },
+  {
+   "phrase": "accessible",
+   "zh": "交通便利的"
+  },
+  {
+   "phrase": "ample",
+   "zh": "充足的"
+  },
+  {
+   "phrase": "spotlessly clean",
+   "zh": "一尘不染"
+  },
+  {
+   "phrase": "caters to every need",
+   "zh": "满足各种需求"
+  },
+  {
+   "phrase": "it is high time",
+   "zh": "是时候……了"
+  },
+  {
+   "phrase": "retail outlets",
+   "zh": "零售商店"
+  },
+  {
+   "phrase": "cuisine",
+   "zh": "菜肴；料理"
+  },
+  {
+   "phrase": "one-stop centre",
+   "zh": "一站式中心"
+  },
+  {
+   "phrase": "under one roof",
+   "zh": "在同一屋檐下；一处就能"
+  },
+  {
+   "phrase": "without breaking the bank",
+   "zh": "不花大钱"
+  }
+ ],
+ "gaps": [
+  "No example sentence found for: 'a local speciality', 'a blend of spices', 'make a special trip' (in the Review pack these sentences were scrambled, so they were not copied).",
+  "All examples come from the Review pack, not from the essay: 'make up for' (RV9 answer), 'friendly and attentive' (Q5 Relaxing Getaway table), 'mouth-watering', 'authentic flavour', 'tantalise the taste buds', 'pique my curiosity', 'well worth a visit' (Q1 Popular Food table).",
+  "goodPhrases: the row 'stationed' is marked (Extended) and was left out.",
+  "Example for 'a local speciality' filled later from the Review theme pack (cleaned text).",
+  "Example for 'a blend of spices' filled later from the Review theme pack (cleaned text); form differs: 'a perfect blend of spices'.",
+  "Example for 'make a special trip' filled later from the Review theme pack (cleaned text); form differs: 'made'.",
+  "Form 5: 15 words, ratio B2 : B2 to C1 : C1 about 2:3:5 (middle tier = C1-tagged phrases of 1 to 2 words, top tier = C1-tagged phrases of 3 or more words; the packs only tag B2 or C1)",
+  "Form 5: mid tier short: used a top word (an electrifying atmosphere)",
+  "Form 5: mid tier short: used a top word (receive a standing ovation)",
+  "Example sentence for a word with no sentence in the documents was written by Claude (27 Nov 2026, Gary's instruction), unchecked."
+ ]
 }

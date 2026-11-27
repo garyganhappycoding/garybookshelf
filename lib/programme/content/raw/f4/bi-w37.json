@@ -1,185 +1,186 @@
 {
-  "n": 37,
-  "lang": "bi",
-  "theme": "School & Education",
-  "level": "C1",
-  "essayTitle": "The Problem of Bullying in Schools",
-  "source": "SPM Essay (older format, no trial paper named) · Essay on bullying in schools",
-  "essayUrl": "https://drive.google.com/file/d/1EaRkoMtrDx0h_FX8_4btvKB1aDZVX5-D/view",
-  "paragraphs": [
-    "Bullying in schools is a serious issue that affects students' well-being and academic performance. In my area, bullying is a significant concern that many students face, whether it occurs in the classroom, on the playground, or online. It can lead to severe emotional and psychological consequences for the victims, impacting their self-esteem and overall mental health. Therefore, addressing this problem is crucial for creating a safe and supportive learning environment.",
-    "To prevent bullying in schools, a comprehensive approach is necessary. First, schools should implement anti-bullying policies that clearly define what constitutes bullying and the consequences for such behavior. Teachers and staff must be trained to recognize signs of bullying and intervene promptly. Creating a supportive atmosphere where students feel safe to report bullying is essential. Encouraging open communication between students and teachers can help build trust and allow victims to speak out without fear of retaliation.",
-    "Another effective strategy is to promote empathy and kindness through educational programs. Workshops and discussions can help students understand the impact of their actions and the importance of treating others with respect. Engaging students in team-building activities can also foster friendships and create a sense of belonging, reducing the likelihood of bullying.",
-    "Moreover, involving parents in the conversation about bullying is crucial. Schools can organize seminars or distribute materials that educate parents on how to recognize signs of bullying and support their children. Building a strong partnership between parents, teachers, and students can help create a united front against bullying.",
-    "In conclusion, bullying in schools is a serious problem that requires immediate attention and action. By implementing effective policies, promoting empathy, and involving parents, we can work together to create a safe and inclusive environment for all students."
-  ],
-  "points": [
-    {
-      "code": "C1",
-      "text": "Describe the problem of bullying and its effects on students"
-    },
-    {
-      "code": "C2",
-      "text": "Suggest how schools can prevent bullying (policies and trained staff)"
-    },
-    {
-      "code": "C3",
-      "text": "Suggest promoting empathy and kindness through educational programmes"
-    },
-    {
-      "code": "C4",
-      "text": "Suggest involving parents in tackling bullying"
-    }
-  ],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 37,
+ "lang": "bi",
+ "theme": "School & Education",
+ "level": "C1",
+ "essayTitle": "The Problem of Bullying in Schools",
+ "source": "SPM Essay (older format, no trial paper named) · Essay on bullying in schools",
+ "essayUrl": "https://drive.google.com/file/d/1EaRkoMtrDx0h_FX8_4btvKB1aDZVX5-D/view",
+ "paragraphs": [
+  "Bullying in schools is a serious issue that affects students' well-being and academic performance. In my area, bullying is a significant concern that many students face, whether it occurs in the classroom, on the playground, or online. It can lead to severe emotional and psychological consequences for the victims, impacting their self-esteem and overall mental health. Therefore, addressing this problem is crucial for creating a safe and supportive learning environment.",
+  "To prevent bullying in schools, a comprehensive approach is necessary. First, schools should implement anti-bullying policies that clearly define what constitutes bullying and the consequences for such behavior. Teachers and staff must be trained to recognize signs of bullying and intervene promptly. Creating a supportive atmosphere where students feel safe to report bullying is essential. Encouraging open communication between students and teachers can help build trust and allow victims to speak out without fear of retaliation.",
+  "Another effective strategy is to promote empathy and kindness through educational programs. Workshops and discussions can help students understand the impact of their actions and the importance of treating others with respect. Engaging students in team-building activities can also foster friendships and create a sense of belonging, reducing the likelihood of bullying.",
+  "Moreover, involving parents in the conversation about bullying is crucial. Schools can organize seminars or distribute materials that educate parents on how to recognize signs of bullying and support their children. Building a strong partnership between parents, teachers, and students can help create a united front against bullying.",
+  "In conclusion, bullying in schools is a serious problem that requires immediate attention and action. By implementing effective policies, promoting empathy, and involving parents, we can work together to create a safe and inclusive environment for all students."
+ ],
+ "points": [
+  {
+   "code": "C1",
+   "text": "Describe the problem of bullying and its effects on students"
   },
-  "closingIdx": [
-    4
-  ],
-  "words": [
-    {
-      "word": "make the most of time",
-      "zh": "充分利用时间",
-      "example": "As a result, I meet deadlines, avoid last-minute stress and make the most of my time."
-    },
-    {
-      "word": "exercise self-discipline",
-      "zh": "运用自律",
-      "example": "I exercise self-discipline during study time."
-    },
-    {
-      "word": "eliminate distractions",
-      "zh": "消除干扰",
-      "example": null
-    },
-    {
-      "word": "support and guidance",
-      "zh": "支持与指导",
-      "example": "Students need support and guidance from adults."
-    },
-    {
-      "word": "shape our character",
-      "zh": "塑造我们的品格",
-      "example": "This is because it shapes our character as well as our minds."
-    },
-    {
-      "word": "a major distraction",
-      "zh": "主要的干扰",
-      "example": "Social media is a major distraction for me."
-    },
-    {
-      "word": "a valuable supplement to schoolwork",
-      "zh": "学校功课的宝贵补充",
-      "example": "YouTube is a valuable supplement to schoolwork."
-    },
-    {
-      "word": "reinforce learning",
-      "zh": "巩固学习",
-      "example": "The quiz reinforced learning of key topics."
-    },
-    {
-      "word": "derive greater benefit",
-      "zh": "获得更大益处",
-      "example": "Students would derive greater benefit from a longer event."
-    },
-    {
-      "word": "unleash their creativity",
-      "zh": "释放创造力",
-      "example": "The workshop unleashed their creativity."
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "serious issue",
-      "zh": "严重的问题"
-    },
-    {
-      "phrase": "academic performance",
-      "zh": "学业表现"
-    },
-    {
-      "phrase": "emotional and psychological consequences",
-      "zh": "情感和心理后果"
-    },
-    {
-      "phrase": "self-esteem",
-      "zh": "自尊心"
-    },
-    {
-      "phrase": "supportive learning environment",
-      "zh": "支持性的学习环境"
-    },
-    {
-      "phrase": "comprehensive approach",
-      "zh": "全面的方法"
-    },
-    {
-      "phrase": "anti-bullying policies",
-      "zh": "反霸凌政策"
-    },
-    {
-      "phrase": "recognize signs of bullying",
-      "zh": "识别霸凌的迹象"
-    },
-    {
-      "phrase": "intervene promptly",
-      "zh": "及时干预"
-    },
-    {
-      "phrase": "open communication",
-      "zh": "开放的沟通"
-    },
-    {
-      "phrase": "speak out without fear of retaliation",
-      "zh": "无惧报复地表达"
-    },
-    {
-      "phrase": "promote empathy and kindness",
-      "zh": "弘扬同理心与善良"
-    },
-    {
-      "phrase": "educational programs",
-      "zh": "教育项目"
-    },
-    {
-      "phrase": "treat others with respect",
-      "zh": "尊重他人"
-    },
-    {
-      "phrase": "team-building activities",
-      "zh": "团队建设活动"
-    },
-    {
-      "phrase": "sense of belonging",
-      "zh": "归属感"
-    },
-    {
-      "phrase": "involving parents",
-      "zh": "让家长参与"
-    },
-    {
-      "phrase": "recognize signs",
-      "zh": "识别迹象"
-    },
-    {
-      "phrase": "united front",
-      "zh": "团结一致"
-    },
-    {
-      "phrase": "inclusive environment",
-      "zh": "包容性的环境"
-    }
-  ],
-  "gaps": [
-    "'eliminate distractions' has no example sentence: it appears in the School & Education theme pack only as a key word of answer S8, whose model paragraph is scrambled in the watermarked PDF.",
-    "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
-    "None of the 10 words appears in this essay's vocabulary table; examples come from the School & Education theme pack (Universal answers S7, S9, S11 and trial-paper example sentences). 'reinforce learning' uses the pack's sentence with 'reinforced'; 'shape our character' uses 'shapes'.",
-    "The essay's 'Part 3' Beautiful Sentences table is cut off in the Drive text (last row ends mid-sentence); it is not used here.",
-    "points written by Claude from the essay (unchecked)"
-  ]
+  {
+   "code": "C2",
+   "text": "Suggest how schools can prevent bullying (policies and trained staff)"
+  },
+  {
+   "code": "C3",
+   "text": "Suggest promoting empathy and kindness through educational programmes"
+  },
+  {
+   "code": "C4",
+   "text": "Suggest involving parents in tackling bullying"
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [
+  4
+ ],
+ "words": [
+  {
+   "word": "make the most of time",
+   "zh": "充分利用时间",
+   "example": "As a result, I meet deadlines, avoid last-minute stress and make the most of my time."
+  },
+  {
+   "word": "exercise self-discipline",
+   "zh": "运用自律",
+   "example": "I exercise self-discipline during study time."
+  },
+  {
+   "word": "eliminate distractions",
+   "zh": "消除干扰",
+   "example": "Putting your phone in another room helps you eliminate distractions while you study."
+  },
+  {
+   "word": "support and guidance",
+   "zh": "支持与指导",
+   "example": "Students need support and guidance from adults."
+  },
+  {
+   "word": "shape our character",
+   "zh": "塑造我们的品格",
+   "example": "This is because it shapes our character as well as our minds."
+  },
+  {
+   "word": "a major distraction",
+   "zh": "主要的干扰",
+   "example": "Social media is a major distraction for me."
+  },
+  {
+   "word": "a valuable supplement to schoolwork",
+   "zh": "学校功课的宝贵补充",
+   "example": "YouTube is a valuable supplement to schoolwork."
+  },
+  {
+   "word": "reinforce learning",
+   "zh": "巩固学习",
+   "example": "The quiz reinforced learning of key topics."
+  },
+  {
+   "word": "derive greater benefit",
+   "zh": "获得更大益处",
+   "example": "Students would derive greater benefit from a longer event."
+  },
+  {
+   "word": "unleash their creativity",
+   "zh": "释放创造力",
+   "example": "The workshop unleashed their creativity."
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "serious issue",
+   "zh": "严重的问题"
+  },
+  {
+   "phrase": "academic performance",
+   "zh": "学业表现"
+  },
+  {
+   "phrase": "emotional and psychological consequences",
+   "zh": "情感和心理后果"
+  },
+  {
+   "phrase": "self-esteem",
+   "zh": "自尊心"
+  },
+  {
+   "phrase": "supportive learning environment",
+   "zh": "支持性的学习环境"
+  },
+  {
+   "phrase": "comprehensive approach",
+   "zh": "全面的方法"
+  },
+  {
+   "phrase": "anti-bullying policies",
+   "zh": "反霸凌政策"
+  },
+  {
+   "phrase": "recognize signs of bullying",
+   "zh": "识别霸凌的迹象"
+  },
+  {
+   "phrase": "intervene promptly",
+   "zh": "及时干预"
+  },
+  {
+   "phrase": "open communication",
+   "zh": "开放的沟通"
+  },
+  {
+   "phrase": "speak out without fear of retaliation",
+   "zh": "无惧报复地表达"
+  },
+  {
+   "phrase": "promote empathy and kindness",
+   "zh": "弘扬同理心与善良"
+  },
+  {
+   "phrase": "educational programs",
+   "zh": "教育项目"
+  },
+  {
+   "phrase": "treat others with respect",
+   "zh": "尊重他人"
+  },
+  {
+   "phrase": "team-building activities",
+   "zh": "团队建设活动"
+  },
+  {
+   "phrase": "sense of belonging",
+   "zh": "归属感"
+  },
+  {
+   "phrase": "involving parents",
+   "zh": "让家长参与"
+  },
+  {
+   "phrase": "recognize signs",
+   "zh": "识别迹象"
+  },
+  {
+   "phrase": "united front",
+   "zh": "团结一致"
+  },
+  {
+   "phrase": "inclusive environment",
+   "zh": "包容性的环境"
+  }
+ ],
+ "gaps": [
+  "'eliminate distractions' has no example sentence: it appears in the School & Education theme pack only as a key word of answer S8, whose model paragraph is scrambled in the watermarked PDF.",
+  "The essay is in Gary's older format: no Question Analysis table, no Exam Version, no exam paper named, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
+  "None of the 10 words appears in this essay's vocabulary table; examples come from the School & Education theme pack (Universal answers S7, S9, S11 and trial-paper example sentences). 'reinforce learning' uses the pack's sentence with 'reinforced'; 'shape our character' uses 'shapes'.",
+  "The essay's 'Part 3' Beautiful Sentences table is cut off in the Drive text (last row ends mid-sentence); it is not used here.",
+  "points written by Claude from the essay (unchecked)",
+  "Example sentence for a word with no sentence in the documents was written by Claude (27 Nov 2026, Gary's instruction), unchecked."
+ ]
 }

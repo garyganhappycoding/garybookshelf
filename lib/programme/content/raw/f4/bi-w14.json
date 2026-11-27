@@ -1,167 +1,168 @@
 {
-  "n": 14,
-  "lang": "bi",
-  "theme": "Health & Sports",
-  "level": "B2 to C1",
-  "essayTitle": "Addressing the Stress Epidemic Among Teenagers",
-  "source": "Study bundle · Health 01 · Managing Teen Stress · Essay",
-  "essayUrl": "https://docs.google.com/document/d/1BNhI9NeZppoD-93xji7IZC_aXYyJNluVa4d4s925be0/edit",
-  "paragraphs": [
-    "Stress has become an unavoidable reality for many teenagers, often treated as a minor inconvenience rather than a serious issue. However, chronic stress can significantly impair academic performance and overall well-being. It is crucial to raise awareness about the various forms stress takes, its underlying causes, and practical methods students can use to mitigate its harmful effects.",
-    "There are generally two types of stress that affect students: Acute Stress and Chronic Stress. Acute stress is short-lived, triggered by immediate demands like an approaching due date or a sports competition, while Chronic stress is persistent and long-term, stemming from sustained difficult conditions. The main causes of stress among teenagers include intense academic pressure, specifically important final exams and overwhelming homework loads, which can lead to anxiety and burnout. Another major factor is social and familial friction, such as pressure to achieve unrealistic goals set by parents or navigating complex peer relationships and social media expectations. To manage this, students should adopt mindfulness and relaxation techniques, such as deep-breathing exercises or short meditation sessions, which can immediately calm the nervous system. Furthermore, setting healthy boundaries and priorities is essential, including dedicating time for physical activity and ensuring sufficient sleep to strengthen their mental resilience.",
-    "In conclusion, stress is a multi-faceted challenge that requires attention and proactive strategies. By recognizing the different types of stress, understanding the root causes in their lives, and actively implementing simple coping mechanisms, teenagers can transform their experience from one of overwhelming anxiety to one of measured self-control, ensuring they can thrive both academically and personally."
-  ],
-  "points": [
-    {
-      "code": "C1",
-      "text": "Explain the types of stress that affect students"
-    },
-    {
-      "code": "C2",
-      "text": "State the main causes of stress among teenagers"
-    },
-    {
-      "code": "C3",
-      "text": "Suggest ways to manage stress"
-    }
-  ],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 14,
+ "lang": "bi",
+ "theme": "Health & Sports",
+ "level": "B2 to C1",
+ "essayTitle": "Addressing the Stress Epidemic Among Teenagers",
+ "source": "Study bundle · Health 01 · Managing Teen Stress · Essay",
+ "essayUrl": "https://docs.google.com/document/d/1BNhI9NeZppoD-93xji7IZC_aXYyJNluVa4d4s925be0/edit",
+ "paragraphs": [
+  "Stress has become an unavoidable reality for many teenagers, often treated as a minor inconvenience rather than a serious issue. However, chronic stress can significantly impair academic performance and overall well-being. It is crucial to raise awareness about the various forms stress takes, its underlying causes, and practical methods students can use to mitigate its harmful effects.",
+  "There are generally two types of stress that affect students: Acute Stress and Chronic Stress. Acute stress is short-lived, triggered by immediate demands like an approaching due date or a sports competition, while Chronic stress is persistent and long-term, stemming from sustained difficult conditions. The main causes of stress among teenagers include intense academic pressure, specifically important final exams and overwhelming homework loads, which can lead to anxiety and burnout. Another major factor is social and familial friction, such as pressure to achieve unrealistic goals set by parents or navigating complex peer relationships and social media expectations. To manage this, students should adopt mindfulness and relaxation techniques, such as deep-breathing exercises or short meditation sessions, which can immediately calm the nervous system. Furthermore, setting healthy boundaries and priorities is essential, including dedicating time for physical activity and ensuring sufficient sleep to strengthen their mental resilience.",
+  "In conclusion, stress is a multi-faceted challenge that requires attention and proactive strategies. By recognizing the different types of stress, understanding the root causes in their lives, and actively implementing simple coping mechanisms, teenagers can transform their experience from one of overwhelming anxiety to one of measured self-control, ensuring they can thrive both academically and personally."
+ ],
+ "points": [
+  {
+   "code": "C1",
+   "text": "Explain the types of stress that affect students"
   },
-  "closingIdx": [
-    2
-  ],
-  "words": [
-    {
-      "word": "relieve stress",
-      "zh": "缓解压力",
-      "example": "Exercise is a natural way to relieve stress."
-    },
-    {
-      "word": "cope with pressure",
-      "zh": "应对压力",
-      "example": "As a result, students sharpen their concentration and cope with exam pressure better."
-    },
-    {
-      "word": "lack of exercise",
-      "zh": "缺乏运动",
-      "example": null
-    },
-    {
-      "word": "glued to their phones",
-      "zh": "盯着手机不放",
-      "example": "This is because many spend hours glued to their phones instead of playing outdoors."
-    },
-    {
-      "word": "improve their fitness",
-      "zh": "改善体能",
-      "example": "They improve their fitness over time."
-    },
-    {
-      "word": "release endorphins",
-      "zh": "释放内啡肽",
-      "example": "This is because physical activity releases endorphins, which uplift our mood."
-    },
-    {
-      "word": "uplift our mood",
-      "zh": "提振我们的情绪",
-      "example": "This is because physical activity releases endorphins, which uplift our mood."
-    },
-    {
-      "word": "sharpen concentration",
-      "zh": "提高专注力",
-      "example": "As a result, students sharpen their concentration and cope with exam pressure better."
-    },
-    {
-      "word": "boost blood circulation",
-      "zh": "促进血液循环",
-      "example": "This is because physical activity boosts blood circulation and strengthens the heart."
-    },
-    {
-      "word": "build stamina",
-      "zh": "增强耐力",
-      "example": "For example, jogging three times a week builds stamina."
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "approaching due date",
-      "zh": "临近的截止日期"
-    },
-    {
-      "phrase": "important final exams",
-      "zh": "重要的期末考试"
-    },
-    {
-      "phrase": "strengthen",
-      "zh": "加强，巩固"
-    },
-    {
-      "phrase": "unavoidable reality",
-      "zh": "不可避免的现实"
-    },
-    {
-      "phrase": "impair academic performance",
-      "zh": "损害学业表现"
-    },
-    {
-      "phrase": "mitigate its harmful effects",
-      "zh": "减轻其有害影响"
-    },
-    {
-      "phrase": "Acute Stress",
-      "zh": "急性压力"
-    },
-    {
-      "phrase": "Chronic Stress",
-      "zh": "慢性压力"
-    },
-    {
-      "phrase": "intense academic pressure",
-      "zh": "巨大的学业压力"
-    },
-    {
-      "phrase": "social and familial friction",
-      "zh": "社交和家庭摩擦"
-    },
-    {
-      "phrase": "mindfulness and relaxation techniques",
-      "zh": "正念和放松技巧"
-    },
-    {
-      "phrase": "mental resilience",
-      "zh": "心理韧性"
-    },
-    {
-      "phrase": "multi-faceted challenge",
-      "zh": "多方面的挑战"
-    },
-    {
-      "phrase": "overwhelming anxiety",
-      "zh": "压倒性的焦虑"
-    },
-    {
-      "phrase": "measured self-control",
-      "zh": "有分寸的自我控制"
-    },
-    {
-      "phrase": "healthy boundaries",
-      "zh": "健康的界限"
-    },
-    {
-      "phrase": "proactive strategies",
-      "zh": "积极主动的策略"
-    }
-  ],
-  "gaps": [
-    "This essay is an older-format study bundle (Health 01): no question text, no Question Analysis table, no Exam/Extended versions, so points is empty and keyPoint.prompt is null. The essay's own (C1) to (C5) tags were removed from the text; the doc's bold vocabulary marks were removed too. goodPhrases are the rows of its 'Thematic Vocabulary & Phrases Table' (the doc has no 'Table 1').",
-    "The essay has only 3 paragraphs: the middle one holds all five content points, so keyPoint.idx is 1.",
-    "'lack of exercise': no sentence with the phrase in the pack or the essay, so example is null.",
-    "None of the 10 words is in the essay; the examples come from the Health & Sports pack's Universal answers (H1, H3, H4). 'cope with pressure' (answer has 'cope with exam pressure'), 'release endorphins' (answer has 'releases endorphins') and 'sharpen concentration' (answer has 'sharpen their concentration') are inflected or extended forms. 'improve their fitness' is the pack's trial-paper keyword sentence (section 4). 'release endorphins' and 'uplift our mood' share one sentence, and 'cope with pressure' and 'sharpen concentration' share one sentence.",
-    "points written by Claude from the essay (unchecked)"
-  ]
+  {
+   "code": "C2",
+   "text": "State the main causes of stress among teenagers"
+  },
+  {
+   "code": "C3",
+   "text": "Suggest ways to manage stress"
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [
+  2
+ ],
+ "words": [
+  {
+   "word": "relieve stress",
+   "zh": "缓解压力",
+   "example": "Exercise is a natural way to relieve stress."
+  },
+  {
+   "word": "cope with pressure",
+   "zh": "应对压力",
+   "example": "As a result, students sharpen their concentration and cope with exam pressure better."
+  },
+  {
+   "word": "lack of exercise",
+   "zh": "缺乏运动",
+   "example": "Lack of exercise is one of the main reasons why many teenagers become overweight."
+  },
+  {
+   "word": "glued to their phones",
+   "zh": "盯着手机不放",
+   "example": "This is because many spend hours glued to their phones instead of playing outdoors."
+  },
+  {
+   "word": "improve their fitness",
+   "zh": "改善体能",
+   "example": "They improve their fitness over time."
+  },
+  {
+   "word": "release endorphins",
+   "zh": "释放内啡肽",
+   "example": "This is because physical activity releases endorphins, which uplift our mood."
+  },
+  {
+   "word": "uplift our mood",
+   "zh": "提振我们的情绪",
+   "example": "This is because physical activity releases endorphins, which uplift our mood."
+  },
+  {
+   "word": "sharpen concentration",
+   "zh": "提高专注力",
+   "example": "As a result, students sharpen their concentration and cope with exam pressure better."
+  },
+  {
+   "word": "boost blood circulation",
+   "zh": "促进血液循环",
+   "example": "This is because physical activity boosts blood circulation and strengthens the heart."
+  },
+  {
+   "word": "build stamina",
+   "zh": "增强耐力",
+   "example": "For example, jogging three times a week builds stamina."
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "approaching due date",
+   "zh": "临近的截止日期"
+  },
+  {
+   "phrase": "important final exams",
+   "zh": "重要的期末考试"
+  },
+  {
+   "phrase": "strengthen",
+   "zh": "加强，巩固"
+  },
+  {
+   "phrase": "unavoidable reality",
+   "zh": "不可避免的现实"
+  },
+  {
+   "phrase": "impair academic performance",
+   "zh": "损害学业表现"
+  },
+  {
+   "phrase": "mitigate its harmful effects",
+   "zh": "减轻其有害影响"
+  },
+  {
+   "phrase": "Acute Stress",
+   "zh": "急性压力"
+  },
+  {
+   "phrase": "Chronic Stress",
+   "zh": "慢性压力"
+  },
+  {
+   "phrase": "intense academic pressure",
+   "zh": "巨大的学业压力"
+  },
+  {
+   "phrase": "social and familial friction",
+   "zh": "社交和家庭摩擦"
+  },
+  {
+   "phrase": "mindfulness and relaxation techniques",
+   "zh": "正念和放松技巧"
+  },
+  {
+   "phrase": "mental resilience",
+   "zh": "心理韧性"
+  },
+  {
+   "phrase": "multi-faceted challenge",
+   "zh": "多方面的挑战"
+  },
+  {
+   "phrase": "overwhelming anxiety",
+   "zh": "压倒性的焦虑"
+  },
+  {
+   "phrase": "measured self-control",
+   "zh": "有分寸的自我控制"
+  },
+  {
+   "phrase": "healthy boundaries",
+   "zh": "健康的界限"
+  },
+  {
+   "phrase": "proactive strategies",
+   "zh": "积极主动的策略"
+  }
+ ],
+ "gaps": [
+  "This essay is an older-format study bundle (Health 01): no question text, no Question Analysis table, no Exam/Extended versions, so points is empty and keyPoint.prompt is null. The essay's own (C1) to (C5) tags were removed from the text; the doc's bold vocabulary marks were removed too. goodPhrases are the rows of its 'Thematic Vocabulary & Phrases Table' (the doc has no 'Table 1').",
+  "The essay has only 3 paragraphs: the middle one holds all five content points, so keyPoint.idx is 1.",
+  "'lack of exercise': no sentence with the phrase in the pack or the essay, so example is null.",
+  "None of the 10 words is in the essay; the examples come from the Health & Sports pack's Universal answers (H1, H3, H4). 'cope with pressure' (answer has 'cope with exam pressure'), 'release endorphins' (answer has 'releases endorphins') and 'sharpen concentration' (answer has 'sharpen their concentration') are inflected or extended forms. 'improve their fitness' is the pack's trial-paper keyword sentence (section 4). 'release endorphins' and 'uplift our mood' share one sentence, and 'cope with pressure' and 'sharpen concentration' share one sentence.",
+  "points written by Claude from the essay (unchecked)",
+  "Example sentence for a word with no sentence in the documents was written by Claude (27 Nov 2026, Gary's instruction), unchecked."
+ ]
 }
