@@ -1,99 +1,105 @@
 {
-  "n": 36,
-  "lang": "bm",
-  "theme": "Keselamatan Jalan Raya",
-  "level": null,
-  "essayTitle": "Punca-Punca Kemalangan Jalan Raya dan Langkah Mengatasinya",
-  "source": null,
-  "essayUrl": "https://docs.google.com/document/d/1jYBcQmUdAGcS4jy3rUWv7JMeZwD3zoWGjkqNXMggrHE/edit",
-  "paragraphs": [
-    "Kes kemalangan di jalan raya di negara kita meningkat sebanyak 2.5% dari tahun 2018 ke 2019. tambahan pula, negeri yang mencatat jumlah kematian tertinggi akibat kemalangan jalan raya ialah negeri selangor. Keadaan ini bagai duri dalam daging dan amat membimbangkan masyarakat. Jadi, apakah punca-punca dan langkah-langkah harus diimplementasikan untuk mengatasi masalah ini sehingga pokok pangkal?",
-    "Yang pertamanya, kebanyakan kemalangan berlaku disebabkan kecuaian pemandu. Terdapat pemandu yang mengambil sikap acuh tak acuh apabila di jalan raya. Mereka memandu sambil menggunakan telefon bimbit dan melanggar peraturan yang ditetapkan. Terdapat juga pemandu yang terpaksa memandu dalam keadaan letih dan tidak dapat menumpukan fokus di jalan raya. Sebagai kesannya, kadar kemalangan meningkat secara mendadak.",
-    "Jadi, langkah yang perlu diimplementasikan ialah menjaga etika di jalan raya. Apabila etika di jalan raya tersemat dalam hati maka keselamatan diri dan pengguna lain di jalan raya terjamin. Sebagai contohnya, pejalan kaki perlu melihat kiri dan ke kanan serta tidak bermain-main sebelum melintas jalan. Tambahan pula, pejalan kaki perlu menggunakan laluan yang betul seperti lintasan belang. Yang terpentingnya, pembonceng motosikal perlu memakai topi keledar. Jadi, nahas di jalan raya dapat dielakkan.",
-    "Tuntasnya, keselamatan jalan raya ialah tanggungjawab semua pihak. Semua pengguna tidak kiralah agensi kerajaan atau rakyat jelata perlu mengutamakan aspek keselamatan ketika memandu atau berada di jalan raya. Dengan ini, tragedi jalan raya akan dikurangkan dan jalan raya negara kita tidak akan terkenal sebagai Pembunuh Nombor Satu sehingga menconteng arang ke muka negara."
-  ],
-  "points": [],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 36,
+ "lang": "bm",
+ "theme": "Keselamatan Jalan Raya",
+ "level": null,
+ "essayTitle": "Punca-Punca Kemalangan Jalan Raya dan Langkah Mengatasinya",
+ "source": null,
+ "essayUrl": "https://docs.google.com/document/d/1jYBcQmUdAGcS4jy3rUWv7JMeZwD3zoWGjkqNXMggrHE/edit",
+ "paragraphs": [
+  "Kes kemalangan di jalan raya di negara kita meningkat sebanyak 2.5% dari tahun 2018 ke 2019. tambahan pula, negeri yang mencatat jumlah kematian tertinggi akibat kemalangan jalan raya ialah negeri selangor. Keadaan ini bagai duri dalam daging dan amat membimbangkan masyarakat. Jadi, apakah punca-punca dan langkah-langkah harus diimplementasikan untuk mengatasi masalah ini sehingga pokok pangkal?",
+  "Yang pertamanya, kebanyakan kemalangan berlaku disebabkan kecuaian pemandu. Terdapat pemandu yang mengambil sikap acuh tak acuh apabila di jalan raya. Mereka memandu sambil menggunakan telefon bimbit dan melanggar peraturan yang ditetapkan. Terdapat juga pemandu yang terpaksa memandu dalam keadaan letih dan tidak dapat menumpukan fokus di jalan raya. Sebagai kesannya, kadar kemalangan meningkat secara mendadak.",
+  "Jadi, langkah yang perlu diimplementasikan ialah menjaga etika di jalan raya. Apabila etika di jalan raya tersemat dalam hati maka keselamatan diri dan pengguna lain di jalan raya terjamin. Sebagai contohnya, pejalan kaki perlu melihat kiri dan ke kanan serta tidak bermain-main sebelum melintas jalan. Tambahan pula, pejalan kaki perlu menggunakan laluan yang betul seperti lintasan belang. Yang terpentingnya, pembonceng motosikal perlu memakai topi keledar. Jadi, nahas di jalan raya dapat dielakkan.",
+  "Tuntasnya, keselamatan jalan raya ialah tanggungjawab semua pihak. Semua pengguna tidak kiralah agensi kerajaan atau rakyat jelata perlu mengutamakan aspek keselamatan ketika memandu atau berada di jalan raya. Dengan ini, tragedi jalan raya akan dikurangkan dan jalan raya negara kita tidak akan terkenal sebagai Pembunuh Nombor Satu sehingga menconteng arang ke muka negara."
+ ],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan punca-Punca Kemalangan Jalan Raya dan Langkah Mengatasinya."
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [
+  3
+ ],
+ "words": [
+  {
+   "word": "bagai melukut di tepi gantang",
+   "zh": "微不足道/无足轻重（被忽视）",
+   "example": "Yang pertamanya, pihak kerajaan tidak boleh mengabaikan masalah ini bagai melukut di tepi gantang."
   },
-  "closingIdx": [
-    3
-  ],
-  "words": [
-    {
-      "word": "bagai melukut di tepi gantang",
-      "zh": "微不足道/无足轻重（被忽视）",
-      "example": "Yang pertamanya, pihak kerajaan tidak boleh mengabaikan masalah ini bagai melukut di tepi gantang."
-    },
-    {
-      "word": "sesal dahulu pendapatan, sesal kemudian tidak berguna lagi",
-      "zh": "早知今日何必当初",
-      "example": "Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa \"sesal dahulu pendapatan, sesal kemudian tidak berguna lagi\" sebagai azimat untuk mengelakkan kemalangan."
-    },
-    {
-      "word": "berani bermaharajalela di jalan raya",
-      "zh": "在马路上横行霸道",
-      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
-    },
-    {
-      "word": "menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara",
-      "zh": "把马路当赛车场最终变成坟场",
-      "example": "Justifikasinya, JPJ berperanan penting untuk mengelakkan remaja menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara."
-    },
-    {
-      "word": "bagai enau dalam belukar melepaskan pucuk masing-masing",
-      "zh": "各顾各的，自私自利",
-      "example": "Sebagai contohnya, terdapat pemandu yang bersikap individualistik bagai enau dalam belukar melepaskan pucuk masing-masing menggunakan telefon bimbit semasa memandu kereta."
-    },
-    {
-      "word": "mengelakkan kemalangan",
-      "zh": "避免意外",
-      "example": "Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa \"sesal dahulu pendapatan, sesal kemudian tidak berguna lagi\" sebagai azimat untuk mengelakkan kemalangan."
-    },
-    {
-      "word": "mengetatkan syarat",
-      "zh": "收紧条件",
-      "example": "Selain itu, Jabatan Pengangkutan Jalan perlulah mengetatkan syarat memberikan lesen."
-    },
-    {
-      "word": "berjiwa panas",
-      "zh": "血气方刚",
-      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
-    },
-    {
-      "word": "mengawal tindakan diri",
-      "zh": "控制自己的行为",
-      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
-    },
-    {
-      "word": "membahayakan nyawa",
-      "zh": "危及生命",
-      "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "bagai duri dalam daging",
-      "zh": "如芒刺在背，心头大患"
-    },
-    {
-      "phrase": "sehingga pokok pangkal",
-      "zh": "彻底根治，追根究底"
-    },
-    {
-      "phrase": "terkenal sebagai Pembunuh Nombor Satu",
-      "zh": "被称为头号杀手"
-    },
-    {
-      "phrase": "menconteng arang ke muka negara",
-      "zh": "让国家蒙羞"
-    }
-  ],
-  "gaps": [
-    "Essay used is the 2nd Keselamatan Jalan Raya essay (Punca-Punca Kemalangan...); all 10 words come from the 1st essay's tables (Peranan Menangani...), so their example sentences are copied from that essay's Table 1/2 ayat column."
-  ]
+  {
+   "word": "sesal dahulu pendapatan, sesal kemudian tidak berguna lagi",
+   "zh": "早知今日何必当初",
+   "example": "Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa \"sesal dahulu pendapatan, sesal kemudian tidak berguna lagi\" sebagai azimat untuk mengelakkan kemalangan."
+  },
+  {
+   "word": "berani bermaharajalela di jalan raya",
+   "zh": "在马路上横行霸道",
+   "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
+  },
+  {
+   "word": "menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara",
+   "zh": "把马路当赛车场最终变成坟场",
+   "example": "Justifikasinya, JPJ berperanan penting untuk mengelakkan remaja menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara."
+  },
+  {
+   "word": "bagai enau dalam belukar melepaskan pucuk masing-masing",
+   "zh": "各顾各的，自私自利",
+   "example": "Sebagai contohnya, terdapat pemandu yang bersikap individualistik bagai enau dalam belukar melepaskan pucuk masing-masing menggunakan telefon bimbit semasa memandu kereta."
+  },
+  {
+   "word": "mengelakkan kemalangan",
+   "zh": "避免意外",
+   "example": "Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa \"sesal dahulu pendapatan, sesal kemudian tidak berguna lagi\" sebagai azimat untuk mengelakkan kemalangan."
+  },
+  {
+   "word": "mengetatkan syarat",
+   "zh": "收紧条件",
+   "example": "Selain itu, Jabatan Pengangkutan Jalan perlulah mengetatkan syarat memberikan lesen."
+  },
+  {
+   "word": "berjiwa panas",
+   "zh": "血气方刚",
+   "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
+  },
+  {
+   "word": "mengawal tindakan diri",
+   "zh": "控制自己的行为",
+   "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
+  },
+  {
+   "word": "membahayakan nyawa",
+   "zh": "危及生命",
+   "example": "Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa."
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "bagai duri dalam daging",
+   "zh": "如芒刺在背，心头大患"
+  },
+  {
+   "phrase": "sehingga pokok pangkal",
+   "zh": "彻底根治，追根究底"
+  },
+  {
+   "phrase": "terkenal sebagai Pembunuh Nombor Satu",
+   "zh": "被称为头号杀手"
+  },
+  {
+   "phrase": "menconteng arang ke muka negara",
+   "zh": "让国家蒙羞"
+  }
+ ],
+ "gaps": [
+  "Essay used is the 2nd Keselamatan Jalan Raya essay (Punca-Punca Kemalangan...); all 10 words come from the 1st essay's tables (Peranan Menangani...), so their example sentences are copied from that essay's Table 1/2 ayat column.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+ ]
 }

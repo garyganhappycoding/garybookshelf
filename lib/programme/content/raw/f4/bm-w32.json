@@ -13,7 +13,12 @@
   "Bukan itu sahaja, pelajar-pelajar juga mudah terpengaruh oleh gaya hidup moden. Pada era ledakan teknologi, maklumat dan komunikasi (TMK) ini, media sosial telah menjadi barang keperluan dalam kehidupan golongan murid. Oleh itu, tidak hairanlah remaja sering terdedah kepada penggunaan teknologi yang berlebihan. Sebagai tamsilannya, golongan pelajar yang sering leka dalam media sosial akan berasa kekok apabila berinteraksi secara bersemuka dengan orang lain pada dunia realiti akibat kekurangan interaksi sosial secara langsung. Implikasinya, golongan pelajar yang sering merendamkan diri dalam alam maya akan berasa resah dan gelisah apabila perlu bersosial dan berkomunikasi dalam dunia realiti sehingga menghidap kemurungan. Jelaslah bahawa golongan pelajar yang beriman rapuh mudah terpengaruh oleh gaya hidup moden.",
   "Konklusinya, masalah kesihatan mental sudah tidak asing kedengaran dalam kalangan murid mahupun telah mengundang padah dan musibah yang serius. Oleh itu, setiap strata masyarakat haruslah berkolaboratif bagai aur dengan tebing untuk mengatasi masalah kesihatan mental. Seseorang yang dihidapi masalah kesihatan mental haruslah bercakap dan berkongsi perasaan dengan orang yang dipercayai agar stres dapat diringankan apabila meluahkan isi hati. Tambahan pula, kita harus meminta bantuan profesional daripada pegawai kesihatan atau doktor kerana terdapat rawatan psikologi yang betul dan penawar yang mujarab. Dengan adanya kerjasama secara kolektif daripada setiap pihak, nescaya mangsa yang terbelenggu oleh masalah kesihatan mental dapat diselamatkan. Dengan kesihatan yang baik, nescaya bunga-bunga kerukunan dan keamanan akan tercapai."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan faktor-faktor Masalah Kesihatan Mental."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -128,6 +133,7 @@
  ],
  "gaps": [
   "The essay text contains Gary's own inline Chinese notes (e.g. 失败, 识字率) and a sentence fragment 'kudis死皮 ... tokak 侬'; copied exactly as in the doc.",
-  "Essay replaced on 27 Nov 2026 (new essay in Gary's Kebersihan dan Kesihatan folder); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 (new essay in Gary's Kebersihan dan Kesihatan folder); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

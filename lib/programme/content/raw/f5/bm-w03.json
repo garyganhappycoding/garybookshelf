@@ -13,7 +13,12 @@
   "Seterusnya, kebersihan seseorang penting agar kita dihormati oleh masyarakat. Hal ini berlaku seorang yang bersih akan menonjolkan imej yang baik dan bersih. Biar kita ambil contoh, seseorang yang berkemeja putih lengan panjang, seluar slack panjang dan blazer hitam untuk bekerja berbanding dengan seorang yang memakai baju tidak formal seperti baju T dan seluar pendek. Adakah anda menghormati orang pertama atau orang kedua? Sudah semestinya jawapan tersebut ialah orang pertama. Sebagai implikasinya, seorang yang menjaga kebersihan akan memberikan impresi yang baik kepada masyarakat. Justifikasinya, penjagaan kebersihan sendiri penting agar tidak dipandang hina oleh masyarakat.",
   "Sebagai konklusinya, kebersihan ialah salah satu ciri kehidupan insan yang bertamadun. Oleh itu, setiap strata masyarakat haruslah berganding bahu bagai aur dengan tebing untuk menjaga kebersihan diri. Peribahasa melayu ada menyebut “hendak seribu daya, tak hendak seribu dalih”. Marilah kita menjaga kebersihan bermula pada hari ini. Ingatlah slogan “Jaga Kebersihan, Lestarikan Kehidupan”"
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan kepentingan menjaga kebersihan."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -46,13 +51,13 @@
   {
    "word": "Dicaci akan masyarakat",
    "zh": "被社会厌恶",
-   "example": null,
+   "example": "Sebaliknya, seorang individu yang tidak mementingkan kebersihan diri akan dilabelkan sebagai insan yang tinggal pada era Paleologi dan akan menconteng arang ke muka sendiri dan dicaci oleh masyarakat.",
    "level": "ordinary"
   },
   {
    "word": "Kita dapat menimbang peribadi seorang mengikut kebersihannya",
    "zh": "我们可以衡量一个人的行为根据他们的自身干净",
-   "example": null,
+   "example": "Dalam konteks lain, kita dapat menimbang peribadi seseorang mengikut kebersihannya.",
    "level": "ordinary"
   },
   {
@@ -122,6 +127,7 @@
   "Near-match examples (essay wording differs slightly from the word): 'Dicaci akan masyarakat' (essay: dicaci oleh masyarakat); 'Kita dapat menimbang peribadi seorang' (essay: seseorang); 'Menemuduga' (essay: menemu duga); 'Seorang yang berkusut-masai' (essay: Seorang calon yang berkusut-masai)",
   "keyPoint.prompt is null (no Question Analysis table); level and source are null",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
-  "Form 5: advanced words short (2 of 8): filled with 6 ordinary words"
+  "Form 5: advanced words short (2 of 8): filled with 6 ordinary words",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

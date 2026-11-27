@@ -13,7 +13,12 @@
   "Akhirnya, aktiviti kesukarelawanan dapat memupuk perpaduan dalam hati nurani masyarakat. Kita bekerjasama menghulurkan bantuan kepada mangsa tanpa mengira kaum, ras, warna kulit, latar belakang mereka. Kita membantu mereka kerana mangsa tersebut adalah rakyat Malaysia. Sebagai contohnya, MUDA merupakan parti politik berbilang kaum yang ditubuhkan oelh Syed Saddiq Syed abdul Rahman yang berperanan mencari sukarelawan untuk membantu pembersihan pasca banjir serta penghantaran bantuan makanan dan wang tunai kepada mangsa. Dengan ini, bukan sahaja mangsa memperoleh bantuan malah semangat patriotik dan integrasi dapat disalurkan dalam lubuk jiwa mereka. Justifikasinya, aktiviti kesukarelawanan merupakan jentera yang amat penting untuk menyatupadukan masyarakat.",
   "Tuntasnya, aktiviti kesukarelawanan membawa banyak kebaikan terhadap pengamalnya. Kita haruslah bersinergi bagai aur dengan tebing agar mangsa dapat diselamatkan daripada lembah malapetaka. Dengan kerjasama daripada pelbagai pihak, semoga bunga-bunga keharmonian dan kesejahteraan dapat mekar semerbak di empat pelosok tanah tumpah darah kita."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan kebaikan Aktiviti Kesukarelawanan."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -140,6 +145,7 @@
  ],
  "gaps": [
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
-  "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays"
+  "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

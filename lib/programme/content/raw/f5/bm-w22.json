@@ -13,7 +13,12 @@
   "Seterusnya, terdapat suatu pesanan agama yang perlu tersemat dalam hati nurani seandainya kita hendak bahagia sepanjang hayat, yakni “ingat akan kesakitan ketika sihat; ingat akan ketuaan usia ketika muda; ingat akan kematian ketika hidup; dan ingat akan kepapaan ketika kaya.” Pesanan agama tersebut izhar menunjukkan bahawa kesihatan penting untuk menikmati kehidupan yang bahagia dan selesa. Hal ini dikatakan demikian kerana tubuh badan yang tiada penyakit dapat menikmati ciptaan Tuhan. Sebagai contohnya, seorang individu dapat melancong ke mana-mana tanpa dibelenggu oleh penyakit. Dia dapat menikmati keindahan dan kecantikan panorama seperti melancong ke syurga destinasi pelancongan Malaysia seperti di Pulau Redang. Dia dapat menikmati pemandangan yang mendamaikan jiwa, menikmati keindahan flora dan fauna, meneliti dan mengamati ikan-ikan yang berenang di dasar laut. Justifikasinya, pesanan agama tersebut haruslah dijadikan azimat dalam lubuk kita.",
   "Tuntasnya, slogan “Kesihatan Melambangkan Kekayaan” haruslah dibudayakan dalam kehidupan kita. Sudah tentulah bahawa individu yang mengamalkan budaya tersebut akan membawa seribu satu kebaikan kepada kehidupannya. Peribahasa Melayu ada menyebut “seribu langkah bermula dengan langkah pertama”. Marilah kita mengamalkan slogan tersebut. Semoga masyarakat dapat hidup bebas daripada dibelenggu penyakit dan bunga-bunga kesihatan dapat mekar semerbak di empat pelosok tanah air kita. Rakyat Sihat, Negara Makmur."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan kepentingan menjaga kesihatan."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -76,8 +81,38 @@
   {
    "word": "Setiap strata masyarakat harsulah berganding bahu bagai aur dengan tebing untuk",
    "zh": "每一层社会要并肩",
-   "example": null,
+   "example": "Oleh itu, setiap strata masyarakat haruslah berganding bahu bagai aur dengan tebing untuk menjaga kebersihan diri.",
    "level": "ordinary"
+  },
+  {
+   "word": "masyarakat sering alpa akan penjagaan kesihatan",
+   "zh": "社会经常忽略照顾健康（alpa = lalai / 忽略）",
+   "example": "Waima begitu, pada masyarakat modenisasi ini, masyarakat sering alpa akan penjagaan kesihatan dan mempunyai stigma bahawa kesihatan tidak begitulah penting apabila berbanding dengan kemewahan."
+  },
+  {
+   "word": "Kesihatan yang dianugerahkan oleh Tuhan merupakan harta yang tidak ternilai",
+   "zh": "健康是上天给我们非常有价值的礼物",
+   "example": "Persepsi ini sebenarnya haruslah dikikis secara jauh-jauh kerana kesihatan yang dianugerahkan oleh Tuhan merupakan harta yang tidak ternilai."
+  },
+  {
+   "word": "terpaksa mengharungi sisa-sisa usia dalam hospital",
+   "zh": "被迫在医院度过余生",
+   "example": "Namun, tubuh badan anda telah jatuh sakit dan akhirnya terpaksa mengharungi sisa-sisa usia di dalam hospital."
+  },
+  {
+   "word": "tanpa kesihatan, wang akan tidak bernilai lagi",
+   "zh": "没有健康，钱便没有了价值",
+   "example": "Jadi, jagalah kesihatan anda kerana tanpa kesihatan, wang akan tidak bernilai lagi."
+  },
+  {
+   "word": "kesihatan merupakan kad kebenaran untuk membuat apa-apa yang diingini",
+   "zh": "健康是一张让我们想做什么就做什么的通行证",
+   "example": "Hal ini penting kerana kesihatan merupakan kad kebenaran untuk membuat apa-apa yang diingini."
+  },
+  {
+   "word": "wawasan kita tidak menjadi angan-angan Mat Jenin",
+   "zh": "我们的梦想不会泡汤",
+   "example": "Bulan kian terang, bayang kian jelas bahawa kesihatan penting sebagai kad kebenaran untuk mengejar impian agar wawasan kita tidak menjadi angan-angan Mat Jenin."
   }
  ],
  "goodPhrases": [
@@ -130,6 +165,7 @@
   "Form 5: advanced words short (0 of 7): filled with 1 ordinary words",
   "Form 5: only 9 words available for this topic",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
-  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

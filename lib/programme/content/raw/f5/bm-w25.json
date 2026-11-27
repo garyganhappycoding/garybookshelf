@@ -13,7 +13,12 @@
   "Memang tidak dapat dinafikan bahawa seorang pekerja cemerlang haruslah sarat ilmu pada dadanya dan melengkapkan diri dengan kemahiran kontemporari. Hal ini amat penting kerana seorang yang memiliki kepakaran dapat melakukan kerja-kerja teknikal. Tambahan pula, pekerja yang dapat menerima anjakan paradigma yang selaras dengan perkembangan semasa dapat meningkatkan produktiviti pekerjaanya. Sebagai contohnya, dalam dunia yang tiada sempadan ini, segala maklumat adalah di hujung jari sahaja. Pekerja juga dapat menggunakan kecerdasan buat(AI) seperti Chatgpt yang dapat mereka bentuk iklan yang menggamit hati pembeli. Implikasinya, bukan sahaja produktiviti mereka ditingkatkan malah mereka tidak akan terkurung di takuk bak kata peribahasa bagai katak di bawah tempurung. Tegasnya, pekerja yang mempunyai kemahiran kontemporari dan ilmu pakar akan menjadi prioriti dalam dunia kerjaya.",
   "Kesimpulannya, pekerja yang berkaliber akan meningkatkan kebolehpasarannya dalam dunia kerjaya sehingga mendapat kerjaya yang diimpikan. Oleh itu, masyarakat haruslah melengkapkan diri dengan kemahiran Teknologi Maklumat dan Komunikasi (TMK) dalam pasaran buruh yang penuh dengan persaingan sengit. Pelbagai persediaan yang rapi dari pelbagai aspek sama ada lahiriah atau rohaniah haruslah dibuat. Dengan ini, prospek masa depan akan terjamin dan wawasan mencapai kebebasan kewangan tidak akan menjadi bagai angan-angan Mat Jenin."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan ciri-Ciri Pekerja Cemerlang."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -142,6 +147,7 @@
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
-  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

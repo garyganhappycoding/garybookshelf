@@ -13,7 +13,12 @@
   "Bukan itu sahaja, kita haruslah menjalani pemeriksaan kesihatan. Hal ini penting agar kita sentiasa menitikberatkan keadaan kesihatan badan kita dan dapat mengesan sebarang penyakit lebih awal. Tindakan ini amat afdal untuk menyediakan payung sebelum hujan. Misalnya, kita harus menjalani pemeriksaan kesihatan sekurang-kurangnya dua kali setahun dan menerima sebarang cadangan yang diberikan oleh doktor agar menerima suntikan vaksin untuk mengelakkan serangan penyakit berjangkit yang akan membawa maut. Impaknya, kita dapat mengelakkan diri daripada terbelenggu oleh penyakit yang bersarang dan bermaharajalela dalam tubuh badan kita setelah memperoleh keimunan aktif buatan. Bulan kian terang, bayang kian jelas bahawa peranan pemeriksaan kesihatan memang tidak dapat dipertikaikan memandangkan mencegah lebih baik daripada mengubati.",
   "Tuntasnya, kesihatan merupakan kurniaan daripada Yang Maha Kuasa. Oleh itu, setiap lapisan rakyat Malaysia haruslah berganding bahu bagai aur dengan tebing untuk menyuntikkan amalan gaya hidup sihat dalam kalangan masyarakat agar tahap kesihatan masyarakat dapat dilonjakkan dan secara tidak langsung mengurangkan kemelut kesihatan yang kian meningkat pada dasawarsa ini. Mutiara kata “kesihatan ialah kekayaan sejati, bukan emas atau perak” yang dikatakan oleh Mahatma Gandhi harus dijadikan sinonim dalam kehidupan kita. Dengan adanya kesihatan yang baik, nescaya bunga-bunga keharmonian, keamanan dan kesejahteraan akan mekar semerbak di empat pojok tanah tumpah darahku. Ingatlah, Rakyat Sihat, Negara Makmur."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan cara Memupuk Amalan Gaya Hidup Sihat."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -60,6 +65,51 @@
    "zh": "无价的资产",
    "example": "Ingatlah bahawa beraneka makanan tradisional merupakan aset yang tidak ternilai untuk menarik pelancong dan memajukan bidang pelancongan.",
    "level": "ordinary"
+  },
+  {
+   "word": "Izhar memanifestasikan",
+   "zh": "清晰的表达了",
+   "example": "Pesanan agama ini izhar memanifestasikan bahawa kesihatan merupakan harta yang tidak ternilai harganya."
+  },
+  {
+   "word": "Kesihatan merupakan harta yang tidak ternilai harganya",
+   "zh": "健康是无价之宝",
+   "example": "Pesanan agama ini izhar memanifestasikan bahawa kesihatan merupakan harta yang tidak ternilai harganya."
+  },
+  {
+   "word": "Menzahirkan masyarakat yang sihat wal afiat",
+   "zh": "产生一个健康的社会",
+   "example": "Untuk menzahirkan masyarakat yang sihat wal afiat, sinergi secara kolektif daripada setiap rakyat jelata Malaysia amat diperlukan untuk menanam bibit-bibit amalan gaya hidup sihat dalam kamus kehidupan."
+  },
+  {
+   "word": "Senjata yang paling ampuh",
+   "zh": "有效的武器，这里的意思是有效的方法",
+   "example": "Aktiviti bersenam dan beriadah merupakan senjata yang paling ampuh untuk menyihatkan badan."
+  },
+  {
+   "word": "Mengenyahkan toksin badan",
+   "zh": "排放身体的毒素",
+   "example": "Apabila menggerakkan otot badan, kita dapat membakar lemak yang berlebihan sekali gus mengenyahkan toksin badan melalui proses perkumuhan, iaitu proses perpeluhan."
+  },
+  {
+   "word": "Badan yang tegap sasa",
+   "zh": "强健的身体",
+   "example": "Implikasinya, golongan wanita dapat membentuk postur badan yang menarik manakala lelaki pula dapat membentuk badan yang tegap sasa."
+  },
+  {
+   "word": "Penyakit insomnia",
+   "zh": "失眠",
+   "example": "Dari perspektif lain, kita dapat tidur dengan nyenyak dan mengelakkan penyakit insomnia kerana kita akan berasa letih dan ingin mendapat rehat yang secukupnya."
+  },
+  {
+   "word": "Mengesan sebarang penyakit lebih awal",
+   "zh": "提早检测到疾病",
+   "example": "Hal ini penting agar kita sentiasa menitikberatkan keadaan kesihatan badan kita dan dapat mengesan sebarang penyakit lebih awal."
+  },
+  {
+   "word": "Menyuntikkan amalan gaya hidup sihat",
+   "zh": "灌输健康的习惯",
+   "example": "Oleh itu, setiap lapisan rakyat Malaysia haruslah berganding bahu bagai aur dengan tebing untuk menyuntikkan amalan gaya hidup sihat dalam kalangan masyarakat agar tahap kesihatan masyarakat dapat dilonjakkan dan secara tidak langsung mengurangkan kemelut kesihatan yang kian meningkat pada dasawarsa ini."
   }
  ],
  "goodPhrases": [
@@ -108,6 +158,7 @@
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (0 of 7): filled with 0 ordinary words",
   "Form 5: only 6 words available for this topic",
-  "Essay replaced on 27 Nov 2026 with an unused essay from Gary's Drive (instead of repeating); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 with an unused essay from Gary's Drive (instead of repeating); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

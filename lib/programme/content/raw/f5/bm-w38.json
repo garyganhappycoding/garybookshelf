@@ -13,7 +13,12 @@
   "Dari perspektif lain, pihak kerajaan haruslah mengadakan kempen galakan membaca dari semasa ke semasa. Hal ini penting untuk memakbulkan aspirasi watan kita, yakni menzahirkan generasi muda yang intelek dan berkompeten untuk menerajui tampuk kepimpinan negara ke ambang yang lebih tinggi. Sebagai contohnya, Kementerian Pendidikan Malaysia (KPM) telah melaksanakan program Nadi Ilmu Amalan Membaca (NILAM) pada peringkat sekolah kebangsaan rendah mahupun menengah. Golongan pelajar dapat mencatatkan jumlah bilangan buku yang telah dibaca olehnya dan murid yang mendapat bintang pula akan dianugerahkan sijil. Natijahnya, pelajar-pelajar yang mendapat anugerah akan dimotivasikan agar terus membaca dan menjadikan membaca sebagai cara hidupnya. Izharnya, kempen galakan membaca amat afdal untuk mencelikkan mata golongan murid tentang kepentingan membaca.",
   "Konklusinya, membaca sememangnya tidak dapat lari daripada kehidupan kita memandangkan dunia hari ini berada di bawah telunjuk globalisasi yang menjadikan maklumat dan ilmu sebagai asas perkembangannya. Menurut teori kesan rama-rama yang ditemukan oleh Henri Poincare, \"Setiap perubahan kecil tentu akan mendorong kepada kesan yang besar\". Oleh itu, setiap strata masyarakat haruslah berganding bahu bagai aur dengan tebing untuk mencambahkan bibit-bibit membaca dalam kalangan masyarakat. Slogan #MALAYSIAMEMBACA haruslah diuar-uarkan dan dipopularkan. Mudah-mudahan, hasrat bekas Menteri Pendidikan Malaysia Dr Maszlee Malik yang ingin menjadikan Malaysia sebagai Negara Membaca menjelang 2030 dapat direalisasikan."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan cara-cara Memupuk Amalan Membaca."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -145,6 +150,7 @@
  "gaps": [
   "Essay used is the 3rd Amalan Membaca essay (Cara-cara Memupuk Amalan Membaca). Words 1-4 and 10 come from the 1st and 2nd essays' tables (Punca-punca... and Faedah-faedah...), so their example sentences are copied from those essays' Table 2 ayat column. The example for the last word starts with an opening quote mark that is never closed, exactly as in Gary's table.",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
-  "Form 5: advanced words short (0 of 8): filled with 8 ordinary words"
+  "Form 5: advanced words short (0 of 8): filled with 8 ordinary words",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

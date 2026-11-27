@@ -1,103 +1,109 @@
 {
-  "n": 2,
-  "lang": "bm",
-  "theme": "Alam Sekitar",
-  "level": null,
-  "essayTitle": "Punca Berlaku Bencana Alam Akibat Tindakan Manusia",
-  "source": null,
-  "essayUrl": "https://docs.google.com/document/d/1R967ot16-eLp3QD3pjQg6mKJ-jKQwVFqN5iZMRY6mD8/edit",
-  "paragraphs": [
-    "Alam sekitar adalah antara amanah kepada umat manusia yang berperanan sebagai khalifah di muka bumi ini. Oleh itu, alam sekitar seharusnya dijaga dengan baiknya kerana alam dan manusia saling bergantungan. Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagainya. Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita.",
-    "Ketika negara sedang melangkah ke arus globalisasi dengan ciptaan sains dan teknologi yang moden, bencana alam juga sering melanda dan seumpama harimau menunjukkan belang. Sebagai contohnya, kes tanah runtuh di Batu 54, Cameron Highland pada tahun 2024 telah meragut 4 orang nyawa. Sebenarnya, pernahkah anda berfikir bahawa mengapakah bencana alam tersebut berlaku? Pada hakikatnya, bencana alam berlaku terdapat perkaitan rapat dengan perbuatan manusia yang tamak haloba untuk mengenyangkan kocek perutnya. Kesannya, bumi terpaksa menanggung padah gara-gara perbuatan manusia yang tidak bertanggungjawab terhadap alam sekitar.",
-    "Yang pertamanya, manusia yang telah dipengaruhi oleh tamak haloba telah mengondolkan hutan secara besar-besaran tanpa berfikir masa depan manusia. Aktiviti penerokaan hutan adalah bercanggah daripada hukum alam sekitar. Manusia menebang pokok secara sesuka hati untuk membina rumah syurga dan keuntungan. Apabila keuntungan terpampang di bira mata, nilai-nilai murni tidak lagi menjadi pegangan sehingga mencetuskan bencana alam. Sebagai contohnya, kes tanah runtuh di Cameron Highland yang disebutkan berlaku akibat aktiviti penerokaan hutan. Implikasinya, bumi akan kehilangan peparu yang berfungsi untuk menapiskan udara yang tercemar. Jadi, aktiviti penerokaan hutan merupakan salah satu pokok pangkal terhadap bencana alam.",
-    "Selain itu, air merupakan salah satu sumber yang amat penting terhadap manusia. Berdasarkan buku teks Biologi Tingkatan 5, manusia mengandungi 70% air. Waima begitu, manusia tidak sedar bahawa perbuatan yang tidak bertanggungjawab telah mencemarkan sungai. Terdapat sebahagian masyarakat yang tidak bertanggungjawab membuang sampah ke dalam sungai. Masyarakat bersikap evasif dan sengaja memejamkan mata dan menutup telinga apabila mereka sengaja membiarkan keadaan sungai tercemar. Sebagai contohnya, pembuangan sisa kimia ke dalam Sungai Kim Kim, Pasir Gudang telah dilakukan oleh pengusaha kilang yang mementingkan diri. Insiden ini telah melepaskan gas beracun sehingga menyebabkan banyak sekolah terpaksa ditutup. Sikap individualistik ini telah menjejaskan kesihatan penduduk yang tinggal sehingga meninggalkan penyakit yang tidak dapat dirawat.",
-    "Seterusnya, aktiviti pembangunan yang tidak terancang terutamanya di bandar-bandar besar telah mengundang musibah. Tahukah anda kebanjiran berlaku kerana sistem peparitan dan pengaliran yang tidak sistematik sehingga air tidak dapat disalurkan. Pegawai daripada Pengarah Jabatan Pengairan dan Saliran (JPS) berkata bahawa sistem perparitan yang tidak terancang dan tidak seragam akan menyebabkan banjir berlaku dan sukar untuk mengalir keluar. Contohnya sistem perparitan yang tidak sempurna di kawasan Meru, Klang telah menyebabkan kawasan sana banyak dilanda oleh kebanjiran. Jadi, semasa pembangunan negara, kita perlu merancang kota dengan sistematik kerana kita tersepit antara keinginan menjadi sebuah negara maju dengan alam sekitar yang perlu dipelihara, bak kata peribahasa \"ditelan mati emak, diluahkan mati bapa\".",
-    "Sebagai kesimpulannya, bumi kita terpaksa menanggung padah akibat perbuatan manusia yang individualistik bak kata peribahasa \"bagai enau dalam belukar melepaskan pucuk masing-masing\". Sebenarnya, kita sebagai khalifah bumi perlu sedar bahawa bumi ialah sahajalah tempat tinggal kita. Kita perlu berkolaboratif untuk menangani masalah yang dihadapi. Sikap tidak bertanggungjawab dan tamak haruslah dikikis daripada hati masyarakat. Mahukah kita bernaung di sebuah negara yang selalu diselubungi masalah bencana alam atau tinggal di sebuah negara yang diselubungi keamanan. Jadi, tepuklah dada, tanyalah selera sebelum bertindak."
-  ],
-  "points": [],
-  "openingIdx": [
-    0,
-    1
-  ],
-  "keyPoint": {
-    "idx": 2,
-    "prompt": null
+ "n": 2,
+ "lang": "bm",
+ "theme": "Alam Sekitar",
+ "level": null,
+ "essayTitle": "Punca Berlaku Bencana Alam Akibat Tindakan Manusia",
+ "source": null,
+ "essayUrl": "https://docs.google.com/document/d/1R967ot16-eLp3QD3pjQg6mKJ-jKQwVFqN5iZMRY6mD8/edit",
+ "paragraphs": [
+  "Alam sekitar adalah antara amanah kepada umat manusia yang berperanan sebagai khalifah di muka bumi ini. Oleh itu, alam sekitar seharusnya dijaga dengan baiknya kerana alam dan manusia saling bergantungan. Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagainya. Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita.",
+  "Ketika negara sedang melangkah ke arus globalisasi dengan ciptaan sains dan teknologi yang moden, bencana alam juga sering melanda dan seumpama harimau menunjukkan belang. Sebagai contohnya, kes tanah runtuh di Batu 54, Cameron Highland pada tahun 2024 telah meragut 4 orang nyawa. Sebenarnya, pernahkah anda berfikir bahawa mengapakah bencana alam tersebut berlaku? Pada hakikatnya, bencana alam berlaku terdapat perkaitan rapat dengan perbuatan manusia yang tamak haloba untuk mengenyangkan kocek perutnya. Kesannya, bumi terpaksa menanggung padah gara-gara perbuatan manusia yang tidak bertanggungjawab terhadap alam sekitar.",
+  "Yang pertamanya, manusia yang telah dipengaruhi oleh tamak haloba telah mengondolkan hutan secara besar-besaran tanpa berfikir masa depan manusia. Aktiviti penerokaan hutan adalah bercanggah daripada hukum alam sekitar. Manusia menebang pokok secara sesuka hati untuk membina rumah syurga dan keuntungan. Apabila keuntungan terpampang di bira mata, nilai-nilai murni tidak lagi menjadi pegangan sehingga mencetuskan bencana alam. Sebagai contohnya, kes tanah runtuh di Cameron Highland yang disebutkan berlaku akibat aktiviti penerokaan hutan. Implikasinya, bumi akan kehilangan peparu yang berfungsi untuk menapiskan udara yang tercemar. Jadi, aktiviti penerokaan hutan merupakan salah satu pokok pangkal terhadap bencana alam.",
+  "Selain itu, air merupakan salah satu sumber yang amat penting terhadap manusia. Berdasarkan buku teks Biologi Tingkatan 5, manusia mengandungi 70% air. Waima begitu, manusia tidak sedar bahawa perbuatan yang tidak bertanggungjawab telah mencemarkan sungai. Terdapat sebahagian masyarakat yang tidak bertanggungjawab membuang sampah ke dalam sungai. Masyarakat bersikap evasif dan sengaja memejamkan mata dan menutup telinga apabila mereka sengaja membiarkan keadaan sungai tercemar. Sebagai contohnya, pembuangan sisa kimia ke dalam Sungai Kim Kim, Pasir Gudang telah dilakukan oleh pengusaha kilang yang mementingkan diri. Insiden ini telah melepaskan gas beracun sehingga menyebabkan banyak sekolah terpaksa ditutup. Sikap individualistik ini telah menjejaskan kesihatan penduduk yang tinggal sehingga meninggalkan penyakit yang tidak dapat dirawat.",
+  "Seterusnya, aktiviti pembangunan yang tidak terancang terutamanya di bandar-bandar besar telah mengundang musibah. Tahukah anda kebanjiran berlaku kerana sistem peparitan dan pengaliran yang tidak sistematik sehingga air tidak dapat disalurkan. Pegawai daripada Pengarah Jabatan Pengairan dan Saliran (JPS) berkata bahawa sistem perparitan yang tidak terancang dan tidak seragam akan menyebabkan banjir berlaku dan sukar untuk mengalir keluar. Contohnya sistem perparitan yang tidak sempurna di kawasan Meru, Klang telah menyebabkan kawasan sana banyak dilanda oleh kebanjiran. Jadi, semasa pembangunan negara, kita perlu merancang kota dengan sistematik kerana kita tersepit antara keinginan menjadi sebuah negara maju dengan alam sekitar yang perlu dipelihara, bak kata peribahasa \"ditelan mati emak, diluahkan mati bapa\".",
+  "Sebagai kesimpulannya, bumi kita terpaksa menanggung padah akibat perbuatan manusia yang individualistik bak kata peribahasa \"bagai enau dalam belukar melepaskan pucuk masing-masing\". Sebenarnya, kita sebagai khalifah bumi perlu sedar bahawa bumi ialah sahajalah tempat tinggal kita. Kita perlu berkolaboratif untuk menangani masalah yang dihadapi. Sikap tidak bertanggungjawab dan tamak haruslah dikikis daripada hati masyarakat. Mahukah kita bernaung di sebuah negara yang selalu diselubungi masalah bencana alam atau tinggal di sebuah negara yang diselubungi keamanan. Jadi, tepuklah dada, tanyalah selera sebelum bertindak."
+ ],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan punca Berlaku Bencana Alam Akibat Tindakan Manusia."
+  }
+ ],
+ "openingIdx": [
+  0,
+  1
+ ],
+ "keyPoint": {
+  "idx": 2,
+  "prompt": null
+ },
+ "closingIdx": [
+  5
+ ],
+ "words": [
+  {
+   "word": "berperanan sebagai khalifah di muka bumi",
+   "zh": "扮演大地代理人的角色",
+   "example": "Alam sekitar adalah antara amanah kepada umat manusia yang berperanan sebagai khalifah di muka bumi ini."
   },
-  "closingIdx": [
-    5
-  ],
-  "words": [
-    {
-      "word": "berperanan sebagai khalifah di muka bumi",
-      "zh": "扮演大地代理人的角色",
-      "example": "Alam sekitar adalah antara amanah kepada umat manusia yang berperanan sebagai khalifah di muka bumi ini."
-    },
-    {
-      "word": "saling bergantungan",
-      "zh": "相互依存",
-      "example": "Oelh itu, alam sekitar seharusnya dijaga dengan baiknya kerana alam dan manusia saling bergantungan."
-    },
-    {
-      "word": "pembangunan pesat",
-      "zh": "快速发展",
-      "example": "Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagianya."
-    },
-    {
-      "word": "mengundang padah kepada alam sekitar",
-      "zh": "为环境招致祸患",
-      "example": "Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagianya."
-    },
-    {
-      "word": "mementingkan diri",
-      "zh": "自私自利",
-      "example": "Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita."
-    },
-    {
-      "word": "mengabaikan alam sekitar",
-      "zh": "忽视环境",
-      "example": "Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita."
-    },
-    {
-      "word": "meragut 4 orang nyawa",
-      "zh": "夺走4条人命",
-      "example": "Sebagai contohnya, kes tanah runtuh di Batu 54, Cameron Highland pada tahun 2024 telah meragut 4 orang nyawa."
-    },
-    {
-      "word": "mengenyangkan kocek perutnya",
-      "zh": "填饱自己的口袋",
-      "example": "Pada hakikatnya, bencana alam berlaku terdapat perkaitan rapat dengan perbuatan manusia yang tamak haloba untuk mengenyangkan kocek perutnya."
-    },
-    {
-      "word": "menanggung padah",
-      "zh": "承受恶果",
-      "example": "Kesannya, bumi terpaksa menanggung padah gara-gara perbuatan manusia yang tidak bertanggungjawab terhadap alam sekitar."
-    },
-    {
-      "word": "mengondolkan hutan secara besar-besaran",
-      "zh": "大规模开垦森林",
-      "example": "Yang pertamanya, manusia yang telah dipengaruhi oleh tamak haloba telah mengondolkan hutan secara besar-besaran tanpa berfikir masa depan manusia."
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "seumpama harimau menunjukkan belang",
-      "zh": "如老虎显露本性，凶险毕露"
-    },
-    {
-      "phrase": "ditelan mati emak, diluahkan mati bapa",
-      "zh": "进退两难，左右为难"
-    },
-    {
-      "phrase": "bagai enau dalam belukar melepaskan pucuk masing-masing",
-      "zh": "各自为政，只顾自身利益"
-    },
-    {
-      "phrase": "tepuklah dada, tanyalah selera",
-      "zh": "三思而后行，扪心自问"
-    }
-  ],
-  "gaps": [
-    "Example sentences are copied from the essay's Table 1 ayat column including its own typos (Oelh, sebagianya)",
-    "openingIdx [0,1]: paragraph 1 is a lead-in to the thesis before the first main point; keyPoint.prompt is null (no Question Analysis table); level and source are null"
-  ]
+  {
+   "word": "saling bergantungan",
+   "zh": "相互依存",
+   "example": "Oelh itu, alam sekitar seharusnya dijaga dengan baiknya kerana alam dan manusia saling bergantungan."
+  },
+  {
+   "word": "pembangunan pesat",
+   "zh": "快速发展",
+   "example": "Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagianya."
+  },
+  {
+   "word": "mengundang padah kepada alam sekitar",
+   "zh": "为环境招致祸患",
+   "example": "Walau bagaimanapun, pembangunan pesat di negara kita telah mengundang padah kepada alam sekitar seperti tanah runtuh, banjir kilat, pencemaran sungai dan sebagianya."
+  },
+  {
+   "word": "mementingkan diri",
+   "zh": "自私自利",
+   "example": "Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita."
+  },
+  {
+   "word": "mengabaikan alam sekitar",
+   "zh": "忽视环境",
+   "example": "Segala-gala ini berlaku lantaran sikap manusia yang mementingkan diri sehingga mengabaikan alam sekitar kita."
+  },
+  {
+   "word": "meragut 4 orang nyawa",
+   "zh": "夺走4条人命",
+   "example": "Sebagai contohnya, kes tanah runtuh di Batu 54, Cameron Highland pada tahun 2024 telah meragut 4 orang nyawa."
+  },
+  {
+   "word": "mengenyangkan kocek perutnya",
+   "zh": "填饱自己的口袋",
+   "example": "Pada hakikatnya, bencana alam berlaku terdapat perkaitan rapat dengan perbuatan manusia yang tamak haloba untuk mengenyangkan kocek perutnya."
+  },
+  {
+   "word": "menanggung padah",
+   "zh": "承受恶果",
+   "example": "Kesannya, bumi terpaksa menanggung padah gara-gara perbuatan manusia yang tidak bertanggungjawab terhadap alam sekitar."
+  },
+  {
+   "word": "mengondolkan hutan secara besar-besaran",
+   "zh": "大规模开垦森林",
+   "example": "Yang pertamanya, manusia yang telah dipengaruhi oleh tamak haloba telah mengondolkan hutan secara besar-besaran tanpa berfikir masa depan manusia."
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "seumpama harimau menunjukkan belang",
+   "zh": "如老虎显露本性，凶险毕露"
+  },
+  {
+   "phrase": "ditelan mati emak, diluahkan mati bapa",
+   "zh": "进退两难，左右为难"
+  },
+  {
+   "phrase": "bagai enau dalam belukar melepaskan pucuk masing-masing",
+   "zh": "各自为政，只顾自身利益"
+  },
+  {
+   "phrase": "tepuklah dada, tanyalah selera",
+   "zh": "三思而后行，扪心自问"
+  }
+ ],
+ "gaps": [
+  "Example sentences are copied from the essay's Table 1 ayat column including its own typos (Oelh, sebagianya)",
+  "openingIdx [0,1]: paragraph 1 is a lead-in to the thesis before the first main point; keyPoint.prompt is null (no Question Analysis table); level and source are null",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+ ]
 }

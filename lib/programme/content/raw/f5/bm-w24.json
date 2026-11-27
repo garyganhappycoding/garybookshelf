@@ -14,7 +14,12 @@
   "Seterusnya, amalan membaca merupakan santapan rohani. Hal ini dikatakan demikian kerana seseorang yang banyak membaca akan menjaga budi bahasa dan sahsiah. Sebagai contohnya, buku-buku ilmiah akan mengindoktrinasikan kepentingan berbudi bahasa. Abraham Lincoln merupakan seorang yang berbudi bahasa dan suka membaca buku. Dalam peringkat anaknya, beliau selalu meminjam buku daripada jiran-jiranya dan membaca semasa masa lapang. Kerajinannya membentuk keperibadian yang mulia. Secara tidak langsung, fikiran akan menjadi lebih matang dan bertindak secara rasional sehingga menjaga budi bahasa dan sahsiah. Bulan kian terang, bayang kian jelas bahawa, buku merupakan santapan rohani yang akan membentuk individu yang berbudi bahasa.",
   "Secara tuntasnya, masyarakat tidak boleh berpeluk tangan sahaja terhadap generasi muda yang tidak berminat untuk membaca memandangkan ilmu merupakan asas perkembangan. Tiada sesiapa yang ingin melahirkan generasi muda akan mengemudi tampuk kepimpinan yang buta ilmu. Oleh itu, kita haruslah bekerjasama bagai aur dengan tebing untuk memupuk amalan membaca dalam masyarakat memandangkan amalan membaca membawa banyak faedah kepada kita. Mudah-mudahan, dengan kerjasama kolektif daripada pelbagai pihak kita dapat melahirkan generasi muda yang cemerlang sama ada dari aspek jasmani, emosi, rohani dan intelek."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan faedah-faedah Memupuk Amalan Membaca."
+  }
+ ],
  "openingIdx": [
   0,
   1
@@ -140,6 +145,7 @@
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
-  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }
