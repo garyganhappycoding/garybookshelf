@@ -1,173 +1,173 @@
 {
-  "n": 6,
-  "lang": "bi",
-  "theme": "People & Culture",
-  "level": "B2",
-  "essayTitle": "Experiencing the Local Cultural Festival",
-  "source": "SPM Essay · Article, local cultural festival (older format, no trial paper named)",
-  "essayUrl": "https://docs.google.com/document/d/1KUIkCOshTlkp1_xWnKWKjboNsWQnJ9ig0M6q0FPHe-o/edit",
-  "paragraphs": [
-    "Last weekend, my class had the unforgettable opportunity to attend the annual local cultural festival—a vibrant celebration of our local heritage. Stepping into the festival grounds was like taking a journey back in time, offering us a profound experience of the traditions that define our community.",
-    "The festival was a feast for the senses. We witnessed a captivating performance of the Zapin dance, where dancers moved with grace and precision to traditional drums and flutes. The most engaging activity was the live demonstration of Batik Canting. A master artisan showed us how to draw intricate patterns onto cloth using hot wax, explaining the dedication and patience required for the craft. In another section, the air was filled with the delicious aroma of local delicacies. We watched a demonstration of cooking traditional Kuih, a craft passed down through generations. These main activities were highly engaging and demonstrated the authenticity of our local culture.",
-    "These types of festivals are fundamentally important in preserving the cultural identity of our community. By bringing traditional arts out into the open, the event acts as a vital link between the past and the present. It ensures that the knowledge and skills—like the complex patterns in the Batik or the steps of the Zapin—are not forgotten. When families attend together, the elders share stories and the youth become receptive to learning, strengthening their sense of belonging. The festival makes our unique identity visible and tangible, giving the community a cohesive sense of pride in its heritage.",
-    "To encourage young people to participate actively, we must make these events relevant and interactive. Firstly, organisers should incentivise attendance by offering special school-based credit or rewards for participation, perhaps through a cultural passport scheme. Secondly, incorporating technology is key; events could host a contest for the best TikTok video documenting the festival, or offer workshops where traditional crafts are combined with modern design. Finally, giving teenagers leadership roles—like being social media promoters or workshop assistants—will harness their enthusiasm and make them feel that they are the essential future of these traditions.",
-    "Attending the local cultural festival was a powerful reminder that our heritage is alive and beautiful. Through engaging activities and the commitment of the community, these events continue to serve as a critical shield against cultural loss. It is up to us, the younger generation, to participate, lead, and ensure that the spirit of our ancestors thrives for many years to come."
-  ],
-  "points": [
-    {
-      "code": "C1",
-      "text": "Describe what you saw and did at the festival"
-    },
-    {
-      "code": "C2",
-      "text": "Explain why such festivals are important in preserving cultural identity"
-    },
-    {
-      "code": "C3",
-      "text": "Suggest ways to encourage young people to take part"
-    }
-  ],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 6,
+ "lang": "bi",
+ "theme": "People & Culture",
+ "level": "B2",
+ "essayTitle": "Experiencing the Local Cultural Festival",
+ "source": "SPM Essay · Article, local cultural festival (older format, no trial paper named)",
+ "essayUrl": "https://docs.google.com/document/d/1KUIkCOshTlkp1_xWnKWKjboNsWQnJ9ig0M6q0FPHe-o/edit",
+ "paragraphs": [
+  "Last weekend, my class had the unforgettable opportunity to attend the annual local cultural festival—a vibrant celebration of our local heritage. Stepping into the festival grounds was like taking a journey back in time, offering us a profound experience of the traditions that define our community.",
+  "The festival was a feast for the senses. We witnessed a captivating performance of the Zapin dance, where dancers moved with grace and precision to traditional drums and flutes. The most engaging activity was the live demonstration of Batik Canting. A master artisan showed us how to draw intricate patterns onto cloth using hot wax, explaining the dedication and patience required for the craft. In another section, the air was filled with the delicious aroma of local delicacies. We watched a demonstration of cooking traditional Kuih, a craft passed down through generations. These main activities were highly engaging and demonstrated the authenticity of our local culture.",
+  "These types of festivals are fundamentally important in preserving the cultural identity of our community. By bringing traditional arts out into the open, the event acts as a vital link between the past and the present. It ensures that the knowledge and skills—like the complex patterns in the Batik or the steps of the Zapin—are not forgotten. When families attend together, the elders share stories and the youth become receptive to learning, strengthening their sense of belonging. The festival makes our unique identity visible and tangible, giving the community a cohesive sense of pride in its heritage.",
+  "To encourage young people to participate actively, we must make these events relevant and interactive. Firstly, organisers should incentivise attendance by offering special school-based credit or rewards for participation, perhaps through a cultural passport scheme. Secondly, incorporating technology is key; events could host a contest for the best TikTok video documenting the festival, or offer workshops where traditional crafts are combined with modern design. Finally, giving teenagers leadership roles—like being social media promoters or workshop assistants—will harness their enthusiasm and make them feel that they are the essential future of these traditions.",
+  "Attending the local cultural festival was a powerful reminder that our heritage is alive and beautiful. Through engaging activities and the commitment of the community, these events continue to serve as a critical shield against cultural loss. It is up to us, the younger generation, to participate, lead, and ensure that the spirit of our ancestors thrives for many years to come."
+ ],
+ "points": [
+  {
+   "code": "C1",
+   "text": "Describe the main cultural activities or rituals you witnessed at the festival"
   },
-  "closingIdx": [
-    4
-  ],
-  "words": [
-    {
-      "word": "Malaysia is a melting pot of cultures",
-      "zh": "马来西亚是多元文化的大熔炉",
-      "example": "Malaysia is a melting pot of cultures, and our food proves it."
-    },
-    {
-      "word": "unity in diversity",
-      "zh": "多元中的团结",
-      "example": "Open houses are a perfect picture of unity in diversity."
-    },
-    {
-      "word": "live in harmony",
-      "zh": "和谐共处",
-      "example": "People of different races live in harmony."
-    },
-    {
-      "word": "a sense of belonging",
-      "zh": "归属感",
-      "example": "When families attend together, the elders share stories and the youth become receptive to learning, strengthening their sense of belonging."
-    },
-    {
-      "word": "pass down from generation to generation",
-      "zh": "代代相传",
-      "example": "We watched a demonstration of cooking traditional Kuih, a craft passed down through generations."
-    },
-    {
-      "word": "preserve our cultural heritage",
-      "zh": "保护我们的文化遗产",
-      "example": "Young people must help preserve our cultural heritage."
-    },
-    {
-      "word": "a vital link between the past and the present",
-      "zh": "连接过去与现在的重要纽带",
-      "example": "By bringing traditional arts out into the open, the event acts as a vital link between the past and the present."
-    },
-    {
-      "word": "embrace different cultures",
-      "zh": "拥抱不同的文化",
-      "example": "Students should embrace different cultures with an open mind."
-    },
-    {
-      "word": "it is our duty to …",
-      "zh": "我们有责任……",
-      "example": "It is our duty to keep these traditions alive."
-    },
-    {
-      "word": "a feast for the senses",
-      "zh": "感官的盛宴",
-      "example": "The festival was a feast for the senses."
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "vibrant celebration",
-      "zh": "充满活力的庆典"
-    },
-    {
-      "phrase": "unforgettable opportunity",
-      "zh": "难忘的机会"
-    },
-    {
-      "phrase": "profound experience",
-      "zh": "深刻的体验"
-    },
-    {
-      "phrase": "feast for the senses",
-      "zh": "感官的盛宴"
-    },
-    {
-      "phrase": "grace and precision",
-      "zh": "优雅与精准"
-    },
-    {
-      "phrase": "master artisan",
-      "zh": "匠人大师"
-    },
-    {
-      "phrase": "intricate patterns",
-      "zh": "复杂的图案"
-    },
-    {
-      "phrase": "passed down through generations",
-      "zh": "代代相传"
-    },
-    {
-      "phrase": "authenticity",
-      "zh": "真实性，道地性"
-    },
-    {
-      "phrase": "vital link",
-      "zh": "至关重要的联系"
-    },
-    {
-      "phrase": "receptive to learning",
-      "zh": "乐于学习的，接受能力强的"
-    },
-    {
-      "phrase": "cohesive sense of pride",
-      "zh": "凝聚性的自豪感"
-    },
-    {
-      "phrase": "incentivise attendance",
-      "zh": "激励出席"
-    },
-    {
-      "phrase": "cultural passport scheme",
-      "zh": "文化护照计划"
-    },
-    {
-      "phrase": "harness their enthusiasm",
-      "zh": "利用他们的热情"
-    },
-    {
-      "phrase": "critical shield",
-      "zh": "重要的保护屏障"
-    },
-    {
-      "phrase": "spirit of our ancestors thrives",
-      "zh": "祖先的精神蓬勃发展"
-    },
-    {
-      "phrase": "visible and tangible",
-      "zh": "看得见摸得着 / 明确具体的"
-    }
-  ],
-  "gaps": [
-    "The Drive doc has the question (three bullet points) and the essay, but no Question Analysis table and no Exam Version, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
-    "The essay's vocabulary table has no Sentence column. 'a feast for the senses', 'a vital link between the past and the present', 'a sense of belonging' and 'passed down through generations' are taken from the essay itself (the last is a variant of 'pass down from generation to generation'); the rest come from the People & Culture theme pack (Universal phrases 1, 2, 3, 6, 8, 9, 10).",
-    "The sentences for 'live in harmony' and 'preserve our cultural heritage' were rebuilt from the scrambled watermarked pack PDF (Universal phrases 3 and 6). Please check them.",
-    "Essay order for People & Culture: week 6 Local Cultural Festival, week 17 Negeri Sembilan 'Being Charitable' (Question Analysis format, filed in the Teenagers folder but used by the pack as a People & Culture question), week 28 Preserving Malaysia's Cultural Heritage, week 39 Cultural Diversity in Malaysia (chosen by how many of each week's words they contain).",
-    "points written by Claude from the essay (unchecked)"
-  ]
+  {
+   "code": "C2",
+   "text": "Explain how this event help preserve the cultural identity of the community"
+  },
+  {
+   "code": "C3",
+   "text": "Suggest ways to encourage young people to participate actively in traditional cultural events"
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [
+  4
+ ],
+ "words": [
+  {
+   "word": "Malaysia is a melting pot of cultures",
+   "zh": "马来西亚是多元文化的大熔炉",
+   "example": "Malaysia is a melting pot of cultures, and our food proves it."
+  },
+  {
+   "word": "unity in diversity",
+   "zh": "多元中的团结",
+   "example": "Open houses are a perfect picture of unity in diversity."
+  },
+  {
+   "word": "live in harmony",
+   "zh": "和谐共处",
+   "example": "People of different races live in harmony."
+  },
+  {
+   "word": "a sense of belonging",
+   "zh": "归属感",
+   "example": "When families attend together, the elders share stories and the youth become receptive to learning, strengthening their sense of belonging."
+  },
+  {
+   "word": "pass down from generation to generation",
+   "zh": "代代相传",
+   "example": "We watched a demonstration of cooking traditional Kuih, a craft passed down through generations."
+  },
+  {
+   "word": "preserve our cultural heritage",
+   "zh": "保护我们的文化遗产",
+   "example": "Young people must help preserve our cultural heritage."
+  },
+  {
+   "word": "a vital link between the past and the present",
+   "zh": "连接过去与现在的重要纽带",
+   "example": "By bringing traditional arts out into the open, the event acts as a vital link between the past and the present."
+  },
+  {
+   "word": "embrace different cultures",
+   "zh": "拥抱不同的文化",
+   "example": "Students should embrace different cultures with an open mind."
+  },
+  {
+   "word": "it is our duty to …",
+   "zh": "我们有责任……",
+   "example": "It is our duty to keep these traditions alive."
+  },
+  {
+   "word": "a feast for the senses",
+   "zh": "感官的盛宴",
+   "example": "The festival was a feast for the senses."
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "vibrant celebration",
+   "zh": "充满活力的庆典"
+  },
+  {
+   "phrase": "unforgettable opportunity",
+   "zh": "难忘的机会"
+  },
+  {
+   "phrase": "profound experience",
+   "zh": "深刻的体验"
+  },
+  {
+   "phrase": "feast for the senses",
+   "zh": "感官的盛宴"
+  },
+  {
+   "phrase": "grace and precision",
+   "zh": "优雅与精准"
+  },
+  {
+   "phrase": "master artisan",
+   "zh": "匠人大师"
+  },
+  {
+   "phrase": "intricate patterns",
+   "zh": "复杂的图案"
+  },
+  {
+   "phrase": "passed down through generations",
+   "zh": "代代相传"
+  },
+  {
+   "phrase": "authenticity",
+   "zh": "真实性，道地性"
+  },
+  {
+   "phrase": "vital link",
+   "zh": "至关重要的联系"
+  },
+  {
+   "phrase": "receptive to learning",
+   "zh": "乐于学习的，接受能力强的"
+  },
+  {
+   "phrase": "cohesive sense of pride",
+   "zh": "凝聚性的自豪感"
+  },
+  {
+   "phrase": "incentivise attendance",
+   "zh": "激励出席"
+  },
+  {
+   "phrase": "cultural passport scheme",
+   "zh": "文化护照计划"
+  },
+  {
+   "phrase": "harness their enthusiasm",
+   "zh": "利用他们的热情"
+  },
+  {
+   "phrase": "critical shield",
+   "zh": "重要的保护屏障"
+  },
+  {
+   "phrase": "spirit of our ancestors thrives",
+   "zh": "祖先的精神蓬勃发展"
+  },
+  {
+   "phrase": "visible and tangible",
+   "zh": "看得见摸得着 / 明确具体的"
+  }
+ ],
+ "gaps": [
+  "The Drive doc has the question (three bullet points) and the essay, but no Question Analysis table and no Exam Version, so 'points' is empty, 'keyPoint.prompt' is null and 'source' is generic.",
+  "The essay's vocabulary table has no Sentence column. 'a feast for the senses', 'a vital link between the past and the present', 'a sense of belonging' and 'passed down through generations' are taken from the essay itself (the last is a variant of 'pass down from generation to generation'); the rest come from the People & Culture theme pack (Universal phrases 1, 2, 3, 6, 8, 9, 10).",
+  "The sentences for 'live in harmony' and 'preserve our cultural heritage' were rebuilt from the scrambled watermarked pack PDF (Universal phrases 3 and 6). Please check them.",
+  "Essay order for People & Culture: week 6 Local Cultural Festival, week 17 Negeri Sembilan 'Being Charitable' (Question Analysis format, filed in the Teenagers folder but used by the pack as a People & Culture question), week 28 Preserving Malaysia's Cultural Heritage, week 39 Cultural Diversity in Malaysia (chosen by how many of each week's words they contain).",
+  "Question points copied from the question text in Gary's essay document (27 Nov 2026)."
+ ]
 }

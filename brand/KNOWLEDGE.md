@@ -3,6 +3,11 @@
 > Everything Gary learns from others that can help grow the brand. Claude reads this before every task.
 > Newest entries at the top. Keep entries short and actionable.
 
+## Content rules for essays and examples (Gary, 27 Nov 2026)
+- A word with no example sentence: use the sentence from the original essay that contains it (applies to every essay).
+- An essay with no question picture: if the document has the question in text, use that text as the question. A BM essay with no question is left as is until Gary crops the question images.
+- The two Surat Aduan documents are not counted as essays. BM Sukan dan Rekreasi: Gary's essays in the Sukan and Kebersihan dan Kesihatan folders are mixed; all of them are to be used.
+
 ## 2027 programme essay-test marking standard (Gary, 25 Nov 2026)
 - The programme's essay tests must NOT judge the student's wording or language level. The tests only check the parts the programme teaches: opening, closing and elaboration.
 - Gary will write this marking standard himself and discuss it with Claude. Everything in it still comes from the original English marking essay AI (/api/writing/mark), adapted, not a new invention.
