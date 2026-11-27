@@ -13,7 +13,12 @@
   "Akhirnya, kempen kesedaran tentang tip-tip keselamatan media sosial haruslah diadakan secara konsisten. Tanggungjawab ini bukan sahaja terletak pada bahu pihak kerajaan malah pihak sekolah dan ibu bapa. Kempen kesedaran sepatutnya bermula dari rumah dan sekolah. Hal ini dikatakan demikian kerana sekolah merupakan rumah kedua seorang anak. Biar kita ambil contoh, program “Kesian Dia: Program Jenayah Siber” di sekolah MRSM FELDA. Program ini bertujuan untuk mengelakkan remaja daripada menjadi mangsa jenayah siber. Secara implisitnya, kesedaran akan diindoktrinasikan kepada hati nurani anak-anak dan mereka tidak akan ditipu oleh penyangak siber. Justifikasinya, kempen kesedaran haruslah dianjurkan secara konsisten bukan sekadar-kadar hangat-hangat tahi ayam.",
   "Tuntasnya, pelbagai pihak haruslah menggalas obligasi agar masalah dapat dibendung dan tragedi tersebut dapat dielakkan. Peribahasa “genggam bara api, biarlah sampai jadi arang”. Oleh itu, langkah-langkah konkrit, sistematik dan pragmatik perlu dilaksanakan oleh semua pihak secara berterusan dan janganlah sudah terhantuk baru nak tengadah. Mudah-mudahan generasi muda yang berwawasan tinggi melangit tidak akan lagi terkorban dalam komen yang menggores hati sebaliknya mengukir nama negara pada pentas antarabangsa."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan langkah-Langkah Mengekang Masalah Penyalahgunaan Media Sosial."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -147,6 +152,7 @@
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (6 of 7): filled with 1 ordinary words",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
-  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

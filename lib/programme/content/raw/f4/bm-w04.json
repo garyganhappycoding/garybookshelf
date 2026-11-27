@@ -15,7 +15,12 @@
   "Akhirnya, sukan merupakan instrumen yang paling ampuh untuk menyatupadukan rakyat Malaysia. Hal ini dikatakan demikian kerana ketika bersukan kita melupakan warna kulit dan berfokus kepada sasaran yang sama iaitu merangkul juara. Peribahasa “bersatu teguh, bercerai roboh” telah tersemat dalam hati golongan atlet. Sebagai contohnya, dalam sebuah pasukan bola sepak, setiap ahli akan bersatu padu untuk menjaringkan gol dan merangkul piala. Mereka akan bekerjasama untuk mengharumkan nama sekolah, negeri atau negara. Tegasnya, aktiviti sukan sebenarnya dapat merapatkan hubungan antara rakyat tanpa mengira warna kulit dan latar belakang seseorang.",
   "Tuntasnya, aktiviti sukan membawa seribu satu kebaikan kepada pengamalnya. Bukan sahaja kesihatan kita terjamin malah tempias positif kepada ekonomi dan negara dapat dibawa sama sekali. Jadi, kesibukan dalam dunia kerjaya dan akademik tidak dibenarkan untuk dijadikan sebagai alasan untuk tidak bersukan kerana di mana ada kemahuan di situ ada jalan. Marilah kita bersinergi bagai aur dengan tebing untuk merealisasikan kata-kata Menteri Belia dan Sukan, Hannah Yeoh bahawa sukan perlu dimartabatkan oleh semua pihak sehingga dapat menjanakan pendapatan masyarakat dan meningkatkan nama negara. Biarlah matahari terus bersinar, biarlah pepohon terus menghijau dan biarlah sukan di Malaysia terus maju untuk bersaing pada peringkat global agar Malaysia dapat duduk sama rendah, berdiri sama tinggi dengan negara-negara lain di persada antarabangsa."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan kebaikan Bersukan terhadap Individu, Negara dan Masyarakat."
+  }
+ ],
  "openingIdx": [
   0,
   1,
@@ -132,6 +137,7 @@
  ],
  "gaps": [
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
-  "Week 4 had no word list: the words were chosen by Claude from the essay's own Table 1 (words, Chinese meanings and example sentences copied from the table). Gary to confirm or change the words."
+  "Week 4 had no word list: the words were chosen by Claude from the essay's own Table 1 (words, Chinese meanings and example sentences copied from the table). Gary to confirm or change the words.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

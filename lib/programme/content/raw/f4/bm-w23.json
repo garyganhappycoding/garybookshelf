@@ -13,7 +13,12 @@
   "Akhirnya, menurut statistik bertafakur merupakan cara paling efektif dan efisien untuk mengatasi stres. Aktiviti bertafakur dapat menenangkan fikiran kita dan membantu kita memfokuskan pada tubuh badan. Sebagai tamsilannya, kita hanya memfokuskan pada ritma pernafasan dan berusaha membiarkan segala fikiran yang tidak berkaitan semasa bertafakur. Dengan ini, kita mencipta satu ruang antara pemikiran dengan reaksi agar tidak terus melakukan perkara yang menghuru-harakan fikiran. Jadi, kita tidak terbelenggu oleh stres yang akan memudaratkan keceriaan hidup mahupun mencetuskan kemelut kesihatan mental. Amalan ini amat digalakkan kerana akan membawa ketenangan jiwa yang maksimum, bak kata peribahasa “tak kenal maka tak cinta”.",
   "Sebagai konklusinya, persis kata mutiara “seribu langkah bermula daripada langkah pertama”, kita haruslah mengimplementasikan langkah yang drastik dan efektif agar stres tidak menjadi pembunuh generasi muda pada masa depan. Ingatlah, pemuda merupakan kesuma bangsa yang menjunjung amanah untuk mengukirkan nama negara pada pentas antarabangsa. Dengan menghilangkan tekanan, nescaya kita dapat hidup di bawah bumbung yang diselubungi keceriaan dan kebahagiaan."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan cara-cara Menangani Stres dengan Berkesan."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -128,6 +133,7 @@
  ],
  "gaps": [
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
-  "Essay replaced on 27 Nov 2026 with an unused essay from Gary's Drive (instead of repeating); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 with an unused essay from Gary's Drive (instead of repeating); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

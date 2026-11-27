@@ -1,132 +1,138 @@
 {
-  "n": 18,
-  "lang": "bm",
-  "theme": "Keselamatan Jalan Raya",
-  "level": null,
-  "essayTitle": "Peranan Menangani Kemalangan Jalan Raya",
-  "source": "BM essay: Keselamatan Jalan Raya – Peranan Menangani Kemalangan Jalan Raya",
-  "essayUrl": "https://docs.google.com/document/d/1S2EeOVyakWGzd1Pq_lKnqqsVT3374WNoLCw6MCvjAMI/edit",
-  "paragraphs": [
-    "Kemalangan yang berlaku di jalan raya saban tahun telah menjadi kebiasaan masyarakat dan kerap dilaporkan oleh media sosial. Kes kemalangan memang tiada kesudahan dan seolah-olah tidak menemui noktahnya. Tahukah anda menurut statistik daripada Jabatan Pengangkutan Jalan (JPJ), terdapat 6080 kes kematian gara-gara kemalangan jalan raya. Jadi, apakah langkah-langkah perlu diimplementasikan untuk menangani masalah ini?",
-    "Yang pertamanya, pihak kerajaan tidak boleh mengabaikan masalah ini bagai melukut di tepi gantang. Pihak kerajaan perlu menguatkuasakan undang-undang untuk menakutkan pengguna jalan yang bersikap individualistik dan tidak bertanggungjawab. Sebagai contohnya, sesiapa yang tidak mengikut peraturan seperti memandu melebihi had laju, bermain telefon bimbit semasa memandu akan dikenakan hukuman yang berat. Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa \"sesal dahulu pendapatan, sesal kemudian tidak berguna lagi\" sebagai azimat untuk mengelakkan kemalangan. Tegasnya, penguatkuasaan undang-undang dapat mengurangkan nahas berlaku.",
-    "Selain itu, Jabatan Pengangkutan Jalan perlulah mengetatkan syarat memberikan lesen. Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa. Sebagai contohnya, JPJ dapat menawarkan ujian mental dan kesabaran kepada setiap remaja yang ingin mendapat lesen memandu. Sesiapa yang gagal mendapat markah seratus dalam ujian ini tidak layak mendapat lesen tanpa kompromi kerana nyawa tidak berdosa akan terkorban gara-gara kesalahan kecil yang dilakukan. Justifikasinya, JPJ berperanan penting untuk mengelakkan remaja menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara.",
-    "Akhirnya, pengguna jalan raya perlu mengubah sikap dan perlu menghargai nyawa pengguna jalan raya. Hal ini dikatakan demikian kerana terdapat pemandu yang mengambil sikap acuh tak acuh dan tidak bertanggungjawab akan menyebabkan nahas berlaku. Sebagai contohnya, terdapat pemandu yang bersikap individualistik bagai enau dalam belukar melepaskan pucuk masing-masing menggunakan telefon bimbit semasa memandu kereta. Kesannya, pemandu tidak dapat menumpukan segala fokus dalam perjalanan dan mudah berlaku tragedi. Bukan sahaja kecederaan atau kematian akan berlaku terhadap pemandu yang bersikap individualistik itu malah pemandu lain yang tidak berdosa dan mengikut peraturan terpaksa menanggung padah. Jadi, slogan \"Anda Mampu Mengubahnya\" perlu tersemat dalam hati setiap pengguna jalan raya tetapi bukan retorik semata-mata.",
-    "Tuntasnya, nyawa tidak dapat dijual beli. Jadi, pelbagai pihak tidak kira pihak kerajaan, rakyat perlulah menggembleng kudrat untuk membendung masalah ini. Oleh sebab pencegahan lebih baik daripada mengubati, janganlah kita menyesal selepas tragedi berlaku bak kata peribahasa \"bagai melepaskan batuk di tangga\". Tiada sesiapa ingin melihat anak menjadi yatim piatu, isteri menjadi janda dan suami menjadi duda. Oleh itu, kita perlu sama-sama berpegang teguh pada prinsip \"biar lambat, asalkan selamat\" dalam hati. Dengan ini, kita selamat sampai ke destinasi masing-masing dan meneruskan kehidupan yang lebih bermakna demi keluarga, bangsa dan negara."
-  ],
-  "points": [],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 18,
+ "lang": "bm",
+ "theme": "Keselamatan Jalan Raya",
+ "level": null,
+ "essayTitle": "Peranan Menangani Kemalangan Jalan Raya",
+ "source": "BM essay: Keselamatan Jalan Raya – Peranan Menangani Kemalangan Jalan Raya",
+ "essayUrl": "https://docs.google.com/document/d/1S2EeOVyakWGzd1Pq_lKnqqsVT3374WNoLCw6MCvjAMI/edit",
+ "paragraphs": [
+  "Kemalangan yang berlaku di jalan raya saban tahun telah menjadi kebiasaan masyarakat dan kerap dilaporkan oleh media sosial. Kes kemalangan memang tiada kesudahan dan seolah-olah tidak menemui noktahnya. Tahukah anda menurut statistik daripada Jabatan Pengangkutan Jalan (JPJ), terdapat 6080 kes kematian gara-gara kemalangan jalan raya. Jadi, apakah langkah-langkah perlu diimplementasikan untuk menangani masalah ini?",
+  "Yang pertamanya, pihak kerajaan tidak boleh mengabaikan masalah ini bagai melukut di tepi gantang. Pihak kerajaan perlu menguatkuasakan undang-undang untuk menakutkan pengguna jalan yang bersikap individualistik dan tidak bertanggungjawab. Sebagai contohnya, sesiapa yang tidak mengikut peraturan seperti memandu melebihi had laju, bermain telefon bimbit semasa memandu akan dikenakan hukuman yang berat. Dengan ini, pengguna jalan raya akan berhati-hati dan menjadikan peribahasa \"sesal dahulu pendapatan, sesal kemudian tidak berguna lagi\" sebagai azimat untuk mengelakkan kemalangan. Tegasnya, penguatkuasaan undang-undang dapat mengurangkan nahas berlaku.",
+  "Selain itu, Jabatan Pengangkutan Jalan perlulah mengetatkan syarat memberikan lesen. Kini, remaja yang berjiwa panas tidak dapat mengawal tindakan diri sehingga berani bermaharajalela di jalan raya dan membuat perbuatan yang membahayakan nyawa diri sehingga mengancam nyawa yang tidak berdosa. Sebagai contohnya, JPJ dapat menawarkan ujian mental dan kesabaran kepada setiap remaja yang ingin mendapat lesen memandu. Sesiapa yang gagal mendapat markah seratus dalam ujian ini tidak layak mendapat lesen tanpa kompromi kerana nyawa tidak berdosa akan terkorban gara-gara kesalahan kecil yang dilakukan. Justifikasinya, JPJ berperanan penting untuk mengelakkan remaja menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara.",
+  "Akhirnya, pengguna jalan raya perlu mengubah sikap dan perlu menghargai nyawa pengguna jalan raya. Hal ini dikatakan demikian kerana terdapat pemandu yang mengambil sikap acuh tak acuh dan tidak bertanggungjawab akan menyebabkan nahas berlaku. Sebagai contohnya, terdapat pemandu yang bersikap individualistik bagai enau dalam belukar melepaskan pucuk masing-masing menggunakan telefon bimbit semasa memandu kereta. Kesannya, pemandu tidak dapat menumpukan segala fokus dalam perjalanan dan mudah berlaku tragedi. Bukan sahaja kecederaan atau kematian akan berlaku terhadap pemandu yang bersikap individualistik itu malah pemandu lain yang tidak berdosa dan mengikut peraturan terpaksa menanggung padah. Jadi, slogan \"Anda Mampu Mengubahnya\" perlu tersemat dalam hati setiap pengguna jalan raya tetapi bukan retorik semata-mata.",
+  "Tuntasnya, nyawa tidak dapat dijual beli. Jadi, pelbagai pihak tidak kira pihak kerajaan, rakyat perlulah menggembleng kudrat untuk membendung masalah ini. Oleh sebab pencegahan lebih baik daripada mengubati, janganlah kita menyesal selepas tragedi berlaku bak kata peribahasa \"bagai melepaskan batuk di tangga\". Tiada sesiapa ingin melihat anak menjadi yatim piatu, isteri menjadi janda dan suami menjadi duda. Oleh itu, kita perlu sama-sama berpegang teguh pada prinsip \"biar lambat, asalkan selamat\" dalam hati. Dengan ini, kita selamat sampai ke destinasi masing-masing dan meneruskan kehidupan yang lebih bermakna demi keluarga, bangsa dan negara."
+ ],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan peranan Menangani Kemalangan Jalan Raya."
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [
+  4
+ ],
+ "words": [
+  {
+   "word": "saban tahun",
+   "zh": "每年",
+   "example": "Kemalangan yang berlaku di jalan raya saban tahun telah menjadi kebiasaan masyarakat dan kerap dilaporkan oleh media sosial."
   },
-  "closingIdx": [
-    4
-  ],
-  "words": [
-    {
-      "word": "saban tahun",
-      "zh": "每年",
-      "example": "Kemalangan yang berlaku di jalan raya saban tahun telah menjadi kebiasaan masyarakat dan kerap dilaporkan oleh media sosial."
-    },
-    {
-      "word": "menjadi kebiasaan masyarakat",
-      "zh": "成为社会习以为常的事",
-      "example": "Kemalangan yang berlaku di jalan raya saban tahun telah menjadi kebiasaan masyarakat dan kerap dilaporkan oleh media sosial."
-    },
-    {
-      "word": "tiada kesudahan",
-      "zh": "没完没了",
-      "example": "Kes kemalangan memang tiada kesudahan dan seolah-olah tidak menemui noktahnya."
-    },
-    {
-      "word": "menemui noktahnya",
-      "zh": "找到终点/结束",
-      "example": "Kes kemalangan memang tiada kesudahan dan seolah-olah tidak menemui noktahnya."
-    },
-    {
-      "word": "mengabaikan masalah",
-      "zh": "忽略问题",
-      "example": "Yang pertamanya, pihak kerajaan tidak boleh mengabaikan masalah ini bagai melukut di tepi gantang."
-    },
-    {
-      "word": "menguatkuasakan undang-undang",
-      "zh": "强制执行法律",
-      "example": "Pihak kerajaan perlu menguatkuasakan undang-undang untuk menakutkan pengguna jalan yang bersikap individualistik dan tidak bertanggungjawab."
-    },
-    {
-      "word": "bersikap individualistik",
-      "zh": "个人主义态度/自私",
-      "example": "Pihak kerajaan perlu menguatkuasakan undang-undang untuk menakutkan pengguna jalan yang bersikap individualistik dan tidak bertanggungjawab."
-    },
-    {
-      "word": "tidak bertanggungjawab",
-      "zh": "不负责任",
-      "example": "Pihak kerajaan perlu menguatkuasakan undang-undang untuk menakutkan pengguna jalan yang bersikap individualistik dan tidak bertanggungjawab."
-    },
-    {
-      "word": "memandu melebihi had laju",
-      "zh": "超速驾驶",
-      "example": "Sebagai contohnya, sesiapa yang tidak mengikut peraturan seperti memandu melebihi had laju, bermain telefon bimbit semasa memandu akan dikenakan hukuman yang berat."
-    },
-    {
-      "word": "dikenakan hukuman",
-      "zh": "被处罚",
-      "example": "Sebagai contohnya, sesiapa yang tidak mengikut peraturan seperti memandu melebihi had laju, bermain telefon bimbit semasa memandu akan dikenakan hukuman yang berat."
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "bagai melukut di tepi gantang",
-      "zh": "微不足道/无足轻重（被忽视）"
-    },
-    {
-      "phrase": "sesal dahulu pendapatan, sesal kemudian tidak berguna lagi",
-      "zh": "早知今日何必当初"
-    },
-    {
-      "phrase": "berani bermaharajalela di jalan raya",
-      "zh": "在马路上横行霸道"
-    },
-    {
-      "phrase": "menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara",
-      "zh": "把马路当赛车场最终变成坟场"
-    },
-    {
-      "phrase": "bagai enau dalam belukar melepaskan pucuk masing-masing",
-      "zh": "各顾各的，自私自利"
-    },
-    {
-      "phrase": "tersemat dalam hati",
-      "zh": "铭记在心"
-    },
-    {
-      "phrase": "bukan retorik semata-mata",
-      "zh": "并非空谈"
-    },
-    {
-      "phrase": "nyawa tidak dapat dijual beli",
-      "zh": "生命无价"
-    },
-    {
-      "phrase": "pencegahan lebih baik daripada mengubati",
-      "zh": "预防胜于治疗"
-    },
-    {
-      "phrase": "bagai melepaskan batuk di tangga",
-      "zh": "敷衍了事，做事不彻底"
-    },
-    {
-      "phrase": "biar lambat, asalkan selamat",
-      "zh": "宁迟勿失，宁可慢也要安全"
-    },
-    {
-      "phrase": "anak menjadi yatim piatu, isteri menjadi janda dan suami menjadi duda",
-      "zh": "孩子成孤儿，妻子成寡妇，丈夫成鳏夫"
-    }
-  ],
-  "gaps": [
-    "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null"
-  ]
+  {
+   "word": "menjadi kebiasaan masyarakat",
+   "zh": "成为社会习以为常的事",
+   "example": "Kemalangan yang berlaku di jalan raya saban tahun telah menjadi kebiasaan masyarakat dan kerap dilaporkan oleh media sosial."
+  },
+  {
+   "word": "tiada kesudahan",
+   "zh": "没完没了",
+   "example": "Kes kemalangan memang tiada kesudahan dan seolah-olah tidak menemui noktahnya."
+  },
+  {
+   "word": "menemui noktahnya",
+   "zh": "找到终点/结束",
+   "example": "Kes kemalangan memang tiada kesudahan dan seolah-olah tidak menemui noktahnya."
+  },
+  {
+   "word": "mengabaikan masalah",
+   "zh": "忽略问题",
+   "example": "Yang pertamanya, pihak kerajaan tidak boleh mengabaikan masalah ini bagai melukut di tepi gantang."
+  },
+  {
+   "word": "menguatkuasakan undang-undang",
+   "zh": "强制执行法律",
+   "example": "Pihak kerajaan perlu menguatkuasakan undang-undang untuk menakutkan pengguna jalan yang bersikap individualistik dan tidak bertanggungjawab."
+  },
+  {
+   "word": "bersikap individualistik",
+   "zh": "个人主义态度/自私",
+   "example": "Pihak kerajaan perlu menguatkuasakan undang-undang untuk menakutkan pengguna jalan yang bersikap individualistik dan tidak bertanggungjawab."
+  },
+  {
+   "word": "tidak bertanggungjawab",
+   "zh": "不负责任",
+   "example": "Pihak kerajaan perlu menguatkuasakan undang-undang untuk menakutkan pengguna jalan yang bersikap individualistik dan tidak bertanggungjawab."
+  },
+  {
+   "word": "memandu melebihi had laju",
+   "zh": "超速驾驶",
+   "example": "Sebagai contohnya, sesiapa yang tidak mengikut peraturan seperti memandu melebihi had laju, bermain telefon bimbit semasa memandu akan dikenakan hukuman yang berat."
+  },
+  {
+   "word": "dikenakan hukuman",
+   "zh": "被处罚",
+   "example": "Sebagai contohnya, sesiapa yang tidak mengikut peraturan seperti memandu melebihi had laju, bermain telefon bimbit semasa memandu akan dikenakan hukuman yang berat."
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "bagai melukut di tepi gantang",
+   "zh": "微不足道/无足轻重（被忽视）"
+  },
+  {
+   "phrase": "sesal dahulu pendapatan, sesal kemudian tidak berguna lagi",
+   "zh": "早知今日何必当初"
+  },
+  {
+   "phrase": "berani bermaharajalela di jalan raya",
+   "zh": "在马路上横行霸道"
+  },
+  {
+   "phrase": "menjadikan jalan raya sebagai tempat berlumba-lumba dan akhirnya menjadi pusara",
+   "zh": "把马路当赛车场最终变成坟场"
+  },
+  {
+   "phrase": "bagai enau dalam belukar melepaskan pucuk masing-masing",
+   "zh": "各顾各的，自私自利"
+  },
+  {
+   "phrase": "tersemat dalam hati",
+   "zh": "铭记在心"
+  },
+  {
+   "phrase": "bukan retorik semata-mata",
+   "zh": "并非空谈"
+  },
+  {
+   "phrase": "nyawa tidak dapat dijual beli",
+   "zh": "生命无价"
+  },
+  {
+   "phrase": "pencegahan lebih baik daripada mengubati",
+   "zh": "预防胜于治疗"
+  },
+  {
+   "phrase": "bagai melepaskan batuk di tangga",
+   "zh": "敷衍了事，做事不彻底"
+  },
+  {
+   "phrase": "biar lambat, asalkan selamat",
+   "zh": "宁迟勿失，宁可慢也要安全"
+  },
+  {
+   "phrase": "anak menjadi yatim piatu, isteri menjadi janda dan suami menjadi duda",
+   "zh": "孩子成孤儿，妻子成寡妇，丈夫成鳏夫"
+  }
+ ],
+ "gaps": [
+  "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+ ]
 }

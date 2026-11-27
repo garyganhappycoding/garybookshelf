@@ -1,138 +1,144 @@
 {
-  "n": 26,
-  "lang": "bm",
-  "theme": "TVET dan Perindustrian",
-  "level": null,
-  "essayTitle": "Usaha-Usaha Memajukan Bidang Pendidikan dan Latihan Vokasional",
-  "source": null,
-  "essayUrl": "https://docs.google.com/document/d/10Udt6Xgenpwqgii_um7IdbsdH2HHbKrknBUmryevwaI/edit",
-  "paragraphs": [
-    "Selepas Revolusi Industri 4.0 yang mendambakan modal insan yang menguasai kemahiran Teknologi Maklumat dan Komunikasi (TMK), pendidikan konvensional telah menghadapi cabaran yang belum pernah berlaku sebelumnya. Ketika kita berada di persimpangan inovasi dan pekerjaan yang memerlukan kemahiran mengikut rentak, industri Pendidikan dan Latihan Vokasional telah muncul sebagai pendekatan baharu yang dapat melahirkan modal insan yang memenuhi keperluan pada zaman ini. Antara program TVET yang dapat memperjuangkan ketangkasan masa depan ialah mikrokredensial dan kursus modular. Oleh itu, semua pihak haruslah menunjukkan iltizam yang istiqamah untuk memajukan bidang Pendidikan dan Latihan Vokasional memandangkan pendekatan tersebut amat penting untuk kelahiran modal insan yang berupaya membawa kemajuan negara.",
-    "Yang pertamanya, pihak kerajaan perlulah menyediakan modal yang mencukupi untuk memajukan bidang Pendidikan dan Latihan Vokasional(TVET). Hal ini berlaku kerana modal merupakan asas perubahan dan kemajuan. Dengan modal yang mencukupi, sektor tersebut dapat memperbaiki infrastruktur sehingga memajukan sektor ini. Sebagai contohnya,menurut kata-kata Anuar, pihak kerajaan telah menyediakan insentif untuk menarik agar bidang TVET dapat diangkat sebagai satu aliran perdana dalam sistem pendidikan negara. Ditokok tambah lagi, dalam Bajet 2022, pihak kerajaan telah memperuntukkan RM6.6 billion Secara untuk memajukan bidang tersebut memandangkan sektor ini bukan sahaja memartabatkan status negara malah dapat melahirkan modal insan. tidak langsung, bukan sahaja bidang TVET dapat dimajukan malah lebih banyak bunga-bunga bangsa akan tertarik untuk menceburi bidang ini. Sudah tentulah bahawa, dengan adanya modal yang disediakan oleh pihak kerajaan, bidang TVET akan dimajukan dan menarik kemasukan pemuda.",
-    "Seterusnya, pihak kerajaan perlu melebihkan institusi TVET dan menyalurkan kursus TVET khususnya di luar bandar. hal ini dikatakan demikian kerana kita tidak boleh mengetepikan pembangunan di luar kota metropolitan. Tambahan pula, pendidikan merupakan laluan ke kemajuan. Apabila anak-anak di luar bandar berpeluang untuk mendapat pendidikan TVET, maka mereka akan berpeluang untuk mendapat pekerjaan yang diimpikan. Biar kita ambil salah satu contoh, untuk mengalirperdanakan bidang TVET dalam sistem pendidikan negara, pihak kerajaan telah menyediakan lebih banyak peluang pengajian TVET untuk pelajar lepasan Sijil Pelajaran Malaysia lain daripada membina lebih banyak institusi TVET yang baharu. Contohnya, Menteri Pendidikan Tinggi, Datu Seri Mohamed Khaled Nordin berkata, beliau mengharapkan Universiti Teknikal Malaysia (MTUN) dapat mencapai Rancangan Malaysia ke-13(RMK-13). Beliau juga menaruh harapan tinggi terhadap empat university iaitu Universiti Malaysia Pahang, Universiti Tun Hussein Onn, Universiti Malaysia Perlis dan Universiti Teknikal Malaysia Melaka agar menyediakan lebih banyak tempat kepada pelajar yang memilih bidang TVET. Sebagai kesannya, peluang pekerjaan akan ditawarkan dan kadar pengangguran akan diminimumkan sehingga mengurangkan jurang ekonomi dalam masyarakat. Tegasnya, pihak kerajaan haruslah memperbanyak institusi dan kolej TVET agar taraf kehidupan masyarakat ditingkatkan apabila mempunyai pendapatan yang konsisten.",
-    "Ditokok tambah lagi, pihak sekolah bertanggungjawab untuk memajukan sektor TVET. hal ini dikatakan demikian kerana sekolah merupakan rumah kedua terhadap anak-anak bangsa yang akan mengemudi tampuk kepimpinan pada hari muka. Pihak sekolah sememangnya memberi kesedaran kepada murid-murid agar mereka lebih menghayati dan memahami bidang TVET. sebagai contohnya, pihak sekolah dapat berdamawisata ke bengkel TVET. semasa 16 November 2023, Syarikat V.S indsutri Berhad dan Shin Etsu Polymer Sdn.Bhd serta pihak sekolah telah mengadakan lawatan ke bengkel TVET yang membenarkan murid-murid melawat bengkel latihan setiap bidang yang ada di ADTEC Jerantut. Secara implisitnya, murid-murid akan mempunyai pemahaman yang lebih mendalam terhadap bidang tersebut bak kata peribahasa tak kenal maka tak cinta. Tegasnya, pihak sekolah haruslah menggalas obligasi untuk memajukan sektor TVET dengan mengadakan lawatan ke bengkel TVET.",
-    "Tuntasnya, memandangkan bidang TVET berperanan penting kepada negara kita, semua pihak haruslah bekerjasama untuk memajukan sektor ini. Semoga dengan kerjasama kolektif bagai aur dengan tebing, lebih banyak modal insan akan dilahirkan sehingga mengukir nama negara di pentas antarabangsa serta berupaya bersaing dengan negara asing bak kata peribahasa berdiri sama tinggi, duduk sama rendah."
-  ],
-  "points": [],
-  "openingIdx": [
-    0
-  ],
-  "keyPoint": {
-    "idx": 1,
-    "prompt": null
+ "n": 26,
+ "lang": "bm",
+ "theme": "TVET dan Perindustrian",
+ "level": null,
+ "essayTitle": "Usaha-Usaha Memajukan Bidang Pendidikan dan Latihan Vokasional",
+ "source": null,
+ "essayUrl": "https://docs.google.com/document/d/10Udt6Xgenpwqgii_um7IdbsdH2HHbKrknBUmryevwaI/edit",
+ "paragraphs": [
+  "Selepas Revolusi Industri 4.0 yang mendambakan modal insan yang menguasai kemahiran Teknologi Maklumat dan Komunikasi (TMK), pendidikan konvensional telah menghadapi cabaran yang belum pernah berlaku sebelumnya. Ketika kita berada di persimpangan inovasi dan pekerjaan yang memerlukan kemahiran mengikut rentak, industri Pendidikan dan Latihan Vokasional telah muncul sebagai pendekatan baharu yang dapat melahirkan modal insan yang memenuhi keperluan pada zaman ini. Antara program TVET yang dapat memperjuangkan ketangkasan masa depan ialah mikrokredensial dan kursus modular. Oleh itu, semua pihak haruslah menunjukkan iltizam yang istiqamah untuk memajukan bidang Pendidikan dan Latihan Vokasional memandangkan pendekatan tersebut amat penting untuk kelahiran modal insan yang berupaya membawa kemajuan negara.",
+  "Yang pertamanya, pihak kerajaan perlulah menyediakan modal yang mencukupi untuk memajukan bidang Pendidikan dan Latihan Vokasional(TVET). Hal ini berlaku kerana modal merupakan asas perubahan dan kemajuan. Dengan modal yang mencukupi, sektor tersebut dapat memperbaiki infrastruktur sehingga memajukan sektor ini. Sebagai contohnya,menurut kata-kata Anuar, pihak kerajaan telah menyediakan insentif untuk menarik agar bidang TVET dapat diangkat sebagai satu aliran perdana dalam sistem pendidikan negara. Ditokok tambah lagi, dalam Bajet 2022, pihak kerajaan telah memperuntukkan RM6.6 billion Secara untuk memajukan bidang tersebut memandangkan sektor ini bukan sahaja memartabatkan status negara malah dapat melahirkan modal insan. tidak langsung, bukan sahaja bidang TVET dapat dimajukan malah lebih banyak bunga-bunga bangsa akan tertarik untuk menceburi bidang ini. Sudah tentulah bahawa, dengan adanya modal yang disediakan oleh pihak kerajaan, bidang TVET akan dimajukan dan menarik kemasukan pemuda.",
+  "Seterusnya, pihak kerajaan perlu melebihkan institusi TVET dan menyalurkan kursus TVET khususnya di luar bandar. hal ini dikatakan demikian kerana kita tidak boleh mengetepikan pembangunan di luar kota metropolitan. Tambahan pula, pendidikan merupakan laluan ke kemajuan. Apabila anak-anak di luar bandar berpeluang untuk mendapat pendidikan TVET, maka mereka akan berpeluang untuk mendapat pekerjaan yang diimpikan. Biar kita ambil salah satu contoh, untuk mengalirperdanakan bidang TVET dalam sistem pendidikan negara, pihak kerajaan telah menyediakan lebih banyak peluang pengajian TVET untuk pelajar lepasan Sijil Pelajaran Malaysia lain daripada membina lebih banyak institusi TVET yang baharu. Contohnya, Menteri Pendidikan Tinggi, Datu Seri Mohamed Khaled Nordin berkata, beliau mengharapkan Universiti Teknikal Malaysia (MTUN) dapat mencapai Rancangan Malaysia ke-13(RMK-13). Beliau juga menaruh harapan tinggi terhadap empat university iaitu Universiti Malaysia Pahang, Universiti Tun Hussein Onn, Universiti Malaysia Perlis dan Universiti Teknikal Malaysia Melaka agar menyediakan lebih banyak tempat kepada pelajar yang memilih bidang TVET. Sebagai kesannya, peluang pekerjaan akan ditawarkan dan kadar pengangguran akan diminimumkan sehingga mengurangkan jurang ekonomi dalam masyarakat. Tegasnya, pihak kerajaan haruslah memperbanyak institusi dan kolej TVET agar taraf kehidupan masyarakat ditingkatkan apabila mempunyai pendapatan yang konsisten.",
+  "Ditokok tambah lagi, pihak sekolah bertanggungjawab untuk memajukan sektor TVET. hal ini dikatakan demikian kerana sekolah merupakan rumah kedua terhadap anak-anak bangsa yang akan mengemudi tampuk kepimpinan pada hari muka. Pihak sekolah sememangnya memberi kesedaran kepada murid-murid agar mereka lebih menghayati dan memahami bidang TVET. sebagai contohnya, pihak sekolah dapat berdamawisata ke bengkel TVET. semasa 16 November 2023, Syarikat V.S indsutri Berhad dan Shin Etsu Polymer Sdn.Bhd serta pihak sekolah telah mengadakan lawatan ke bengkel TVET yang membenarkan murid-murid melawat bengkel latihan setiap bidang yang ada di ADTEC Jerantut. Secara implisitnya, murid-murid akan mempunyai pemahaman yang lebih mendalam terhadap bidang tersebut bak kata peribahasa tak kenal maka tak cinta. Tegasnya, pihak sekolah haruslah menggalas obligasi untuk memajukan sektor TVET dengan mengadakan lawatan ke bengkel TVET.",
+  "Tuntasnya, memandangkan bidang TVET berperanan penting kepada negara kita, semua pihak haruslah bekerjasama untuk memajukan sektor ini. Semoga dengan kerjasama kolektif bagai aur dengan tebing, lebih banyak modal insan akan dilahirkan sehingga mengukir nama negara di pentas antarabangsa serta berupaya bersaing dengan negara asing bak kata peribahasa berdiri sama tinggi, duduk sama rendah."
+ ],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan usaha-Usaha Memajukan Bidang Pendidikan dan Latihan Vokasional."
+  }
+ ],
+ "openingIdx": [
+  0
+ ],
+ "keyPoint": {
+  "idx": 1,
+  "prompt": null
+ },
+ "closingIdx": [
+  4
+ ],
+ "words": [
+  {
+   "word": "kebolehpasaran seseorang",
+   "zh": "个人的就业能力",
+   "example": "Jadi, melalui bidang ini kebolehpasaran seseorang dapat ditingkatkan dan dilengkapi dengan kemahiran yang dapat menampung kekosongan industri.",
+   "level": "ordinary"
   },
-  "closingIdx": [
-    4
-  ],
-  "words": [
-    {
-      "word": "kebolehpasaran seseorang",
-      "zh": "个人的就业能力",
-      "example": "Jadi, melalui bidang ini kebolehpasaran seseorang dapat ditingkatkan dan dilengkapi dengan kemahiran yang dapat menampung kekosongan industri.",
-      "level": "ordinary"
-    },
-    {
-      "word": "menampung kekosongan industri",
-      "zh": "填补行业空缺",
-      "example": "Jadi, melalui bidang ini kebolehpasaran seseorang dapat ditingkatkan dan dilengkapi dengan kemahiran yang dapat menampung kekosongan industri.",
-      "level": "ordinary"
-    },
-    {
-      "word": "mengurangkan jurang pengangguran",
-      "zh": "缩小失业差距",
-      "example": "Selain itu, bidang TVET penting untuk mengurangkan jurang pengangguran.",
-      "level": "ordinary"
-    },
-    {
-      "word": "melonjak kebolehpasaran diri",
-      "zh": "提升自身就业能力",
-      "example": "Hal ini berlaku kerana graduan kontemporari ini kurang kemahiran yang berkompeten sehingga tidak dapat melonjak kebolehpasaran diri dalam tenaga buruh.",
-      "level": "ordinary"
-    },
-    {
-      "word": "tenaga kerja mahir",
-      "zh": "熟练劳动力",
-      "example": "Secara tidak langsung bahawa siswazah akan dapat peluang pekerjaan sekiranya mengikut latihan TVET kerana latihan tersebut menyediakan tenaga kerja mahir.",
-      "level": "ordinary"
-    },
-    {
-      "word": "melahirkan modal insan",
-      "zh": "培养人才",
-      "example": "Sudah tentulah bahawa bidang TVET penting untuk mengurangkan jurang pengangguran sehingga melahirkan modal insan.",
-      "level": "ordinary"
-    },
-    {
-      "word": "mengurangkan kebergantungan pada buruh asing",
-      "zh": "减少对外劳的依赖",
-      "example": "Seterusnya, bidang TVET penting untuk mengurangkan kebergantungan pada buruh asing.",
-      "level": "ordinary"
-    },
-    {
-      "word": "menempa rekod tertinggi",
-      "zh": "创下最高纪录",
-      "example": "Melalui Jabatan Perangkaan Malaysia (DOSM) kadar penyertaan tenaga buruh menempa rekod tertinggi iaitu 69.5%.",
-      "level": "ordinary"
-    },
-    {
-      "word": "melonjakkan modal insan berkemahiran tinggi",
-      "zh": "提升高技能人才",
-      "example": "Ahmad Zahid Hamidi berkata, TVET merupakan satu platform baharu memberikan latihan jangka pendek dan panjang sehingga dapat melonjakkan modal insan berkemahiran tinggi dalam kalangan pelbagai lapisan masyarakat.",
-      "level": "ordinary"
-    },
-    {
-      "word": "bersiap siaga",
-      "zh": "严阵以待",
-      "example": "Jadi kita haruslah bersiap siaga untuk menghadapi Revolusi Industri 4.0 untuk menepati keperluan semasa industri untuk memacu perkembangan ekonomi.",
-      "level": "ordinary"
-    },
-    {
-      "word": "menepati keperluan semasa industri",
-      "zh": "符合行业当前需求",
-      "example": "Jadi kita haruslah bersiap siaga untuk menghadapi Revolusi Industri 4.0 untuk menepati keperluan semasa industri untuk memacu perkembangan ekonomi.",
-      "level": "ordinary"
-    },
-    {
-      "word": "memacu perkembangan ekonomi",
-      "zh": "推动经济发展",
-      "example": "Jadi kita haruslah bersiap siaga untuk menghadapi Revolusi Industri 4.0 untuk menepati keperluan semasa industri untuk memacu perkembangan ekonomi.",
-      "level": "ordinary"
-    },
-    {
-      "word": "mendambakan modal insan",
-      "zh": "渴望人才",
-      "example": "Selepas Revolusi Industri 4.0 yang mendambakan modal insan yang menguasai kemahiran Teknologi Maklumat dan Komunikasi (TMK), pendidikan konvensional telah menghadapi cabaran yang belum pernah berlaku sebelumnya.",
-      "level": "ordinary"
-    },
-    {
-      "word": "pendidikan konvensional",
-      "zh": "传统教育",
-      "example": "Selepas Revolusi Industri 4.0 yang mendambakan modal insan yang menguasai kemahiran Teknologi Maklumat dan Komunikasi (TMK), pendidikan konvensional telah menghadapi cabaran yang belum pernah berlaku sebelumnya.",
-      "level": "ordinary"
-    },
-    {
-      "word": "persimpangan inovasi dan pekerjaan",
-      "zh": "创新与就业的十字路口",
-      "example": "Ketika kita berada di persimpangan inovasi dan pekerjaan yang memerlukan kemahiran mengikut rentak, industri Pendidikan dan Latihan Vokasional telah muncul sebagai pendekatan baharu yang dapat melahirkan modal insan yang memenuhi keperluan pada zaman ini.",
-      "level": "ordinary"
-    }
-  ],
-  "goodPhrases": [
-    {
-      "phrase": "bak kata peribahasa tak kenal maka tak cinta",
-      "zh": "不打不相识，不认识就不会喜欢"
-    },
-    {
-      "phrase": "bagai aur dengan tebing",
-      "zh": "唇齿相依，紧密合作"
-    },
-    {
-      "phrase": "berdiri sama tinggi, duduk sama rendah",
-      "zh": "平起平坐，地位平等"
-    }
-  ],
-  "gaps": [
-    "Essay used is the 2nd TVET essay (Usaha-Usaha...); words 1-3 and 6-10 come from the 1st TVET essay's tables (Kepentingan...), so their example sentences are copied from that essay's Table 1/2 ayat column.",
-    "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
-    "Form 5: advanced words short (0 of 7): filled with 7 ordinary words"
-  ]
+  {
+   "word": "menampung kekosongan industri",
+   "zh": "填补行业空缺",
+   "example": "Jadi, melalui bidang ini kebolehpasaran seseorang dapat ditingkatkan dan dilengkapi dengan kemahiran yang dapat menampung kekosongan industri.",
+   "level": "ordinary"
+  },
+  {
+   "word": "mengurangkan jurang pengangguran",
+   "zh": "缩小失业差距",
+   "example": "Selain itu, bidang TVET penting untuk mengurangkan jurang pengangguran.",
+   "level": "ordinary"
+  },
+  {
+   "word": "melonjak kebolehpasaran diri",
+   "zh": "提升自身就业能力",
+   "example": "Hal ini berlaku kerana graduan kontemporari ini kurang kemahiran yang berkompeten sehingga tidak dapat melonjak kebolehpasaran diri dalam tenaga buruh.",
+   "level": "ordinary"
+  },
+  {
+   "word": "tenaga kerja mahir",
+   "zh": "熟练劳动力",
+   "example": "Secara tidak langsung bahawa siswazah akan dapat peluang pekerjaan sekiranya mengikut latihan TVET kerana latihan tersebut menyediakan tenaga kerja mahir.",
+   "level": "ordinary"
+  },
+  {
+   "word": "melahirkan modal insan",
+   "zh": "培养人才",
+   "example": "Sudah tentulah bahawa bidang TVET penting untuk mengurangkan jurang pengangguran sehingga melahirkan modal insan.",
+   "level": "ordinary"
+  },
+  {
+   "word": "mengurangkan kebergantungan pada buruh asing",
+   "zh": "减少对外劳的依赖",
+   "example": "Seterusnya, bidang TVET penting untuk mengurangkan kebergantungan pada buruh asing.",
+   "level": "ordinary"
+  },
+  {
+   "word": "menempa rekod tertinggi",
+   "zh": "创下最高纪录",
+   "example": "Melalui Jabatan Perangkaan Malaysia (DOSM) kadar penyertaan tenaga buruh menempa rekod tertinggi iaitu 69.5%.",
+   "level": "ordinary"
+  },
+  {
+   "word": "melonjakkan modal insan berkemahiran tinggi",
+   "zh": "提升高技能人才",
+   "example": "Ahmad Zahid Hamidi berkata, TVET merupakan satu platform baharu memberikan latihan jangka pendek dan panjang sehingga dapat melonjakkan modal insan berkemahiran tinggi dalam kalangan pelbagai lapisan masyarakat.",
+   "level": "ordinary"
+  },
+  {
+   "word": "bersiap siaga",
+   "zh": "严阵以待",
+   "example": "Jadi kita haruslah bersiap siaga untuk menghadapi Revolusi Industri 4.0 untuk menepati keperluan semasa industri untuk memacu perkembangan ekonomi.",
+   "level": "ordinary"
+  },
+  {
+   "word": "menepati keperluan semasa industri",
+   "zh": "符合行业当前需求",
+   "example": "Jadi kita haruslah bersiap siaga untuk menghadapi Revolusi Industri 4.0 untuk menepati keperluan semasa industri untuk memacu perkembangan ekonomi.",
+   "level": "ordinary"
+  },
+  {
+   "word": "memacu perkembangan ekonomi",
+   "zh": "推动经济发展",
+   "example": "Jadi kita haruslah bersiap siaga untuk menghadapi Revolusi Industri 4.0 untuk menepati keperluan semasa industri untuk memacu perkembangan ekonomi.",
+   "level": "ordinary"
+  },
+  {
+   "word": "mendambakan modal insan",
+   "zh": "渴望人才",
+   "example": "Selepas Revolusi Industri 4.0 yang mendambakan modal insan yang menguasai kemahiran Teknologi Maklumat dan Komunikasi (TMK), pendidikan konvensional telah menghadapi cabaran yang belum pernah berlaku sebelumnya.",
+   "level": "ordinary"
+  },
+  {
+   "word": "pendidikan konvensional",
+   "zh": "传统教育",
+   "example": "Selepas Revolusi Industri 4.0 yang mendambakan modal insan yang menguasai kemahiran Teknologi Maklumat dan Komunikasi (TMK), pendidikan konvensional telah menghadapi cabaran yang belum pernah berlaku sebelumnya.",
+   "level": "ordinary"
+  },
+  {
+   "word": "persimpangan inovasi dan pekerjaan",
+   "zh": "创新与就业的十字路口",
+   "example": "Ketika kita berada di persimpangan inovasi dan pekerjaan yang memerlukan kemahiran mengikut rentak, industri Pendidikan dan Latihan Vokasional telah muncul sebagai pendekatan baharu yang dapat melahirkan modal insan yang memenuhi keperluan pada zaman ini.",
+   "level": "ordinary"
+  }
+ ],
+ "goodPhrases": [
+  {
+   "phrase": "bak kata peribahasa tak kenal maka tak cinta",
+   "zh": "不打不相识，不认识就不会喜欢"
+  },
+  {
+   "phrase": "bagai aur dengan tebing",
+   "zh": "唇齿相依，紧密合作"
+  },
+  {
+   "phrase": "berdiri sama tinggi, duduk sama rendah",
+   "zh": "平起平坐，地位平等"
+  }
+ ],
+ "gaps": [
+  "Essay used is the 2nd TVET essay (Usaha-Usaha...); words 1-3 and 6-10 come from the 1st TVET essay's tables (Kepentingan...), so their example sentences are copied from that essay's Table 1/2 ayat column.",
+  "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
+  "Form 5: advanced words short (0 of 7): filled with 7 ordinary words",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+ ]
 }

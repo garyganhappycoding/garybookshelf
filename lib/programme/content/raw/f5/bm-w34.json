@@ -13,7 +13,12 @@
   "Selain itu, sumbangan tenaga dan kepakaran perlu dihulurkan kepada negara yang menghadapi bencana alam. Hal ini berlaku kerana pasukan sukarela dan pasukan penyelamat yang profesional dihantar untuk mencari mangsa-mangsa yang tertimbus dan hilang. Mislanya, Pasukan SMART yang mempunyai segala kelengkapan canggih dan kemahiran cekap pernah diterbangkan ke Nepal pada tahun 2015 untuk menyertai kerja-kerja mencari dan menyelamatkan mangsa gempa bumi. Ketika tertimbus dalam gempa bumi, setiap mangsa hanya mempunyai 72 jam untuk diselamatkan sebelum menemui maut. Justifikasinya, dalam mendepani episod sedih daripada bencana alam, Malaysia tidak ketinggalan menghulurkan sumbangan tenaga atas dasar perikemanusiaan.",
   "Secara tuntasnya, bencana alam telah meninggalkan trauma dalam hati nurani mangsa dan mengelapkan masa depan mereka. Jadi, setiap strata masyarakat haruslah menggalas obligasi dan berkecimpung dalam program kemanusiaan untuk menyalakan harapan mangsa. Tambahan pula, pelbagai langkah pencegahan haruslah diimplementasi, janganlah menunggu kedatangan bencana alam bak kata peribahasa sudah terhantuk baru tengadah. Marilah kita bersama-sama membantu mangsa agar mereka memperolehi nur harapan dan terus tabah melangsungkan kehidupan dan tidak hidup bagai layang-layang putus talinya."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan cara-cara Membantu Mangsa Bencana Alam."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -143,6 +148,7 @@
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (2 of 7): filled with 5 ordinary words",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
-  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

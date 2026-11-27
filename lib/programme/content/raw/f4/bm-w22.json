@@ -13,7 +13,12 @@
   "Seterusnya, terdapat suatu pesanan agama yang perlu tersemat dalam hati nurani seandainya kita hendak bahagia sepanjang hayat, yakni “ingat akan kesakitan ketika sihat; ingat akan ketuaan usia ketika muda; ingat akan kematian ketika hidup; dan ingat akan kepapaan ketika kaya.” Pesanan agama tersebut izhar menunjukkan bahawa kesihatan penting untuk menikmati kehidupan yang bahagia dan selesa. Hal ini dikatakan demikian kerana tubuh badan yang tiada penyakit dapat menikmati ciptaan Tuhan. Sebagai contohnya, seorang individu dapat melancong ke mana-mana tanpa dibelenggu oleh penyakit. Dia dapat menikmati keindahan dan kecantikan panorama seperti melancong ke syurga destinasi pelancongan Malaysia seperti di Pulau Redang. Dia dapat menikmati pemandangan yang mendamaikan jiwa, menikmati keindahan flora dan fauna, meneliti dan mengamati ikan-ikan yang berenang di dasar laut. Justifikasinya, pesanan agama tersebut haruslah dijadikan azimat dalam lubuk kita.",
   "Tuntasnya, slogan “Kesihatan Melambangkan Kekayaan” haruslah dibudayakan dalam kehidupan kita. Sudah tentulah bahawa individu yang mengamalkan budaya tersebut akan membawa seribu satu kebaikan kepada kehidupannya. Peribahasa Melayu ada menyebut “seribu langkah bermula dengan langkah pertama”. Marilah kita mengamalkan slogan tersebut. Semoga masyarakat dapat hidup bebas daripada dibelenggu penyakit dan bunga-bunga kesihatan dapat mekar semerbak di empat pelosok tanah air kita. Rakyat Sihat, Negara Makmur."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan kepentingan menjaga kesihatan."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -123,6 +128,7 @@
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
   "example for \"Akan dilabelkan sebagai insan yang tinggal pada era Paleologi dan menconteng arang ke muka\" is the essay sentence it comes from (the phrase is slightly shortened from the essay wording)",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
-  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }

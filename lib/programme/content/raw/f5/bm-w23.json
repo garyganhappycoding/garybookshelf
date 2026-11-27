@@ -13,7 +13,12 @@
   "Akhirnya, menurut statistik bertafakur merupakan cara paling efektif dan efisien untuk mengatasi stres. Aktiviti bertafakur dapat menenangkan fikiran kita dan membantu kita memfokuskan pada tubuh badan. Sebagai tamsilannya, kita hanya memfokuskan pada ritma pernafasan dan berusaha membiarkan segala fikiran yang tidak berkaitan semasa bertafakur. Dengan ini, kita mencipta satu ruang antara pemikiran dengan reaksi agar tidak terus melakukan perkara yang menghuru-harakan fikiran. Jadi, kita tidak terbelenggu oleh stres yang akan memudaratkan keceriaan hidup mahupun mencetuskan kemelut kesihatan mental. Amalan ini amat digalakkan kerana akan membawa ketenangan jiwa yang maksimum, bak kata peribahasa “tak kenal maka tak cinta”.",
   "Sebagai konklusinya, persis kata mutiara “seribu langkah bermula daripada langkah pertama”, kita haruslah mengimplementasikan langkah yang drastik dan efektif agar stres tidak menjadi pembunuh generasi muda pada masa depan. Ingatlah, pemuda merupakan kesuma bangsa yang menjunjung amanah untuk mengukirkan nama negara pada pentas antarabangsa. Dengan menghilangkan tekanan, nescaya kita dapat hidup di bawah bumbung yang diselubungi keceriaan dan kebahagiaan."
  ],
- "points": [],
+ "points": [
+  {
+   "code": "Soalan",
+   "text": "Bincangkan cara-cara Menangani Stres dengan Berkesan."
+  }
+ ],
  "openingIdx": [
   0
  ],
@@ -72,6 +77,41 @@
    "zh": "进行线上教学",
    "example": "Oleh itu, golongan murid dan golongan guru mula menjalankan pengajaran dan pembelajaran (PDP) secara dalam talian.",
    "level": "ordinary"
+  },
+  {
+   "word": "Seperti melukut di tepi gantang",
+   "zh": "不重要的事情",
+   "example": "Salah satu persepsi yang haruslah disirna secara jauh-jauh ialah kesihatan mental seperti melukut di tepi gantang."
+  },
+  {
+   "word": "Bunga-bunga bangsa yang mengemudi bahtera negara ke arah kemajuan",
+   "zh": "年轻人是带领国家向往成功的人",
+   "example": "Keadaan ini amat merimaskan dan membimbangkan pelbagai pihak kerana remaja merupakan bunga-bunga bangsa yang mengemudi bahtera negara ke arah kemajuan."
+  },
+  {
+   "word": "Pencegahan lebih baik daripada mengubati",
+   "zh": "预防胜于治疗",
+   "example": "Peribahasa “pencegahan lebih baik daripada mengubati”, kita haruslah pandai menangani stres agar dapat menjauhi diri daripada penyakit mental."
+  },
+  {
+   "word": "Pendekatan yang mujarab",
+   "zh": "有效的方法",
+   "example": "Hal ini merupakan salah satu pendekatan yang mujarab kerana dapat melampiaskan tekanan."
+  },
+  {
+   "word": "Melampiaskan tekanan",
+   "zh": "释放压力",
+   "example": "Hal ini merupakan salah satu pendekatan yang mujarab kerana dapat melampiaskan tekanan."
+  },
+  {
+   "word": "Berganding bahu",
+   "zh": "合作",
+   "example": "Tambahan pula, kita juga dapat berganding bahu untuk berikhtiar jalan keluar terhadap masalah yang dihadapi."
+  },
+  {
+   "word": "Meluahkan isi hati",
+   "zh": "讲心事",
+   "example": "Sebagai contohnya, apabila kita menyesal selepas bergaduh dengan kawan, kita dapat meluahkan isi hati kepada kawan yang dipercayai untuk mencari penyelesaiannya."
   }
  ],
  "goodPhrases": [
@@ -129,6 +169,7 @@
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (0 of 7): filled with 0 ordinary words",
   "Form 5: only 8 words available for this topic",
-  "Essay replaced on 27 Nov 2026 with an unused essay from Gary's Drive (instead of repeating); the week's words stay as in Gary's week list."
+  "Essay replaced on 27 Nov 2026 with an unused essay from Gary's Drive (instead of repeating); the week's words stay as in Gary's week list.",
+  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
  ]
 }
