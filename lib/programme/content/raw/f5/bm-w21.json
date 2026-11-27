@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan faedah-faedah Sukan Lasak."
+   "text": "Bincangkan faedah-faedah sukan lasak. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Sukan lasak dapat menyihatkan badan"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Sukan lasak dapat menyemarakkan semangat berpasukan antara pemain sekumpulan"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Sukan lasak dapat membina ketahanan diri dan kita akan berani menghadapi cabaran"
   }
  ],
  "openingIdx": [
@@ -164,6 +176,7 @@
   "Form 5: advanced words short (0 of 7): filled with 2 ordinary words",
   "Form 5: only 10 words available for this topic",
   "Essay replaced on 27 Nov 2026 with an unused essay from Gary's Drive (instead of repeating); the week's words stay as in Gary's week list.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

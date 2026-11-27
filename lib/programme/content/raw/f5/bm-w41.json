@@ -18,7 +18,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan kepentingan Perpaduan Kaum kepada Masyarakat dan Negara."
+   "text": "Bincangkan kepentingan perpaduan kaum kepada masyarakat dan negara. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Perpaduan kaum yang tercapai dapat menjamin keharmonian negara"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Perpaduan mewujudkan iklim politik yang stabil dan kondusif"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Cuba kita merenung bahawa adakah seorang pelancong akan datang ke negara yang rukun atau negara yang sentiasa berlaku pergolahan"
   }
  ],
  "openingIdx": [
@@ -169,6 +181,7 @@
   "Only two Perpaduan essays exist; this is the 3rd appearance of the topic so the 1st essay (Kepentingan...) is used again (the 2nd was used in week 30). Words 6-10 come from the 2nd essay's tables, so their example sentences are copied from that essay's Table 1/2 ayat column.",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (7 of 8): filled with 1 ordinary words",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

@@ -17,7 +17,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan langkah-Langkah Memajukan Sektor Pertanian."
+   "text": "Bincangkan langkah-langkah memajukan sektor pertanian. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Menurut kata-kata Pakar Ekonomi Pertanian Profesor Datuk Dr Mad Nasir Shamsudin “antara faktor meningkatkan produktiviti sektor pertanian adalah melalui penggun"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Pihak kerajaan berperanan penting untuk memajukan sektor pertanian di negara kita"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Penyelidikan dan pembangunan amat penting untuk memajukan sektor pertanian"
   }
  ],
  "openingIdx": [
@@ -103,6 +115,7 @@
  ],
  "gaps": [
   "Essay used is the 2nd Pertanian essay (Langkah-Langkah...); words 1-4 and 6-10 come from the 1st Pertanian essay's tables (Faktor-Faktor...), so their example sentences are copied from that essay's Table 1/2 ayat column. Word 5 example is from the essay used.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

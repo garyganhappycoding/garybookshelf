@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan kepentingan menjaga kebersihan."
+   "text": "Bincangkan kepentingan menjaga kebersihan. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Kebersihan seorang individu penting sebagai kayu pengukur kepada orang lain untuk menilai keperibadian kita"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Penjagaan kebersihan penting agar kesihatan kita terjamin"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Kebersihan seseorang penting agar kita dihormati oleh masyarakat"
   }
  ],
  "openingIdx": [
@@ -86,6 +98,7 @@
   "This essay has no Table 1 / Table 2 with an ayat column; it has one table 'Ungkapan menarik / maksud'. All 10 examples are sentences from the essay text (spec fallback 3). Because that table has no Table 2, goodPhrases is empty",
   "Near-match examples (essay wording differs slightly from the word): 'Dicaci akan masyarakat' (essay: dicaci oleh masyarakat); 'Kita dapat menimbang peribadi seorang' (essay: seseorang); 'Menemuduga' (essay: menemu duga); 'Seorang yang berkusut-masai' (essay: Seorang calon yang berkusut-masai)",
   "keyPoint.prompt is null (no Question Analysis table); level and source are null",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

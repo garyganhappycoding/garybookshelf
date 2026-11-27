@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan langkah-Langkah Mengekang Masalah Penyalahgunaan Media Sosial."
+   "text": "Bincangkan langkah-langkah mengekang masalah penyalahgunaan media sosial. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Pihak kerajaan haruslah menggalas obligasi untuk mengatasi masalah ini sehingga akar umbi"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Rakyat haruslah mengenal pasti kesahihan berita sebelum menyebar luas"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Kempen kesedaran tentang tip-tip keselamatan media sosial haruslah diadakan secara konsisten"
   }
  ],
  "openingIdx": [
@@ -111,6 +123,7 @@
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
   "keyPoint.prompt is null because Malay essays have no Question Analysis table",
   "Essay replaced on 27 Nov 2026 with a new essay of the same topic (Gary's new Drive documents); the week's words stay as in Gary's week list.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

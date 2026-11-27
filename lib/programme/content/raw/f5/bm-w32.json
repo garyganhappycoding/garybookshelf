@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan faktor-faktor Masalah Kesihatan Mental."
+   "text": "Bincangkan faktor-faktor masalah kesihatan mental. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Tekanan akademik merupakan faktor dominan masalah kesihatan mental"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Masalah keluarga juga akan menyumbang kepada berlakunya masalah kesihatan mental"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Pelajar-pelajar juga mudah terpengaruh oleh gaya hidup moden"
   }
  ],
  "openingIdx": [
@@ -176,6 +188,7 @@
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (0 of 7): filled with 7 ordinary words",
   "Essay replaced on 27 Nov 2026 (new essay in Gary's Kebersihan dan Kesihatan folder); the week's words stay as in Gary's week list.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan ciri-ciri Pelancong yang Bijak."
+   "text": "Bincangkan ciri-ciri pelancong yang bijak. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Sebagai pelancong yang bijak kita haruslah merancang bajet dalam aspek penginapan, pengangkutan, makanan dan lain-lain"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Pernahkah anda mengalami keadaan berikut"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Salah satu aspek yang banyak kali dibiarkan semasa melancong adalah keselamatan"
   }
  ],
  "openingIdx": [
@@ -117,6 +129,7 @@
  ],
  "gaps": [
   "Essay used is the 2nd Pelancongan essay (Ciri-ciri Pelancong yang Bijak); words 1-4 and 6-10 come from the 1st Pelancongan essay's tables (Cara-Cara Memajukan Sektor Pelancongan), so their example sentences are copied from that essay's Table 1/2 ayat column. The example of 'senjata yang paling ampuh' starts with a stray ')' exactly as in Gary's table.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

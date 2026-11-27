@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan faktor-Faktor Remaja Tidak Menceburi Bidang Pertanian."
+   "text": "Bincangkan faktor-faktor remaja tidak menceburi bidang pertanian. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Persepsi negatif terhadap pertanian telah membendung remaja terutamanya graduan tidak berani menceburi bidang pertanian"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Kurang pemahaman terhadap bidang pertanian juga menjadi pokok pangkal generasi muda tidak menceburi bidang ini"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Pihak keluarga yang tidak membenarkan anak-anak menyertai aktiviti pertanian"
   }
  ],
  "openingIdx": [
@@ -102,6 +114,7 @@
  "gaps": [
   "Paragraph 3 of the source had a stray personal note in brackets after 'keterlaluan air' (a question about whether the Chinese note was right); it was removed as an editor's note, not essay text",
   "keyPoint.prompt is null (no Question Analysis table); level and source are null",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

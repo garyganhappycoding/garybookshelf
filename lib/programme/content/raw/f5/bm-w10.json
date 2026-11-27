@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan usaha-Usaha untuk Mempopularkan Makanan Tradisional."
+   "text": "Bincangkan usaha-usaha untuk mempopularkan makanan tradisional. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Daya inovasi dan kreativiti diperlukan untuk mempopularkan makanan tradisional"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Pihak pengusaha makanan tradisional perlu mempromosikan produk makanan tradisional di Malaysia dengan menjalinkan kerjasama dengan pempengaruh"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Penggunaan alat-alat teknologi juga perlu diimplementasikan untuk meningkatkan kualiti makanan tradisional"
   }
  ],
  "openingIdx": [
@@ -143,6 +155,7 @@
   "keyPoint.prompt is null (no Question Analysis table); level and source are null",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (4 of 8): filled with 4 ordinary words",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

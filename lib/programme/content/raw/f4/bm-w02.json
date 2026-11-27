@@ -17,7 +17,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan punca Berlaku Bencana Alam Akibat Tindakan Manusia."
+   "text": "Bincangkan punca berlaku bencana alam akibat tindakan manusia. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Manusia yang telah dipengaruhi oleh tamak haloba telah mengondolkan hutan secara besar-besaran tanpa berfikir masa depan manusia"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Air merupakan salah satu sumber yang amat penting terhadap manusia"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Aktiviti pembangunan yang tidak terancang terutamanya di bandar-bandar besar telah mengundang musibah"
   }
  ],
  "openingIdx": [
@@ -104,6 +116,7 @@
  "gaps": [
   "Example sentences are copied from the essay's Table 1 ayat column including its own typos (Oelh, sebagianya)",
   "openingIdx [0,1]: paragraph 1 is a lead-in to the thesis before the first main point; keyPoint.prompt is null (no Question Analysis table); level and source are null",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

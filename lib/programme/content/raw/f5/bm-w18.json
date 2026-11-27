@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan peranan Menangani Kemalangan Jalan Raya."
+   "text": "Bincangkan peranan menangani kemalangan jalan raya. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Pihak kerajaan tidak boleh mengabaikan masalah ini bagai melukut di tepi gantang"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Jabatan Pengangkutan Jalan perlulah mengetatkan syarat memberikan lesen"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Pengguna jalan raya perlu mengubah sikap dan perlu menghargai nyawa pengguna jalan raya"
   }
  ],
  "openingIdx": [
@@ -174,6 +186,7 @@
  "gaps": [
   "keyPoint idx is the first body paragraph after the opening (no question table in BM essays); prompt is null",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

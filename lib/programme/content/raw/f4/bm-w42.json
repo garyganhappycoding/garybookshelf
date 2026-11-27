@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan kepentingan Sektor Pelancongan Terhadap Negara."
+   "text": "Bincangkan kepentingan sektor pelancongan terhadap negara. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Sektor pelancongan dapat membawa tempias positif terhadap iktisad negara"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Hal ini berlaku apabila negara kita berpotensi besar dan mempunyai prospek yang cerah dalam salah satu bidang"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Sektor pelancongan penting kerana sektor ini akan menggalakkan penaiktaraf infrastruktur"
   }
  ],
  "openingIdx": [
@@ -105,6 +117,7 @@
  ],
  "gaps": [
   "Essay used is the 3rd Pelancongan essay (Kepentingan Sektor Pelancongan Terhadap Negara); words 1-7 come from the 2nd essay's tables (Ciri-ciri Pelancong yang Bijak), so their example sentences are copied from that essay's Table 2 ayat column.",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

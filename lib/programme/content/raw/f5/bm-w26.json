@@ -16,7 +16,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan usaha-Usaha Memajukan Bidang Pendidikan dan Latihan Vokasional."
+   "text": "Bincangkan usaha-usaha memajukan bidang pendidikan dan latihan vokasional. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Pihak kerajaan perlulah menyediakan modal yang mencukupi untuk memajukan bidang Pendidikan dan Latihan Vokasional(TVET)"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Pihak kerajaan perlu melebihkan institusi TVET dan menyalurkan kursus TVET khususnya di luar bandar. hal ini dikatakan demikian kerana kita tidak boleh mengetep"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Ditokok tambah lagi"
   }
  ],
  "openingIdx": [
@@ -139,6 +151,7 @@
   "Essay used is the 2nd TVET essay (Usaha-Usaha...); words 1-3 and 6-10 come from the 1st TVET essay's tables (Kepentingan...), so their example sentences are copied from that essay's Table 1/2 ayat column.",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (0 of 7): filled with 7 ordinary words",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }

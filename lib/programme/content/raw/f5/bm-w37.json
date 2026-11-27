@@ -17,7 +17,19 @@
  "points": [
   {
    "code": "Soalan",
-   "text": "Bincangkan usaha-Usaha untuk Menarik Minat Menceburkan Diri dalam Bidang Ketenteraan."
+   "text": "Bincangkan usaha-usaha untuk menarik minat menceburkan diri dalam bidang ketenteraan. Tulis tiga isi."
+  },
+  {
+   "code": "Isi 1",
+   "text": "Sekolah merupakan rumah kedua seorang murid kerana murid menghabiskan masa hampir 7 jam dalam sekolah"
+  },
+  {
+   "code": "Isi 2",
+   "text": "Angkatan Tentera Malaysia (ATM) perlu mengadakan pameran tentang kerjaya dalam bidang ketenteraan"
+  },
+  {
+   "code": "Isi 3",
+   "text": "Kementerian Pendidikan Malaysia dapat menubuhkan sekolah yang berteraskan ketenteraan di negara kita"
   }
  ],
  "openingIdx": [
@@ -178,6 +190,7 @@
   "The essay doc has two alternative introductions (Pendahuluan 1 and Pendahuluan 2); both are kept (openingIdx 0 and 1).",
   "Form 5: 15 words, about half advanced (Table 2) and half ordinary (Table 1), from all the topic's essays",
   "Form 5: advanced words short (4 of 7): filled with 3 ordinary words",
-  "BM question stem drafted by Claude from the essay title (27 Nov 2026), unchecked: Gary to replace with the real question (text or picture)."
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question.",
+  "BM question and the 3 isi reverse engineered by Claude from the essay (27 Nov 2026), unchecked: Gary to check or replace with the real question."
  ]
 }
