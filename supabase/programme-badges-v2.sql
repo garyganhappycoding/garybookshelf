@@ -35,3 +35,27 @@ delete from public.programme_reward_state;
 -- seen_at (applied 28 Nov 2026, migration programme_badge_seen): home page notice for new 陪你读书 badges
 alter table public.programme_student_badges add column if not exists seen_at timestamptz;
 update public.programme_student_badges set seen_at = coalesce(seen_at, now());
+
+-- Beta testers (applied 28 Nov 2026, migration programme_beta_testers): emails allowed into 陪你读书 while it is closed.
+create table if not exists public.programme_beta_testers (
+  email text primary key,
+  note text,
+  demo_today date,
+  added_at timestamptz not null default now()
+);
+alter table public.programme_beta_testers enable row level security;
+
+-- Daily feedback from beta testers (applied 28 Nov 2026, migration programme_beta_feedback): one row per tester per day.
+create table if not exists public.programme_beta_feedback (
+  user_id uuid not null,
+  day date not null,
+  time_spent text,
+  ai_helpful text,
+  ai_why text,
+  stuck text,
+  change text,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now(),
+  primary key (user_id, day)
+);
+alter table public.programme_beta_feedback enable row level security;

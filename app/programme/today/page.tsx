@@ -6,6 +6,7 @@ import { classKey, getProfile, myHistoryRows } from "@/lib/programme/profile";
 import { addDays, buildCalendar, demoHistory, facts, key, mondayOf, parse, programmeEnd, realHistory } from "@/lib/programme/calendar";
 import { resolveDay, studentBlocks } from "@/lib/programme/dayflow";
 import { redirect } from "next/navigation";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { pendingExam } from "@/lib/programme/results";
 import { pendingMonthly } from "@/lib/programme/monthly";
 import { dayKeyFor } from "@/lib/programme/content/index";
@@ -13,7 +14,7 @@ import { dayKeyFor } from "@/lib/programme/content/index";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "今天 · 陪你读书", robots: { index: false, follow: false } };
 
-export default async function TodayPage({ searchParams }: { searchParams: Promise<{ lang?: string; date?: string }> }) {
+export default async function TodayPage({ searchParams }: { searchParams: Promise<{ lang?: string; date?: string; beta?: string }> }) {
   const a = await requireProgramme();
   const sp = await searchParams;
   // the monthly essay test is mandatory: until it is handed in, Today sends the student to it (the admin preview is not blocked)
@@ -44,10 +45,17 @@ export default async function TodayPage({ searchParams }: { searchParams: Promis
     return { k, label: LABEL[dayKeyFor(cal.group, dd.getDay())], state: history[k] ?? null, future: !a.isAdmin && k > a.today };
   });
   const resultPrompt = await pendingExam(a.userId, p.exams, a.today);
+  // beta testers: today's feedback they already sent (so the form shows it and they can change it)
+  // the admin can add ?beta=1 to see the page the way a beta tester sees it
+  const betaView = a.beta || (a.isAdmin && sp.beta === "1");
+  const betaSaved = betaView
+    ? (await createAdminClient().from("programme_beta_feedback").select("time_spent, ai_helpful, ai_why, stuck, change").eq("user_id", a.userId).eq("day", today).maybeSingle()).data
+    : null;
   const data: TodayData = {
     resultPrompt: resultPrompt ? { id: resultPrompt.id, name: resultPrompt.name } : null,
     todayReal: a.today, stats: { week: f.week, weeks: f.weeks, left: f.left, total: f.total, earned: f.earned, streak: f.streak }, weekDays,
     day: today, lang, state: p.state, demo: a.isAdmin, ilang: p.instructionLang, form: p.form, card, examWeek, ended,
+    beta: betaView ? { saved: betaSaved ?? null } : null,
     submitted: !!sub, submissionId: sub?.id ?? null, feedback: sub?.ai_feedback ?? null, aiStatus: sub?.ai_status ?? null, answerText: sub?.answer ?? null, marks: Array.isArray((sub?.details as { marks?: unknown } | null)?.marks) ? ((sub!.details as { marks: { k: string; w: string; c: 1 | 2 }[] }).marks) : null, comments,
   };
   return (

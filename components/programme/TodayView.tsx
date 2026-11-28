@@ -3,6 +3,7 @@ import Link from "@/components/Link";
 import { useActionState, useState } from "react";
 import { addDays, buildCalendar, cn, key, parse, WEEKDAY_ZH } from "@/lib/programme/calendar";
 import { commentAction, reportAction, type Result } from "@/app/programme/today/actions";
+import BetaFeedback, { type BetaFeedbackValues } from "@/components/programme/BetaFeedback";
 import DayCard, { type CardData } from "./DayCard";
 
 export type TodayStats = { week: number; weeks: number; left: number; total: number; earned: number; streak: number };
@@ -12,6 +13,7 @@ export type TodayData = {
   day: string; lang: "BM" | "BI"; state: string; submitted: boolean; submissionId: string | null;
   demo: boolean; feedback: string | null; aiStatus: string | null; ilang: "en" | "zh"; form: number; card: CardData | null; examWeek: boolean; ended: boolean; answerText: string | null; marks: { k: string; w: string; c: 1 | 2 }[] | null;
   comments: { id: string; nickname: string; body: string; mine: boolean; waiting: boolean }[];
+  beta: { saved: BetaFeedbackValues | null } | null;
 };
 const init: Result = {};
 
@@ -59,6 +61,12 @@ export default function TodayView({ data }: { data: TodayData }) {
         </div>
       </div>
       <h1 className="text-2xl font-medium mb-2">今天</h1>
+      {data.beta && (
+        <div className="mb-3 rounded-xl border border-sage-400/50 bg-sage-400/15 p-3 text-sm text-ink/80">
+          <b>你是内测同学，谢谢你。</b> 你交上去的答案，AI 会先批改；<b>Gary 也会亲自看你的答案和 AI 的反馈，再给你评语。</b>
+          每天做完作业后，请在最下面填「今日反馈」，写得越具体越有用。
+        </div>
+      )}
 
       <div className="-mx-5 mb-3 flex gap-2 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-5 pb-1 text-xs md:mx-0 md:px-0" aria-label="进度">
         <span className="shrink-0 rounded-xl border border-ink/10 bg-white px-3 py-1.5 text-ink/70"><b className="mr-1 text-sm text-ink">{data.stats.week ? `第 ${data.stats.week}/${data.stats.weeks} 周` : "学校假期"}</b></span>
@@ -118,6 +126,7 @@ export default function TodayView({ data }: { data: TodayData }) {
               </>
             )}
           </div>
+          {data.beta && <BetaFeedback day={data.day} submitted={data.submitted} saved={data.beta.saved} />}
         </>
       )}
     </div>
