@@ -59,3 +59,6 @@ create table if not exists public.programme_beta_feedback (
   primary key (user_id, day)
 );
 alter table public.programme_beta_feedback enable row level security;
+
+-- Starting essay can be skipped and filled in later (applied 28 Nov 2026, migration programme_pretest_skipped).
+alter table public.programme_pretest add column if not exists skipped boolean not null default false;

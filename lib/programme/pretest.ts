@@ -8,14 +8,21 @@ const words = (t: string) => t.split(/\s+/).filter(Boolean).length;
 export type PretestLang = "BI" | "BM";
 
 export async function myPretests(userId: string) {
-  const { data } = await createAdminClient().from("programme_pretest").select("lang, body, file_path, created_at").eq("user_id", userId);
-  return (data ?? []) as { lang: PretestLang; body: string; file_path: string | null; created_at: string }[];
+  const { data } = await createAdminClient().from("programme_pretest").select("lang, body, file_path, created_at, skipped").eq("user_id", userId);
+  return (data ?? []) as { lang: PretestLang; body: string; file_path: string | null; created_at: string; skipped: boolean }[];
 }
 
-/** True once both a BI and a BM essay are in. */
+/** True once each of BI and BM has an essay in, or the student chose to skip it for now (Gary, 28 Nov 2026: no essay yet means fill it in later). */
 export async function hasPretest(userId: string) {
-  const got = new Set((await myPretests(userId)).filter((p) => words(p.body) >= 30).map((p) => p.lang));
-  return got.has("BI") && got.has("BM");
+  const rows = await myPretests(userId);
+  const ok = (lang: PretestLang) => rows.some((p) => p.lang === lang && (words(p.body) >= 30 || p.skipped));
+  return ok("BI") && ok("BM");
+}
+
+/** The starting essays the student skipped and has not filled in yet (the home page reminds them). */
+export async function missingPretests(userId: string): Promise<PretestLang[]> {
+  const rows = await myPretests(userId);
+  return (["BI", "BM"] as const).filter((lang) => !rows.some((p) => p.lang === lang && words(p.body) >= 30));
 }
 
 /** Scores the typed starting essays that have no score yet. An uploaded file cannot be marked by the AI: Gary reads those himself. */
@@ -38,7 +45,13 @@ export async function savePretest(userId: string, form: FormData): Promise<{ err
     const { data: old } = await admin.from("programme_pretest").select("body, file_path").eq("user_id", userId).eq("lang", lang).maybeSingle();
     // typing is required (the AI marks typed text only); a file is an optional extra for Gary
     const have = body || old?.body || "";
-    if (words(have) < 30) return { error: lang === "BI" ? "请把英文作文打字写下来或贴上来，至少 30 个字（系统要读到文字才能批改）。" : "请把马来文作文打字写下来或贴上来，至少 30 个字（系统要读到文字才能批改）。" };
+    // "I do not have one yet": skipped for now, the student can add it later
+    if (words(have) < 30 && form.get(`skip-${lang}`) === "on" && !file) {
+      const { error } = await admin.from("programme_pretest").upsert({ user_id: userId, lang, body: old?.body ?? "", file_path: old?.file_path ?? null, skipped: true }, { onConflict: "user_id,lang" });
+      if (error) return { error: "保存失败，请再试一次。" };
+      continue;
+    }
+    if (words(have) < 30) return { error: lang === "BI" ? "请把英文作文打字写下来或贴上来，至少 30 个字；如果现在没有，请勾「以后再补」。" : "请把马来文作文打字写下来或贴上来，至少 30 个字；如果现在没有，请勾「以后再补」。" };
     let path = old?.file_path ?? null;
     if (file) {
       if (!(file.type.startsWith("image/") || file.type === "application/pdf")) return { error: "作文文件请上传 PDF（最好）或图片。" };
@@ -50,7 +63,7 @@ export async function savePretest(userId: string, form: FormData): Promise<{ err
       if (path) await admin.storage.from("receipts").remove([path]);
       path = p;
     }
-    const { error } = await admin.from("programme_pretest").upsert({ user_id: userId, lang, body: body || old?.body || "", file_path: path }, { onConflict: "user_id,lang" });
+    const { error } = await admin.from("programme_pretest").upsert({ user_id: userId, lang, body: body || old?.body || "", file_path: path, skipped: false }, { onConflict: "user_id,lang" });
     if (error) return { error: "保存失败，请再试一次。" };
   }
   return {};

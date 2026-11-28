@@ -26,7 +26,7 @@ export default function ResultsForm({ kind, examId, title, subjects, parts, exis
       <input type="hidden" name="kind" value={kind} /><input type="hidden" name="exam" value={examId} />
       <div className="card">
         <p className="font-medium mb-1">{title}</p>
-        <p className="text-sm text-ink/70">每一科写下总分（0 到 100），没有读的科目留空。知道分项的分数（例如 BM 的口试、BI 的写作）也可以写，不知道的话，只写总分就可以。</p>
+        <p className="text-sm text-ink/70">每一科写下总分（0 到 100），<b>没有读的科目留空就是跳过</b>。知道分项的分数（例如 BM 的口试、BI 的写作）也可以写，不知道的话，只写总分就可以。</p>
         <div className="mt-3 space-y-3">
           {all.map((s) => (
             <div key={s} className="rounded-xl border border-ink/10 bg-white px-3 py-2">
@@ -70,7 +70,10 @@ export default function ResultsForm({ kind, examId, title, subjects, parts, exis
       </div>
 
       {state.error && <p role="alert" className="text-sm text-red-700">{state.error}</p>}
-      <button disabled={pending} className="btn-primary min-h-12 text-sm disabled:opacity-50">{pending ? "上传中…" : "交上去"}</button>
+      <div className="flex flex-wrap gap-2">
+        <button disabled={pending} className="btn-primary min-h-12 text-sm disabled:opacity-50">{pending ? "上传中…" : "交上去"}</button>
+        {kind === "baseline" && <button disabled={pending} name="skip" value="1" className="btn-secondary min-h-12 text-sm disabled:opacity-50">我现在没有成绩，先跳过</button>}
+      </div>
     </form>
   );
 }

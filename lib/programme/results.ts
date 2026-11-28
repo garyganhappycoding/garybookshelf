@@ -75,7 +75,9 @@ export async function saveResults(userId: string, kind: "baseline" | "exam", exa
     if (!okFile(f)) return { error: "成绩单和试卷请上传 PDF（最好）或图片。" };
     if (f.size > MAX_FILE) return { error: "有一个文件太大，请每个小于 10MB。" };
   }
-  if (!Object.keys(marks).length && !slip) return { error: "请至少写下一科的分数，或者上传成绩单。" };
+  // "I have no results yet" (starting results only): an empty set lets the student carry on, and they can add marks later
+  const skip = kind === "baseline" && form.get("skip") === "1" && !Object.keys(marks).length && !slip;
+  if (!skip && !Object.keys(marks).length && !slip) return { error: "请至少写下一科的分数，或者上传成绩单；现在还没有的话，可以点「我现在没有成绩，先跳过」。" };
 
   const { data: existing } = await admin.from("programme_result_sets").select("id, slip_path, paper_paths").eq("user_id", userId).eq("kind", kind).eq("exam_id", examId ?? "").maybeSingle();
   let setId = existing?.id as string | undefined;
