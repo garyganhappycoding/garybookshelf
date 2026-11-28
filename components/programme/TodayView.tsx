@@ -64,7 +64,6 @@ export default function TodayView({ data }: { data: TodayData }) {
         <span className="shrink-0 rounded-xl border border-ink/10 bg-white px-3 py-1.5 text-ink/70"><b className="mr-1 text-sm text-ink">{data.stats.week ? `第 ${data.stats.week}/${data.stats.weeks} 周` : "学校假期"}</b></span>
         <span className="shrink-0 rounded-xl border border-ink/10 bg-white px-3 py-1.5 text-ink/70"><b className="mr-1 text-sm text-ink">{data.stats.left}/{data.stats.total}</b>天上课</span>
         <span className="shrink-0 rounded-xl border border-ink/10 bg-white px-3 py-1.5 text-ink/70"><span className={data.stats.streak > 0 ? "" : "grayscale opacity-60"} aria-hidden>🔥</span> <b className="mr-1 text-sm text-ink">{data.stats.streak}</b>天连续</span>
-        <span className="shrink-0 rounded-xl border border-ink/10 bg-white px-3 py-1.5 text-clay-700"><b className="mr-1 text-sm">RM{data.stats.earned}/200</b>已赚回</span>
       </div>
 
       <div className="mb-4 grid grid-cols-7 gap-1.5" role="navigation" aria-label="这一周">

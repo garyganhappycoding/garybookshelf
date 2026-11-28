@@ -61,8 +61,8 @@ export default function JoinView({ group }: { group: GroupView | null }) {
   return (
     <div>
       <h1 className="text-2xl font-medium mb-1">加入陪你读书</h1>
-      <p className="text-sm text-ink/60 mb-2">一年 RM200，大约每个上课日 RM1。每做完一个上课日，就「赚回」RM1。</p>
-      <p className="text-xs text-ink/60 mb-4">「赚回」是给你的鼓励，用来看自己坚持了多少，<b>不是退款</b>。付款之后不能退款，请想清楚再报名。</p>
+      <p className="text-sm text-ink/60 mb-2">一年 RM200，大约每个上课日 RM1。</p>
+      <p className="text-xs text-ink/60 mb-4"><b>付款之后不能退款</b>，请想清楚再报名。</p>
 
       {!group ? (
         <>

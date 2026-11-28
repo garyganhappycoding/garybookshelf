@@ -51,7 +51,6 @@ export default function CalendarView({ state: stateId, form, exams, today: TODAY
         <div className="flex items-center gap-5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden whitespace-nowrap text-sm font-semibold tabular-nums md:justify-between md:gap-2 md:text-xl">
           <span className="shrink-0">{f.week ? `第 ${f.week}/${f.weeks} 周` : "学校假期"}</span>
           <span className="shrink-0">{f.left}/{f.total} 天上课</span>
-          <span className="shrink-0 text-clay-600">赚回 RM{f.earned}/200</span>
           <span className={`shrink-0 ${f.streak > 0 ? "" : "grayscale opacity-60"}`}><span aria-hidden>🔥</span> {f.streak}</span>
         </div>
         {demo && (

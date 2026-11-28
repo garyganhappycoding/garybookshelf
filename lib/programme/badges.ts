@@ -153,3 +153,19 @@ export async function awardForImprovement(userId: string, previous: Record<strin
 export async function setPasted(userId: string, badgeId: string, serial: number, pasted: boolean) {
   await createAdminClient().from("programme_student_badges").update({ pasted }).eq("user_id", userId).eq("badge_id", badgeId).eq("serial", serial);
 }
+
+/** Badges the student has earned but not looked at yet: the home page tells them about these. */
+export async function unseenBadges(userId: string): Promise<{ id: string; title: string; n: number | null }[]> {
+  const admin = createAdminClient();
+  const [{ data: rows }, { data: titles }] = await Promise.all([
+    admin.from("programme_student_badges").select("badge_id, n").eq("user_id", userId).is("seen_at", null).order("earned_at"),
+    admin.from("programme_badges").select("id, title"),
+  ]);
+  const name = new Map((titles ?? []).map((t) => [t.id as string, t.title as string]));
+  return (rows ?? []).map((r) => ({ id: r.badge_id as string, title: name.get(r.badge_id as string) ?? (r.badge_id as string), n: (r.n as number | null) ?? null }));
+}
+
+/** The student has opened the badge page: clear the notification. */
+export async function markBadgesSeen(userId: string) {
+  await createAdminClient().from("programme_student_badges").update({ seen_at: new Date().toISOString() }).eq("user_id", userId).is("seen_at", null);
+}

@@ -140,6 +140,7 @@ export default function BadgeWall({ items, name, preview }: { items: WallItem[];
 
       <section className="card" aria-label="我的徽章">
         <p className="mb-3 font-medium">我的徽章 <span className="text-sm font-normal text-ink/60">{earned.length} 枚</span></p>
+        {items.length === 0 && <p className="py-6 text-center text-sm text-ink/50">这面墙还是空的。</p>}
         <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
           {items.map((it) => (
             <button key={it.key} type="button" onClick={() => { setSel(it.key); setTurned(false); }}

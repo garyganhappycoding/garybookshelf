@@ -32,3 +32,6 @@ create unique index if not exists programme_student_badges_edition on public.pro
 -- streak bookkeeping: remember that a streak was broken so 重新努力！ can be won
 alter table public.programme_reward_state add column if not exists broken boolean not null default false;
 delete from public.programme_reward_state;
+-- seen_at (applied 28 Nov 2026, migration programme_badge_seen): home page notice for new 陪你读书 badges
+alter table public.programme_student_badges add column if not exists seen_at timestamptz;
+update public.programme_student_badges set seen_at = coalesce(seen_at, now());
