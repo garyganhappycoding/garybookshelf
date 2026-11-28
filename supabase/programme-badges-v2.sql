@@ -62,3 +62,6 @@ alter table public.programme_beta_feedback enable row level security;
 
 -- Starting essay can be skipped and filled in later (applied 28 Nov 2026, migration programme_pretest_skipped).
 alter table public.programme_pretest add column if not exists skipped boolean not null default false;
+
+-- Beta feedback: optional note about badges, the wall and sharing (applied 28 Nov 2026, migration programme_beta_feedback_badges_note).
+alter table public.programme_beta_feedback add column if not exists badges_note text;

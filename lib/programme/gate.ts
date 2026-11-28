@@ -4,7 +4,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
 import { hasPlace } from "./groups";
 import { hasBaseline } from "./results";
 import { hasPretest } from "./pretest";
-import { DEMO_TODAY } from "./calendar";
+import { DEMO_TODAY, addDays, key, parse } from "./calendar";
 import { todayMY } from "./content";
 
 /**
@@ -12,8 +12,8 @@ import { todayMY } from "./content";
  *  - The admin always can (and sees the sample date, so the preview shows something before 2027).
  *  - Students only when the launch switch PROGRAMME_OPEN=true is set in Vercel. Until Gary sets it, everyone else gets a 404,
  *    so the pages do not even look like they exist.
- *  - Beta testers (emails on /admin/programme-beta) can open it while it is closed. They need no payment or friend group, and they see the
- *    programme on the demo date (like the admin) or the date Gary sets for them, so there is something to do before 2027.
+ *  - Beta testers (emails on /admin/programme-beta) can open it while it is closed. They need no payment or friend group, and their
+ *    programme date starts on 4 Jan 2027 (or the date Gary sets) and moves forward one day per real day, so there is something to do before 2027.
  *  - With the switch on, a student needs a confirmed place: the leader once the group is confirmed, a friend once they have
  *    opened their own link. A paused link stops access until Gary resumes it.
  * Call one of these at the top of EVERY page and server action under /programme (layouts do not re-run on client navigation).
@@ -22,10 +22,21 @@ export type Access = { userId: string; email: string; isAdmin: boolean; today: s
 
 export const programmeOpen = () => process.env.PROGRAMME_OPEN === "true";
 
+/**
+ * A beta tester lives through the programme day by day: their "today" starts at the date Gary set (week 1 Monday, 4 Jan 2027, when he set none)
+ * and moves forward one day for every real day since he added them. So a two-week beta is really weeks 1 and 2, streaks can build up and
+ * future days stay locked until their day comes.
+ */
+function betaToday(b: { demo_today: string | null; added_at: string }): string {
+  const added = new Date(b.added_at).toLocaleDateString("en-CA", { timeZone: "Asia/Kuala_Lumpur" });
+  const days = Math.max(0, Math.round((Date.parse(todayMY()) - Date.parse(added)) / 86400000));
+  return key(addDays(parse(b.demo_today ?? "2027-01-04"), days));
+}
+
 /** A beta tester's row (with the optional date Gary set for them), or null when this email is not on the list. */
-async function betaRow(email: string): Promise<{ demo_today: string | null } | null> {
+async function betaRow(email: string): Promise<{ demo_today: string | null; added_at: string } | null> {
   if (!email) return null;
-  const { data } = await createAdminClient().from("programme_beta_testers").select("demo_today").eq("email", email.trim().toLowerCase()).maybeSingle();
+  const { data } = await createAdminClient().from("programme_beta_testers").select("demo_today, added_at").eq("email", email.trim().toLowerCase()).maybeSingle();
   return data ?? null;
 }
 
@@ -44,7 +55,7 @@ export async function requireProgrammeSignedIn(): Promise<Access> {
   // beta testers only matter while the programme is closed; once it is open everyone is treated the same
   const beta = !u.isAdmin && !programmeOpen() ? await betaRow(u.email) : null;
   if (!u.isAdmin && !programmeOpen() && !beta) notFound();
-  return { userId: u.id, email: u.email, isAdmin: u.isAdmin, beta: !!beta, today: u.isAdmin ? DEMO_TODAY : beta ? beta.demo_today ?? DEMO_TODAY : todayMY() };
+  return { userId: u.id, email: u.email, isAdmin: u.isAdmin, beta: !!beta, today: u.isAdmin ? DEMO_TODAY : beta ? betaToday(beta) : todayMY() };
 }
 
 /** For every page that shows the programme itself: needs a paid, confirmed place (the admin always has one). */

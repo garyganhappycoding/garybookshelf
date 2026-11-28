@@ -2,7 +2,7 @@
 import { useActionState } from "react";
 import { betaFeedbackAction, type BetaResult } from "@/app/programme/today/beta-feedback";
 
-export type BetaFeedbackValues = { time_spent: string | null; ai_helpful: string | null; ai_why: string | null; stuck: string | null; change: string | null };
+export type BetaFeedbackValues = { time_spent: string | null; ai_helpful: string | null; ai_why: string | null; stuck: string | null; change: string | null; badges_note: string | null };
 const init: BetaResult = {};
 
 const TIMES: [string, string][] = [["lt10", "少过 10 分钟"], ["10to20", "10 到 20 分钟"], ["20to30", "20 到 30 分钟"], ["gt30", "超过 30 分钟"]];
@@ -55,6 +55,11 @@ export default function BetaFeedback({ day, submitted, saved }: { day: string; s
       <label className="block text-sm font-medium">4. 如果我只能改一件事，你想我改什么？
         <span className="block text-xs font-normal text-ink/60">一件就好，说清楚为什么。</span>
         <textarea name="change" rows={3} defaultValue={saved?.change ?? ""} className={`${text} mt-1 font-normal`} />
+      </label>
+
+      <label className="block text-sm font-medium">5.（可以不写）徽章、成就墙、分享，你有什么想法？
+        <span className="block text-xs font-normal text-ink/60">例如：哪一枚你想要、成就墙好不好用、分享出去的图或视频好不好看。</span>
+        <textarea name="badges_note" rows={3} defaultValue={saved?.badges_note ?? ""} className={`${text} mt-1 font-normal`} />
       </label>
 
       {state.error && <p role="alert" className="text-sm text-red-700">{state.error}</p>}

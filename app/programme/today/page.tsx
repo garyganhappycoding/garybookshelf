@@ -49,7 +49,7 @@ export default async function TodayPage({ searchParams }: { searchParams: Promis
   // the admin can add ?beta=1 to see the page the way a beta tester sees it
   const betaView = a.beta || (a.isAdmin && sp.beta === "1");
   const betaSaved = betaView
-    ? (await createAdminClient().from("programme_beta_feedback").select("time_spent, ai_helpful, ai_why, stuck, change").eq("user_id", a.userId).eq("day", today).maybeSingle()).data
+    ? (await createAdminClient().from("programme_beta_feedback").select("time_spent, ai_helpful, ai_why, stuck, change, badges_note").eq("user_id", a.userId).eq("day", today).maybeSingle()).data
     : null;
   const data: TodayData = {
     resultPrompt: resultPrompt ? { id: resultPrompt.id, name: resultPrompt.name } : null,

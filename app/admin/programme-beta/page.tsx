@@ -61,7 +61,7 @@ export default async function BetaPage() {
   const who = new Map((ids ?? []).map((i) => [i.id, i.email]));
   const userIds = [...who.keys()];
   const { data: feedback } = userIds.length
-    ? await admin.from("programme_beta_feedback").select("user_id, day, time_spent, ai_helpful, ai_why, stuck, change, updated_at").in("user_id", userIds).order("updated_at", { ascending: false }).limit(60)
+    ? await admin.from("programme_beta_feedback").select("user_id, day, time_spent, ai_helpful, ai_why, stuck, change, badges_note, updated_at").in("user_id", userIds).order("updated_at", { ascending: false }).limit(60)
     : { data: [] as any[] };
   const [{ data: subs }, { data: essays }] = userIds.length
     ? await Promise.all([
@@ -75,8 +75,8 @@ export default async function BetaPage() {
       <h1 className="text-2xl font-medium">陪你读书 · Beta testers</h1>
       <p className="text-sm text-ink/70">
         The people on this list can open 陪你读书 while it is still closed to everyone else. They need no payment and no friend group. They log in with the same Gmail
-        (log in with Google, or sign up with that email). They see the programme on the demo date (17 Feb 2027, week 7) unless you set another date below, and they can open
-        earlier days to catch up. AI feedback is on; you check their answers in <Link href="/admin/programme-inbox" className="underline">the inbox</Link> and the{" "}
+        (log in with Google, or sign up with that email). Their programme date starts on 4 Jan 2027 (week 1) unless you set another start date below, and moves forward one day for every real day since you added them
+        (so a two-week beta is weeks 1 and 2, and streak badges can build up). They can open earlier days to catch up, never later ones. AI feedback is on; you check their answers in <Link href="/admin/programme-inbox" className="underline">the inbox</Link> and the{" "}
         <Link href="/admin/programme-performance" className="underline">performance page</Link>.
       </p>
 
@@ -84,7 +84,7 @@ export default async function BetaPage() {
         <label className="block text-sm">Gmail addresses (one per line, or separated by commas)
           <textarea name="emails" rows={5} required className="mt-1 w-full rounded-lg border border-ink/20 p-2 text-sm" placeholder="name@gmail.com" />
         </label>
-        <label className="block text-sm">Their date for &quot;today&quot; (optional, YYYY-MM-DD, for example 2027-01-04 to start from week 1)
+        <label className="block text-sm">Their start date (optional, YYYY-MM-DD; empty means 4 Jan 2027, week 1)
           <input name="demo_today" className="mt-1 w-full rounded-lg border border-ink/20 p-2 text-sm" placeholder="2027-02-17" />
         </label>
         <button type="submit" className="btn-primary">Add to beta list</button>
@@ -114,6 +114,7 @@ export default async function BetaPage() {
             {f.ai_why && <p><span className="text-ink/50">AI feedback: </span>{f.ai_why}</p>}
             {f.stuck && <p><span className="text-ink/50">Stuck on: </span>{f.stuck}</p>}
             {f.change && <p><span className="text-ink/50">Change one thing: </span>{f.change}</p>}
+            {f.badges_note && <p><span className="text-ink/50">Badges / wall / sharing: </span>{f.badges_note}</p>}
           </div>
         ))}
         {!(feedback ?? []).length && <p className="text-sm text-ink/60">No daily feedback yet.</p>}
