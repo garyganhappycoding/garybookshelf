@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import ResultForm from "@/components/ResultForm";
 import LoginWall from "@/components/LoginWall";
 import { getCurrentUser } from "@/lib/supabase/server";

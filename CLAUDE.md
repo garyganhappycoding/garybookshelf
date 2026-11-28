@@ -6,7 +6,8 @@ garybookshelf is a **brand to grow**, not just a codebase. Gary treats the site,
 1. Read `brand/BRAND.md` (identity, audience, voice, goals, strategy).
 2. Read `brand/KNOWLEDGE.md` (ideas and lessons Gary has collected from others).
 3. If it exists, read `brand/SWOT.md` too (strengths, weaknesses, opportunities, threats and priority actions).
-4. Let them shape your work: code, copy, UI, emails, captions, product ideas. If a task conflicts with them, say so.
+4. Before building or changing any page, component, API route or cache setting, read `brand/VERCEL-USAGE-RULES.md`. The site hit the Vercel free limits once; avoid designs that cost extra Vercel usage (use `@/components/Link`, never `next/link`; no polling; long `revalidate`; keep public pages cacheable) as long as the student experience stays the same.
+5. Let them shape your work: code, copy, UI, emails, captions, product ideas. If a task conflicts with them, say so.
 
 ## Keeping the memory up to date
 - When Gary shares a new idea, lesson or decision, add it to `brand/KNOWLEDGE.md` (newest first, with date and source) or update `brand/BRAND.md` if it changes the brand itself.

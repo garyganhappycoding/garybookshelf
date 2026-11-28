@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { recordReaction } from "@/actions/community";
 import { cards, themes, getCard, getTheme, type Card, type Theme } from "@/lib/speaking/cards";
 import { BAND_MAX, criterionLabel, criterionOrder, type AnalysisResponse } from "@/lib/speaking/analyze";

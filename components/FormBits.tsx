@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 export const inputCls =
   "w-full border border-ink/15 rounded-xl px-3.5 py-3 bg-white text-base focus:outline-none focus:border-clay-500 placeholder:text-ink/35";

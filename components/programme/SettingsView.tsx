@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useState, useTransition } from "react";
 import { STATES } from "@/lib/programme/calendar";
 import { saveInstructionLangAction, saveNicknameAction, saveSettingsAction } from "@/app/programme/settings/actions";

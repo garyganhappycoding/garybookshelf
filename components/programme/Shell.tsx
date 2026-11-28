@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 
 const TABS = [
   { href: "/programme", label: "日历", id: "calendar" },

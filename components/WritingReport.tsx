@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { BAND_MAX, CRITERIA, CRITERION_LABEL, GENRE_LABEL, PART_INFO, type Genre, type WritingPart, type WritingResult } from "@/lib/writing/mark";
 
 export type ReportData = {

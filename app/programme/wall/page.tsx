@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import Shell from "@/components/programme/Shell";
 import WallEditor, { type Piece } from "@/components/programme/WallEditor";
 import { requireProgramme } from "@/lib/programme/gate";

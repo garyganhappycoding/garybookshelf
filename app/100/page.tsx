@@ -1,10 +1,10 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import WinCard from "@/components/WinCard";
 import { GOAL, GOAL_DEADLINE } from "@/lib/community";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 export const metadata = { title: "The Bookshelf 100 · Gary's Bookshelf" };
-export const revalidate = 60;
+export const revalidate = 1800;
 
 export default async function HundredPage() {
   const admin = createAdminClient();

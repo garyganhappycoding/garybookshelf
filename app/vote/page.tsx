@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import Link from "next/link";
+import Link from "@/components/Link";
 import VoteForm from "@/components/VoteForm";
 import { visitorHash } from "@/lib/community";
 import { createAdminClient } from "@/lib/supabase/admin";

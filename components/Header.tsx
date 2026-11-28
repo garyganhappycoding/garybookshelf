@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import HeaderAccount from "@/components/HeaderAccount";
 import EssayNavLink from "@/components/EssayNavLink";
 import { WRITING_OPEN } from "@/lib/writing/config";

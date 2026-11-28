@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useActionState } from "react";
 import { saveMonthlyAction, type MonthlyState } from "@/app/programme/monthly/actions";
 import type { MonthlyItem } from "@/lib/programme/monthly";

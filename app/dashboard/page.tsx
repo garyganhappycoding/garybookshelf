@@ -7,7 +7,7 @@ const ownedFiles = (order: any) =>
     .filter(({ i }) => !order.file_indexes || order.file_indexes.includes(i) || (order.products?.free_file_indexes ?? []).includes(i)); // free bonus files always show
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { redirect } from "next/navigation";
 import DownloadButton from "@/components/DownloadButton";
 import InAppBrowserNotice from "@/components/InAppBrowserNotice";

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useEffect, useState } from "react";
 import { getMyThreads, type ThreadSummary } from "@/actions/community";
 import { getSeen } from "@/lib/my-threads";

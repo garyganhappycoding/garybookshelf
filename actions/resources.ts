@@ -130,7 +130,7 @@ export async function createResource(formData: FormData) {
   }
 
   revalidatePath("/admin/resources");
-  revalidatePath(type === "content_hub" ? "/content-hub" : "/free-resources");
+  revalidatePath(type === "content_hub" ? "/content-hub" : "/free-resources", "layout");
   return { success: true };
 }
 
@@ -166,7 +166,7 @@ export async function updateResource(resourceId: string, formData: FormData) {
   }
 
   revalidatePath("/admin/resources");
-  revalidatePath("/content-hub");
-  revalidatePath("/free-resources");
+  revalidatePath("/content-hub", "layout");
+  revalidatePath("/free-resources", "layout");
   return { success: true };
 }

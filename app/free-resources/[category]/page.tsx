@@ -1,7 +1,7 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import { getResourcesByCategory } from "@/actions/resources";
 
-export const revalidate = 300;
+export const revalidate = 3600;
 export async function generateStaticParams() {
   return [];
 }

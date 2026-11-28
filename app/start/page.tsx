@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import ProductCard from "@/components/ProductCard";
 import { getProductsBySales } from "@/lib/best-sellers";
 
 export const metadata = { title: "Start here · Gary's Bookshelf", description: "What is on Gary's Bookshelf and how to use it, including the Speaking AI." };
-export const revalidate = 300;
+export const revalidate = 3600;
 
 const PLACES = [
   { href: "/speaking", emoji: "🎤", title: "Speaking practice", text: "Pick a Part 2 or Part 3 question, speak for 1 or 2 minutes, get a score and feedback from the AI. 2 free tries every day." },
@@ -46,7 +46,7 @@ export default async function StartPage() {
       <h2 className="text-xl font-medium mb-3">What is on this website</h2>
       <div className="grid sm:grid-cols-2 gap-3 mb-12">
         {PLACES.map((p) => (
-          <Link key={p.title} href={p.href} prefetch={!["/speaking"].includes(p.href)} className="card flex gap-4 hover:border-clay-400">
+          <Link key={p.title} href={p.href} className="card flex gap-4 hover:border-clay-400">
             <span className="text-2xl">{p.emoji}</span>
             <span>
               <span className="block font-medium">

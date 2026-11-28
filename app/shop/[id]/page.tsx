@@ -5,14 +5,14 @@ import { productFiles } from "@/lib/product-files";
 import ProductPrice from "@/components/ProductPrice";
 import ProductGallery from "@/components/ProductGallery";
 import ProductCard from "@/components/ProductCard";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { getProductsBySales } from "@/lib/best-sellers";
 
 export async function generateStaticParams() {
   return [];
 }
 
-export const revalidate = 300;
+export const revalidate = 3600;
 
 export default async function ProductPage({
   params,

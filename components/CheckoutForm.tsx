@@ -3,7 +3,7 @@
 import { useEffect, useState, useTransition } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { submitOrder, getMyPrice } from "@/actions/checkout";
-import Link from "next/link";
+import Link from "@/components/Link";
 
 export default function CheckoutForm({
   productId,

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import TypingWord from "@/components/TypingWord";
 import ReplyCard from "@/components/ReplyCard";
 
@@ -10,7 +10,7 @@ const mock = "rounded-2xl bg-white border border-ink/10 p-3 shadow-sm";
 
 function Card({ href, title, text, children, tag }: { href: string; title: string; text: string; children: React.ReactNode; tag?: string }) {
   return (
-    <Link href={href} prefetch={!["/speaking", "/question", "/feedback"].includes(href)} className="group rounded-3xl bg-cream-100 border border-cream-200 p-4 flex flex-col hover:border-clay-400 hover:-translate-y-0.5 transition">
+    <Link href={href} prefetch={href === "/shop"} className="group rounded-3xl bg-cream-100 border border-cream-200 p-4 flex flex-col hover:border-clay-400 hover:-translate-y-0.5 transition">
       <div className="h-44 rounded-2xl bg-cream-50 flex items-center justify-center p-4 overflow-hidden">{children}</div>
       <p className="mt-4 font-semibold text-ink flex items-center gap-2">
         {title}

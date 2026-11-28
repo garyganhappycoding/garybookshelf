@@ -1,5 +1,5 @@
 import { signup } from "@/actions/auth";
-import Link from "next/link";
+import Link from "@/components/Link";
 import GoogleButton from "@/components/GoogleButton";
 
 export default async function SignupPage({

@@ -1,9 +1,9 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import { createPublicClient } from "@/lib/supabase/public";
 import ProductCard from "@/components/ProductCard";
 import SpeakingFreeVsPaid from "@/components/SpeakingFreeVsPaid";
 
-export const revalidate = 300;
+export const revalidate = 3600;
 
 export default async function ShopPage() {
   const supabase = createPublicClient();

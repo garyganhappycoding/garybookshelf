@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import { CONTACT_EMAIL, LEGAL_UPDATED, RECEIPT_KEEP_DAYS } from "@/lib/legal";
 
 export const metadata = { title: "Privacy policy · Gary's Bookshelf" };

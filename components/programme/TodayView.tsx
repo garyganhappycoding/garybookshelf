@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useActionState, useState } from "react";
 import { addDays, buildCalendar, cn, key, parse, WEEKDAY_ZH } from "@/lib/programme/calendar";
 import { commentAction, reportAction, type Result } from "@/app/programme/today/actions";

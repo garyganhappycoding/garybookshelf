@@ -1,6 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/Link";
 import NewProductForm from "@/components/NewProductForm";
 import DeleteProductButton from "@/components/DeleteProductButton";
 

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import Shell from "@/components/programme/Shell";
 import BadgeWall, { type WallItem } from "@/components/programme/BadgeWall";
 import { requireProgramme } from "@/lib/programme/gate";

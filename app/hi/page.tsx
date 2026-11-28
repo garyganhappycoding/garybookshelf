@@ -1,10 +1,10 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import { GOAL } from "@/lib/community";
 import { createAdminClient } from "@/lib/supabase/admin";
 import ReplyCard from "@/components/ReplyCard";
 
 export const metadata = { title: "Say hi to Gary · Gary's Bookshelf" };
-export const revalidate = 60;
+export const revalidate = 1800;
 
 // The page behind the link in Gary's Instagram bio: everything a viewer might want to do, on big buttons, no login.
 export default async function HiPage() {
@@ -32,7 +32,7 @@ export default async function HiPage() {
       <div className="space-y-3">
         <ReplyCard />
         {items.map((i) => (
-          <Link key={i.href} href={i.href} prefetch={!["/question", "/feedback"].includes(i.href)} className="card !p-5 flex gap-4 items-center hover:border-clay-400">
+          <Link key={i.href} href={i.href} className="card !p-5 flex gap-4 items-center hover:border-clay-400">
             <span className="text-3xl">{i.emoji}</span>
             <span>
               <span className="block font-medium">{i.title}</span>

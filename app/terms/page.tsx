@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import {
   CONTACT_EMAIL,
   FREE_PER_DAY,

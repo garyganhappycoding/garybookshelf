@@ -1,6 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import {
   WEEKDAY_ZH, addDays, buildCalendar, cn, demoHistory, examsOn, facts, holidayName, contentWeekOf, programmeEnd, key, levelOf, mondayOf, parse, realHistory, themeOf, type Calendar, type Exam, type History,
 } from "@/lib/programme/calendar";

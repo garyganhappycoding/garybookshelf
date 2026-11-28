@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 
 // Shown instead of the question / result form when the visitor is not logged in.
 export default function LoginWall({ next, what }: { next: string; what: string }) {

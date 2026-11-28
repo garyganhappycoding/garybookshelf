@@ -1,11 +1,11 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import { createPublicClient } from "@/lib/supabase/public";
 
 export const metadata = {
   title: "Which one should I buy? · Gary's Bookshelf",
   description: "Find your problem, then see which product fits.",
 };
-export const revalidate = 600;
+export const revalidate = 3600;
 
 // The products, by id. Prices come from the shop database (so they never go out of date); the wording below is written by hand.
 const ID = {

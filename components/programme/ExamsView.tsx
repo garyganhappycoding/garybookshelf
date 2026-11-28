@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useState, useTransition } from "react";
 import { defaultExams, type Exam } from "@/lib/programme/calendar";
 import { saveExamsAction } from "@/app/programme/settings/actions";

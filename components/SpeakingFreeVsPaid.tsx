@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 
 type Pack = { id: string; title: string; price_myr: number | string; speaking_pack_attempts: number | null; hasNotes: boolean };
 

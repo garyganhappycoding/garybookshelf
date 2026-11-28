@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { useActionState, useState } from "react";
 import { GROUP_PRICE } from "@/lib/programme/calendar";
 import { createGroupAction, receiptAction, type ActionResult } from "@/app/programme/join/actions";

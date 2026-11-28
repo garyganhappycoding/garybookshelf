@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/Link";
 import { createClient } from "@/lib/supabase/server";
 import AskGaryChat from "@/components/AskGaryChat";
 import { ASK_GARY_OPEN, DAILY_LIMIT } from "@/lib/ask-gary/config";

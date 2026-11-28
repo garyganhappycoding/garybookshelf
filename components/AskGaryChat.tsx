@@ -3,7 +3,7 @@
 // Ask Gary chat with saved history (ChatGPT-style sidebar). Replies come from /api/ask-gary,
 // which answers ONLY from Gary's approved knowledge.
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/Link";
 import { createClient } from "@/lib/supabase/client";
 
 type Step = "problem" | "level" | "story" | "effort" | "hours" | "want" | "done";

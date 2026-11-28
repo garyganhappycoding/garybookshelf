@@ -114,6 +114,7 @@ export async function updateProductRecord(
 
   revalidatePath("/shop");
   revalidatePath(`/shop/${productId}`);
+  revalidatePath("/which-to-buy");
   revalidatePath("/admin/products");
   return { success: true };
 }
@@ -123,6 +124,7 @@ export async function deleteProduct(productId: string) {
   await supabase.from("products").delete().eq("id", productId);
   revalidatePath("/admin/products");
   revalidatePath("/shop");
+  revalidatePath("/which-to-buy");
 }
 
 export async function approveOrder(orderId: string) {
