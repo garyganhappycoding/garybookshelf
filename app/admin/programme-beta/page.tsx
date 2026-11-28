@@ -84,8 +84,8 @@ export default async function BetaPage() {
         <label className="block text-sm">Gmail addresses (one per line, or separated by commas)
           <textarea name="emails" rows={5} required className="mt-1 w-full rounded-lg border border-ink/20 p-2 text-sm" placeholder="name@gmail.com" />
         </label>
-        <label className="block text-sm">Their start date (optional, YYYY-MM-DD; empty means 4 Jan 2027, week 1)
-          <input name="demo_today" className="mt-1 w-full rounded-lg border border-ink/20 p-2 text-sm" placeholder="2027-02-17" />
+        <label className="block text-sm">Their start date (YYYY-MM-DD). It is filled in as 4 Jan 2027 (week 1); every tester added gets this date unless you change it
+          <input name="demo_today" defaultValue="2027-01-04" className="mt-1 w-full rounded-lg border border-ink/20 p-2 text-sm" placeholder="2027-01-04" />
         </label>
         <button type="submit" className="btn-primary">Add to beta list</button>
       </form>
