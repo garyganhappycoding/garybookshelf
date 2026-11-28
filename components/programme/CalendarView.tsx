@@ -126,13 +126,13 @@ export default function CalendarView({ state: stateId, form, exams, today: TODAY
           return (
             <div key={m} className={`card ${view === "year" || m === month ? "" : "hidden"} md:block ${view === "year" ? "!p-2 md:!p-4" : ""}`}>
               <p className="font-medium mb-2">{m + 1} 月</p>
-              <div className="grid grid-cols-[1.6rem_repeat(7,1fr)] gap-1 text-center text-xs">
+              <div className={`grid text-center ${view === "year" ? "grid-cols-[1.1rem_repeat(7,minmax(0,1fr))] gap-0.5 text-[10px]" : "grid-cols-[1.6rem_repeat(7,minmax(0,1fr))] gap-1 text-xs"} md:grid-cols-[1.6rem_repeat(7,minmax(0,1fr))] md:gap-1 md:text-xs`}>
                 <span />
                 {heads.map((h) => <span key={h} className="text-ink/50">{h}</span>)}
                 {weeks.map((mon) => {
                   const wn = cal.weekNo[key(mon)];
                   return [
-                    <span key={`w${key(mon)}`} className="text-ink/40 self-center">{wn ? `W${wn}` : ""}</span>,
+                    <span key={`w${key(mon)}`} className="text-ink/40 self-center">{wn ? `${view === "year" ? "" : "W"}${wn}` : ""}</span>,
                     ...Array.from({ length: 7 }, (_, i) => {
                       const day = addDays(mon, i), k = key(day);
                       if (day.getMonth() !== m) return <span key={k} />;

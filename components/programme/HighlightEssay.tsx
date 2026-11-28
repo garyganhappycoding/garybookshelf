@@ -18,21 +18,21 @@ export default function HighlightEssay({ paragraphs, lang, name, initial, readOn
         const [p, j] = k.split("-").map(Number);
         return { k, w: paragraphs[p]?.split(" ")[j] ?? "", c };
       }))} />}
-      {!readOnly && <div className="sticky top-0 z-10 -mx-1 mb-3 flex flex-wrap gap-2 bg-white/95 px-1 py-2 backdrop-blur">
-        <button type="button" onClick={() => setColour(1)} className={`rounded-full px-4 py-2 text-sm min-h-11 border ${colour === 1 ? "bg-blue-200 border-blue-500 font-medium" : "border-ink/20"}`}>
-          {lang === "en" ? "Blue: words from this week's list" : "蓝色：本周词表里的词"}
+      {!readOnly && <div className="sticky top-0 z-10 -mx-1 mb-3 flex items-center gap-1.5 bg-white/95 px-1 py-1.5 backdrop-blur">
+        <button type="button" onClick={() => setColour(1)} className={`rounded-full px-3 py-1.5 text-xs min-h-9 border whitespace-nowrap ${colour === 1 ? "bg-blue-200 border-blue-500 font-medium" : "border-ink/20"}`}>
+          {lang === "en" ? "Blue: this week's words" : "蓝：本周词表"}
         </button>
-        <button type="button" onClick={() => setColour(2)} className={`rounded-full px-4 py-2 text-sm min-h-11 border ${colour === 2 ? "bg-red-200 border-red-500 font-medium" : "border-ink/20"}`}>
-          {lang === "en" ? "Red: words you think are good" : "红色：你觉得好的词"}
+        <button type="button" onClick={() => setColour(2)} className={`rounded-full px-3 py-1.5 text-xs min-h-9 border whitespace-nowrap ${colour === 2 ? "bg-red-200 border-red-500 font-medium" : "border-ink/20"}`}>
+          {lang === "en" ? "Red: good words" : "红：好词"}
         </button>
-        <button type="button" onClick={() => setMarks({})} className="text-xs text-ink/50 underline">{lang === "en" ? "Clear all" : "全部清除"}</button>
+        <button type="button" onClick={() => setMarks({})} className="ml-auto shrink-0 px-1 text-xs text-ink/50 underline">{lang === "en" ? "Clear" : "清除"}</button>
       </div>}
-      <div className="space-y-2 leading-relaxed select-none">
+      <div className="space-y-3 leading-7 select-none">
         {paragraphs.map((p, i) => (
           <p key={i}>
             {p.split(" ").map((w, j) => {
               const k = `${i}-${j}`;
-              return <span key={k}><span onClick={() => tap(k)} className={`${readOnly ? "" : "cursor-pointer"} rounded px-0.5 ${marks[k] ? cls[marks[k]] : "hover:bg-ink/5"}`}>{w}</span>{" "}</span>;
+              return <span key={k}><span onClick={() => tap(k)} className={`${readOnly ? "" : "cursor-pointer"} rounded px-px ${marks[k] ? cls[marks[k]] : "hover:bg-ink/5"}`}>{w}</span>{" "}</span>;
             })}
           </p>
         ))}
