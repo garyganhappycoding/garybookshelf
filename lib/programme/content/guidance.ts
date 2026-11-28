@@ -53,11 +53,11 @@ const BM_ELABORATE: Block = {
   id: "guide", type: "table", title: T("怎样把一个要点讲开（5 句，来自你的范文）", "How to elaborate one point (5 sentences, from your model essays)"),
   head: [T("第几句", "Sentence"), T("写法", "Start with"), T("做什么", "What it does")],
   rows: [
-    ["1 · Isi utama", "Yang pertamanya, … / Seterusnya, …", "Say the main point in one clear sentence."],
-    ["2 · Huraian", "Hal ini berlaku kerana …", "Explain why it is true."],
-    ["3 · Contoh", "Sebagai contohnya, menurut …", "Give a real case. Use your own."],
-    ["4 · Kesan", "Sebagai kesannya, …", "Say what this leads to."],
-    ["5 · Tegasnya", "Tegasnya, …", "Wrap the point up."],
+    ["1 · Isi utama", "Yang pertamanya, … / Seterusnya, …", "用一句话讲清楚主要观点 · Say the main point in one clear sentence."],
+    ["2 · Huraian", "Hal ini berlaku kerana …", "解释为什么会这样 · Explain why it is true."],
+    ["3 · Contoh", "Sebagai contohnya, menurut …", "给一个真实的例子，用你自己的 · Give a real case. Use your own."],
+    ["4 · Kesan", "Sebagai kesannya, …", "说出这会带来什么结果 · Say what this leads to."],
+    ["5 · Tegasnya", "Tegasnya, …", "总结这个要点 · Wrap the point up."],
   ],
 };
 
