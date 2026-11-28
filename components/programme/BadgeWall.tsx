@@ -6,7 +6,7 @@ export type WallItem = {
   key: string; badgeId: string; title: string; how: string; earned: boolean; art: Art; serial: number; earnedAt: string | null; backMessage: string; sub: string;
 };
 
-const FONT_FACE = `@font-face{font-family:'Cormorant Garamond';font-weight:700;font-style:normal;font-display:swap;src:url(/fonts/cormorant-garamond-700.woff2) format('woff2')}`;
+const FONT_FACE = `@font-face{font-family:'Cormorant Garamond';font-weight:700;font-style:normal;font-display:swap;src:url(/fonts/cormorant-garamond-700.woff2) format('woff2')}@keyframes bw-turn{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}`;
 
 function Medal({ it, name, big = false, turned = false, onClick }: { it: WallItem; name: string; big?: boolean; turned?: boolean; onClick?: () => void }) {
   const faces = useMemo(() => badgeFaces((big ? "big" : "sm") + it.key.replace(/[^a-z0-9]/gi, ""), it.art, name, it.serial, it.backMessage), [it, name, big]);
@@ -21,6 +21,57 @@ function Medal({ it, name, big = false, turned = false, onClick }: { it: WallIte
   return onClick
     ? <button type="button" onClick={onClick} aria-label={it.earned ? `${it.title}，点一下翻面` : `${it.title}，还没拿到`} className={cls}>{inner}</button>
     : <span className={cls} aria-hidden>{inner}</span>;
+}
+
+// A badge the student has not earned yet: one plain grey shape for every badge, with no number, name or picture, so nothing is given away.
+function Blank() {
+  return (
+    <span className="flex flex-col items-center gap-1 p-2" aria-hidden>
+      <svg viewBox="0 0 100 100" className="h-28 w-28">
+        <polygon points="50,6 90,28 90,72 50,94 10,72 10,28" fill="#ddd7cd" stroke="#cfc8bb" strokeWidth="2" />
+        <polygon points="50,16 81,33 81,67 50,84 19,67 19,33" fill="#e7e2d9" />
+        <text x="50" y="60" textAnchor="middle" fontSize="30" fill="#c6bfb1" fontFamily="Georgia,serif">?</text>
+      </svg>
+      <span className="h-4" />
+    </span>
+  );
+}
+
+// What the shared picture and the shared video will look like (the real files are made when the student taps download).
+function SharePreview({ it, name }: { it: WallItem; name: string }) {
+  const faces = useMemo(() => badgeFaces("pv" + it.key.replace(/[^a-z0-9]/gi, ""), it.art, name, it.serial, it.backMessage), [it, name]);
+  const frame = "relative mx-auto aspect-[9/16] w-36 overflow-hidden rounded-2xl shadow-lg";
+  const bg = { background: "radial-gradient(circle at 50% 45%, #2b2118, #0f0c0a 78%)" } as const;
+  const texts = (
+    <>
+      <p className="absolute inset-x-0 text-center font-semibold text-[#f3e9dc]" style={{ top: "67.5%", fontSize: 9 }}>{name} · {it.title}</p>
+      {it.sub && <p className="absolute inset-x-0 text-center text-[#a39382]" style={{ top: "72%", fontSize: 6 }}>{it.sub}</p>}
+      <p className="absolute inset-x-0 text-center text-[#e9c98f]" style={{ top: "84%", fontSize: 6 }}>@garybookshelf 陪你读书2027</p>
+    </>
+  );
+  return (
+    <div className="flex flex-wrap items-start justify-center gap-6">
+      <figure className="text-center">
+        <div className={frame} style={bg}>
+          <span className="absolute block w-[70%] [filter:drop-shadow(0_6px_6px_rgba(0,0,0,.5))] [&_svg]:h-full [&_svg]:w-full" style={{ left: "15%", top: "22.5%", aspectRatio: "1 / 1" }} dangerouslySetInnerHTML={{ __html: faces.front }} />
+          {texts}
+        </div>
+        <figcaption className="mt-2 text-xs text-ink/60">图片</figcaption>
+      </figure>
+      <figure className="text-center">
+        <div className={frame} style={bg}>
+          <span className="absolute block w-[70%] [perspective:600px]" style={{ left: "15%", top: "22.5%", aspectRatio: "1 / 1" }}>
+            <span className="relative block h-full w-full [transform-style:preserve-3d] [filter:drop-shadow(0_6px_6px_rgba(0,0,0,.5))]" style={{ animation: "bw-turn 10s linear infinite" }}>
+              <span className="absolute inset-0 [backface-visibility:hidden] [&_svg]:h-full [&_svg]:w-full" dangerouslySetInnerHTML={{ __html: faces.front }} />
+              <span className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] [&_svg]:h-full [&_svg]:w-full" dangerouslySetInnerHTML={{ __html: faces.back }} />
+            </span>
+          </span>
+          {texts}
+        </div>
+        <figcaption className="mt-2 text-xs text-ink/60">视频（徽章慢慢转一圈，别人也看得到背面）</figcaption>
+      </figure>
+    </div>
+  );
 }
 
 const loadImg = (svg: string) => new Promise<HTMLImageElement>((ok, no) => {
@@ -61,7 +112,7 @@ function save(blob: Blob, filename: string) {
   setTimeout(() => URL.revokeObjectURL(a.href), 4000);
 }
 
-export default function BadgeWall({ items, name, preview }: { items: WallItem[]; name: string; preview: boolean }) {
+export default function BadgeWall({ items, name, preview, lockedCount = 0 }: { items: WallItem[]; name: string; preview: boolean; lockedCount?: number }) {
   const earned = items.filter((i) => i.earned);
   const [sel, setSel] = useState<string>(earned[0]?.key ?? items[0]?.key ?? "");
   const [turned, setTurned] = useState(false);
@@ -140,7 +191,6 @@ export default function BadgeWall({ items, name, preview }: { items: WallItem[];
 
       <section className="card" aria-label="我的徽章">
         <p className="mb-3 font-medium">我的徽章 <span className="text-sm font-normal text-ink/60">{earned.length} 枚</span></p>
-        {items.length === 0 && <p className="py-6 text-center text-sm text-ink/50">这面墙还是空的。</p>}
         <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
           {items.map((it) => (
             <button key={it.key} type="button" onClick={() => { setSel(it.key); setTurned(false); }}
@@ -150,6 +200,7 @@ export default function BadgeWall({ items, name, preview }: { items: WallItem[];
               {it.earned && it.sub ? <span className="text-ink/60">{it.sub}</span> : null}
             </button>
           ))}
+          {Array.from({ length: lockedCount }, (_, i) => <Blank key={`blank-${i}`} />)}
         </div>
       </section>
 
@@ -163,6 +214,7 @@ export default function BadgeWall({ items, name, preview }: { items: WallItem[];
                 {earned.map((i) => <option key={i.key} value={i.key}>{i.title}{i.sub ? ` · ${i.sub}` : ""}</option>)}
               </select>
             </label>
+            {(() => { const it = items.find((i) => i.key === pick); return it ? <SharePreview it={it} name={name} /> : null; })()}
             <div className="flex flex-wrap gap-2">
               <button type="button" onClick={makeImage} disabled={!!busy} className="btn-primary min-h-11 text-sm disabled:opacity-50">{busy === "image" ? "做图片中…" : "下载图片"}</button>
               <button type="button" onClick={makeVideo} disabled={!!busy} className="btn-secondary min-h-11 text-sm disabled:opacity-50">{busy === "video" ? "做视频中（约 10 秒）…" : "下载视频（徽章慢慢转一圈）"}</button>

@@ -5,13 +5,13 @@ import { saveWallAction, type WallItem } from "@/app/programme/wall/actions";
 export type Piece = { key: string; title: string; svg: string };
 type Init = { layout: WallItem[]; bg: string; frame: string };
 
-const BGS: Record<string, { name: string; css: React.CSSProperties }> = {
+export const BGS: Record<string, { name: string; css: React.CSSProperties }> = {
   ink: { name: "深色", css: { backgroundColor: "#17130f", backgroundImage: "radial-gradient(#2a2119 1px,transparent 1px)", backgroundSize: "22px 22px" } },
   paper: { name: "纸色", css: { backgroundColor: "#f1e8d8", backgroundImage: "radial-gradient(#ddd0b8 1px,transparent 1px)", backgroundSize: "22px 22px" } },
   sage: { name: "绿色", css: { backgroundColor: "#cfdcc9", backgroundImage: "radial-gradient(#b6c9b0 1px,transparent 1px)", backgroundSize: "22px 22px" } },
   navy: { name: "深蓝", css: { backgroundColor: "#27384f", backgroundImage: "radial-gradient(#33475f 1px,transparent 1px)", backgroundSize: "22px 22px" } },
 };
-const FRAMES: Record<string, { name: string; css: React.CSSProperties }> = {
+export const FRAMES: Record<string, { name: string; css: React.CSSProperties }> = {
   none: { name: "无", css: { padding: 0 } },
   line: { name: "细框", css: { padding: 6, background: "#e9dfcf" } },
   gold: { name: "金框", css: { padding: 10, background: "linear-gradient(135deg,#fff3c9,#e2bd62 30%,#9c7421 55%,#e2bd62 78%,#9c7421)" } },
@@ -90,7 +90,7 @@ export default function WallEditor({ pieces, initial }: { pieces: Piece[]; initi
             {Object.entries(FRAMES).map(([k, v]) => <button key={k} type="button" onClick={() => setFrame(k)} className={`min-h-9 rounded-lg border px-3 ${frame === k ? "border-ink bg-ink text-white" : "border-ink/15"}`}>{v.name}</button>)}</div>
         </div>
         <div style={FRAMES[frame].css} className="rounded-md">
-          <div ref={box} className="relative aspect-[4/5] w-full touch-none overflow-hidden rounded-[3px]" style={BGS[bg].css} onPointerDown={(e) => { if (e.target === box.current) setSel(null); }}>
+          <div ref={box} className="relative aspect-[16/10] w-full touch-none overflow-hidden rounded-[3px]" style={BGS[bg].css} onPointerDown={(e) => { if (e.target === box.current) setSel(null); }}>
             {items.map((it) => {
               const p = it.kind === "badge" ? byKey.get(it.key) : null;
               if (it.kind === "badge" && !p) return null;
