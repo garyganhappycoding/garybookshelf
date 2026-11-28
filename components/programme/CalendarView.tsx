@@ -80,7 +80,7 @@ export default function CalendarView({ state: stateId, form, exams, today: TODAY
         <span><i className="inline-block w-3 h-3 rounded ring-2 ring-clay-600 align-middle mr-1" />今天</span>
       </div>
 
-      <div className={`card mb-5 ${sheet ? "fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom,0px))] z-30 mb-0 rounded-b-none shadow-2xl" : "hidden"} md:static md:mb-5 md:block md:rounded-2xl md:shadow-none`} aria-live="polite">
+      <div className={`card mb-5 ${sheet ? "fixed inset-x-0 bottom-[env(safe-area-inset-bottom,0px)] z-30 mb-0 rounded-b-none shadow-2xl" : "hidden"} md:static md:mb-5 md:block md:rounded-2xl md:shadow-none`} aria-live="polite">
         <div className="flex items-start justify-between"><p className="font-medium mb-2">{cn(d)} 星期{WEEKDAY_ZH[wd]}</p><button type="button" onClick={() => setSheet(false)} aria-label="关闭" className="-mr-2 -mt-2 h-11 w-11 text-xl text-ink/50 md:hidden">×</button></div>
         <div className="flex flex-wrap gap-2 mb-3 text-xs">
           {hol && <span className="rounded-full bg-clay-400/25 text-clay-700 px-2 py-1">公共假期：{holidayName(hol)}</span>}

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ExamCountdown from "@/components/ExamCountdown";
+import SiteChrome from "@/components/SiteChrome";
 import { Analytics } from "@vercel/analytics/next";
 
 const body = Inter({ subsets: ["latin"], variable: "--font-body" });
@@ -22,10 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${body.variable} ${hand.variable} font-sans`}>
-        <ExamCountdown />
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+        <SiteChrome top={<><ExamCountdown /><Header /></>} bottom={<Footer />}>{children}</SiteChrome>
         <Analytics />
       </body>
     </html>

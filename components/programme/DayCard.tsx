@@ -189,7 +189,7 @@ export default function DayCard({ day, lang, ilang, card, submitted: wasSubmitte
         {sendable && (
           <>
             {/* The hand-in bar sits above the tab bar on a phone, where a thumb reaches it; on a laptop it is an ordinary button. */}
-            <div className="fixed inset-x-0 bottom-[calc(4rem+env(safe-area-inset-bottom,0px))] z-30 border-t border-ink/10 bg-paper/95 px-4 py-3 backdrop-blur md:static md:z-auto md:border-0 md:bg-transparent md:p-0">
+            <div className="fixed inset-x-0 bottom-[env(safe-area-inset-bottom,0px)] z-30 border-t border-ink/10 bg-paper/95 px-4 py-3 backdrop-blur md:static md:z-auto md:border-0 md:bg-transparent md:p-0">
               {res.error && <p role="alert" className="mb-2 text-sm text-red-700">{res.error}</p>}
               {day1 && step < 2 ? (
                 <button type="button" onClick={() => { setStep(step + 1); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="btn-primary w-full min-h-12 md:hidden">
